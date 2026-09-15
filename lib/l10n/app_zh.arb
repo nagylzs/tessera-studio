@@ -12,5 +12,6 @@
   "formatOds": "OpenDocument 电子表格",
   "formatJson": "JSON 文件",
   "formatJsonl": "JSON Lines 文件",
-  "formatSnapshot": "Tessera 快照"
+  "formatSnapshot": "Tessera 快照",
+  "loadingFile": "正在加载 {name}…"
 }

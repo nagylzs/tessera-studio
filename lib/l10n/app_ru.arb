@@ -12,5 +12,6 @@
   "formatOds": "Таблица OpenDocument",
   "formatJson": "Файл JSON",
   "formatJsonl": "Файл JSON Lines",
-  "formatSnapshot": "Снимок Tessera"
+  "formatSnapshot": "Снимок Tessera",
+  "loadingFile": "Загрузка {name}…"
 }

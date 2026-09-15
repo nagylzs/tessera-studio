@@ -12,5 +12,6 @@
   "formatOds": "OpenDocument-werkblad",
   "formatJson": "JSON-bestand",
   "formatJsonl": "JSON Lines-bestand",
-  "formatSnapshot": "Tessera-snapshot"
+  "formatSnapshot": "Tessera-snapshot",
+  "loadingFile": "{name} laden…"
 }

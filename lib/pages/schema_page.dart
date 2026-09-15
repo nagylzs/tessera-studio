@@ -6,10 +6,11 @@ import '../files/opened_document.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../state/app_state.dart';
 
-/// Shows the open document. For now only its name, format and size; the
-/// pivot workbench (schema, editors, CubeView) lands here next.
-class WorkbenchPage extends StatelessWidget {
-  const WorkbenchPage({super.key, required this.document});
+/// The screen after a file is loaded: the schema editor. For now only
+/// the document's name, format and size; inference and the column
+/// editor land here next, then the workbench follows.
+class SchemaPage extends StatelessWidget {
+  const SchemaPage({super.key, required this.document});
 
   final OpenedDocument document;
 

@@ -71,5 +71,15 @@
   "formatSnapshot": "Tessera snapshot",
   "@formatSnapshot": {
     "description": "Detected file format (.tsnp)."
+  },
+  "loadingFile": "Loading {name}…",
+  "@loadingFile": {
+    "description": "Shown with a progress bar while a file given on the command line is read.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "sales.csv"
+      }
+    }
   }
 }

@@ -12,5 +12,6 @@
   "formatOds": "Planilha OpenDocument",
   "formatJson": "Arquivo JSON",
   "formatJsonl": "Arquivo JSON Lines",
-  "formatSnapshot": "Instantâneo Tessera"
+  "formatSnapshot": "Instantâneo Tessera",
+  "loadingFile": "Carregando {name}…"
 }

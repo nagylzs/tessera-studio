@@ -12,5 +12,6 @@
   "formatOds": "OpenDocument hesap tablosu",
   "formatJson": "JSON dosyası",
   "formatJsonl": "JSON Lines dosyası",
-  "formatSnapshot": "Tessera anlık görüntüsü"
+  "formatSnapshot": "Tessera anlık görüntüsü",
+  "loadingFile": "{name} yükleniyor…"
 }

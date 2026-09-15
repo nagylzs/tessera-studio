@@ -12,5 +12,6 @@
   "formatOds": "OpenDocumentスプレッドシート",
   "formatJson": "JSONファイル",
   "formatJsonl": "JSON Linesファイル",
-  "formatSnapshot": "Tesseraスナップショット"
+  "formatSnapshot": "Tesseraスナップショット",
+  "loadingFile": "{name} を読み込んでいます…"
 }

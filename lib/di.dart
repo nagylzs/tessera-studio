@@ -1,5 +1,6 @@
 import 'package:get_it/get_it.dart';
 
+import 'files/document_loader.dart';
 import 'files/file_opener.dart';
 import 'state/app_state.dart';
 
@@ -8,5 +9,6 @@ import 'state/app_state.dart';
 void registerServices() {
   GetIt.I
     ..registerSingleton<FileOpener>(const PickerFileOpener())
+    ..registerSingleton<DocumentLoader>(const IoDocumentLoader())
     ..registerSingleton<AppState>(AppState());
 }

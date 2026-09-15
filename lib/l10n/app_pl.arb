@@ -12,5 +12,6 @@
   "formatOds": "Arkusz kalkulacyjny OpenDocument",
   "formatJson": "Plik JSON",
   "formatJsonl": "Plik JSON Lines",
-  "formatSnapshot": "Migawka Tessera"
+  "formatSnapshot": "Migawka Tessera",
+  "loadingFile": "Wczytywanie {name}…"
 }

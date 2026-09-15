@@ -12,5 +12,6 @@
   "formatOds": "OpenDocument-Tabelle",
   "formatJson": "JSON-Datei",
   "formatJsonl": "JSON-Lines-Datei",
-  "formatSnapshot": "Tessera-Snapshot"
+  "formatSnapshot": "Tessera-Snapshot",
+  "loadingFile": "{name} wird geladen…"
 }

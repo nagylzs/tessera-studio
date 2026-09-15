@@ -12,5 +12,6 @@
   "formatOds": "Tabulka OpenDocument",
   "formatJson": "Soubor JSON",
   "formatJsonl": "Soubor JSON Lines",
-  "formatSnapshot": "Snímek Tessera"
+  "formatSnapshot": "Snímek Tessera",
+  "loadingFile": "Načítání {name}…"
 }

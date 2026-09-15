@@ -12,5 +12,6 @@
   "formatOds": "Foglio di calcolo OpenDocument",
   "formatJson": "File JSON",
   "formatJsonl": "File JSON Lines",
-  "formatSnapshot": "Snapshot Tessera"
+  "formatSnapshot": "Snapshot Tessera",
+  "loadingFile": "Caricamento di {name}…"
 }

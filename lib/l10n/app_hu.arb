@@ -12,5 +12,6 @@
   "formatOds": "OpenDocument-táblázat",
   "formatJson": "JSON-fájl",
   "formatJsonl": "JSON Lines-fájl",
-  "formatSnapshot": "Tessera-pillanatkép"
+  "formatSnapshot": "Tessera-pillanatkép",
+  "loadingFile": "{name} betöltése…"
 }
