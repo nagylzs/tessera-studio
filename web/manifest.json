@@ -1,0 +1,35 @@
+{
+    "name": "Tessera Studio",
+    "short_name": "Tessera Studio",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#f2f9f6",
+    "theme_color": "#00856e",
+    "description": "Pivot tables from CSV, Excel, ODS and JSON files, with charts and export.",
+    "orientation": "portrait-primary",
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "icons/Icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-maskable-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "icons/Icon-maskable-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ]
+}
