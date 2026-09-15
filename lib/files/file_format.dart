@@ -16,7 +16,9 @@ enum FileFormat {
   ods(['ods']),
   json(['json']),
   jsonl(['jsonl', 'ndjson']),
-  snapshot(['tsnp']);
+  snapshot([
+    'tsnp',
+  ]); // TesseraSnapshot.fileExtension once tessera > 0.2.1 is published
 
   const FileFormat(this.extensions);
 
