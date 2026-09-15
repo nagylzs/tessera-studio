@@ -40,5 +40,22 @@
   "systemDefault": "Sistem",
   "themeLight": "Açık",
   "themeDark": "Koyu",
-  "moreActions": "Daha fazla"
+  "moreActions": "Daha fazla",
+  "importing": "İçe aktarılıyor…",
+  "importRows": "{count, plural, other{{count} satır}}",
+  "importFailed": "İçe aktarma başarısız: {error}",
+  "importSummary": "{rows} kayıt, {columns} sütun",
+  "widenedSummary": "{count} genişletildi",
+  "nullifiedSummary": "{count} değer boşaltıldı",
+  "tapForReport": "içe aktarma raporu için dokunun",
+  "importReportTitle": "İçe aktarma raporu",
+  "rowsImported": "{count} satır içe aktarıldı",
+  "widenedTo": "{column}: {type} türüne genişletildi",
+  "couldNotParse": "{column}: {count} değer okunamadı",
+  "noCurrentCell": "Geçerli hücre yok — bir hücreye dokunun veya ok tuşlarını kullanın.",
+  "currentCellTotal": "Geçerli hücre: genel toplam — {count} olgu",
+  "currentCell": "Geçerli hücre: {coordinate} — {count} olgu",
+  "editorsTooltip": "Düzenleyiciler",
+  "filterMenu": "Filtre…",
+  "editorsOnTop": "Düzenleyiciler üstte"
 }

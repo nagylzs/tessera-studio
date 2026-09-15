@@ -40,5 +40,22 @@
   "systemDefault": "Системная",
   "themeLight": "Светлая",
   "themeDark": "Тёмная",
-  "moreActions": "Ещё"
+  "moreActions": "Ещё",
+  "importing": "Импорт…",
+  "importRows": "{count, plural, one{{count} строка} few{{count} строки} many{{count} строк} other{{count} строки}}",
+  "importFailed": "Импорт не удался: {error}",
+  "importSummary": "{rows} записей, {columns} столбцов",
+  "widenedSummary": "{count} расширено",
+  "nullifiedSummary": "{count} значений обнулено",
+  "tapForReport": "нажмите, чтобы открыть отчёт об импорте",
+  "importReportTitle": "Отчёт об импорте",
+  "rowsImported": "Импортировано строк: {count}",
+  "widenedTo": "{column}: расширен до {type}",
+  "couldNotParse": "{column}: {count} значений не удалось прочитать",
+  "noCurrentCell": "Нет текущей ячейки — нажмите на ячейку или используйте стрелки.",
+  "currentCellTotal": "Текущая ячейка: общий итог — {count} фактов",
+  "currentCell": "Текущая ячейка: {coordinate} — {count} фактов",
+  "editorsTooltip": "Редакторы",
+  "filterMenu": "Фильтр…",
+  "editorsOnTop": "Редакторы сверху"
 }

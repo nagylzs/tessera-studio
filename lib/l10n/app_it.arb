@@ -40,5 +40,22 @@
   "systemDefault": "Sistema",
   "themeLight": "Chiaro",
   "themeDark": "Scuro",
-  "moreActions": "Altro"
+  "moreActions": "Altro",
+  "importing": "Importazione…",
+  "importRows": "{count, plural, =1{1 riga} other{{count} righe}}",
+  "importFailed": "Importazione non riuscita: {error}",
+  "importSummary": "{rows} record, {columns} colonne",
+  "widenedSummary": "{count} ampliate",
+  "nullifiedSummary": "{count} valori annullati",
+  "tapForReport": "tocca per il rapporto di importazione",
+  "importReportTitle": "Rapporto di importazione",
+  "rowsImported": "{count} righe importate",
+  "widenedTo": "{column}: ampliata a {type}",
+  "couldNotParse": "{column}: {count} valori non leggibili",
+  "noCurrentCell": "Nessuna cella corrente — tocca una cella o usa le frecce.",
+  "currentCellTotal": "Cella corrente: totale generale — {count} fatti",
+  "currentCell": "Cella corrente: {coordinate} — {count} fatti",
+  "editorsTooltip": "Editor",
+  "filterMenu": "Filtro…",
+  "editorsOnTop": "Editor in alto"
 }

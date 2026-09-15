@@ -63,7 +63,7 @@ void main() {
     final state = GetIt.I<AppState>();
     await tester.runAsync(() async {
       await tester.tap(find.widgetWithText(FilledButton, 'Open file…'));
-      for (var i = 0; i < 200 && state.opening.value; i++) {
+      for (var i = 0; i < 500 && state.busy.value; i++) {
         await Future<void>.delayed(const Duration(milliseconds: 10));
         await tester.pump();
       }
@@ -73,11 +73,19 @@ void main() {
     expect(find.text('sales.csv'), findsOneWidget);
     expect(find.byKey(const ValueKey('label-a')), findsOneWidget);
 
-    await tester.tap(find.widgetWithText(FilledButton, 'Continue'));
+    await tester.runAsync(() async {
+      await tester.tap(find.widgetWithText(FilledButton, 'Continue'));
+      for (var i = 0; i < 500 && state.cube.controller.value == null; i++) {
+        await Future<void>.delayed(const Duration(milliseconds: 10));
+        await tester.pump();
+      }
+    });
     await tester.pumpAndSettle();
     expect(find.byType(WorkbenchPage), findsOneWidget);
-    expect(find.text('CSV file'), findsOneWidget);
-    expect(find.text('8 bytes'), findsOneWidget);
+    expect(find.byType(CubeView), findsOneWidget);
+    // The default 800 px test window is below the 840 px breakpoint:
+    // the cube alone, the editors behind the "Editors" button.
+    expect(find.byTooltip('Editors'), findsOneWidget);
 
     await tester.tap(find.byTooltip('Close file'));
     await tester.pumpAndSettle();
@@ -150,7 +158,7 @@ void main() {
       await tester.pump();
       expect(loader.loadedName, 'sales.csv');
       loader.completer.complete(_salesCsv());
-      for (var i = 0; i < 200 && state.loading.value != null; i++) {
+      for (var i = 0; i < 500 && state.busy.value; i++) {
         await Future<void>.delayed(const Duration(milliseconds: 10));
         await tester.pump();
       }

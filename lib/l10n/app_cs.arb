@@ -40,5 +40,22 @@
   "systemDefault": "Systém",
   "themeLight": "Světlý",
   "themeDark": "Tmavý",
-  "moreActions": "Více"
+  "moreActions": "Více",
+  "importing": "Importování…",
+  "importRows": "{count, plural, =1{1 řádek} few{{count} řádky} other{{count} řádků}}",
+  "importFailed": "Import se nezdařil: {error}",
+  "importSummary": "{rows} záznamů, {columns} sloupců",
+  "widenedSummary": "{count} rozšířeno",
+  "nullifiedSummary": "{count} hodnot vynulováno",
+  "tapForReport": "klepnutím zobrazíte zprávu o importu",
+  "importReportTitle": "Zpráva o importu",
+  "rowsImported": "Importováno řádků: {count}",
+  "widenedTo": "{column}: rozšířeno na {type}",
+  "couldNotParse": "{column}: {count} hodnot nelze zpracovat",
+  "noCurrentCell": "Žádná aktuální buňka — klepněte na buňku nebo použijte šipky.",
+  "currentCellTotal": "Aktuální buňka: celkový součet — {count} faktů",
+  "currentCell": "Aktuální buňka: {coordinate} — {count} faktů",
+  "editorsTooltip": "Editory",
+  "filterMenu": "Filtr…",
+  "editorsOnTop": "Editory nahoře"
 }

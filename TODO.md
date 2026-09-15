@@ -7,10 +7,10 @@ conventions live in `CLAUDE.md`, not here.
 
 ## Viewer flow
 
-- [ ] Workbench: `loadFactsInIsolate` with the sample app's progress
-      block, axis and aggregate editors, filter editor, `CubeView`,
-      current-cell info line, "Schema…" back to the schema page with a
-      re-import only when the parse-relevant parts changed.
+- [ ] Cube page follow-ups: a true full-screen mode on phones (tap the
+      grid to hide the app bar, like a video player); a "Settings" entry
+      to restore the automatic layout after an explicit choice; the
+      charts pane beside/below the grid as in the example.
 - [ ] Save/load a pivot layout (`CubeConfig` / `CubeJson`, a `.json`
       file through the file picker) and "Save snapshot…". The same two
       items sit in `../tessera/TODO.md` for the example app; whichever
@@ -64,6 +64,10 @@ conventions live in `CLAUDE.md`, not here.
 
 ## Done
 
+- [x] Cube page: import in an isolate with progress and report, axis
+      and aggregate editors, filter, `CubeView`, current-cell line;
+      editors inline from 840 dp or in a bottom sheet below, switchable
+      from the overflow menu and persisted (2026-09-15).
 - [x] Overflow menu on every app bar with Language… and Theme… dialogs
       (system / light / dark; system + the 14 languages by endonym),
       persisted, system default for both (2026-09-15).

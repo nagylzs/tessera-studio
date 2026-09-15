@@ -40,5 +40,22 @@
   "systemDefault": "System",
   "themeLight": "Hell",
   "themeDark": "Dunkel",
-  "moreActions": "Mehr"
+  "moreActions": "Mehr",
+  "importing": "Importieren…",
+  "importRows": "{count, plural, =1{1 Zeile} other{{count} Zeilen}}",
+  "importFailed": "Import fehlgeschlagen: {error}",
+  "importSummary": "{rows} Datensätze, {columns} Spalten",
+  "widenedSummary": "{count} erweitert",
+  "nullifiedSummary": "{count} Werte auf leer gesetzt",
+  "tapForReport": "Tippen für den Importbericht",
+  "importReportTitle": "Importbericht",
+  "rowsImported": "{count} Zeilen importiert",
+  "widenedTo": "{column}: erweitert auf {type}",
+  "couldNotParse": "{column}: {count} Werte konnten nicht gelesen werden",
+  "noCurrentCell": "Keine aktuelle Zelle — eine Zelle antippen oder die Pfeiltasten verwenden.",
+  "currentCellTotal": "Aktuelle Zelle: Gesamtsumme — {count} Fakten",
+  "currentCell": "Aktuelle Zelle: {coordinate} — {count} Fakten",
+  "editorsTooltip": "Editoren",
+  "filterMenu": "Filter…",
+  "editorsOnTop": "Editoren oben"
 }

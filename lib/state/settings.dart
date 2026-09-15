@@ -2,6 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:signals_flutter/signals_flutter.dart';
 
+/// Where the axis and aggregate editors live on the cube page.
+enum CubePageLayout {
+  /// By window width: [editors] from 840 dp up, [cubeOnly] below.
+  auto,
+
+  /// Editors inline above the grid (desktop windows, wide tablets).
+  editors,
+
+  /// Only the grid; the editors open in a bottom sheet (phones).
+  cubeOnly;
+
+  /// Material's "expanded" breakpoint.
+  static const wideFrom = 840.0;
+
+  /// The layout to use at [width]; never [auto].
+  CubePageLayout resolve(double width) => switch (this) {
+    auto => width >= wideFrom ? editors : cubeOnly,
+    _ => this,
+  };
+}
+
 /// Persists the user's settings. Registered in get_it.
 abstract interface class SettingsStore {
   /// The stored theme mode name (`light`, `dark`), `null` for system.
@@ -11,6 +32,10 @@ abstract interface class SettingsStore {
   /// The stored language code, `null` for the system language.
   Future<String?> readLanguage();
   Future<void> writeLanguage(String? code);
+
+  /// The stored [CubePageLayout] name, `null` for [CubePageLayout.auto].
+  Future<String?> readCubeLayout();
+  Future<void> writeCubeLayout(String? name);
 }
 
 final class PreferencesSettingsStore implements SettingsStore {
@@ -36,6 +61,16 @@ final class PreferencesSettingsStore implements SettingsStore {
   Future<void> writeLanguage(String? code) => code == null
       ? _prefs.remove(_language)
       : _prefs.setString(_language, code);
+
+  static const _cubeLayout = 'settings:cubeLayout';
+
+  @override
+  Future<String?> readCubeLayout() => _prefs.getString(_cubeLayout);
+
+  @override
+  Future<void> writeCubeLayout(String? name) => name == null
+      ? _prefs.remove(_cubeLayout)
+      : _prefs.setString(_cubeLayout, name);
 }
 
 /// In-memory store for tests.
@@ -54,6 +89,14 @@ final class MemorySettingsStore implements SettingsStore {
 
   @override
   Future<void> writeLanguage(String? code) async => language = code;
+
+  String? cubeLayout;
+
+  @override
+  Future<String?> readCubeLayout() async => cubeLayout;
+
+  @override
+  Future<void> writeCubeLayout(String? name) async => cubeLayout = name;
 }
 
 /// The user's settings as signals the `MaterialApp` reads. Both default
@@ -67,6 +110,7 @@ final class AppSettings {
 
   final themeMode = signal(ThemeMode.system);
   final locale = signal<Locale?>(null);
+  final cubeLayout = signal(CubePageLayout.auto);
 
   /// Reads the stored values; call once before the first frame.
   Future<void> load() async {
@@ -78,6 +122,18 @@ final class AppSettings {
     };
     final code = await _store.readLanguage();
     locale.value = code == null ? null : Locale(code);
+    final layout = await _store.readCubeLayout();
+    cubeLayout.value = CubePageLayout.values.firstWhere(
+      (l) => l.name == layout,
+      orElse: () => CubePageLayout.auto,
+    );
+  }
+
+  Future<void> setCubeLayout(CubePageLayout layout) async {
+    cubeLayout.value = layout;
+    await _store.writeCubeLayout(
+      layout == CubePageLayout.auto ? null : layout.name,
+    );
   }
 
   Future<void> setThemeMode(ThemeMode mode) async {

@@ -40,5 +40,22 @@
   "systemDefault": "Systemowy",
   "themeLight": "Jasny",
   "themeDark": "Ciemny",
-  "moreActions": "Więcej"
+  "moreActions": "Więcej",
+  "importing": "Importowanie…",
+  "importRows": "{count, plural, =1{1 wiersz} few{{count} wiersze} many{{count} wierszy} other{{count} wiersza}}",
+  "importFailed": "Import nie powiódł się: {error}",
+  "importSummary": "{rows} rekordów, {columns} kolumn",
+  "widenedSummary": "{count} rozszerzono",
+  "nullifiedSummary": "{count} wartości wyzerowano",
+  "tapForReport": "dotknij, aby zobaczyć raport importu",
+  "importReportTitle": "Raport importu",
+  "rowsImported": "Zaimportowano wierszy: {count}",
+  "widenedTo": "{column}: rozszerzono do {type}",
+  "couldNotParse": "{column}: {count} wartości nie udało się odczytać",
+  "noCurrentCell": "Brak bieżącej komórki — dotknij komórki lub użyj strzałek.",
+  "currentCellTotal": "Bieżąca komórka: suma całkowita — {count} faktów",
+  "currentCell": "Bieżąca komórka: {coordinate} — {count} faktów",
+  "editorsTooltip": "Edytory",
+  "filterMenu": "Filtr…",
+  "editorsOnTop": "Edytory u góry"
 }

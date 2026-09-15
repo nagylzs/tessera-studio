@@ -40,5 +40,22 @@
   "systemDefault": "跟随系统",
   "themeLight": "浅色",
   "themeDark": "深色",
-  "moreActions": "更多"
+  "moreActions": "更多",
+  "importing": "正在导入…",
+  "importRows": "{count, plural, other{{count} 行}}",
+  "importFailed": "导入失败：{error}",
+  "importSummary": "{rows} 条记录，{columns} 列",
+  "widenedSummary": "{count} 列已扩展",
+  "nullifiedSummary": "{count} 个值已置空",
+  "tapForReport": "点击查看导入报告",
+  "importReportTitle": "导入报告",
+  "rowsImported": "已导入 {count} 行",
+  "widenedTo": "{column}：已扩展为 {type}",
+  "couldNotParse": "{column}：{count} 个值无法解析",
+  "noCurrentCell": "没有当前单元格 — 点击一个单元格或使用方向键。",
+  "currentCellTotal": "当前单元格：总计 — {count} 条",
+  "currentCell": "当前单元格：{coordinate} — {count} 条",
+  "editorsTooltip": "编辑器",
+  "filterMenu": "筛选…",
+  "editorsOnTop": "编辑器置顶"
 }

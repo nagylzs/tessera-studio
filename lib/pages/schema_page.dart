@@ -24,6 +24,9 @@ class SchemaPage extends StatefulWidget {
 }
 
 class _SchemaPageState extends State<SchemaPage> {
+  /// Below this width the app bar cannot hold the labelled buttons.
+  static const _compact = 600.0;
+
   final _state = GetIt.I<AppState>();
   late Schema _schema = _state.schema.value ?? _info.inferred;
 
@@ -67,19 +70,37 @@ class _SchemaPageState extends State<SchemaPage> {
               Text(widget.document.name, style: theme.textTheme.bodySmall),
             ],
           ),
-          actions: [
-            TextButton(
-              onPressed: () => setState(() => _schema = _info.inferred),
-              child: Text(l10n.resetToInferred),
-            ),
-            const SizedBox(width: 8),
-            FilledButton.icon(
-              onPressed: () => _state.acceptSchema(_schema),
-              icon: const Icon(Icons.check),
-              label: Text(l10n.continueButton),
-            ),
-            const AppMenuButton(),
-          ],
+          // Phones: an icon for "Continue", "Reset" in the overflow menu.
+          actions: MediaQuery.sizeOf(context).width < _compact
+              ? [
+                  IconButton(
+                    icon: const Icon(Icons.check),
+                    tooltip: l10n.continueButton,
+                    onPressed: () => _state.acceptSchema(_schema),
+                  ),
+                  AppMenuButton(
+                    entries: [
+                      AppMenuEntry(
+                        label: l10n.resetToInferred,
+                        icon: Icons.restart_alt,
+                        onTap: () => setState(() => _schema = _info.inferred),
+                      ),
+                    ],
+                  ),
+                ]
+              : [
+                  TextButton(
+                    onPressed: () => setState(() => _schema = _info.inferred),
+                    child: Text(l10n.resetToInferred),
+                  ),
+                  const SizedBox(width: 8),
+                  FilledButton.icon(
+                    onPressed: () => _state.acceptSchema(_schema),
+                    icon: const Icon(Icons.check),
+                    label: Text(l10n.continueButton),
+                  ),
+                  const AppMenuButton(),
+                ],
         ),
         body: ListView.separated(
           padding: const EdgeInsets.all(8),

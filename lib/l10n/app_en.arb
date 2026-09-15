@@ -195,5 +195,142 @@
   "moreActions": "More",
   "@moreActions": {
     "description": "Tooltip of the overflow (three dots) menu button."
+  },
+  "importing": "Importing…",
+  "@importing": {
+    "description": "Progress label before the first row count is known."
+  },
+  "importRows": "{count, plural, =1{1 row} other{{count} rows}}",
+  "@importRows": {
+    "description": "Progress label: rows imported so far.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "importFailed": "Import failed: {error}",
+  "@importFailed": {
+    "description": "Shown in place of the cube when the import throws.",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "importSummary": "{rows} records, {columns} columns",
+  "@importSummary": {
+    "description": "Summary line above the editors (with format and size).",
+    "placeholders": {
+      "rows": {
+        "type": "int",
+        "format": "decimalPattern"
+      },
+      "columns": {
+        "type": "int"
+      }
+    }
+  },
+  "widenedSummary": "{count} widened",
+  "@widenedSummary": {
+    "description": "Appended to the summary when columns were widened.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "nullifiedSummary": "{count} values nullified",
+  "@nullifiedSummary": {
+    "description": "Appended to the summary when values could not be parsed.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "tapForReport": "tap for the import report",
+  "@tapForReport": {
+    "description": "Appended to the summary line."
+  },
+  "importReportTitle": "Import report",
+  "@importReportTitle": {
+    "description": "Title of the import report dialog."
+  },
+  "rowsImported": "{count} rows imported",
+  "@rowsImported": {
+    "description": "First line of the import report.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "widenedTo": "{column}: widened to {type}",
+  "@widenedTo": {
+    "description": "Report line: a column got a wider type.",
+    "placeholders": {
+      "column": {
+        "type": "String"
+      },
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "couldNotParse": "{column}: {count} values could not be parsed",
+  "@couldNotParse": {
+    "description": "Report line: values set to null.",
+    "placeholders": {
+      "column": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "noCurrentCell": "No current cell — tap a cell or use the arrow keys.",
+  "@noCurrentCell": {
+    "description": "Current-cell line when nothing is selected."
+  },
+  "currentCellTotal": "Current cell: grand total — {count} facts",
+  "@currentCellTotal": {
+    "description": "Current-cell line for the grand total.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "currentCell": "Current cell: {coordinate} — {count} facts",
+  "@currentCell": {
+    "description": "Current-cell line: coordinate and fact count.",
+    "placeholders": {
+      "coordinate": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "editorsTooltip": "Editors",
+  "@editorsTooltip": {
+    "description": "Tooltip of the button that opens the editors sheet (cube-only layout)."
+  },
+  "filterMenu": "Filter…",
+  "@filterMenu": {
+    "description": "Filter action (icon tooltip and overflow entry)."
+  },
+  "editorsOnTop": "Editors on top",
+  "@editorsOnTop": {
+    "description": "Checkable overflow entry switching between editors on top and cube only."
   }
 }

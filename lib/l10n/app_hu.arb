@@ -40,5 +40,22 @@
   "systemDefault": "Rendszer",
   "themeLight": "Világos",
   "themeDark": "Sötét",
-  "moreActions": "Továbbiak"
+  "moreActions": "Továbbiak",
+  "importing": "Importálás…",
+  "importRows": "{count, plural, other{{count} sor}}",
+  "importFailed": "Az importálás nem sikerült: {error}",
+  "importSummary": "{rows} rekord, {columns} oszlop",
+  "widenedSummary": "{count} kiszélesítve",
+  "nullifiedSummary": "{count} érték üresre állítva",
+  "tapForReport": "koppintson az importálási jelentésért",
+  "importReportTitle": "Importálási jelentés",
+  "rowsImported": "{count} sor importálva",
+  "widenedTo": "{column}: kiszélesítve erre: {type}",
+  "couldNotParse": "{column}: {count} érték nem értelmezhető",
+  "noCurrentCell": "Nincs aktuális cella — koppintson egy cellára, vagy használja a nyilakat.",
+  "currentCellTotal": "Aktuális cella: végösszeg — {count} tény",
+  "currentCell": "Aktuális cella: {coordinate} — {count} tény",
+  "editorsTooltip": "Szerkesztők",
+  "filterMenu": "Szűrő…",
+  "editorsOnTop": "Szerkesztők felül"
 }

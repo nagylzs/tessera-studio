@@ -40,5 +40,22 @@
   "systemDefault": "Systeem",
   "themeLight": "Licht",
   "themeDark": "Donker",
-  "moreActions": "Meer"
+  "moreActions": "Meer",
+  "importing": "Importeren…",
+  "importRows": "{count, plural, =1{1 rij} other{{count} rijen}}",
+  "importFailed": "Importeren mislukt: {error}",
+  "importSummary": "{rows} records, {columns} kolommen",
+  "widenedSummary": "{count} verbreed",
+  "nullifiedSummary": "{count} waarden leeggemaakt",
+  "tapForReport": "tik voor het importrapport",
+  "importReportTitle": "Importrapport",
+  "rowsImported": "{count} rijen geïmporteerd",
+  "widenedTo": "{column}: verbreed naar {type}",
+  "couldNotParse": "{column}: {count} waarden konden niet worden gelezen",
+  "noCurrentCell": "Geen huidige cel — tik op een cel of gebruik de pijltjestoetsen.",
+  "currentCellTotal": "Huidige cel: eindtotaal — {count} feiten",
+  "currentCell": "Huidige cel: {coordinate} — {count} feiten",
+  "editorsTooltip": "Editors",
+  "filterMenu": "Filter…",
+  "editorsOnTop": "Editors bovenaan"
 }

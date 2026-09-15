@@ -5,42 +5,79 @@ import 'package:tessera_flutter/tessera_flutter.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../state/settings.dart';
 
-/// The overflow menu at the end of every app bar: language and theme
-/// (About and Settings join here later). Dialogs rather than submenus:
-/// they work with a thumb as well as with a mouse.
+/// An entry a page adds above the common ones of [AppMenuButton].
+final class AppMenuEntry {
+  const AppMenuEntry({
+    required this.label,
+    required this.onTap,
+    this.icon,
+    this.checked,
+    this.enabled = true,
+  });
+
+  final String label;
+  final VoidCallback onTap;
+  final IconData? icon;
+
+  /// Non-null renders a checkable entry.
+  final bool? checked;
+  final bool enabled;
+}
+
+/// The overflow menu at the end of every app bar: the page's own
+/// [entries] first, then language and theme (About and Settings join
+/// here later). Dialogs rather than submenus: they work with a thumb as
+/// well as with a mouse.
 class AppMenuButton extends StatelessWidget {
-  const AppMenuButton({super.key});
+  const AppMenuButton({super.key, this.entries = const []});
+
+  final List<AppMenuEntry> entries;
 
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
-    return PopupMenuButton<_Entry>(
+    final common = [
+      AppMenuEntry(
+        label: l10n.menuLanguage,
+        icon: Icons.language,
+        onTap: () => showLanguageDialog(context),
+      ),
+      AppMenuEntry(
+        label: l10n.menuTheme,
+        icon: Icons.brightness_6_outlined,
+        onTap: () => showThemeDialog(context),
+      ),
+    ];
+    return PopupMenuButton<AppMenuEntry>(
       tooltip: l10n.moreActions,
-      onSelected: (entry) => switch (entry) {
-        _Entry.language => showLanguageDialog(context),
-        _Entry.theme => showThemeDialog(context),
-      },
+      onSelected: (entry) => entry.onTap(),
       itemBuilder: (context) => [
-        PopupMenuItem(
-          value: _Entry.language,
-          child: ListTile(
-            leading: const Icon(Icons.language),
-            title: Text(l10n.menuLanguage),
-          ),
-        ),
-        PopupMenuItem(
-          value: _Entry.theme,
-          child: ListTile(
-            leading: const Icon(Icons.brightness_6_outlined),
-            title: Text(l10n.menuTheme),
-          ),
-        ),
+        for (final e in entries)
+          if (e.checked != null)
+            CheckedPopupMenuItem(
+              value: e,
+              checked: e.checked!,
+              enabled: e.enabled,
+              child: Text(e.label),
+            )
+          else
+            PopupMenuItem(value: e, enabled: e.enabled, child: _row(e)),
+        if (entries.isNotEmpty) const PopupMenuDivider(),
+        for (final e in common) PopupMenuItem(value: e, child: _row(e)),
       ],
     );
   }
-}
 
-enum _Entry { language, theme }
+  /// Icon and label. Not a ListTile: inside a menu clamped to a phone's
+  /// width a ListTile cannot shrink and overflows.
+  static Widget _row(AppMenuEntry e) => Row(
+    mainAxisSize: MainAxisSize.min,
+    children: [
+      if (e.icon != null) ...[Icon(e.icon), const SizedBox(width: 12)],
+      Flexible(child: Text(e.label)),
+    ],
+  );
+}
 
 /// The fourteen tessera languages, each named in itself, so a user in
 /// the wrong language can still find their own. Not translated.

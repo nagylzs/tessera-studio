@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:cross_file/cross_file.dart';
@@ -11,6 +12,7 @@ import '../files/document_loader.dart';
 import '../files/file_opener.dart';
 import '../files/open_requests.dart';
 import '../files/opened_document.dart';
+import 'cube_state.dart';
 import 'schema_store.dart';
 
 /// Why opening or loading did not produce a document.
@@ -89,6 +91,14 @@ final class AppState {
 
   /// The stored schema that was applied automatically, until dismissed.
   final restored = signal<StoredSchema?>(null);
+
+  /// The cube of the document: import, facts, controller.
+  final cube = CubeState();
+
+  /// `true` while anything is being read, inferred or imported.
+  late final busy = computed(
+    () => opening.value || loading.value != null || cube.importing.value,
+  );
 
   /// Shows the picker and opens the chosen file. Returns `null` on
   /// success or cancel, a failure otherwise.
@@ -248,6 +258,7 @@ final class AppState {
       schema.value = snapshot.facts.schema;
       restored.value = null;
       page.value = AppPage.workbench;
+      unawaited(cube.start(doc, snapshot.facts.schema));
       return;
     }
     final src = doc.dataSource!;
@@ -265,6 +276,7 @@ final class AppState {
       schema.value = stored.schema;
       restored.value = stored;
       page.value = AppPage.workbench;
+      unawaited(cube.start(doc, stored.schema));
     } else {
       schema.value = inferred;
       restored.value = null;
@@ -279,7 +291,14 @@ final class AppState {
   Future<void> acceptSchema(Schema edited) async {
     schema.value = edited;
     restored.value = null;
+    final doc = document.value!;
+    final fromWorkbench = schemaBack.value == AppPage.workbench;
     page.value = AppPage.workbench;
+    unawaited(
+      fromWorkbench && cube.controller.value != null
+          ? cube.applySchema(doc, edited)
+          : cube.start(doc, edited),
+    );
     final info = source.value;
     if (info == null) return;
     if (sameSchema(edited, info.inferred)) {
@@ -323,6 +342,7 @@ final class AppState {
   }
 
   void closeFile() {
+    cube.clear();
     document.value = null;
     source.value = null;
     schema.value = null;

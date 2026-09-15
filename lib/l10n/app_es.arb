@@ -40,5 +40,22 @@
   "systemDefault": "Sistema",
   "themeLight": "Claro",
   "themeDark": "Oscuro",
-  "moreActions": "Más"
+  "moreActions": "Más",
+  "importing": "Importando…",
+  "importRows": "{count, plural, =1{1 fila} other{{count} filas}}",
+  "importFailed": "Error al importar: {error}",
+  "importSummary": "{rows} registros, {columns} columnas",
+  "widenedSummary": "{count} ampliadas",
+  "nullifiedSummary": "{count} valores anulados",
+  "tapForReport": "toca para ver el informe de importación",
+  "importReportTitle": "Informe de importación",
+  "rowsImported": "{count} filas importadas",
+  "widenedTo": "{column}: ampliada a {type}",
+  "couldNotParse": "{column}: {count} valores no se pudieron leer",
+  "noCurrentCell": "No hay celda actual — toca una celda o usa las flechas.",
+  "currentCellTotal": "Celda actual: total general — {count} hechos",
+  "currentCell": "Celda actual: {coordinate} — {count} hechos",
+  "editorsTooltip": "Editores",
+  "filterMenu": "Filtro…",
+  "editorsOnTop": "Editores arriba"
 }

@@ -47,20 +47,28 @@ void _register(String csv) {
     ..registerSingleton<AppState>(AppState());
 }
 
-/// Taps "Open file…" and waits for inference. Under [WidgetTester.runAsync]
-/// because tessera's source streams do not complete on the fake clock.
-Future<void> _open(WidgetTester tester) async {
+/// Taps [finder] and waits until nothing is being read, inferred or
+/// imported. Under [WidgetTester.runAsync] because tessera's source
+/// streams and the import isolate do not run on the fake clock.
+Future<void> _tapAndWait(WidgetTester tester, Finder finder) async {
   final state = GetIt.I<AppState>();
   await tester.runAsync(() async {
-    await tester.tap(find.widgetWithText(FilledButton, 'Open file…'));
-    for (var i = 0; i < 200 && state.opening.value; i++) {
+    await tester.tap(finder);
+    await Future<void>.delayed(const Duration(milliseconds: 20));
+    for (var i = 0; i < 500 && state.busy.value; i++) {
       await Future<void>.delayed(const Duration(milliseconds: 10));
       await tester.pump();
     }
   });
-  expect(state.opening.value, isFalse);
+  expect(state.busy.value, isFalse);
   await tester.pumpAndSettle();
 }
+
+Future<void> _open(WidgetTester tester) =>
+    _tapAndWait(tester, find.widgetWithText(FilledButton, 'Open file…'));
+
+Future<void> _continue(WidgetTester tester) =>
+    _tapAndWait(tester, find.widgetWithText(FilledButton, 'Continue'));
 
 void main() {
   setUp(() => GetIt.I.reset());
@@ -80,10 +88,9 @@ void main() {
       find.byKey(const ValueKey('label-region')),
       'Region',
     );
-    await tester.tap(find.widgetWithText(FilledButton, 'Continue'));
-    await tester.pumpAndSettle();
+    await _continue(tester);
     expect(find.byType(WorkbenchPage), findsOneWidget);
-    expect(find.text('Region'), findsOneWidget);
+    expect(find.text('Region'), findsWidgets);
     expect(store.entries.keys, ['["region","amount"]']);
     expect(store.entries.values.single.schema['region']!.label, 'Region');
 
@@ -96,17 +103,16 @@ void main() {
     await _open(tester);
     expect(find.byType(WorkbenchPage), findsOneWidget);
     expect(find.textContaining('Schema restored'), findsOneWidget);
-    expect(find.text('Region'), findsOneWidget);
+    expect(find.text('Region'), findsWidgets);
 
     // Reset: schema page with the inferred schema, entry gone.
     await tester.tap(find.text('Reset to inferred'));
     await tester.pumpAndSettle();
     expect(find.byType(SchemaPage), findsOneWidget);
     expect(store.entries, isEmpty);
-    await tester.tap(find.widgetWithText(FilledButton, 'Continue'));
-    await tester.pumpAndSettle();
+    await _continue(tester);
     expect(find.byType(WorkbenchPage), findsOneWidget);
-    expect(find.text('region'), findsOneWidget);
+    expect(find.text('region'), findsWidgets);
     expect(find.textContaining('Schema restored'), findsNothing);
   });
 
@@ -114,8 +120,7 @@ void main() {
     _register('a,b\n1,2\n');
     await tester.pumpWidget(const TesseraStudioApp());
     await _open(tester);
-    await tester.tap(find.widgetWithText(FilledButton, 'Continue'));
-    await tester.pumpAndSettle();
+    await _continue(tester);
     expect(find.byType(WorkbenchPage), findsOneWidget);
     expect(store.entries, isEmpty);
   });
@@ -135,9 +140,10 @@ void main() {
     _register('a,b\n1,2\n');
     await tester.pumpWidget(const TesseraStudioApp());
     await _open(tester);
-    await tester.tap(find.widgetWithText(FilledButton, 'Continue'));
+    await _continue(tester);
+    await tester.tap(find.byTooltip('More'));
     await tester.pumpAndSettle();
-    await tester.tap(find.byTooltip('Schema…'));
+    await tester.tap(find.text('Schema…'));
     await tester.pumpAndSettle();
     expect(find.byType(SchemaPage), findsOneWidget);
     await tester.tap(find.byTooltip('Back'));

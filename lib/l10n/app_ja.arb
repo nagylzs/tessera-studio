@@ -40,5 +40,22 @@
   "systemDefault": "システム",
   "themeLight": "ライト",
   "themeDark": "ダーク",
-  "moreActions": "その他"
+  "moreActions": "その他",
+  "importing": "インポート中…",
+  "importRows": "{count, plural, other{{count} 行}}",
+  "importFailed": "インポートに失敗しました: {error}",
+  "importSummary": "{rows} 件、{columns} 列",
+  "widenedSummary": "{count} 列を拡張",
+  "nullifiedSummary": "{count} 個の値を空にしました",
+  "tapForReport": "タップしてインポートレポートを表示",
+  "importReportTitle": "インポートレポート",
+  "rowsImported": "{count} 行をインポートしました",
+  "widenedTo": "{column}: {type} に拡張",
+  "couldNotParse": "{column}: {count} 個の値を解析できませんでした",
+  "noCurrentCell": "現在のセルはありません — セルをタップするか矢印キーを使ってください。",
+  "currentCellTotal": "現在のセル: 総計 — {count} 件",
+  "currentCell": "現在のセル: {coordinate} — {count} 件",
+  "editorsTooltip": "エディター",
+  "filterMenu": "フィルター…",
+  "editorsOnTop": "エディターを上に表示"
 }
