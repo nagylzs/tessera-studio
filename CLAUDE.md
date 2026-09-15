@@ -222,21 +222,9 @@ the shell running it and kills that shell instead).
   them through constructors or `InheritedWidget`s. Tests call
   `GetIt.I.reset()` in `setUp` and register fakes.
 
-## Plan (agreed so far)
+## Plan
 
-1. ~~First screen: an open-file flow, command-line argument with
-   progress, Android "Open with…"~~ (done) → the schema page (inference, column editor as in
-   the example's `SchemaPage`), then the workbench: isolate import with
-   progress, axis and aggregate editors, filter editor, `CubeView`,
-   current-cell info line; snapshots (`OpenedDocument.snapshot`) skip
-   inference and import.
-2. Save/load a pivot layout (`CubeConfig` / `CubeJson`, a `.json` file
-   through the file picker) and "Save snapshot…" — the same two items
-   sit in `../tessera/TODO.md` for the example app; whichever lands
-   first, keep the example minimal.
-3. Export menu (all formats, `CubeExportTheme` chosen by the app's
-   theme), charts pane (`ChartData` / `ScatterData` + `fl_chart`),
-   localization (the 14 tessera locales + the app's own strings).
-4. Packaging and CI: GitHub Actions building web, Linux and Windows
-   binaries and an Android app bundle per tag; Play upload manual at
-   first.
+Open work, in priority order, is in `TODO.md` (sections: viewer flow,
+app, packaging and release, done). Read it before proposing what to do
+next; tick items there as they land. The immediate next step is the
+schema page, then the workbench.
