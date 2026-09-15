@@ -24,6 +24,42 @@
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+            <!-- "Open with…" for the formats tessera reads. Files arrive as
+                 content: Uris whose path has no extension, so matching is
+                 by MIME type; MainActivity copies the stream to the cache
+                 and passes the path and display name to Dart. .tsnp
+                 snapshots have no MIME type of their own (they come as
+                 application/octet-stream, which would list the app for
+                 every unknown file), so they are not claimed here. -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="content"/>
+                <data android:scheme="file"/>
+                <data android:mimeType="text/csv"/>
+                <data android:mimeType="text/comma-separated-values"/>
+                <data android:mimeType="text/tab-separated-values"/>
+                <data android:mimeType="text/plain"/>
+                <data android:mimeType="application/json"/>
+                <data android:mimeType="application/x-ndjson"/>
+                <data android:mimeType="application/jsonl"/>
+                <data android:mimeType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"/>
+                <data android:mimeType="application/vnd.oasis.opendocument.spreadsheet"/>
+            </intent-filter>
+            <!-- The share sheet, for the same formats (text/plain left out:
+                 it would list the app for every shared piece of text). -->
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/csv"/>
+                <data android:mimeType="text/comma-separated-values"/>
+                <data android:mimeType="text/tab-separated-values"/>
+                <data android:mimeType="application/json"/>
+                <data android:mimeType="application/x-ndjson"/>
+                <data android:mimeType="application/jsonl"/>
+                <data android:mimeType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"/>
+                <data android:mimeType="application/vnd.oasis.opendocument.spreadsheet"/>
+            </intent-filter>
         </activity>
         <!-- Don't delete the meta-data below.
              This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->

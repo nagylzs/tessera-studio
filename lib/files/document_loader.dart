@@ -45,11 +45,14 @@ abstract interface class DocumentLoader {
   /// The name [source] will be opened under, without reading anything.
   String nameOf(String source);
 
-  /// Reads [source] fully, reporting [onProgress] as bytes arrive.
-  /// Throws [UnsupportedFileException] for an unknown extension and
+  /// Reads [source] fully, reporting [onProgress] as bytes arrive. The
+  /// document is named [name], or [nameOf] the source when omitted (a
+  /// file copied to a cache keeps its original name this way). Throws
+  /// [UnsupportedFileException] for an unknown extension and
   /// [LoadException] for an HTTP error status.
   Future<OpenedDocument> load(
     String source, {
+    String? name,
     LoadProgressCallback? onProgress,
   });
 }
@@ -82,9 +85,10 @@ final class IoDocumentLoader implements DocumentLoader {
   @override
   Future<OpenedDocument> load(
     String source, {
+    String? name,
     LoadProgressCallback? onProgress,
   }) async {
-    final name = nameOf(source);
+    name ??= nameOf(source);
     final format = FileFormat.ofFileName(name);
     if (format == null) throw UnsupportedFileException(name);
 

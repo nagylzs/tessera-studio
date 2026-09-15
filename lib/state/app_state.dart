@@ -3,6 +3,7 @@ import 'package:signals_flutter/signals_flutter.dart';
 
 import '../files/document_loader.dart';
 import '../files/file_opener.dart';
+import '../files/open_requests.dart';
 import '../files/opened_document.dart';
 
 /// Why opening or loading did not produce a document.
@@ -55,16 +56,19 @@ final class AppState {
     }
   }
 
-  /// Reads a file path or URL (the command-line argument) with progress
-  /// and makes it the [document]; a failure lands in [loadFailure].
-  Future<void> loadFrom(String source) async {
+  /// Reads a file path or URL (the command-line argument, or a file the
+  /// system handed us) with progress and makes it the [document]; a
+  /// failure lands in [loadFailure]. [name] overrides the name derived
+  /// from [source].
+  Future<void> loadFrom(String source, {String? name}) async {
     final loader = GetIt.I<DocumentLoader>();
-    final name = loader.nameOf(source);
+    name ??= loader.nameOf(source);
     loadFailure.value = null;
     loading.value = LoadProgress(name: name);
     try {
       document.value = await loader.load(
         source,
+        name: name,
         onProgress: (p) => loading.value = p,
       );
     } on UnsupportedFileException catch (e) {
@@ -73,6 +77,21 @@ final class AppState {
       loadFailure.value = OpenError(name, e);
     } finally {
       loading.value = null;
+    }
+  }
+
+  /// Handles what the platform side reports for a file the system asked
+  /// us to open: progress while it is being copied, then [loadFrom].
+  void handleOpenRequest(OpenRequest request) {
+    switch (request) {
+      case OpenStarted(:final name):
+        loadFailure.value = null;
+        loading.value = LoadProgress(name: name);
+      case OpenReady(:final name, :final path):
+        loadFrom(path, name: name);
+      case OpenRequestFailed(:final name, :final error):
+        loading.value = null;
+        loadFailure.value = OpenError(name, error);
     }
   }
 

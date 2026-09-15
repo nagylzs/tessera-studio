@@ -38,6 +38,16 @@ void main() {
     expect(progress.last.fraction, 1.0);
   });
 
+  test('an explicit name overrides the path name', () async {
+    final file = File('${dir.path}/1234_copy')..writeAsStringSync('{"a":1}');
+    final doc = await const IoDocumentLoader().load(
+      file.path,
+      name: 'rows.json',
+    );
+    expect(doc.name, 'rows.json');
+    expect(doc.format, FileFormat.json);
+  });
+
   test('an unknown extension is refused before reading', () {
     expect(
       () => const IoDocumentLoader().load('${dir.path}/missing.docx'),

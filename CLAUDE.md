@@ -75,8 +75,9 @@ the next step.
 
 - `lib/main.dart` registers services (`di.dart`), starts
   `AppState.loadFrom` for the optional command-line argument (a file
-  path or http(s) URL; desktop runners pass `argv` through, web and
-  Android get none — their entry points come with packaging) and runs
+  path or http(s) URL; desktop runners pass `argv` through; the web gets
+  none yet), subscribes `AppState.handleOpenRequest` to `OpenRequests`
+  (Android "Open with…"/share sheet, see below) and runs
   `TesseraStudioApp` (`app.dart`: Material 3 light/dark from the tessera
   green `#00856e`, all localization delegates, root `SignalBuilder`
   switching between `HomePage` and `SchemaPage` on
@@ -91,11 +92,47 @@ the next step.
   `package:http` streaming, byte-level `LoadProgress`; an injectable
   `http.Client` for `MockClient.streaming` tests; no `dart:io` in
   `lib/`).
+- Android file handling, hand-written (no plugin):
+  `android/app/src/main/kotlin/.../MainActivity.kt` takes ACTION_VIEW
+  (`intent.data`) and ACTION_SEND (`EXTRA_STREAM`), reads the sender's
+  DISPLAY_NAME (content Uris have no extension in their path), copies
+  the stream to `cacheDir/open/` on a worker thread while the temporary
+  read grant lasts, and reports `started {name}` / `ready {name, path}`
+  / `failed {name, error}` maps on the `EventChannel`
+  `eu.nagylzs.tessera_studio/open` (queued until Dart listens, flushed
+  to the first listener; `onNewIntent` covers a second file while the
+  app runs, `singleTop`). The manifest's intent filters match by MIME
+  type (CSV, TSV, plain text, JSON, NDJSON, XLSX, ODS); `.tsnp` is not
+  claimed because it would need application/octet-stream. Dart side:
+  `lib/files/open_requests.dart` (`OpenRequests.forPlatform()`,
+  `ChannelOpenRequests`, `NoOpenRequests` elsewhere), and
+  `DocumentLoader.load(name:)` so the cache copy keeps its real name.
+  Verified 2026-09-15 on the owner's Xiaomi pad (Android 16), cold
+  start and `onNewIntent` alike. Testing with adb (the shell cannot
+  grant access to the documents provider, and files pushed into
+  `Android/data/<pkg>/files` are unreadable by the app, so neither of
+  those works):
+  - a real content Uri: `adb push sales.csv /sdcard/Download/`, find
+    the MediaStore id with `adb shell content query --uri
+    content://media/external/file --projection _id:_display_name --where
+    "\"_display_name='sales.csv'\""`, then `adb shell am start -n
+    eu.nagylzs.tessera_studio/.MainActivity -a android.intent.action.VIEW
+    -t text/csv --grant-read-uri-permission -d
+    content://media/external/file/<id>`;
+  - a file Uri (debug builds): `adb shell run-as eu.nagylzs.tessera_studio
+    sh -c 'cat > files/sales.csv' < sales.csv`, then the same `am start`
+    with `-d file:///data/user/0/eu.nagylzs.tessera_studio/files/sales.csv`.
+  Always pass `-n …/.MainActivity`: the tessera example app on the
+  device also claims CSV, so a bare VIEW intent opens a chooser.
+  `adb shell am force-stop eu.nagylzs.tessera_studio` before an `am
+  start` tests the cold-start path; without it `onNewIntent`.
+  Screenshots: `adb exec-out screencap -p > shot.png`.
 - `lib/state/app_state.dart`: `AppState` with the `document`,
   `opening`, `loading` (`LoadProgress?`) and `loadFailure` signals,
   `openFile()` (picker; returns an `OpenFailure` for the UI to localise
-  in a snackbar), `loadFrom(source)` (argument; failure shown inline on
-  the home screen, which then offers the button again) and `closeFile()`.
+  in a snackbar), `loadFrom(source, name:)` (argument or cache copy;
+  failure shown inline on the home screen, which then offers the button
+  again), `handleOpenRequest()` and `closeFile()`.
 - `lib/widgets/tessera_logo.dart`: the icon drawn with a `CustomPainter`
   (the shapes of `../tessera/icon/tessera-icon-foreground.svg`; no image
   asset, no SVG package). `HomePage` shows it at 60 % of the screen and
@@ -188,7 +225,7 @@ the shell running it and kills that shell instead).
 ## Plan (agreed so far)
 
 1. ~~First screen: an open-file flow, command-line argument with
-   progress~~ (done) → the schema page (inference, column editor as in
+   progress, Android "Open with…"~~ (done) → the schema page (inference, column editor as in
    the example's `SchemaPage`), then the workbench: isolate import with
    progress, axis and aggregate editors, filter editor, `CubeView`,
    current-cell info line; snapshots (`OpenedDocument.snapshot`) skip

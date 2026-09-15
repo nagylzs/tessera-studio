@@ -9,6 +9,7 @@ import 'package:tessera_studio/app.dart';
 import 'package:tessera_studio/files/document_loader.dart';
 import 'package:tessera_studio/files/file_format.dart';
 import 'package:tessera_studio/files/file_opener.dart';
+import 'package:tessera_studio/files/open_requests.dart';
 import 'package:tessera_studio/files/opened_document.dart';
 import 'package:tessera_studio/l10n/generated/app_localizations.dart';
 import 'package:tessera_studio/pages/schema_page.dart';
@@ -31,11 +32,15 @@ final class _FakeLoader implements DocumentLoader {
   @override
   String nameOf(String source) => source.split('/').last;
 
+  String? loadedName;
+
   @override
   Future<OpenedDocument> load(
     String source, {
+    String? name,
     LoadProgressCallback? onProgress,
   }) {
+    loadedName = name;
     this.onProgress = onProgress;
     return completer.future;
   }
@@ -123,6 +128,61 @@ void main() {
     await tester.pumpWidget(const TesseraStudioApp());
     expect(find.text('Could not open sales.csv: HTTP 404'), findsOneWidget);
     expect(find.byType(FilledButton), findsOneWidget);
+  });
+
+  testWidgets('a system open request shows progress under its own name', (
+    tester,
+  ) async {
+    final loader = _FakeLoader();
+    _register(_FakeOpener(() async => null), loader);
+    final state = GetIt.I<AppState>();
+    state.handleOpenRequest(const OpenStarted('sales.csv'));
+    await tester.pumpWidget(const TesseraStudioApp());
+    expect(find.text('Loading sales.csv…'), findsOneWidget);
+
+    state.handleOpenRequest(const OpenReady('sales.csv', '/cache/open/1_x'));
+    await tester.pump();
+    expect(loader.loadedName, 'sales.csv');
+    loader.completer.complete(_salesCsv());
+    await tester.pumpAndSettle();
+    expect(find.byType(SchemaPage), findsOneWidget);
+  });
+
+  testWidgets('a failed system open request is shown', (tester) async {
+    _register(_FakeOpener(() async => null));
+    GetIt.I<AppState>().handleOpenRequest(
+      const OpenRequestFailed('x.csv', 'no stream'),
+    );
+    await tester.pumpWidget(const TesseraStudioApp());
+    expect(find.text('Could not open x.csv: no stream'), findsOneWidget);
+    expect(find.byType(FilledButton), findsOneWidget);
+  });
+
+  test('platform open events decode', () {
+    expect(
+      ChannelOpenRequests.decode({'event': 'started', 'name': 'a.csv'}),
+      isA<OpenStarted>().having((r) => r.name, 'name', 'a.csv'),
+    );
+    expect(
+      ChannelOpenRequests.decode({
+        'event': 'ready',
+        'name': 'a.csv',
+        'path': '/c/1_a.csv',
+      }),
+      isA<OpenReady>().having((r) => r.path, 'path', '/c/1_a.csv'),
+    );
+    expect(
+      ChannelOpenRequests.decode({
+        'event': 'failed',
+        'name': 'a',
+        'error': 'e',
+      }),
+      isA<OpenRequestFailed>().having((r) => r.error, 'error', 'e'),
+    );
+    expect(
+      () => ChannelOpenRequests.decode({'event': 'other'}),
+      throwsFormatException,
+    );
   });
 
   test('the app is localised for exactly the tessera locales', () {
