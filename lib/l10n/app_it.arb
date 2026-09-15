@@ -30,5 +30,8 @@
   "columnTypeDate": "Data",
   "columnTypeDateTime": "Data e ora",
   "schemaRestored": "Schema ripristinato da quello salvato il {date}.",
-  "editSchema": "Schema…"
+  "editSchema": "Schema…",
+  "openFromClipboard": "Apri dagli appunti",
+  "clipboardName": "Appunti",
+  "nothingToOpen": "Negli appunti non c’è nulla da aprire."
 }

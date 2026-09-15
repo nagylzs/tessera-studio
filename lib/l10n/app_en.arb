@@ -155,5 +155,17 @@
   "editSchema": "Schema…",
   "@editSchema": {
     "description": "Tooltip of the workbench button that opens the schema page."
+  },
+  "openFromClipboard": "Open from clipboard",
+  "@openFromClipboard": {
+    "description": "Second button on the home screen."
+  },
+  "clipboardName": "Clipboard",
+  "@clipboardName": {
+    "description": "Document name for tabular text opened from the clipboard."
+  },
+  "nothingToOpen": "Nothing to open in the clipboard.",
+  "@nothingToOpen": {
+    "description": "Error when the clipboard is empty or holds no URL, path or tabular text."
   }
 }

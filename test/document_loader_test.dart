@@ -6,6 +6,7 @@ import 'package:http/testing.dart';
 import 'package:tessera_studio/files/document_loader.dart';
 import 'package:tessera_studio/files/file_format.dart';
 import 'package:tessera_studio/files/file_opener.dart';
+import 'package:tessera_studio/files/opened_document.dart';
 
 void main() {
   late Directory dir;
@@ -48,10 +49,72 @@ void main() {
     expect(doc.format, FileFormat.json);
   });
 
-  test('an unknown extension is refused before reading', () {
+  test('a file with an unknown extension is sniffed', () async {
+    final file = File('${dir.path}/export.dat')
+      ..writeAsStringSync('a;b\n1;2\n');
+    final doc = await const IoDocumentLoader().load(file.path);
+    expect(doc.format, FileFormat.csv);
+    expect(doc.delimiter, ';');
+    File('${dir.path}/blob.bin').writeAsBytesSync([0, 1, 2, 3]);
     expect(
-      () => const IoDocumentLoader().load('${dir.path}/missing.docx'),
+      () => const IoDocumentLoader().load('${dir.path}/blob.bin'),
       throwsA(isA<UnsupportedFileException>()),
+    );
+  });
+
+  test('a URL without a useful path uses Content-Disposition, then the '
+      'type, then the bytes', () async {
+    Future<OpenedDocument> fetch(Map<String, String> headers, String body) =>
+        IoDocumentLoader(
+          client: MockClient.streaming(
+            (_, _) async => http.StreamedResponse(
+              Stream.value(body.codeUnits),
+              200,
+              headers: headers,
+            ),
+          ),
+        ).load('https://example.com/download?id=7');
+
+    final named = await fetch({
+      'content-disposition': 'attachment; filename="rows.jsonl"',
+    }, '{"a":1}\n');
+    expect(named.name, 'rows.jsonl');
+    expect(named.format, FileFormat.jsonl);
+
+    final starred = await fetch({
+      'content-disposition': "attachment; filename*=UTF-8''%C3%A1rak.json",
+    }, '[{"a":1}]');
+    expect(starred.name, 'árak.json');
+    expect(starred.format, FileFormat.json);
+
+    final typed = await fetch({
+      'content-type': 'text/tab-separated-values; charset=utf-8',
+    }, 'a\tb\n1\t2\n');
+    expect(typed.name, 'download');
+    expect(typed.format, FileFormat.tsv);
+
+    final sniffed = await fetch({
+      'content-type': 'application/octet-stream',
+    }, 'a,b\n1,2\n');
+    expect(sniffed.format, FileFormat.csv);
+
+    expect(
+      () => fetch({'content-type': 'application/octet-stream'}, 'nothing'),
+      throwsA(isA<UnsupportedFileException>()),
+    );
+  });
+
+  test('Content-Disposition file names are parsed and stripped of paths', () {
+    const parse = IoDocumentLoader.dispositionFileName;
+    expect(parse(null), isNull);
+    expect(parse('inline'), isNull);
+    expect(parse('attachment; filename=data.csv'), 'data.csv');
+    expect(parse('attachment; filename="a b.xlsx"; size=3'), 'a b.xlsx');
+    expect(parse('attachment; filename="../../x.csv"'), 'x.csv');
+    expect(parse("attachment; filename*=utf-8''%E2%82%AC.csv"), '€.csv');
+    expect(
+      parse('attachment; filename="p.csv"; filename*=UTF-8\'\'q.csv'),
+      'q.csv',
     );
   });
 

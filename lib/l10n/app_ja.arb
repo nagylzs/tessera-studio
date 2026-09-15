@@ -30,5 +30,8 @@
   "columnTypeDate": "日付",
   "columnTypeDateTime": "日時",
   "schemaRestored": "{date} に保存したスキーマを復元しました。",
-  "editSchema": "スキーマ…"
+  "editSchema": "スキーマ…",
+  "openFromClipboard": "クリップボードから開く",
+  "clipboardName": "クリップボード",
+  "nothingToOpen": "クリップボードに開けるものがありません。"
 }

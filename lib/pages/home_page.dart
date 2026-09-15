@@ -7,11 +7,36 @@ import '../l10n/generated/app_localizations.dart';
 import '../state/app_state.dart';
 import '../widgets/tessera_logo.dart';
 
-/// The start screen: the logo, faded into the background, and one
-/// button — or, while a file given on the command line is read, a
-/// progress bar in its place.
-class HomePage extends StatelessWidget {
+/// The start screen: the logo, faded into the background, and two
+/// buttons — or, while a file given on the command line is read, a
+/// progress bar in their place.
+///
+/// Stateful only for the [AppLifecycleListener]: the clipboard cannot
+/// notify us, so its emptiness is checked when the page appears and
+/// whenever the app comes back to the foreground.
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final _state = GetIt.I<AppState>();
+  late final AppLifecycleListener _lifecycle;
+
+  @override
+  void initState() {
+    super.initState();
+    _state.refreshClipboard();
+    _lifecycle = AppLifecycleListener(onResume: _state.refreshClipboard);
+  }
+
+  @override
+  void dispose() {
+    _lifecycle.dispose();
+    super.dispose();
+  }
 
   static String _describe(AppLocalizations l10n, OpenFailure failure) =>
       switch (failure) {
@@ -20,10 +45,11 @@ class HomePage extends StatelessWidget {
           fileName,
           error.toString(),
         ),
+        NothingToOpen() => l10n.nothingToOpen,
       };
 
   Future<void> _open(BuildContext context) async {
-    final failure = await GetIt.I<AppState>().openFile();
+    final failure = await _state.openFile();
     if (failure == null || !context.mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text(_describe(AppLocalizations.of(context), failure))),
@@ -33,7 +59,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
-    final state = GetIt.I<AppState>();
+    final state = _state;
     return Scaffold(
       appBar: AppBar(title: Text(l10n.appTitle)),
       body: Stack(
@@ -81,6 +107,14 @@ class HomePage extends StatelessWidget {
                       onPressed: () => _open(context),
                       icon: const Icon(Icons.folder_open),
                       label: Text(l10n.openFile),
+                    ),
+                    const SizedBox(height: 12),
+                    FilledButton.tonalIcon(
+                      onPressed: state.clipboardAvailable.value
+                          ? () => state.openFromClipboard(l10n.clipboardName)
+                          : null,
+                      icon: const Icon(Icons.content_paste),
+                      label: Text(l10n.openFromClipboard),
                     ),
                   ],
                 );

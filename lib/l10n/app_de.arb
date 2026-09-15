@@ -30,5 +30,8 @@
   "columnTypeDate": "Datum",
   "columnTypeDateTime": "Datum und Uhrzeit",
   "schemaRestored": "Schema aus dem am {date} gespeicherten wiederhergestellt.",
-  "editSchema": "Schema…"
+  "editSchema": "Schema…",
+  "openFromClipboard": "Aus Zwischenablage öffnen",
+  "clipboardName": "Zwischenablage",
+  "nothingToOpen": "In der Zwischenablage ist nichts zu öffnen."
 }

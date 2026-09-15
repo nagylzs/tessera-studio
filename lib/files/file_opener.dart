@@ -32,9 +32,9 @@ final class PickerFileOpener implements FileOpener {
       allowedExtensions: FileFormat.allExtensions,
     );
     if (file == null) return null;
-    final format = FileFormat.ofFileName(file.name);
-    if (format == null) throw UnsupportedFileException(file.name);
-    final bytes = await file.readAsBytes();
-    return OpenedDocument(name: file.name, format: format, bytes: bytes);
+    return OpenedDocument.detect(
+      name: file.name,
+      bytes: await file.readAsBytes(),
+    );
   }
 }

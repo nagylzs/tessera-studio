@@ -30,5 +30,8 @@
   "columnTypeDate": "Data",
   "columnTypeDateTime": "Data e hora",
   "schemaRestored": "Esquema restaurado a partir do que você salvou em {date}.",
-  "editSchema": "Esquema…"
+  "editSchema": "Esquema…",
+  "openFromClipboard": "Abrir da área de transferência",
+  "clipboardName": "Área de transferência",
+  "nothingToOpen": "Não há nada para abrir na área de transferência."
 }

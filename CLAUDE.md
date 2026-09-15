@@ -82,14 +82,25 @@ the next step.
   green `#00856e`, all localization delegates, root `SignalBuilder`
   switching between `HomePage` and `SchemaPage` on
   `AppState.document`).
-- `lib/files/`: `FileFormat` (extension → tessera `DataSource`, plus
-  `.tsnp` snapshots), `OpenedDocument` (name, format, bytes — kept in
-  memory because web and Android give no path, and `fromData` sources
-  are isolate-sendable), `FileOpener` (interface) with
+- `lib/files/`: `FileFormat` (extensions and media types per format,
+  `ofFileName` / `ofMimeType` / `ofBytes` — snapshot magic, zip first
+  entry for XLSX vs ODS, `[`/`{` for JSON/JSON Lines, else delimited
+  text; `sniffDelimiter` picks tab, `;`, `,` or `|` by consistency
+  over the first 20 lines — and `dataSource(bytes, name:, delimiter:)`),
+  `OpenedDocument` (name, format, bytes, sniffed delimiter for CSV;
+  `OpenedDocument.detect` = name → media type → bytes, throws
+  `UnsupportedFileException`; bytes kept in memory because web and
+  Android give no path, and `fromData` sources are isolate-sendable),
+  `ClipboardReader` (interface; `SystemClipboardReader` over Flutter's
+  `Clipboard`, text only, `hasStrings` for the button state, always
+  available on web), `FileOpener` (interface) with
   `PickerFileOpener` (`file_picker`, `FileType.custom` with every known
   extension, `readAsBytes`), `DocumentLoader` (interface) with
   `IoDocumentLoader` (paths through `cross_file`, URLs through
-  `package:http` streaming, byte-level `LoadProgress`; an injectable
+  `package:http` streaming, byte-level `LoadProgress`; a URL's name is
+  its `Content-Disposition` file name (`dispositionFileName`, RFC 5987
+  form first, paths stripped) else the last path segment, its format
+  the name's, else the `Content-Type`'s, else sniffed; an injectable
   `http.Client` for `MockClient.streaming` tests; no `dart:io` in
   `lib/`).
 - Android file handling, hand-written (no plugin):
@@ -127,6 +138,13 @@ the next step.
   `adb shell am force-stop eu.nagylzs.tessera_studio` before an `am
   start` tests the cold-start path; without it `onNewIntent`.
   Screenshots: `adb exec-out screencap -p > shot.png`.
+- Home screen buttons: "Open file…" (picker) and "Open from clipboard"
+  (`AppState.openFromClipboard`: a single line that is an http(s) URL,
+  a `file:` URL or an absolute path goes through `loadFrom`, anything
+  else is `OpenedDocument.detect`ed as text named "Clipboard" — Excel
+  copies as TSV; `NothingToOpen` otherwise). The button follows
+  `clipboardAvailable`, refreshed by `HomePage` (stateful for its
+  `AppLifecycleListener`) on appearance and on resume.
 - `lib/state/app_state.dart`: `AppState` with the `document`,
   `opening`, `loading` (`LoadProgress?`) and `loadFailure` signals,
   `openFile()` (picker; returns an `OpenFailure` for the UI to localise
@@ -167,8 +185,8 @@ the next step.
   into the git-ignored `lib/l10n/generated/`; `AppLocalizations.of(context)`.
   A test asserts the ARB locale set equals `TesseraLocalizations.supportedLocales`.
 - Tests: `GetIt.I.reset()` in `setUp`, then fakes (`FileOpener`,
-  `DocumentLoader`, `MemorySchemaStore`) and a fresh `AppState` are
-  registered. Anything that runs the open flow (inference over a
+  `FakeClipboard` and `FakeLoader` from `test/fakes.dart`,
+  `MemorySchemaStore`) and a fresh `AppState` are registered. Anything that runs the open flow (inference over a
   tessera `DataSource`) must happen under `tester.runAsync` and poll
   `AppState.opening` / `loading` until done: tessera's source streams
   never complete on the widget test's fake clock (`columnNames()` hangs

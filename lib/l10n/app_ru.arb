@@ -30,5 +30,8 @@
   "columnTypeDate": "Дата",
   "columnTypeDateTime": "Дата и время",
   "schemaRestored": "Схема восстановлена из сохранённой {date}.",
-  "editSchema": "Схема…"
+  "editSchema": "Схема…",
+  "openFromClipboard": "Открыть из буфера обмена",
+  "clipboardName": "Буфер обмена",
+  "nothingToOpen": "В буфере обмена нечего открывать."
 }

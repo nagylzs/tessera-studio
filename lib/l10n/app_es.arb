@@ -30,5 +30,8 @@
   "columnTypeDate": "Fecha",
   "columnTypeDateTime": "Fecha y hora",
   "schemaRestored": "Esquema restaurado del que guardó el {date}.",
-  "editSchema": "Esquema…"
+  "editSchema": "Esquema…",
+  "openFromClipboard": "Abrir desde el portapapeles",
+  "clipboardName": "Portapapeles",
+  "nothingToOpen": "No hay nada que abrir en el portapapeles."
 }

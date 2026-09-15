@@ -1,9 +1,11 @@
 import 'dart:convert';
+import 'dart:typed_data';
 
 import 'package:get_it/get_it.dart';
 import 'package:signals_flutter/signals_flutter.dart';
 import 'package:tessera_flutter/tessera_flutter.dart';
 
+import '../files/clipboard_reader.dart';
 import '../files/document_loader.dart';
 import '../files/file_opener.dart';
 import '../files/open_requests.dart';
@@ -25,6 +27,11 @@ final class OpenError extends OpenFailure {
   const OpenError(super.fileName, this.error);
 
   final Object error;
+}
+
+/// The clipboard was empty or held nothing that can be opened.
+final class NothingToOpen extends OpenFailure {
+  const NothingToOpen() : super('');
 }
 
 /// The screens of the viewer, in the order a file passes through them.
@@ -125,6 +132,57 @@ final class AppState {
       return;
     }
     await _open(doc);
+  }
+
+  /// Whether "Open from clipboard" is enabled; see [refreshClipboard].
+  final clipboardAvailable = signal(true);
+
+  Future<void> refreshClipboard() async {
+    clipboardAvailable.value = await GetIt.I<ClipboardReader>().hasText();
+  }
+
+  /// Opens what the clipboard holds: a URL or file path on a single
+  /// line is loaded like a command-line argument, anything else is
+  /// treated as tabular text named [clipboardName]. Failures land in
+  /// [loadFailure]; nothing usable is [NothingToOpen].
+  Future<void> openFromClipboard(String clipboardName) async {
+    loadFailure.value = null;
+    final text = (await GetIt.I<ClipboardReader>().readText())?.trim();
+    if (text == null || text.isEmpty) {
+      loadFailure.value = const NothingToOpen();
+      return;
+    }
+    final source = clipboardSource(text);
+    if (source != null) return loadFrom(source);
+    final OpenedDocument doc;
+    try {
+      doc = OpenedDocument.detect(
+        name: clipboardName,
+        bytes: Uint8List.fromList(utf8.encode(text)),
+      );
+    } on UnsupportedFileException {
+      loadFailure.value = const NothingToOpen();
+      return;
+    }
+    await _open(doc);
+  }
+
+  /// A single-line clipboard [text] that names something to load — an
+  /// http(s) URL, a `file:` URL (as a path) or an absolute path — else
+  /// `null` (the text is data, or nothing).
+  static String? clipboardSource(String text) {
+    if (text.contains('\n') || text.contains('\r')) return null;
+    final uri = Uri.tryParse(text);
+    if (uri != null) {
+      if (uri.scheme == 'http' || uri.scheme == 'https') return text;
+      if (uri.scheme == 'file') return uri.toFilePath();
+    }
+    if (text.startsWith('/') ||
+        text.startsWith(r'\\') ||
+        RegExp(r'^[A-Za-z]:[\\/]').hasMatch(text)) {
+      return text;
+    }
+    return null;
   }
 
   /// Handles what the platform side reports for a file the system asked

@@ -30,5 +30,8 @@
   "columnTypeDate": "日期",
   "columnTypeDateTime": "日期和时间",
   "schemaRestored": "已恢复您在 {date} 保存的架构。",
-  "editSchema": "架构…"
+  "editSchema": "架构…",
+  "openFromClipboard": "从剪贴板打开",
+  "clipboardName": "剪贴板",
+  "nothingToOpen": "剪贴板中没有可打开的内容。"
 }

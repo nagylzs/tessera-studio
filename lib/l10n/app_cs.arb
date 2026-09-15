@@ -30,5 +30,8 @@
   "columnTypeDate": "Datum",
   "columnTypeDateTime": "Datum a čas",
   "schemaRestored": "Schéma obnoveno z toho, které jste uložili {date}.",
-  "editSchema": "Schéma…"
+  "editSchema": "Schéma…",
+  "openFromClipboard": "Otevřít ze schránky",
+  "clipboardName": "Schránka",
+  "nothingToOpen": "Ve schránce není co otevřít."
 }

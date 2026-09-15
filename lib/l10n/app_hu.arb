@@ -30,5 +30,8 @@
   "columnTypeDate": "Dátum",
   "columnTypeDateTime": "Dátum és idő",
   "schemaRestored": "A séma visszaállítva a(z) {date} napon mentettből.",
-  "editSchema": "Séma…"
+  "editSchema": "Séma…",
+  "openFromClipboard": "Megnyitás a vágólapról",
+  "clipboardName": "Vágólap",
+  "nothingToOpen": "A vágólapon nincs megnyitható adat."
 }

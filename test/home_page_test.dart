@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
@@ -6,6 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:get_it/get_it.dart';
 import 'package:tessera_flutter/tessera_flutter.dart';
 import 'package:tessera_studio/app.dart';
+import 'package:tessera_studio/files/clipboard_reader.dart';
 import 'package:tessera_studio/files/document_loader.dart';
 import 'package:tessera_studio/files/file_format.dart';
 import 'package:tessera_studio/files/file_opener.dart';
@@ -18,6 +18,8 @@ import 'package:tessera_studio/state/app_state.dart';
 import 'package:tessera_studio/state/schema_store.dart';
 import 'package:tessera_studio/widgets/tessera_logo.dart';
 
+import 'fakes.dart';
+
 final class _FakeOpener implements FileOpener {
   _FakeOpener(this.result);
 
@@ -27,33 +29,11 @@ final class _FakeOpener implements FileOpener {
   Future<OpenedDocument?> pick() => result();
 }
 
-final class _FakeLoader implements DocumentLoader {
-  /// Created lazily, on the first [load] — inside `runAsync`, so that
-  /// completing it wakes real-async code and not the fake clock.
-  late final completer = Completer<OpenedDocument>();
-  LoadProgressCallback? onProgress;
-
-  @override
-  String nameOf(String source) => source.split('/').last;
-
-  String? loadedName;
-
-  @override
-  Future<OpenedDocument> load(
-    String source, {
-    String? name,
-    LoadProgressCallback? onProgress,
-  }) {
-    loadedName = name;
-    this.onProgress = onProgress;
-    return completer.future;
-  }
-}
-
 void _register(FileOpener opener, [DocumentLoader? loader]) {
   GetIt.I
     ..registerSingleton<FileOpener>(opener)
-    ..registerSingleton<DocumentLoader>(loader ?? _FakeLoader())
+    ..registerSingleton<ClipboardReader>(FakeClipboard())
+    ..registerSingleton<DocumentLoader>(loader ?? FakeLoader())
     ..registerSingleton<SchemaStore>(MemorySchemaStore())
     ..registerSingleton<AppState>(AppState());
 }
@@ -80,7 +60,7 @@ void main() {
     // Inference streams do not complete on the fake clock: real async.
     final state = GetIt.I<AppState>();
     await tester.runAsync(() async {
-      await tester.tap(find.byType(FilledButton));
+      await tester.tap(find.widgetWithText(FilledButton, 'Open file…'));
       for (var i = 0; i < 200 && state.opening.value; i++) {
         await Future<void>.delayed(const Duration(milliseconds: 10));
         await tester.pump();
@@ -107,7 +87,7 @@ void main() {
       _FakeOpener(() async => throw const UnsupportedFileException('x.docx')),
     );
     await tester.pumpWidget(const TesseraStudioApp());
-    await tester.tap(find.byType(FilledButton));
+    await tester.tap(find.widgetWithText(FilledButton, 'Open file…'));
     await tester.pumpAndSettle();
     expect(find.text('Unsupported file type: x.docx'), findsOneWidget);
   });
@@ -115,7 +95,7 @@ void main() {
   testWidgets('a command-line file shows progress, then the schema page', (
     tester,
   ) async {
-    final loader = _FakeLoader();
+    final loader = FakeLoader();
     _register(_FakeOpener(() async => null), loader);
     // Started under runAsync: the inference after the load needs real
     // async (tessera's source streams do not complete on the fake clock).
@@ -143,20 +123,20 @@ void main() {
   testWidgets('a failed command-line load falls back to the button', (
     tester,
   ) async {
-    final loader = _FakeLoader();
+    final loader = FakeLoader();
     _register(_FakeOpener(() async => null), loader);
     final loading = GetIt.I<AppState>().loadFrom('/data/sales.csv');
     loader.completer.completeError(const LoadException('HTTP 404'));
     await loading;
     await tester.pumpWidget(const TesseraStudioApp());
     expect(find.text('Could not open sales.csv: HTTP 404'), findsOneWidget);
-    expect(find.byType(FilledButton), findsOneWidget);
+    expect(find.widgetWithText(FilledButton, 'Open file…'), findsOneWidget);
   });
 
   testWidgets('a system open request shows progress under its own name', (
     tester,
   ) async {
-    final loader = _FakeLoader();
+    final loader = FakeLoader();
     _register(_FakeOpener(() async => null), loader);
     final state = GetIt.I<AppState>();
     await tester.runAsync(() async {
@@ -184,7 +164,7 @@ void main() {
     );
     await tester.pumpWidget(const TesseraStudioApp());
     expect(find.text('Could not open x.csv: no stream'), findsOneWidget);
-    expect(find.byType(FilledButton), findsOneWidget);
+    expect(find.widgetWithText(FilledButton, 'Open file…'), findsOneWidget);
   });
 
   test('platform open events decode', () {

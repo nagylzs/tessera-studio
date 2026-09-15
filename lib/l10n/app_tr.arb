@@ -30,5 +30,8 @@
   "columnTypeDate": "Tarih",
   "columnTypeDateTime": "Tarih ve saat",
   "schemaRestored": "{date} tarihinde kaydettiğiniz şema geri yüklendi.",
-  "editSchema": "Şema…"
+  "editSchema": "Şema…",
+  "openFromClipboard": "Panodan aç",
+  "clipboardName": "Pano",
+  "nothingToOpen": "Panoda açılacak bir şey yok."
 }

@@ -30,5 +30,8 @@
   "columnTypeDate": "Data",
   "columnTypeDateTime": "Data i czas",
   "schemaRestored": "Przywrócono schemat zapisany {date}.",
-  "editSchema": "Schemat…"
+  "editSchema": "Schemat…",
+  "openFromClipboard": "Otwórz ze schowka",
+  "clipboardName": "Schowek",
+  "nothingToOpen": "W schowku nie ma nic do otwarcia."
 }

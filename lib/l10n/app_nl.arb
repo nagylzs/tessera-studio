@@ -30,5 +30,8 @@
   "columnTypeDate": "Datum",
   "columnTypeDateTime": "Datum en tijd",
   "schemaRestored": "Schema hersteld van het schema dat u op {date} hebt opgeslagen.",
-  "editSchema": "Schema…"
+  "editSchema": "Schema…",
+  "openFromClipboard": "Openen vanaf klembord",
+  "clipboardName": "Klembord",
+  "nothingToOpen": "Er staat niets op het klembord om te openen."
 }

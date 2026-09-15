@@ -26,6 +26,12 @@ conventions live in `CLAUDE.md`, not here.
 - [ ] Entry points beyond the desktop argument and Android intents: a
       web `?open=<url>` query parameter, drag and drop on desktop,
       Windows and Linux file associations with packaging (below).
+- [ ] Clipboard: files copied as file objects (Explorer, Finder, GNOME
+      Files) are not text, so Flutter's `Clipboard` cannot see them;
+      `super_clipboard` (all platforms, iOS and macOS included) reads
+      `text/uri-list` and file items and would let "Open from
+      clipboard" take them too. Also HTML tables copied from a browser
+      (`text/html`) could be parsed into rows.
 
 ## App
 
@@ -56,6 +62,13 @@ conventions live in `CLAUDE.md`, not here.
 
 ## Done
 
+- [x] "Open from clipboard": a URL, a file path or URL, or tabular text
+      (cells from a spreadsheet, CSV text); disabled while the clipboard
+      is empty. Formats are also detected from a URL's
+      Content-Disposition and Content-Type and from the bytes (snapshot
+      magic, zip contents, JSON, delimited text with a sniffed
+      delimiter), so semicolon CSVs and extension-less downloads open
+      (2026-09-15).
 - [x] Schema page with the column editor, and schema edits remembered
       per source structure (`Schema.structureKey` in tessera) and
       restored automatically with a banner (2026-09-15).

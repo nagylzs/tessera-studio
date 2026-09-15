@@ -8,6 +8,7 @@ import 'package:shared_preferences_platform_interface/shared_preferences_async_p
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tessera_flutter/tessera_flutter.dart';
 import 'package:tessera_studio/app.dart';
+import 'package:tessera_studio/files/clipboard_reader.dart';
 import 'package:tessera_studio/files/document_loader.dart';
 import 'package:tessera_studio/files/file_format.dart';
 import 'package:tessera_studio/files/file_opener.dart';
@@ -16,6 +17,8 @@ import 'package:tessera_studio/pages/schema_page.dart';
 import 'package:tessera_studio/pages/workbench_page.dart';
 import 'package:tessera_studio/state/app_state.dart';
 import 'package:tessera_studio/state/schema_store.dart';
+
+import 'fakes.dart';
 
 final class _Opener implements FileOpener {
   _Opener(this.text);
@@ -36,6 +39,7 @@ void _register(String csv) {
   store = MemorySchemaStore();
   GetIt.I
     ..registerSingleton<FileOpener>(_Opener(csv))
+    ..registerSingleton<ClipboardReader>(FakeClipboard())
     ..registerSingleton<DocumentLoader>(const IoDocumentLoader())
     ..registerSingleton<SchemaStore>(store)
     ..registerSingleton<AppState>(AppState());

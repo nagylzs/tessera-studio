@@ -3,7 +3,6 @@ import 'dart:typed_data';
 import 'package:cross_file/cross_file.dart';
 import 'package:http/http.dart' as http;
 
-import 'file_format.dart';
 import 'file_opener.dart';
 import 'opened_document.dart';
 
@@ -39,17 +38,20 @@ final class LoadException implements Exception {
 typedef LoadProgressCallback = void Function(LoadProgress progress);
 
 /// Reads a document from a file path or an http(s) URL — the app's
-/// command-line argument. Registered in get_it so the UI can be tested
-/// with a fake.
+/// command-line argument, the clipboard's. Registered in get_it so the
+/// UI can be tested with a fake.
 abstract interface class DocumentLoader {
   /// The name [source] will be opened under, without reading anything.
   String nameOf(String source);
 
   /// Reads [source] fully, reporting [onProgress] as bytes arrive. The
   /// document is named [name], or [nameOf] the source when omitted (a
-  /// file copied to a cache keeps its original name this way). Throws
-  /// [UnsupportedFileException] for an unknown extension and
-  /// [LoadException] for an HTTP error status.
+  /// file copied to a cache keeps its original name this way; a URL's
+  /// `Content-Disposition` file name wins over its path). The format
+  /// comes from the name, else the response's `Content-Type`, else the
+  /// bytes ([OpenedDocument.detect]). Throws [UnsupportedFileException]
+  /// when none of them recognises the file and [LoadException] for an
+  /// HTTP error status.
   Future<OpenedDocument> load(
     String source, {
     String? name,
@@ -88,13 +90,10 @@ final class IoDocumentLoader implements DocumentLoader {
     String? name,
     LoadProgressCallback? onProgress,
   }) async {
-    name ??= nameOf(source);
-    final format = FileFormat.ofFileName(name);
-    if (format == null) throw UnsupportedFileException(name);
-
     final url = _asUrl(source);
     final Stream<List<int>> stream;
     final int? total;
+    String? mimeType;
     http.Client? owned;
     if (url != null) {
       final client = this.client ?? (owned = http.Client());
@@ -109,7 +108,12 @@ final class IoDocumentLoader implements DocumentLoader {
       }
       stream = response.stream;
       total = response.contentLength;
+      mimeType = response.headers['content-type'];
+      name ??=
+          dispositionFileName(response.headers['content-disposition']) ??
+          nameOf(source);
     } else {
+      name ??= nameOf(source);
       final file = XFile(source);
       stream = file.openRead();
       total = await file.length();
@@ -131,10 +135,34 @@ final class IoDocumentLoader implements DocumentLoader {
     } finally {
       owned?.close();
     }
-    return OpenedDocument(
+    return OpenedDocument.detect(
       name: name,
-      format: format,
       bytes: builder.takeBytes(),
+      mimeType: mimeType,
     );
   }
+
+  static final _filenameStar = RegExp("filename\\*=(?:utf-8|UTF-8)''([^;]+)");
+  static final _filename = RegExp('filename="([^"]*)"|filename=([^;]+)');
+
+  /// The file name in a `Content-Disposition` header, `null` if none:
+  /// the RFC 5987 `filename*=UTF-8''…` form first, then `filename=`.
+  static String? dispositionFileName(String? header) {
+    if (header == null) return null;
+    final star = _filenameStar.firstMatch(header);
+    if (star != null) {
+      try {
+        return _basename(Uri.decodeComponent(star.group(1)!.trim()));
+      } on ArgumentError {
+        // fall through to the plain form
+      }
+    }
+    final plain = _filename.firstMatch(header);
+    if (plain == null) return null;
+    final name = (plain.group(1) ?? plain.group(2))!.trim();
+    return name.isEmpty ? null : _basename(name);
+  }
+
+  /// A sender's path components are never trusted.
+  static String _basename(String name) => name.split(RegExp(r'[\\/]')).last;
 }

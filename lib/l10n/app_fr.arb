@@ -30,5 +30,8 @@
   "columnTypeDate": "Date",
   "columnTypeDateTime": "Date et heure",
   "schemaRestored": "Schéma restauré à partir de celui enregistré le {date}.",
-  "editSchema": "Schéma…"
+  "editSchema": "Schéma…",
+  "openFromClipboard": "Ouvrir depuis le presse-papiers",
+  "clipboardName": "Presse-papiers",
+  "nothingToOpen": "Rien à ouvrir dans le presse-papiers."
 }
