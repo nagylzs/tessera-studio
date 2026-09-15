@@ -33,5 +33,12 @@
   "editSchema": "Схема…",
   "openFromClipboard": "Открыть из буфера обмена",
   "clipboardName": "Буфер обмена",
-  "nothingToOpen": "В буфере обмена нечего открывать."
+  "nothingToOpen": "В буфере обмена нечего открывать.",
+  "dropHint": "Перетащите файл сюда, чтобы открыть",
+  "menuLanguage": "Язык…",
+  "menuTheme": "Тема…",
+  "systemDefault": "Системная",
+  "themeLight": "Светлая",
+  "themeDark": "Тёмная",
+  "moreActions": "Ещё"
 }

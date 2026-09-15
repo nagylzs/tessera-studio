@@ -33,5 +33,12 @@
   "editSchema": "Schemat…",
   "openFromClipboard": "Otwórz ze schowka",
   "clipboardName": "Schowek",
-  "nothingToOpen": "W schowku nie ma nic do otwarcia."
+  "nothingToOpen": "W schowku nie ma nic do otwarcia.",
+  "dropHint": "Upuść plik, aby go otworzyć",
+  "menuLanguage": "Język…",
+  "menuTheme": "Motyw…",
+  "systemDefault": "Systemowy",
+  "themeLight": "Jasny",
+  "themeDark": "Ciemny",
+  "moreActions": "Więcej"
 }

@@ -1,6 +1,7 @@
 import 'dart:convert';
-import 'dart:typed_data';
 
+import 'package:cross_file/cross_file.dart';
+import 'package:flutter/foundation.dart';
 import 'package:get_it/get_it.dart';
 import 'package:signals_flutter/signals_flutter.dart';
 import 'package:tessera_flutter/tessera_flutter.dart';
@@ -183,6 +184,29 @@ final class AppState {
       return text;
     }
     return null;
+  }
+
+  /// Opens a file dropped on the window: by path through [loadFrom]
+  /// where there is one (desktop), else from its bytes (the web).
+  Future<void> openDropped(XFile file) async {
+    final name = file.name.isEmpty ? null : file.name;
+    if (!kIsWeb && file.path.isNotEmpty) return loadFrom(file.path, name: name);
+    final label = name ?? 'file';
+    loadFailure.value = null;
+    loading.value = LoadProgress(name: label);
+    try {
+      final doc = OpenedDocument.detect(
+        name: label,
+        bytes: await file.readAsBytes(),
+      );
+      await _open(doc);
+    } on UnsupportedFileException catch (e) {
+      loadFailure.value = UnsupportedFile(e.fileName);
+    } catch (e) {
+      loadFailure.value = OpenError(label, e);
+    } finally {
+      loading.value = null;
+    }
   }
 
   /// Handles what the platform side reports for a file the system asked

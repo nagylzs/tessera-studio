@@ -33,5 +33,12 @@
   "editSchema": "Şema…",
   "openFromClipboard": "Panodan aç",
   "clipboardName": "Pano",
-  "nothingToOpen": "Panoda açılacak bir şey yok."
+  "nothingToOpen": "Panoda açılacak bir şey yok.",
+  "dropHint": "Açmak için bir dosya bırakın",
+  "menuLanguage": "Dil…",
+  "menuTheme": "Tema…",
+  "systemDefault": "Sistem",
+  "themeLight": "Açık",
+  "themeDark": "Koyu",
+  "moreActions": "Daha fazla"
 }

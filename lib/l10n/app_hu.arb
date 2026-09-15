@@ -33,5 +33,12 @@
   "editSchema": "Séma…",
   "openFromClipboard": "Megnyitás a vágólapról",
   "clipboardName": "Vágólap",
-  "nothingToOpen": "A vágólapon nincs megnyitható adat."
+  "nothingToOpen": "A vágólapon nincs megnyitható adat.",
+  "dropHint": "Húzzon ide egy fájlt a megnyitáshoz",
+  "menuLanguage": "Nyelv…",
+  "menuTheme": "Téma…",
+  "systemDefault": "Rendszer",
+  "themeLight": "Világos",
+  "themeDark": "Sötét",
+  "moreActions": "Továbbiak"
 }

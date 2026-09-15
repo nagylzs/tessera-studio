@@ -33,5 +33,12 @@
   "editSchema": "Schéma…",
   "openFromClipboard": "Ouvrir depuis le presse-papiers",
   "clipboardName": "Presse-papiers",
-  "nothingToOpen": "Rien à ouvrir dans le presse-papiers."
+  "nothingToOpen": "Rien à ouvrir dans le presse-papiers.",
+  "dropHint": "Déposez un fichier pour l’ouvrir",
+  "menuLanguage": "Langue…",
+  "menuTheme": "Thème…",
+  "systemDefault": "Système",
+  "themeLight": "Clair",
+  "themeDark": "Sombre",
+  "moreActions": "Plus"
 }

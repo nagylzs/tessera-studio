@@ -33,5 +33,12 @@
   "editSchema": "Esquema…",
   "openFromClipboard": "Abrir desde el portapapeles",
   "clipboardName": "Portapapeles",
-  "nothingToOpen": "No hay nada que abrir en el portapapeles."
+  "nothingToOpen": "No hay nada que abrir en el portapapeles.",
+  "dropHint": "Suelta un archivo para abrirlo",
+  "menuLanguage": "Idioma…",
+  "menuTheme": "Tema…",
+  "systemDefault": "Sistema",
+  "themeLight": "Claro",
+  "themeDark": "Oscuro",
+  "moreActions": "Más"
 }

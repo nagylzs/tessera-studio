@@ -23,9 +23,11 @@ conventions live in `CLAUDE.md`, not here.
       `FilePicker.saveFile`; a share action on Android.
 - [ ] Charts pane: `ChartData` / `ScatterData` + `fl_chart`, exportable
       as SVG/PDF/PNG.
-- [ ] Entry points beyond the desktop argument and Android intents: a
-      web `?open=<url>` query parameter, drag and drop on desktop,
-      Windows and Linux file associations with packaging (below).
+- [ ] Entry points beyond the desktop argument, Android intents, the
+      clipboard and drag and drop: a web `?open=<url>` query parameter,
+      Windows and Linux file associations with packaging (below), drag
+      and drop on macOS once that target exists (`desktop_drop` has the
+      plugin; enable it in `HomePage.dropSupported`).
 - [ ] Clipboard: files copied as file objects (Explorer, Finder, GNOME
       Files) are not text, so Flutter's `Clipboard` cannot see them;
       `super_clipboard` (all platforms, iOS and macOS included) reads
@@ -35,10 +37,10 @@ conventions live in `CLAUDE.md`, not here.
 
 ## App
 
-- [ ] Language menu (override the system locale; persisted), an About
-      page (version, licence, the "free and ad-free forever" statement,
-      link to the tessera guide).
-- [ ] Settings persistence (theme mode, language, last export format).
+- [ ] About entry in the overflow menu (version, licence, the "free and
+      ad-free forever" statement, link to the tessera guide).
+- [ ] Settings persistence beyond theme and language (last export
+      format…) — `SettingsStore` is the place.
 - [ ] Error page for a file that fails to parse, with the report from
       the import.
 
@@ -62,6 +64,11 @@ conventions live in `CLAUDE.md`, not here.
 
 ## Done
 
+- [x] Overflow menu on every app bar with Language… and Theme… dialogs
+      (system / light / dark; system + the 14 languages by endonym),
+      persisted, system default for both (2026-09-15).
+- [x] Drag and drop a file onto the home screen (Windows, Linux, web)
+      with a highlight while dragging (2026-09-15).
 - [x] "Open from clipboard": a URL, a file path or URL, or tabular text
       (cells from a spreadsheet, CSV text); disabled while the clipboard
       is empty. Formats are also detected from a URL's

@@ -167,5 +167,33 @@
   "nothingToOpen": "Nothing to open in the clipboard.",
   "@nothingToOpen": {
     "description": "Error when the clipboard is empty or holds no URL, path or tabular text."
+  },
+  "dropHint": "Drop a file to open it",
+  "@dropHint": {
+    "description": "Overlay on the home screen while a file is dragged over it."
+  },
+  "menuLanguage": "Language…",
+  "@menuLanguage": {
+    "description": "Overflow menu entry opening the language dialog."
+  },
+  "menuTheme": "Theme…",
+  "@menuTheme": {
+    "description": "Overflow menu entry opening the theme dialog."
+  },
+  "systemDefault": "System",
+  "@systemDefault": {
+    "description": "Radio option: follow the system setting (language or theme)."
+  },
+  "themeLight": "Light",
+  "@themeLight": {
+    "description": "Radio option: light theme."
+  },
+  "themeDark": "Dark",
+  "@themeDark": {
+    "description": "Radio option: dark theme."
+  },
+  "moreActions": "More",
+  "@moreActions": {
+    "description": "Tooltip of the overflow (three dots) menu button."
   }
 }

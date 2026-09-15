@@ -33,5 +33,12 @@
   "editSchema": "Schéma…",
   "openFromClipboard": "Otevřít ze schránky",
   "clipboardName": "Schránka",
-  "nothingToOpen": "Ve schránce není co otevřít."
+  "nothingToOpen": "Ve schránce není co otevřít.",
+  "dropHint": "Přetažením souboru jej otevřete",
+  "menuLanguage": "Jazyk…",
+  "menuTheme": "Motiv…",
+  "systemDefault": "Systém",
+  "themeLight": "Světlý",
+  "themeDark": "Tmavý",
+  "moreActions": "Více"
 }

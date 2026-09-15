@@ -144,7 +144,33 @@ the next step.
   else is `OpenedDocument.detect`ed as text named "Clipboard" — Excel
   copies as TSV; `NothingToOpen` otherwise). The button follows
   `clipboardAvailable`, refreshed by `HomePage` (stateful for its
-  `AppLifecycleListener`) on appearance and on resume.
+  `AppLifecycleListener`) on appearance and on resume. Drag and drop:
+  `HomePage` wraps its body in `desktop_drop`'s `DropTarget` where
+  `dropSupported` (Windows, Linux, web — macOS later, iOS never: the
+  plugin has no iOS side, accepted by the owner as a niche), shows a
+  highlight overlay while dragging, and hands the first non-directory
+  item to `AppState.openDropped` (path → `loadFrom` on desktop; bytes →
+  `OpenedDocument.detect` on the web, where the `XFile` has no path;
+  the IO `XFile.fromData` ignores `name`, only the web one keeps it).
+  `DropTarget.initState` only registers a method-call handler, so it is
+  safe in widget tests; a test that flips `debugDefaultTargetPlatformOverride`
+  must reset it before the test body ends (the framework checks debug
+  variables before tear-downs) and pump a widget with a fresh key (an
+  identical instance is not rebuilt). A real drop cannot be driven with
+  xdotool; verified by tests and by the plugin compiling on Linux and
+  web.
+- Settings (`lib/state/settings.dart`): `AppSettings` with the
+  `themeMode` and `locale` signals (both default to the system; `null`
+  locale lets Flutter resolve, English fallback), backed by a
+  `SettingsStore` (`PreferencesSettingsStore`, keys `settings:*`;
+  `MemorySettingsStore` in tests). `main` awaits `AppSettings.load()`
+  before `runApp` so there is no flash; `app.dart` wraps the
+  `MaterialApp` in a `SignalBuilder` reading both. The UI is the
+  overflow menu `AppMenuButton` (`lib/widgets/app_menu.dart`) at the end
+  of every app bar: Language… and Theme… open radio dialogs (`RadioGroup`,
+  `RadioListTile.groupValue` is deprecated), languages listed by endonym
+  from the const `languageNames`; About and Settings entries go there
+  later. Dialogs rather than submenus: thumbs as well as mice.
 - `lib/state/app_state.dart`: `AppState` with the `document`,
   `opening`, `loading` (`LoadProgress?`) and `loadFailure` signals,
   `openFile()` (picker; returns an `OpenFailure` for the UI to localise

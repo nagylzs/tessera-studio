@@ -12,6 +12,7 @@ import 'package:tessera_studio/files/opened_document.dart';
 import 'package:tessera_studio/pages/schema_page.dart';
 import 'package:tessera_studio/state/app_state.dart';
 import 'package:tessera_studio/state/schema_store.dart';
+import 'package:tessera_studio/state/settings.dart';
 
 import 'fakes.dart';
 
@@ -31,6 +32,7 @@ void _register(String? text) {
     ..registerSingleton<ClipboardReader>(clipboard)
     ..registerSingleton<DocumentLoader>(loader)
     ..registerSingleton<SchemaStore>(MemorySchemaStore())
+    ..registerSingleton<AppSettings>(AppSettings(MemorySettingsStore()))
     ..registerSingleton<AppState>(AppState());
 }
 

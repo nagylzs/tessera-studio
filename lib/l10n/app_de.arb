@@ -33,5 +33,12 @@
   "editSchema": "Schema…",
   "openFromClipboard": "Aus Zwischenablage öffnen",
   "clipboardName": "Zwischenablage",
-  "nothingToOpen": "In der Zwischenablage ist nichts zu öffnen."
+  "nothingToOpen": "In der Zwischenablage ist nichts zu öffnen.",
+  "dropHint": "Datei hier ablegen, um sie zu öffnen",
+  "menuLanguage": "Sprache…",
+  "menuTheme": "Design…",
+  "systemDefault": "System",
+  "themeLight": "Hell",
+  "themeDark": "Dunkel",
+  "moreActions": "Mehr"
 }

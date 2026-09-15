@@ -33,5 +33,12 @@
   "editSchema": "スキーマ…",
   "openFromClipboard": "クリップボードから開く",
   "clipboardName": "クリップボード",
-  "nothingToOpen": "クリップボードに開けるものがありません。"
+  "nothingToOpen": "クリップボードに開けるものがありません。",
+  "dropHint": "ファイルをドロップして開く",
+  "menuLanguage": "言語…",
+  "menuTheme": "テーマ…",
+  "systemDefault": "システム",
+  "themeLight": "ライト",
+  "themeDark": "ダーク",
+  "moreActions": "その他"
 }

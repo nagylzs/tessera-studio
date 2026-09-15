@@ -33,5 +33,12 @@
   "editSchema": "Esquema…",
   "openFromClipboard": "Abrir da área de transferência",
   "clipboardName": "Área de transferência",
-  "nothingToOpen": "Não há nada para abrir na área de transferência."
+  "nothingToOpen": "Não há nada para abrir na área de transferência.",
+  "dropHint": "Solte um arquivo para abri-lo",
+  "menuLanguage": "Idioma…",
+  "menuTheme": "Tema…",
+  "systemDefault": "Sistema",
+  "themeLight": "Claro",
+  "themeDark": "Escuro",
+  "moreActions": "Mais"
 }

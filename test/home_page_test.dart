@@ -16,6 +16,7 @@ import 'package:tessera_studio/pages/schema_page.dart';
 import 'package:tessera_studio/pages/workbench_page.dart';
 import 'package:tessera_studio/state/app_state.dart';
 import 'package:tessera_studio/state/schema_store.dart';
+import 'package:tessera_studio/state/settings.dart';
 import 'package:tessera_studio/widgets/tessera_logo.dart';
 
 import 'fakes.dart';
@@ -35,6 +36,7 @@ void _register(FileOpener opener, [DocumentLoader? loader]) {
     ..registerSingleton<ClipboardReader>(FakeClipboard())
     ..registerSingleton<DocumentLoader>(loader ?? FakeLoader())
     ..registerSingleton<SchemaStore>(MemorySchemaStore())
+    ..registerSingleton<AppSettings>(AppSettings(MemorySettingsStore()))
     ..registerSingleton<AppState>(AppState());
 }
 

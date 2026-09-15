@@ -33,5 +33,12 @@
   "editSchema": "Schema…",
   "openFromClipboard": "Apri dagli appunti",
   "clipboardName": "Appunti",
-  "nothingToOpen": "Negli appunti non c’è nulla da aprire."
+  "nothingToOpen": "Negli appunti non c’è nulla da aprire.",
+  "dropHint": "Rilascia un file per aprirlo",
+  "menuLanguage": "Lingua…",
+  "menuTheme": "Tema…",
+  "systemDefault": "Sistema",
+  "themeLight": "Chiaro",
+  "themeDark": "Scuro",
+  "moreActions": "Altro"
 }

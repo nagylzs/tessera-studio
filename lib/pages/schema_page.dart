@@ -6,6 +6,7 @@ import '../files/opened_document.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../l10n/labels.dart';
 import '../state/app_state.dart';
+import '../widgets/app_menu.dart';
 
 /// Lets the user override the inferred [Schema] before importing:
 /// include or exclude columns, change their type and label, and set the
@@ -77,7 +78,7 @@ class _SchemaPageState extends State<SchemaPage> {
               icon: const Icon(Icons.check),
               label: Text(l10n.continueButton),
             ),
-            const SizedBox(width: 8),
+            const AppMenuButton(),
           ],
         ),
         body: ListView.separated(

@@ -7,6 +7,7 @@ import '../files/opened_document.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../l10n/labels.dart';
 import '../state/app_state.dart';
+import '../widgets/app_menu.dart';
 
 /// Where the pivot will be. For now: the document's name, format and
 /// size, the columns of the accepted schema, and the banner that says a
@@ -41,6 +42,7 @@ class WorkbenchPage extends StatelessWidget {
                 onPressed: state.source.value == null ? null : state.editSchema,
               ),
             ),
+            const AppMenuButton(),
           ],
         ),
         body: SignalBuilder(

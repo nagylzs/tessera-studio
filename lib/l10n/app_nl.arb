@@ -33,5 +33,12 @@
   "editSchema": "Schema…",
   "openFromClipboard": "Openen vanaf klembord",
   "clipboardName": "Klembord",
-  "nothingToOpen": "Er staat niets op het klembord om te openen."
+  "nothingToOpen": "Er staat niets op het klembord om te openen.",
+  "dropHint": "Sleep een bestand hierheen om het te openen",
+  "menuLanguage": "Taal…",
+  "menuTheme": "Thema…",
+  "systemDefault": "Systeem",
+  "themeLight": "Licht",
+  "themeDark": "Donker",
+  "moreActions": "Meer"
 }

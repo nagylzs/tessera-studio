@@ -17,6 +17,7 @@ import 'package:tessera_studio/pages/schema_page.dart';
 import 'package:tessera_studio/pages/workbench_page.dart';
 import 'package:tessera_studio/state/app_state.dart';
 import 'package:tessera_studio/state/schema_store.dart';
+import 'package:tessera_studio/state/settings.dart';
 
 import 'fakes.dart';
 
@@ -42,6 +43,7 @@ void _register(String csv) {
     ..registerSingleton<ClipboardReader>(FakeClipboard())
     ..registerSingleton<DocumentLoader>(const IoDocumentLoader())
     ..registerSingleton<SchemaStore>(store)
+    ..registerSingleton<AppSettings>(AppSettings(MemorySettingsStore()))
     ..registerSingleton<AppState>(AppState());
 }
 

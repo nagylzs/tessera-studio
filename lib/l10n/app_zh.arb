@@ -33,5 +33,12 @@
   "editSchema": "架构…",
   "openFromClipboard": "从剪贴板打开",
   "clipboardName": "剪贴板",
-  "nothingToOpen": "剪贴板中没有可打开的内容。"
+  "nothingToOpen": "剪贴板中没有可打开的内容。",
+  "dropHint": "拖放文件以打开",
+  "menuLanguage": "语言…",
+  "menuTheme": "主题…",
+  "systemDefault": "跟随系统",
+  "themeLight": "浅色",
+  "themeDark": "深色",
+  "moreActions": "更多"
 }
