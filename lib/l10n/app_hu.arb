@@ -1,0 +1,16 @@
+{
+  "@@locale": "hu",
+  "appTitle": "Tessera Studio",
+  "openFile": "Fájl megnyitása…",
+  "closeFile": "Fájl bezárása",
+  "unsupportedFile": "Nem támogatott fájltípus: {name}",
+  "openFailed": "A(z) {name} fájlt nem sikerült megnyitni: {error}",
+  "fileSize": "{count, plural, other{{count} bájt}}",
+  "formatCsv": "CSV-fájl",
+  "formatTsv": "Tabulátorral tagolt fájl",
+  "formatXlsx": "Excel-munkafüzet",
+  "formatOds": "OpenDocument-táblázat",
+  "formatJson": "JSON-fájl",
+  "formatJsonl": "JSON Lines-fájl",
+  "formatSnapshot": "Tessera-pillanatkép"
+}

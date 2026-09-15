@@ -1,0 +1,16 @@
+{
+  "@@locale": "pl",
+  "appTitle": "Tessera Studio",
+  "openFile": "Otwórz plik…",
+  "closeFile": "Zamknij plik",
+  "unsupportedFile": "Nieobsługiwany typ pliku: {name}",
+  "openFailed": "Nie można otworzyć pliku {name}: {error}",
+  "fileSize": "{count, plural, =1{1 bajt} few{{count} bajty} many{{count} bajtów} other{{count} bajtu}}",
+  "formatCsv": "Plik CSV",
+  "formatTsv": "Plik rozdzielany tabulatorami",
+  "formatXlsx": "Skoroszyt programu Excel",
+  "formatOds": "Arkusz kalkulacyjny OpenDocument",
+  "formatJson": "Plik JSON",
+  "formatJsonl": "Plik JSON Lines",
+  "formatSnapshot": "Migawka Tessera"
+}

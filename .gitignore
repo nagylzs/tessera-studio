@@ -50,3 +50,6 @@ app.*.map.json
 # Local path overrides for developing the tessera packages alongside the app
 # (see README); never committed.
 pubspec_overrides.yaml
+
+# Generated localizations (flutter gen-l10n, see l10n.yaml)
+lib/l10n/generated/

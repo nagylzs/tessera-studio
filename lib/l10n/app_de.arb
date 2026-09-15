@@ -1,0 +1,16 @@
+{
+  "@@locale": "de",
+  "appTitle": "Tessera Studio",
+  "openFile": "Datei öffnen…",
+  "closeFile": "Datei schließen",
+  "unsupportedFile": "Nicht unterstützter Dateityp: {name}",
+  "openFailed": "{name} konnte nicht geöffnet werden: {error}",
+  "fileSize": "{count, plural, =1{1 Byte} other{{count} Bytes}}",
+  "formatCsv": "CSV-Datei",
+  "formatTsv": "Tabulatorgetrennte Datei",
+  "formatXlsx": "Excel-Arbeitsmappe",
+  "formatOds": "OpenDocument-Tabelle",
+  "formatJson": "JSON-Datei",
+  "formatJsonl": "JSON-Lines-Datei",
+  "formatSnapshot": "Tessera-Snapshot"
+}

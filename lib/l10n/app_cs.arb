@@ -1,0 +1,16 @@
+{
+  "@@locale": "cs",
+  "appTitle": "Tessera Studio",
+  "openFile": "Otevřít soubor…",
+  "closeFile": "Zavřít soubor",
+  "unsupportedFile": "Nepodporovaný typ souboru: {name}",
+  "openFailed": "Soubor {name} se nepodařilo otevřít: {error}",
+  "fileSize": "{count, plural, =1{1 bajt} few{{count} bajty} other{{count} bajtů}}",
+  "formatCsv": "Soubor CSV",
+  "formatTsv": "Soubor oddělený tabulátory",
+  "formatXlsx": "Sešit Excelu",
+  "formatOds": "Tabulka OpenDocument",
+  "formatJson": "Soubor JSON",
+  "formatJsonl": "Soubor JSON Lines",
+  "formatSnapshot": "Snímek Tessera"
+}

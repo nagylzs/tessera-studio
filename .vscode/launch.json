@@ -1,0 +1,39 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "linux debug",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "linux",
+            "flutterMode": "debug"
+        },
+        {
+            "name": "linux profile",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "linux",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "linux release",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "linux",
+            "flutterMode": "release"
+        },
+        {
+            "name": "Chrome (Scaled)",
+            "program": "lib/main.dart",
+            "deviceId": "chrome",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--web-browser-flag=--force-device-scale-factor=1.5"
+            ]
+        }        
+    ]
+}

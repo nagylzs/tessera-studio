@@ -1,0 +1,16 @@
+{
+  "@@locale": "tr",
+  "appTitle": "Tessera Studio",
+  "openFile": "Dosya aç…",
+  "closeFile": "Dosyayı kapat",
+  "unsupportedFile": "Desteklenmeyen dosya türü: {name}",
+  "openFailed": "{name} açılamadı: {error}",
+  "fileSize": "{count, plural, other{{count} bayt}}",
+  "formatCsv": "CSV dosyası",
+  "formatTsv": "Sekmeyle ayrılmış dosya",
+  "formatXlsx": "Excel çalışma kitabı",
+  "formatOds": "OpenDocument hesap tablosu",
+  "formatJson": "JSON dosyası",
+  "formatJsonl": "JSON Lines dosyası",
+  "formatSnapshot": "Tessera anlık görüntüsü"
+}

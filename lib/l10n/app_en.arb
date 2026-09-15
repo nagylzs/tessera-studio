@@ -1,0 +1,75 @@
+{
+  "@@locale": "en",
+  "appTitle": "Tessera Studio",
+  "@appTitle": {
+    "description": "Application name, not translated."
+  },
+  "openFile": "Open file…",
+  "@openFile": {
+    "description": "Primary button on the home screen."
+  },
+  "closeFile": "Close file",
+  "@closeFile": {
+    "description": "Tooltip of the close button in the workbench."
+  },
+  "unsupportedFile": "Unsupported file type: {name}",
+  "@unsupportedFile": {
+    "description": "Error shown when the picked file has an unknown extension.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "report.docx"
+      }
+    }
+  },
+  "openFailed": "Could not open {name}: {error}",
+  "@openFailed": {
+    "description": "Error shown when reading the picked file fails.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "fileSize": "{count, plural, =1{1 byte} other{{count} bytes}}",
+  "@fileSize": {
+    "description": "Size of the opened file in bytes.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "formatCsv": "CSV file",
+  "@formatCsv": {
+    "description": "Detected file format."
+  },
+  "formatTsv": "Tab-separated file",
+  "@formatTsv": {
+    "description": "Detected file format."
+  },
+  "formatXlsx": "Excel workbook",
+  "@formatXlsx": {
+    "description": "Detected file format."
+  },
+  "formatOds": "OpenDocument spreadsheet",
+  "@formatOds": {
+    "description": "Detected file format."
+  },
+  "formatJson": "JSON file",
+  "@formatJson": {
+    "description": "Detected file format."
+  },
+  "formatJsonl": "JSON Lines file",
+  "@formatJsonl": {
+    "description": "Detected file format."
+  },
+  "formatSnapshot": "Tessera snapshot",
+  "@formatSnapshot": {
+    "description": "Detected file format (.tsnp)."
+  }
+}

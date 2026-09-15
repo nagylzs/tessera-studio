@@ -1,0 +1,16 @@
+{
+  "@@locale": "ja",
+  "appTitle": "Tessera Studio",
+  "openFile": "ファイルを開く…",
+  "closeFile": "ファイルを閉じる",
+  "unsupportedFile": "サポートされていないファイル形式: {name}",
+  "openFailed": "{name} を開けませんでした: {error}",
+  "fileSize": "{count, plural, other{{count} バイト}}",
+  "formatCsv": "CSVファイル",
+  "formatTsv": "タブ区切りファイル",
+  "formatXlsx": "Excelブック",
+  "formatOds": "OpenDocumentスプレッドシート",
+  "formatJson": "JSONファイル",
+  "formatJsonl": "JSON Linesファイル",
+  "formatSnapshot": "Tesseraスナップショット"
+}

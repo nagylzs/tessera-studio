@@ -1,0 +1,16 @@
+{
+  "@@locale": "nl",
+  "appTitle": "Tessera Studio",
+  "openFile": "Bestand openen…",
+  "closeFile": "Bestand sluiten",
+  "unsupportedFile": "Niet-ondersteund bestandstype: {name}",
+  "openFailed": "Kan {name} niet openen: {error}",
+  "fileSize": "{count, plural, =1{1 byte} other{{count} bytes}}",
+  "formatCsv": "CSV-bestand",
+  "formatTsv": "Tab-gescheiden bestand",
+  "formatXlsx": "Excel-werkmap",
+  "formatOds": "OpenDocument-werkblad",
+  "formatJson": "JSON-bestand",
+  "formatJsonl": "JSON Lines-bestand",
+  "formatSnapshot": "Tessera-snapshot"
+}

@@ -1,0 +1,16 @@
+{
+  "@@locale": "zh",
+  "appTitle": "Tessera Studio",
+  "openFile": "打开文件…",
+  "closeFile": "关闭文件",
+  "unsupportedFile": "不支持的文件类型：{name}",
+  "openFailed": "无法打开 {name}：{error}",
+  "fileSize": "{count, plural, other{{count} 字节}}",
+  "formatCsv": "CSV 文件",
+  "formatTsv": "制表符分隔文件",
+  "formatXlsx": "Excel 工作簿",
+  "formatOds": "OpenDocument 电子表格",
+  "formatJson": "JSON 文件",
+  "formatJsonl": "JSON Lines 文件",
+  "formatSnapshot": "Tessera 快照"
+}
