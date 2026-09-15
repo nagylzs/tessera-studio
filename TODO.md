@@ -7,12 +7,6 @@ conventions live in `CLAUDE.md`, not here.
 
 ## Viewer flow
 
-- [ ] Schema page: infer the schema of `OpenedDocument.dataSource`
-      (sample rows for the raw-value column), the column editor as in
-      the example's `SchemaPage` (include/exclude, type, label, date
-      format, number syntax), "Continue" into the workbench. Snapshots
-      (`OpenedDocument.snapshot`) skip inference and import and go
-      straight to the workbench with their saved config.
 - [ ] Workbench: `loadFactsInIsolate` with the sample app's progress
       block, axis and aggregate editors, filter editor, `CubeView`,
       current-cell info line, "Schema…" back to the schema page with a
@@ -21,6 +15,9 @@ conventions live in `CLAUDE.md`, not here.
       file through the file picker) and "Save snapshot…". The same two
       items sit in `../tessera/TODO.md` for the example app; whichever
       lands first, keep the example minimal.
+- [ ] Remember the pivot layout per structure next to the schema
+      (`SchemaStore` → a per-structure settings store), so a known file
+      opens on last time's pivot; the banner then says so too.
 - [ ] Export menu: every format (`ExportFormat`-style enum, with
       `CubeExportTheme` chosen by the app's theme), through
       `FilePicker.saveFile`; a share action on Android.
@@ -59,6 +56,9 @@ conventions live in `CLAUDE.md`, not here.
 
 ## Done
 
+- [x] Schema page with the column editor, and schema edits remembered
+      per source structure (`Schema.structureKey` in tessera) and
+      restored automatically with a banner (2026-09-15).
 - [x] Home screen with the logo and the "Open file…" picker (2026-09-15).
 - [x] Command-line argument (path or URL) with progress (2026-09-15).
 - [x] Android "Open with…" and share sheet through a hand-written

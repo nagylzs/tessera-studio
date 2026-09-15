@@ -7,6 +7,7 @@ import 'package:tessera_flutter/tessera_flutter.dart';
 import 'l10n/generated/app_localizations.dart';
 import 'pages/home_page.dart';
 import 'pages/schema_page.dart';
+import 'pages/workbench_page.dart';
 import 'state/app_state.dart';
 
 /// The tessera green, also the seed of both colour schemes.
@@ -36,9 +37,12 @@ class TesseraStudioApp extends StatelessWidget {
       home: SignalBuilder(
         builder: (context) {
           final document = state.document.value;
-          return document == null
-              ? const HomePage()
-              : SchemaPage(document: document);
+          if (document == null) return const HomePage();
+          return switch (state.page.value) {
+            AppPage.home => const HomePage(),
+            AppPage.schema => SchemaPage(document: document),
+            AppPage.workbench => WorkbenchPage(document: document),
+          };
         },
       ),
     );

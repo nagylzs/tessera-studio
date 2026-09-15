@@ -13,5 +13,22 @@
   "formatJson": "JSON dosyası",
   "formatJsonl": "JSON Lines dosyası",
   "formatSnapshot": "Tessera anlık görüntüsü",
-  "loadingFile": "{name} yükleniyor…"
+  "loadingFile": "{name} yükleniyor…",
+  "schemaTitle": "Şema",
+  "resetToInferred": "Çıkarılana sıfırla",
+  "continueButton": "Devam",
+  "includeColumn": "Sütunu dahil et",
+  "typeLabel": "Tür",
+  "labelLabel": "Etiket",
+  "dateFormatLabel": "Tarih biçimi",
+  "dateFormatHint": "örn. yyyy-MM-dd",
+  "numberSyntaxLabel": "Sayı biçimi",
+  "columnTypeText": "Metin",
+  "columnTypeInteger": "Tam sayı",
+  "columnTypeNumber": "Sayı",
+  "columnTypeBoolean": "Mantıksal",
+  "columnTypeDate": "Tarih",
+  "columnTypeDateTime": "Tarih ve saat",
+  "schemaRestored": "{date} tarihinde kaydettiğiniz şema geri yüklendi.",
+  "editSchema": "Şema…"
 }

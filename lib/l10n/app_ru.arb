@@ -13,5 +13,22 @@
   "formatJson": "Файл JSON",
   "formatJsonl": "Файл JSON Lines",
   "formatSnapshot": "Снимок Tessera",
-  "loadingFile": "Загрузка {name}…"
+  "loadingFile": "Загрузка {name}…",
+  "schemaTitle": "Схема",
+  "resetToInferred": "Вернуть распознанную",
+  "continueButton": "Продолжить",
+  "includeColumn": "Включить столбец",
+  "typeLabel": "Тип",
+  "labelLabel": "Подпись",
+  "dateFormatLabel": "Формат даты",
+  "dateFormatHint": "напр. yyyy-MM-dd",
+  "numberSyntaxLabel": "Формат чисел",
+  "columnTypeText": "Текст",
+  "columnTypeInteger": "Целое число",
+  "columnTypeNumber": "Число",
+  "columnTypeBoolean": "Логический",
+  "columnTypeDate": "Дата",
+  "columnTypeDateTime": "Дата и время",
+  "schemaRestored": "Схема восстановлена из сохранённой {date}.",
+  "editSchema": "Схема…"
 }

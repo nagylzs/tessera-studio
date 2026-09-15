@@ -13,5 +13,22 @@
   "formatJson": "Soubor JSON",
   "formatJsonl": "Soubor JSON Lines",
   "formatSnapshot": "Snímek Tessera",
-  "loadingFile": "Načítání {name}…"
+  "loadingFile": "Načítání {name}…",
+  "schemaTitle": "Schéma",
+  "resetToInferred": "Obnovit odvozené",
+  "continueButton": "Pokračovat",
+  "includeColumn": "Zahrnout sloupec",
+  "typeLabel": "Typ",
+  "labelLabel": "Popisek",
+  "dateFormatLabel": "Formát data",
+  "dateFormatHint": "např. yyyy-MM-dd",
+  "numberSyntaxLabel": "Zápis čísel",
+  "columnTypeText": "Text",
+  "columnTypeInteger": "Celé číslo",
+  "columnTypeNumber": "Číslo",
+  "columnTypeBoolean": "Logická hodnota",
+  "columnTypeDate": "Datum",
+  "columnTypeDateTime": "Datum a čas",
+  "schemaRestored": "Schéma obnoveno z toho, které jste uložili {date}.",
+  "editSchema": "Schéma…"
 }

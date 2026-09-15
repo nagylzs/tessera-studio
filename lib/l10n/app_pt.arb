@@ -13,5 +13,22 @@
   "formatJson": "Arquivo JSON",
   "formatJsonl": "Arquivo JSON Lines",
   "formatSnapshot": "Instantâneo Tessera",
-  "loadingFile": "Carregando {name}…"
+  "loadingFile": "Carregando {name}…",
+  "schemaTitle": "Esquema",
+  "resetToInferred": "Restaurar o inferido",
+  "continueButton": "Continuar",
+  "includeColumn": "Incluir coluna",
+  "typeLabel": "Tipo",
+  "labelLabel": "Rótulo",
+  "dateFormatLabel": "Formato de data",
+  "dateFormatHint": "ex.: yyyy-MM-dd",
+  "numberSyntaxLabel": "Sintaxe numérica",
+  "columnTypeText": "Texto",
+  "columnTypeInteger": "Inteiro",
+  "columnTypeNumber": "Número",
+  "columnTypeBoolean": "Booleano",
+  "columnTypeDate": "Data",
+  "columnTypeDateTime": "Data e hora",
+  "schemaRestored": "Esquema restaurado a partir do que você salvou em {date}.",
+  "editSchema": "Esquema…"
 }

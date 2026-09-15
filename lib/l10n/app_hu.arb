@@ -13,5 +13,22 @@
   "formatJson": "JSON-fájl",
   "formatJsonl": "JSON Lines-fájl",
   "formatSnapshot": "Tessera-pillanatkép",
-  "loadingFile": "{name} betöltése…"
+  "loadingFile": "{name} betöltése…",
+  "schemaTitle": "Séma",
+  "resetToInferred": "Visszaállítás a felismertre",
+  "continueButton": "Folytatás",
+  "includeColumn": "Oszlop bevétele",
+  "typeLabel": "Típus",
+  "labelLabel": "Címke",
+  "dateFormatLabel": "Dátumformátum",
+  "dateFormatHint": "pl. yyyy-MM-dd",
+  "numberSyntaxLabel": "Számformátum",
+  "columnTypeText": "Szöveg",
+  "columnTypeInteger": "Egész szám",
+  "columnTypeNumber": "Szám",
+  "columnTypeBoolean": "Logikai",
+  "columnTypeDate": "Dátum",
+  "columnTypeDateTime": "Dátum és idő",
+  "schemaRestored": "A séma visszaállítva a(z) {date} napon mentettből.",
+  "editSchema": "Séma…"
 }

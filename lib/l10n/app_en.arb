@@ -81,5 +81,79 @@
         "example": "sales.csv"
       }
     }
+  },
+  "schemaTitle": "Schema",
+  "@schemaTitle": {
+    "description": "Title of the schema page."
+  },
+  "resetToInferred": "Reset to inferred",
+  "@resetToInferred": {
+    "description": "Button: discard edits, back to the inferred schema."
+  },
+  "continueButton": "Continue",
+  "@continueButton": {
+    "description": "Button: accept the schema and go on to the workbench."
+  },
+  "includeColumn": "Include column",
+  "@includeColumn": {
+    "description": "Tooltip of the per-column include switch."
+  },
+  "typeLabel": "Type",
+  "@typeLabel": {
+    "description": "Field label: column type."
+  },
+  "labelLabel": "Label",
+  "@labelLabel": {
+    "description": "Field label: display label of a column."
+  },
+  "dateFormatLabel": "Date format",
+  "@dateFormatLabel": {
+    "description": "Field label: date pattern used to parse text."
+  },
+  "dateFormatHint": "e.g. yyyy-MM-dd",
+  "@dateFormatHint": {
+    "description": "Hint in the date format field; the pattern letters stay as they are."
+  },
+  "numberSyntaxLabel": "Number syntax",
+  "@numberSyntaxLabel": {
+    "description": "Field label: decimal/thousands separators."
+  },
+  "columnTypeText": "Text",
+  "@columnTypeText": {
+    "description": "Column type."
+  },
+  "columnTypeInteger": "Integer",
+  "@columnTypeInteger": {
+    "description": "Column type."
+  },
+  "columnTypeNumber": "Number",
+  "@columnTypeNumber": {
+    "description": "Column type."
+  },
+  "columnTypeBoolean": "Boolean",
+  "@columnTypeBoolean": {
+    "description": "Column type."
+  },
+  "columnTypeDate": "Date",
+  "@columnTypeDate": {
+    "description": "Column type."
+  },
+  "columnTypeDateTime": "Date and time",
+  "@columnTypeDateTime": {
+    "description": "Column type."
+  },
+  "schemaRestored": "Schema restored from the one you saved on {date}.",
+  "@schemaRestored": {
+    "description": "Banner shown when a schema saved for files of the same structure was applied automatically.",
+    "placeholders": {
+      "date": {
+        "type": "DateTime",
+        "format": "yMd"
+      }
+    }
+  },
+  "editSchema": "Schema…",
+  "@editSchema": {
+    "description": "Tooltip of the workbench button that opens the schema page."
   }
 }

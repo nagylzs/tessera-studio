@@ -13,5 +13,22 @@
   "formatJson": "Fichier JSON",
   "formatJsonl": "Fichier JSON Lines",
   "formatSnapshot": "Instantané Tessera",
-  "loadingFile": "Chargement de {name}…"
+  "loadingFile": "Chargement de {name}…",
+  "schemaTitle": "Schéma",
+  "resetToInferred": "Rétablir le schéma déduit",
+  "continueButton": "Continuer",
+  "includeColumn": "Inclure la colonne",
+  "typeLabel": "Type",
+  "labelLabel": "Libellé",
+  "dateFormatLabel": "Format de date",
+  "dateFormatHint": "p. ex. yyyy-MM-dd",
+  "numberSyntaxLabel": "Syntaxe des nombres",
+  "columnTypeText": "Texte",
+  "columnTypeInteger": "Entier",
+  "columnTypeNumber": "Nombre",
+  "columnTypeBoolean": "Booléen",
+  "columnTypeDate": "Date",
+  "columnTypeDateTime": "Date et heure",
+  "schemaRestored": "Schéma restauré à partir de celui enregistré le {date}.",
+  "editSchema": "Schéma…"
 }

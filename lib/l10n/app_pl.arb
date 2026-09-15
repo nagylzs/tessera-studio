@@ -13,5 +13,22 @@
   "formatJson": "Plik JSON",
   "formatJsonl": "Plik JSON Lines",
   "formatSnapshot": "Migawka Tessera",
-  "loadingFile": "Wczytywanie {name}…"
+  "loadingFile": "Wczytywanie {name}…",
+  "schemaTitle": "Schemat",
+  "resetToInferred": "Przywróć wykryty",
+  "continueButton": "Dalej",
+  "includeColumn": "Uwzględnij kolumnę",
+  "typeLabel": "Typ",
+  "labelLabel": "Etykieta",
+  "dateFormatLabel": "Format daty",
+  "dateFormatHint": "np. yyyy-MM-dd",
+  "numberSyntaxLabel": "Zapis liczb",
+  "columnTypeText": "Tekst",
+  "columnTypeInteger": "Liczba całkowita",
+  "columnTypeNumber": "Liczba",
+  "columnTypeBoolean": "Wartość logiczna",
+  "columnTypeDate": "Data",
+  "columnTypeDateTime": "Data i czas",
+  "schemaRestored": "Przywrócono schemat zapisany {date}.",
+  "editSchema": "Schemat…"
 }

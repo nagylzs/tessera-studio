@@ -13,7 +13,9 @@ import 'package:tessera_studio/files/open_requests.dart';
 import 'package:tessera_studio/files/opened_document.dart';
 import 'package:tessera_studio/l10n/generated/app_localizations.dart';
 import 'package:tessera_studio/pages/schema_page.dart';
+import 'package:tessera_studio/pages/workbench_page.dart';
 import 'package:tessera_studio/state/app_state.dart';
+import 'package:tessera_studio/state/schema_store.dart';
 import 'package:tessera_studio/widgets/tessera_logo.dart';
 
 final class _FakeOpener implements FileOpener {
@@ -26,7 +28,9 @@ final class _FakeOpener implements FileOpener {
 }
 
 final class _FakeLoader implements DocumentLoader {
-  final completer = Completer<OpenedDocument>();
+  /// Created lazily, on the first [load] — inside `runAsync`, so that
+  /// completing it wakes real-async code and not the fake clock.
+  late final completer = Completer<OpenedDocument>();
   LoadProgressCallback? onProgress;
 
   @override
@@ -50,6 +54,7 @@ void _register(FileOpener opener, [DocumentLoader? loader]) {
   GetIt.I
     ..registerSingleton<FileOpener>(opener)
     ..registerSingleton<DocumentLoader>(loader ?? _FakeLoader())
+    ..registerSingleton<SchemaStore>(MemorySchemaStore())
     ..registerSingleton<AppState>(AppState());
 }
 
@@ -72,9 +77,23 @@ void main() {
   testWidgets('opening a file shows it in the workbench', (tester) async {
     _register(_FakeOpener(() async => _salesCsv()));
     await tester.pumpWidget(const TesseraStudioApp());
-    await tester.tap(find.byType(FilledButton));
+    // Inference streams do not complete on the fake clock: real async.
+    final state = GetIt.I<AppState>();
+    await tester.runAsync(() async {
+      await tester.tap(find.byType(FilledButton));
+      for (var i = 0; i < 200 && state.opening.value; i++) {
+        await Future<void>.delayed(const Duration(milliseconds: 10));
+        await tester.pump();
+      }
+    });
     await tester.pumpAndSettle();
+    expect(find.byType(SchemaPage), findsOneWidget);
     expect(find.text('sales.csv'), findsOneWidget);
+    expect(find.byKey(const ValueKey('label-a')), findsOneWidget);
+
+    await tester.tap(find.widgetWithText(FilledButton, 'Continue'));
+    await tester.pumpAndSettle();
+    expect(find.byType(WorkbenchPage), findsOneWidget);
     expect(find.text('CSV file'), findsOneWidget);
     expect(find.text('8 bytes'), findsOneWidget);
 
@@ -98,20 +117,24 @@ void main() {
   ) async {
     final loader = _FakeLoader();
     _register(_FakeOpener(() async => null), loader);
-    final loading = GetIt.I<AppState>().loadFrom('/data/sales.csv');
-    await tester.pumpWidget(const TesseraStudioApp());
-    expect(find.byType(FilledButton), findsNothing);
-    expect(find.byType(LinearProgressIndicator), findsOneWidget);
-    expect(find.text('Loading sales.csv…'), findsOneWidget);
+    // Started under runAsync: the inference after the load needs real
+    // async (tessera's source streams do not complete on the fake clock).
+    await tester.runAsync(() async {
+      final loading = GetIt.I<AppState>().loadFrom('/data/sales.csv');
+      await tester.pumpWidget(const TesseraStudioApp());
+      expect(find.byType(FilledButton), findsNothing);
+      expect(find.byType(LinearProgressIndicator), findsOneWidget);
+      expect(find.text('Loading sales.csv…'), findsOneWidget);
 
-    loader.onProgress!(
-      const LoadProgress(name: 'sales.csv', bytesRead: 3, totalBytes: 4),
-    );
-    await tester.pump();
-    expect(find.text('Loading sales.csv… 75%'), findsOneWidget);
+      loader.onProgress!(
+        const LoadProgress(name: 'sales.csv', bytesRead: 3, totalBytes: 4),
+      );
+      await tester.pump();
+      expect(find.text('Loading sales.csv… 75%'), findsOneWidget);
 
-    loader.completer.complete(_salesCsv());
-    await loading;
+      loader.completer.complete(_salesCsv());
+      await loading;
+    });
     await tester.pumpAndSettle();
     expect(find.byType(SchemaPage), findsOneWidget);
     expect(find.text('sales.csv'), findsOneWidget);
@@ -136,14 +159,20 @@ void main() {
     final loader = _FakeLoader();
     _register(_FakeOpener(() async => null), loader);
     final state = GetIt.I<AppState>();
-    state.handleOpenRequest(const OpenStarted('sales.csv'));
-    await tester.pumpWidget(const TesseraStudioApp());
-    expect(find.text('Loading sales.csv…'), findsOneWidget);
+    await tester.runAsync(() async {
+      state.handleOpenRequest(const OpenStarted('sales.csv'));
+      await tester.pumpWidget(const TesseraStudioApp());
+      expect(find.text('Loading sales.csv…'), findsOneWidget);
 
-    state.handleOpenRequest(const OpenReady('sales.csv', '/cache/open/1_x'));
-    await tester.pump();
-    expect(loader.loadedName, 'sales.csv');
-    loader.completer.complete(_salesCsv());
+      state.handleOpenRequest(const OpenReady('sales.csv', '/cache/open/1_x'));
+      await tester.pump();
+      expect(loader.loadedName, 'sales.csv');
+      loader.completer.complete(_salesCsv());
+      for (var i = 0; i < 200 && state.loading.value != null; i++) {
+        await Future<void>.delayed(const Duration(milliseconds: 10));
+        await tester.pump();
+      }
+    });
     await tester.pumpAndSettle();
     expect(find.byType(SchemaPage), findsOneWidget);
   });

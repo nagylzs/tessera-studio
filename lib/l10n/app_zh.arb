@@ -13,5 +13,22 @@
   "formatJson": "JSON 文件",
   "formatJsonl": "JSON Lines 文件",
   "formatSnapshot": "Tessera 快照",
-  "loadingFile": "正在加载 {name}…"
+  "loadingFile": "正在加载 {name}…",
+  "schemaTitle": "架构",
+  "resetToInferred": "恢复为推断结果",
+  "continueButton": "继续",
+  "includeColumn": "包含此列",
+  "typeLabel": "类型",
+  "labelLabel": "标签",
+  "dateFormatLabel": "日期格式",
+  "dateFormatHint": "例如 yyyy-MM-dd",
+  "numberSyntaxLabel": "数字格式",
+  "columnTypeText": "文本",
+  "columnTypeInteger": "整数",
+  "columnTypeNumber": "数值",
+  "columnTypeBoolean": "布尔值",
+  "columnTypeDate": "日期",
+  "columnTypeDateTime": "日期和时间",
+  "schemaRestored": "已恢复您在 {date} 保存的架构。",
+  "editSchema": "架构…"
 }

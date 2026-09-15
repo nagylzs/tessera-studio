@@ -13,5 +13,22 @@
   "formatJson": "JSON-bestand",
   "formatJsonl": "JSON Lines-bestand",
   "formatSnapshot": "Tessera-snapshot",
-  "loadingFile": "{name} laden…"
+  "loadingFile": "{name} laden…",
+  "schemaTitle": "Schema",
+  "resetToInferred": "Terug naar afgeleid",
+  "continueButton": "Doorgaan",
+  "includeColumn": "Kolom opnemen",
+  "typeLabel": "Type",
+  "labelLabel": "Label",
+  "dateFormatLabel": "Datumnotatie",
+  "dateFormatHint": "bijv. yyyy-MM-dd",
+  "numberSyntaxLabel": "Getalnotatie",
+  "columnTypeText": "Tekst",
+  "columnTypeInteger": "Geheel getal",
+  "columnTypeNumber": "Getal",
+  "columnTypeBoolean": "Booleaans",
+  "columnTypeDate": "Datum",
+  "columnTypeDateTime": "Datum en tijd",
+  "schemaRestored": "Schema hersteld van het schema dat u op {date} hebt opgeslagen.",
+  "editSchema": "Schema…"
 }

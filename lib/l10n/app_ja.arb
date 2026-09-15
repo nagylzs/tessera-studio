@@ -13,5 +13,22 @@
   "formatJson": "JSONファイル",
   "formatJsonl": "JSON Linesファイル",
   "formatSnapshot": "Tesseraスナップショット",
-  "loadingFile": "{name} を読み込んでいます…"
+  "loadingFile": "{name} を読み込んでいます…",
+  "schemaTitle": "スキーマ",
+  "resetToInferred": "推定結果に戻す",
+  "continueButton": "続行",
+  "includeColumn": "列を含める",
+  "typeLabel": "型",
+  "labelLabel": "ラベル",
+  "dateFormatLabel": "日付形式",
+  "dateFormatHint": "例: yyyy-MM-dd",
+  "numberSyntaxLabel": "数値の書式",
+  "columnTypeText": "テキスト",
+  "columnTypeInteger": "整数",
+  "columnTypeNumber": "数値",
+  "columnTypeBoolean": "真偽値",
+  "columnTypeDate": "日付",
+  "columnTypeDateTime": "日時",
+  "schemaRestored": "{date} に保存したスキーマを復元しました。",
+  "editSchema": "スキーマ…"
 }

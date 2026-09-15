@@ -13,5 +13,22 @@
   "formatJson": "JSON-Datei",
   "formatJsonl": "JSON-Lines-Datei",
   "formatSnapshot": "Tessera-Snapshot",
-  "loadingFile": "{name} wird geladen…"
+  "loadingFile": "{name} wird geladen…",
+  "schemaTitle": "Schema",
+  "resetToInferred": "Auf Erkanntes zurücksetzen",
+  "continueButton": "Weiter",
+  "includeColumn": "Spalte einbeziehen",
+  "typeLabel": "Typ",
+  "labelLabel": "Beschriftung",
+  "dateFormatLabel": "Datumsformat",
+  "dateFormatHint": "z. B. yyyy-MM-dd",
+  "numberSyntaxLabel": "Zahlenformat",
+  "columnTypeText": "Text",
+  "columnTypeInteger": "Ganzzahl",
+  "columnTypeNumber": "Zahl",
+  "columnTypeBoolean": "Wahrheitswert",
+  "columnTypeDate": "Datum",
+  "columnTypeDateTime": "Datum und Uhrzeit",
+  "schemaRestored": "Schema aus dem am {date} gespeicherten wiederhergestellt.",
+  "editSchema": "Schema…"
 }
