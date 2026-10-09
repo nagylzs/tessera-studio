@@ -74,20 +74,27 @@ void main() {
     expect(state.document.value!.delimiter, ';');
   });
 
-  testWidgets('the drop target exists on Linux and not on Android', (
+  testWidgets('the drop target exists on the desktops, not on phones', (
     tester,
   ) async {
     _register();
-    // Fresh keys: an identical widget instance would not be rebuilt.
-    debugDefaultTargetPlatformOverride = TargetPlatform.android;
-    await tester.pumpWidget(TesseraStudioApp(key: UniqueKey()));
-    await tester.pump();
-    expect(find.byType(DropTarget), findsNothing);
-
-    debugDefaultTargetPlatformOverride = TargetPlatform.linux;
-    await tester.pumpWidget(TesseraStudioApp(key: UniqueKey()));
-    await tester.pump();
-    expect(find.byType(DropTarget), findsOneWidget);
+    for (final (platform, target) in [
+      (TargetPlatform.android, false),
+      (TargetPlatform.iOS, false),
+      (TargetPlatform.linux, true),
+      (TargetPlatform.windows, true),
+      (TargetPlatform.macOS, true),
+    ]) {
+      debugDefaultTargetPlatformOverride = platform;
+      // Fresh keys: an identical widget instance would not be rebuilt.
+      await tester.pumpWidget(TesseraStudioApp(key: UniqueKey()));
+      await tester.pump();
+      expect(
+        find.byType(DropTarget),
+        target ? findsOneWidget : findsNothing,
+        reason: '$platform',
+      );
+    }
     // The framework checks debug variables before tear-downs run.
     debugDefaultTargetPlatformOverride = null;
   });

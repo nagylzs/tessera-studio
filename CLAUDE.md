@@ -3,12 +3,14 @@
 The end-user application built on the tessera packages: open a CSV,
 Excel, ODS or JSON file, pivot it with expandable row and column
 hierarchies, filter, calculate, chart, export. Owner: László Zsolt Nagy
-(nagylzs@gmail.com). MIT. Targets: Android (Google Play), web, Windows
-and Linux binaries. No iOS/macOS folders on purpose (cannot build them
-here), but they may be added later with `flutter create --platforms
-ios,macos .` — so **ask the owner before adding a dependency that does
-not support iOS and macOS**, even though those platforms are not built
-yet.
+(nagylzs@gmail.com). MIT. Targets: Android (Google Play), iOS and
+macOS (App Store), Windows, Linux and the web; the first release goes
+out on all of them at once, once the owner has a Mac. `ios/` and
+`macos/` exist since 2026-10-09 (made by `flutter create` in a scratch
+project and copied in) and are built by CI on GitHub's macOS runners,
+unsigned; nothing has run on an Apple device yet. **Ask the owner
+before adding a dependency that does not support every one of these
+platforms.**
 
 Unlike the library, this app is **opinionated and may take many
 dependencies**. The rule for where code goes: if a second app could
@@ -339,7 +341,15 @@ the next step.
   manifest/`index.html`, `linux/runner/my_application.cc` (window and
   header-bar title), `windows/runner/main.cpp` and `Runner.rc`
   (product name, company, copyright). Application id
-  `eu.nagylzs.tessera_studio`. Keep the four spellings consistent:
+  `eu.nagylzs.tessera_studio`; iOS and macOS `eu.nagylzs.tesseraStudio`
+  (Apple bundle ids allow no underscore; Flutter's default — the owner
+  confirms it before registering it with Apple), their `CFBundleName`
+  / `CFBundleDisplayName` "Tessera Studio", the macOS copyright in
+  `macos/Runner/Configs/AppInfo.xcconfig`, the sandbox entitlements
+  `files.user-selected.read-write` (picker, save dialog, drops) and
+  `network.client` (URLs) in both `.entitlements`. Icons: the
+  `flutter_launcher_icons` config covers iOS (no alpha: the paper
+  colour behind) and macOS too. Keep the four spellings consistent:
   repo `tessera-studio`, package `tessera_studio`, id as above,
   display name "Tessera Studio". There are unrelated "Tessera" apps on
   Google Play (RSS reader, prayer app, games); the "Studio" suffix and
@@ -355,7 +365,17 @@ flutter test
 flutter run -d linux           # or -d chrome / -d windows / an Android device
 dart run flutter_launcher_icons   # after re-rasterizing assets/icon
 flutter build linux --release / windows --release / web --release / appbundle
+gh run list -L 3 / gh run watch <id> --exit-status   # CI, see below
 ```
+
+CI (`.github/workflows/ci.yml`): on every push, analyze + format check
++ tests on Ubuntu, and release builds of Android (split APKs and the
+bundle, debug-signed), web, Linux, Windows (`windows-latest`), macOS
+and iOS (`macos-latest`, `--no-codesign`) — proof that each platform
+compiles. The builds are kept as downloads (14 days) only for `v*`
+tags and manual runs ("Run workflow"). Signing comes later through CI
+secrets, never through the repository. Iterate on CI from a short-lived
+branch, not on `main`.
 
 Screenshots, driving the app with synthetic input, and any test that
 needs a display: always use the virtual display recipe from

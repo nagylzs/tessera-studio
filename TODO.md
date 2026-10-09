@@ -80,9 +80,9 @@ conventions live in `CLAUDE.md`, not here.
 
 ## Packaging and release
 
-- [ ] CI: GitHub Actions building web, Linux and Windows binaries and an
-      Android app bundle per tag; Play upload manual at first. Signing
-      keys and store credentials as CI secrets only.
+- [ ] Release signing in CI: the Android upload key, Apple
+      certificates and profiles, Windows code signing — as CI secrets
+      only; Play and App Store uploads manual at first.
 - [ ] Linux: `.desktop` file, icon, MIME types (`text/csv`, XLSX, ODS,
       JSON, `application/vnd.tessera.snapshot`); Windows: file
       associations in the installer.
@@ -92,13 +92,20 @@ conventions live in `CLAUDE.md`, not here.
       with IANA naming Tessera Studio as the application (form and field
       values in `../tessera/TODO.md`), then claim the type in the file
       associations of every platform, including the Android manifest.
-- [ ] iOS and macOS, if a Mac or a macOS CI runner becomes available:
-      `flutter create --platforms ios,macos .`, names, icons,
-      `CFBundleDocumentTypes`; share needs `sharePositionOrigin` on the
-      iPad (the share button's rect).
+- [ ] iOS and macOS on the owner's Mac (the folders, names, icons and
+      CI builds exist): confirm the bundle id `eu.nagylzs.tesseraStudio`;
+      run on a device and a Mac; `CFBundleDocumentTypes` and opening a
+      file from Finder / the Files app ("Open with" hands a URL to the
+      app delegate — a channel like Android's `OpenRequests`); share
+      needs `sharePositionOrigin` on the iPad (the share button's
+      rect); try drag and drop on macOS (enabled, untested).
 
 ## Done
 
+- [x] CI: analyze, format, tests and unsigned builds of all six
+      platforms on every push (GitHub's Windows and macOS runners for
+      those); downloadable builds for tags and manual runs; iOS and
+      macOS folders added for it (2026-10-09).
 - [x] About in the overflow menu: version and build, copyright and
       licence, the "free and ad-free, forever" promise, links to the
       tessera guide and the source, the licences page with Noto Sans

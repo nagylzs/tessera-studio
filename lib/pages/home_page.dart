@@ -31,11 +31,13 @@ class _HomePageState extends State<HomePage> {
   late final AppLifecycleListener _lifecycle;
   var _dragging = false;
 
-  /// Where `desktop_drop` is wired up for this app.
+  /// Where `desktop_drop` is wired up for this app (not iOS: the plugin
+  /// has no iOS side). macOS is built by CI but not yet tried on a Mac.
   static bool get dropSupported =>
       kIsWeb ||
       defaultTargetPlatform == TargetPlatform.windows ||
-      defaultTargetPlatform == TargetPlatform.linux;
+      defaultTargetPlatform == TargetPlatform.linux ||
+      defaultTargetPlatform == TargetPlatform.macOS;
 
   void _dropped(DropDoneDetails details) {
     setState(() => _dragging = false);
