@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart' show PointerDeviceKind;
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:intl/intl.dart' show NumberFormat;
@@ -6,6 +7,7 @@ import 'package:tessera_flutter/tessera_flutter.dart' hide NumberFormat;
 
 import '../files/opened_document.dart';
 import '../l10n/generated/app_localizations.dart';
+import '../platform/system_bars.dart';
 import '../state/app_state.dart';
 import '../state/settings.dart';
 import '../widgets/app_menu.dart';
@@ -14,10 +16,54 @@ import '../widgets/editors_panel.dart';
 /// The cube page. Two layouts ([CubePageLayout]): editors inline above the
 /// grid, or the grid alone with the editors in a bottom sheet behind
 /// the "Editors" button; by window width unless the user chose.
-class WorkbenchPage extends StatelessWidget {
+///
+/// Full screen, like a video player: in the grid-alone layout a tap (a
+/// finger, not a mouse click) on a value hides the app bar and the
+/// system bars, and the next one brings them back; so does back.
+class WorkbenchPage extends StatefulWidget {
   const WorkbenchPage({super.key, required this.document});
 
   final OpenedDocument document;
+
+  @override
+  State<WorkbenchPage> createState() => _WorkbenchPageState();
+}
+
+class _WorkbenchPageState extends State<WorkbenchPage> {
+  OpenedDocument get document => widget.document;
+
+  bool _fullScreen = false;
+
+  /// Keeps the grid's scroll position when its parents change (full
+  /// screen, a switch of layout).
+  final _gridKey = GlobalKey();
+
+  /// The kind of the last pointer down on the grid; a cell tap does not
+  /// say what tapped it.
+  PointerDeviceKind? _pointer;
+
+  void _setFullScreen(bool value) {
+    if (value == _fullScreen) return;
+    setState(() => _fullScreen = value);
+    final bars = GetIt.I<SystemBars>();
+    value ? bars.hide() : bars.show();
+  }
+
+  void _cellTapped(bool editorsInline) {
+    final touch = switch (_pointer) {
+      PointerDeviceKind.touch ||
+      PointerDeviceKind.stylus ||
+      PointerDeviceKind.invertedStylus => true,
+      _ => false,
+    };
+    if (touch && (_fullScreen || !editorsInline)) _setFullScreen(!_fullScreen);
+  }
+
+  @override
+  void dispose() {
+    if (_fullScreen) GetIt.I<SystemBars>().show();
+    super.dispose();
+  }
 
   Future<void> _editFilter(BuildContext context, CubeController ctrl) async {
     final spec = ctrl.cube.spec;
@@ -66,7 +112,8 @@ class WorkbenchPage extends StatelessWidget {
     return PopScope(
       canPop: false,
       onPopInvokedWithResult: (didPop, _) {
-        if (!didPop) state.closeFile();
+        if (didPop) return;
+        _fullScreen ? _setFullScreen(false) : state.closeFile();
       },
       child: LayoutBuilder(
         builder: (context, constraints) => SignalBuilder(
@@ -77,63 +124,66 @@ class WorkbenchPage extends StatelessWidget {
             );
             final editorsInline = layout == CubePageLayout.editors;
             return Scaffold(
-              appBar: AppBar(
-                title: Text(document.name),
-                leading: IconButton(
-                  icon: const Icon(Icons.close),
-                  tooltip: l10n.closeFile,
-                  onPressed: state.closeFile,
-                ),
-                actions: [
-                  if (!editorsInline)
-                    IconButton(
-                      icon: const Icon(Icons.tune),
-                      tooltip: l10n.editorsTooltip,
-                      onPressed: ctrl == null
-                          ? null
-                          : () => _showEditors(context, state),
-                    ),
-                  if (editorsInline)
-                    IconButton(
-                      icon: const Icon(Icons.filter_alt_outlined),
-                      tooltip: l10n.filterMenu,
-                      onPressed: ctrl == null
-                          ? null
-                          : () => _editFilter(context, ctrl),
-                    ),
-                  AppMenuButton(
-                    entries: [
-                      AppMenuEntry(
-                        label: l10n.editorsOnTop,
-                        checked: editorsInline,
-                        enabled: ctrl != null,
-                        onTap: () => settings.setCubeLayout(
-                          editorsInline
-                              ? CubePageLayout.cubeOnly
-                              : CubePageLayout.editors,
-                        ),
+              appBar: _fullScreen
+                  ? null
+                  : AppBar(
+                      title: Text(document.name),
+                      leading: IconButton(
+                        icon: const Icon(Icons.close),
+                        tooltip: l10n.closeFile,
+                        onPressed: state.closeFile,
                       ),
-                      if (!editorsInline)
-                        AppMenuEntry(
-                          label: l10n.filterMenu,
-                          icon: Icons.filter_alt_outlined,
-                          enabled: ctrl != null,
-                          onTap: () => _editFilter(context, ctrl!),
+                      actions: [
+                        if (!editorsInline)
+                          IconButton(
+                            icon: const Icon(Icons.tune),
+                            tooltip: l10n.editorsTooltip,
+                            onPressed: ctrl == null
+                                ? null
+                                : () => _showEditors(context, state),
+                          ),
+                        if (editorsInline)
+                          IconButton(
+                            icon: const Icon(Icons.filter_alt_outlined),
+                            tooltip: l10n.filterMenu,
+                            onPressed: ctrl == null
+                                ? null
+                                : () => _editFilter(context, ctrl),
+                          ),
+                        AppMenuButton(
+                          entries: [
+                            AppMenuEntry(
+                              label: l10n.editorsOnTop,
+                              checked: editorsInline,
+                              enabled: ctrl != null,
+                              onTap: () => settings.setCubeLayout(
+                                editorsInline
+                                    ? CubePageLayout.cubeOnly
+                                    : CubePageLayout.editors,
+                              ),
+                            ),
+                            if (!editorsInline)
+                              AppMenuEntry(
+                                label: l10n.filterMenu,
+                                icon: Icons.filter_alt_outlined,
+                                enabled: ctrl != null,
+                                onTap: () => _editFilter(context, ctrl!),
+                              ),
+                            AppMenuEntry(
+                              label: l10n.editSchema,
+                              icon: Icons.view_column_outlined,
+                              enabled: state.source.value != null,
+                              onTap: state.editSchema,
+                            ),
+                          ],
                         ),
-                      AppMenuEntry(
-                        label: l10n.editSchema,
-                        icon: Icons.view_column_outlined,
-                        enabled: state.source.value != null,
-                        onTap: state.editSchema,
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+                      ],
+                    ),
               body: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  if (state.restored.value case final restored?)
+                  if (state.restored.value case final restored?
+                      when !_fullScreen)
                     MaterialBanner(
                       leading: const Icon(Icons.history),
                       content: Text(l10n.schemaRestored(restored.savedAt)),
@@ -204,7 +254,17 @@ class WorkbenchPage extends StatelessWidget {
       );
     }
     final shown = state.cube.shown.value ?? ctrl.cube.spec.aggregates;
-    final view = CubeView(controller: ctrl, aggregates: shown);
+    final view = Listener(
+      onPointerDown: (event) => _pointer = event.kind,
+      child: CubeView(
+        key: _gridKey,
+        controller: ctrl,
+        aggregates: shown,
+        onCellTap: (_) => _cellTapped(editorsInline),
+      ),
+    );
+    // Nothing but the grid, kept clear of a notch.
+    if (_fullScreen) return SafeArea(child: view);
     if (!editorsInline) return view;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,

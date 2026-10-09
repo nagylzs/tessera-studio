@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:tessera_studio/files/clipboard_reader.dart';
 import 'package:tessera_studio/files/document_loader.dart';
 import 'package:tessera_studio/files/opened_document.dart';
+import 'package:tessera_studio/platform/system_bars.dart';
 
 final class FakeClipboard implements ClipboardReader {
   FakeClipboard([this.text]);
@@ -39,4 +40,16 @@ final class FakeLoader implements DocumentLoader {
     this.onProgress = onProgress;
     return completer.future;
   }
+}
+
+/// Records whether the system bars are shown and every call.
+final class FakeSystemBars implements SystemBars {
+  final calls = <String>[];
+  bool get hidden => calls.isNotEmpty && calls.last == 'hide';
+
+  @override
+  Future<void> hide() async => calls.add('hide');
+
+  @override
+  Future<void> show() async => calls.add('show');
 }

@@ -1,5 +1,6 @@
 import 'dart:typed_data';
 
+import 'package:flutter/gestures.dart' show PointerDeviceKind;
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get_it/get_it.dart';
@@ -11,6 +12,7 @@ import 'package:tessera_studio/files/file_format.dart';
 import 'package:tessera_studio/files/file_opener.dart';
 import 'package:tessera_studio/files/opened_document.dart';
 import 'package:tessera_studio/pages/workbench_page.dart';
+import 'package:tessera_studio/platform/system_bars.dart';
 import 'package:tessera_studio/state/app_state.dart';
 import 'package:tessera_studio/state/cube_state.dart';
 import 'package:tessera_studio/state/schema_store.dart';
@@ -31,10 +33,13 @@ final class _Opener implements FileOpener {
 }
 
 late MemorySettingsStore settingsStore;
+late FakeSystemBars bars;
 
 void _register() {
   settingsStore = MemorySettingsStore();
+  bars = FakeSystemBars();
   GetIt.I
+    ..registerSingleton<SystemBars>(bars)
     ..registerSingleton<FileOpener>(_Opener())
     ..registerSingleton<ClipboardReader>(FakeClipboard())
     ..registerSingleton<DocumentLoader>(FakeLoader())
@@ -133,6 +138,68 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.byType(EditorsPanel), findsNothing);
     expect(settingsStore.cubeLayout, 'cubeOnly');
+  });
+
+  testWidgets('a tap on a value toggles full screen in the narrow layout', (
+    tester,
+  ) async {
+    _size(tester, 400, 800);
+    _register();
+    await _toCube(tester);
+    // counts by region: EU 2, US 1, total 3
+    Finder value(String text) =>
+        find.descendant(of: find.byType(CubeView), matching: find.text(text));
+    expect(find.byType(AppBar), findsOneWidget);
+
+    await tester.tap(value('2'));
+    await tester.pumpAndSettle();
+    expect(find.byType(AppBar), findsNothing);
+    expect(bars.calls, ['hide']);
+
+    await tester.tap(value('1'));
+    await tester.pumpAndSettle();
+    expect(find.byType(AppBar), findsOneWidget);
+    expect(bars.calls, ['hide', 'show']);
+
+    // back leaves full screen and keeps the file open
+    await tester.tap(value('2'));
+    await tester.pumpAndSettle();
+    expect(bars.hidden, isTrue);
+    await tester.binding.handlePopRoute();
+    await tester.pumpAndSettle();
+    expect(find.byType(AppBar), findsOneWidget);
+    expect(find.byType(WorkbenchPage), findsOneWidget);
+    expect(bars.hidden, isFalse);
+
+    // a mouse click only selects
+    await tester.tap(value('3'), kind: PointerDeviceKind.mouse);
+    await tester.pumpAndSettle();
+    expect(find.byType(AppBar), findsOneWidget);
+    expect(bars.calls, hasLength(4));
+
+    // closing the file in full screen brings the bars back
+    await tester.tap(value('2'));
+    await tester.pumpAndSettle();
+    expect(bars.hidden, isTrue);
+    GetIt.I<AppState>().closeFile();
+    await tester.pumpAndSettle();
+    expect(find.byType(WorkbenchPage), findsNothing);
+    expect(bars.hidden, isFalse);
+  });
+
+  testWidgets('a tap on a value only selects with the editors on top', (
+    tester,
+  ) async {
+    _size(tester, 1400, 900);
+    _register();
+    await _toCube(tester);
+    await tester.tap(
+      find.descendant(of: find.byType(CubeView), matching: find.text('2')),
+    );
+    await tester.pumpAndSettle();
+    expect(find.byType(AppBar), findsOneWidget);
+    expect(find.textContaining('Current cell'), findsOneWidget);
+    expect(bars.calls, isEmpty);
   });
 
   test('the layout resolves by width only when automatic', () {

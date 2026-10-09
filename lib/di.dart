@@ -4,6 +4,7 @@ import 'files/clipboard_reader.dart';
 import 'files/document_loader.dart';
 import 'files/file_opener.dart';
 import 'files/open_requests.dart';
+import 'platform/system_bars.dart';
 import 'state/app_state.dart';
 import 'state/schema_store.dart';
 import 'state/settings.dart';
@@ -16,6 +17,7 @@ void registerServices() {
     ..registerSingleton<ClipboardReader>(const SystemClipboardReader())
     ..registerSingleton<DocumentLoader>(const IoDocumentLoader())
     ..registerSingleton<OpenRequests>(OpenRequests.forPlatform())
+    ..registerSingleton<SystemBars>(const PlatformSystemBars())
     ..registerSingleton<SchemaStore>(PreferencesSchemaStore())
     ..registerSingleton<AppSettings>(AppSettings(PreferencesSettingsStore()))
     ..registerSingleton<AppState>(AppState());

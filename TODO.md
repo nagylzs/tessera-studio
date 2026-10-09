@@ -7,10 +7,9 @@ conventions live in `CLAUDE.md`, not here.
 
 ## Viewer flow
 
-- [ ] Cube page follow-ups: a true full-screen mode on phones (tap the
-      grid to hide the app bar, like a video player); a "Settings" entry
-      to restore the automatic layout after an explicit choice; the
-      charts pane beside/below the grid as in the example.
+- [ ] Cube page follow-ups: a "Settings" entry to restore the automatic
+      layout after an explicit choice; the charts pane beside/below the
+      grid as in the example.
 - [ ] Save/load a pivot layout (`CubeConfig` / `CubeJson`, a `.json`
       file through the file picker) and "Save snapshot…". The same two
       items sit in `../tessera/TODO.md` for the example app; whichever
@@ -64,6 +63,10 @@ conventions live in `CLAUDE.md`, not here.
 
 ## Done
 
+- [x] Full screen on phones, like a video player: in the grid-alone
+      layout a finger tap on a value hides the app bar and the system
+      bars (sticky immersive), the next tap or back brings them back;
+      the grid keeps its scroll position (2026-10-09).
 - [x] Cube page: import in an isolate with progress and report, axis
       and aggregate editors, filter, `CubeView`, current-cell line;
       editors inline from 840 dp or in a bottom sheet below, switchable

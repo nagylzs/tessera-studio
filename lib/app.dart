@@ -46,7 +46,10 @@ class TesseraStudioApp extends StatelessWidget {
             return switch (state.page.value) {
               AppPage.home => const HomePage(),
               AppPage.schema => SchemaPage(document: document),
-              AppPage.workbench => WorkbenchPage(document: document),
+              AppPage.workbench => WorkbenchPage(
+                key: ObjectKey(document),
+                document: document,
+              ),
             };
           },
         ),
