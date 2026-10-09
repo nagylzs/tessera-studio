@@ -83,5 +83,11 @@
   "gridHighContrast": "ハイコントラスト",
   "gridHighContrastInfo": "太い罫線、大きな太字",
   "gridCompact": "コンパクト",
-  "gridCompactInfo": "小さな文字と低い行で、より多くを表示"
+  "gridCompactInfo": "小さな文字と低い行で、より多くを表示",
+  "menuAbout": "このアプリについて…",
+  "aboutFree": "無料・広告なし、これからもずっと。広告、購入、サブスクリプション、アカウント、トラッキングは一切ありません。アプリが通信するのは、あなたがリンクや Web アドレスを開いたときだけです。",
+  "aboutBuiltOn": "Dart と Flutter 向けのオープンソースのピボットテーブル エンジン tessera を基盤にしています。",
+  "aboutGuide": "tessera ユーザーガイド（英語）",
+  "aboutSource": "ソースコード",
+  "aboutLegalese": "© {year} {holder}\nMIT ライセンス"
 }

@@ -83,5 +83,11 @@
   "gridHighContrast": "Contraste élevé",
   "gridHighContrastInfo": "Lignes marquées, texte plus grand en gras",
   "gridCompact": "Compact",
-  "gridCompactInfo": "Petit texte, lignes basses : plus de données à l’écran"
+  "gridCompactInfo": "Petit texte, lignes basses : plus de données à l’écran",
+  "menuAbout": "À propos…",
+  "aboutFree": "Gratuite et sans publicité, pour toujours : ni publicité, ni achats, ni abonnement, ni compte, ni pistage. L’application ne se connecte que lorsque vous ouvrez vous-même un lien ou une adresse web.",
+  "aboutBuiltOn": "Construite sur tessera, un moteur de tableaux croisés open source pour Dart et Flutter.",
+  "aboutGuide": "Guide d’utilisation de tessera (en anglais)",
+  "aboutSource": "Code source",
+  "aboutLegalese": "© {year} {holder}\nlicence MIT"
 }

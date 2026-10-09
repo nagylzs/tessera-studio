@@ -1,6 +1,8 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get_it/get_it.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:shared_preferences_platform_interface/in_memory_shared_preferences_async.dart';
 import 'package:shared_preferences_platform_interface/shared_preferences_async_platform_interface.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -9,11 +11,14 @@ import 'package:tessera_studio/files/clipboard_reader.dart';
 import 'package:tessera_studio/files/document_loader.dart';
 import 'package:tessera_studio/files/file_opener.dart';
 import 'package:tessera_studio/files/opened_document.dart';
+import 'package:tessera_studio/licenses.dart';
+import 'package:tessera_studio/platform/links.dart';
 import 'package:tessera_studio/state/app_state.dart';
 import 'package:tessera_studio/state/layout_store.dart';
 import 'package:tessera_studio/state/schema_store.dart';
 import 'package:tessera_studio/state/settings.dart';
 import 'package:tessera_studio/style/grid_style.dart';
+import 'package:tessera_studio/widgets/about.dart';
 
 import 'fakes.dart';
 
@@ -24,10 +29,13 @@ final class _NoOpener implements FileOpener {
 
 late MemoryLayoutStore layouts;
 late MemorySettingsStore store;
+late FakeLinkOpener links;
 
 void _register() {
   store = MemorySettingsStore();
+  links = FakeLinkOpener();
   GetIt.I
+    ..registerSingleton<LinkOpener>(links)
     ..registerSingleton<FileOpener>(_NoOpener())
     ..registerSingleton<ClipboardReader>(FakeClipboard())
     ..registerSingleton<DocumentLoader>(FakeLoader())
@@ -87,6 +95,41 @@ void main() {
     expect(await s.readThemeMode(), isNull);
     await s.writeGridStyle('spreadsheet');
     expect(await s.readGridStyle(), 'spreadsheet');
+  });
+
+  testWidgets('About: version, the promise, licences, links', (tester) async {
+    PackageInfo.setMockInitialValues(
+      appName: 'tessera_studio',
+      packageName: 'eu.nagylzs.tessera_studio',
+      version: '1.0.0',
+      buildNumber: '1',
+      buildSignature: '',
+    );
+    _register();
+    await tester.pumpWidget(const TesseraStudioApp());
+    await _openMenu(tester);
+    await tester.tap(find.text('About…'));
+    await tester.pumpAndSettle();
+    expect(find.byType(AboutDialog), findsOneWidget);
+    expect(find.text('Tessera Studio'), findsWidgets);
+    expect(find.text('1.0.0 (1)'), findsOneWidget);
+    expect(find.text('© 2026 László Zsolt Nagy\nMIT licence'), findsOneWidget);
+    expect(find.textContaining('Free and ad-free, forever'), findsOneWidget);
+    expect(find.text('View licenses'), findsOneWidget);
+
+    await tester.tap(find.text('tessera user guide'));
+    await tester.tap(find.text('Source code'));
+    expect(links.opened, [guideUrl, sourceUrl]);
+  });
+
+  test('the licences page lists the PDF font', () async {
+    registerLicenses();
+    final entries = await LicenseRegistry.licenses.toList();
+    final noto = entries.where((e) => e.packages.contains('Noto Sans'));
+    expect(noto, hasLength(1));
+    final text = noto.single.paragraphs.map((p) => p.text).join('\n');
+    expect(text, contains('SIL OPEN FONT LICENSE'));
+    expect(text, contains('The Noto Project Authors'));
   });
 
   testWidgets('the grid style dialog explains and applies a style', (

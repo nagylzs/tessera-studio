@@ -83,5 +83,11 @@
   "gridHighContrast": "Hoher Kontrast",
   "gridHighContrastInfo": "Kräftige Linien, größere fette Schrift",
   "gridCompact": "Kompakt",
-  "gridCompactInfo": "Kleine Schrift, niedrige Zeilen: mehr auf dem Bildschirm"
+  "gridCompactInfo": "Kleine Schrift, niedrige Zeilen: mehr auf dem Bildschirm",
+  "menuAbout": "Über…",
+  "aboutFree": "Kostenlos und werbefrei, für immer: keine Werbung, keine Käufe, keine Abos, keine Konten, kein Tracking. Die App geht nur online, wenn Sie selbst einen Link oder eine Webadresse öffnen.",
+  "aboutBuiltOn": "Basiert auf tessera, einer quelloffenen Pivot-Engine für Dart und Flutter.",
+  "aboutGuide": "tessera-Handbuch (Englisch)",
+  "aboutSource": "Quellcode",
+  "aboutLegalese": "© {year} {holder}\nMIT-Lizenz"
 }

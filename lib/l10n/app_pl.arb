@@ -83,5 +83,11 @@
   "gridHighContrast": "Wysoki kontrast",
   "gridHighContrastInfo": "Wyraźne linie, większy pogrubiony tekst",
   "gridCompact": "Kompaktowy",
-  "gridCompactInfo": "Mały tekst, niskie wiersze: więcej na ekranie"
+  "gridCompactInfo": "Mały tekst, niskie wiersze: więcej na ekranie",
+  "menuAbout": "O aplikacji…",
+  "aboutFree": "Bezpłatna i bez reklam, na zawsze: bez reklam, zakupów, subskrypcji, kont i śledzenia. Aplikacja łączy się z siecią tylko wtedy, gdy sam otworzysz link lub adres internetowy.",
+  "aboutBuiltOn": "Zbudowana na tessera — otwartoźródłowym silniku tabel przestawnych dla Darta i Fluttera.",
+  "aboutGuide": "Podręcznik użytkownika tessera (po angielsku)",
+  "aboutSource": "Kod źródłowy",
+  "aboutLegalese": "© {year} {holder}\nlicencja MIT"
 }

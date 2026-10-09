@@ -83,5 +83,11 @@
   "gridHighContrast": "Alto contraste",
   "gridHighContrastInfo": "Linhas fortes, texto maior em negrito",
   "gridCompact": "Compacto",
-  "gridCompactInfo": "Texto pequeno, linhas baixas: mais na tela"
+  "gridCompactInfo": "Texto pequeno, linhas baixas: mais na tela",
+  "menuAbout": "Sobre…",
+  "aboutFree": "Gratuito e sem anúncios, para sempre: sem anúncios, compras, assinaturas, contas ou rastreamento. O app só se conecta quando você mesmo abre um link ou endereço da web.",
+  "aboutBuiltOn": "Construído sobre o tessera, um mecanismo de tabelas dinâmicas de código aberto para Dart e Flutter.",
+  "aboutGuide": "Guia do usuário do tessera (em inglês)",
+  "aboutSource": "Código-fonte",
+  "aboutLegalese": "© {year} {holder}\nlicença MIT"
 }

@@ -83,5 +83,11 @@
   "gridHighContrast": "Nagy kontraszt",
   "gridHighContrastInfo": "Erős vonalak, nagyobb félkövér szöveg",
   "gridCompact": "Tömör",
-  "gridCompactInfo": "Kis betű, alacsony sorok: több fér a képernyőre"
+  "gridCompactInfo": "Kis betű, alacsony sorok: több fér a képernyőre",
+  "menuAbout": "Névjegy…",
+  "aboutFree": "Ingyenes és reklámmentes, örökre: nincs reklám, vásárlás, előfizetés, fiók és követés. Az alkalmazás csak akkor kapcsolódik a hálózathoz, ha Ön nyit meg egy hivatkozást vagy webcímet.",
+  "aboutBuiltOn": "A tesserára épül, amely egy nyílt forráskódú kimutatásmotor Darthoz és Flutterhez.",
+  "aboutGuide": "A tessera felhasználói kézikönyve (angolul)",
+  "aboutSource": "Forráskód",
+  "aboutLegalese": "© {year} {holder}\nMIT-licenc"
 }

@@ -83,5 +83,11 @@
   "gridHighContrast": "Vysoký kontrast",
   "gridHighContrastInfo": "Výrazné čáry, větší tučné písmo",
   "gridCompact": "Kompaktní",
-  "gridCompactInfo": "Malé písmo, nízké řádky: víc na obrazovce"
+  "gridCompactInfo": "Malé písmo, nízké řádky: víc na obrazovce",
+  "menuAbout": "O aplikaci…",
+  "aboutFree": "Zdarma a bez reklam, navždy: žádné reklamy, nákupy, předplatné, účty ani sledování. Aplikace se připojí k síti jen tehdy, když sami otevřete odkaz nebo webovou adresu.",
+  "aboutBuiltOn": "Postaveno na tessera, open-source jádru kontingenčních tabulek pro Dart a Flutter.",
+  "aboutGuide": "Uživatelská příručka tessera (anglicky)",
+  "aboutSource": "Zdrojový kód",
+  "aboutLegalese": "© {year} {holder}\nlicence MIT"
 }

@@ -462,5 +462,37 @@
   "gridCompactInfo": "Small text, short rows: more on screen",
   "@gridCompactInfo": {
     "description": "One-line description under the grid style name."
+  },
+  "menuAbout": "About…",
+  "@menuAbout": {
+    "description": "Overflow entry opening the about dialog."
+  },
+  "aboutFree": "Free and ad-free, forever: no ads, no purchases, no subscriptions, no accounts, no tracking. The app only goes online when you open a link or a web address yourself.",
+  "@aboutFree": {
+    "description": "The app's promise, in the about dialog. Keep every point: free, no ads, no purchases or subscriptions, no accounts, no tracking, online only on the user's own action."
+  },
+  "aboutBuiltOn": "Built on tessera, an open-source pivot table engine for Dart and Flutter.",
+  "@aboutBuiltOn": {
+    "description": "About dialog: what the app is built on. \"tessera\" is a name, lower case, not translated."
+  },
+  "aboutGuide": "tessera user guide",
+  "@aboutGuide": {
+    "description": "Link to the tessera user guide, which exists in English only (say so in other languages)."
+  },
+  "aboutSource": "Source code",
+  "@aboutSource": {
+    "description": "Link to the app's source code repository."
+  },
+  "aboutLegalese": "© {year} {holder}\nMIT licence",
+  "@aboutLegalese": {
+    "description": "Copyright line; year and holder are filled in, not translated.",
+    "placeholders": {
+      "year": {
+        "type": "String"
+      },
+      "holder": {
+        "type": "String"
+      }
+    }
   }
 }

@@ -5,6 +5,7 @@ import 'package:tessera_studio/export/export_target.dart';
 import 'package:tessera_studio/files/clipboard_reader.dart';
 import 'package:tessera_studio/files/document_loader.dart';
 import 'package:tessera_studio/files/opened_document.dart';
+import 'package:tessera_studio/platform/links.dart';
 import 'package:tessera_studio/platform/system_bars.dart';
 
 final class FakeClipboard implements ClipboardReader {
@@ -88,5 +89,16 @@ final class FakeExportTarget implements ExportTarget {
   }) async {
     if (error case final e?) throw e;
     shared.add((fileName: fileName, mimeType: mimeType, bytes: bytes));
+  }
+}
+
+/// Records the links the app asked the browser to open.
+final class FakeLinkOpener implements LinkOpener {
+  final opened = <Uri>[];
+
+  @override
+  Future<bool> open(Uri uri) async {
+    opened.add(uri);
+    return true;
   }
 }

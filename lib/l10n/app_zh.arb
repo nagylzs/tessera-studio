@@ -83,5 +83,11 @@
   "gridHighContrast": "高对比度",
   "gridHighContrastInfo": "粗网格线、更大的粗体文字",
   "gridCompact": "紧凑",
-  "gridCompactInfo": "小字号、矮行高：屏幕上显示更多"
+  "gridCompactInfo": "小字号、矮行高：屏幕上显示更多",
+  "menuAbout": "关于…",
+  "aboutFree": "永久免费、无广告：没有广告、购买、订阅、账户或跟踪。只有当您自己打开链接或网址时，应用才会联网。",
+  "aboutBuiltOn": "基于 tessera 构建——一个面向 Dart 和 Flutter 的开源数据透视表引擎。",
+  "aboutGuide": "tessera 用户指南（英文）",
+  "aboutSource": "源代码",
+  "aboutLegalese": "© {year} {holder}\nMIT 许可证"
 }

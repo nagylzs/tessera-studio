@@ -83,5 +83,11 @@
   "gridHighContrast": "Contrasto elevato",
   "gridHighContrastInfo": "Linee marcate, testo più grande in grassetto",
   "gridCompact": "Compatto",
-  "gridCompactInfo": "Testo piccolo, righe basse: più dati sullo schermo"
+  "gridCompactInfo": "Testo piccolo, righe basse: più dati sullo schermo",
+  "menuAbout": "Informazioni…",
+  "aboutFree": "Gratuita e senza pubblicità, per sempre: niente pubblicità, acquisti, abbonamenti, account o tracciamento. L’app va online solo quando apri tu un link o un indirizzo web.",
+  "aboutBuiltOn": "Basata su tessera, un motore open source per tabelle pivot in Dart e Flutter.",
+  "aboutGuide": "Guida utente di tessera (in inglese)",
+  "aboutSource": "Codice sorgente",
+  "aboutLegalese": "© {year} {holder}\nlicenza MIT"
 }

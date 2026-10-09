@@ -83,5 +83,11 @@
   "gridHighContrast": "Hoog contrast",
   "gridHighContrastInfo": "Sterke lijnen, grotere vette tekst",
   "gridCompact": "Compact",
-  "gridCompactInfo": "Kleine tekst, lage rijen: meer op het scherm"
+  "gridCompactInfo": "Kleine tekst, lage rijen: meer op het scherm",
+  "menuAbout": "Over…",
+  "aboutFree": "Gratis en zonder advertenties, voor altijd: geen advertenties, aankopen, abonnementen, accounts of tracking. De app gaat alleen online als u zelf een link of webadres opent.",
+  "aboutBuiltOn": "Gebouwd op tessera, een opensource-draaitabelengine voor Dart en Flutter.",
+  "aboutGuide": "Gebruikershandleiding van tessera (Engels)",
+  "aboutSource": "Broncode",
+  "aboutLegalese": "© {year} {holder}\nMIT-licentie"
 }

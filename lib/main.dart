@@ -1,11 +1,10 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get_it/get_it.dart';
 
 import 'app.dart';
 import 'di.dart';
 import 'files/open_requests.dart';
+import 'licenses.dart';
 import 'state/app_state.dart';
 import 'state/settings.dart';
 
@@ -15,18 +14,11 @@ import 'state/settings.dart';
 /// share-sheet files through [OpenRequests]; the web gets neither yet.
 Future<void> main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
-  LicenseRegistry.addLicense(_fontLicense);
+  registerLicenses();
   registerServices();
   await GetIt.I<AppSettings>().load(); // before the first frame: no flash
   final state = GetIt.I<AppState>();
   if (args.isNotEmpty) state.loadFrom(args.first);
   GetIt.I<OpenRequests>().requests.listen(state.handleOpenRequest);
   runApp(const TesseraStudioApp());
-}
-
-/// The PDF export embeds Noto Sans (assets/fonts), which comes under the
-/// SIL Open Font License; it lists with the packages' licences.
-Stream<LicenseEntry> _fontLicense() async* {
-  final text = await rootBundle.loadString('assets/fonts/OFL.txt');
-  yield LicenseEntryWithLineBreaks(const ['Noto Sans'], text);
 }

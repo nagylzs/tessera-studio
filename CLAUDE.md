@@ -185,8 +185,17 @@ the next step.
   overflow menu `AppMenuButton` (`lib/widgets/app_menu.dart`) at the end
   of every app bar: Language… and Theme… open radio dialogs (`RadioGroup`,
   `RadioListTile.groupValue` is deprecated), languages listed by endonym
-  from the const `languageNames`; About and Settings entries go there
-  later. Dialogs rather than submenus: thumbs as well as mice.
+  from the const `languageNames`; then Grid style… and About… (a
+  Settings entry may join later). Dialogs rather than submenus: thumbs
+  as well as mice. About (`lib/widgets/about.dart`): Flutter's
+  `showAboutDialog` — name, `TesseraLogo` at 48 px, version from
+  `package_info_plus` ("1.0.0 (1)": version and build number), the
+  copyright line, the "free and ad-free, forever" promise, and links
+  to the tessera user guide (English only, which the other languages
+  say) and the source, opened through `LinkOpener` (`lib/platform/
+  links.dart`, `url_launcher` in the external browser; a fake in
+  tests). Its "View licenses" page lists the packages and Noto Sans
+  (`registerLicenses` in `lib/licenses.dart`, called by `main`).
 - `lib/state/app_state.dart`: `AppState` with the `document`,
   `opening`, `loading` (`LoadProgress?`) and `loadFailure` signals,
   `openFile()` (picker; returns an `OpenFailure` for the UI to localise

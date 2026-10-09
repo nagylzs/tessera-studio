@@ -5,6 +5,7 @@ import 'package:tessera_flutter/tessera_flutter.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../state/settings.dart';
 import '../style/grid_style.dart';
+import 'about.dart';
 
 /// An entry a page adds above the common ones of [AppMenuButton].
 final class AppMenuEntry {
@@ -26,8 +27,7 @@ final class AppMenuEntry {
 }
 
 /// The overflow menu at the end of every app bar: the page's own
-/// [entries] first, then language, theme and grid style (About and
-/// Settings join here later). Dialogs rather than submenus: they work with a thumb as
+/// [entries] first, then language, theme, grid style and About. Dialogs rather than submenus: they work with a thumb as
 /// well as with a mouse.
 class AppMenuButton extends StatelessWidget {
   const AppMenuButton({super.key, this.entries = const []});
@@ -52,6 +52,11 @@ class AppMenuButton extends StatelessWidget {
         label: l10n.menuGridStyle,
         icon: Icons.palette_outlined,
         onTap: () => showGridStyleDialog(context),
+      ),
+      AppMenuEntry(
+        label: l10n.menuAbout,
+        icon: Icons.info_outline,
+        onTap: () => showAbout(context),
       ),
     ];
     return PopupMenuButton<AppMenuEntry>(

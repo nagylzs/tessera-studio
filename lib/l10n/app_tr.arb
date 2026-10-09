@@ -83,5 +83,11 @@
   "gridHighContrast": "Yüksek karşıtlık",
   "gridHighContrastInfo": "Belirgin çizgiler, daha büyük kalın metin",
   "gridCompact": "Sıkışık",
-  "gridCompactInfo": "Küçük metin, alçak satırlar: ekranda daha fazlası"
+  "gridCompactInfo": "Küçük metin, alçak satırlar: ekranda daha fazlası",
+  "menuAbout": "Hakkında…",
+  "aboutFree": "Ücretsiz ve reklamsız, sonsuza dek: reklam, satın alma, abonelik, hesap ya da izleme yok. Uygulama yalnızca siz bir bağlantı veya web adresi açtığınızda internete bağlanır.",
+  "aboutBuiltOn": "Dart ve Flutter için açık kaynaklı bir pivot tablo motoru olan tessera üzerine kuruludur.",
+  "aboutGuide": "tessera kullanım kılavuzu (İngilizce)",
+  "aboutSource": "Kaynak kodu",
+  "aboutLegalese": "© {year} {holder}\nMIT lisansı"
 }

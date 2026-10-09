@@ -73,8 +73,6 @@ conventions live in `CLAUDE.md`, not here.
       grid styles than the six of "Grid style…", picked and named with
       care, shown as previews of a sample cube, each with its export
       theme and checked in light and dark.
-- [ ] About entry in the overflow menu (version, licence, the "free and
-      ad-free forever" statement, link to the tessera guide).
 - [ ] Settings persistence beyond theme and language (last export
       format…) — `SettingsStore` is the place.
 - [ ] Error page for a file that fails to parse, with the report from
@@ -101,6 +99,10 @@ conventions live in `CLAUDE.md`, not here.
 
 ## Done
 
+- [x] About in the overflow menu: version and build, copyright and
+      licence, the "free and ad-free, forever" promise, links to the
+      tessera guide and the source, the licences page with Noto Sans
+      (2026-10-09).
 - [x] Grid styles: "Grid style…" in the menu with six styles (standard,
       spreadsheet, gradient, hue levels, high contrast, compact), each
       with a matching export theme the exports follow; remembered;
