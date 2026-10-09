@@ -60,6 +60,34 @@ void main() {
     expect(lines.map(jsonDecode), hasLength(4));
   });
 
+  test('a snapshot carries the facts and the pivot, and reads back', () async {
+    final cube = (await _cube()).toggleRow(
+      DimensionPath([const DimensionValue(ColumnDimension('region'), 'Észak')]),
+    );
+    final bytes = await cubeExport(
+      cube,
+      ExportFormat.snapshot,
+      title: 'sales',
+      strings: const TesseraStringsEn(),
+    );
+    expect(ascii.decode(bytes.sublist(0, 4)), 'TSNP');
+    final back = TesseraSnapshot().decode(bytes);
+    expect(back.facts.rowCount, cube.facts.rowCount);
+    final config = back.config!;
+    expect(
+      CubeJson.standard.encodeSpec(config.spec),
+      CubeJson.standard.encodeSpec(cube.spec),
+    );
+    expect(
+      config.rowExpansion.isExpanded(
+        DimensionPath([
+          const DimensionValue(ColumnDimension('region'), 'Észak'),
+        ]),
+      ),
+      isTrue,
+    );
+  });
+
   test('the exports take the grid style\'s export theme', () async {
     final cube = await _cube();
     Future<String> html(GridStyle style) async => _text(

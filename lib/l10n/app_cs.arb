@@ -98,5 +98,6 @@
   "failureOther": "Soubor nelze načíst.",
   "failureRowsRead": "{count, plural, =1{Chyba nastala po 1 řádku.} few{Chyba nastala po {count} řádcích.} other{Chyba nastala po {count} řádcích.}}",
   "failureDetails": "Podrobnosti",
-  "openAnotherFile": "Otevřít jiný soubor…"
+  "openAnotherFile": "Otevřít jiný soubor…",
+  "exportSnapshot": "K opětovnému otevření v Tessera Studio"
 }

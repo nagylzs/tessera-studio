@@ -546,5 +546,9 @@
   "openAnotherFile": "Open another file…",
   "@openAnotherFile": {
     "description": "Button: pick another file to open."
+  },
+  "exportSnapshot": "To reopen in Tessera Studio",
+  "@exportSnapshot": {
+    "description": "Heading in the export dialog above the Tessera snapshot: the data and the pivot in one file that the app reopens as it was."
   }
 }

@@ -505,6 +505,29 @@ void main() {
     expect(state.document.value, isNull);
   });
 
+  testWidgets('a snapshot is saved under the file\'s own name', (tester) async {
+    _size(tester, 1400, 900);
+    _register();
+    await _toCube(tester);
+    await tester.tap(find.byTooltip('Save as…'));
+    await tester.pumpAndSettle();
+    await tester.drag(
+      find.descendant(
+        of: find.byType(AlertDialog),
+        matching: find.byType(ListView),
+      ),
+      const Offset(0, -2000),
+    );
+    await tester.pumpAndSettle();
+    expect(find.text('To reopen in Tessera Studio'), findsOneWidget);
+    await tester.tap(find.text('Tessera snapshot'));
+    await tester.pumpAndSettle();
+    final saved = exports.saved.single;
+    expect(saved.fileName, 'sales.tsnp');
+    expect(saved.mimeType, 'application/vnd.tessera.snapshot');
+    expect(ascii.decode(saved.bytes.sublist(0, 4)), 'TSNP');
+  });
+
   test('the layout resolves by window size only when automatic', () {
     const auto = CubePageLayout.auto;
     expect(auto.resolve(const Size(839, 900)), CubePageLayout.cubeOnly);

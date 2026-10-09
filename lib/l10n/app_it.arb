@@ -98,5 +98,6 @@
   "failureOther": "Impossibile leggere il file.",
   "failureRowsRead": "{count, plural, =1{L’errore è arrivato dopo 1 riga.} other{L’errore è arrivato dopo {count} righe.}}",
   "failureDetails": "Dettagli",
-  "openAnotherFile": "Apri un altro file…"
+  "openAnotherFile": "Apri un altro file…",
+  "exportSnapshot": "Da riaprire in Tessera Studio"
 }

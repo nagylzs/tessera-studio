@@ -10,10 +10,12 @@ conventions live in `CLAUDE.md`, not here.
 - [ ] Cube page follow-ups: a "Settings" entry to restore the automatic
       layout after an explicit choice; the charts pane beside/below the
       grid as in the example.
-- [ ] Save/load a pivot layout (`CubeConfig` / `CubeJson`, a `.json`
-      file through the file picker) and "Save snapshot…". The same two
-      items sit in `../tessera/TODO.md` for the example app; whichever
-      lands first, keep the example minimal.
+- [ ] Save/load a pivot layout as a `.json` file (`CubeConfig` /
+      `CubeJson`, through the file picker), e.g. to apply one pivot to
+      another file of the same structure on another device. Less urgent
+      since pivots are remembered per structure and snapshots carry
+      theirs. The same item sits in `../tessera/TODO.md` for the example
+      app; whichever lands first, keep the example minimal.
 - [ ] **Question for the owner: Japanese and Chinese in the PDF export?**
       The bundled Noto Sans has no CJK glyphs, so Japanese and Chinese
       text — in the data, or the ja/zh tessera strings such as the total
@@ -107,6 +109,10 @@ conventions live in `CLAUDE.md`, not here.
 
 ## Done
 
+- [x] "Tessera snapshot" in the export dialog ("To reopen in Tessera
+      Studio"): the facts with the pivot and expanded groups in one
+      `.tsnp`, named like the source, which reopens as it was
+      (2026-10-09).
 - [x] Failure page for a file that was read but cannot be opened: what
       went wrong in words (not UTF-8, damaged, syntax error, empty,
       headings only, other), the technical detail folded away, the rows

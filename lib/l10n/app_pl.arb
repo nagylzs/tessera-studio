@@ -98,5 +98,6 @@
   "failureOther": "Nie udało się odczytać pliku.",
   "failureRowsRead": "{count, plural, =1{Błąd wystąpił po 1 wierszu.} other{Błąd wystąpił po {count} wierszach.}}",
   "failureDetails": "Szczegóły",
-  "openAnotherFile": "Otwórz inny plik…"
+  "openAnotherFile": "Otwórz inny plik…",
+  "exportSnapshot": "Do ponownego otwarcia w Tessera Studio"
 }

@@ -98,5 +98,6 @@
   "failureOther": "无法读取文件。",
   "failureRowsRead": "在第 {count} 行之后出现错误。",
   "failureDetails": "详细信息",
-  "openAnotherFile": "打开其他文件…"
+  "openAnotherFile": "打开其他文件…",
+  "exportSnapshot": "用于在 Tessera Studio 中重新打开"
 }

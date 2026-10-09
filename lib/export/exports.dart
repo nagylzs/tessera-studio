@@ -68,6 +68,11 @@ Future<Uint8List> cubeExport(
       JsonCubeExporter(strings: strings)
           .exportLines(layout, aggregates: aggregates),
     ),
+    // the facts with the spec and expanded groups: reopens as it is now
+    ExportFormat.snapshot => TesseraSnapshot().encode(
+      cube.facts,
+      config: CubeConfig.of(cube),
+    ),
   };
 }
 

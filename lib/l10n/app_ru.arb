@@ -98,5 +98,6 @@
   "failureOther": "Не удалось прочитать файл.",
   "failureRowsRead": "{count, plural, =1{Ошибка возникла после 1 строки.} other{Ошибка возникла после {count} строк.}}",
   "failureDetails": "Подробности",
-  "openAnotherFile": "Открыть другой файл…"
+  "openAnotherFile": "Открыть другой файл…",
+  "exportSnapshot": "Чтобы снова открыть в Tessera Studio"
 }

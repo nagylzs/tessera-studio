@@ -98,5 +98,6 @@
   "failureOther": "ファイルを読み込めませんでした。",
   "failureRowsRead": "{count} 行目の後でエラーが発生しました。",
   "failureDetails": "詳細",
-  "openAnotherFile": "別のファイルを開く…"
+  "openAnotherFile": "別のファイルを開く…",
+  "exportSnapshot": "Tessera Studio で開き直すため"
 }

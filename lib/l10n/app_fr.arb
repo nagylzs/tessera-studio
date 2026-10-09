@@ -98,5 +98,6 @@
   "failureOther": "Impossible de lire le fichier.",
   "failureRowsRead": "{count, plural, =1{L’erreur est survenue après 1 ligne.} other{L’erreur est survenue après {count} lignes.}}",
   "failureDetails": "Détails",
-  "openAnotherFile": "Ouvrir un autre fichier…"
+  "openAnotherFile": "Ouvrir un autre fichier…",
+  "exportSnapshot": "Pour rouvrir dans Tessera Studio"
 }

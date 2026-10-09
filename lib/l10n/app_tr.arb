@@ -98,5 +98,6 @@
   "failureOther": "Dosya okunamadı.",
   "failureRowsRead": "Hata {count} satırdan sonra oluştu.",
   "failureDetails": "Ayrıntılar",
-  "openAnotherFile": "Başka bir dosya aç…"
+  "openAnotherFile": "Başka bir dosya aç…",
+  "exportSnapshot": "Tessera Studio’da yeniden açmak için"
 }

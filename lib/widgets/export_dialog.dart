@@ -35,9 +35,13 @@ Future<void> runExport(
   if (choice == null) return;
   final base = documentName.replaceFirst(RegExp(r'\.[^.]*$'), '');
   final format = choice.format;
-  final fileName =
-      '${choice.facts ? l10n.factsFileName(base) : l10n.pivotFileName(base)}'
-      '.${format.extension}';
+  // a snapshot is the file itself again, under its own extension
+  final stem = format == ExportFormat.snapshot
+      ? base
+      : choice.facts
+      ? l10n.factsFileName(base)
+      : l10n.pivotFileName(base);
+  final fileName = '$stem.${format.extension}';
   final target = GetIt.I<ExportTarget>();
   try {
     onBusy(true);
@@ -111,10 +115,13 @@ Future<ExportChoice?> showExportDialog(
             shrinkWrap: true,
             children: [
               header(l10n.exportPivot),
-              for (final f in ExportFormat.values) tile(f, facts: false),
+              for (final f in ExportFormat.pivots) tile(f, facts: false),
               const Divider(),
               header(l10n.exportFacts),
               for (final f in ExportFormat.tables) tile(f, facts: true),
+              const Divider(),
+              header(l10n.exportSnapshot),
+              tile(ExportFormat.snapshot, facts: false),
             ],
           ),
         ),
@@ -139,6 +146,7 @@ String formatName(AppLocalizations l10n, ExportFormat format) =>
       ExportFormat.csv => l10n.formatCsv,
       ExportFormat.json => l10n.formatJson,
       ExportFormat.jsonl => l10n.formatJsonl,
+      ExportFormat.snapshot => l10n.formatSnapshot,
     };
 
 IconData formatIcon(ExportFormat format) => switch (format) {
@@ -148,4 +156,5 @@ IconData formatIcon(ExportFormat format) => switch (format) {
   ExportFormat.pdf => Icons.picture_as_pdf_outlined,
   ExportFormat.csv => Icons.notes,
   ExportFormat.json || ExportFormat.jsonl => Icons.data_object,
+  ExportFormat.snapshot => Icons.inventory_2_outlined,
 };

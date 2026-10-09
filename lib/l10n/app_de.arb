@@ -98,5 +98,6 @@
   "failureOther": "Die Datei konnte nicht gelesen werden.",
   "failureRowsRead": "{count, plural, =1{Der Fehler trat nach 1 Zeile auf.} other{Der Fehler trat nach {count} Zeilen auf.}}",
   "failureDetails": "Details",
-  "openAnotherFile": "Andere Datei öffnen…"
+  "openAnotherFile": "Andere Datei öffnen…",
+  "exportSnapshot": "Zum erneuten Öffnen in Tessera Studio"
 }

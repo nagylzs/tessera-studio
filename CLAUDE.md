@@ -284,8 +284,11 @@ the next step.
   Export (`lib/export/`, `lib/widgets/export_dialog.dart`): one bar
   button — Share where `ExportTarget.canShare` (Android, iOS; "Save as…"
   then heads the overflow menu), Save as… elsewhere — opens the format
-  dialog (`showExportDialog`: the cube in every `ExportFormat`, then
-  "Facts as a table" in `ExportFormat.tables`); `runExport` writes the
+  dialog (`showExportDialog`: the cube in `ExportFormat.pivots`, then
+  "Facts as a table" in `ExportFormat.tables`, then "To reopen in
+  Tessera Studio" with `ExportFormat.snapshot` — `TesseraSnapshot()
+  .encode(facts, config: CubeConfig.of(cube))`, named `<source>.tsnp`,
+  all aggregates of the spec); `runExport` writes the
   bytes on this isolate (`cubeExport` with the aggregates the grid
   shows, `factsExport` = `ExportTable.ofFacts` with the spec's filter)
   behind a `LinearProgressIndicator` under the bar, then

@@ -98,5 +98,6 @@
   "failureOther": "Het bestand kon niet worden gelezen.",
   "failureRowsRead": "{count, plural, =1{De fout kwam na 1 rij.} other{De fout kwam na {count} rijen.}}",
   "failureDetails": "Details",
-  "openAnotherFile": "Ander bestand openen…"
+  "openAnotherFile": "Ander bestand openen…",
+  "exportSnapshot": "Om opnieuw te openen in Tessera Studio"
 }

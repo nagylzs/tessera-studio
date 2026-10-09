@@ -98,5 +98,6 @@
   "failureOther": "No se pudo leer el archivo.",
   "failureRowsRead": "{count, plural, =1{El error apareció después de 1 fila.} other{El error apareció después de {count} filas.}}",
   "failureDetails": "Detalles",
-  "openAnotherFile": "Abrir otro archivo…"
+  "openAnotherFile": "Abrir otro archivo…",
+  "exportSnapshot": "Para volver a abrir en Tessera Studio"
 }

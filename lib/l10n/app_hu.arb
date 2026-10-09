@@ -98,5 +98,6 @@
   "failureOther": "A fájlt nem sikerült beolvasni.",
   "failureRowsRead": "{count, plural, =1{A hiba 1 sor után jött.} other{A hiba {count} sor után jött.}}",
   "failureDetails": "Részletek",
-  "openAnotherFile": "Másik fájl megnyitása…"
+  "openAnotherFile": "Másik fájl megnyitása…",
+  "exportSnapshot": "Újbóli megnyitáshoz a Tessera Studióban"
 }
