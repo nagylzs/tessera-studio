@@ -341,9 +341,11 @@ the next step.
   manifest/`index.html`, `linux/runner/my_application.cc` (window and
   header-bar title), `windows/runner/main.cpp` and `Runner.rc`
   (product name, company, copyright). Application id
-  `eu.nagylzs.tessera_studio`; iOS and macOS `eu.nagylzs.tesseraStudio`
-  (Apple bundle ids allow no underscore; Flutter's default — the owner
-  confirms it before registering it with Apple), their `CFBundleName`
+  `eu.nagylzs.tessera_studio`; iOS and macOS `eu.nagylzs.tessera-studio`
+  (Apple bundle ids allow no underscore, Android ids no hyphen: the
+  closest the two allow, and the repo's spelling; chosen by the owner
+  2026-10-09 over Flutter's default `tesseraStudio`; fixed once
+  registered with Apple), their `CFBundleName`
   / `CFBundleDisplayName` "Tessera Studio", the macOS copyright in
   `macos/Runner/Configs/AppInfo.xcconfig`, the sandbox entitlements
   `files.user-selected.read-write` (picker, save dialog, drops) and

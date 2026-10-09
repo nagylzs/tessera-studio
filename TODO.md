@@ -93,10 +93,11 @@ conventions live in `CLAUDE.md`, not here.
       values in `../tessera/TODO.md`), then claim the type in the file
       associations of every platform, including the Android manifest.
 - [ ] iOS and macOS on the owner's Mac (the folders, names, icons and
-      CI builds exist): confirm the bundle id `eu.nagylzs.tesseraStudio`;
-      run on a device and a Mac; `CFBundleDocumentTypes` and opening a
-      file from Finder / the Files app ("Open with" hands a URL to the
-      app delegate — a channel like Android's `OpenRequests`); share
+      CI builds exist; bundle id `eu.nagylzs.tessera-studio`): register
+      the id with Apple; run on a device and a Mac;
+      `CFBundleDocumentTypes` and opening a file from Finder / the Files
+      app ("Open with" hands a URL to the app delegate — a channel like
+      Android's `OpenRequests`); share
       needs `sharePositionOrigin` on the iPad (the share button's
       rect); try drag and drop on macOS (enabled, untested).
 
