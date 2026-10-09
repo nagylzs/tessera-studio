@@ -240,11 +240,21 @@ void main() {
     expect(value('C'), findsOneWidget);
   });
 
-  test('the layout resolves by width only when automatic', () {
-    expect(CubePageLayout.auto.resolve(839), CubePageLayout.cubeOnly);
-    expect(CubePageLayout.auto.resolve(840), CubePageLayout.editors);
-    expect(CubePageLayout.editors.resolve(300), CubePageLayout.editors);
-    expect(CubePageLayout.cubeOnly.resolve(2000), CubePageLayout.cubeOnly);
+  test('the layout resolves by window size only when automatic', () {
+    const auto = CubePageLayout.auto;
+    expect(auto.resolve(const Size(839, 900)), CubePageLayout.cubeOnly);
+    expect(auto.resolve(const Size(840, 480)), CubePageLayout.editors);
+    // a phone in landscape: wide enough, too low
+    expect(auto.resolve(const Size(914, 411)), CubePageLayout.cubeOnly);
+    expect(auto.resolve(const Size(1280, 479)), CubePageLayout.cubeOnly);
+    expect(
+      CubePageLayout.editors.resolve(const Size(300, 300)),
+      CubePageLayout.editors,
+    );
+    expect(
+      CubePageLayout.cubeOnly.resolve(const Size(2000, 1200)),
+      CubePageLayout.cubeOnly,
+    );
   });
 
   test('sameExceptLabels ignores labels only', () {

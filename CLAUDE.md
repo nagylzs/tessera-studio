@@ -229,9 +229,11 @@ the next step.
   edits and re-imports otherwise, pruning the spec (`prune`,
   `defaultSpec`, `sameExceptLabels` copied from the example).
   `AppState.busy` = opening || loading || importing; tests wait on it.
-  Layout: `CubePageLayout` setting (`auto` / `editors` / `cubeOnly`,
-  `resolve(width)` with Material's 840 dp breakpoint; named so because
-  tessera exports its own `CubeLayout`). `editors`: `EditorsPanel`
+  Layout: `CubePageLayout` setting (`auto` / `editors` / `cubeOnly`;
+  `resolve(size)`: editors from Material's 840 dp width and 480 dp
+  height breakpoints, so a phone in landscape keeps the grid alone;
+  named so because tessera exports its own `CubeLayout`). `editors`:
+  `EditorsPanel`
   (`lib/widgets/editors_panel.dart`: `ImportSummary` line → report
   dialog, the two `AxisEditor`s side by side from 600 px else stacked —
   an axis editor cannot shrink below caption + widest chip + add button
@@ -251,7 +253,7 @@ the next step.
   `SystemChrome` `immersiveSticky`, back to `edgeToEdge` — verified on
   an API 36 emulator despite Flutter's docs saying API 36 ignores it).
   In full screen any tap on a value, or back, leaves it, whatever the
-  layout has become (a phone turned to landscape resolves to `editors`);
+  layout has become (a window resized past the breakpoints);
   leaving the page restores the bars. A `GlobalKey` on the `CubeView`
   keeps its scroll position across these and layout switches; the page
   is keyed by document in `app.dart`, so a new file starts fresh.

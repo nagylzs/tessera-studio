@@ -15,7 +15,7 @@ import '../widgets/editors_panel.dart';
 
 /// The cube page. Two layouts ([CubePageLayout]): editors inline above the
 /// grid, or the grid alone with the editors in a bottom sheet behind
-/// the "Editors" button; by window width unless the user chose.
+/// the "Editors" button; by window size unless the user chose.
 ///
 /// Full screen, like a video player: in the grid-alone layout a tap (a
 /// finger, not a mouse click) on a value hides the app bar and the
@@ -120,7 +120,7 @@ class _WorkbenchPageState extends State<WorkbenchPage> {
           builder: (context) {
             final ctrl = state.cube.controller.value;
             final layout = settings.cubeLayout.value.resolve(
-              constraints.maxWidth,
+              constraints.biggest,
             );
             final editorsInline = layout == CubePageLayout.editors;
             return Scaffold(

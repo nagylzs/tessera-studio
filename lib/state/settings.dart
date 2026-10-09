@@ -4,7 +4,8 @@ import 'package:signals_flutter/signals_flutter.dart';
 
 /// Where the axis and aggregate editors live on the cube page.
 enum CubePageLayout {
-  /// By window width: [editors] from 840 dp up, [cubeOnly] below.
+  /// By window size: [editors] from 840 × 480 dp up, [cubeOnly] below
+  /// (a phone turned to landscape is wide enough but too low).
   auto,
 
   /// Editors inline above the grid (desktop windows, wide tablets).
@@ -13,12 +14,17 @@ enum CubePageLayout {
   /// Only the grid; the editors open in a bottom sheet (phones).
   cubeOnly;
 
-  /// Material's "expanded" breakpoint.
+  /// Material's "expanded" width breakpoint.
   static const wideFrom = 840.0;
 
-  /// The layout to use at [width]; never [auto].
-  CubePageLayout resolve(double width) => switch (this) {
-    auto => width >= wideFrom ? editors : cubeOnly,
+  /// Material's "medium" height breakpoint; every phone in landscape is
+  /// below it ("compact").
+  static const tallFrom = 480.0;
+
+  /// The layout to use in a window of [size]; never [auto].
+  CubePageLayout resolve(Size size) => switch (this) {
+    auto =>
+      size.width >= wideFrom && size.height >= tallFrom ? editors : cubeOnly,
     _ => this,
   };
 }
