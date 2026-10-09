@@ -25,6 +25,7 @@ import 'package:tessera_studio/state/cube_state.dart';
 import 'package:tessera_studio/state/layout_store.dart';
 import 'package:tessera_studio/state/schema_store.dart';
 import 'package:tessera_studio/state/settings.dart';
+import 'package:tessera_studio/style/grid_style.dart';
 import 'package:tessera_studio/widgets/editors_panel.dart';
 
 import 'fakes.dart';
@@ -444,6 +445,38 @@ void main() {
     expect(await store.read(key), isNull);
     await store.delete(key);
     expect(await prefs.getString('layout:$key'), isNull);
+  });
+
+  testWidgets('the grid follows the grid style, light and dark', (
+    tester,
+  ) async {
+    _size(tester, 400, 800);
+    _register();
+    await _toCube(tester);
+    final settings = GetIt.I<AppSettings>();
+    CubeTheme theme() => tester.widget<CubeView>(find.byType(CubeView)).theme;
+    for (final mode in [ThemeMode.light, ThemeMode.dark]) {
+      await settings.setThemeMode(mode);
+      for (final style in GridStyle.values) {
+        await settings.setGridStyle(style);
+        await tester.pumpAndSettle();
+        expect(tester.takeException(), isNull, reason: '$style $mode');
+      }
+    }
+    // dark: high contrast draws white lines, compact stays compact
+    await settings.setGridStyle(GridStyle.highContrast);
+    await tester.pumpAndSettle();
+    expect(theme().borderColor, Colors.white);
+    await settings.setGridStyle(GridStyle.compact);
+    await tester.pumpAndSettle();
+    expect(theme().rowHeight, 20);
+
+    // the export follows the style
+    await tester.tap(find.byTooltip('Save as…'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Web page'));
+    await tester.pumpAndSettle();
+    expect(utf8.decode(exports.saved.single.bytes), contains('font-size: 8pt'));
   });
 
   test('the layout resolves by window size only when automatic', () {

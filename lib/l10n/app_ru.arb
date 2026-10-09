@@ -70,5 +70,18 @@
   "savedTo": "Сохранено: {location}",
   "exportFailed": "Экспорт не удался: {error}",
   "layoutRestored": "Сводная таблица восстановлена в состоянии от {date}.",
-  "defaultPivot": "Сводная таблица по умолчанию"
+  "defaultPivot": "Сводная таблица по умолчанию",
+  "menuGridStyle": "Стиль сетки…",
+  "gridStandard": "Стандартный",
+  "gridStandardInfo": "Цвета из темы приложения",
+  "gridSpreadsheet": "Электронная таблица",
+  "gridSpreadsheetInfo": "Белые ячейки, серые линии, моноширинные цифры",
+  "gridGradient": "Градиент",
+  "gridGradientInfo": "Глубокие уровни — более насыщенным бирюзовым",
+  "gridHueLevels": "Уровни оттенков",
+  "gridHueLevelsInfo": "У каждого уровня свой оттенок",
+  "gridHighContrast": "Высокий контраст",
+  "gridHighContrastInfo": "Чёткие линии, крупный жирный текст",
+  "gridCompact": "Компактный",
+  "gridCompactInfo": "Мелкий текст, низкие строки: больше на экране"
 }

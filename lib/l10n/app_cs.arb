@@ -70,5 +70,18 @@
   "savedTo": "Uloženo: {location}",
   "exportFailed": "Export se nezdařil: {error}",
   "layoutRestored": "Kontingenční tabulka obnovena ve stavu z {date}.",
-  "defaultPivot": "Výchozí kontingenční tabulka"
+  "defaultPivot": "Výchozí kontingenční tabulka",
+  "menuGridStyle": "Styl mřížky…",
+  "gridStandard": "Standardní",
+  "gridStandardInfo": "Barvy z motivu aplikace",
+  "gridSpreadsheet": "Tabulkový procesor",
+  "gridSpreadsheetInfo": "Bílé buňky, šedé čáry, číslice pevné šířky",
+  "gridGradient": "Přechod",
+  "gridGradientInfo": "Hlubší úrovně v sytější modrozelené",
+  "gridHueLevels": "Úrovně odstínů",
+  "gridHueLevelsInfo": "Každá úroveň ve vlastním odstínu",
+  "gridHighContrast": "Vysoký kontrast",
+  "gridHighContrastInfo": "Výrazné čáry, větší tučné písmo",
+  "gridCompact": "Kompaktní",
+  "gridCompactInfo": "Malé písmo, nízké řádky: víc na obrazovce"
 }

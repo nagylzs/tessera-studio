@@ -410,5 +410,57 @@
   "defaultPivot": "Default pivot",
   "@defaultPivot": {
     "description": "Banner action: back to the default pivot, forgetting the restored one."
+  },
+  "menuGridStyle": "Grid style…",
+  "@menuGridStyle": {
+    "description": "Overflow entry opening the grid style dialog."
+  },
+  "gridStandard": "Standard",
+  "@gridStandard": {
+    "description": "Grid style: colours derived from the app theme (the default)."
+  },
+  "gridStandardInfo": "Colours from the app's theme",
+  "@gridStandardInfo": {
+    "description": "One-line description under the grid style name."
+  },
+  "gridSpreadsheet": "Spreadsheet",
+  "@gridSpreadsheet": {
+    "description": "Grid style: plain spreadsheet look."
+  },
+  "gridSpreadsheetInfo": "White cells, grey lines, monospace figures",
+  "@gridSpreadsheetInfo": {
+    "description": "One-line description under the grid style name."
+  },
+  "gridGradient": "Gradient",
+  "@gridGradient": {
+    "description": "Grid style: levels shaded from pale to saturated teal."
+  },
+  "gridGradientInfo": "Deeper levels in deeper teal",
+  "@gridGradientInfo": {
+    "description": "One-line description under the grid style name."
+  },
+  "gridHueLevels": "Hue levels",
+  "@gridHueLevels": {
+    "description": "Grid style: each nesting level in a different hue."
+  },
+  "gridHueLevelsInfo": "Each level in a hue of its own",
+  "@gridHueLevelsInfo": {
+    "description": "One-line description under the grid style name."
+  },
+  "gridHighContrast": "High contrast",
+  "@gridHighContrast": {
+    "description": "Grid style: high contrast."
+  },
+  "gridHighContrastInfo": "Strong lines, larger bold text",
+  "@gridHighContrastInfo": {
+    "description": "One-line description under the grid style name."
+  },
+  "gridCompact": "Compact",
+  "@gridCompact": {
+    "description": "Grid style: small and dense."
+  },
+  "gridCompactInfo": "Small text, short rows: more on screen",
+  "@gridCompactInfo": {
+    "description": "One-line description under the grid style name."
   }
 }

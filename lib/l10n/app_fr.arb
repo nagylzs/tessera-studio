@@ -70,5 +70,18 @@
   "savedTo": "Enregistré : {location}",
   "exportFailed": "Échec de l’exportation : {error}",
   "layoutRestored": "Tableau croisé restauré tel que vous l’avez laissé le {date}.",
-  "defaultPivot": "Tableau croisé par défaut"
+  "defaultPivot": "Tableau croisé par défaut",
+  "menuGridStyle": "Style de grille…",
+  "gridStandard": "Standard",
+  "gridStandardInfo": "Couleurs du thème de l’application",
+  "gridSpreadsheet": "Tableur",
+  "gridSpreadsheetInfo": "Cellules blanches, lignes grises, chiffres à chasse fixe",
+  "gridGradient": "Dégradé",
+  "gridGradientInfo": "Niveaux profonds en bleu-vert plus soutenu",
+  "gridHueLevels": "Niveaux de teinte",
+  "gridHueLevelsInfo": "Chaque niveau dans sa propre teinte",
+  "gridHighContrast": "Contraste élevé",
+  "gridHighContrastInfo": "Lignes marquées, texte plus grand en gras",
+  "gridCompact": "Compact",
+  "gridCompactInfo": "Petit texte, lignes basses : plus de données à l’écran"
 }

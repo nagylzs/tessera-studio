@@ -70,5 +70,18 @@
   "savedTo": "Salvato: {location}",
   "exportFailed": "Esportazione non riuscita: {error}",
   "layoutRestored": "Tabella pivot ripristinata come l’hai lasciata il {date}.",
-  "defaultPivot": "Tabella pivot predefinita"
+  "defaultPivot": "Tabella pivot predefinita",
+  "menuGridStyle": "Stile griglia…",
+  "gridStandard": "Standard",
+  "gridStandardInfo": "Colori dal tema dell’app",
+  "gridSpreadsheet": "Foglio di calcolo",
+  "gridSpreadsheetInfo": "Celle bianche, linee grigie, cifre a spaziatura fissa",
+  "gridGradient": "Sfumatura",
+  "gridGradientInfo": "Livelli più profondi in verde acqua più intenso",
+  "gridHueLevels": "Livelli di tinta",
+  "gridHueLevelsInfo": "Ogni livello con una tinta propria",
+  "gridHighContrast": "Contrasto elevato",
+  "gridHighContrastInfo": "Linee marcate, testo più grande in grassetto",
+  "gridCompact": "Compatto",
+  "gridCompactInfo": "Testo piccolo, righe basse: più dati sullo schermo"
 }

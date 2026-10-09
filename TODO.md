@@ -69,6 +69,10 @@ conventions live in `CLAUDE.md`, not here.
 
 ## App
 
+- [ ] Later release (owner, 2026-10-09): a curated theme gallery — more
+      grid styles than the six of "Grid style…", picked and named with
+      care, shown as previews of a sample cube, each with its export
+      theme and checked in light and dark.
 - [ ] About entry in the overflow menu (version, licence, the "free and
       ad-free forever" statement, link to the tessera guide).
 - [ ] Settings persistence beyond theme and language (last export
@@ -97,6 +101,10 @@ conventions live in `CLAUDE.md`, not here.
 
 ## Done
 
+- [x] Grid styles: "Grid style…" in the menu with six styles (standard,
+      spreadsheet, gradient, hue levels, high contrast, compact), each
+      with a matching export theme the exports follow; remembered;
+      checked in light and dark (2026-10-09).
 - [x] The pivot is remembered per source structure (spec, expanded
       groups, shown aggregates; `LayoutStore`), so a known file opens on
       last time's pivot without the schema page; the banner says so and

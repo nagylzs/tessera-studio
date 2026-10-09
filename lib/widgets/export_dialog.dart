@@ -8,20 +8,22 @@ import '../export/export_format.dart';
 import '../export/export_target.dart';
 import '../export/exports.dart';
 import '../l10n/generated/app_localizations.dart';
+import '../style/grid_style.dart';
 
 /// A format from the export dialog; [facts] = the facts as a table
 /// rather than the cube.
 typedef ExportChoice = ({ExportFormat format, bool facts});
 
 /// Asks for a format, writes the export of [cube] (with the [aggregates]
-/// the grid shows) and shares it ([share]) or saves it where the user
-/// says; the outcome goes to a snack bar. [onBusy] brackets the writing,
+/// the grid shows, in its [style]) and shares it ([share]) or saves it
+/// where the user says; the outcome goes to a snack bar. [onBusy] brackets the writing,
 /// which runs on this isolate like the cube layout does.
 Future<void> runExport(
   BuildContext context, {
   required String documentName,
   required Cube cube,
   List<Aggregate>? aggregates,
+  GridStyle style = GridStyle.standard,
   required bool share,
   required ValueChanged<bool> onBusy,
 }) async {
@@ -51,6 +53,7 @@ Future<void> runExport(
               title: base,
               strings: strings,
               aggregates: aggregates,
+              style: style,
             );
     } finally {
       onBusy(false);

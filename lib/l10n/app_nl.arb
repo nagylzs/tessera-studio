@@ -70,5 +70,18 @@
   "savedTo": "Opgeslagen: {location}",
   "exportFailed": "Exporteren mislukt: {error}",
   "layoutRestored": "Draaitabel hersteld zoals u die op {date} achterliet.",
-  "defaultPivot": "Standaarddraaitabel"
+  "defaultPivot": "Standaarddraaitabel",
+  "menuGridStyle": "Rasterstijl…",
+  "gridStandard": "Standaard",
+  "gridStandardInfo": "Kleuren uit het app-thema",
+  "gridSpreadsheet": "Spreadsheet",
+  "gridSpreadsheetInfo": "Witte cellen, grijze lijnen, cijfers met vaste breedte",
+  "gridGradient": "Verloop",
+  "gridGradientInfo": "Diepere niveaus in dieper blauwgroen",
+  "gridHueLevels": "Tintniveaus",
+  "gridHueLevelsInfo": "Elk niveau in een eigen tint",
+  "gridHighContrast": "Hoog contrast",
+  "gridHighContrastInfo": "Sterke lijnen, grotere vette tekst",
+  "gridCompact": "Compact",
+  "gridCompactInfo": "Kleine tekst, lage rijen: meer op het scherm"
 }

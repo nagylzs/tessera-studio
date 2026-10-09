@@ -4,6 +4,7 @@ import 'package:tessera_flutter/tessera_flutter.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../state/settings.dart';
+import '../style/grid_style.dart';
 
 /// An entry a page adds above the common ones of [AppMenuButton].
 final class AppMenuEntry {
@@ -25,8 +26,8 @@ final class AppMenuEntry {
 }
 
 /// The overflow menu at the end of every app bar: the page's own
-/// [entries] first, then language and theme (About and Settings join
-/// here later). Dialogs rather than submenus: they work with a thumb as
+/// [entries] first, then language, theme and grid style (About and
+/// Settings join here later). Dialogs rather than submenus: they work with a thumb as
 /// well as with a mouse.
 class AppMenuButton extends StatelessWidget {
   const AppMenuButton({super.key, this.entries = const []});
@@ -46,6 +47,11 @@ class AppMenuButton extends StatelessWidget {
         label: l10n.menuTheme,
         icon: Icons.brightness_6_outlined,
         onTap: () => showThemeDialog(context),
+      ),
+      AppMenuEntry(
+        label: l10n.menuGridStyle,
+        icon: Icons.palette_outlined,
+        onTap: () => showGridStyleDialog(context),
       ),
     ];
     return PopupMenuButton<AppMenuEntry>(
@@ -140,18 +146,62 @@ Future<void> showThemeDialog(BuildContext context) {
   );
 }
 
+/// The look of the cube grid, each with a line on what it does; applies
+/// on selection, the exports follow it.
+Future<void> showGridStyleDialog(BuildContext context) {
+  final l10n = AppLocalizations.of(context);
+  final settings = GetIt.I<AppSettings>();
+  return showDialog<void>(
+    context: context,
+    builder: (context) => _RadioDialog<GridStyle>(
+      title: l10n.menuGridStyle,
+      value: settings.gridStyle.value,
+      options: [
+        for (final style in GridStyle.values)
+          (style, gridStyleName(l10n, style)),
+      ],
+      subtitles: {
+        for (final style in GridStyle.values) style: gridStyleInfo(l10n, style),
+      },
+      onChanged: settings.setGridStyle,
+    ),
+  );
+}
+
+String gridStyleName(AppLocalizations l10n, GridStyle style) => switch (style) {
+  GridStyle.standard => l10n.gridStandard,
+  GridStyle.spreadsheet => l10n.gridSpreadsheet,
+  GridStyle.gradient => l10n.gridGradient,
+  GridStyle.hueLevels => l10n.gridHueLevels,
+  GridStyle.highContrast => l10n.gridHighContrast,
+  GridStyle.compact => l10n.gridCompact,
+};
+
+String gridStyleInfo(AppLocalizations l10n, GridStyle style) => switch (style) {
+  GridStyle.standard => l10n.gridStandardInfo,
+  GridStyle.spreadsheet => l10n.gridSpreadsheetInfo,
+  GridStyle.gradient => l10n.gridGradientInfo,
+  GridStyle.hueLevels => l10n.gridHueLevelsInfo,
+  GridStyle.highContrast => l10n.gridHighContrastInfo,
+  GridStyle.compact => l10n.gridCompactInfo,
+};
+
 class _RadioDialog<T> extends StatelessWidget {
   const _RadioDialog({
     required this.title,
     required this.value,
     required this.options,
     required this.onChanged,
+    this.subtitles = const {},
   });
 
   final String title;
   final T value;
   final List<(T, String)> options;
   final ValueChanged<T> onChanged;
+
+  /// A second line under an option's label.
+  final Map<T, String> subtitles;
 
   @override
   Widget build(BuildContext context) => AlertDialog(
@@ -169,7 +219,14 @@ class _RadioDialog<T> extends StatelessWidget {
           shrinkWrap: true,
           children: [
             for (final (v, label) in options)
-              RadioListTile<T>(value: v, title: Text(label)),
+              RadioListTile<T>(
+                value: v,
+                title: Text(label),
+                subtitle: switch (subtitles[v]) {
+                  final s? => Text(s),
+                  null => null,
+                },
+              ),
           ],
         ),
       ),

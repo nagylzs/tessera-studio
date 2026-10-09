@@ -70,5 +70,18 @@
   "savedTo": "Zapisano: {location}",
   "exportFailed": "Eksport nie powiódł się: {error}",
   "layoutRestored": "Przywrócono tabelę przestawną w stanie z {date}.",
-  "defaultPivot": "Domyślna tabela przestawna"
+  "defaultPivot": "Domyślna tabela przestawna",
+  "menuGridStyle": "Styl siatki…",
+  "gridStandard": "Standardowy",
+  "gridStandardInfo": "Kolory z motywu aplikacji",
+  "gridSpreadsheet": "Arkusz kalkulacyjny",
+  "gridSpreadsheetInfo": "Białe komórki, szare linie, cyfry o stałej szerokości",
+  "gridGradient": "Gradient",
+  "gridGradientInfo": "Głębsze poziomy w intensywniejszym morskim",
+  "gridHueLevels": "Poziomy barw",
+  "gridHueLevelsInfo": "Każdy poziom we własnym odcieniu",
+  "gridHighContrast": "Wysoki kontrast",
+  "gridHighContrastInfo": "Wyraźne linie, większy pogrubiony tekst",
+  "gridCompact": "Kompaktowy",
+  "gridCompactInfo": "Mały tekst, niskie wiersze: więcej na ekranie"
 }

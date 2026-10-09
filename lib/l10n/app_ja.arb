@@ -70,5 +70,18 @@
   "savedTo": "保存しました: {location}",
   "exportFailed": "エクスポートに失敗しました: {error}",
   "layoutRestored": "{date} の状態でピボットテーブルを復元しました。",
-  "defaultPivot": "既定のピボットテーブル"
+  "defaultPivot": "既定のピボットテーブル",
+  "menuGridStyle": "グリッドのスタイル…",
+  "gridStandard": "標準",
+  "gridStandardInfo": "アプリのテーマの色",
+  "gridSpreadsheet": "スプレッドシート",
+  "gridSpreadsheetInfo": "白いセル、灰色の罫線、等幅の数字",
+  "gridGradient": "グラデーション",
+  "gridGradientInfo": "深い階層ほど濃い青緑",
+  "gridHueLevels": "色相レベル",
+  "gridHueLevelsInfo": "階層ごとに異なる色相",
+  "gridHighContrast": "ハイコントラスト",
+  "gridHighContrastInfo": "太い罫線、大きな太字",
+  "gridCompact": "コンパクト",
+  "gridCompactInfo": "小さな文字と低い行で、より多くを表示"
 }

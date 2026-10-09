@@ -70,5 +70,18 @@
   "savedTo": "Gespeichert: {location}",
   "exportFailed": "Export fehlgeschlagen: {error}",
   "layoutRestored": "Pivot-Tabelle wiederhergestellt, wie Sie sie am {date} verlassen haben.",
-  "defaultPivot": "Standard-Pivot-Tabelle"
+  "defaultPivot": "Standard-Pivot-Tabelle",
+  "menuGridStyle": "Rasterstil…",
+  "gridStandard": "Standard",
+  "gridStandardInfo": "Farben aus dem App-Design",
+  "gridSpreadsheet": "Tabellenkalkulation",
+  "gridSpreadsheetInfo": "Weiße Zellen, graue Linien, Ziffern in fester Breite",
+  "gridGradient": "Verlauf",
+  "gridGradientInfo": "Tiefere Ebenen in kräftigerem Petrol",
+  "gridHueLevels": "Farbtonebenen",
+  "gridHueLevelsInfo": "Jede Ebene in einem eigenen Farbton",
+  "gridHighContrast": "Hoher Kontrast",
+  "gridHighContrastInfo": "Kräftige Linien, größere fette Schrift",
+  "gridCompact": "Kompakt",
+  "gridCompactInfo": "Kleine Schrift, niedrige Zeilen: mehr auf dem Bildschirm"
 }

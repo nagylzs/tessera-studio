@@ -70,5 +70,18 @@
   "savedTo": "Salvo: {location}",
   "exportFailed": "Falha na exportação: {error}",
   "layoutRestored": "Tabela dinâmica restaurada como você a deixou em {date}.",
-  "defaultPivot": "Tabela dinâmica padrão"
+  "defaultPivot": "Tabela dinâmica padrão",
+  "menuGridStyle": "Estilo da grade…",
+  "gridStandard": "Padrão",
+  "gridStandardInfo": "Cores do tema do app",
+  "gridSpreadsheet": "Planilha",
+  "gridSpreadsheetInfo": "Células brancas, linhas cinza, números monoespaçados",
+  "gridGradient": "Gradiente",
+  "gridGradientInfo": "Níveis mais profundos em verde-azulado mais intenso",
+  "gridHueLevels": "Níveis de matiz",
+  "gridHueLevelsInfo": "Cada nível com seu próprio matiz",
+  "gridHighContrast": "Alto contraste",
+  "gridHighContrastInfo": "Linhas fortes, texto maior em negrito",
+  "gridCompact": "Compacto",
+  "gridCompactInfo": "Texto pequeno, linhas baixas: mais na tela"
 }

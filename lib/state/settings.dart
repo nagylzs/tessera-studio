@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:signals_flutter/signals_flutter.dart';
 
+import '../style/grid_style.dart';
+
 /// Where the axis and aggregate editors live on the cube page.
 enum CubePageLayout {
   /// By window size: [editors] from 840 × 480 dp up, [cubeOnly] below
@@ -42,6 +44,10 @@ abstract interface class SettingsStore {
   /// The stored [CubePageLayout] name, `null` for [CubePageLayout.auto].
   Future<String?> readCubeLayout();
   Future<void> writeCubeLayout(String? name);
+
+  /// The stored [GridStyle] name, `null` for [GridStyle.standard].
+  Future<String?> readGridStyle();
+  Future<void> writeGridStyle(String? name);
 }
 
 final class PreferencesSettingsStore implements SettingsStore {
@@ -77,6 +83,16 @@ final class PreferencesSettingsStore implements SettingsStore {
   Future<void> writeCubeLayout(String? name) => name == null
       ? _prefs.remove(_cubeLayout)
       : _prefs.setString(_cubeLayout, name);
+
+  static const _gridStyle = 'settings:gridStyle';
+
+  @override
+  Future<String?> readGridStyle() => _prefs.getString(_gridStyle);
+
+  @override
+  Future<void> writeGridStyle(String? name) => name == null
+      ? _prefs.remove(_gridStyle)
+      : _prefs.setString(_gridStyle, name);
 }
 
 /// In-memory store for tests.
@@ -103,6 +119,14 @@ final class MemorySettingsStore implements SettingsStore {
 
   @override
   Future<void> writeCubeLayout(String? name) async => cubeLayout = name;
+
+  String? gridStyle;
+
+  @override
+  Future<String?> readGridStyle() async => gridStyle;
+
+  @override
+  Future<void> writeGridStyle(String? name) async => gridStyle = name;
 }
 
 /// The user's settings as signals the `MaterialApp` reads. Both default
@@ -117,6 +141,7 @@ final class AppSettings {
   final themeMode = signal(ThemeMode.system);
   final locale = signal<Locale?>(null);
   final cubeLayout = signal(CubePageLayout.auto);
+  final gridStyle = signal(GridStyle.standard);
 
   /// Reads the stored values; call once before the first frame.
   Future<void> load() async {
@@ -132,6 +157,18 @@ final class AppSettings {
     cubeLayout.value = CubePageLayout.values.firstWhere(
       (l) => l.name == layout,
       orElse: () => CubePageLayout.auto,
+    );
+    final style = await _store.readGridStyle();
+    gridStyle.value = GridStyle.values.firstWhere(
+      (s) => s.name == style,
+      orElse: () => GridStyle.standard,
+    );
+  }
+
+  Future<void> setGridStyle(GridStyle style) async {
+    gridStyle.value = style;
+    await _store.writeGridStyle(
+      style == GridStyle.standard ? null : style.name,
     );
   }
 

@@ -8,32 +8,23 @@ import 'package:tessera_pdf/tessera_pdf.dart';
 import 'package:tessera_svg/tessera_svg.dart';
 import 'package:tessera_xlsx/tessera_xlsx.dart';
 
-import '../app.dart' show tesseraGreen;
+import '../style/grid_style.dart';
 import 'export_format.dart';
 
-/// The look of every export: headers on the tessera green. Exports go
-/// on paper and into spreadsheets, so they do not follow the dark theme.
-final exportTheme = CubeExportTheme.brand(primary: tesseraGreen.toARGB32());
-
-/// The PDF's: dark text on a light green. tessera_pdf 0.2.0 writes the
-/// page header and footer in the header cells' text colour, which the
-/// green theme makes white on white paper; light headers save toner too.
-final pdfExportTheme = CubeExportTheme.brand(
-  primary: CubeExportTheme.mix(0xFFFFFFFF, tesseraGreen.toARGB32(), 0.35),
-  onPrimary: 0xFF191C1B,
-);
-
 /// The cube as laid out, with the [aggregates] the grid shows (`null` =
-/// all of the spec's), as [format]. [title] names the sheet or heads
-/// the page.
+/// all of the spec's), as [format], in the export theme of [style] (the
+/// grid's; exports go on paper, so not the dark theme). [title] names
+/// the sheet or heads the page.
 Future<Uint8List> cubeExport(
   Cube cube,
   ExportFormat format, {
   required String title,
   required TesseraStrings strings,
   List<Aggregate>? aggregates,
+  GridStyle style = GridStyle.standard,
 }) async {
   final layout = cube.layout;
+  final exportTheme = style.exportTheme;
   return switch (format) {
     ExportFormat.xlsx => XlsxCubeExporter(
       strings: strings,
@@ -57,7 +48,7 @@ Future<Uint8List> cubeExport(
     ),
     ExportFormat.pdf => await PdfCubeExporter(
       strings: strings,
-      theme: pdfExportTheme,
+      theme: style.pdfExportTheme,
       fonts: await _pdfFonts,
       footer: const PdfPageText(left: '{date}', right: '{page} / {pages}'),
     ).export(layout, aggregates: aggregates, title: title),

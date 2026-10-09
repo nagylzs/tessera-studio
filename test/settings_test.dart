@@ -13,6 +13,7 @@ import 'package:tessera_studio/state/app_state.dart';
 import 'package:tessera_studio/state/layout_store.dart';
 import 'package:tessera_studio/state/schema_store.dart';
 import 'package:tessera_studio/state/settings.dart';
+import 'package:tessera_studio/style/grid_style.dart';
 
 import 'fakes.dart';
 
@@ -50,21 +51,27 @@ void main() {
     await settings.load();
     expect(settings.themeMode.value, ThemeMode.system);
     expect(settings.locale.value, isNull);
+    expect(settings.gridStyle.value, GridStyle.standard);
 
     await settings.setThemeMode(ThemeMode.dark);
     await settings.setLocale(const Locale('hu'));
+    await settings.setGridStyle(GridStyle.compact);
     expect(s.themeMode, 'dark');
     expect(s.language, 'hu');
+    expect(s.gridStyle, 'compact');
 
     final again = AppSettings(s);
     await again.load();
     expect(again.themeMode.value, ThemeMode.dark);
     expect(again.locale.value, const Locale('hu'));
+    expect(again.gridStyle.value, GridStyle.compact);
 
     await again.setThemeMode(ThemeMode.system);
     await again.setLocale(null);
+    await again.setGridStyle(GridStyle.standard);
     expect(s.themeMode, isNull);
     expect(s.language, isNull);
+    expect(s.gridStyle, isNull);
   });
 
   test('the preferences store round-trips', () async {
@@ -78,6 +85,26 @@ void main() {
     expect(await s.readLanguage(), 'de');
     await s.writeThemeMode(null);
     expect(await s.readThemeMode(), isNull);
+    await s.writeGridStyle('spreadsheet');
+    expect(await s.readGridStyle(), 'spreadsheet');
+  });
+
+  testWidgets('the grid style dialog explains and applies a style', (
+    tester,
+  ) async {
+    _register();
+    await tester.pumpWidget(const TesseraStudioApp());
+    await _openMenu(tester);
+    await tester.tap(find.text('Grid style…'));
+    await tester.pumpAndSettle();
+    expect(find.text('Grid style'), findsOneWidget);
+    expect(find.text('Standard'), findsOneWidget);
+    expect(find.text("Colours from the app's theme"), findsOneWidget);
+    await tester.tap(find.text('Spreadsheet'));
+    await tester.pumpAndSettle();
+    expect(find.byType(AlertDialog), findsNothing);
+    expect(GetIt.I<AppSettings>().gridStyle.value, GridStyle.spreadsheet);
+    expect(store.gridStyle, 'spreadsheet');
   });
 
   testWidgets('the theme dialog switches the app to dark', (tester) async {

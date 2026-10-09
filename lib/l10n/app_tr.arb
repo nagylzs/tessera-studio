@@ -70,5 +70,18 @@
   "savedTo": "Kaydedildi: {location}",
   "exportFailed": "Dışa aktarma başarısız: {error}",
   "layoutRestored": "Pivot tablo, {date} tarihinde bıraktığınız haliyle geri yüklendi.",
-  "defaultPivot": "Varsayılan pivot tablo"
+  "defaultPivot": "Varsayılan pivot tablo",
+  "menuGridStyle": "Izgara stili…",
+  "gridStandard": "Standart",
+  "gridStandardInfo": "Uygulama temasının renkleri",
+  "gridSpreadsheet": "Elektronik tablo",
+  "gridSpreadsheetInfo": "Beyaz hücreler, gri çizgiler, eş aralıklı rakamlar",
+  "gridGradient": "Renk geçişi",
+  "gridGradientInfo": "Derin düzeyler daha koyu turkuaz",
+  "gridHueLevels": "Renk tonu düzeyleri",
+  "gridHueLevelsInfo": "Her düzey kendi renk tonunda",
+  "gridHighContrast": "Yüksek karşıtlık",
+  "gridHighContrastInfo": "Belirgin çizgiler, daha büyük kalın metin",
+  "gridCompact": "Sıkışık",
+  "gridCompactInfo": "Küçük metin, alçak satırlar: ekranda daha fazlası"
 }

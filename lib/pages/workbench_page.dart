@@ -88,6 +88,7 @@ class _WorkbenchPageState extends State<WorkbenchPage> {
       documentName: document.name,
       cube: ctrl.cube,
       aggregates: shown == null || shown.isEmpty ? null : shown,
+      style: GetIt.I<AppSettings>().gridStyle.value,
       share: share,
       onBusy: (busy) {
         if (mounted) setState(() => _exporting = busy);
@@ -333,11 +334,13 @@ class _WorkbenchPageState extends State<WorkbenchPage> {
       );
     }
     final shown = state.cube.shown.value ?? ctrl.cube.spec.aggregates;
+    final style = GetIt.I<AppSettings>().gridStyle.value;
     final view = Listener(
       onPointerDown: (event) => _pointer = event.kind,
       child: CubeView(
         key: _gridKey,
         controller: ctrl,
+        theme: style.theme(Theme.of(context).brightness),
         aggregates: shown,
         onCellTap: (_) => _cellTapped(editorsInline),
       ),

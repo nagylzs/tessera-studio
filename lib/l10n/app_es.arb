@@ -70,5 +70,18 @@
   "savedTo": "Guardado: {location}",
   "exportFailed": "Error al exportar: {error}",
   "layoutRestored": "Tabla dinámica restaurada tal como la dejó el {date}.",
-  "defaultPivot": "Tabla dinámica predeterminada"
+  "defaultPivot": "Tabla dinámica predeterminada",
+  "menuGridStyle": "Estilo de cuadrícula…",
+  "gridStandard": "Estándar",
+  "gridStandardInfo": "Colores del tema de la aplicación",
+  "gridSpreadsheet": "Hoja de cálculo",
+  "gridSpreadsheetInfo": "Celdas blancas, líneas grises, cifras monoespaciadas",
+  "gridGradient": "Degradado",
+  "gridGradientInfo": "Niveles más profundos en verde azulado más intenso",
+  "gridHueLevels": "Niveles de tono",
+  "gridHueLevelsInfo": "Cada nivel con su propio tono",
+  "gridHighContrast": "Alto contraste",
+  "gridHighContrastInfo": "Líneas marcadas, texto más grande en negrita",
+  "gridCompact": "Compacto",
+  "gridCompactInfo": "Texto pequeño, filas bajas: más en pantalla"
 }
