@@ -54,10 +54,13 @@ lives here.
   depth; its `docs/` is the fifteen-chapter user guide — read those
   before touching anything pivot-related, do not re-derive them here.
 - The committed `pubspec.yaml` depends on the **published** versions
-  (`tessera_flutter ^0.2.1`, exporters `^0.2.0`). For developing both at
-  once, `pubspec_overrides.yaml` (git-ignored, exists locally) points
-  all seven packages at `../tessera/packages/*`; delete it to build
-  against pub.dev. Pub accepts workspace members as path overrides from
+  (`tessera_flutter ^0.2.1`, `tessera_xlsx` and `tessera_ods ^0.2.1` —
+  these pull in `tessera` 0.2.2, the first with `Schema.structureKey` —
+  the other exporters `^0.2.0`). For developing both at once, a
+  git-ignored `pubspec_overrides.yaml` points all seven packages at
+  `../tessera/packages/*`; delete it to build against pub.dev, and never
+  commit a `pubspec.lock` resolved through it (it records path sources).
+  Pub accepts workspace members as path overrides from
   outside the workspace.
 - The example app inside `../tessera/packages/tessera_flutter/example`
   is the deliberately minimal pub.dev demo. Its pieces (`CubeWorkbench`

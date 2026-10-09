@@ -579,54 +579,61 @@ packages:
     source: hosted
     version: "1.2.2"
   tessera:
-    dependency: "direct overridden"
+    dependency: transitive
     description:
-      path: "../tessera/packages/tessera"
-      relative: true
-    source: path
-    version: "0.2.1"
+      name: tessera
+      sha256: "382b4335392a219754aaadf11378da6b1a6e536b514e9366aa9337d04f242e5d"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.2.2"
   tessera_flutter:
     dependency: "direct main"
     description:
-      path: "../tessera/packages/tessera_flutter"
-      relative: true
-    source: path
+      name: tessera_flutter
+      sha256: dfbb39d5f67826bdd6f7b7f70744dfec6066ccb632f3c17638261fb6b92ccad1
+      url: "https://pub.dev"
+    source: hosted
     version: "0.2.1"
   tessera_html:
     dependency: "direct main"
     description:
-      path: "../tessera/packages/tessera_html"
-      relative: true
-    source: path
+      name: tessera_html
+      sha256: b68500a1c165891b401efe55b28ac9ef958a18a81db9b2818f62bcf67b9378d7
+      url: "https://pub.dev"
+    source: hosted
     version: "0.2.0"
   tessera_ods:
     dependency: "direct main"
     description:
-      path: "../tessera/packages/tessera_ods"
-      relative: true
-    source: path
-    version: "0.2.0"
+      name: tessera_ods
+      sha256: "5d0554bd3c3737fc1719256f29effb46394a08af1867c0cb95ce4524c1b47629"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.2.1"
   tessera_pdf:
     dependency: "direct main"
     description:
-      path: "../tessera/packages/tessera_pdf"
-      relative: true
-    source: path
+      name: tessera_pdf
+      sha256: ab501ec356a95c0a7ae7324a98234a6a4935229c7ea197ebb6885b666d696237
+      url: "https://pub.dev"
+    source: hosted
     version: "0.2.0"
   tessera_svg:
     dependency: "direct main"
     description:
-      path: "../tessera/packages/tessera_svg"
-      relative: true
-    source: path
+      name: tessera_svg
+      sha256: eaa59e80369514ac35937f76b54fc296ebb436edee54fbc27ec1eef7e0a492cd
+      url: "https://pub.dev"
+    source: hosted
     version: "0.2.0"
   tessera_xlsx:
     dependency: "direct main"
     description:
-      path: "../tessera/packages/tessera_xlsx"
-      relative: true
-    source: path
-    version: "0.2.0"
+      name: tessera_xlsx
+      sha256: "3e92079110f3933e9faf606ee3fb3deb8962b07faa97c4d616e670c05299eb46"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.2.1"
   test_api:
     dependency: transitive
     description:
@@ -725,4 +732,4 @@ packages:
     version: "3.1.4"
 sdks:
   dart: ">=3.13.3 <4.0.0"
-  flutter: ">=3.44.0"
+  flutter: ">=3.47.0"
