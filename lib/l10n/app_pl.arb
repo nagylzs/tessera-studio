@@ -57,5 +57,16 @@
   "currentCell": "Bieżąca komórka: {coordinate} — {count} faktów",
   "editorsTooltip": "Edytory",
   "filterMenu": "Filtr…",
-  "editorsOnTop": "Edytory u góry"
+  "editorsOnTop": "Edytory u góry",
+  "formatHtml": "Strona internetowa",
+  "formatSvg": "Obraz SVG",
+  "formatPdf": "Dokument PDF",
+  "saveAs": "Zapisz jako…",
+  "share": "Udostępnij…",
+  "exportPivot": "Tabela przestawna",
+  "exportFacts": "Fakty jako tabela",
+  "pivotFileName": "{name} tabela przestawna",
+  "factsFileName": "{name} fakty",
+  "savedTo": "Zapisano: {location}",
+  "exportFailed": "Eksport nie powiódł się: {error}"
 }

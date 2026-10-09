@@ -57,5 +57,16 @@
   "currentCell": "Célula atual: {coordinate} — {count} fatos",
   "editorsTooltip": "Editores",
   "filterMenu": "Filtro…",
-  "editorsOnTop": "Editores no topo"
+  "editorsOnTop": "Editores no topo",
+  "formatHtml": "Página da web",
+  "formatSvg": "Imagem SVG",
+  "formatPdf": "Documento PDF",
+  "saveAs": "Salvar como…",
+  "share": "Compartilhar…",
+  "exportPivot": "Tabela dinâmica",
+  "exportFacts": "Fatos como tabela",
+  "pivotFileName": "{name} tabela dinâmica",
+  "factsFileName": "{name} fatos",
+  "savedTo": "Salvo: {location}",
+  "exportFailed": "Falha na exportação: {error}"
 }

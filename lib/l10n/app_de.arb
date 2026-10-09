@@ -57,5 +57,16 @@
   "currentCell": "Aktuelle Zelle: {coordinate} — {count} Fakten",
   "editorsTooltip": "Editoren",
   "filterMenu": "Filter…",
-  "editorsOnTop": "Editoren oben"
+  "editorsOnTop": "Editoren oben",
+  "formatHtml": "Webseite",
+  "formatSvg": "SVG-Bild",
+  "formatPdf": "PDF-Dokument",
+  "saveAs": "Speichern unter…",
+  "share": "Teilen…",
+  "exportPivot": "Pivot-Tabelle",
+  "exportFacts": "Fakten als Tabelle",
+  "pivotFileName": "{name} Pivot",
+  "factsFileName": "{name} Fakten",
+  "savedTo": "Gespeichert: {location}",
+  "exportFailed": "Export fehlgeschlagen: {error}"
 }

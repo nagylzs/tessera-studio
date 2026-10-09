@@ -57,5 +57,16 @@
   "currentCell": "Текущая ячейка: {coordinate} — {count} фактов",
   "editorsTooltip": "Редакторы",
   "filterMenu": "Фильтр…",
-  "editorsOnTop": "Редакторы сверху"
+  "editorsOnTop": "Редакторы сверху",
+  "formatHtml": "Веб-страница",
+  "formatSvg": "Изображение SVG",
+  "formatPdf": "Документ PDF",
+  "saveAs": "Сохранить как…",
+  "share": "Поделиться…",
+  "exportPivot": "Сводная таблица",
+  "exportFacts": "Факты в виде таблицы",
+  "pivotFileName": "{name} сводная таблица",
+  "factsFileName": "{name} факты",
+  "savedTo": "Сохранено: {location}",
+  "exportFailed": "Экспорт не удался: {error}"
 }

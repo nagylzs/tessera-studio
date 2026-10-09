@@ -1,5 +1,7 @@
 import 'dart:async';
+import 'dart:typed_data';
 
+import 'package:tessera_studio/export/export_target.dart';
 import 'package:tessera_studio/files/clipboard_reader.dart';
 import 'package:tessera_studio/files/document_loader.dart';
 import 'package:tessera_studio/files/opened_document.dart';
@@ -52,4 +54,39 @@ final class FakeSystemBars implements SystemBars {
 
   @override
   Future<void> show() async => calls.add('show');
+}
+
+/// Records what was saved or shared; [saveTo] is what the save dialog
+/// "picks" (`null` = cancelled), [error] makes both throw.
+final class FakeExportTarget implements ExportTarget {
+  FakeExportTarget({this.canShare = false});
+
+  @override
+  final bool canShare;
+  Uri? saveTo;
+  Object? error;
+  final saved = <({String fileName, String mimeType, Uint8List bytes})>[];
+  final shared = <({String fileName, String mimeType, Uint8List bytes})>[];
+
+  @override
+  Future<Uri?> save(
+    Uint8List bytes, {
+    required String fileName,
+    required String mimeType,
+    String? dialogTitle,
+  }) async {
+    if (error case final e?) throw e;
+    saved.add((fileName: fileName, mimeType: mimeType, bytes: bytes));
+    return saveTo;
+  }
+
+  @override
+  Future<void> share(
+    Uint8List bytes, {
+    required String fileName,
+    required String mimeType,
+  }) async {
+    if (error case final e?) throw e;
+    shared.add((fileName: fileName, mimeType: mimeType, bytes: bytes));
+  }
 }

@@ -57,5 +57,16 @@
   "currentCell": "Aktuális cella: {coordinate} — {count} tény",
   "editorsTooltip": "Szerkesztők",
   "filterMenu": "Szűrő…",
-  "editorsOnTop": "Szerkesztők felül"
+  "editorsOnTop": "Szerkesztők felül",
+  "formatHtml": "Weblap",
+  "formatSvg": "SVG-kép",
+  "formatPdf": "PDF-dokumentum",
+  "saveAs": "Mentés másként…",
+  "share": "Megosztás…",
+  "exportPivot": "Kimutatás",
+  "exportFacts": "Tények táblázatként",
+  "pivotFileName": "{name} kimutatás",
+  "factsFileName": "{name} tények",
+  "savedTo": "Mentve: {location}",
+  "exportFailed": "Az exportálás nem sikerült: {error}"
 }

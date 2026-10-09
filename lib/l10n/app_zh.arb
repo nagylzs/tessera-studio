@@ -57,5 +57,16 @@
   "currentCell": "当前单元格：{coordinate} — {count} 条",
   "editorsTooltip": "编辑器",
   "filterMenu": "筛选…",
-  "editorsOnTop": "编辑器置顶"
+  "editorsOnTop": "编辑器置顶",
+  "formatHtml": "网页",
+  "formatSvg": "SVG 图像",
+  "formatPdf": "PDF 文档",
+  "saveAs": "另存为…",
+  "share": "分享…",
+  "exportPivot": "数据透视表",
+  "exportFacts": "明细（表格）",
+  "pivotFileName": "{name} 数据透视表",
+  "factsFileName": "{name} 明细",
+  "savedTo": "已保存：{location}",
+  "exportFailed": "导出失败：{error}"
 }

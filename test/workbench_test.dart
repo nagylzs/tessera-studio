@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:flutter/gestures.dart' show PointerDeviceKind;
@@ -7,6 +8,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:get_it/get_it.dart';
 import 'package:tessera_flutter/tessera_flutter.dart';
 import 'package:tessera_studio/app.dart';
+import 'package:tessera_studio/export/export_target.dart';
+import 'package:tessera_studio/export/export_format.dart';
 import 'package:tessera_studio/files/clipboard_reader.dart';
 import 'package:tessera_studio/files/document_loader.dart';
 import 'package:tessera_studio/files/file_format.dart';
@@ -40,13 +43,16 @@ final class _Opener implements FileOpener {
 late _Opener _opener;
 late MemorySettingsStore settingsStore;
 late FakeSystemBars bars;
+late FakeExportTarget exports;
 
-void _register() {
+void _register({bool canShare = false}) {
   _opener = _Opener();
+  exports = FakeExportTarget(canShare: canShare);
   settingsStore = MemorySettingsStore();
   bars = FakeSystemBars();
   GetIt.I
     ..registerSingleton<SystemBars>(bars)
+    ..registerSingleton<ExportTarget>(exports)
     ..registerSingleton<FileOpener>(_opener)
     ..registerSingleton<ClipboardReader>(FakeClipboard())
     ..registerSingleton<DocumentLoader>(FakeLoader())
@@ -238,6 +244,80 @@ void main() {
     // rows on city, not the previous file's region pruned to nothing
     expect(value('A'), findsOneWidget);
     expect(value('C'), findsOneWidget);
+  });
+
+  testWidgets('a phone shares from the bar and saves from the menu', (
+    tester,
+  ) async {
+    _size(tester, 400, 800);
+    _register(canShare: true);
+    await _toCube(tester);
+
+    await tester.tap(find.byTooltip('Share…'));
+    await tester.pumpAndSettle();
+    expect(find.text('Share'), findsOneWidget); // the dialog's title
+    expect(find.text('Pivot table'), findsOneWidget);
+    await tester.tap(find.text('Excel workbook').first);
+    await tester.pumpAndSettle();
+    expect(exports.shared, hasLength(1));
+    final shared = exports.shared.single;
+    expect(shared.fileName, 'sales pivot.xlsx');
+    expect(shared.mimeType, ExportFormat.xlsx.mimeType);
+    expect(ascii.decode(shared.bytes.sublist(0, 2)), 'PK');
+
+    exports.saveTo = Uri.file('/tmp/sales facts.csv');
+    await tester.tap(find.byTooltip('More'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Save as…'));
+    await tester.pumpAndSettle();
+    // to the end of the list: the last "CSV file" is the facts' one
+    await tester.drag(
+      find.descendant(
+        of: find.byType(AlertDialog),
+        matching: find.byType(ListView),
+      ),
+      const Offset(0, -2000),
+    );
+    await tester.pumpAndSettle();
+    expect(find.text('Facts as a table'), findsOneWidget);
+    await tester.tap(find.text('CSV file').last);
+    await tester.pumpAndSettle();
+    expect(exports.saved.single.fileName, 'sales facts.csv');
+    final lines = utf8.decode(exports.saved.single.bytes).trim().split('\n');
+    expect(lines, hasLength(4)); // header + three facts
+    expect(find.text('Saved /tmp/sales facts.csv'), findsOneWidget);
+  });
+
+  testWidgets('a desktop saves from the bar; failures are told', (
+    tester,
+  ) async {
+    _size(tester, 1400, 900);
+    _register();
+    await _toCube(tester);
+    expect(find.byTooltip('Share…'), findsNothing);
+
+    await tester.tap(find.byTooltip('Save as…'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('PDF document'));
+    await tester.runAsync(() async {
+      // the PDF export loads its fonts for real
+      for (var i = 0; i < 200 && exports.saved.isEmpty; i++) {
+        await Future<void>.delayed(const Duration(milliseconds: 10));
+        await tester.pump();
+      }
+    });
+    await tester.pumpAndSettle();
+    final saved = exports.saved.single;
+    expect(saved.fileName, 'sales pivot.pdf');
+    expect(ascii.decode(saved.bytes.sublist(0, 5)), '%PDF-');
+    expect(find.byType(SnackBar), findsNothing); // cancelled: saveTo null
+
+    exports.error = Exception('disk full');
+    await tester.tap(find.byTooltip('Save as…'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Web page'));
+    await tester.pumpAndSettle();
+    expect(find.text('Export failed: Exception: disk full'), findsOneWidget);
   });
 
   test('the layout resolves by window size only when automatic', () {

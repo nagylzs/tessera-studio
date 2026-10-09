@@ -17,9 +17,22 @@ conventions live in `CLAUDE.md`, not here.
 - [ ] Remember the pivot layout per structure next to the schema
       (`SchemaStore` → a per-structure settings store), so a known file
       opens on last time's pivot; the banner then says so too.
-- [ ] Export menu: every format (`ExportFormat`-style enum, with
-      `CubeExportTheme` chosen by the app's theme), through
-      `FilePicker.saveFile`; a share action on Android.
+- [ ] **Question for the owner: Japanese and Chinese in the PDF export?**
+      The bundled Noto Sans has no CJK glyphs, so Japanese and Chinese
+      text — in the data, or the ja/zh tessera strings such as the total
+      — comes out as stray marks in a PDF (the other formats are fine).
+      Which way?
+      1. Bundle Noto Sans JP and SC (TrueType, regular + bold): several
+         MB each, every user pays in download size.
+      2. Bundle a subset (the common kanji/hanzi): smaller, but rarer
+         characters still fail.
+      3. Desktops: use an installed CJK font (fontconfig, the Windows
+         fonts folder); phones and the web stay without.
+      4. Leave it: say so in the store listing, revisit on demand.
+- [ ] After tessera_pdf 0.2.1 is out (the page header/footer colour fix,
+      `PdfCubeExporter.pageTextColor`, under Unreleased in
+      `../tessera`): bump the constraint and drop `pdfExportTheme`, so
+      the PDF gets the same green headers as the other formats.
 - [ ] Charts pane: `ChartData` / `ScatterData` + `fl_chart`, exportable
       as SVG/PDF/PNG.
 - [ ] Entry points beyond the desktop argument, Android intents, the
@@ -59,10 +72,17 @@ conventions live in `CLAUDE.md`, not here.
       associations of every platform, including the Android manifest.
 - [ ] iOS and macOS, if a Mac or a macOS CI runner becomes available:
       `flutter create --platforms ios,macos .`, names, icons,
-      `CFBundleDocumentTypes`.
+      `CFBundleDocumentTypes`; share needs `sharePositionOrigin` on the
+      iPad (the share button's rect).
 
 ## Done
 
+- [x] Export: Share (phones, tablets) or Save as… opens a dialog with
+      the cube in every format tessera writes (xlsx, ods, html, svg,
+      pdf, csv, json, jsonl; the aggregates the grid shows) and the
+      facts as a table (xlsx, ods, csv, jsonl); `FilePicker.saveFile`
+      and `share_plus`; the tessera green theme; Noto Sans embedded in
+      the PDF (2026-10-09).
 - [x] Full screen on phones, like a video player: in the grid-alone
       layout a finger tap on a value hides the app bar and the system
       bars (sticky immersive), the next tap or back brings them back;

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get_it/get_it.dart';
 import 'package:tessera_flutter/tessera_flutter.dart';
+import 'package:tessera_studio/export/export_target.dart';
 import 'package:tessera_studio/app.dart';
 import 'package:tessera_studio/files/clipboard_reader.dart';
 import 'package:tessera_studio/files/document_loader.dart';
@@ -37,6 +38,7 @@ void _register(FileOpener opener, [DocumentLoader? loader]) {
     ..registerSingleton<DocumentLoader>(loader ?? FakeLoader())
     ..registerSingleton<SchemaStore>(MemorySchemaStore())
     ..registerSingleton<AppSettings>(AppSettings(MemorySettingsStore()))
+    ..registerSingleton<ExportTarget>(FakeExportTarget())
     ..registerSingleton<AppState>(AppState());
 }
 

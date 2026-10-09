@@ -57,5 +57,16 @@
   "currentCell": "Geçerli hücre: {coordinate} — {count} olgu",
   "editorsTooltip": "Düzenleyiciler",
   "filterMenu": "Filtre…",
-  "editorsOnTop": "Düzenleyiciler üstte"
+  "editorsOnTop": "Düzenleyiciler üstte",
+  "formatHtml": "Web sayfası",
+  "formatSvg": "SVG resmi",
+  "formatPdf": "PDF belgesi",
+  "saveAs": "Farklı kaydet…",
+  "share": "Paylaş…",
+  "exportPivot": "Pivot tablo",
+  "exportFacts": "Tablo olarak olgular",
+  "pivotFileName": "{name} pivot tablo",
+  "factsFileName": "{name} olgular",
+  "savedTo": "Kaydedildi: {location}",
+  "exportFailed": "Dışa aktarma başarısız: {error}"
 }

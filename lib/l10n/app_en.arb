@@ -332,5 +332,69 @@
   "editorsOnTop": "Editors on top",
   "@editorsOnTop": {
     "description": "Checkable overflow entry switching between editors on top and cube only."
+  },
+  "formatHtml": "Web page",
+  "@formatHtml": {
+    "description": "Export format: a standalone HTML page."
+  },
+  "formatSvg": "SVG image",
+  "@formatSvg": {
+    "description": "Export format: an SVG image of the grid."
+  },
+  "formatPdf": "PDF document",
+  "@formatPdf": {
+    "description": "Export format: a paginated PDF."
+  },
+  "saveAs": "Save as…",
+  "@saveAs": {
+    "description": "Action (tooltip or menu entry) that exports to a file chosen in the save dialog; without the ellipsis it titles the format dialog."
+  },
+  "share": "Share…",
+  "@share": {
+    "description": "Action (tooltip) that exports and hands the file to the share sheet; without the ellipsis it titles the format dialog."
+  },
+  "exportPivot": "Pivot table",
+  "@exportPivot": {
+    "description": "Heading in the export dialog above the formats that write the cube as shown."
+  },
+  "exportFacts": "Facts as a table",
+  "@exportFacts": {
+    "description": "Heading in the export dialog above the formats that write the facts (filtered source records) as a plain table."
+  },
+  "pivotFileName": "{name} pivot",
+  "@pivotFileName": {
+    "description": "Suggested file name (without extension) of a cube export; name is the opened file's name without extension.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "factsFileName": "{name} facts",
+  "@factsFileName": {
+    "description": "Suggested file name (without extension) of a facts export; name is the opened file's name without extension.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "savedTo": "Saved {location}",
+  "@savedTo": {
+    "description": "Snack bar after saving; location is a path or a file name.",
+    "placeholders": {
+      "location": {
+        "type": "String"
+      }
+    }
+  },
+  "exportFailed": "Export failed: {error}",
+  "@exportFailed": {
+    "description": "Snack bar when writing an export throws.",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
   }
 }

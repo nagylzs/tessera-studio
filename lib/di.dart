@@ -1,5 +1,6 @@
 import 'package:get_it/get_it.dart';
 
+import 'export/export_target.dart';
 import 'files/clipboard_reader.dart';
 import 'files/document_loader.dart';
 import 'files/file_opener.dart';
@@ -18,6 +19,7 @@ void registerServices() {
     ..registerSingleton<DocumentLoader>(const IoDocumentLoader())
     ..registerSingleton<OpenRequests>(OpenRequests.forPlatform())
     ..registerSingleton<SystemBars>(const PlatformSystemBars())
+    ..registerSingleton<ExportTarget>(const PlatformExportTarget())
     ..registerSingleton<SchemaStore>(PreferencesSchemaStore())
     ..registerSingleton<AppSettings>(AppSettings(PreferencesSettingsStore()))
     ..registerSingleton<AppState>(AppState());

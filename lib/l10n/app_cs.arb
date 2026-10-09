@@ -57,5 +57,16 @@
   "currentCell": "Aktuální buňka: {coordinate} — {count} faktů",
   "editorsTooltip": "Editory",
   "filterMenu": "Filtr…",
-  "editorsOnTop": "Editory nahoře"
+  "editorsOnTop": "Editory nahoře",
+  "formatHtml": "Webová stránka",
+  "formatSvg": "Obrázek SVG",
+  "formatPdf": "Dokument PDF",
+  "saveAs": "Uložit jako…",
+  "share": "Sdílet…",
+  "exportPivot": "Kontingenční tabulka",
+  "exportFacts": "Fakta jako tabulka",
+  "pivotFileName": "{name} kontingenční tabulka",
+  "factsFileName": "{name} fakta",
+  "savedTo": "Uloženo: {location}",
+  "exportFailed": "Export se nezdařil: {error}"
 }

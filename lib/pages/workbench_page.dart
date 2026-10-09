@@ -5,6 +5,7 @@ import 'package:intl/intl.dart' show NumberFormat;
 import 'package:signals_flutter/signals_flutter.dart';
 import 'package:tessera_flutter/tessera_flutter.dart' hide NumberFormat;
 
+import '../export/export_target.dart';
 import '../files/opened_document.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../platform/system_bars.dart';
@@ -12,10 +13,14 @@ import '../state/app_state.dart';
 import '../state/settings.dart';
 import '../widgets/app_menu.dart';
 import '../widgets/editors_panel.dart';
+import '../widgets/export_dialog.dart';
 
 /// The cube page. Two layouts ([CubePageLayout]): editors inline above the
 /// grid, or the grid alone with the editors in a bottom sheet behind
 /// the "Editors" button; by window size unless the user chose.
+///
+/// Export is one tap away: Share on phones and tablets (Save as… then
+/// sits in the menu), Save as… elsewhere; both open the format dialog.
 ///
 /// Full screen, like a video player: in the grid-alone layout a tap (a
 /// finger, not a mouse click) on a value hides the app bar and the
@@ -42,6 +47,9 @@ class _WorkbenchPageState extends State<WorkbenchPage> {
   /// say what tapped it.
   PointerDeviceKind? _pointer;
 
+  /// Set while an export is written; a progress bar shows under the bar.
+  bool _exporting = false;
+
   void _setFullScreen(bool value) {
     if (value == _fullScreen) return;
     setState(() => _fullScreen = value);
@@ -63,6 +71,28 @@ class _WorkbenchPageState extends State<WorkbenchPage> {
   void dispose() {
     if (_fullScreen) GetIt.I<SystemBars>().show();
     super.dispose();
+  }
+
+  /// Exports the cube with the aggregates the grid shows.
+  Future<void> _export(
+    BuildContext context,
+    CubeController ctrl, {
+    required bool share,
+  }) {
+    final spec = ctrl.cube.spec.aggregates;
+    final shown = GetIt.I<AppState>().cube.shown.value
+        ?.where(spec.contains)
+        .toList();
+    return runExport(
+      context,
+      documentName: document.name,
+      cube: ctrl.cube,
+      aggregates: shown == null || shown.isEmpty ? null : shown,
+      share: share,
+      onBusy: (busy) {
+        if (mounted) setState(() => _exporting = busy);
+      },
+    );
   }
 
   Future<void> _editFilter(BuildContext context, CubeController ctrl) async {
@@ -109,6 +139,7 @@ class _WorkbenchPageState extends State<WorkbenchPage> {
     final l10n = AppLocalizations.of(context);
     final state = GetIt.I<AppState>();
     final settings = GetIt.I<AppSettings>();
+    final canShare = GetIt.I<ExportTarget>().canShare;
     return PopScope(
       canPop: false,
       onPopInvokedWithResult: (didPop, _) {
@@ -123,11 +154,19 @@ class _WorkbenchPageState extends State<WorkbenchPage> {
               constraints.biggest,
             );
             final editorsInline = layout == CubePageLayout.editors;
+            final canExport =
+                ctrl != null && !state.cube.importing.value && !_exporting;
             return Scaffold(
               appBar: _fullScreen
                   ? null
                   : AppBar(
                       title: Text(document.name),
+                      bottom: _exporting
+                          ? const PreferredSize(
+                              preferredSize: Size.fromHeight(4),
+                              child: LinearProgressIndicator(),
+                            )
+                          : null,
                       leading: IconButton(
                         icon: const Icon(Icons.close),
                         tooltip: l10n.closeFile,
@@ -150,8 +189,27 @@ class _WorkbenchPageState extends State<WorkbenchPage> {
                                 ? null
                                 : () => _editFilter(context, ctrl),
                           ),
+                        IconButton(
+                          icon: Icon(
+                            canShare
+                                ? Icons.share
+                                : Icons.file_download_outlined,
+                          ),
+                          tooltip: canShare ? l10n.share : l10n.saveAs,
+                          onPressed: canExport
+                              ? () => _export(context, ctrl, share: canShare)
+                              : null,
+                        ),
                         AppMenuButton(
                           entries: [
+                            if (canShare)
+                              AppMenuEntry(
+                                label: l10n.saveAs,
+                                icon: Icons.file_download_outlined,
+                                enabled: canExport,
+                                onTap: () =>
+                                    _export(context, ctrl!, share: false),
+                              ),
                             AppMenuEntry(
                               label: l10n.editorsOnTop,
                               checked: editorsInline,

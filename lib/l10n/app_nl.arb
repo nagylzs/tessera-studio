@@ -57,5 +57,16 @@
   "currentCell": "Huidige cel: {coordinate} — {count} feiten",
   "editorsTooltip": "Editors",
   "filterMenu": "Filter…",
-  "editorsOnTop": "Editors bovenaan"
+  "editorsOnTop": "Editors bovenaan",
+  "formatHtml": "Webpagina",
+  "formatSvg": "SVG-afbeelding",
+  "formatPdf": "PDF-document",
+  "saveAs": "Opslaan als…",
+  "share": "Delen…",
+  "exportPivot": "Draaitabel",
+  "exportFacts": "Feiten als tabel",
+  "pivotFileName": "{name} draaitabel",
+  "factsFileName": "{name} feiten",
+  "savedTo": "Opgeslagen: {location}",
+  "exportFailed": "Exporteren mislukt: {error}"
 }

@@ -57,5 +57,16 @@
   "currentCell": "Cella corrente: {coordinate} — {count} fatti",
   "editorsTooltip": "Editor",
   "filterMenu": "Filtro…",
-  "editorsOnTop": "Editor in alto"
+  "editorsOnTop": "Editor in alto",
+  "formatHtml": "Pagina web",
+  "formatSvg": "Immagine SVG",
+  "formatPdf": "Documento PDF",
+  "saveAs": "Salva con nome…",
+  "share": "Condividi…",
+  "exportPivot": "Tabella pivot",
+  "exportFacts": "Fatti come tabella",
+  "pivotFileName": "{name} pivot",
+  "factsFileName": "{name} fatti",
+  "savedTo": "Salvato: {location}",
+  "exportFailed": "Esportazione non riuscita: {error}"
 }

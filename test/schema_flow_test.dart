@@ -7,6 +7,7 @@ import 'package:shared_preferences_platform_interface/in_memory_shared_preferenc
 import 'package:shared_preferences_platform_interface/shared_preferences_async_platform_interface.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tessera_flutter/tessera_flutter.dart';
+import 'package:tessera_studio/export/export_target.dart';
 import 'package:tessera_studio/app.dart';
 import 'package:tessera_studio/files/clipboard_reader.dart';
 import 'package:tessera_studio/files/document_loader.dart';
@@ -44,6 +45,7 @@ void _register(String csv) {
     ..registerSingleton<DocumentLoader>(const IoDocumentLoader())
     ..registerSingleton<SchemaStore>(store)
     ..registerSingleton<AppSettings>(AppSettings(MemorySettingsStore()))
+    ..registerSingleton<ExportTarget>(FakeExportTarget())
     ..registerSingleton<AppState>(AppState());
 }
 

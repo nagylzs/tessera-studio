@@ -57,5 +57,16 @@
   "currentCell": "Cellule courante : {coordinate} — {count} faits",
   "editorsTooltip": "Éditeurs",
   "filterMenu": "Filtre…",
-  "editorsOnTop": "Éditeurs en haut"
+  "editorsOnTop": "Éditeurs en haut",
+  "formatHtml": "Page web",
+  "formatSvg": "Image SVG",
+  "formatPdf": "Document PDF",
+  "saveAs": "Enregistrer sous…",
+  "share": "Partager…",
+  "exportPivot": "Tableau croisé dynamique",
+  "exportFacts": "Faits sous forme de tableau",
+  "pivotFileName": "{name} tableau croisé",
+  "factsFileName": "{name} faits",
+  "savedTo": "Enregistré : {location}",
+  "exportFailed": "Échec de l’exportation : {error}"
 }
