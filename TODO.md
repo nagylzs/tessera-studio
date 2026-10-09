@@ -21,14 +21,37 @@ conventions live in `CLAUDE.md`, not here.
       The bundled Noto Sans has no CJK glyphs, so Japanese and Chinese
       text — in the data, or the ja/zh tessera strings such as the total
       — comes out as stray marks in a PDF (the other formats are fine).
+      Prerequisite for every option but the last: per-character font
+      fallback in tessera_pdf (in `../tessera/TODO.md`), because the CJK
+      fonts lack ő, ű and Cyrillic, and one PDF may need both.
+      Measured 2026-10-09 (Noto Sans JP/SC/TC from google/fonts, static
+      instances; today's arm64 APK 20.5 MB, Play download about 8–9 MB;
+      "Play" = brotli, close to what Play delivers):
+
+      | Fonts (TrueType, as dart_pdf needs)        | APK      | Play     |
+      |--------------------------------------------|----------|----------|
+      | JP + SC complete, regular + bold           | +18.5 MB | +14.6 MB |
+      | JP + SC, standard sets, regular + bold     |  +6.0 MB |  +5.1 MB |
+      | JP + SC, standard sets, regular only       |  +3.0 MB |  +2.5 MB |
+      | TC (Traditional), Big5 set, regular + bold |  +5.9 MB |  +4.7 MB |
+
+      Standard sets: JIS X 0208 (6 879 characters) for Japanese, GB2312
+      (7 445) for Simplified Chinese — everyday text; rare characters
+      (names, places) still fail. Japanese and Chinese need separate
+      fonts: shared characters are drawn differently. Regular only: bold
+      cells (totals, headers) fall back to regular for CJK.
       Which way?
-      1. Bundle Noto Sans JP and SC (TrueType, regular + bold): several
-         MB each, every user pays in download size.
-      2. Bundle a subset (the common kanji/hanzi): smaller, but rarer
-         characters still fail.
-      3. Desktops: use an installed CJK font (fontconfig, the Windows
-         fonts folder); phones and the web stay without.
-      4. Leave it: say so in the store listing, revisit on demand.
+      1. Bundle for everyone (one of the rows above).
+      2. Only for those who need it: on Android as language-qualified
+         Android resources (`res/raw-ja`, `res/raw-zh`), which Play
+         delivers only to devices with that language (to verify with
+         bundletool); the in-app language menu then needs an on-demand
+         language download through Play (Play Core), or falls back to
+         case 1. Web: lazy assets, fetched only by a PDF export that
+         needs them. Desktops: bundled.
+      3. Leave it: say so in the store listing, revisit on demand.
+      (Installed system fonts are no way out: Noto CJK on Linux is
+      OpenType/CFF, which dart_pdf cannot embed.)
 - [ ] After tessera_pdf 0.2.1 is out (the page header/footer colour fix,
       `PdfCubeExporter.pageTextColor`, under Unreleased in
       `../tessera`): bump the constraint and drop `pdfExportTheme`, so
