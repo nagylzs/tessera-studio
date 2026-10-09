@@ -32,9 +32,11 @@ final class CubeState {
   /// snapshot).
   Schema? _schema;
 
-  /// Builds the cube for [doc] under [schema]: a snapshot decodes at
-  /// once, anything else is imported in an isolate.
+  /// Builds the first cube of [doc] under [schema]: a snapshot decodes at
+  /// once, anything else is imported in an isolate. Nothing carries over
+  /// from the previous document (its spec would be pruned to nothing).
   Future<void> start(OpenedDocument doc, Schema schema) async {
+    clear();
     final snapshot = doc.snapshot;
     if (snapshot != null) {
       _schema = null;

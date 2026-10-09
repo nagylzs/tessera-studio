@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:typed_data';
 
 import 'package:flutter/gestures.dart' show PointerDeviceKind;
@@ -23,24 +24,30 @@ import 'fakes.dart';
 
 const csv = 'region,product,amount\nEU,p1,10\nUS,p2,20\nEU,p2,5\n';
 
+/// Picks [name] with [text]; a test may change both to open another file.
 final class _Opener implements FileOpener {
+  String name = 'sales.csv';
+  String text = csv;
+
   @override
   Future<OpenedDocument?> pick() async => OpenedDocument(
-    name: 'sales.csv',
+    name: name,
     format: FileFormat.csv,
-    bytes: Uint8List.fromList(csv.codeUnits),
+    bytes: Uint8List.fromList(text.codeUnits),
   );
 }
 
+late _Opener _opener;
 late MemorySettingsStore settingsStore;
 late FakeSystemBars bars;
 
 void _register() {
+  _opener = _Opener();
   settingsStore = MemorySettingsStore();
   bars = FakeSystemBars();
   GetIt.I
     ..registerSingleton<SystemBars>(bars)
-    ..registerSingleton<FileOpener>(_Opener())
+    ..registerSingleton<FileOpener>(_opener)
     ..registerSingleton<ClipboardReader>(FakeClipboard())
     ..registerSingleton<DocumentLoader>(FakeLoader())
     ..registerSingleton<SchemaStore>(MemorySchemaStore())
@@ -48,10 +55,18 @@ void _register() {
     ..registerSingleton<AppState>(AppState());
 }
 
-Future<void> _tapAndWait(WidgetTester tester, Finder finder) async {
+Future<void> _tapAndWait(WidgetTester tester, Finder finder) =>
+    _doAndWait(tester, () => tester.tap(finder));
+
+/// Runs [action] for real (inference and import do not advance on the
+/// fake clock) and waits until the app is no longer busy.
+Future<void> _doAndWait(
+  WidgetTester tester,
+  Future<void> Function() action,
+) async {
   final state = GetIt.I<AppState>();
   await tester.runAsync(() async {
-    await tester.tap(finder);
+    await action();
     await Future<void>.delayed(const Duration(milliseconds: 20));
     for (var i = 0; i < 500 && state.busy.value; i++) {
       await Future<void>.delayed(const Duration(milliseconds: 10));
@@ -200,6 +215,29 @@ void main() {
     expect(find.byType(AppBar), findsOneWidget);
     expect(find.textContaining('Current cell'), findsOneWidget);
     expect(bars.calls, isEmpty);
+  });
+
+  testWidgets('a file opened over another starts from its own default cube', (
+    tester,
+  ) async {
+    _size(tester, 1400, 900);
+    _register();
+    await _toCube(tester);
+    expect(find.text('region'), findsWidgets);
+
+    _opener
+      ..name = 'cities.csv'
+      ..text = 'city,amount\nA,1\nB,2\nC,3\n';
+    await _doAndWait(tester, () async {
+      unawaited(GetIt.I<AppState>().openFile());
+    });
+    await _tapAndWait(tester, find.widgetWithText(FilledButton, 'Continue'));
+    expect(find.text('cities.csv'), findsOneWidget);
+    Finder value(String text) =>
+        find.descendant(of: find.byType(CubeView), matching: find.text(text));
+    // rows on city, not the previous file's region pruned to nothing
+    expect(value('A'), findsOneWidget);
+    expect(value('C'), findsOneWidget);
   });
 
   test('the layout resolves by width only when automatic', () {
