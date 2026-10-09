@@ -26,6 +26,27 @@
             "flutterMode": "release"
         },
         {
+            "name": "tablet debug (Android: 2405CPCFBG)",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "da4358a2",
+            "flutterMode": "debug"
+        },
+        {
+            "name": "tablet profile (Android: 2405CPCFBG)",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "da4358a2",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "tablet release (Android: 2405CPCFBG)",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "da4358a2",
+            "flutterMode": "release"
+        },
+        {
             "name": "Chrome (Scaled)",
             "program": "lib/main.dart",
             "deviceId": "chrome",
