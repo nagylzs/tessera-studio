@@ -68,5 +68,7 @@
   "pivotFileName": "{name} tabela przestawna",
   "factsFileName": "{name} fakty",
   "savedTo": "Zapisano: {location}",
-  "exportFailed": "Eksport nie powiódł się: {error}"
+  "exportFailed": "Eksport nie powiódł się: {error}",
+  "layoutRestored": "Przywrócono tabelę przestawną w stanie z {date}.",
+  "defaultPivot": "Domyślna tabela przestawna"
 }

@@ -68,5 +68,7 @@
   "pivotFileName": "{name} pivot tablo",
   "factsFileName": "{name} olgular",
   "savedTo": "Kaydedildi: {location}",
-  "exportFailed": "Dışa aktarma başarısız: {error}"
+  "exportFailed": "Dışa aktarma başarısız: {error}",
+  "layoutRestored": "Pivot tablo, {date} tarihinde bıraktığınız haliyle geri yüklendi.",
+  "defaultPivot": "Varsayılan pivot tablo"
 }

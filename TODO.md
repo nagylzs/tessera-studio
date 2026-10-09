@@ -14,9 +14,6 @@ conventions live in `CLAUDE.md`, not here.
       file through the file picker) and "Save snapshot…". The same two
       items sit in `../tessera/TODO.md` for the example app; whichever
       lands first, keep the example minimal.
-- [ ] Remember the pivot layout per structure next to the schema
-      (`SchemaStore` → a per-structure settings store), so a known file
-      opens on last time's pivot; the banner then says so too.
 - [ ] **Question for the owner: Japanese and Chinese in the PDF export?**
       The bundled Noto Sans has no CJK glyphs, so Japanese and Chinese
       text — in the data, or the ja/zh tessera strings such as the total
@@ -100,6 +97,10 @@ conventions live in `CLAUDE.md`, not here.
 
 ## Done
 
+- [x] The pivot is remembered per source structure (spec, expanded
+      groups, shown aggregates; `LayoutStore`), so a known file opens on
+      last time's pivot without the schema page; the banner says so and
+      offers "Default pivot" (2026-10-09).
 - [x] Export: Share (phones, tablets) or Save as… opens a dialog with
       the cube in every format tessera writes (xlsx, ods, html, svg,
       pdf, csv, json, jsonl; the aggregates the grid shows) and the

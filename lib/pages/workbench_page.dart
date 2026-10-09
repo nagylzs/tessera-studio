@@ -240,24 +240,10 @@ class _WorkbenchPageState extends State<WorkbenchPage> {
               body: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  if (state.restored.value case final restored?
-                      when !_fullScreen)
-                    MaterialBanner(
-                      leading: const Icon(Icons.history),
-                      content: Text(l10n.schemaRestored(restored.savedAt)),
-                      actions: [
-                        TextButton(
-                          onPressed: state.resetToInferred,
-                          child: Text(l10n.resetToInferred),
-                        ),
-                        TextButton(
-                          onPressed: state.dismissRestored,
-                          child: Text(
-                            MaterialLocalizations.of(context).okButtonLabel,
-                          ),
-                        ),
-                      ],
-                    ),
+                  if (!_fullScreen &&
+                      (state.restored.value != null ||
+                          state.restoredLayout.value != null))
+                    _restoredBanner(context, state),
                   Expanded(child: _body(context, state, ctrl, editorsInline)),
                 ],
               ),
@@ -265,6 +251,41 @@ class _WorkbenchPageState extends State<WorkbenchPage> {
           },
         ),
       ),
+    );
+  }
+
+  /// What was restored for this file's structure — the schema, the
+  /// pivot or both — with a way back from each.
+  Widget _restoredBanner(BuildContext context, AppState state) {
+    final l10n = AppLocalizations.of(context);
+    final schema = state.restored.value;
+    final layout = state.restoredLayout.value;
+    return MaterialBanner(
+      leading: const Icon(Icons.history),
+      content: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          if (schema != null) Text(l10n.schemaRestored(schema.savedAt)),
+          if (layout != null) Text(l10n.layoutRestored(layout.savedAt)),
+        ],
+      ),
+      actions: [
+        if (schema != null)
+          TextButton(
+            onPressed: state.resetToInferred,
+            child: Text(l10n.resetToInferred),
+          ),
+        if (layout != null)
+          TextButton(
+            onPressed: state.defaultPivot,
+            child: Text(l10n.defaultPivot),
+          ),
+        TextButton(
+          onPressed: state.dismissRestored,
+          child: Text(MaterialLocalizations.of(context).okButtonLabel),
+        ),
+      ],
     );
   }
 

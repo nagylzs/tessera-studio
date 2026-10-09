@@ -68,5 +68,7 @@
   "pivotFileName": "{name} tableau croisé",
   "factsFileName": "{name} faits",
   "savedTo": "Enregistré : {location}",
-  "exportFailed": "Échec de l’exportation : {error}"
+  "exportFailed": "Échec de l’exportation : {error}",
+  "layoutRestored": "Tableau croisé restauré tel que vous l’avez laissé le {date}.",
+  "defaultPivot": "Tableau croisé par défaut"
 }

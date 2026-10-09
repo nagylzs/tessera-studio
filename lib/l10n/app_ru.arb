@@ -68,5 +68,7 @@
   "pivotFileName": "{name} сводная таблица",
   "factsFileName": "{name} факты",
   "savedTo": "Сохранено: {location}",
-  "exportFailed": "Экспорт не удался: {error}"
+  "exportFailed": "Экспорт не удался: {error}",
+  "layoutRestored": "Сводная таблица восстановлена в состоянии от {date}.",
+  "defaultPivot": "Сводная таблица по умолчанию"
 }

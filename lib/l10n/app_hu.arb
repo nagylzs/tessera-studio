@@ -68,5 +68,7 @@
   "pivotFileName": "{name} kimutatás",
   "factsFileName": "{name} tények",
   "savedTo": "Mentve: {location}",
-  "exportFailed": "Az exportálás nem sikerült: {error}"
+  "exportFailed": "Az exportálás nem sikerült: {error}",
+  "layoutRestored": "A kimutatás visszaállítva a(z) {date} napi állapotára.",
+  "defaultPivot": "Alapértelmezett kimutatás"
 }

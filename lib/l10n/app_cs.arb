@@ -68,5 +68,7 @@
   "pivotFileName": "{name} kontingenční tabulka",
   "factsFileName": "{name} fakta",
   "savedTo": "Uloženo: {location}",
-  "exportFailed": "Export se nezdařil: {error}"
+  "exportFailed": "Export se nezdařil: {error}",
+  "layoutRestored": "Kontingenční tabulka obnovena ve stavu z {date}.",
+  "defaultPivot": "Výchozí kontingenční tabulka"
 }

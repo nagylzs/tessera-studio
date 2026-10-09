@@ -13,6 +13,7 @@ import '../files/file_opener.dart';
 import '../files/open_requests.dart';
 import '../files/opened_document.dart';
 import 'cube_state.dart';
+import 'layout_store.dart';
 import 'schema_store.dart';
 
 /// Why opening or loading did not produce a document.
@@ -91,6 +92,9 @@ final class AppState {
 
   /// The stored schema that was applied automatically, until dismissed.
   final restored = signal<StoredSchema?>(null);
+
+  /// The stored pivot the cube started from, until dismissed.
+  final restoredLayout = signal<StoredLayout?>(null);
 
   /// The cube of the document: import, facts, controller.
   final cube = CubeState();
@@ -235,8 +239,8 @@ final class AppState {
   }
 
   /// Makes [doc] the document and takes it to the schema page, or
-  /// straight to the workbench when a schema is stored for its
-  /// structure (or it is a snapshot). Inference failures go to
+  /// straight to the workbench when a schema or a pivot is stored for
+  /// its structure (or it is a snapshot). Inference failures go to
   /// [loadFailure] and leave the home screen up.
   Future<void> _open(OpenedDocument doc) async {
     loadFailure.value = null;
@@ -257,6 +261,7 @@ final class AppState {
       source.value = null;
       schema.value = snapshot.facts.schema;
       restored.value = null;
+      restoredLayout.value = null;
       page.value = AppPage.workbench;
       unawaited(cube.start(doc, snapshot.facts.schema));
       return;
@@ -270,16 +275,20 @@ final class AppState {
       samples: samples,
       inferred: inferred,
     );
-    final stored = await _store.read(info.structureKey);
+    final key = info.structureKey;
+    final stored = await _store.read(key);
+    final layout = await _layouts.read(key);
     source.value = info;
-    if (stored != null) {
-      schema.value = stored.schema;
-      restored.value = stored;
+    restored.value = stored;
+    restoredLayout.value = layout;
+    if (stored != null || layout != null) {
+      // a known structure: the schema page was passed before
+      final s = stored?.schema ?? inferred;
+      schema.value = s;
       page.value = AppPage.workbench;
-      unawaited(cube.start(doc, stored.schema));
+      unawaited(cube.start(doc, s, layoutKey: key, layout: layout));
     } else {
       schema.value = inferred;
-      restored.value = null;
       schemaBack.value = AppPage.home;
       page.value = AppPage.schema;
     }
@@ -297,7 +306,7 @@ final class AppState {
     unawaited(
       fromWorkbench && cube.controller.value != null
           ? cube.applySchema(doc, edited)
-          : cube.start(doc, edited),
+          : cube.start(doc, edited, layoutKey: source.value?.structureKey),
     );
     final info = source.value;
     if (info == null) return;
@@ -323,7 +332,18 @@ final class AppState {
     await _store.delete(info.structureKey);
   }
 
-  void dismissRestored() => restored.value = null;
+  /// The banner's OK: it has been read.
+  void dismissRestored() {
+    restored.value = null;
+    restoredLayout.value = null;
+  }
+
+  /// The banner's "Default pivot": the default spec on the same facts;
+  /// the stored pivot is forgotten.
+  void defaultPivot() {
+    restoredLayout.value = null;
+    cube.resetLayout();
+  }
 
   /// The workbench's "Schema…".
   void editSchema() {
@@ -347,10 +367,12 @@ final class AppState {
     source.value = null;
     schema.value = null;
     restored.value = null;
+    restoredLayout.value = null;
     page.value = AppPage.home;
   }
 
   SchemaStore get _store => GetIt.I<SchemaStore>();
+  LayoutStore get _layouts => GetIt.I<LayoutStore>();
 
   /// Whether [a] and [b] are the same schema in everything the store
   /// keeps (types, inclusion, labels, formats, syntax, null values).

@@ -16,6 +16,7 @@ import 'package:tessera_studio/l10n/generated/app_localizations.dart';
 import 'package:tessera_studio/pages/schema_page.dart';
 import 'package:tessera_studio/pages/workbench_page.dart';
 import 'package:tessera_studio/state/app_state.dart';
+import 'package:tessera_studio/state/layout_store.dart';
 import 'package:tessera_studio/state/schema_store.dart';
 import 'package:tessera_studio/state/settings.dart';
 import 'package:tessera_studio/widgets/tessera_logo.dart';
@@ -31,12 +32,14 @@ final class _FakeOpener implements FileOpener {
   Future<OpenedDocument?> pick() => result();
 }
 
+late MemoryLayoutStore layouts;
 void _register(FileOpener opener, [DocumentLoader? loader]) {
   GetIt.I
     ..registerSingleton<FileOpener>(opener)
     ..registerSingleton<ClipboardReader>(FakeClipboard())
     ..registerSingleton<DocumentLoader>(loader ?? FakeLoader())
     ..registerSingleton<SchemaStore>(MemorySchemaStore())
+    ..registerSingleton<LayoutStore>(layouts = MemoryLayoutStore())
     ..registerSingleton<AppSettings>(AppSettings(MemorySettingsStore()))
     ..registerSingleton<ExportTarget>(FakeExportTarget())
     ..registerSingleton<AppState>(AppState());

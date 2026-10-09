@@ -10,6 +10,7 @@ import 'package:tessera_studio/files/document_loader.dart';
 import 'package:tessera_studio/files/file_opener.dart';
 import 'package:tessera_studio/files/opened_document.dart';
 import 'package:tessera_studio/state/app_state.dart';
+import 'package:tessera_studio/state/layout_store.dart';
 import 'package:tessera_studio/state/schema_store.dart';
 import 'package:tessera_studio/state/settings.dart';
 
@@ -20,6 +21,7 @@ final class _NoOpener implements FileOpener {
   Future<OpenedDocument?> pick() async => null;
 }
 
+late MemoryLayoutStore layouts;
 late MemorySettingsStore store;
 
 void _register() {
@@ -29,6 +31,7 @@ void _register() {
     ..registerSingleton<ClipboardReader>(FakeClipboard())
     ..registerSingleton<DocumentLoader>(FakeLoader())
     ..registerSingleton<SchemaStore>(MemorySchemaStore())
+    ..registerSingleton<LayoutStore>(layouts = MemoryLayoutStore())
     ..registerSingleton<AppSettings>(AppSettings(store))
     ..registerSingleton<AppState>(AppState());
 }

@@ -68,5 +68,7 @@
   "pivotFileName": "{name} ピボット",
   "factsFileName": "{name} 明細",
   "savedTo": "保存しました: {location}",
-  "exportFailed": "エクスポートに失敗しました: {error}"
+  "exportFailed": "エクスポートに失敗しました: {error}",
+  "layoutRestored": "{date} の状態でピボットテーブルを復元しました。",
+  "defaultPivot": "既定のピボットテーブル"
 }

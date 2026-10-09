@@ -17,6 +17,7 @@ import 'package:tessera_studio/files/opened_document.dart';
 import 'package:tessera_studio/pages/schema_page.dart';
 import 'package:tessera_studio/pages/workbench_page.dart';
 import 'package:tessera_studio/state/app_state.dart';
+import 'package:tessera_studio/state/layout_store.dart';
 import 'package:tessera_studio/state/schema_store.dart';
 import 'package:tessera_studio/state/settings.dart';
 
@@ -35,6 +36,7 @@ final class _Opener implements FileOpener {
   );
 }
 
+late MemoryLayoutStore layouts;
 late MemorySchemaStore store;
 
 void _register(String csv) {
@@ -44,6 +46,7 @@ void _register(String csv) {
     ..registerSingleton<ClipboardReader>(FakeClipboard())
     ..registerSingleton<DocumentLoader>(const IoDocumentLoader())
     ..registerSingleton<SchemaStore>(store)
+    ..registerSingleton<LayoutStore>(layouts = MemoryLayoutStore())
     ..registerSingleton<AppSettings>(AppSettings(MemorySettingsStore()))
     ..registerSingleton<ExportTarget>(FakeExportTarget())
     ..registerSingleton<AppState>(AppState());

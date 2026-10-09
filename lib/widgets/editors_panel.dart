@@ -65,7 +65,7 @@ class EditorsPanel extends StatelessWidget {
           child: AggregateEditor(
             controller: controller,
             selected: shown.toSet(),
-            onSelectedChanged: (a) => cube.shown.value = a,
+            onSelectedChanged: cube.setShown,
             dimensions: dimensions,
           ),
         ),

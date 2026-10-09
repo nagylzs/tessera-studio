@@ -68,5 +68,7 @@
   "pivotFileName": "{name} draaitabel",
   "factsFileName": "{name} feiten",
   "savedTo": "Opgeslagen: {location}",
-  "exportFailed": "Exporteren mislukt: {error}"
+  "exportFailed": "Exporteren mislukt: {error}",
+  "layoutRestored": "Draaitabel hersteld zoals u die op {date} achterliet.",
+  "defaultPivot": "Standaarddraaitabel"
 }

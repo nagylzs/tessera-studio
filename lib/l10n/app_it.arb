@@ -68,5 +68,7 @@
   "pivotFileName": "{name} pivot",
   "factsFileName": "{name} fatti",
   "savedTo": "Salvato: {location}",
-  "exportFailed": "Esportazione non riuscita: {error}"
+  "exportFailed": "Esportazione non riuscita: {error}",
+  "layoutRestored": "Tabella pivot ripristinata come l’hai lasciata il {date}.",
+  "defaultPivot": "Tabella pivot predefinita"
 }

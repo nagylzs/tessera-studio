@@ -5,6 +5,9 @@ import 'dart:typed_data';
 import 'package:flutter/gestures.dart' show PointerDeviceKind;
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:shared_preferences_platform_interface/in_memory_shared_preferences_async.dart';
+import 'package:shared_preferences_platform_interface/shared_preferences_async_platform_interface.dart';
 import 'package:get_it/get_it.dart';
 import 'package:tessera_flutter/tessera_flutter.dart';
 import 'package:tessera_studio/app.dart';
@@ -19,6 +22,7 @@ import 'package:tessera_studio/pages/workbench_page.dart';
 import 'package:tessera_studio/platform/system_bars.dart';
 import 'package:tessera_studio/state/app_state.dart';
 import 'package:tessera_studio/state/cube_state.dart';
+import 'package:tessera_studio/state/layout_store.dart';
 import 'package:tessera_studio/state/schema_store.dart';
 import 'package:tessera_studio/state/settings.dart';
 import 'package:tessera_studio/widgets/editors_panel.dart';
@@ -40,6 +44,7 @@ final class _Opener implements FileOpener {
   );
 }
 
+late MemoryLayoutStore layouts;
 late _Opener _opener;
 late MemorySettingsStore settingsStore;
 late FakeSystemBars bars;
@@ -57,6 +62,7 @@ void _register({bool canShare = false}) {
     ..registerSingleton<ClipboardReader>(FakeClipboard())
     ..registerSingleton<DocumentLoader>(FakeLoader())
     ..registerSingleton<SchemaStore>(MemorySchemaStore())
+    ..registerSingleton<LayoutStore>(layouts = MemoryLayoutStore())
     ..registerSingleton<AppSettings>(AppSettings(settingsStore))
     ..registerSingleton<AppState>(AppState());
 }
@@ -95,6 +101,9 @@ Future<void> _toCube(WidgetTester tester) async {
   expect(find.byType(WorkbenchPage), findsOneWidget);
   expect(find.byType(CubeView), findsOneWidget);
 }
+
+/// A spec as JSON: specs have no value equality.
+Map<String, Object?> _spec(CubeSpec spec) => CubeJson.standard.encodeSpec(spec);
 
 void _size(WidgetTester tester, double w, double h) {
   tester.view.physicalSize = Size(w, h);
@@ -318,6 +327,123 @@ void main() {
     await tester.tap(find.text('Web page'));
     await tester.pumpAndSettle();
     expect(find.text('Export failed: Exception: disk full'), findsOneWidget);
+  });
+
+  testWidgets('the pivot is remembered per structure and restored', (
+    tester,
+  ) async {
+    _size(tester, 1400, 900);
+    _register();
+    await _toCube(tester);
+    final state = GetIt.I<AppState>();
+    final key = state.source.value!.structureKey;
+    expect(layouts.entries, isEmpty); // the default pivot is not stored
+
+    const region = ColumnDimension('region');
+    const product = ColumnDimension('product');
+    final sum = Aggregate.sum(ColumnMeasure('amount'));
+    final eu = DimensionPath([const DimensionValue(region, 'EU')]);
+    var ctrl = state.cube.controller.value!;
+    final defaults = ctrl.cube.spec;
+    ctrl.updateSpec(
+      defaults.copyWith(
+        rows: CubeAxis.of([region, product]),
+        aggregates: [Aggregate.count, sum],
+      ),
+    );
+    ctrl.toggleRow(eu);
+    state.cube.setShown([sum]);
+    await tester.pumpAndSettle();
+    var stored = layouts.entries[key]!;
+    expect(stored.config.spec.rows.dimensions.map((d) => d.dimension), [
+      region,
+      product,
+    ]);
+    expect(stored.config.rowExpansion.isExpanded(eu), isTrue);
+    expect(stored.shown, [1]);
+
+    // back at the default: forgotten
+    state.cube.setShown(null);
+    ctrl.cube = Cube(facts: ctrl.cube.facts, spec: defaults);
+    expect(layouts.entries, isEmpty);
+    // a selection is no change of the pivot
+    ctrl.updateSpec(defaults.copyWith(aggregates: [Aggregate.count, sum]));
+    ctrl.toggleRow(eu);
+    stored = layouts.entries[key]!;
+    ctrl.selection = null;
+    expect(layouts.entries[key], same(stored));
+    ctrl.updateSpec(
+      ctrl.cube.spec.copyWith(rows: CubeAxis.of([region, product])),
+    );
+    state.cube.setShown([sum]);
+    await tester.pumpAndSettle();
+
+    state.closeFile();
+    await tester.pumpAndSettle();
+    await _tapAndWait(tester, find.widgetWithText(FilledButton, 'Open file…'));
+    // a known structure: no schema page, last time's pivot, a banner
+    expect(find.byType(WorkbenchPage), findsOneWidget);
+    ctrl = state.cube.controller.value!;
+    expect(ctrl.cube.spec.rows.dimensions.map((d) => d.dimension), [
+      region,
+      product,
+    ]);
+    expect(ctrl.cube.rowExpansion.isExpanded(eu), isTrue);
+    expect(state.cube.shown.value, [sum]);
+    expect(
+      find.descendant(of: find.byType(CubeView), matching: find.text('p1')),
+      findsOneWidget, // EU is expanded
+    );
+    expect(
+      find.textContaining('Pivot restored as you left it'),
+      findsOneWidget,
+    );
+    expect(find.text('Reset to inferred'), findsNothing); // no schema stored
+
+    await tester.tap(find.text('Default pivot'));
+    await tester.pumpAndSettle();
+    expect(_spec(state.cube.controller.value!.cube.spec), _spec(defaults));
+    expect(state.cube.shown.value, isNull);
+    expect(layouts.entries, isEmpty);
+    expect(find.textContaining('Pivot restored'), findsNothing);
+  });
+
+  test('the layout store round-trips and survives damage', () async {
+    SharedPreferencesAsyncPlatform.instance =
+        InMemorySharedPreferencesAsync.empty();
+    final prefs = SharedPreferencesAsync();
+    final store = PreferencesLayoutStore(prefs);
+    const key = '["a"]';
+    expect(await store.read(key), isNull);
+    const a = ColumnDimension('a');
+    final layout = StoredLayout(
+      CubeConfig(
+        spec: CubeSpec(
+          rows: CubeAxis.of([a]),
+          aggregates: [Aggregate.count, Aggregate.sum(ColumnMeasure('b'))],
+        ),
+        rowExpansion: ExpansionState.initial().toggle(
+          DimensionPath([const DimensionValue(a, 'x')]),
+        ),
+      ),
+      shown: [1],
+      savedAt: DateTime(2026, 10, 9),
+    );
+    await store.write(key, layout);
+    final back = (await store.read(key))!;
+    expect(_spec(back.config.spec), _spec(layout.config.spec));
+    expect(
+      back.config.rowExpansion.isExpanded(
+        DimensionPath([const DimensionValue(a, 'x')]),
+      ),
+      isTrue,
+    );
+    expect(back.shownAggregates, [Aggregate.sum(ColumnMeasure('b'))]);
+    expect(back.savedAt, DateTime(2026, 10, 9));
+    await prefs.setString('layout:$key', '{not json');
+    expect(await store.read(key), isNull);
+    await store.delete(key);
+    expect(await prefs.getString('layout:$key'), isNull);
   });
 
   test('the layout resolves by window size only when automatic', () {

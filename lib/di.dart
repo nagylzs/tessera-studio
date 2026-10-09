@@ -7,6 +7,7 @@ import 'files/file_opener.dart';
 import 'files/open_requests.dart';
 import 'platform/system_bars.dart';
 import 'state/app_state.dart';
+import 'state/layout_store.dart';
 import 'state/schema_store.dart';
 import 'state/settings.dart';
 
@@ -21,6 +22,7 @@ void registerServices() {
     ..registerSingleton<SystemBars>(const PlatformSystemBars())
     ..registerSingleton<ExportTarget>(const PlatformExportTarget())
     ..registerSingleton<SchemaStore>(PreferencesSchemaStore())
+    ..registerSingleton<LayoutStore>(PreferencesLayoutStore())
     ..registerSingleton<AppSettings>(AppSettings(PreferencesSettingsStore()))
     ..registerSingleton<AppState>(AppState());
 }

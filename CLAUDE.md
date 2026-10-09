@@ -200,15 +200,18 @@ the next step.
   app's progress block (240 px `LinearProgressIndicator` + "Loading
   name… 42%") while the argument loads and the schema is inferred.
 - Flow after a file is read (`AppState._open` → `_prepare`):
-  `columnNames()`, the first 5 rows as samples, `inferSchema`, then a
-  `SchemaStore` lookup by `Schema.structureKey` of the inferred schema.
-  No entry → `SchemaPage` (the example's column editor reshaped:
+  `columnNames()`, the first 5 rows as samples, `inferSchema`, then
+  `SchemaStore` and `LayoutStore` lookups by `Schema.structureKey` of
+  the inferred schema. Neither → `SchemaPage` (the example's column editor reshaped:
   include switch, type, label, date format / number syntax, samples;
   rows wrap under 720 px for phones; "Reset to inferred", "Continue",
-  close/back = discard). Entry → straight to `WorkbenchPage` with a
-  `MaterialBanner` "Schema restored from the one you saved on <date>"
-  offering "Reset to inferred" (forgets the entry, opens the schema
-  page with the inferred schema) and OK. "Continue" stores the schema
+  close/back = discard). Either → a known structure, straight to
+  `WorkbenchPage` (stored schema or the inferred one) with a
+  `MaterialBanner` of one line per restored thing — "Schema restored
+  from the one you saved on <date>" with "Reset to inferred" (forgets
+  the entry, opens the schema page with the inferred schema), "Pivot
+  restored as you left it on <date>" with "Default pivot"
+  (`CubeState.resetLayout`) — and OK. "Continue" stores the schema
   when it differs from the inferred one (`AppState.sameSchema`, JSON
   equality through `CubeJson.encodeSchema`) and deletes the entry when
   it equals it. Snapshots skip all of this (schema from the facts).
@@ -217,8 +220,18 @@ the next step.
 - `lib/state/schema_store.dart`: `SchemaStore` (`read/write/delete` by
   structure key), `PreferencesSchemaStore` (`shared_preferences`, key
   `schema:<structureKey>`, JSON `{schema, savedAt}`; a damaged entry
-  reads as none) and `MemorySchemaStore` for tests. The same store is
-  where a pivot layout per structure will go later.
+  reads as none) and `MemorySchemaStore` for tests.
+- `lib/state/layout_store.dart`: the same for the pivot — `StoredLayout`
+  (`CubeConfig` without schema, `shown` as positions in the spec's
+  aggregates, `savedAt`), key `layout:<structureKey>`. `CubeState.start
+  (layoutKey:, layout:)` starts from it (pruned to the facts like after
+  a schema edit) and from then on `_layoutChanged`, a listener on the
+  controller plus `setShown`, writes every change at once (no timer):
+  it encodes the layout (`encodeConfig` is deterministic) and writes
+  only when the encoding differs from the last stored one, deletes the
+  entry when back at `defaultSpec`, and skips selection-only
+  notifications by identity of the `Cube`. Snapshots get no key.
+  Verified on the API 36 emulator across a force-stop.
 - Cube page (`WorkbenchPage`) and `lib/state/cube_state.dart`:
   `CubeState` (owned by `AppState.cube`) runs `loadFactsInIsolate` with
   progress (`importing`, `progress` signals), keeps `result`,

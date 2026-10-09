@@ -68,5 +68,7 @@
   "pivotFileName": "{name} 数据透视表",
   "factsFileName": "{name} 明细",
   "savedTo": "已保存：{location}",
-  "exportFailed": "导出失败：{error}"
+  "exportFailed": "导出失败：{error}",
+  "layoutRestored": "已将数据透视表恢复为您在 {date} 离开时的状态。",
+  "defaultPivot": "默认数据透视表"
 }

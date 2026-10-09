@@ -1,12 +1,20 @@
+import 'dart:convert';
+
 import 'package:flutter/foundation.dart';
+import 'package:get_it/get_it.dart';
 import 'package:signals_flutter/signals_flutter.dart';
 import 'package:tessera_flutter/tessera_flutter.dart';
 
 import '../files/opened_document.dart';
+import 'layout_store.dart';
 
 /// The cube of the open document: the import (off the UI isolate, with
 /// progress), the resulting facts and report, and the [CubeController]
 /// the widgets drive. Owned by `AppState`; cleared with the document.
+///
+/// With a layout key (see [start]) every change of the pivot — spec,
+/// expanded groups, [shown] — is remembered in the [LayoutStore] at once,
+/// and forgotten when it is back to the default.
 final class CubeState {
   /// Rows between two progress reports.
   static const progressEvery = 5000;
@@ -25,8 +33,22 @@ final class CubeState {
   /// The dimensions offered by the axis editors.
   final dimensions = signal<List<Dimension>>(const []);
 
-  /// The aggregates the view shows; `null` = all of the spec's.
+  /// The aggregates the view shows; `null` = all of the spec's. Set it
+  /// through [setShown] so that the change is remembered.
   final shown = signal<List<Aggregate>?>(null);
+
+  /// Where changes of the pivot are remembered; `null` for none (a
+  /// snapshot carries its own pivot).
+  String? _layoutKey;
+
+  /// The layout as last stored (or found stored, or the default), in the
+  /// encoding [_layoutJson] makes; `null` until the first cube.
+  String? _savedJson;
+
+  /// The cube and [shown] [_savedJson] was last compared for: the
+  /// controller also notifies selection changes, which keep both.
+  Cube? _checkedCube;
+  List<Aggregate>? _checkedShown;
 
   /// The schema the current facts were imported with (`null` for a
   /// snapshot).
@@ -35,7 +57,14 @@ final class CubeState {
   /// Builds the first cube of [doc] under [schema]: a snapshot decodes at
   /// once, anything else is imported in an isolate. Nothing carries over
   /// from the previous document (its spec would be pruned to nothing).
-  Future<void> start(OpenedDocument doc, Schema schema) async {
+  /// With a [layoutKey] the pivot starts from [layout] when given (pruned
+  /// to the facts, as after a schema edit) and is remembered from then on.
+  Future<void> start(
+    OpenedDocument doc,
+    Schema schema, {
+    String? layoutKey,
+    StoredLayout? layout,
+  }) async {
     clear();
     final snapshot = doc.snapshot;
     if (snapshot != null) {
@@ -59,7 +88,31 @@ final class CubeState {
       );
       return;
     }
-    await _import(doc, schema);
+    _layoutKey = layoutKey;
+    if (layout != null) {
+      _savedJson = _layoutJson(
+        layout.config.spec,
+        layout.config.rowExpansion,
+        layout.config.columnExpansion,
+        layout.shownAggregates,
+      );
+    }
+    await _import(doc, schema, layout: layout);
+  }
+
+  /// Shows [aggregates] (`null` = all) and remembers it.
+  void setShown(List<Aggregate>? aggregates) {
+    shown.value = aggregates;
+    _layoutChanged();
+  }
+
+  /// Back to the default pivot; the remembered one is forgotten.
+  void resetLayout() {
+    final ctrl = controller.value;
+    if (ctrl == null) return;
+    shown.value = null;
+    final facts = ctrl.cube.facts;
+    ctrl.cube = Cube(facts: facts, spec: defaultSpec(facts));
   }
 
   /// A schema edited on the cube page: label-only changes relabel the
@@ -86,7 +139,11 @@ final class CubeState {
     );
   }
 
-  Future<void> _import(OpenedDocument doc, Schema schema) async {
+  Future<void> _import(
+    OpenedDocument doc,
+    Schema schema, {
+    StoredLayout? layout,
+  }) async {
     importing.value = true;
     progress.value = null;
     error.value = null;
@@ -110,12 +167,15 @@ final class CubeState {
     }
     _schema = schema;
     result.value = imported;
+    // a re-import keeps the pivot; a first import starts from the layout
     final old = controller.value?.cube;
+    if (old == null && layout != null) shown.value = layout.shownAggregates;
+    final spec = old?.spec ?? layout?.config.spec;
     _install(
       imported.facts,
-      spec: old == null ? null : prune(old.spec, imported.facts),
-      rowExpansion: old?.rowExpansion,
-      columnExpansion: old?.columnExpansion,
+      spec: spec == null ? null : prune(spec, imported.facts),
+      rowExpansion: old?.rowExpansion ?? layout?.config.rowExpansion,
+      columnExpansion: old?.columnExpansion ?? layout?.config.columnExpansion,
     );
   }
 
@@ -141,10 +201,86 @@ final class CubeState {
         rowExpansion: rowExpansion,
         columnExpansion: columnExpansion,
       ),
+    )..addListener(_layoutChanged);
+    _layoutChanged(); // pruning may have changed a restored layout
+  }
+
+  /// Stores the pivot when it differs from what is stored; a pivot back
+  /// at the default deletes the entry. Selection changes notify the
+  /// controller too but leave the encoding alone, so they cost nothing.
+  void _layoutChanged() {
+    final key = _layoutKey;
+    final ctrl = controller.value;
+    if (key == null || ctrl == null) return;
+    final cube = ctrl.cube;
+    final shownNow = shown.value;
+    if (identical(cube, _checkedCube) && identical(shownNow, _checkedShown)) {
+      return;
+    }
+    _checkedCube = cube;
+    _checkedShown = shownNow;
+    final facts = cube.facts;
+    final defaults = _layoutJson(
+      defaultSpec(facts),
+      ExpansionState.initial(),
+      ExpansionState.initial(),
+      null,
+    );
+    _savedJson ??= defaults;
+    final json = _layoutJson(
+      cube.spec,
+      cube.rowExpansion,
+      cube.columnExpansion,
+      shownNow,
+    );
+    if (json == _savedJson) return;
+    _savedJson = json;
+    final store = GetIt.I<LayoutStore>();
+    if (json == defaults) {
+      store.delete(key);
+      return;
+    }
+    store.write(
+      key,
+      StoredLayout(
+        CubeConfig(
+          spec: cube.spec,
+          rowExpansion: cube.rowExpansion,
+          columnExpansion: cube.columnExpansion,
+        ),
+        shown: _shownPositions(cube.spec, shownNow),
+        savedAt: DateTime.now(),
+      ),
     );
   }
 
+  /// What a layout is compared by: the encoded config (deterministic)
+  /// and the shown aggregates' positions.
+  static String _layoutJson(
+    CubeSpec spec,
+    ExpansionState rows,
+    ExpansionState columns,
+    List<Aggregate>? shown,
+  ) => jsonEncode({
+    'config': CubeJson.standard.encodeConfig(
+      CubeConfig(spec: spec, rowExpansion: rows, columnExpansion: columns),
+    ),
+    'shown': _shownPositions(spec, shown),
+  });
+
+  static List<int>? _shownPositions(CubeSpec spec, List<Aggregate>? shown) =>
+      shown == null
+      ? null
+      : [
+          for (final a in shown)
+            if (spec.aggregates.contains(a)) spec.aggregates.indexOf(a),
+        ];
+
   void clear() {
+    _layoutKey = null;
+    _savedJson = null;
+    _checkedCube = null;
+    _checkedShown = null;
     controller.value?.dispose();
     controller.value = null;
     result.value = null;

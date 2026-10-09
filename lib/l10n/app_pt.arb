@@ -68,5 +68,7 @@
   "pivotFileName": "{name} tabela dinâmica",
   "factsFileName": "{name} fatos",
   "savedTo": "Salvo: {location}",
-  "exportFailed": "Falha na exportação: {error}"
+  "exportFailed": "Falha na exportação: {error}",
+  "layoutRestored": "Tabela dinâmica restaurada como você a deixou em {date}.",
+  "defaultPivot": "Tabela dinâmica padrão"
 }

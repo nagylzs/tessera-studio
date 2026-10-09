@@ -396,5 +396,19 @@
         "type": "String"
       }
     }
+  },
+  "layoutRestored": "Pivot restored as you left it on {date}.",
+  "@layoutRestored": {
+    "description": "Banner line when the pivot saved for files of the same structure was applied automatically.",
+    "placeholders": {
+      "date": {
+        "type": "DateTime",
+        "format": "yMd"
+      }
+    }
+  },
+  "defaultPivot": "Default pivot",
+  "@defaultPivot": {
+    "description": "Banner action: back to the default pivot, forgetting the restored one."
   }
 }
