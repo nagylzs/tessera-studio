@@ -43,7 +43,6 @@
   "moreActions": "Plus",
   "importing": "Importation…",
   "importRows": "{count, plural, =1{1 ligne} other{{count} lignes}}",
-  "importFailed": "Échec de l’importation : {error}",
   "importSummary": "{rows} enregistrements, {columns} colonnes",
   "widenedSummary": "{count} élargies",
   "nullifiedSummary": "{count} valeurs mises à vide",
@@ -89,5 +88,15 @@
   "aboutBuiltOn": "Construite sur tessera, un moteur de tableaux croisés open source pour Dart et Flutter.",
   "aboutGuide": "Guide d’utilisation de tessera (en anglais)",
   "aboutSource": "Code source",
-  "aboutLegalese": "© {year} {holder}\nlicence MIT"
+  "aboutLegalese": "© {year} {holder}\nlicence MIT",
+  "failureTitle": "Impossible d’ouvrir {name}",
+  "failureNotUtf8": "Ce fichier n’est pas du texte UTF-8, que lit Tessera Studio. Dans Excel, enregistrez-le au format « CSV UTF-8 » ; la plupart des autres logiciels proposent aussi l’UTF-8.",
+  "failureDamaged": "Ce n’est pas un fichier de type {format} lisible : il est peut-être endommagé, ou c’est un autre type de fichier sous un mauvais nom.",
+  "failureSyntax": "Le fichier de type {format} contient une erreur ; les détails ci-dessous indiquent où.",
+  "failureEmpty": "Le fichier est vide.",
+  "failureNoRows": "Le fichier a des en-têtes de colonnes mais aucune ligne de données.",
+  "failureOther": "Impossible de lire le fichier.",
+  "failureRowsRead": "{count, plural, =1{L’erreur est survenue après 1 ligne.} other{L’erreur est survenue après {count} lignes.}}",
+  "failureDetails": "Détails",
+  "openAnotherFile": "Ouvrir un autre fichier…"
 }

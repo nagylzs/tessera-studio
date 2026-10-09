@@ -43,7 +43,6 @@
   "moreActions": "Más",
   "importing": "Importando…",
   "importRows": "{count, plural, =1{1 fila} other{{count} filas}}",
-  "importFailed": "Error al importar: {error}",
   "importSummary": "{rows} registros, {columns} columnas",
   "widenedSummary": "{count} ampliadas",
   "nullifiedSummary": "{count} valores anulados",
@@ -89,5 +88,15 @@
   "aboutBuiltOn": "Basada en tessera, un motor de tablas dinámicas de código abierto para Dart y Flutter.",
   "aboutGuide": "Guía de usuario de tessera (en inglés)",
   "aboutSource": "Código fuente",
-  "aboutLegalese": "© {year} {holder}\nlicencia MIT"
+  "aboutLegalese": "© {year} {holder}\nlicencia MIT",
+  "failureTitle": "No se pudo abrir {name}",
+  "failureNotUtf8": "Este archivo no es texto UTF-8, que es lo que lee Tessera Studio. En Excel, guárdelo como «CSV UTF-8»; la mayoría de los demás programas también ofrecen UTF-8.",
+  "failureDamaged": "No es un archivo de tipo {format} legible: puede estar dañado o ser otro tipo de archivo con un nombre incorrecto.",
+  "failureSyntax": "El archivo de tipo {format} contiene un error; los detalles de abajo indican dónde.",
+  "failureEmpty": "El archivo está vacío.",
+  "failureNoRows": "El archivo tiene encabezados de columna pero ninguna fila de datos.",
+  "failureOther": "No se pudo leer el archivo.",
+  "failureRowsRead": "{count, plural, =1{El error apareció después de 1 fila.} other{El error apareció después de {count} filas.}}",
+  "failureDetails": "Detalles",
+  "openAnotherFile": "Abrir otro archivo…"
 }

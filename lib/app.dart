@@ -5,6 +5,7 @@ import 'package:signals_flutter/signals_flutter.dart';
 import 'package:tessera_flutter/tessera_flutter.dart';
 
 import 'l10n/generated/app_localizations.dart';
+import 'pages/failure_page.dart';
 import 'pages/home_page.dart';
 import 'pages/schema_page.dart';
 import 'pages/workbench_page.dart';
@@ -41,6 +42,9 @@ class TesseraStudioApp extends StatelessWidget {
         supportedLocales: AppLocalizations.supportedLocales,
         home: SignalBuilder(
           builder: (context) {
+            if (state.failure.value case final failure?) {
+              return FailurePage(failure: failure);
+            }
             final document = state.document.value;
             if (document == null) return const HomePage();
             return switch (state.page.value) {

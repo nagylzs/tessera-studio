@@ -479,6 +479,32 @@ void main() {
     expect(utf8.decode(exports.saved.single.bytes), contains('font-size: 8pt'));
   });
 
+  testWidgets('an import failing down the file shows the failure view', (
+    tester,
+  ) async {
+    _size(tester, 400, 800);
+    _register();
+    await _toCube(tester);
+    final state = GetIt.I<AppState>();
+    // as the isolate reports it for a file broken beyond the first rows
+    state.cube.errorRows.value = 1500;
+    state.cube.error.value = const FormatException(
+      'FormatException: sales.csv, line 1502: unclosed quote',
+    );
+    await tester.pumpAndSettle();
+    expect(find.text('Could not open sales.csv'), findsOneWidget);
+    expect(
+      find.textContaining('The CSV file has an error in it'),
+      findsOneWidget,
+    );
+    expect(find.text('The error came after 1,500 rows.'), findsOneWidget);
+    expect(find.widgetWithText(FilledButton, 'Schema…'), findsOneWidget);
+    await tester.tap(find.text('Close'));
+    await tester.pumpAndSettle();
+    expect(find.byType(WorkbenchPage), findsNothing);
+    expect(state.document.value, isNull);
+  });
+
   test('the layout resolves by window size only when automatic', () {
     const auto = CubePageLayout.auto;
     expect(auto.resolve(const Size(839, 900)), CubePageLayout.cubeOnly);

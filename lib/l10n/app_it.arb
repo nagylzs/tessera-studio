@@ -43,7 +43,6 @@
   "moreActions": "Altro",
   "importing": "Importazione…",
   "importRows": "{count, plural, =1{1 riga} other{{count} righe}}",
-  "importFailed": "Importazione non riuscita: {error}",
   "importSummary": "{rows} record, {columns} colonne",
   "widenedSummary": "{count} ampliate",
   "nullifiedSummary": "{count} valori annullati",
@@ -89,5 +88,15 @@
   "aboutBuiltOn": "Basata su tessera, un motore open source per tabelle pivot in Dart e Flutter.",
   "aboutGuide": "Guida utente di tessera (in inglese)",
   "aboutSource": "Codice sorgente",
-  "aboutLegalese": "© {year} {holder}\nlicenza MIT"
+  "aboutLegalese": "© {year} {holder}\nlicenza MIT",
+  "failureTitle": "Impossibile aprire {name}",
+  "failureNotUtf8": "Questo file non è testo UTF-8, che è ciò che legge Tessera Studio. In Excel, salvalo come «CSV UTF-8»; la maggior parte degli altri programmi offre anch’essa l’UTF-8.",
+  "failureDamaged": "Questo non è un file di tipo {format} leggibile: potrebbe essere danneggiato o un altro tipo di file con un nome sbagliato.",
+  "failureSyntax": "Il file di tipo {format} contiene un errore; i dettagli qui sotto mostrano dove.",
+  "failureEmpty": "Il file è vuoto.",
+  "failureNoRows": "Il file ha le intestazioni di colonna ma nessuna riga di dati.",
+  "failureOther": "Impossibile leggere il file.",
+  "failureRowsRead": "{count, plural, =1{L’errore è arrivato dopo 1 riga.} other{L’errore è arrivato dopo {count} righe.}}",
+  "failureDetails": "Dettagli",
+  "openAnotherFile": "Apri un altro file…"
 }

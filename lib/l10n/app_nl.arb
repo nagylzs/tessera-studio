@@ -43,7 +43,6 @@
   "moreActions": "Meer",
   "importing": "Importeren…",
   "importRows": "{count, plural, =1{1 rij} other{{count} rijen}}",
-  "importFailed": "Importeren mislukt: {error}",
   "importSummary": "{rows} records, {columns} kolommen",
   "widenedSummary": "{count} verbreed",
   "nullifiedSummary": "{count} waarden leeggemaakt",
@@ -89,5 +88,15 @@
   "aboutBuiltOn": "Gebouwd op tessera, een opensource-draaitabelengine voor Dart en Flutter.",
   "aboutGuide": "Gebruikershandleiding van tessera (Engels)",
   "aboutSource": "Broncode",
-  "aboutLegalese": "© {year} {holder}\nMIT-licentie"
+  "aboutLegalese": "© {year} {holder}\nMIT-licentie",
+  "failureTitle": "{name} kon niet worden geopend",
+  "failureNotUtf8": "Dit bestand is geen UTF-8-tekst, en dat leest Tessera Studio. Sla het in Excel op als ‘CSV UTF-8’; de meeste andere programma’s bieden ook UTF-8.",
+  "failureDamaged": "Dit is geen leesbaar bestand van het type {format}: het is misschien beschadigd, of een ander soort bestand met een verkeerde naam.",
+  "failureSyntax": "Het bestand van het type {format} bevat een fout; de details hieronder tonen waar.",
+  "failureEmpty": "Het bestand is leeg.",
+  "failureNoRows": "Het bestand heeft kolomkoppen maar geen gegevensrijen.",
+  "failureOther": "Het bestand kon niet worden gelezen.",
+  "failureRowsRead": "{count, plural, =1{De fout kwam na 1 rij.} other{De fout kwam na {count} rijen.}}",
+  "failureDetails": "Details",
+  "openAnotherFile": "Ander bestand openen…"
 }

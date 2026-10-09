@@ -27,6 +27,9 @@ final class CubeState {
   final result = signal<ImportResult?>(null);
   final error = signal<Object?>(null);
 
+  /// Rows imported before [error], from the last progress report.
+  final errorRows = signal<int?>(null);
+
   /// Non-null once there is a cube to show.
   final controller = signal<CubeController?>(null);
 
@@ -147,6 +150,7 @@ final class CubeState {
     importing.value = true;
     progress.value = null;
     error.value = null;
+    errorRows.value = null;
     final ImportResult imported;
     try {
       imported = await loadFactsInIsolate(
@@ -159,6 +163,7 @@ final class CubeState {
         },
       );
     } catch (e) {
+      errorRows.value = progress.value?.rowsRead;
       error.value = e;
       return;
     } finally {
@@ -285,6 +290,7 @@ final class CubeState {
     controller.value = null;
     result.value = null;
     error.value = null;
+    errorRows.value = null;
     progress.value = null;
     importing.value = false;
     dimensions.value = const [];

@@ -43,7 +43,6 @@
   "moreActions": "その他",
   "importing": "インポート中…",
   "importRows": "{count, plural, other{{count} 行}}",
-  "importFailed": "インポートに失敗しました: {error}",
   "importSummary": "{rows} 件、{columns} 列",
   "widenedSummary": "{count} 列を拡張",
   "nullifiedSummary": "{count} 個の値を空にしました",
@@ -89,5 +88,15 @@
   "aboutBuiltOn": "Dart と Flutter 向けのオープンソースのピボットテーブル エンジン tessera を基盤にしています。",
   "aboutGuide": "tessera ユーザーガイド（英語）",
   "aboutSource": "ソースコード",
-  "aboutLegalese": "© {year} {holder}\nMIT ライセンス"
+  "aboutLegalese": "© {year} {holder}\nMIT ライセンス",
+  "failureTitle": "{name} を開けませんでした",
+  "failureNotUtf8": "このファイルは UTF-8 のテキストではありません。Tessera Studio が読めるのは UTF-8 です。Excel では「CSV UTF-8」として保存してください。ほとんどの他のプログラムでも UTF-8 を選べます。",
+  "failureDamaged": "読み取れる{format}ではありません。破損しているか、名前の違う別の種類のファイルの可能性があります。",
+  "failureSyntax": "{format}にエラーがあります。場所は下の詳細に示されています。",
+  "failureEmpty": "ファイルが空です。",
+  "failureNoRows": "列見出しはありますが、データ行がありません。",
+  "failureOther": "ファイルを読み込めませんでした。",
+  "failureRowsRead": "{count} 行目の後でエラーが発生しました。",
+  "failureDetails": "詳細",
+  "openAnotherFile": "別のファイルを開く…"
 }

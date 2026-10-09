@@ -210,15 +210,6 @@
       }
     }
   },
-  "importFailed": "Import failed: {error}",
-  "@importFailed": {
-    "description": "Shown in place of the cube when the import throws.",
-    "placeholders": {
-      "error": {
-        "type": "String"
-      }
-    }
-  },
   "importSummary": "{rows} records, {columns} columns",
   "@importSummary": {
     "description": "Summary line above the editors (with format and size).",
@@ -494,5 +485,66 @@
         "type": "String"
       }
     }
+  },
+  "failureTitle": "Could not open {name}",
+  "@failureTitle": {
+    "description": "Heading of the failure page.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "failureNotUtf8": "This file is not UTF-8 text, which Tessera Studio reads. In Excel, save it as “CSV UTF-8”; most other programs offer UTF-8 too.",
+  "@failureNotUtf8": {
+    "description": "The file is text in another encoding (typically Excel's plain CSV in a Windows code page). Keep the advice about Excel's “CSV UTF-8” option, named as in Excel."
+  },
+  "failureDamaged": "This is not a readable {format}: it may be damaged, or another kind of file under a wrong name.",
+  "@failureDamaged": {
+    "description": "format is a file kind such as \"Excel workbook\"; the file is not a readable one.",
+    "placeholders": {
+      "format": {
+        "type": "String"
+      }
+    }
+  },
+  "failureSyntax": "The {format} has an error in it; the details below show where.",
+  "@failureSyntax": {
+    "description": "format is a file kind such as \"JSON file\"; it has a syntax error, shown in the details.",
+    "placeholders": {
+      "format": {
+        "type": "String"
+      }
+    }
+  },
+  "failureEmpty": "The file is empty.",
+  "@failureEmpty": {
+    "description": "The file has nothing in it."
+  },
+  "failureNoRows": "The file has column headings but no rows of data.",
+  "@failureNoRows": {
+    "description": "The file has a header row but no data."
+  },
+  "failureOther": "The file could not be read.",
+  "@failureOther": {
+    "description": "Any other failure."
+  },
+  "failureRowsRead": "{count, plural, =1{The error came after 1 row.} other{The error came after {count} rows.}}",
+  "@failureRowsRead": {
+    "description": "An error during the import, after count rows.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "failureDetails": "Details",
+  "@failureDetails": {
+    "description": "Expandable section with the technical error message."
+  },
+  "openAnotherFile": "Open another file…",
+  "@openAnotherFile": {
+    "description": "Button: pick another file to open."
   }
 }

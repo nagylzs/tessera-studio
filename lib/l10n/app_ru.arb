@@ -43,7 +43,6 @@
   "moreActions": "Ещё",
   "importing": "Импорт…",
   "importRows": "{count, plural, one{{count} строка} few{{count} строки} many{{count} строк} other{{count} строки}}",
-  "importFailed": "Импорт не удался: {error}",
   "importSummary": "{rows} записей, {columns} столбцов",
   "widenedSummary": "{count} расширено",
   "nullifiedSummary": "{count} значений обнулено",
@@ -89,5 +88,15 @@
   "aboutBuiltOn": "Основано на tessera — движке сводных таблиц с открытым исходным кодом для Dart и Flutter.",
   "aboutGuide": "Руководство пользователя tessera (на английском)",
   "aboutSource": "Исходный код",
-  "aboutLegalese": "© {year} {holder}\nлицензия MIT"
+  "aboutLegalese": "© {year} {holder}\nлицензия MIT",
+  "failureTitle": "Не удалось открыть {name}",
+  "failureNotUtf8": "Этот файл — не текст в UTF-8, а Tessera Studio читает именно UTF-8. В Excel сохраните его как «CSV UTF-8»; большинство других программ тоже предлагают UTF-8.",
+  "failureDamaged": "Это не читаемый файл типа {format}: возможно, он повреждён или это файл другого вида с неверным именем.",
+  "failureSyntax": "Файл типа {format} содержит ошибку; подробности ниже показывают, где именно.",
+  "failureEmpty": "Файл пуст.",
+  "failureNoRows": "В файле есть заголовки столбцов, но нет строк данных.",
+  "failureOther": "Не удалось прочитать файл.",
+  "failureRowsRead": "{count, plural, =1{Ошибка возникла после 1 строки.} other{Ошибка возникла после {count} строк.}}",
+  "failureDetails": "Подробности",
+  "openAnotherFile": "Открыть другой файл…"
 }

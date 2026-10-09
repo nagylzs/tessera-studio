@@ -43,7 +43,6 @@
   "moreActions": "Mehr",
   "importing": "Importieren…",
   "importRows": "{count, plural, =1{1 Zeile} other{{count} Zeilen}}",
-  "importFailed": "Import fehlgeschlagen: {error}",
   "importSummary": "{rows} Datensätze, {columns} Spalten",
   "widenedSummary": "{count} erweitert",
   "nullifiedSummary": "{count} Werte auf leer gesetzt",
@@ -89,5 +88,15 @@
   "aboutBuiltOn": "Basiert auf tessera, einer quelloffenen Pivot-Engine für Dart und Flutter.",
   "aboutGuide": "tessera-Handbuch (Englisch)",
   "aboutSource": "Quellcode",
-  "aboutLegalese": "© {year} {holder}\nMIT-Lizenz"
+  "aboutLegalese": "© {year} {holder}\nMIT-Lizenz",
+  "failureTitle": "{name} konnte nicht geöffnet werden",
+  "failureNotUtf8": "Diese Datei ist kein UTF-8-Text, den Tessera Studio liest. Speichern Sie sie in Excel als „CSV UTF-8“; die meisten anderen Programme bieten UTF-8 ebenfalls an.",
+  "failureDamaged": "Dies ist keine lesbare Datei vom Typ {format}: Sie ist vielleicht beschädigt oder eine andere Art Datei unter falschem Namen.",
+  "failureSyntax": "Die Datei vom Typ {format} enthält einen Fehler; die Details unten zeigen, wo.",
+  "failureEmpty": "Die Datei ist leer.",
+  "failureNoRows": "Die Datei hat Spaltenüberschriften, aber keine Datenzeilen.",
+  "failureOther": "Die Datei konnte nicht gelesen werden.",
+  "failureRowsRead": "{count, plural, =1{Der Fehler trat nach 1 Zeile auf.} other{Der Fehler trat nach {count} Zeilen auf.}}",
+  "failureDetails": "Details",
+  "openAnotherFile": "Andere Datei öffnen…"
 }

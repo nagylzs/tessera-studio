@@ -8,6 +8,7 @@ import 'package:signals_flutter/signals_flutter.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../state/app_state.dart';
 import '../widgets/app_menu.dart';
+import '../widgets/open_file.dart';
 import '../widgets/tessera_logo.dart';
 
 /// The start screen: the logo, faded into the background, and two
@@ -60,24 +61,6 @@ class _HomePageState extends State<HomePage> {
     super.dispose();
   }
 
-  static String _describe(AppLocalizations l10n, OpenFailure failure) =>
-      switch (failure) {
-        UnsupportedFile(:final fileName) => l10n.unsupportedFile(fileName),
-        OpenError(:final fileName, :final error) => l10n.openFailed(
-          fileName,
-          error.toString(),
-        ),
-        NothingToOpen() => l10n.nothingToOpen,
-      };
-
-  Future<void> _open(BuildContext context) async {
-    final failure = await _state.openFile();
-    if (failure == null || !context.mounted) return;
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(_describe(AppLocalizations.of(context), failure))),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
@@ -116,7 +99,7 @@ class _HomePageState extends State<HomePage> {
                         vertical: 16,
                       ),
                       child: Text(
-                        _describe(l10n, failure),
+                        describeOpenFailure(l10n, failure),
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           color: Theme.of(context).colorScheme.error,
@@ -124,7 +107,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                   FilledButton.icon(
-                    onPressed: () => _open(context),
+                    onPressed: () => pickAndOpen(context),
                     icon: const Icon(Icons.folder_open),
                     label: Text(l10n.openFile),
                   ),

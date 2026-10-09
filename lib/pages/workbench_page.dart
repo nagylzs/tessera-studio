@@ -6,6 +6,7 @@ import 'package:signals_flutter/signals_flutter.dart';
 import 'package:tessera_flutter/tessera_flutter.dart' hide NumberFormat;
 
 import '../export/export_target.dart';
+import '../files/file_failure.dart';
 import '../files/opened_document.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../platform/system_bars.dart';
@@ -14,6 +15,8 @@ import '../state/settings.dart';
 import '../widgets/app_menu.dart';
 import '../widgets/editors_panel.dart';
 import '../widgets/export_dialog.dart';
+import '../widgets/failure_view.dart';
+import '../widgets/open_file.dart';
 
 /// The cube page. Two layouts ([CubePageLayout]): editors inline above the
 /// grid, or the grid alone with the editors in a bottom sheet behind
@@ -299,15 +302,32 @@ class _WorkbenchPageState extends State<WorkbenchPage> {
     final l10n = AppLocalizations.of(context);
     final error = state.cube.error.value;
     if (error != null) {
-      return Center(
-        child: Padding(
-          padding: const EdgeInsets.all(24),
-          child: Text(
-            l10n.importFailed(error.toString()),
-            textAlign: TextAlign.center,
-            style: TextStyle(color: Theme.of(context).colorScheme.error),
-          ),
+      // read and inferred fine, then failed further down the file
+      return FailureView(
+        failure: FileFailure.of(
+          document.name,
+          error,
+          format: document.format,
+          bytes: document.bytes,
+          rowsRead: state.cube.errorRows.value,
         ),
+        actions: [
+          if (state.source.value != null)
+            FilledButton.icon(
+              icon: const Icon(Icons.view_column_outlined),
+              label: Text(l10n.editSchema),
+              onPressed: state.editSchema,
+            ),
+          OutlinedButton.icon(
+            icon: const Icon(Icons.folder_open),
+            label: Text(l10n.openAnotherFile),
+            onPressed: () => pickAndOpen(context),
+          ),
+          TextButton(
+            onPressed: state.closeFile,
+            child: Text(MaterialLocalizations.of(context).closeButtonLabel),
+          ),
+        ],
       );
     }
     if (ctrl == null || state.cube.importing.value) {

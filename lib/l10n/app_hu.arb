@@ -43,7 +43,6 @@
   "moreActions": "Továbbiak",
   "importing": "Importálás…",
   "importRows": "{count, plural, other{{count} sor}}",
-  "importFailed": "Az importálás nem sikerült: {error}",
   "importSummary": "{rows} rekord, {columns} oszlop",
   "widenedSummary": "{count} kiszélesítve",
   "nullifiedSummary": "{count} érték üresre állítva",
@@ -89,5 +88,15 @@
   "aboutBuiltOn": "A tesserára épül, amely egy nyílt forráskódú kimutatásmotor Darthoz és Flutterhez.",
   "aboutGuide": "A tessera felhasználói kézikönyve (angolul)",
   "aboutSource": "Forráskód",
-  "aboutLegalese": "© {year} {holder}\nMIT-licenc"
+  "aboutLegalese": "© {year} {holder}\nMIT-licenc",
+  "failureTitle": "Nem sikerült megnyitni: {name}",
+  "failureNotUtf8": "A fájl nem UTF-8 szöveg, a Tessera Studio pedig ezt olvassa. Excelben mentse „CSV UTF-8” formátumban; a legtöbb más program is kínál UTF-8-at.",
+  "failureDamaged": "Ez nem olvasható {format}: lehet, hogy sérült, vagy más fajta fájl, rossz névvel.",
+  "failureSyntax": "A(z) {format} hibát tartalmaz; a részletek alább mutatják, hol.",
+  "failureEmpty": "A fájl üres.",
+  "failureNoRows": "A fájlban vannak oszlopfejlécek, de nincsenek adatsorok.",
+  "failureOther": "A fájlt nem sikerült beolvasni.",
+  "failureRowsRead": "{count, plural, =1{A hiba 1 sor után jött.} other{A hiba {count} sor után jött.}}",
+  "failureDetails": "Részletek",
+  "openAnotherFile": "Másik fájl megnyitása…"
 }

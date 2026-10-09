@@ -43,7 +43,6 @@
   "moreActions": "Daha fazla",
   "importing": "İçe aktarılıyor…",
   "importRows": "{count, plural, other{{count} satır}}",
-  "importFailed": "İçe aktarma başarısız: {error}",
   "importSummary": "{rows} kayıt, {columns} sütun",
   "widenedSummary": "{count} genişletildi",
   "nullifiedSummary": "{count} değer boşaltıldı",
@@ -89,5 +88,15 @@
   "aboutBuiltOn": "Dart ve Flutter için açık kaynaklı bir pivot tablo motoru olan tessera üzerine kuruludur.",
   "aboutGuide": "tessera kullanım kılavuzu (İngilizce)",
   "aboutSource": "Kaynak kodu",
-  "aboutLegalese": "© {year} {holder}\nMIT lisansı"
+  "aboutLegalese": "© {year} {holder}\nMIT lisansı",
+  "failureTitle": "{name} açılamadı",
+  "failureNotUtf8": "Bu dosya, Tessera Studio’nun okuduğu UTF-8 metin değil. Excel’de “CSV UTF-8” olarak kaydedin; diğer programların çoğu da UTF-8 sunar.",
+  "failureDamaged": "Bu, okunabilir bir {format} değil: hasarlı olabilir ya da yanlış adla kaydedilmiş başka türde bir dosyadır.",
+  "failureSyntax": "{format} bir hata içeriyor; nerede olduğunu aşağıdaki ayrıntılar gösterir.",
+  "failureEmpty": "Dosya boş.",
+  "failureNoRows": "Dosyada sütun başlıkları var ama veri satırı yok.",
+  "failureOther": "Dosya okunamadı.",
+  "failureRowsRead": "Hata {count} satırdan sonra oluştu.",
+  "failureDetails": "Ayrıntılar",
+  "openAnotherFile": "Başka bir dosya aç…"
 }

@@ -34,6 +34,12 @@ enum FileFormat {
 
   const FileFormat(this.extensions, this.mimeTypes);
 
+  /// Whether the format is UTF-8 text (as opposed to a zip or a snapshot).
+  bool get isText => switch (this) {
+    csv || tsv || json || jsonl => true,
+    xlsx || ods || snapshot => false,
+  };
+
   /// Lower-case extensions without the dot; the first one is canonical.
   final List<String> extensions;
 

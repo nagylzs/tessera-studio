@@ -43,7 +43,6 @@
   "moreActions": "Více",
   "importing": "Importování…",
   "importRows": "{count, plural, =1{1 řádek} few{{count} řádky} other{{count} řádků}}",
-  "importFailed": "Import se nezdařil: {error}",
   "importSummary": "{rows} záznamů, {columns} sloupců",
   "widenedSummary": "{count} rozšířeno",
   "nullifiedSummary": "{count} hodnot vynulováno",
@@ -89,5 +88,15 @@
   "aboutBuiltOn": "Postaveno na tessera, open-source jádru kontingenčních tabulek pro Dart a Flutter.",
   "aboutGuide": "Uživatelská příručka tessera (anglicky)",
   "aboutSource": "Zdrojový kód",
-  "aboutLegalese": "© {year} {holder}\nlicence MIT"
+  "aboutLegalese": "© {year} {holder}\nlicence MIT",
+  "failureTitle": "{name} nelze otevřít",
+  "failureNotUtf8": "Soubor není text v UTF-8, který Tessera Studio čte. V Excelu jej uložte jako „CSV UTF-8“; většina jiných programů UTF-8 také nabízí.",
+  "failureDamaged": "Toto není čitelný soubor typu {format}: může být poškozený, nebo jde o jiný druh souboru se špatným názvem.",
+  "failureSyntax": "Soubor typu {format} obsahuje chybu; podrobnosti níže ukazují kde.",
+  "failureEmpty": "Soubor je prázdný.",
+  "failureNoRows": "Soubor má záhlaví sloupců, ale žádné datové řádky.",
+  "failureOther": "Soubor nelze načíst.",
+  "failureRowsRead": "{count, plural, =1{Chyba nastala po 1 řádku.} few{Chyba nastala po {count} řádcích.} other{Chyba nastala po {count} řádcích.}}",
+  "failureDetails": "Podrobnosti",
+  "openAnotherFile": "Otevřít jiný soubor…"
 }

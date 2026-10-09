@@ -43,7 +43,6 @@
   "moreActions": "更多",
   "importing": "正在导入…",
   "importRows": "{count, plural, other{{count} 行}}",
-  "importFailed": "导入失败：{error}",
   "importSummary": "{rows} 条记录，{columns} 列",
   "widenedSummary": "{count} 列已扩展",
   "nullifiedSummary": "{count} 个值已置空",
@@ -89,5 +88,15 @@
   "aboutBuiltOn": "基于 tessera 构建——一个面向 Dart 和 Flutter 的开源数据透视表引擎。",
   "aboutGuide": "tessera 用户指南（英文）",
   "aboutSource": "源代码",
-  "aboutLegalese": "© {year} {holder}\nMIT 许可证"
+  "aboutLegalese": "© {year} {holder}\nMIT 许可证",
+  "failureTitle": "无法打开 {name}",
+  "failureNotUtf8": "此文件不是 UTF-8 文本，而 Tessera Studio 读取的是 UTF-8。在 Excel 中请另存为“CSV UTF-8”；大多数其他程序也提供 UTF-8。",
+  "failureDamaged": "这不是可读的{format}：它可能已损坏，或是名称错误的其他类型文件。",
+  "failureSyntax": "{format}中有错误；下方的详细信息指出了位置。",
+  "failureEmpty": "文件为空。",
+  "failureNoRows": "文件有列标题，但没有数据行。",
+  "failureOther": "无法读取文件。",
+  "failureRowsRead": "在第 {count} 行之后出现错误。",
+  "failureDetails": "详细信息",
+  "openAnotherFile": "打开其他文件…"
 }

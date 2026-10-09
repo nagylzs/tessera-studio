@@ -75,8 +75,12 @@ conventions live in `CLAUDE.md`, not here.
       theme and checked in light and dark.
 - [ ] Settings persistence beyond theme and language (last export
       format…) — `SettingsStore` is the place.
-- [ ] Error page for a file that fails to parse, with the report from
-      the import.
+- [ ] Other text encodings: a CSV or JSON in Latin-1 / Windows-125x
+      (Excel's plain "CSV" on Windows) now gets the failure page's
+      advice. Offer "Read as…" there instead: tessera's sources take an
+      `encoding:`; Dart has `latin1` built in, Windows-1250 (Central
+      Europe) and the others need a codec package (check iOS/macOS
+      support first).
 
 ## Packaging and release
 
@@ -103,6 +107,12 @@ conventions live in `CLAUDE.md`, not here.
 
 ## Done
 
+- [x] Failure page for a file that was read but cannot be opened: what
+      went wrong in words (not UTF-8, damaged, syntax error, empty,
+      headings only, other), the technical detail folded away, the rows
+      read before an import error, "Open another file…", "Schema…" on
+      the cube page; over the previous document, which close returns
+      to (2026-10-09).
 - [x] CI: analyze, format, tests and unsigned builds of all six
       platforms on every push (GitHub's Windows and macOS runners for
       those); downloadable builds for tags and manual runs; iOS and

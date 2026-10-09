@@ -43,7 +43,6 @@
   "moreActions": "Więcej",
   "importing": "Importowanie…",
   "importRows": "{count, plural, =1{1 wiersz} few{{count} wiersze} many{{count} wierszy} other{{count} wiersza}}",
-  "importFailed": "Import nie powiódł się: {error}",
   "importSummary": "{rows} rekordów, {columns} kolumn",
   "widenedSummary": "{count} rozszerzono",
   "nullifiedSummary": "{count} wartości wyzerowano",
@@ -89,5 +88,15 @@
   "aboutBuiltOn": "Zbudowana na tessera — otwartoźródłowym silniku tabel przestawnych dla Darta i Fluttera.",
   "aboutGuide": "Podręcznik użytkownika tessera (po angielsku)",
   "aboutSource": "Kod źródłowy",
-  "aboutLegalese": "© {year} {holder}\nlicencja MIT"
+  "aboutLegalese": "© {year} {holder}\nlicencja MIT",
+  "failureTitle": "Nie udało się otworzyć {name}",
+  "failureNotUtf8": "Ten plik nie jest tekstem UTF-8, który czyta Tessera Studio. W Excelu zapisz go jako „CSV UTF-8”; większość innych programów też oferuje UTF-8.",
+  "failureDamaged": "To nie jest czytelny plik typu {format}: może być uszkodzony albo jest to inny rodzaj pliku pod złą nazwą.",
+  "failureSyntax": "Plik typu {format} zawiera błąd; szczegóły poniżej pokazują gdzie.",
+  "failureEmpty": "Plik jest pusty.",
+  "failureNoRows": "Plik ma nagłówki kolumn, ale nie ma wierszy danych.",
+  "failureOther": "Nie udało się odczytać pliku.",
+  "failureRowsRead": "{count, plural, =1{Błąd wystąpił po 1 wierszu.} other{Błąd wystąpił po {count} wierszach.}}",
+  "failureDetails": "Szczegóły",
+  "openAnotherFile": "Otwórz inny plik…"
 }

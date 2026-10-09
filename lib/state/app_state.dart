@@ -9,6 +9,7 @@ import 'package:tessera_flutter/tessera_flutter.dart';
 
 import '../files/clipboard_reader.dart';
 import '../files/document_loader.dart';
+import '../files/file_failure.dart';
 import '../files/file_opener.dart';
 import '../files/open_requests.dart';
 import '../files/opened_document.dart';
@@ -84,6 +85,11 @@ final class AppState {
   /// Why the last load failed; shown on the home screen until the next
   /// attempt.
   final loadFailure = signal<OpenFailure?>(null);
+
+  /// A file that was read but could not be opened (broken, not UTF-8,
+  /// empty): the failure page, over whatever was shown, until dismissed
+  /// or the next file opens.
+  final failure = signal<FileFailure?>(null);
 
   final source = signal<SourceInfo?>(null);
 
@@ -240,16 +246,22 @@ final class AppState {
 
   /// Makes [doc] the document and takes it to the schema page, or
   /// straight to the workbench when a schema or a pivot is stored for
-  /// its structure (or it is a snapshot). Inference failures go to
-  /// [loadFailure] and leave the home screen up.
+  /// its structure (or it is a snapshot). A source that cannot be read
+  /// goes to [failure], leaving the previous document as it was.
   Future<void> _open(OpenedDocument doc) async {
     loadFailure.value = null;
+    failure.value = null;
     loading.value = LoadProgress(name: doc.name);
     try {
       await _prepare(doc);
       document.value = doc;
     } catch (e) {
-      loadFailure.value = OpenError(doc.name, e);
+      failure.value = FileFailure.of(
+        doc.name,
+        e,
+        format: doc.format,
+        bytes: doc.bytes,
+      );
     } finally {
       loading.value = null;
     }
@@ -268,7 +280,11 @@ final class AppState {
     }
     final src = doc.dataSource!;
     final columnNames = await src.columnNames();
+    if (columnNames.isEmpty) {
+      throw const EmptySourceException(hasColumns: false);
+    }
     final samples = await src.rows().take(sampleRows).toList();
+    if (samples.isEmpty) throw const EmptySourceException(hasColumns: true);
     final inferred = await inferSchema(src);
     final info = SourceInfo(
       columnNames: columnNames,
@@ -332,6 +348,9 @@ final class AppState {
     await _store.delete(info.structureKey);
   }
 
+  /// The failure page's close.
+  void dismissFailure() => failure.value = null;
+
   /// The banner's OK: it has been read.
   void dismissRestored() {
     restored.value = null;
@@ -362,6 +381,7 @@ final class AppState {
   }
 
   void closeFile() {
+    failure.value = null;
     cube.clear();
     document.value = null;
     source.value = null;
