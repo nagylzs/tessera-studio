@@ -747,7 +747,7 @@ packages:
     source: hosted
     version: "1.2.2"
   tessera:
-    dependency: transitive
+    dependency: "direct dev"
     description:
       name: tessera
       sha256: "382b4335392a219754aaadf11378da6b1a6e536b514e9366aa9337d04f242e5d"

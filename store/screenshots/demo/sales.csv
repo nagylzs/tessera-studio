@@ -1,0 +1,3001 @@
+Date,Region,Country,Category,Product,Channel,Units,Revenue
+2025-03-05,Europe,United Kingdom,Technology,Laptops,Retail,8,9773
+2025-06-12,North America,United States,Furniture,Desks,Partner,11,2969
+2025-04-18,Europe,Germany,Technology,Phones,Retail,7,4501
+2025-02-26,Europe,United Kingdom,Technology,Monitors,Retail,6,1339
+2025-11-17,Latin America,Brazil,Technology,Phones,Retail,1,622
+2025-04-04,North America,United States,Furniture,Chairs,Online,3,554
+2025-08-11,Europe,France,Furniture,Desks,Partner,11,2756
+2025-10-13,Europe,Germany,Furniture,Desks,Partner,7,2001
+2025-04-22,Latin America,Brazil,Furniture,Desks,Online,5,1706
+2025-08-02,North America,Mexico,Technology,Printers,Online,7,1674
+2025-02-11,Europe,Germany,Technology,Laptops,Online,2,2489
+2025-10-11,North America,United States,Furniture,Bookcases,Partner,10,1242
+2025-01-11,North America,United States,Furniture,Lamps,Retail,3,142
+2025-01-01,Asia Pacific,Japan,Technology,Monitors,Retail,7,1982
+2025-11-01,Europe,France,Technology,Monitors,Retail,6,1528
+2025-07-23,Latin America,Brazil,Office Supplies,Labels,Online,115,719
+2025-03-13,Asia Pacific,Japan,Furniture,Desks,Online,3,822
+2025-02-10,Latin America,Argentina,Technology,Phones,Retail,1,626
+2025-11-21,Europe,Spain,Furniture,Lamps,Online,10,469
+2025-02-04,Europe,Spain,Technology,Monitors,Retail,3,757
+2025-11-26,Europe,Spain,Technology,Printers,Partner,7,1315
+2025-09-17,Latin America,Chile,Furniture,Bookcases,Online,8,1036
+2025-11-01,Europe,Netherlands,Office Supplies,Labels,Retail,200,1314
+2025-12-01,North America,United States,Technology,Phones,Online,4,2847
+2025-03-07,Latin America,Colombia,Furniture,Desks,Retail,2,564
+2025-05-12,Latin America,Brazil,Office Supplies,Pens,Retail,157,621
+2025-09-07,North America,Canada,Furniture,Desks,Online,10,3245
+2025-12-08,North America,Mexico,Technology,Phones,Partner,2,1341
+2025-02-26,Latin America,Brazil,Technology,Phones,Online,4,2990
+2025-06-24,Europe,Italy,Technology,Printers,Retail,8,1727
+2025-02-08,Latin America,Brazil,Furniture,Bookcases,Retail,7,969
+2025-03-18,North America,United States,Furniture,Desks,Online,11,3615
+2025-08-16,Europe,Netherlands,Technology,Phones,Partner,2,1214
+2025-06-18,Latin America,Brazil,Technology,Phones,Partner,3,2036
+2025-03-15,Europe,Italy,Technology,Phones,Online,5,3213
+2025-02-27,Europe,France,Technology,Phones,Retail,4,2748
+2025-02-02,Europe,United Kingdom,Technology,Monitors,Online,6,1397
+2025-04-22,North America,Canada,Furniture,Chairs,Retail,7,1077
+2025-04-25,Europe,France,Furniture,Bookcases,Online,9,1127
+2025-09-12,Latin America,Brazil,Furniture,Desks,Online,12,3454
+2025-11-07,Europe,Italy,Technology,Monitors,Retail,4,968
+2025-05-18,Europe,Italy,Furniture,Chairs,Partner,12,1984
+2025-12-23,Asia Pacific,Japan,Furniture,Desks,Online,8,2659
+2025-07-17,Asia Pacific,Japan,Technology,Monitors,Retail,1,268
+2025-12-22,North America,United States,Technology,Laptops,Retail,1,1181
+2025-07-31,Latin America,Brazil,Technology,Printers,Online,3,646
+2025-09-12,Europe,Germany,Technology,Phones,Online,8,4709
+2025-07-26,North America,Canada,Furniture,Desks,Partner,5,1563
+2025-02-14,North America,Mexico,Furniture,Lamps,Retail,11,505
+2025-12-07,Europe,Germany,Technology,Monitors,Online,6,1509
+2025-06-29,Latin America,Brazil,Office Supplies,Pens,Online,181,769
+2025-07-28,Asia Pacific,Singapore,Office Supplies,Binders,Retail,158,1122
+2025-11-20,Europe,Germany,Furniture,Chairs,Online,11,1925
+2025-10-16,Asia Pacific,India,Furniture,Lamps,Online,7,288
+2025-09-05,Europe,France,Furniture,Bookcases,Online,2,266
+2025-03-31,Europe,Italy,Office Supplies,Binders,Online,51,319
+2025-11-29,Asia Pacific,Australia,Furniture,Lamps,Retail,7,330
+2025-05-11,North America,United States,Office Supplies,Labels,Online,22,122
+2025-02-28,Europe,Germany,Office Supplies,Paper,Online,103,920
+2025-09-01,Latin America,Brazil,Furniture,Lamps,Online,7,287
+2025-08-22,Europe,Germany,Furniture,Lamps,Online,1,40
+2025-10-16,North America,United States,Office Supplies,Pens,Online,135,511
+2025-11-05,Asia Pacific,Japan,Office Supplies,Paper,Online,54,485
+2025-03-02,Europe,France,Furniture,Lamps,Retail,9,398
+2025-01-19,Europe,Germany,Technology,Monitors,Online,8,2033
+2025-12-04,Europe,Italy,Office Supplies,Pens,Online,135,568
+2025-11-30,Asia Pacific,Singapore,Office Supplies,Pens,Retail,140,516
+2025-05-12,Asia Pacific,India,Furniture,Chairs,Partner,2,294
+2025-07-24,North America,Canada,Office Supplies,Pens,Retail,42,165
+2025-03-07,Europe,United Kingdom,Furniture,Bookcases,Online,6,911
+2025-10-07,Asia Pacific,Singapore,Furniture,Desks,Retail,9,3002
+2025-05-09,Europe,United Kingdom,Furniture,Lamps,Retail,9,445
+2025-04-09,Europe,United Kingdom,Office Supplies,Pens,Online,61,240
+2025-02-12,Europe,Germany,Furniture,Chairs,Online,8,1451
+2025-10-17,Europe,Germany,Office Supplies,Pens,Online,190,718
+2025-03-28,Europe,Italy,Office Supplies,Pens,Retail,149,612
+2025-11-13,Latin America,Brazil,Office Supplies,Pens,Online,89,386
+2025-08-13,Latin America,Chile,Furniture,Desks,Retail,7,2337
+2025-06-03,North America,United States,Technology,Laptops,Partner,1,922
+2025-05-12,Latin America,Chile,Technology,Printers,Partner,3,620
+2025-08-28,Asia Pacific,India,Technology,Laptops,Online,3,3388
+2025-05-06,Asia Pacific,Australia,Furniture,Desks,Retail,2,609
+2025-09-03,Europe,France,Office Supplies,Labels,Partner,137,678
+2025-04-17,Asia Pacific,Japan,Technology,Monitors,Retail,5,1385
+2025-12-27,Europe,Italy,Furniture,Chairs,Retail,2,325
+2025-02-19,Europe,Italy,Office Supplies,Pens,Retail,63,264
+2025-04-09,Europe,United Kingdom,Technology,Monitors,Partner,5,1070
+2025-09-09,North America,Mexico,Furniture,Desks,Online,5,1675
+2025-04-14,Europe,United Kingdom,Office Supplies,Binders,Partner,172,1035
+2025-10-12,North America,United States,Office Supplies,Paper,Partner,159,1116
+2025-07-12,North America,United States,Office Supplies,Paper,Retail,76,590
+2025-01-18,Asia Pacific,Japan,Technology,Phones,Online,5,3643
+2025-05-31,Europe,Netherlands,Office Supplies,Paper,Partner,156,1235
+2025-09-11,Europe,France,Office Supplies,Binders,Retail,57,343
+2025-01-02,Europe,United Kingdom,Furniture,Bookcases,Online,4,574
+2025-08-18,Europe,Germany,Furniture,Chairs,Online,10,1953
+2025-10-06,Europe,Spain,Furniture,Chairs,Online,5,907
+2025-02-01,Europe,Germany,Technology,Printers,Online,7,1737
+2025-05-28,Latin America,Chile,Furniture,Lamps,Partner,5,198
+2025-10-17,North America,Canada,Furniture,Bookcases,Online,2,284
+2025-02-21,Europe,Italy,Technology,Monitors,Online,5,1386
+2025-03-23,Asia Pacific,Australia,Technology,Phones,Online,1,650
+2025-04-14,North America,United States,Technology,Phones,Retail,8,5368
+2025-10-25,Europe,Italy,Furniture,Chairs,Retail,3,536
+2025-04-24,North America,Mexico,Technology,Laptops,Online,4,3993
+2025-11-07,Europe,Germany,Technology,Monitors,Retail,3,792
+2025-05-23,Latin America,Colombia,Office Supplies,Pens,Online,29,112
+2025-12-02,Europe,Germany,Technology,Printers,Online,6,1273
+2025-08-11,Asia Pacific,Japan,Office Supplies,Binders,Retail,163,1227
+2025-01-11,Asia Pacific,India,Technology,Printers,Partner,1,186
+2025-03-27,Latin America,Argentina,Technology,Laptops,Online,1,1225
+2025-03-31,Latin America,Brazil,Office Supplies,Paper,Retail,184,1520
+2025-11-19,Europe,United Kingdom,Furniture,Lamps,Online,10,441
+2025-12-16,Latin America,Argentina,Furniture,Lamps,Partner,5,197
+2025-12-19,Latin America,Brazil,Furniture,Lamps,Retail,11,424
+2025-09-03,Europe,Italy,Office Supplies,Paper,Retail,94,909
+2025-12-07,Europe,Spain,Office Supplies,Binders,Online,153,1006
+2025-02-02,North America,United States,Technology,Phones,Partner,3,1644
+2025-07-16,North America,United States,Office Supplies,Labels,Partner,136,645
+2025-05-30,North America,United States,Furniture,Lamps,Online,10,385
+2025-11-12,Latin America,Brazil,Furniture,Bookcases,Partner,6,725
+2025-11-09,Asia Pacific,Singapore,Office Supplies,Paper,Online,124,1153
+2025-11-04,Europe,Spain,Technology,Laptops,Retail,4,4167
+2025-07-11,North America,United States,Technology,Printers,Retail,7,1566
+2025-09-30,North America,United States,Furniture,Bookcases,Retail,6,858
+2025-06-11,Latin America,Colombia,Office Supplies,Pens,Online,45,188
+2025-11-27,Europe,France,Office Supplies,Binders,Partner,40,228
+2025-04-03,Europe,Germany,Technology,Monitors,Retail,7,1998
+2025-09-03,Europe,Italy,Technology,Phones,Online,5,3369
+2025-02-07,North America,United States,Furniture,Chairs,Online,11,2071
+2025-09-15,North America,United States,Technology,Laptops,Online,2,2269
+2025-01-11,Europe,Spain,Technology,Printers,Retail,4,968
+2025-02-21,North America,United States,Furniture,Chairs,Partner,7,1198
+2025-02-12,North America,United States,Furniture,Desks,Partner,8,2368
+2025-12-14,Asia Pacific,India,Furniture,Desks,Retail,1,331
+2025-07-10,Europe,Netherlands,Furniture,Desks,Partner,3,893
+2025-12-27,Latin America,Colombia,Office Supplies,Binders,Retail,56,392
+2025-08-06,North America,United States,Technology,Monitors,Online,1,254
+2025-03-20,Europe,Spain,Office Supplies,Labels,Retail,22,142
+2025-12-20,North America,United States,Furniture,Bookcases,Online,10,1463
+2025-04-10,Latin America,Brazil,Technology,Monitors,Online,8,2079
+2025-01-16,North America,Canada,Technology,Printers,Retail,3,691
+2025-04-24,Europe,United Kingdom,Technology,Printers,Online,4,841
+2025-04-17,Asia Pacific,Japan,Furniture,Chairs,Retail,5,951
+2025-02-21,Europe,Germany,Technology,Printers,Online,5,1165
+2025-02-03,North America,United States,Technology,Printers,Retail,4,925
+2025-07-11,Latin America,Brazil,Furniture,Chairs,Partner,4,641
+2025-07-02,Asia Pacific,Japan,Office Supplies,Labels,Partner,90,454
+2025-02-17,Latin America,Brazil,Technology,Monitors,Online,3,679
+2025-05-19,North America,United States,Office Supplies,Labels,Online,154,911
+2025-07-30,Europe,Spain,Furniture,Desks,Partner,5,1307
+2025-12-25,Europe,France,Furniture,Desks,Online,8,2283
+2025-03-26,Latin America,Brazil,Furniture,Bookcases,Online,2,256
+2025-10-13,Latin America,Brazil,Office Supplies,Pens,Online,188,726
+2025-05-24,Europe,United Kingdom,Technology,Monitors,Retail,3,849
+2025-06-26,Latin America,Brazil,Office Supplies,Pens,Online,165,677
+2025-08-07,Asia Pacific,Japan,Furniture,Lamps,Online,7,289
+2025-03-20,Europe,Germany,Office Supplies,Paper,Online,27,267
+2025-02-12,Europe,France,Technology,Printers,Online,3,596
+2025-06-08,North America,United States,Office Supplies,Paper,Partner,141,1052
+2025-04-01,Asia Pacific,Singapore,Technology,Printers,Online,8,1768
+2025-05-11,Asia Pacific,Japan,Technology,Monitors,Online,2,460
+2025-11-18,Latin America,Argentina,Technology,Monitors,Retail,8,1924
+2025-09-01,North America,United States,Furniture,Lamps,Online,4,174
+2025-03-15,North America,Canada,Technology,Phones,Retail,4,2484
+2025-05-27,Europe,Italy,Technology,Phones,Partner,5,3170
+2025-09-19,Latin America,Chile,Furniture,Desks,Partner,6,1806
+2025-11-19,Asia Pacific,Australia,Furniture,Chairs,Retail,8,1412
+2025-12-28,Asia Pacific,Australia,Furniture,Bookcases,Partner,5,663
+2025-12-19,Europe,Italy,Office Supplies,Paper,Partner,168,1208
+2025-11-15,Asia Pacific,India,Furniture,Chairs,Retail,12,2353
+2025-08-28,Europe,Netherlands,Office Supplies,Labels,Partner,68,391
+2025-12-23,North America,United States,Furniture,Lamps,Online,1,38
+2025-05-27,Europe,France,Technology,Printers,Online,8,1737
+2025-02-19,Asia Pacific,Japan,Office Supplies,Binders,Online,83,594
+2025-11-12,Latin America,Brazil,Office Supplies,Labels,Online,72,395
+2025-07-10,North America,United States,Office Supplies,Paper,Partner,184,1506
+2025-04-04,Asia Pacific,Singapore,Office Supplies,Paper,Partner,160,1370
+2025-11-23,North America,United States,Technology,Monitors,Online,8,1844
+2025-12-10,Europe,Italy,Furniture,Lamps,Online,7,324
+2025-05-26,Europe,France,Technology,Laptops,Retail,4,4095
+2025-06-22,Europe,United Kingdom,Technology,Monitors,Online,4,1048
+2025-04-25,North America,United States,Technology,Laptops,Online,5,5391
+2025-06-20,Europe,France,Furniture,Desks,Retail,8,2353
+2025-10-22,Europe,France,Technology,Phones,Online,6,4409
+2025-02-27,Latin America,Brazil,Technology,Monitors,Partner,3,718
+2025-02-27,North America,United States,Office Supplies,Pens,Online,152,668
+2025-09-24,Europe,Netherlands,Office Supplies,Paper,Partner,180,1326
+2025-03-22,North America,United States,Technology,Printers,Retail,2,426
+2025-04-23,Europe,Germany,Office Supplies,Paper,Online,57,466
+2025-11-21,Europe,France,Office Supplies,Paper,Online,51,394
+2025-02-06,Asia Pacific,Singapore,Office Supplies,Labels,Online,91,519
+2025-09-17,Asia Pacific,Japan,Office Supplies,Pens,Online,127,503
+2025-07-05,Europe,Netherlands,Furniture,Bookcases,Online,4,515
+2025-11-20,Europe,Italy,Furniture,Lamps,Online,11,456
+2025-05-08,North America,United States,Technology,Monitors,Retail,7,1858
+2025-06-27,Europe,Germany,Office Supplies,Paper,Retail,131,1015
+2025-12-05,Europe,United Kingdom,Furniture,Lamps,Online,8,322
+2025-01-21,Europe,Spain,Technology,Printers,Retail,5,978
+2025-12-15,Europe,Netherlands,Office Supplies,Pens,Online,121,455
+2025-12-04,North America,Mexico,Technology,Phones,Online,3,2087
+2025-09-03,Europe,United Kingdom,Furniture,Bookcases,Partner,4,515
+2025-05-12,Latin America,Brazil,Furniture,Chairs,Retail,8,1272
+2025-12-25,North America,United States,Furniture,Chairs,Retail,9,1398
+2025-11-28,Europe,Germany,Furniture,Lamps,Retail,10,447
+2025-08-16,Europe,Italy,Office Supplies,Pens,Partner,173,618
+2025-08-14,Asia Pacific,Australia,Furniture,Lamps,Retail,4,163
+2025-12-01,Asia Pacific,Singapore,Technology,Printers,Online,7,1612
+2025-09-20,Europe,Netherlands,Furniture,Bookcases,Retail,11,1616
+2025-08-12,Asia Pacific,India,Furniture,Bookcases,Retail,11,1570
+2025-10-24,North America,Mexico,Office Supplies,Paper,Online,176,1466
+2025-11-10,Europe,Netherlands,Technology,Laptops,Online,2,2245
+2025-06-15,Europe,France,Office Supplies,Paper,Online,110,1053
+2025-05-05,Latin America,Brazil,Furniture,Desks,Online,7,2364
+2025-12-01,Asia Pacific,Australia,Technology,Monitors,Online,2,568
+2025-11-18,Asia Pacific,Australia,Technology,Monitors,Retail,3,667
+2025-04-28,Europe,Italy,Furniture,Lamps,Online,2,89
+2025-08-18,North America,Canada,Office Supplies,Binders,Online,87,538
+2025-12-03,Europe,Spain,Technology,Monitors,Retail,1,222
+2025-12-26,North America,United States,Office Supplies,Labels,Partner,153,868
+2025-03-04,Europe,Germany,Office Supplies,Pens,Online,158,562
+2025-02-14,Latin America,Argentina,Technology,Phones,Online,1,754
+2025-01-15,Asia Pacific,Japan,Furniture,Chairs,Online,3,592
+2025-08-27,North America,United States,Technology,Laptops,Online,1,1157
+2025-12-17,North America,United States,Furniture,Bookcases,Partner,4,484
+2025-02-10,North America,United States,Office Supplies,Paper,Online,188,1706
+2025-08-08,Asia Pacific,India,Office Supplies,Pens,Partner,56,197
+2025-12-27,Europe,Italy,Technology,Phones,Online,2,1449
+2025-11-03,Europe,United Kingdom,Furniture,Desks,Partner,9,2349
+2025-11-28,Europe,Germany,Office Supplies,Paper,Retail,55,506
+2025-09-05,Europe,Italy,Furniture,Bookcases,Retail,8,1001
+2025-10-16,North America,United States,Furniture,Desks,Retail,10,3140
+2025-09-10,Asia Pacific,Japan,Office Supplies,Labels,Retail,193,1258
+2025-12-13,North America,United States,Furniture,Bookcases,Online,9,1222
+2025-12-21,Europe,Germany,Furniture,Desks,Retail,11,2997
+2025-11-06,North America,United States,Furniture,Chairs,Retail,7,1189
+2025-01-25,Europe,Germany,Office Supplies,Paper,Online,199,1731
+2025-02-07,Latin America,Colombia,Office Supplies,Labels,Retail,129,746
+2025-11-07,Europe,United Kingdom,Technology,Printers,Online,3,598
+2025-08-06,Asia Pacific,Japan,Furniture,Chairs,Online,10,1789
+2025-06-19,Europe,Spain,Office Supplies,Binders,Online,40,256
+2025-12-23,Europe,Italy,Office Supplies,Pens,Online,100,389
+2025-05-31,Europe,United Kingdom,Office Supplies,Pens,Retail,194,727
+2025-01-16,North America,United States,Technology,Monitors,Retail,2,543
+2025-08-19,Asia Pacific,Japan,Technology,Printers,Online,1,243
+2025-12-20,Asia Pacific,Japan,Technology,Monitors,Online,7,1927
+2025-02-21,Asia Pacific,Japan,Technology,Monitors,Retail,1,258
+2025-06-22,Asia Pacific,India,Furniture,Lamps,Retail,12,550
+2025-03-11,Latin America,Colombia,Technology,Monitors,Partner,1,213
+2025-09-28,Asia Pacific,Singapore,Technology,Phones,Partner,5,3068
+2025-09-02,Asia Pacific,Australia,Technology,Printers,Retail,6,1280
+2025-09-06,Asia Pacific,Japan,Office Supplies,Paper,Retail,183,1690
+2025-01-27,Europe,Spain,Technology,Laptops,Partner,1,1057
+2025-01-15,North America,United States,Furniture,Bookcases,Online,8,1203
+2025-01-02,North America,United States,Office Supplies,Pens,Online,67,247
+2025-10-24,Europe,Italy,Technology,Phones,Partner,3,1897
+2025-09-05,North America,Mexico,Furniture,Desks,Retail,12,3802
+2025-04-11,Asia Pacific,India,Furniture,Lamps,Partner,7,305
+2025-09-26,Europe,Italy,Furniture,Lamps,Online,1,43
+2025-09-15,Europe,Germany,Furniture,Desks,Partner,9,2522
+2025-03-02,Europe,Germany,Technology,Laptops,Retail,7,8081
+2025-02-04,North America,United States,Office Supplies,Pens,Retail,37,127
+2025-12-20,North America,Canada,Technology,Phones,Retail,2,1380
+2025-10-17,North America,United States,Furniture,Lamps,Partner,9,396
+2025-08-27,Europe,Germany,Office Supplies,Pens,Retail,123,495
+2025-09-13,Europe,United Kingdom,Technology,Laptops,Partner,2,2204
+2025-05-09,Europe,France,Furniture,Desks,Online,10,3001
+2025-10-27,Europe,Spain,Technology,Phones,Online,4,2391
+2025-11-21,Asia Pacific,Japan,Furniture,Bookcases,Retail,9,1384
+2025-09-29,Asia Pacific,Singapore,Technology,Printers,Online,6,1268
+2025-09-24,Asia Pacific,Australia,Furniture,Lamps,Online,5,208
+2025-10-22,North America,Canada,Technology,Monitors,Partner,4,943
+2025-07-08,Europe,Italy,Furniture,Bookcases,Online,3,397
+2025-05-05,Europe,Germany,Office Supplies,Binders,Online,42,279
+2025-10-19,Latin America,Brazil,Office Supplies,Paper,Online,199,1865
+2025-11-16,North America,United States,Furniture,Desks,Retail,10,3418
+2025-04-07,North America,United States,Technology,Laptops,Retail,5,5980
+2025-02-06,Asia Pacific,Japan,Office Supplies,Paper,Online,156,1515
+2025-10-18,North America,United States,Technology,Laptops,Partner,2,1918
+2025-11-25,Europe,Netherlands,Office Supplies,Paper,Online,164,1446
+2025-11-27,Europe,Spain,Furniture,Desks,Online,11,3037
+2025-11-15,North America,Mexico,Office Supplies,Paper,Partner,82,725
+2025-08-16,North America,United States,Furniture,Lamps,Retail,4,170
+2025-08-26,Europe,United Kingdom,Office Supplies,Paper,Partner,84,684
+2025-11-28,Europe,Germany,Office Supplies,Binders,Online,34,250
+2025-12-13,Asia Pacific,India,Furniture,Chairs,Online,4,726
+2025-05-11,Asia Pacific,Singapore,Technology,Monitors,Partner,4,922
+2025-08-02,Asia Pacific,Singapore,Office Supplies,Binders,Partner,49,266
+2025-12-12,Europe,France,Furniture,Chairs,Online,8,1409
+2025-11-01,Europe,United Kingdom,Office Supplies,Pens,Retail,166,683
+2025-03-03,Asia Pacific,India,Furniture,Chairs,Partner,2,318
+2025-08-01,Latin America,Argentina,Office Supplies,Labels,Retail,195,1032
+2025-05-16,Europe,Germany,Technology,Laptops,Partner,6,6140
+2025-09-24,North America,United States,Office Supplies,Pens,Online,182,785
+2025-04-25,Europe,Germany,Office Supplies,Binders,Retail,59,437
+2025-01-22,Europe,United Kingdom,Office Supplies,Paper,Retail,62,551
+2025-06-26,Europe,France,Technology,Laptops,Online,3,3533
+2025-05-11,Europe,Spain,Office Supplies,Paper,Partner,23,190
+2025-07-18,North America,United States,Office Supplies,Binders,Retail,159,983
+2025-11-06,Latin America,Argentina,Office Supplies,Binders,Online,90,668
+2025-09-06,Europe,France,Technology,Monitors,Retail,1,264
+2025-07-01,Europe,Netherlands,Office Supplies,Labels,Partner,55,309
+2025-05-27,North America,United States,Technology,Phones,Partner,8,4505
+2025-11-05,Europe,France,Technology,Laptops,Retail,6,7387
+2025-05-01,Europe,Italy,Office Supplies,Paper,Retail,191,1508
+2025-05-24,North America,United States,Furniture,Chairs,Retail,8,1233
+2025-01-21,North America,Canada,Office Supplies,Pens,Retail,42,180
+2025-10-15,North America,Mexico,Office Supplies,Pens,Online,97,361
+2025-03-10,North America,Mexico,Office Supplies,Pens,Online,50,201
+2025-07-12,Europe,Spain,Technology,Printers,Partner,2,440
+2025-12-11,North America,Canada,Furniture,Lamps,Retail,6,279
+2025-12-23,Europe,Netherlands,Technology,Printers,Online,3,666
+2025-07-14,Asia Pacific,Japan,Furniture,Lamps,Retail,10,480
+2025-02-05,Europe,France,Office Supplies,Binders,Partner,27,184
+2025-10-12,North America,Mexico,Office Supplies,Binders,Retail,46,316
+2025-06-22,Europe,United Kingdom,Office Supplies,Binders,Online,129,939
+2025-01-18,Asia Pacific,Australia,Furniture,Bookcases,Partner,6,749
+2025-12-26,North America,United States,Furniture,Chairs,Online,4,697
+2025-05-05,Asia Pacific,Japan,Furniture,Chairs,Online,8,1515
+2025-06-01,North America,United States,Technology,Printers,Online,3,697
+2025-11-20,Latin America,Colombia,Office Supplies,Labels,Retail,164,954
+2025-11-17,Europe,United Kingdom,Technology,Phones,Partner,7,4282
+2025-02-13,Europe,Netherlands,Furniture,Bookcases,Partner,4,431
+2025-11-02,Europe,United Kingdom,Office Supplies,Pens,Online,30,115
+2025-10-03,Asia Pacific,Japan,Office Supplies,Pens,Retail,137,469
+2025-10-02,Europe,Germany,Technology,Monitors,Partner,8,1698
+2025-11-18,North America,United States,Furniture,Bookcases,Online,2,274
+2025-10-02,Latin America,Chile,Furniture,Bookcases,Retail,1,125
+2025-06-11,North America,United States,Technology,Laptops,Retail,5,5005
+2025-10-28,Asia Pacific,Japan,Office Supplies,Pens,Retail,146,610
+2025-11-29,Europe,Germany,Furniture,Lamps,Retail,3,135
+2025-09-27,Europe,Germany,Furniture,Desks,Retail,6,1916
+2025-10-03,Europe,France,Technology,Monitors,Online,8,1998
+2025-07-02,Europe,Germany,Furniture,Chairs,Online,5,984
+2025-01-21,Latin America,Chile,Technology,Phones,Retail,5,3635
+2025-06-05,North America,Canada,Furniture,Bookcases,Partner,12,1569
+2025-07-28,North America,United States,Office Supplies,Binders,Retail,74,449
+2025-02-11,Asia Pacific,Australia,Technology,Laptops,Partner,5,4688
+2025-02-06,North America,United States,Office Supplies,Binders,Online,153,1125
+2025-11-27,Asia Pacific,Japan,Office Supplies,Labels,Retail,155,1020
+2025-09-23,Asia Pacific,Singapore,Furniture,Bookcases,Partner,8,1069
+2025-05-25,Europe,France,Office Supplies,Pens,Retail,28,96
+2025-12-21,Europe,Spain,Technology,Laptops,Retail,6,7412
+2025-10-21,North America,Mexico,Furniture,Bookcases,Online,3,378
+2025-01-21,Europe,Italy,Furniture,Chairs,Partner,10,1522
+2025-12-05,North America,Mexico,Office Supplies,Labels,Retail,31,172
+2025-03-03,Europe,France,Office Supplies,Paper,Online,79,695
+2025-08-07,Europe,Germany,Office Supplies,Paper,Partner,115,823
+2025-07-11,Asia Pacific,India,Office Supplies,Paper,Retail,49,427
+2025-12-18,Europe,Spain,Office Supplies,Paper,Online,148,1143
+2025-05-04,Europe,United Kingdom,Office Supplies,Labels,Partner,71,368
+2025-12-11,Europe,United Kingdom,Furniture,Bookcases,Partner,8,1042
+2025-12-05,Europe,Germany,Furniture,Lamps,Partner,4,166
+2025-06-09,Europe,United Kingdom,Technology,Monitors,Online,6,1608
+2025-09-02,Asia Pacific,Australia,Office Supplies,Paper,Retail,77,593
+2025-08-30,Europe,Germany,Technology,Laptops,Retail,8,9145
+2025-03-14,North America,United States,Office Supplies,Labels,Partner,176,1029
+2025-10-30,Europe,Spain,Office Supplies,Labels,Online,164,840
+2025-03-19,North America,United States,Technology,Phones,Online,7,5152
+2025-11-08,Europe,Germany,Technology,Printers,Online,5,996
+2025-08-25,Latin America,Argentina,Office Supplies,Pens,Retail,137,561
+2025-07-08,Europe,Spain,Furniture,Lamps,Online,8,349
+2025-05-25,Europe,France,Technology,Phones,Retail,2,1319
+2025-06-03,North America,Mexico,Office Supplies,Pens,Online,90,317
+2025-08-16,Europe,Netherlands,Technology,Phones,Retail,4,2887
+2025-02-05,Europe,Germany,Furniture,Desks,Partner,2,558
+2025-07-28,Europe,Spain,Office Supplies,Binders,Partner,146,852
+2025-01-11,Latin America,Chile,Technology,Laptops,Partner,5,4944
+2025-12-26,Europe,Spain,Furniture,Chairs,Online,10,1590
+2025-03-13,Latin America,Brazil,Office Supplies,Binders,Partner,129,702
+2025-03-02,Europe,United Kingdom,Furniture,Chairs,Partner,8,1324
+2025-10-22,Europe,Germany,Furniture,Bookcases,Online,4,606
+2025-09-02,Asia Pacific,Singapore,Office Supplies,Pens,Partner,85,324
+2025-09-15,Europe,France,Technology,Laptops,Partner,7,6742
+2025-03-27,Asia Pacific,Australia,Furniture,Chairs,Online,11,1705
+2025-04-19,Europe,United Kingdom,Furniture,Chairs,Online,5,771
+2025-04-22,Asia Pacific,Japan,Technology,Monitors,Online,6,1331
+2025-03-03,Europe,Netherlands,Office Supplies,Pens,Retail,151,554
+2025-08-29,North America,Canada,Technology,Monitors,Online,6,1512
+2025-10-26,Europe,France,Technology,Monitors,Online,7,1580
+2025-01-19,Asia Pacific,Japan,Furniture,Chairs,Online,10,1540
+2025-05-10,Latin America,Colombia,Furniture,Chairs,Online,11,1781
+2025-08-29,Latin America,Brazil,Office Supplies,Binders,Retail,102,612
+2025-09-10,North America,Mexico,Furniture,Desks,Online,4,1091
+2025-09-28,Europe,France,Office Supplies,Labels,Online,21,118
+2025-02-09,Europe,United Kingdom,Furniture,Desks,Retail,5,1573
+2025-07-08,North America,United States,Furniture,Desks,Retail,3,855
+2025-08-23,Asia Pacific,Australia,Furniture,Desks,Online,5,1515
+2025-12-28,Asia Pacific,Japan,Technology,Printers,Retail,3,710
+2025-12-27,North America,United States,Technology,Laptops,Online,6,7189
+2025-09-27,Europe,Spain,Office Supplies,Labels,Partner,138,803
+2025-08-09,Latin America,Brazil,Office Supplies,Pens,Online,112,416
+2025-09-07,North America,Canada,Office Supplies,Labels,Online,52,301
+2025-05-15,Europe,Italy,Technology,Laptops,Retail,5,6212
+2025-11-04,Europe,Spain,Office Supplies,Pens,Online,122,520
+2025-04-02,Asia Pacific,India,Office Supplies,Labels,Retail,99,604
+2025-04-23,Asia Pacific,Japan,Furniture,Bookcases,Online,4,492
+2025-11-06,Europe,France,Technology,Monitors,Online,6,1421
+2025-04-16,Asia Pacific,Singapore,Technology,Printers,Retail,2,485
+2025-01-21,Asia Pacific,India,Technology,Monitors,Online,6,1428
+2025-08-06,Europe,United Kingdom,Technology,Printers,Online,4,920
+2025-05-11,North America,Mexico,Furniture,Desks,Retail,3,1001
+2025-07-20,Europe,Germany,Furniture,Lamps,Partner,11,397
+2025-11-07,Europe,United Kingdom,Office Supplies,Labels,Retail,58,298
+2025-02-05,Europe,United Kingdom,Office Supplies,Pens,Partner,130,424
+2025-02-05,Europe,United Kingdom,Office Supplies,Paper,Retail,78,604
+2025-04-01,Asia Pacific,Australia,Technology,Printers,Retail,4,973
+2025-10-05,Europe,France,Office Supplies,Pens,Partner,64,247
+2025-01-12,Europe,Germany,Furniture,Bookcases,Retail,3,381
+2025-12-10,North America,United States,Furniture,Chairs,Partner,12,1937
+2025-04-15,North America,United States,Technology,Monitors,Online,8,1906
+2025-02-20,Europe,Italy,Technology,Printers,Partner,8,1530
+2025-08-12,North America,Mexico,Furniture,Chairs,Online,2,381
+2025-12-23,Asia Pacific,Japan,Technology,Laptops,Partner,4,4174
+2025-11-12,North America,United States,Furniture,Bookcases,Partner,1,128
+2025-03-26,North America,Canada,Furniture,Chairs,Online,11,1697
+2025-05-28,Asia Pacific,India,Office Supplies,Pens,Online,112,483
+2025-03-01,North America,United States,Technology,Printers,Retail,8,2007
+2025-04-05,Europe,Germany,Technology,Laptops,Retail,6,6050
+2025-02-16,Europe,France,Furniture,Desks,Partner,7,1885
+2025-09-07,North America,Canada,Office Supplies,Labels,Online,195,1204
+2025-12-28,Europe,Italy,Office Supplies,Pens,Retail,70,267
+2025-07-01,North America,United States,Office Supplies,Pens,Online,189,752
+2025-04-24,Latin America,Brazil,Technology,Phones,Online,5,3433
+2025-03-16,Latin America,Brazil,Technology,Monitors,Online,7,1943
+2025-01-10,North America,Canada,Furniture,Bookcases,Online,1,125
+2025-01-28,Europe,Germany,Office Supplies,Paper,Online,195,1565
+2025-11-16,Europe,Italy,Office Supplies,Paper,Retail,48,457
+2025-08-07,Asia Pacific,India,Office Supplies,Pens,Online,99,352
+2025-04-24,Europe,Germany,Furniture,Desks,Online,6,1985
+2025-11-06,Europe,France,Technology,Printers,Retail,6,1469
+2025-04-21,Europe,United Kingdom,Office Supplies,Pens,Retail,52,224
+2025-04-11,Europe,France,Office Supplies,Pens,Retail,46,195
+2025-05-14,Europe,Spain,Office Supplies,Labels,Retail,193,1085
+2025-08-21,Europe,Germany,Office Supplies,Pens,Retail,95,413
+2025-06-21,North America,Canada,Technology,Laptops,Partner,7,6784
+2025-06-13,Europe,Italy,Technology,Monitors,Retail,7,1611
+2025-09-09,North America,United States,Office Supplies,Pens,Partner,163,598
+2025-11-01,Latin America,Colombia,Technology,Laptops,Online,6,7162
+2025-09-18,Europe,Italy,Office Supplies,Paper,Online,193,1576
+2025-06-30,North America,Canada,Office Supplies,Binders,Retail,24,148
+2025-07-31,North America,Canada,Technology,Phones,Online,4,2770
+2025-10-13,Europe,France,Office Supplies,Binders,Retail,75,522
+2025-09-17,Europe,Germany,Furniture,Chairs,Online,6,1000
+2025-10-29,Europe,Germany,Technology,Printers,Online,5,1043
+2025-08-20,Latin America,Brazil,Office Supplies,Pens,Retail,155,656
+2025-11-29,Asia Pacific,India,Furniture,Lamps,Online,6,243
+2025-12-22,North America,United States,Furniture,Lamps,Online,2,94
+2025-05-11,North America,United States,Furniture,Lamps,Online,12,539
+2025-02-06,Asia Pacific,Japan,Office Supplies,Binders,Retail,185,1271
+2025-12-19,Europe,Spain,Office Supplies,Labels,Retail,76,428
+2025-08-10,Europe,Spain,Technology,Monitors,Online,1,259
+2025-08-01,Europe,Spain,Furniture,Bookcases,Online,12,1713
+2025-01-17,Asia Pacific,Japan,Office Supplies,Paper,Retail,158,1292
+2025-10-22,North America,Mexico,Office Supplies,Pens,Retail,167,700
+2025-09-13,Europe,Germany,Office Supplies,Paper,Online,32,316
+2025-11-03,Europe,Germany,Furniture,Bookcases,Retail,7,960
+2025-01-04,North America,United States,Furniture,Lamps,Online,3,144
+2025-11-28,Europe,United Kingdom,Office Supplies,Paper,Partner,60,433
+2025-10-25,Asia Pacific,Japan,Furniture,Desks,Partner,5,1230
+2025-11-12,Europe,France,Technology,Printers,Online,1,235
+2025-12-22,Asia Pacific,India,Furniture,Chairs,Online,7,1304
+2025-11-23,Europe,Germany,Furniture,Chairs,Online,10,1875
+2025-04-05,Europe,Italy,Office Supplies,Labels,Online,149,834
+2025-05-27,Europe,United Kingdom,Furniture,Bookcases,Online,4,496
+2025-11-23,Asia Pacific,Japan,Technology,Monitors,Online,1,269
+2025-01-07,Europe,France,Furniture,Chairs,Partner,5,759
+2025-11-27,North America,United States,Office Supplies,Pens,Online,152,631
+2025-07-16,Europe,France,Office Supplies,Labels,Partner,199,1004
+2025-11-25,Europe,Italy,Technology,Monitors,Online,6,1704
+2025-12-31,Europe,Italy,Furniture,Lamps,Partner,2,88
+2025-07-26,Europe,France,Office Supplies,Labels,Retail,61,344
+2025-10-09,Europe,United Kingdom,Office Supplies,Binders,Retail,112,791
+2025-01-16,Asia Pacific,Australia,Office Supplies,Pens,Partner,167,513
+2025-12-06,North America,Mexico,Office Supplies,Labels,Online,182,1178
+2025-04-16,Europe,United Kingdom,Office Supplies,Pens,Partner,74,265
+2025-02-20,Europe,Netherlands,Office Supplies,Pens,Online,180,635
+2025-10-03,Europe,United Kingdom,Office Supplies,Binders,Online,55,420
+2025-05-25,Europe,France,Office Supplies,Labels,Retail,101,518
+2025-01-10,Europe,France,Office Supplies,Paper,Online,39,303
+2025-11-20,Latin America,Colombia,Office Supplies,Labels,Online,169,996
+2025-02-03,Europe,Netherlands,Technology,Monitors,Partner,6,1447
+2025-03-23,Asia Pacific,Japan,Technology,Phones,Partner,8,5077
+2025-04-11,Europe,Italy,Furniture,Chairs,Retail,10,1822
+2025-11-19,Latin America,Argentina,Furniture,Bookcases,Partner,5,536
+2025-01-29,North America,United States,Furniture,Lamps,Retail,12,594
+2025-09-02,North America,United States,Office Supplies,Binders,Retail,170,1300
+2025-04-09,Europe,Germany,Furniture,Chairs,Retail,11,2068
+2025-08-12,Asia Pacific,Australia,Furniture,Desks,Retail,6,1702
+2025-01-23,Latin America,Colombia,Furniture,Bookcases,Online,1,151
+2025-12-13,Europe,United Kingdom,Technology,Laptops,Partner,8,7750
+2025-07-06,Europe,Italy,Technology,Printers,Online,6,1232
+2025-01-16,Asia Pacific,Australia,Technology,Laptops,Retail,2,2465
+2025-08-04,Europe,United Kingdom,Furniture,Chairs,Online,7,1345
+2025-10-10,North America,United States,Furniture,Bookcases,Retail,5,650
+2025-07-30,North America,United States,Furniture,Bookcases,Retail,3,418
+2025-01-06,North America,Canada,Technology,Printers,Online,7,1666
+2025-06-26,Europe,Spain,Furniture,Lamps,Online,9,423
+2025-08-06,Europe,Germany,Office Supplies,Pens,Retail,182,619
+2025-09-20,North America,United States,Office Supplies,Paper,Retail,26,239
+2025-05-01,Europe,Spain,Office Supplies,Labels,Online,146,858
+2025-10-02,Europe,Italy,Technology,Phones,Partner,3,1587
+2025-01-29,Asia Pacific,Japan,Technology,Laptops,Online,4,4597
+2025-02-08,Latin America,Chile,Furniture,Desks,Partner,2,622
+2025-01-19,Europe,Spain,Furniture,Desks,Online,4,1100
+2025-06-24,North America,United States,Technology,Laptops,Online,4,4005
+2025-11-23,North America,United States,Office Supplies,Pens,Online,71,305
+2025-06-06,Asia Pacific,India,Furniture,Chairs,Retail,3,510
+2025-07-06,Latin America,Colombia,Office Supplies,Pens,Online,197,703
+2025-12-21,Latin America,Argentina,Office Supplies,Binders,Online,115,830
+2025-10-01,North America,United States,Office Supplies,Pens,Retail,40,147
+2025-08-01,North America,United States,Technology,Monitors,Online,3,828
+2025-10-08,North America,United States,Office Supplies,Paper,Online,177,1426
+2025-07-18,North America,United States,Office Supplies,Pens,Retail,79,341
+2025-10-09,Europe,Spain,Office Supplies,Paper,Partner,20,147
+2025-12-19,Europe,France,Office Supplies,Labels,Partner,150,795
+2025-08-31,Latin America,Colombia,Furniture,Chairs,Retail,12,2235
+2025-03-16,Europe,Spain,Furniture,Bookcases,Retail,9,1162
+2025-02-11,North America,United States,Technology,Printers,Retail,5,1120
+2025-03-05,Europe,Italy,Furniture,Lamps,Online,1,41
+2025-03-27,North America,Canada,Technology,Monitors,Partner,8,1649
+2025-01-27,Europe,Italy,Office Supplies,Labels,Online,83,448
+2025-09-13,Latin America,Chile,Furniture,Desks,Retail,1,283
+2025-02-01,Asia Pacific,Japan,Technology,Laptops,Online,7,7557
+2025-09-24,Europe,Spain,Technology,Phones,Online,2,1189
+2025-04-17,Europe,Italy,Technology,Printers,Online,4,867
+2025-05-08,Europe,Italy,Furniture,Desks,Retail,9,2784
+2025-02-10,Europe,France,Technology,Printers,Online,2,429
+2025-12-15,Europe,United Kingdom,Technology,Printers,Online,3,709
+2025-01-23,Europe,Italy,Office Supplies,Pens,Online,120,432
+2025-11-05,Latin America,Brazil,Furniture,Bookcases,Retail,8,1157
+2025-12-05,North America,Canada,Technology,Monitors,Retail,7,1706
+2025-06-15,Europe,United Kingdom,Office Supplies,Pens,Retail,20,69
+2025-10-06,Europe,Italy,Technology,Laptops,Online,3,3193
+2025-10-13,Europe,France,Technology,Printers,Online,5,1109
+2025-06-08,Europe,Germany,Office Supplies,Pens,Retail,81,297
+2025-06-22,North America,United States,Technology,Printers,Online,2,450
+2025-08-03,Europe,Germany,Office Supplies,Binders,Retail,42,308
+2025-03-19,Latin America,Brazil,Furniture,Bookcases,Online,6,780
+2025-12-20,North America,United States,Furniture,Lamps,Partner,8,343
+2025-11-11,North America,United States,Furniture,Chairs,Partner,1,140
+2025-08-21,Europe,Italy,Technology,Monitors,Retail,4,990
+2025-06-20,North America,Canada,Office Supplies,Labels,Online,107,554
+2025-06-26,North America,United States,Technology,Phones,Retail,7,4706
+2025-01-02,Asia Pacific,Singapore,Office Supplies,Binders,Partner,64,397
+2025-12-19,North America,United States,Furniture,Desks,Retail,7,2318
+2025-11-17,Europe,United Kingdom,Office Supplies,Paper,Online,195,1741
+2025-03-12,Latin America,Brazil,Technology,Laptops,Partner,1,927
+2025-04-30,Europe,Spain,Office Supplies,Pens,Online,104,364
+2025-07-03,Europe,United Kingdom,Office Supplies,Pens,Partner,83,282
+2025-09-17,Latin America,Chile,Technology,Laptops,Online,4,4165
+2025-01-15,Europe,Germany,Technology,Printers,Online,8,1833
+2025-06-17,North America,Canada,Furniture,Desks,Retail,12,3301
+2025-08-13,Europe,Germany,Office Supplies,Paper,Online,127,1139
+2025-05-12,Asia Pacific,Japan,Furniture,Chairs,Partner,4,617
+2025-11-28,Asia Pacific,Australia,Furniture,Lamps,Partner,1,43
+2025-11-20,Europe,Italy,Furniture,Desks,Online,10,3445
+2025-12-30,Europe,France,Technology,Phones,Retail,5,3634
+2025-03-17,North America,United States,Furniture,Bookcases,Online,3,459
+2025-08-06,Europe,Germany,Office Supplies,Paper,Online,89,762
+2025-06-07,Latin America,Argentina,Technology,Phones,Online,4,2560
+2025-12-08,Europe,Germany,Furniture,Desks,Retail,9,2922
+2025-04-01,North America,United States,Technology,Laptops,Online,3,3258
+2025-08-05,Europe,Italy,Furniture,Desks,Online,11,3846
+2025-01-24,North America,United States,Technology,Monitors,Partner,1,204
+2025-08-21,Europe,Spain,Furniture,Desks,Online,3,991
+2025-11-20,Europe,United Kingdom,Furniture,Lamps,Retail,5,208
+2025-11-04,Asia Pacific,Singapore,Furniture,Chairs,Retail,12,1983
+2025-04-27,North America,United States,Office Supplies,Labels,Online,48,252
+2025-09-03,North America,United States,Office Supplies,Labels,Online,194,1175
+2025-06-17,Asia Pacific,India,Office Supplies,Labels,Partner,156,828
+2025-09-17,Latin America,Argentina,Furniture,Chairs,Retail,1,188
+2025-11-30,Europe,Spain,Technology,Laptops,Online,5,5686
+2025-04-27,North America,United States,Furniture,Bookcases,Retail,7,867
+2025-08-24,Latin America,Brazil,Furniture,Lamps,Online,6,266
+2025-03-06,Europe,United Kingdom,Technology,Monitors,Partner,1,221
+2025-02-26,Europe,United Kingdom,Office Supplies,Binders,Retail,44,316
+2025-11-28,Europe,Spain,Office Supplies,Binders,Online,107,701
+2025-12-06,Europe,France,Furniture,Lamps,Online,11,514
+2025-10-21,Europe,Spain,Furniture,Desks,Retail,9,2831
+2025-04-15,Europe,United Kingdom,Furniture,Desks,Online,1,335
+2025-05-27,Latin America,Brazil,Technology,Printers,Online,1,214
+2025-10-17,Europe,France,Office Supplies,Binders,Retail,115,803
+2025-07-19,North America,United States,Technology,Printers,Retail,1,252
+2025-11-20,Europe,United Kingdom,Furniture,Desks,Partner,1,269
+2025-05-14,Europe,Germany,Technology,Phones,Partner,1,610
+2025-11-07,Europe,France,Office Supplies,Pens,Partner,121,401
+2025-04-20,Europe,Italy,Office Supplies,Labels,Online,169,1055
+2025-04-03,Europe,France,Furniture,Chairs,Online,9,1399
+2025-03-31,Europe,Germany,Office Supplies,Binders,Partner,186,1075
+2025-04-12,Europe,Italy,Office Supplies,Labels,Online,20,123
+2025-11-20,North America,Canada,Office Supplies,Labels,Retail,82,516
+2025-07-25,Europe,United Kingdom,Furniture,Lamps,Online,1,44
+2025-05-09,Latin America,Argentina,Technology,Monitors,Partner,6,1484
+2025-05-12,Europe,Germany,Technology,Monitors,Retail,8,2145
+2025-10-31,North America,Canada,Furniture,Bookcases,Online,9,1203
+2025-02-19,Europe,Italy,Furniture,Chairs,Online,9,1652
+2025-06-03,North America,United States,Office Supplies,Binders,Partner,67,398
+2025-02-02,Asia Pacific,Singapore,Office Supplies,Pens,Online,157,634
+2025-12-14,Europe,Germany,Technology,Printers,Retail,1,240
+2025-11-26,North America,Canada,Furniture,Lamps,Online,6,242
+2025-12-23,Asia Pacific,Japan,Office Supplies,Pens,Online,200,716
+2025-09-11,Europe,Netherlands,Furniture,Desks,Online,11,3147
+2025-12-03,Asia Pacific,Japan,Office Supplies,Pens,Retail,154,536
+2025-04-16,Europe,Germany,Furniture,Desks,Online,11,3435
+2025-10-05,North America,United States,Technology,Laptops,Online,7,8032
+2025-09-29,Europe,United Kingdom,Furniture,Desks,Online,6,1852
+2025-07-04,Europe,France,Office Supplies,Pens,Online,92,351
+2025-09-08,North America,United States,Office Supplies,Labels,Online,167,885
+2025-11-14,North America,United States,Technology,Printers,Online,2,452
+2025-01-24,North America,Canada,Office Supplies,Binders,Retail,31,185
+2025-02-13,Europe,Germany,Office Supplies,Binders,Partner,126,686
+2025-02-04,Europe,Spain,Office Supplies,Pens,Online,46,173
+2025-12-30,Europe,Spain,Technology,Laptops,Retail,7,7156
+2025-05-18,Europe,United Kingdom,Furniture,Chairs,Partner,2,343
+2025-12-02,North America,Canada,Office Supplies,Pens,Partner,65,255
+2025-11-09,North America,United States,Office Supplies,Paper,Online,173,1596
+2025-07-04,Europe,Italy,Office Supplies,Labels,Online,22,125
+2025-11-25,Europe,Italy,Furniture,Chairs,Retail,11,1872
+2025-05-22,Europe,Netherlands,Furniture,Chairs,Online,9,1404
+2025-11-23,North America,United States,Furniture,Chairs,Retail,8,1418
+2025-10-26,Latin America,Brazil,Furniture,Desks,Online,8,2392
+2025-05-04,North America,United States,Furniture,Bookcases,Online,12,1672
+2025-04-03,Europe,France,Furniture,Bookcases,Retail,3,388
+2025-10-21,Asia Pacific,Japan,Technology,Phones,Online,6,3632
+2025-04-11,Europe,Germany,Office Supplies,Paper,Online,195,1727
+2025-06-12,Latin America,Brazil,Technology,Phones,Retail,7,4251
+2025-04-19,Asia Pacific,Australia,Office Supplies,Paper,Partner,82,715
+2025-05-17,North America,United States,Furniture,Chairs,Partner,12,1782
+2025-09-22,North America,Canada,Technology,Printers,Retail,5,1018
+2025-07-16,North America,United States,Technology,Laptops,Partner,6,5359
+2025-10-23,Europe,Germany,Furniture,Lamps,Retail,5,200
+2025-06-25,Asia Pacific,Singapore,Office Supplies,Paper,Online,96,795
+2025-10-18,North America,United States,Office Supplies,Paper,Partner,170,1429
+2025-04-27,Latin America,Brazil,Furniture,Lamps,Partner,6,217
+2025-01-27,Asia Pacific,Japan,Office Supplies,Labels,Partner,147,683
+2025-03-25,Latin America,Brazil,Technology,Printers,Online,6,1256
+2025-11-11,Asia Pacific,Japan,Technology,Printers,Retail,1,213
+2025-04-23,North America,United States,Office Supplies,Pens,Retail,26,89
+2025-10-22,North America,United States,Office Supplies,Pens,Partner,68,262
+2025-04-28,Europe,France,Technology,Printers,Online,7,1417
+2025-12-24,Asia Pacific,Singapore,Technology,Monitors,Online,7,1699
+2025-03-17,Asia Pacific,India,Office Supplies,Paper,Online,102,795
+2025-02-24,Europe,Spain,Furniture,Bookcases,Online,1,126
+2025-10-07,Latin America,Colombia,Technology,Monitors,Retail,3,795
+2025-11-11,Europe,Italy,Technology,Phones,Partner,2,1273
+2025-09-02,North America,Canada,Office Supplies,Binders,Online,42,261
+2025-10-12,Europe,United Kingdom,Office Supplies,Pens,Partner,50,181
+2025-07-28,Europe,France,Office Supplies,Labels,Online,95,621
+2025-05-12,Latin America,Chile,Office Supplies,Pens,Online,152,589
+2025-04-12,Europe,Germany,Technology,Printers,Online,5,1018
+2025-06-05,Europe,Italy,Furniture,Chairs,Partner,4,602
+2025-12-19,Latin America,Brazil,Furniture,Bookcases,Retail,4,611
+2025-02-21,Asia Pacific,India,Technology,Monitors,Online,8,2172
+2025-01-12,Europe,Italy,Office Supplies,Labels,Retail,160,912
+2025-09-25,North America,United States,Technology,Phones,Partner,6,3523
+2025-04-24,Europe,Netherlands,Furniture,Lamps,Partner,9,363
+2025-12-27,North America,Mexico,Technology,Monitors,Online,8,2257
+2025-12-21,Europe,France,Furniture,Chairs,Partner,3,517
+2025-09-04,Europe,United Kingdom,Technology,Monitors,Partner,5,1283
+2025-11-20,Latin America,Argentina,Technology,Phones,Online,1,707
+2025-09-10,North America,United States,Furniture,Chairs,Online,1,176
+2025-10-27,Europe,Netherlands,Furniture,Desks,Online,5,1615
+2025-04-17,Latin America,Argentina,Furniture,Lamps,Online,7,290
+2025-10-27,Europe,United Kingdom,Office Supplies,Pens,Online,143,597
+2025-04-16,Latin America,Brazil,Technology,Monitors,Partner,5,1209
+2025-03-03,Europe,Netherlands,Office Supplies,Paper,Retail,134,1194
+2025-01-18,Europe,Germany,Technology,Printers,Partner,5,964
+2025-12-06,Latin America,Brazil,Furniture,Chairs,Retail,9,1745
+2025-04-10,Europe,Spain,Furniture,Desks,Retail,1,285
+2025-01-28,Latin America,Colombia,Furniture,Desks,Online,8,2454
+2025-07-24,Latin America,Brazil,Office Supplies,Paper,Retail,103,919
+2025-12-08,Asia Pacific,Australia,Technology,Laptops,Online,5,6104
+2025-11-05,Asia Pacific,Australia,Office Supplies,Labels,Online,169,950
+2025-05-02,Asia Pacific,Japan,Furniture,Chairs,Partner,6,1019
+2025-11-17,North America,United States,Office Supplies,Paper,Online,66,614
+2025-02-09,North America,United States,Technology,Printers,Online,2,475
+2025-09-12,Europe,Italy,Furniture,Chairs,Partner,12,1781
+2025-12-19,Europe,United Kingdom,Furniture,Bookcases,Online,3,452
+2025-06-05,Asia Pacific,Japan,Technology,Monitors,Retail,7,1921
+2025-01-04,Europe,Germany,Technology,Laptops,Retail,2,2460
+2025-09-09,North America,Mexico,Furniture,Desks,Retail,9,3036
+2025-11-09,Asia Pacific,Singapore,Furniture,Desks,Retail,9,3068
+2025-08-18,Europe,United Kingdom,Furniture,Chairs,Retail,3,508
+2025-07-02,Europe,Germany,Furniture,Lamps,Online,11,451
+2025-10-18,Asia Pacific,Japan,Technology,Phones,Online,5,3380
+2025-08-27,Europe,France,Technology,Printers,Retail,3,750
+2025-05-05,Latin America,Argentina,Furniture,Desks,Retail,12,4057
+2025-04-23,Europe,Spain,Office Supplies,Paper,Retail,183,1679
+2025-09-04,Europe,Germany,Technology,Phones,Partner,1,675
+2025-10-25,Asia Pacific,Japan,Technology,Monitors,Online,4,923
+2025-03-18,Latin America,Argentina,Office Supplies,Labels,Partner,153,766
+2025-08-19,North America,Mexico,Furniture,Bookcases,Retail,10,1391
+2025-08-09,Europe,United Kingdom,Technology,Monitors,Retail,1,281
+2025-01-26,Europe,France,Furniture,Chairs,Online,11,2028
+2025-05-28,Asia Pacific,Singapore,Furniture,Bookcases,Retail,1,136
+2025-06-25,Europe,Germany,Office Supplies,Binders,Online,177,1076
+2025-06-03,Asia Pacific,India,Office Supplies,Binders,Retail,62,393
+2025-06-29,Europe,Italy,Furniture,Lamps,Partner,2,72
+2025-04-25,North America,United States,Office Supplies,Labels,Retail,177,991
+2025-07-04,Europe,Germany,Office Supplies,Labels,Retail,132,771
+2025-11-16,Europe,Germany,Technology,Printers,Retail,5,1045
+2025-12-17,Europe,Germany,Furniture,Desks,Online,9,2725
+2025-12-22,Asia Pacific,Japan,Office Supplies,Pens,Online,178,640
+2025-03-14,Europe,Germany,Office Supplies,Pens,Retail,41,143
+2025-12-01,North America,United States,Furniture,Bookcases,Online,11,1520
+2025-10-15,Europe,United Kingdom,Office Supplies,Pens,Retail,40,161
+2025-12-16,Europe,France,Office Supplies,Labels,Retail,112,705
+2025-07-15,Europe,Germany,Technology,Printers,Partner,1,193
+2025-08-13,Europe,United Kingdom,Office Supplies,Binders,Retail,158,1154
+2025-03-16,Europe,Germany,Furniture,Lamps,Retail,7,334
+2025-01-02,North America,United States,Technology,Monitors,Partner,7,1748
+2025-03-20,Asia Pacific,India,Technology,Phones,Online,7,4587
+2025-04-18,Europe,Netherlands,Technology,Printers,Online,6,1402
+2025-05-30,Asia Pacific,Japan,Technology,Printers,Retail,4,1003
+2025-09-02,Europe,Spain,Technology,Printers,Online,1,227
+2025-12-09,Latin America,Argentina,Technology,Phones,Retail,4,2791
+2025-12-31,Europe,France,Office Supplies,Binders,Online,194,1352
+2025-10-22,Europe,Netherlands,Furniture,Bookcases,Retail,3,417
+2025-12-22,Europe,United Kingdom,Furniture,Bookcases,Online,12,1458
+2025-03-04,Europe,Italy,Furniture,Lamps,Online,11,426
+2025-03-14,Asia Pacific,India,Furniture,Desks,Partner,4,1185
+2025-09-09,North America,United States,Technology,Laptops,Online,6,5933
+2025-06-03,Europe,Germany,Office Supplies,Paper,Online,93,839
+2025-03-19,Asia Pacific,India,Technology,Laptops,Partner,3,2768
+2025-06-19,North America,Canada,Furniture,Chairs,Partner,1,147
+2025-05-02,Europe,Germany,Technology,Printers,Online,3,750
+2025-10-13,Europe,Netherlands,Office Supplies,Labels,Online,148,948
+2025-09-10,Europe,Netherlands,Furniture,Lamps,Online,10,428
+2025-12-03,Europe,France,Technology,Monitors,Retail,8,1823
+2025-05-02,Europe,United Kingdom,Technology,Laptops,Retail,5,6073
+2025-04-25,Asia Pacific,Japan,Technology,Monitors,Partner,5,1015
+2025-11-30,Europe,Italy,Technology,Phones,Retail,4,2529
+2025-06-05,Asia Pacific,India,Furniture,Chairs,Retail,2,363
+2025-12-18,Latin America,Colombia,Furniture,Bookcases,Retail,11,1391
+2025-03-03,Asia Pacific,Japan,Furniture,Bookcases,Online,1,127
+2025-10-02,Europe,Spain,Technology,Phones,Online,4,3018
+2025-06-05,North America,United States,Technology,Laptops,Retail,1,1147
+2025-02-01,Europe,Germany,Furniture,Chairs,Retail,6,980
+2025-06-14,Europe,Spain,Office Supplies,Pens,Partner,146,496
+2025-12-15,Europe,France,Office Supplies,Binders,Partner,61,360
+2025-08-17,Europe,Spain,Office Supplies,Binders,Retail,74,472
+2025-11-15,Europe,Germany,Technology,Printers,Retail,8,1682
+2025-11-03,Asia Pacific,Australia,Furniture,Chairs,Retail,10,1616
+2025-08-24,Latin America,Chile,Technology,Monitors,Online,1,239
+2025-09-20,Europe,United Kingdom,Office Supplies,Paper,Partner,53,422
+2025-03-02,Latin America,Brazil,Office Supplies,Paper,Online,110,987
+2025-12-11,North America,Canada,Office Supplies,Paper,Online,141,1110
+2025-05-07,Europe,Germany,Technology,Laptops,Retail,5,5226
+2025-10-06,Europe,Germany,Office Supplies,Pens,Online,125,522
+2025-12-08,North America,Canada,Office Supplies,Binders,Online,93,686
+2025-10-16,Europe,Germany,Office Supplies,Binders,Retail,131,892
+2025-12-01,North America,United States,Technology,Laptops,Retail,1,1044
+2025-11-26,North America,United States,Furniture,Desks,Retail,8,2400
+2025-03-16,North America,United States,Technology,Laptops,Online,8,9608
+2025-01-07,Europe,Italy,Office Supplies,Labels,Online,177,925
+2025-12-31,Europe,Spain,Furniture,Lamps,Online,12,485
+2025-07-28,Europe,Spain,Technology,Phones,Partner,1,575
+2025-09-10,North America,United States,Furniture,Lamps,Retail,9,394
+2025-01-05,Europe,Italy,Technology,Phones,Retail,1,627
+2025-05-11,Europe,United Kingdom,Furniture,Desks,Online,6,1713
+2025-01-09,North America,United States,Office Supplies,Paper,Partner,60,483
+2025-10-23,North America,United States,Furniture,Chairs,Online,4,614
+2025-01-11,Europe,United Kingdom,Furniture,Chairs,Retail,6,1091
+2025-01-24,Latin America,Brazil,Technology,Printers,Online,3,742
+2025-12-12,Asia Pacific,Australia,Office Supplies,Paper,Online,74,704
+2025-11-07,Europe,United Kingdom,Technology,Monitors,Partner,1,208
+2025-09-05,North America,United States,Furniture,Chairs,Retail,12,1933
+2025-04-16,North America,United States,Furniture,Bookcases,Online,4,562
+2025-07-11,Europe,Netherlands,Office Supplies,Binders,Retail,134,853
+2025-09-25,North America,United States,Office Supplies,Pens,Retail,72,285
+2025-12-24,Asia Pacific,Japan,Furniture,Bookcases,Partner,7,832
+2025-12-18,Europe,France,Furniture,Chairs,Online,8,1525
+2025-03-24,Europe,Netherlands,Technology,Monitors,Retail,6,1499
+2025-08-25,Asia Pacific,Japan,Technology,Monitors,Online,1,245
+2025-12-31,North America,Canada,Office Supplies,Binders,Retail,170,1030
+2025-11-29,Europe,Netherlands,Furniture,Desks,Partner,4,1261
+2025-04-16,North America,United States,Technology,Printers,Retail,3,651
+2025-05-01,Asia Pacific,India,Office Supplies,Paper,Online,149,1456
+2025-01-13,Europe,Germany,Office Supplies,Paper,Online,138,1196
+2025-11-15,Europe,Netherlands,Furniture,Bookcases,Online,10,1513
+2025-09-30,Asia Pacific,Australia,Furniture,Bookcases,Retail,8,1211
+2025-10-19,North America,United States,Furniture,Bookcases,Online,9,1103
+2025-07-25,Asia Pacific,India,Technology,Phones,Retail,6,4317
+2025-10-31,North America,United States,Office Supplies,Pens,Online,50,190
+2025-07-26,Latin America,Chile,Office Supplies,Pens,Retail,47,171
+2025-04-05,Asia Pacific,Japan,Furniture,Lamps,Partner,5,201
+2025-02-10,Europe,France,Technology,Monitors,Retail,1,257
+2025-06-22,Europe,Italy,Furniture,Bookcases,Partner,2,215
+2025-11-20,Latin America,Brazil,Office Supplies,Labels,Partner,177,925
+2025-11-18,Asia Pacific,Australia,Technology,Phones,Retail,5,3577
+2025-10-23,North America,Mexico,Technology,Monitors,Retail,5,1187
+2025-03-16,Asia Pacific,Australia,Furniture,Desks,Retail,11,3791
+2025-05-04,Europe,United Kingdom,Office Supplies,Paper,Partner,81,645
+2025-11-09,Europe,France,Furniture,Lamps,Online,10,486
+2025-08-07,North America,United States,Furniture,Desks,Retail,3,836
+2025-05-15,North America,Canada,Office Supplies,Binders,Online,107,723
+2025-09-27,North America,United States,Technology,Laptops,Retail,8,8276
+2025-01-26,Asia Pacific,Australia,Office Supplies,Paper,Retail,64,562
+2025-05-05,Europe,France,Technology,Monitors,Retail,5,1176
+2025-02-25,Latin America,Colombia,Furniture,Chairs,Retail,10,1940
+2025-01-18,Europe,Spain,Furniture,Bookcases,Partner,4,483
+2025-12-10,North America,United States,Furniture,Desks,Retail,9,2810
+2025-11-18,Europe,United Kingdom,Technology,Laptops,Retail,2,2291
+2025-01-28,Latin America,Brazil,Office Supplies,Pens,Retail,99,362
+2025-04-08,Europe,Germany,Office Supplies,Binders,Retail,180,1156
+2025-12-13,North America,Mexico,Office Supplies,Labels,Online,80,445
+2025-11-27,Latin America,Brazil,Office Supplies,Pens,Partner,83,279
+2025-01-12,Asia Pacific,Japan,Office Supplies,Pens,Partner,178,694
+2025-11-09,Europe,United Kingdom,Furniture,Bookcases,Retail,2,269
+2025-08-01,Latin America,Brazil,Technology,Monitors,Online,2,472
+2025-06-15,Europe,France,Furniture,Chairs,Retail,9,1649
+2025-10-20,Europe,Germany,Office Supplies,Binders,Online,197,1477
+2025-08-29,Latin America,Argentina,Office Supplies,Binders,Retail,80,520
+2025-10-15,Europe,Spain,Furniture,Lamps,Online,3,136
+2025-03-30,Europe,Italy,Technology,Phones,Online,5,3305
+2025-01-19,North America,United States,Furniture,Desks,Online,6,2045
+2025-11-22,North America,Mexico,Office Supplies,Labels,Retail,42,241
+2025-11-21,Latin America,Brazil,Furniture,Chairs,Partner,8,1417
+2025-12-13,Europe,France,Office Supplies,Pens,Retail,61,237
+2025-05-04,Europe,United Kingdom,Office Supplies,Binders,Online,92,643
+2025-07-09,Asia Pacific,Singapore,Technology,Printers,Retail,7,1730
+2025-05-16,Europe,United Kingdom,Furniture,Bookcases,Retail,10,1338
+2025-12-29,North America,United States,Furniture,Lamps,Online,3,142
+2025-04-29,Latin America,Argentina,Office Supplies,Labels,Retail,50,316
+2025-11-27,Europe,Italy,Office Supplies,Binders,Online,41,263
+2025-09-28,Europe,United Kingdom,Technology,Printers,Retail,2,466
+2025-12-01,North America,Canada,Technology,Printers,Online,8,1629
+2025-08-17,North America,United States,Furniture,Lamps,Online,6,240
+2025-02-05,Latin America,Brazil,Office Supplies,Binders,Online,164,1191
+2025-07-08,Europe,Italy,Office Supplies,Labels,Retail,98,609
+2025-08-16,Europe,Germany,Furniture,Lamps,Online,5,210
+2025-09-08,Latin America,Argentina,Furniture,Bookcases,Retail,4,508
+2025-11-04,Asia Pacific,Japan,Office Supplies,Pens,Online,182,674
+2025-10-18,Europe,Germany,Furniture,Bookcases,Online,2,294
+2025-12-27,North America,United States,Furniture,Desks,Online,6,1881
+2025-05-11,Latin America,Chile,Technology,Printers,Online,3,710
+2025-04-26,Europe,United Kingdom,Technology,Printers,Online,2,397
+2025-12-04,North America,United States,Furniture,Lamps,Online,4,164
+2025-09-12,North America,United States,Technology,Phones,Online,3,1950
+2025-02-23,Asia Pacific,Japan,Technology,Laptops,Partner,8,7794
+2025-08-10,North America,Mexico,Technology,Phones,Online,5,3611
+2025-05-11,Europe,United Kingdom,Furniture,Bookcases,Retail,7,1077
+2025-12-14,Asia Pacific,India,Office Supplies,Binders,Retail,152,1154
+2025-11-14,Europe,United Kingdom,Technology,Laptops,Retail,2,2077
+2025-09-08,Europe,Germany,Furniture,Chairs,Partner,5,789
+2025-12-18,Asia Pacific,Japan,Office Supplies,Labels,Retail,198,1103
+2025-08-24,Europe,Italy,Technology,Monitors,Online,2,569
+2025-08-12,Asia Pacific,Australia,Furniture,Lamps,Online,7,275
+2025-04-17,Latin America,Argentina,Furniture,Desks,Retail,5,1514
+2025-10-21,Latin America,Brazil,Office Supplies,Pens,Retail,117,408
+2025-06-20,North America,United States,Furniture,Lamps,Retail,5,215
+2025-12-11,Latin America,Brazil,Technology,Phones,Retail,7,4298
+2025-12-27,North America,United States,Technology,Monitors,Online,3,694
+2025-06-26,Europe,Germany,Furniture,Lamps,Online,10,424
+2025-03-21,Europe,Italy,Furniture,Bookcases,Retail,11,1425
+2025-04-29,Europe,Netherlands,Furniture,Desks,Retail,11,3518
+2025-11-07,Latin America,Colombia,Furniture,Lamps,Partner,1,37
+2025-02-13,Latin America,Brazil,Office Supplies,Paper,Retail,163,1433
+2025-06-21,Europe,France,Furniture,Bookcases,Partner,3,333
+2025-08-08,Asia Pacific,India,Furniture,Lamps,Retail,11,520
+2025-05-18,North America,United States,Furniture,Desks,Online,8,2349
+2025-04-29,North America,United States,Furniture,Desks,Partner,8,2404
+2025-12-12,Asia Pacific,Singapore,Technology,Monitors,Online,3,743
+2025-10-05,Europe,Germany,Office Supplies,Pens,Online,46,174
+2025-10-13,Asia Pacific,Singapore,Technology,Laptops,Online,5,5162
+2025-03-17,Asia Pacific,Japan,Furniture,Chairs,Online,8,1455
+2025-08-27,Asia Pacific,Australia,Office Supplies,Labels,Retail,130,677
+2025-09-20,Europe,United Kingdom,Office Supplies,Paper,Online,51,454
+2025-04-18,Europe,Germany,Office Supplies,Paper,Retail,33,299
+2025-06-02,Europe,Spain,Furniture,Desks,Online,3,1021
+2025-12-30,Europe,Germany,Furniture,Desks,Retail,9,3069
+2025-07-01,Latin America,Argentina,Furniture,Chairs,Online,4,764
+2025-01-30,Latin America,Brazil,Office Supplies,Paper,Partner,193,1359
+2025-09-01,Latin America,Argentina,Furniture,Chairs,Online,7,1090
+2025-11-30,Europe,Spain,Office Supplies,Labels,Partner,163,898
+2025-11-22,North America,United States,Furniture,Bookcases,Online,7,880
+2025-04-12,Asia Pacific,Singapore,Office Supplies,Labels,Retail,130,769
+2025-08-19,Asia Pacific,Japan,Furniture,Lamps,Online,2,97
+2025-01-27,Europe,Germany,Furniture,Bookcases,Retail,7,1047
+2025-07-30,Europe,Germany,Technology,Laptops,Retail,2,2159
+2025-10-08,North America,United States,Technology,Laptops,Online,1,1208
+2025-11-11,Europe,Germany,Technology,Laptops,Online,1,1034
+2025-06-20,Asia Pacific,Singapore,Office Supplies,Pens,Retail,76,264
+2025-02-03,North America,United States,Technology,Laptops,Retail,1,1148
+2025-12-15,Europe,Netherlands,Office Supplies,Pens,Online,20,82
+2025-06-25,Latin America,Colombia,Office Supplies,Paper,Online,185,1634
+2025-10-20,North America,United States,Technology,Monitors,Retail,5,1284
+2025-09-18,Europe,France,Technology,Laptops,Partner,8,7196
+2025-06-03,Asia Pacific,Singapore,Technology,Monitors,Retail,8,2235
+2025-07-31,Europe,Spain,Office Supplies,Pens,Partner,154,529
+2025-10-16,North America,United States,Furniture,Bookcases,Retail,9,1384
+2025-05-30,Europe,Germany,Furniture,Chairs,Online,1,171
+2025-02-13,Asia Pacific,Singapore,Furniture,Lamps,Online,1,45
+2025-10-08,Asia Pacific,Japan,Office Supplies,Paper,Retail,168,1608
+2025-02-14,Asia Pacific,Japan,Office Supplies,Binders,Online,89,575
+2025-09-26,North America,United States,Furniture,Chairs,Retail,12,2293
+2025-05-08,Europe,United Kingdom,Office Supplies,Labels,Retail,118,732
+2025-08-13,North America,Canada,Furniture,Chairs,Retail,8,1424
+2025-12-18,Europe,Germany,Technology,Printers,Online,1,225
+2025-09-29,Europe,Spain,Furniture,Bookcases,Retail,10,1344
+2025-10-19,Europe,United Kingdom,Furniture,Chairs,Online,10,1845
+2025-10-21,Latin America,Brazil,Furniture,Bookcases,Partner,6,663
+2025-12-01,North America,United States,Furniture,Lamps,Partner,11,424
+2025-07-26,Europe,Spain,Office Supplies,Labels,Online,162,933
+2025-01-23,North America,Mexico,Office Supplies,Paper,Online,122,1079
+2025-10-06,Latin America,Brazil,Furniture,Chairs,Retail,1,173
+2025-05-10,Europe,France,Furniture,Desks,Partner,3,842
+2025-08-27,Asia Pacific,India,Furniture,Bookcases,Retail,2,261
+2025-11-27,Europe,United Kingdom,Furniture,Bookcases,Online,1,134
+2025-09-19,Asia Pacific,Singapore,Furniture,Chairs,Online,4,708
+2025-02-13,Europe,Netherlands,Office Supplies,Paper,Retail,60,551
+2025-05-31,North America,Canada,Technology,Monitors,Online,2,467
+2025-03-16,Europe,Germany,Technology,Laptops,Online,2,2038
+2025-05-11,Asia Pacific,Japan,Furniture,Lamps,Retail,4,169
+2025-03-19,Asia Pacific,India,Technology,Laptops,Retail,2,2255
+2025-08-13,Europe,Spain,Technology,Laptops,Online,6,6604
+2025-05-04,Asia Pacific,Japan,Furniture,Chairs,Retail,1,178
+2025-02-05,Europe,Netherlands,Technology,Printers,Retail,7,1581
+2025-01-26,North America,Mexico,Technology,Printers,Online,4,823
+2025-02-08,Latin America,Brazil,Office Supplies,Labels,Partner,114,581
+2025-06-12,Europe,Netherlands,Office Supplies,Pens,Online,191,655
+2025-10-20,North America,United States,Office Supplies,Paper,Retail,181,1569
+2025-07-01,Europe,Spain,Furniture,Lamps,Retail,1,49
+2025-12-30,Asia Pacific,Singapore,Technology,Printers,Online,5,1263
+2025-06-23,Latin America,Argentina,Office Supplies,Binders,Retail,25,157
+2025-02-06,Asia Pacific,Japan,Furniture,Lamps,Online,8,357
+2025-07-17,Europe,Italy,Furniture,Desks,Online,8,2707
+2025-04-09,Europe,Germany,Technology,Phones,Online,2,1450
+2025-05-14,Europe,United Kingdom,Technology,Printers,Retail,2,475
+2025-01-18,Asia Pacific,India,Office Supplies,Paper,Online,57,483
+2025-01-04,North America,Canada,Technology,Monitors,Retail,8,1908
+2025-06-05,Europe,Germany,Office Supplies,Pens,Partner,70,260
+2025-01-09,Europe,Spain,Office Supplies,Paper,Online,181,1598
+2025-05-03,North America,United States,Furniture,Bookcases,Online,1,130
+2025-09-11,Europe,Germany,Furniture,Lamps,Partner,11,398
+2025-12-05,Europe,Germany,Office Supplies,Labels,Online,100,526
+2025-06-06,Asia Pacific,Japan,Technology,Monitors,Retail,2,560
+2025-10-11,North America,United States,Technology,Monitors,Retail,1,244
+2025-02-20,Asia Pacific,Australia,Technology,Monitors,Retail,5,1253
+2025-08-17,Europe,Germany,Technology,Phones,Retail,2,1294
+2025-02-28,Latin America,Brazil,Technology,Printers,Online,1,204
+2025-03-05,Europe,United Kingdom,Technology,Printers,Online,7,1626
+2025-01-16,Europe,United Kingdom,Office Supplies,Binders,Online,138,915
+2025-10-22,Europe,France,Technology,Laptops,Online,1,1162
+2025-12-15,North America,United States,Office Supplies,Labels,Online,95,571
+2025-06-14,Europe,Germany,Office Supplies,Pens,Partner,167,637
+2025-06-05,Europe,Italy,Furniture,Desks,Partner,6,1600
+2025-12-27,Europe,Germany,Furniture,Lamps,Retail,2,79
+2025-01-02,North America,United States,Furniture,Desks,Partner,8,1970
+2025-02-28,Asia Pacific,Singapore,Office Supplies,Paper,Partner,73,604
+2025-02-25,Latin America,Brazil,Technology,Monitors,Online,3,701
+2025-06-28,Asia Pacific,India,Furniture,Bookcases,Partner,9,1142
+2025-11-20,North America,United States,Office Supplies,Paper,Online,161,1348
+2025-01-26,Asia Pacific,Japan,Furniture,Bookcases,Partner,12,1292
+2025-01-01,North America,United States,Furniture,Chairs,Retail,5,972
+2025-12-20,Latin America,Colombia,Office Supplies,Pens,Retail,176,767
+2025-11-06,North America,United States,Office Supplies,Labels,Online,174,906
+2025-02-08,Europe,Netherlands,Office Supplies,Binders,Partner,127,853
+2025-02-20,Europe,Italy,Furniture,Desks,Retail,2,698
+2025-02-13,Latin America,Chile,Office Supplies,Pens,Online,37,134
+2025-08-23,North America,United States,Office Supplies,Binders,Retail,199,1421
+2025-07-04,North America,Canada,Office Supplies,Pens,Retail,163,605
+2025-01-04,Asia Pacific,Japan,Technology,Laptops,Partner,6,6690
+2025-12-04,Asia Pacific,Singapore,Furniture,Chairs,Retail,9,1626
+2025-08-20,North America,Canada,Technology,Monitors,Partner,4,837
+2025-11-25,Asia Pacific,India,Technology,Laptops,Online,8,7917
+2025-12-19,Asia Pacific,Japan,Furniture,Lamps,Online,2,84
+2025-01-15,Latin America,Chile,Furniture,Bookcases,Online,7,870
+2025-05-28,Asia Pacific,Japan,Office Supplies,Labels,Partner,153,829
+2025-10-19,Latin America,Brazil,Technology,Phones,Retail,4,2951
+2025-06-25,Europe,Italy,Office Supplies,Labels,Retail,199,1170
+2025-12-23,Europe,United Kingdom,Furniture,Lamps,Online,6,281
+2025-09-19,Asia Pacific,Japan,Office Supplies,Labels,Partner,66,339
+2025-11-22,Europe,Netherlands,Office Supplies,Binders,Retail,157,1009
+2025-03-18,North America,Canada,Furniture,Chairs,Online,11,1703
+2025-08-06,North America,United States,Office Supplies,Binders,Retail,95,632
+2025-05-06,Europe,Germany,Office Supplies,Labels,Online,169,984
+2025-10-14,Europe,Italy,Furniture,Chairs,Retail,4,746
+2025-12-24,Europe,Germany,Office Supplies,Labels,Online,172,943
+2025-06-26,Europe,France,Office Supplies,Paper,Retail,154,1444
+2025-12-02,Europe,United Kingdom,Furniture,Chairs,Retail,9,1768
+2025-02-02,Latin America,Brazil,Furniture,Desks,Online,3,920
+2025-03-13,North America,United States,Technology,Monitors,Online,4,934
+2025-05-22,Latin America,Brazil,Furniture,Chairs,Partner,7,1142
+2025-04-27,Latin America,Chile,Office Supplies,Paper,Online,42,358
+2025-08-30,Europe,Spain,Technology,Monitors,Partner,6,1377
+2025-10-13,Europe,Italy,Technology,Printers,Partner,5,1016
+2025-06-21,Europe,Italy,Furniture,Bookcases,Retail,8,1052
+2025-07-24,North America,United States,Office Supplies,Pens,Retail,189,648
+2025-11-22,Asia Pacific,Australia,Furniture,Lamps,Online,4,166
+2025-11-15,Europe,France,Furniture,Chairs,Partner,2,343
+2025-06-10,North America,Canada,Furniture,Chairs,Retail,3,573
+2025-10-31,Asia Pacific,Australia,Furniture,Chairs,Online,8,1470
+2025-02-11,Europe,Germany,Furniture,Desks,Retail,8,2763
+2025-10-28,Asia Pacific,Singapore,Technology,Monitors,Retail,3,670
+2025-04-05,Asia Pacific,Australia,Office Supplies,Paper,Online,191,1777
+2025-03-03,Europe,Germany,Furniture,Desks,Online,1,283
+2025-08-10,Latin America,Chile,Office Supplies,Labels,Retail,123,776
+2025-08-20,North America,United States,Technology,Printers,Retail,3,653
+2025-12-22,North America,United States,Furniture,Bookcases,Retail,4,503
+2025-03-31,Europe,United Kingdom,Office Supplies,Paper,Online,177,1600
+2025-04-22,North America,United States,Technology,Printers,Online,1,196
+2025-09-18,North America,Mexico,Office Supplies,Pens,Partner,168,600
+2025-10-09,Europe,Germany,Technology,Printers,Retail,1,196
+2025-02-10,Asia Pacific,India,Technology,Phones,Retail,2,1456
+2025-10-06,North America,Canada,Office Supplies,Pens,Partner,106,392
+2025-06-22,Latin America,Brazil,Technology,Printers,Partner,7,1277
+2025-07-17,Europe,United Kingdom,Technology,Phones,Retail,2,1416
+2025-04-03,North America,United States,Furniture,Lamps,Online,7,321
+2025-02-10,Asia Pacific,Japan,Technology,Printers,Partner,6,1238
+2025-12-27,Europe,United Kingdom,Furniture,Chairs,Online,4,736
+2025-05-23,North America,Canada,Technology,Printers,Online,1,208
+2025-11-29,Europe,Germany,Office Supplies,Labels,Partner,61,282
+2025-09-14,North America,United States,Furniture,Desks,Online,9,2823
+2025-10-02,Europe,United Kingdom,Technology,Phones,Partner,8,5130
+2025-04-12,Asia Pacific,India,Office Supplies,Labels,Partner,32,182
+2025-01-14,North America,United States,Furniture,Chairs,Online,3,585
+2025-12-11,Europe,Italy,Furniture,Chairs,Online,7,1131
+2025-03-07,North America,United States,Technology,Phones,Retail,2,1303
+2025-01-11,North America,United States,Office Supplies,Pens,Online,48,193
+2025-03-28,North America,United States,Technology,Phones,Partner,4,2200
+2025-05-20,Europe,Netherlands,Office Supplies,Labels,Online,126,643
+2025-09-13,North America,United States,Furniture,Lamps,Online,10,457
+2025-03-12,Europe,Netherlands,Office Supplies,Paper,Online,144,1266
+2025-10-06,Latin America,Colombia,Furniture,Lamps,Partner,2,76
+2025-02-05,Europe,Germany,Furniture,Bookcases,Online,7,1032
+2025-11-13,Latin America,Argentina,Furniture,Lamps,Retail,11,527
+2025-03-15,Europe,Italy,Technology,Phones,Online,6,3889
+2025-01-21,Europe,Germany,Furniture,Bookcases,Partner,4,500
+2025-01-02,Europe,Italy,Office Supplies,Paper,Retail,169,1655
+2025-07-21,Europe,Germany,Technology,Phones,Retail,2,1293
+2025-05-07,Asia Pacific,Australia,Office Supplies,Labels,Retail,183,1161
+2025-03-02,Latin America,Brazil,Technology,Phones,Online,5,3204
+2025-03-29,North America,United States,Office Supplies,Paper,Online,88,835
+2025-12-05,North America,Mexico,Furniture,Lamps,Retail,10,449
+2025-04-03,North America,United States,Furniture,Chairs,Retail,7,1104
+2025-09-06,Asia Pacific,Australia,Furniture,Bookcases,Online,3,400
+2025-09-30,Latin America,Brazil,Technology,Printers,Online,6,1281
+2025-09-14,Europe,Italy,Technology,Phones,Partner,5,3154
+2025-03-15,Asia Pacific,Australia,Furniture,Desks,Retail,10,2944
+2025-12-01,North America,United States,Technology,Monitors,Online,5,1410
+2025-05-07,North America,United States,Technology,Printers,Online,7,1675
+2025-12-21,Europe,Germany,Furniture,Desks,Online,11,3684
+2025-11-03,Europe,Italy,Office Supplies,Pens,Partner,129,494
+2025-09-19,Asia Pacific,Japan,Technology,Phones,Online,5,3683
+2025-01-09,Asia Pacific,Japan,Technology,Printers,Online,7,1541
+2025-02-24,Europe,United Kingdom,Furniture,Desks,Partner,10,2651
+2025-04-18,Asia Pacific,India,Furniture,Bookcases,Online,6,866
+2025-06-29,Europe,Netherlands,Office Supplies,Binders,Online,184,1376
+2025-12-01,Europe,Italy,Furniture,Lamps,Retail,2,91
+2025-07-05,North America,United States,Office Supplies,Binders,Retail,108,737
+2025-12-16,North America,United States,Technology,Monitors,Online,4,1007
+2025-01-03,North America,Mexico,Furniture,Bookcases,Online,2,296
+2025-04-02,Latin America,Argentina,Technology,Phones,Online,1,757
+2025-03-29,North America,United States,Technology,Printers,Retail,6,1238
+2025-08-09,Europe,Netherlands,Furniture,Desks,Partner,2,605
+2025-06-02,Asia Pacific,Singapore,Office Supplies,Labels,Retail,117,620
+2025-02-27,Europe,Italy,Office Supplies,Labels,Retail,151,976
+2025-03-06,Europe,Germany,Furniture,Lamps,Online,1,43
+2025-01-08,Asia Pacific,India,Technology,Printers,Retail,2,488
+2025-06-30,Latin America,Brazil,Office Supplies,Pens,Partner,147,560
+2025-02-15,Europe,United Kingdom,Furniture,Chairs,Retail,1,184
+2025-01-23,Europe,Germany,Office Supplies,Labels,Online,57,337
+2025-11-02,Europe,Italy,Office Supplies,Pens,Online,41,147
+2025-04-17,Europe,United Kingdom,Office Supplies,Binders,Online,197,1319
+2025-04-07,Europe,Germany,Office Supplies,Binders,Retail,143,1033
+2025-06-30,Europe,France,Furniture,Lamps,Partner,5,212
+2025-12-05,North America,United States,Office Supplies,Binders,Online,191,1330
+2025-12-29,Asia Pacific,India,Technology,Phones,Retail,2,1443
+2025-05-06,Europe,United Kingdom,Office Supplies,Paper,Retail,96,884
+2025-11-07,Asia Pacific,Singapore,Technology,Printers,Retail,1,208
+2025-02-03,Latin America,Brazil,Technology,Phones,Retail,6,4058
+2025-12-22,Asia Pacific,Japan,Furniture,Bookcases,Retail,10,1292
+2025-05-27,Latin America,Brazil,Office Supplies,Labels,Retail,127,809
+2025-10-29,Europe,Italy,Furniture,Bookcases,Online,10,1304
+2025-08-04,North America,Mexico,Technology,Laptops,Retail,5,6314
+2025-07-16,Asia Pacific,India,Office Supplies,Pens,Online,35,150
+2025-07-21,Latin America,Chile,Office Supplies,Labels,Retail,104,649
+2025-12-18,Europe,Spain,Office Supplies,Binders,Retail,120,882
+2025-07-31,Latin America,Brazil,Furniture,Bookcases,Online,12,1718
+2025-10-27,Europe,Spain,Office Supplies,Binders,Retail,118,858
+2025-05-09,Latin America,Chile,Technology,Phones,Retail,4,2408
+2025-06-06,Europe,Netherlands,Furniture,Lamps,Retail,6,268
+2025-12-24,Europe,Spain,Furniture,Bookcases,Online,4,492
+2025-03-09,North America,Canada,Office Supplies,Labels,Retail,21,108
+2025-11-17,North America,Mexico,Office Supplies,Binders,Retail,24,173
+2025-03-31,Europe,Germany,Technology,Monitors,Partner,3,623
+2025-09-18,Europe,France,Furniture,Lamps,Partner,2,74
+2025-11-09,Latin America,Brazil,Technology,Printers,Partner,1,216
+2025-11-07,Europe,Netherlands,Office Supplies,Binders,Retail,160,1198
+2025-03-22,Latin America,Colombia,Furniture,Chairs,Partner,7,1235
+2025-04-21,Europe,Germany,Furniture,Chairs,Retail,9,1597
+2025-09-22,Europe,Netherlands,Office Supplies,Pens,Online,112,408
+2025-09-07,Europe,Spain,Furniture,Bookcases,Online,6,817
+2025-02-04,North America,Mexico,Office Supplies,Labels,Online,84,492
+2025-05-06,Europe,Germany,Furniture,Lamps,Retail,7,331
+2025-07-20,Asia Pacific,Japan,Office Supplies,Binders,Retail,146,971
+2025-05-18,North America,United States,Technology,Monitors,Online,6,1560
+2025-10-18,Asia Pacific,India,Office Supplies,Paper,Partner,102,762
+2025-01-14,Latin America,Colombia,Office Supplies,Paper,Online,198,1839
+2025-05-12,Europe,France,Furniture,Desks,Retail,9,3075
+2025-12-13,Europe,Netherlands,Office Supplies,Binders,Online,28,186
+2025-05-18,Europe,Netherlands,Office Supplies,Binders,Retail,40,296
+2025-11-01,Europe,Italy,Technology,Laptops,Retail,1,994
+2025-10-18,Europe,United Kingdom,Technology,Printers,Retail,4,926
+2025-11-28,Latin America,Colombia,Technology,Phones,Retail,8,5338
+2025-09-20,Europe,United Kingdom,Technology,Phones,Online,5,3038
+2025-02-14,Latin America,Argentina,Furniture,Desks,Partner,11,2798
+2025-10-12,Latin America,Brazil,Office Supplies,Binders,Retail,145,1089
+2025-12-31,Europe,United Kingdom,Technology,Phones,Online,3,2224
+2025-11-12,North America,United States,Technology,Phones,Online,7,4862
+2025-11-17,Europe,Germany,Office Supplies,Labels,Online,81,465
+2025-11-23,Asia Pacific,Japan,Technology,Printers,Online,8,1840
+2025-10-12,Europe,United Kingdom,Office Supplies,Binders,Partner,66,417
+2025-08-31,North America,Mexico,Office Supplies,Pens,Retail,38,151
+2025-10-05,Latin America,Chile,Office Supplies,Pens,Online,45,156
+2025-08-10,Asia Pacific,Singapore,Office Supplies,Binders,Partner,189,1260
+2025-09-19,North America,United States,Office Supplies,Pens,Online,22,79
+2025-07-08,Latin America,Chile,Technology,Phones,Retail,2,1415
+2025-05-16,Latin America,Brazil,Technology,Printers,Retail,8,1817
+2025-03-03,Asia Pacific,Japan,Office Supplies,Pens,Online,21,77
+2025-03-23,North America,United States,Office Supplies,Binders,Retail,186,1135
+2025-12-30,Europe,Italy,Office Supplies,Binders,Retail,116,744
+2025-07-07,Europe,United Kingdom,Furniture,Bookcases,Online,7,937
+2025-10-10,Latin America,Argentina,Office Supplies,Binders,Online,178,1210
+2025-04-19,Asia Pacific,Singapore,Office Supplies,Binders,Online,138,913
+2025-07-18,North America,Mexico,Technology,Printers,Retail,5,1135
+2025-10-22,Europe,United Kingdom,Furniture,Bookcases,Partner,3,413
+2025-04-18,Asia Pacific,India,Furniture,Bookcases,Retail,3,442
+2025-02-20,Latin America,Colombia,Office Supplies,Labels,Partner,161,875
+2025-08-31,Europe,United Kingdom,Furniture,Desks,Retail,6,1894
+2025-06-20,Latin America,Brazil,Office Supplies,Paper,Retail,156,1366
+2025-08-07,Asia Pacific,Japan,Furniture,Chairs,Online,5,860
+2025-06-10,North America,United States,Furniture,Chairs,Partner,4,579
+2025-04-16,Latin America,Brazil,Technology,Phones,Online,3,2017
+2025-12-19,Europe,Spain,Technology,Printers,Retail,2,395
+2025-01-09,North America,Canada,Technology,Monitors,Partner,2,429
+2025-07-08,Europe,Netherlands,Office Supplies,Pens,Online,186,783
+2025-09-29,Asia Pacific,India,Office Supplies,Pens,Partner,149,514
+2025-10-02,Europe,Netherlands,Technology,Monitors,Retail,2,496
+2025-11-08,Europe,Italy,Office Supplies,Pens,Retail,97,420
+2025-05-15,Latin America,Brazil,Technology,Phones,Online,8,4916
+2025-05-30,Latin America,Chile,Furniture,Desks,Retail,12,3800
+2025-12-10,Latin America,Argentina,Office Supplies,Labels,Partner,52,275
+2025-03-24,Europe,Italy,Technology,Monitors,Retail,8,1852
+2025-06-22,Europe,Germany,Office Supplies,Paper,Online,117,1087
+2025-01-24,Europe,Netherlands,Office Supplies,Pens,Partner,24,87
+2025-10-12,Latin America,Chile,Furniture,Desks,Partner,6,1691
+2025-01-03,Asia Pacific,Japan,Furniture,Bookcases,Online,11,1654
+2025-05-30,Europe,Spain,Furniture,Bookcases,Partner,12,1377
+2025-12-17,Europe,Germany,Technology,Laptops,Retail,2,2307
+2025-11-04,North America,Canada,Office Supplies,Binders,Partner,40,261
+2025-12-25,North America,United States,Office Supplies,Binders,Online,127,876
+2025-11-16,Europe,Spain,Office Supplies,Labels,Online,134,722
+2025-03-20,North America,United States,Office Supplies,Paper,Retail,119,974
+2025-01-13,Asia Pacific,Japan,Office Supplies,Binders,Online,119,850
+2025-04-16,Europe,United Kingdom,Office Supplies,Labels,Online,94,577
+2025-06-09,Asia Pacific,Japan,Office Supplies,Labels,Online,92,532
+2025-01-02,Europe,Germany,Office Supplies,Binders,Online,115,746
+2025-09-08,Europe,France,Furniture,Lamps,Online,1,48
+2025-03-22,Europe,Netherlands,Office Supplies,Labels,Retail,20,112
+2025-12-22,North America,United States,Technology,Monitors,Retail,8,2127
+2025-03-28,Europe,United Kingdom,Furniture,Chairs,Partner,7,1172
+2025-02-28,Latin America,Brazil,Technology,Printers,Retail,3,636
+2025-12-30,Asia Pacific,Japan,Technology,Phones,Retail,6,3684
+2025-07-21,Europe,Germany,Office Supplies,Binders,Retail,23,140
+2025-10-21,North America,Canada,Office Supplies,Labels,Online,49,301
+2025-02-23,North America,United States,Technology,Phones,Online,5,3282
+2025-08-27,Europe,United Kingdom,Office Supplies,Binders,Online,20,133
+2025-06-05,Asia Pacific,Japan,Furniture,Lamps,Retail,9,356
+2025-12-19,Asia Pacific,Japan,Technology,Printers,Retail,4,826
+2025-08-12,Europe,Italy,Technology,Phones,Partner,6,3716
+2025-01-31,North America,United States,Furniture,Lamps,Online,3,126
+2025-12-02,North America,United States,Office Supplies,Binders,Online,170,1244
+2025-06-17,Latin America,Brazil,Office Supplies,Paper,Retail,83,728
+2025-01-24,Europe,France,Office Supplies,Pens,Retail,177,604
+2025-06-30,Asia Pacific,Australia,Furniture,Chairs,Online,6,933
+2025-12-19,North America,United States,Technology,Printers,Online,7,1388
+2025-05-29,Europe,United Kingdom,Office Supplies,Labels,Online,154,850
+2025-02-06,Europe,France,Furniture,Chairs,Online,1,164
+2025-10-16,Europe,Germany,Office Supplies,Binders,Online,155,1148
+2025-10-13,North America,Canada,Technology,Printers,Retail,4,951
+2025-01-24,North America,United States,Furniture,Chairs,Partner,6,1013
+2025-10-01,Europe,France,Office Supplies,Pens,Retail,53,224
+2025-12-19,Europe,Germany,Technology,Phones,Partner,3,1756
+2025-01-01,Europe,Italy,Technology,Phones,Online,8,4786
+2025-03-02,North America,United States,Office Supplies,Labels,Retail,178,1136
+2025-05-13,Europe,Italy,Furniture,Chairs,Retail,11,1807
+2025-07-08,North America,Mexico,Furniture,Bookcases,Retail,10,1324
+2025-02-23,Europe,Netherlands,Furniture,Lamps,Partner,2,74
+2025-01-06,Latin America,Brazil,Office Supplies,Binders,Retail,142,1091
+2025-11-27,Europe,Germany,Office Supplies,Paper,Online,198,1709
+2025-05-04,Europe,Germany,Technology,Monitors,Online,8,1947
+2025-07-03,Europe,Spain,Furniture,Chairs,Online,3,470
+2025-06-16,Europe,France,Technology,Monitors,Retail,3,777
+2025-07-21,Europe,United Kingdom,Technology,Printers,Retail,1,219
+2025-09-09,Latin America,Brazil,Technology,Phones,Partner,4,2393
+2025-12-11,Europe,Germany,Office Supplies,Labels,Retail,198,1183
+2025-11-16,Asia Pacific,Singapore,Technology,Phones,Partner,6,3535
+2025-05-01,Europe,United Kingdom,Furniture,Chairs,Online,11,2120
+2025-12-17,Asia Pacific,Singapore,Technology,Phones,Online,8,5015
+2025-05-06,Asia Pacific,Japan,Technology,Printers,Retail,3,714
+2025-12-05,Europe,Spain,Furniture,Lamps,Online,10,462
+2025-12-27,North America,United States,Office Supplies,Labels,Retail,30,181
+2025-11-27,North America,United States,Office Supplies,Pens,Online,155,573
+2025-10-28,Europe,Italy,Furniture,Chairs,Online,4,748
+2025-06-12,North America,Canada,Office Supplies,Binders,Online,161,1132
+2025-03-26,Europe,Germany,Technology,Phones,Online,2,1505
+2025-11-25,Asia Pacific,Japan,Office Supplies,Binders,Online,21,139
+2025-04-14,Europe,United Kingdom,Office Supplies,Labels,Partner,48,278
+2025-03-10,Europe,Italy,Technology,Phones,Online,1,720
+2025-07-21,Asia Pacific,Australia,Furniture,Chairs,Retail,1,154
+2025-09-22,North America,United States,Furniture,Chairs,Retail,11,1733
+2025-08-31,North America,United States,Office Supplies,Paper,Online,73,693
+2025-03-09,Asia Pacific,Japan,Technology,Phones,Online,5,3182
+2025-08-07,Europe,Italy,Furniture,Chairs,Retail,9,1624
+2025-12-01,Europe,France,Technology,Printers,Retail,5,1060
+2025-08-15,Latin America,Colombia,Furniture,Lamps,Online,2,77
+2025-06-22,Latin America,Chile,Furniture,Chairs,Online,12,2150
+2025-12-12,Europe,United Kingdom,Technology,Phones,Online,7,5310
+2025-04-01,Europe,United Kingdom,Technology,Laptops,Partner,7,6303
+2025-09-11,Europe,United Kingdom,Office Supplies,Pens,Retail,161,639
+2025-12-25,North America,Mexico,Furniture,Desks,Partner,5,1261
+2025-09-24,Europe,Spain,Office Supplies,Labels,Online,58,344
+2025-02-09,North America,United States,Technology,Printers,Online,1,201
+2025-11-11,Latin America,Brazil,Office Supplies,Paper,Partner,79,565
+2025-07-14,Asia Pacific,Australia,Technology,Phones,Retail,7,4868
+2025-12-17,Latin America,Argentina,Technology,Printers,Online,5,1029
+2025-07-14,Asia Pacific,India,Technology,Laptops,Online,8,9940
+2025-12-15,Asia Pacific,Japan,Technology,Laptops,Online,6,6741
+2025-01-01,Europe,Spain,Furniture,Chairs,Online,4,688
+2025-06-19,Latin America,Argentina,Furniture,Bookcases,Retail,3,383
+2025-07-12,Europe,Spain,Technology,Phones,Online,3,1916
+2025-05-10,Asia Pacific,Japan,Technology,Laptops,Retail,2,2374
+2025-04-21,Asia Pacific,Australia,Office Supplies,Labels,Online,158,964
+2025-12-13,Asia Pacific,Japan,Technology,Laptops,Retail,5,6076
+2025-09-04,North America,United States,Furniture,Chairs,Retail,4,620
+2025-02-04,North America,Canada,Office Supplies,Binders,Partner,137,785
+2025-09-19,North America,United States,Office Supplies,Binders,Retail,62,474
+2025-11-26,Europe,Spain,Technology,Phones,Partner,6,3194
+2025-10-05,Europe,Italy,Office Supplies,Paper,Online,183,1680
+2025-03-18,Europe,Italy,Furniture,Chairs,Retail,2,331
+2025-04-28,Europe,France,Office Supplies,Binders,Retail,69,432
+2025-09-27,Europe,Spain,Technology,Laptops,Retail,2,1992
+2025-09-23,North America,United States,Furniture,Bookcases,Retail,7,840
+2025-03-08,Europe,Spain,Technology,Printers,Partner,7,1323
+2025-10-11,Europe,Germany,Technology,Monitors,Online,8,2263
+2025-03-23,Europe,Germany,Technology,Monitors,Retail,6,1371
+2025-05-28,Asia Pacific,Japan,Technology,Phones,Online,8,5587
+2025-10-03,Europe,Italy,Furniture,Desks,Retail,10,3108
+2025-11-23,Europe,Netherlands,Office Supplies,Paper,Retail,57,521
+2025-05-19,Europe,France,Office Supplies,Pens,Online,21,77
+2025-10-12,Asia Pacific,Australia,Furniture,Lamps,Retail,11,491
+2025-11-16,North America,United States,Office Supplies,Binders,Online,107,649
+2025-10-02,North America,United States,Technology,Laptops,Online,4,4597
+2025-07-12,Asia Pacific,India,Office Supplies,Labels,Online,175,938
+2025-10-15,Europe,Germany,Furniture,Chairs,Online,2,335
+2025-05-19,Europe,France,Office Supplies,Labels,Partner,94,490
+2025-12-16,Europe,France,Furniture,Chairs,Retail,2,315
+2025-08-12,Europe,France,Office Supplies,Pens,Retail,94,364
+2025-01-29,Europe,United Kingdom,Technology,Phones,Online,7,4569
+2025-07-14,Europe,France,Office Supplies,Binders,Retail,54,404
+2025-07-05,Europe,Germany,Technology,Monitors,Online,7,1933
+2025-01-01,Asia Pacific,Japan,Furniture,Desks,Retail,8,2438
+2025-05-18,North America,Canada,Office Supplies,Labels,Online,190,1047
+2025-01-18,North America,Mexico,Technology,Phones,Online,2,1488
+2025-10-01,North America,United States,Furniture,Bookcases,Retail,12,1596
+2025-10-15,North America,United States,Technology,Printers,Partner,7,1266
+2025-03-30,Asia Pacific,Australia,Technology,Monitors,Partner,2,485
+2025-11-14,North America,United States,Furniture,Chairs,Partner,10,1488
+2025-07-21,Europe,France,Office Supplies,Binders,Retail,181,1320
+2025-02-10,Europe,Italy,Technology,Printers,Retail,5,1025
+2025-05-19,Latin America,Chile,Technology,Printers,Retail,1,230
+2025-10-13,North America,United States,Technology,Phones,Partner,6,3173
+2025-06-13,Asia Pacific,Japan,Technology,Laptops,Partner,1,954
+2025-11-24,Asia Pacific,Australia,Office Supplies,Binders,Online,153,1081
+2025-01-02,North America,United States,Technology,Printers,Retail,4,933
+2025-03-21,North America,United States,Office Supplies,Paper,Retail,77,640
+2025-10-19,Latin America,Argentina,Technology,Printers,Partner,3,663
+2025-09-19,Latin America,Brazil,Office Supplies,Paper,Retail,122,1058
+2025-03-08,Europe,Germany,Technology,Laptops,Partner,1,966
+2025-01-02,Asia Pacific,India,Office Supplies,Labels,Online,197,1106
+2025-01-06,Europe,Germany,Furniture,Chairs,Retail,10,1533
+2025-02-07,Europe,Germany,Technology,Phones,Online,2,1234
+2025-12-09,Latin America,Argentina,Furniture,Lamps,Partner,12,477
+2025-12-16,Asia Pacific,India,Furniture,Desks,Online,7,2018
+2025-07-14,Asia Pacific,Japan,Furniture,Chairs,Partner,7,1031
+2025-06-17,Asia Pacific,Japan,Furniture,Lamps,Online,6,276
+2025-11-30,Europe,Italy,Furniture,Lamps,Partner,10,408
+2025-08-04,Europe,Germany,Technology,Laptops,Online,6,7415
+2025-11-28,Europe,United Kingdom,Technology,Printers,Partner,2,354
+2025-09-06,North America,United States,Office Supplies,Paper,Partner,50,354
+2025-07-23,Asia Pacific,India,Furniture,Lamps,Retail,11,491
+2025-07-08,Europe,Italy,Furniture,Lamps,Retail,3,128
+2025-12-18,Europe,France,Technology,Monitors,Online,3,673
+2025-07-03,Europe,France,Furniture,Bookcases,Online,7,1015
+2025-11-10,Asia Pacific,Australia,Technology,Phones,Online,2,1255
+2025-11-28,Latin America,Brazil,Office Supplies,Pens,Online,60,228
+2025-12-29,Europe,Germany,Furniture,Lamps,Retail,1,39
+2025-05-18,North America,United States,Office Supplies,Paper,Online,153,1478
+2025-12-14,Asia Pacific,Singapore,Technology,Laptops,Online,8,9307
+2025-10-18,Europe,Italy,Technology,Laptops,Retail,4,4151
+2025-11-02,North America,Canada,Technology,Laptops,Retail,2,2338
+2025-01-18,Europe,Spain,Office Supplies,Paper,Online,37,307
+2025-08-24,North America,United States,Office Supplies,Pens,Online,30,114
+2025-02-26,Europe,France,Technology,Laptops,Online,4,4551
+2025-07-06,Europe,Netherlands,Furniture,Lamps,Online,1,39
+2025-12-31,Asia Pacific,Japan,Technology,Printers,Retail,1,216
+2025-06-15,North America,United States,Office Supplies,Labels,Retail,101,597
+2025-02-01,North America,United States,Furniture,Lamps,Online,3,126
+2025-07-19,Latin America,Argentina,Furniture,Desks,Retail,6,2110
+2025-01-17,Europe,Germany,Office Supplies,Binders,Partner,186,1151
+2025-02-24,Europe,Germany,Technology,Monitors,Partner,8,1598
+2025-01-31,North America,Canada,Furniture,Lamps,Online,9,353
+2025-09-11,North America,United States,Furniture,Bookcases,Partner,12,1346
+2025-07-16,Europe,Italy,Technology,Laptops,Online,1,1090
+2025-03-13,Asia Pacific,Australia,Office Supplies,Labels,Partner,87,424
+2025-03-23,Europe,Spain,Technology,Phones,Online,7,4508
+2025-01-27,Europe,Italy,Office Supplies,Pens,Online,174,692
+2025-02-14,North America,Canada,Furniture,Bookcases,Online,5,645
+2025-09-13,Europe,Spain,Office Supplies,Labels,Online,97,520
+2025-06-22,North America,United States,Furniture,Chairs,Partner,12,2008
+2025-01-31,Europe,United Kingdom,Office Supplies,Pens,Online,197,827
+2025-12-04,Europe,Spain,Furniture,Chairs,Partner,1,152
+2025-02-14,North America,United States,Office Supplies,Labels,Partner,24,127
+2025-01-18,North America,Canada,Office Supplies,Pens,Partner,174,639
+2025-12-20,North America,United States,Furniture,Chairs,Retail,11,1954
+2025-03-01,Europe,France,Technology,Monitors,Retail,3,721
+2025-09-15,Europe,France,Technology,Phones,Online,1,683
+2025-05-30,North America,United States,Office Supplies,Pens,Partner,86,297
+2025-07-28,Europe,Italy,Office Supplies,Paper,Partner,68,481
+2025-04-16,Asia Pacific,Australia,Furniture,Lamps,Retail,1,41
+2025-07-02,Europe,Netherlands,Furniture,Chairs,Online,12,2048
+2025-04-10,North America,Mexico,Technology,Printers,Online,7,1645
+2025-01-08,Asia Pacific,Japan,Furniture,Chairs,Retail,12,1997
+2025-12-04,Europe,France,Furniture,Bookcases,Partner,3,407
+2025-08-18,Asia Pacific,India,Furniture,Chairs,Retail,12,1988
+2025-11-28,Asia Pacific,Japan,Technology,Printers,Partner,1,191
+2025-12-01,North America,United States,Technology,Phones,Retail,2,1356
+2025-02-05,Asia Pacific,Singapore,Office Supplies,Paper,Retail,132,1116
+2025-03-17,Europe,Spain,Technology,Phones,Retail,7,4676
+2025-11-24,Asia Pacific,India,Office Supplies,Binders,Retail,93,633
+2025-08-20,Asia Pacific,Australia,Office Supplies,Binders,Partner,38,260
+2025-12-19,Latin America,Brazil,Furniture,Bookcases,Retail,8,982
+2025-06-15,North America,United States,Office Supplies,Binders,Online,25,159
+2025-03-31,Europe,Netherlands,Technology,Monitors,Retail,6,1491
+2025-11-15,Asia Pacific,Japan,Technology,Laptops,Retail,3,3235
+2025-07-05,Europe,United Kingdom,Furniture,Desks,Online,3,907
+2025-04-27,Latin America,Brazil,Technology,Laptops,Partner,6,6381
+2025-03-19,North America,United States,Office Supplies,Binders,Online,189,1191
+2025-10-03,Europe,Germany,Technology,Monitors,Partner,7,1532
+2025-11-10,Europe,United Kingdom,Office Supplies,Binders,Partner,129,713
+2025-05-28,Europe,Netherlands,Office Supplies,Pens,Online,20,80
+2025-07-20,Asia Pacific,Japan,Office Supplies,Binders,Partner,105,725
+2025-02-23,North America,Canada,Office Supplies,Labels,Partner,126,645
+2025-11-19,North America,Canada,Furniture,Chairs,Retail,6,1159
+2025-01-19,Europe,Germany,Office Supplies,Binders,Retail,131,887
+2025-11-09,Asia Pacific,Japan,Furniture,Lamps,Retail,3,141
+2025-09-24,North America,United States,Furniture,Lamps,Retail,11,479
+2025-08-09,Europe,United Kingdom,Office Supplies,Binders,Online,164,1046
+2025-10-26,North America,Mexico,Furniture,Chairs,Retail,11,2026
+2025-09-21,North America,United States,Furniture,Lamps,Online,7,285
+2025-10-30,North America,Canada,Furniture,Bookcases,Online,4,537
+2025-09-30,Europe,United Kingdom,Furniture,Desks,Partner,3,942
+2025-09-03,Latin America,Brazil,Furniture,Lamps,Retail,3,127
+2025-08-07,Asia Pacific,India,Office Supplies,Pens,Partner,128,473
+2025-04-18,Europe,Spain,Furniture,Bookcases,Online,5,764
+2025-06-08,Europe,Italy,Technology,Printers,Retail,7,1428
+2025-02-18,Europe,Germany,Office Supplies,Binders,Online,138,998
+2025-01-13,Europe,Italy,Technology,Printers,Online,3,674
+2025-12-27,North America,Mexico,Furniture,Chairs,Online,1,159
+2025-09-14,Asia Pacific,Japan,Office Supplies,Pens,Online,150,637
+2025-08-08,Europe,Germany,Furniture,Bookcases,Retail,9,1185
+2025-11-28,Latin America,Chile,Furniture,Desks,Online,7,2317
+2025-10-30,Europe,United Kingdom,Furniture,Lamps,Retail,7,325
+2025-03-17,Europe,United Kingdom,Furniture,Chairs,Retail,2,391
+2025-05-20,Asia Pacific,Japan,Technology,Printers,Retail,4,808
+2025-08-03,Europe,United Kingdom,Technology,Phones,Online,1,699
+2025-03-19,Asia Pacific,Australia,Office Supplies,Paper,Partner,48,360
+2025-10-19,Asia Pacific,India,Technology,Printers,Online,5,988
+2025-04-08,Europe,Germany,Office Supplies,Paper,Online,68,538
+2025-08-22,Latin America,Brazil,Furniture,Bookcases,Partner,2,240
+2025-08-16,North America,Canada,Office Supplies,Paper,Retail,86,788
+2025-10-22,Europe,United Kingdom,Technology,Laptops,Online,4,4655
+2025-05-10,Latin America,Brazil,Furniture,Chairs,Online,7,1328
+2025-05-09,Asia Pacific,Japan,Office Supplies,Paper,Online,138,1121
+2025-09-13,Asia Pacific,Japan,Technology,Laptops,Partner,3,2984
+2025-04-19,Europe,United Kingdom,Technology,Monitors,Online,2,552
+2025-10-19,Europe,Spain,Furniture,Bookcases,Retail,6,885
+2025-10-29,North America,United States,Furniture,Lamps,Online,5,241
+2025-01-09,Latin America,Colombia,Technology,Monitors,Partner,2,432
+2025-02-20,North America,Mexico,Technology,Laptops,Online,3,3217
+2025-07-17,Asia Pacific,Japan,Furniture,Chairs,Retail,2,336
+2025-02-26,Europe,Germany,Technology,Monitors,Online,3,710
+2025-05-07,Latin America,Brazil,Technology,Laptops,Retail,1,1204
+2025-09-17,Asia Pacific,Japan,Furniture,Bookcases,Online,12,1499
+2025-05-07,Asia Pacific,Australia,Technology,Monitors,Online,4,1028
+2025-12-07,Europe,France,Technology,Monitors,Online,1,243
+2025-10-28,North America,United States,Office Supplies,Paper,Online,20,177
+2025-11-25,Asia Pacific,India,Office Supplies,Binders,Retail,61,447
+2025-09-27,Asia Pacific,Japan,Furniture,Chairs,Retail,2,307
+2025-09-06,Latin America,Brazil,Technology,Phones,Retail,4,2362
+2025-02-27,North America,United States,Furniture,Lamps,Online,10,403
+2025-05-02,Latin America,Brazil,Office Supplies,Paper,Online,139,1244
+2025-12-25,North America,Canada,Office Supplies,Pens,Online,73,253
+2025-03-03,Europe,United Kingdom,Technology,Monitors,Online,7,1852
+2025-04-29,North America,United States,Technology,Printers,Partner,4,865
+2025-12-01,North America,United States,Furniture,Desks,Online,8,2256
+2025-09-13,Europe,Spain,Furniture,Lamps,Online,5,208
+2025-04-23,North America,United States,Technology,Phones,Retail,1,718
+2025-05-25,Europe,France,Furniture,Chairs,Online,11,1910
+2025-08-17,Europe,Italy,Furniture,Desks,Retail,11,3845
+2025-04-19,North America,United States,Technology,Monitors,Online,3,766
+2025-12-03,Asia Pacific,India,Office Supplies,Binders,Online,119,875
+2025-04-28,Europe,United Kingdom,Furniture,Chairs,Retail,8,1354
+2025-12-14,Asia Pacific,India,Technology,Monitors,Online,8,1921
+2025-05-21,Europe,United Kingdom,Furniture,Desks,Online,3,946
+2025-11-25,Latin America,Colombia,Technology,Phones,Online,4,2444
+2025-01-08,Europe,United Kingdom,Furniture,Bookcases,Retail,10,1324
+2025-10-28,Europe,United Kingdom,Furniture,Lamps,Online,12,504
+2025-01-25,North America,United States,Technology,Laptops,Partner,5,5243
+2025-10-10,North America,Canada,Office Supplies,Pens,Retail,91,323
+2025-09-04,Asia Pacific,Japan,Furniture,Bookcases,Online,8,956
+2025-05-19,Asia Pacific,Japan,Office Supplies,Pens,Partner,61,189
+2025-07-29,Europe,United Kingdom,Furniture,Lamps,Online,10,386
+2025-10-27,Europe,Netherlands,Technology,Phones,Partner,6,3889
+2025-12-30,Europe,France,Furniture,Bookcases,Online,1,129
+2025-02-14,Latin America,Chile,Technology,Printers,Online,8,1880
+2025-10-18,Europe,Spain,Office Supplies,Labels,Retail,173,1033
+2025-02-10,Europe,France,Technology,Printers,Retail,2,505
+2025-06-03,Europe,United Kingdom,Technology,Phones,Retail,1,691
+2025-12-29,Asia Pacific,Japan,Furniture,Lamps,Online,5,226
+2025-09-13,North America,United States,Furniture,Lamps,Retail,9,376
+2025-12-24,North America,Canada,Furniture,Bookcases,Online,11,1324
+2025-12-25,North America,United States,Technology,Monitors,Online,6,1464
+2025-02-01,North America,United States,Technology,Laptops,Partner,5,5291
+2025-02-26,Asia Pacific,Japan,Office Supplies,Paper,Partner,199,1565
+2025-07-16,Europe,Spain,Furniture,Chairs,Online,6,977
+2025-02-15,North America,Canada,Office Supplies,Paper,Online,45,442
+2025-04-15,Asia Pacific,Singapore,Office Supplies,Paper,Online,73,665
+2025-06-24,Europe,Netherlands,Furniture,Desks,Online,12,3939
+2025-11-07,Europe,Spain,Office Supplies,Labels,Online,135,753
+2025-12-01,Latin America,Chile,Office Supplies,Labels,Online,187,1165
+2025-01-14,Europe,Italy,Technology,Laptops,Partner,6,5450
+2025-02-11,Europe,Germany,Office Supplies,Pens,Retail,73,321
+2025-09-26,Europe,Germany,Technology,Laptops,Online,2,2244
+2025-12-22,Latin America,Chile,Furniture,Chairs,Retail,12,1943
+2025-07-20,North America,United States,Technology,Phones,Partner,4,2566
+2025-02-14,Europe,Netherlands,Technology,Monitors,Retail,2,533
+2025-12-07,Latin America,Chile,Furniture,Bookcases,Retail,4,506
+2025-11-21,North America,United States,Technology,Laptops,Retail,2,2498
+2025-08-18,Europe,United Kingdom,Technology,Monitors,Online,3,721
+2025-10-19,Europe,Germany,Office Supplies,Pens,Retail,60,261
+2025-01-15,Asia Pacific,Australia,Furniture,Chairs,Online,3,568
+2025-04-28,Asia Pacific,Australia,Furniture,Desks,Partner,9,2284
+2025-02-11,Asia Pacific,Japan,Technology,Laptops,Online,2,2339
+2025-08-31,North America,Mexico,Technology,Laptops,Retail,8,8387
+2025-06-02,Europe,France,Technology,Monitors,Partner,1,225
+2025-12-27,North America,United States,Technology,Printers,Online,1,224
+2025-12-03,Europe,Italy,Furniture,Chairs,Online,1,166
+2025-12-15,Asia Pacific,India,Technology,Monitors,Retail,2,459
+2025-11-11,Asia Pacific,India,Furniture,Lamps,Partner,10,363
+2025-02-18,Europe,Spain,Furniture,Bookcases,Retail,12,1727
+2025-03-14,Latin America,Argentina,Office Supplies,Pens,Retail,170,578
+2025-12-19,Europe,France,Office Supplies,Paper,Partner,23,173
+2025-12-26,Asia Pacific,India,Office Supplies,Paper,Online,25,194
+2025-11-28,Europe,United Kingdom,Technology,Monitors,Retail,5,1422
+2025-07-16,Europe,United Kingdom,Technology,Printers,Retail,3,707
+2025-09-13,Europe,France,Furniture,Chairs,Partner,11,1900
+2025-04-28,Latin America,Argentina,Furniture,Chairs,Online,1,167
+2025-05-29,Asia Pacific,Japan,Office Supplies,Paper,Retail,168,1501
+2025-11-13,Europe,Italy,Office Supplies,Pens,Online,193,691
+2025-05-17,Asia Pacific,Australia,Office Supplies,Binders,Retail,112,691
+2025-03-13,Europe,France,Office Supplies,Labels,Retail,164,840
+2025-09-23,Europe,Italy,Technology,Laptops,Retail,2,2145
+2025-12-25,Europe,United Kingdom,Technology,Phones,Online,5,3138
+2025-05-24,Europe,Spain,Technology,Printers,Online,1,234
+2025-03-25,Asia Pacific,Japan,Furniture,Lamps,Partner,10,423
+2025-07-22,Latin America,Brazil,Office Supplies,Binders,Retail,132,916
+2025-03-27,Asia Pacific,Australia,Office Supplies,Paper,Partner,122,899
+2025-09-10,Asia Pacific,India,Technology,Printers,Retail,4,927
+2025-04-30,North America,United States,Furniture,Lamps,Online,9,361
+2025-10-07,Latin America,Chile,Technology,Printers,Online,4,849
+2025-02-21,Europe,United Kingdom,Furniture,Desks,Retail,11,3836
+2025-12-16,Latin America,Brazil,Technology,Phones,Partner,7,4133
+2025-11-29,Latin America,Chile,Technology,Printers,Online,4,813
+2025-05-10,Europe,France,Furniture,Desks,Online,10,3375
+2025-11-06,Europe,Italy,Office Supplies,Labels,Online,44,263
+2025-07-24,North America,United States,Technology,Monitors,Retail,5,1332
+2025-12-23,North America,United States,Technology,Laptops,Retail,6,7115
+2025-11-07,Asia Pacific,Singapore,Furniture,Desks,Partner,9,2805
+2025-11-23,Europe,Spain,Office Supplies,Binders,Online,173,1214
+2025-12-14,Europe,Italy,Technology,Printers,Online,4,959
+2025-11-06,Asia Pacific,Japan,Technology,Laptops,Retail,6,7003
+2025-04-20,Europe,Spain,Furniture,Chairs,Retail,11,1817
+2025-05-06,Asia Pacific,Japan,Office Supplies,Paper,Online,49,420
+2025-05-15,Latin America,Brazil,Office Supplies,Labels,Partner,77,448
+2025-04-13,Asia Pacific,India,Furniture,Lamps,Partner,5,211
+2025-11-14,North America,United States,Office Supplies,Labels,Online,85,450
+2025-07-13,Europe,United Kingdom,Office Supplies,Binders,Online,21,153
+2025-08-17,North America,Mexico,Furniture,Chairs,Retail,2,378
+2025-05-20,Latin America,Brazil,Furniture,Bookcases,Online,1,134
+2025-12-31,Europe,Netherlands,Technology,Printers,Partner,4,804
+2025-02-14,Europe,Germany,Office Supplies,Paper,Online,78,614
+2025-09-10,Europe,Italy,Office Supplies,Labels,Partner,51,251
+2025-01-23,Asia Pacific,Japan,Office Supplies,Pens,Online,166,627
+2025-03-04,North America,United States,Office Supplies,Labels,Retail,198,1270
+2025-07-22,Europe,France,Furniture,Desks,Partner,11,3303
+2025-08-28,Europe,Italy,Technology,Laptops,Retail,8,9474
+2025-12-09,Latin America,Chile,Furniture,Desks,Partner,5,1551
+2025-12-06,Latin America,Colombia,Furniture,Chairs,Online,12,1836
+2025-05-31,Asia Pacific,Japan,Office Supplies,Paper,Online,86,844
+2025-02-11,Europe,United Kingdom,Technology,Laptops,Retail,8,9810
+2025-04-21,North America,Canada,Office Supplies,Labels,Retail,158,1005
+2025-11-25,Asia Pacific,India,Furniture,Lamps,Online,9,387
+2025-06-21,Asia Pacific,India,Technology,Phones,Retail,7,5221
+2025-12-08,Asia Pacific,Australia,Office Supplies,Pens,Retail,178,691
+2025-11-19,Asia Pacific,India,Technology,Printers,Partner,3,660
+2025-03-14,Latin America,Argentina,Office Supplies,Labels,Online,136,864
+2025-12-06,Europe,Spain,Office Supplies,Binders,Online,135,980
+2025-11-19,Europe,Germany,Technology,Laptops,Partner,8,7990
+2025-12-20,Asia Pacific,Japan,Office Supplies,Labels,Online,161,1040
+2025-08-15,Europe,France,Office Supplies,Binders,Online,48,308
+2025-11-07,Latin America,Chile,Furniture,Desks,Partner,7,1968
+2025-01-01,Asia Pacific,Australia,Furniture,Bookcases,Online,12,1761
+2025-06-06,Europe,Netherlands,Technology,Phones,Retail,5,3745
+2025-08-23,Europe,United Kingdom,Furniture,Bookcases,Online,12,1470
+2025-03-25,Europe,Germany,Furniture,Desks,Retail,2,661
+2025-10-13,Latin America,Brazil,Furniture,Chairs,Online,3,503
+2025-11-24,Europe,Italy,Technology,Laptops,Retail,1,1254
+2025-08-26,Europe,Netherlands,Office Supplies,Paper,Retail,173,1650
+2025-12-22,North America,United States,Office Supplies,Labels,Online,180,931
+2025-10-20,Europe,Spain,Furniture,Chairs,Partner,4,559
+2025-06-03,North America,United States,Furniture,Lamps,Online,3,119
+2025-12-16,Europe,Spain,Technology,Phones,Retail,6,3600
+2025-03-15,Europe,Germany,Technology,Monitors,Retail,3,725
+2025-09-24,Asia Pacific,India,Technology,Laptops,Online,1,1010
+2025-10-20,North America,United States,Office Supplies,Paper,Retail,143,1234
+2025-03-14,Europe,France,Office Supplies,Binders,Retail,82,619
+2025-09-04,Asia Pacific,India,Office Supplies,Labels,Partner,81,438
+2025-09-27,North America,United States,Furniture,Desks,Online,9,3063
+2025-12-04,Europe,Germany,Technology,Phones,Partner,1,561
+2025-11-08,Europe,Germany,Office Supplies,Pens,Partner,139,524
+2025-09-18,Europe,United Kingdom,Furniture,Lamps,Online,12,480
+2025-11-07,North America,United States,Office Supplies,Pens,Partner,111,371
+2025-10-10,North America,United States,Office Supplies,Labels,Online,83,454
+2025-03-16,Europe,France,Office Supplies,Paper,Online,38,313
+2025-09-26,Asia Pacific,Singapore,Office Supplies,Labels,Retail,35,208
+2025-05-25,Europe,Italy,Furniture,Desks,Retail,1,290
+2025-07-23,North America,United States,Technology,Printers,Partner,8,1814
+2025-12-17,Europe,Italy,Furniture,Bookcases,Online,12,1769
+2025-03-13,Asia Pacific,India,Office Supplies,Labels,Partner,129,731
+2025-09-30,North America,United States,Office Supplies,Pens,Online,108,407
+2025-03-11,North America,United States,Furniture,Chairs,Online,9,1573
+2025-01-03,Europe,Germany,Furniture,Desks,Online,7,2370
+2025-04-23,Europe,Spain,Furniture,Bookcases,Partner,11,1497
+2025-04-30,North America,United States,Furniture,Desks,Retail,4,1299
+2025-02-10,Europe,Netherlands,Furniture,Desks,Online,8,2784
+2025-03-10,North America,United States,Office Supplies,Binders,Online,87,641
+2025-11-28,Latin America,Argentina,Office Supplies,Binders,Retail,35,221
+2025-12-16,North America,United States,Furniture,Chairs,Online,1,197
+2025-05-01,Asia Pacific,Australia,Technology,Laptops,Online,5,5411
+2025-12-04,Europe,United Kingdom,Furniture,Chairs,Retail,1,195
+2025-06-19,Europe,Italy,Furniture,Bookcases,Retail,6,828
+2025-09-18,North America,Mexico,Office Supplies,Paper,Retail,180,1503
+2025-04-07,Europe,Italy,Office Supplies,Binders,Partner,68,383
+2025-05-03,North America,United States,Office Supplies,Binders,Retail,144,1041
+2025-10-21,Asia Pacific,Australia,Furniture,Lamps,Retail,12,482
+2025-06-18,Asia Pacific,India,Furniture,Chairs,Online,6,1130
+2025-10-28,Europe,Germany,Technology,Phones,Partner,1,593
+2025-12-18,Asia Pacific,Japan,Furniture,Bookcases,Retail,9,1147
+2025-04-16,Europe,Italy,Office Supplies,Paper,Retail,181,1579
+2025-07-18,Latin America,Brazil,Furniture,Lamps,Online,9,348
+2025-10-05,Europe,United Kingdom,Furniture,Chairs,Online,6,1084
+2025-01-23,Europe,Italy,Office Supplies,Paper,Partner,72,630
+2025-02-20,Europe,Italy,Technology,Printers,Retail,7,1498
+2025-11-08,North America,Mexico,Office Supplies,Paper,Online,200,1794
+2025-09-15,North America,United States,Furniture,Bookcases,Online,7,892
+2025-04-26,North America,United States,Furniture,Chairs,Online,2,348
+2025-05-12,North America,United States,Office Supplies,Pens,Online,43,174
+2025-03-30,Europe,Germany,Office Supplies,Pens,Online,28,97
+2025-09-04,North America,Mexico,Technology,Phones,Retail,1,718
+2025-04-25,Europe,Netherlands,Office Supplies,Labels,Online,158,867
+2025-05-14,North America,Canada,Technology,Phones,Online,5,3487
+2025-12-16,Europe,Germany,Technology,Printers,Retail,5,1026
+2025-08-15,Latin America,Brazil,Office Supplies,Paper,Online,75,642
+2025-09-12,Asia Pacific,India,Office Supplies,Labels,Retail,140,886
+2025-11-19,Europe,United Kingdom,Technology,Printers,Online,1,211
+2025-02-12,Asia Pacific,Japan,Office Supplies,Binders,Online,95,634
+2025-10-15,Asia Pacific,Japan,Furniture,Chairs,Online,7,1279
+2025-05-09,Europe,Italy,Office Supplies,Pens,Retail,65,254
+2025-04-22,Europe,Italy,Office Supplies,Pens,Online,51,211
+2025-06-28,Europe,Netherlands,Technology,Phones,Online,5,3715
+2025-09-17,Europe,France,Furniture,Bookcases,Online,8,1197
+2025-12-14,Europe,Germany,Furniture,Desks,Retail,7,2295
+2025-01-18,North America,United States,Furniture,Bookcases,Retail,6,854
+2025-12-18,Asia Pacific,India,Furniture,Desks,Retail,10,3164
+2025-02-06,Latin America,Chile,Furniture,Bookcases,Online,10,1527
+2025-04-09,Europe,Germany,Technology,Monitors,Retail,6,1452
+2025-01-22,Latin America,Argentina,Office Supplies,Paper,Online,157,1390
+2025-11-07,Asia Pacific,Japan,Technology,Monitors,Partner,7,1765
+2025-01-14,Asia Pacific,India,Furniture,Chairs,Online,8,1467
+2025-12-06,North America,United States,Technology,Printers,Online,1,220
+2025-12-09,Europe,Germany,Technology,Monitors,Retail,2,547
+2025-11-28,Asia Pacific,Australia,Office Supplies,Pens,Partner,177,700
+2025-11-22,North America,United States,Furniture,Lamps,Partner,9,328
+2025-08-22,Europe,France,Office Supplies,Paper,Online,123,943
+2025-03-10,Europe,Germany,Furniture,Chairs,Partner,8,1281
+2025-03-22,Europe,Italy,Office Supplies,Binders,Partner,41,232
+2025-04-07,Asia Pacific,Australia,Office Supplies,Labels,Online,20,132
+2025-02-07,Asia Pacific,India,Technology,Laptops,Online,4,4955
+2025-12-12,Latin America,Argentina,Furniture,Bookcases,Retail,9,1229
+2025-12-01,Europe,Spain,Technology,Phones,Retail,1,696
+2025-12-21,Europe,Netherlands,Furniture,Chairs,Retail,9,1772
+2025-11-29,North America,United States,Furniture,Desks,Retail,11,3672
+2025-06-09,North America,United States,Furniture,Bookcases,Online,12,1644
+2025-02-06,North America,Canada,Technology,Printers,Retail,8,1759
+2025-07-04,Europe,Spain,Furniture,Desks,Retail,4,1160
+2025-10-28,North America,United States,Furniture,Bookcases,Online,11,1551
+2025-08-25,Europe,Netherlands,Furniture,Bookcases,Partner,12,1628
+2025-02-23,North America,United States,Technology,Laptops,Partner,8,8831
+2025-05-29,Europe,United Kingdom,Office Supplies,Labels,Retail,155,847
+2025-08-12,North America,United States,Office Supplies,Labels,Partner,200,1096
+2025-11-13,Europe,United Kingdom,Technology,Phones,Online,7,5177
+2025-11-16,Europe,Germany,Furniture,Lamps,Online,12,530
+2025-11-21,Asia Pacific,India,Office Supplies,Pens,Online,140,514
+2025-06-19,Europe,United Kingdom,Office Supplies,Pens,Retail,50,211
+2025-11-22,Europe,France,Office Supplies,Labels,Online,160,1040
+2025-10-01,Asia Pacific,India,Technology,Laptops,Partner,3,3186
+2025-11-02,Latin America,Colombia,Technology,Laptops,Online,1,1053
+2025-09-15,North America,Canada,Furniture,Desks,Retail,1,326
+2025-02-28,Latin America,Brazil,Office Supplies,Binders,Online,40,267
+2025-09-11,Europe,Spain,Office Supplies,Pens,Retail,79,311
+2025-06-30,Europe,Netherlands,Furniture,Chairs,Partner,1,163
+2025-02-23,Asia Pacific,Singapore,Furniture,Bookcases,Retail,7,868
+2025-12-31,Asia Pacific,Australia,Office Supplies,Paper,Retail,160,1279
+2025-04-28,North America,United States,Technology,Printers,Retail,4,786
+2025-06-11,North America,United States,Technology,Laptops,Partner,1,961
+2025-12-23,Europe,Germany,Office Supplies,Paper,Retail,186,1611
+2025-12-24,Europe,Netherlands,Office Supplies,Labels,Partner,198,1041
+2025-12-01,Europe,France,Office Supplies,Pens,Retail,69,251
+2025-03-30,Asia Pacific,Japan,Technology,Phones,Retail,5,3451
+2025-02-08,Latin America,Brazil,Office Supplies,Pens,Partner,139,433
+2025-04-08,Asia Pacific,Japan,Technology,Printers,Partner,8,1729
+2025-11-16,North America,Mexico,Furniture,Bookcases,Online,12,1429
+2025-11-17,Asia Pacific,Japan,Office Supplies,Binders,Online,81,623
+2025-10-24,North America,United States,Furniture,Desks,Online,2,586
+2025-11-22,Latin America,Brazil,Technology,Phones,Partner,8,4583
+2025-12-09,North America,United States,Technology,Monitors,Retail,7,1600
+2025-11-23,Europe,Germany,Furniture,Lamps,Online,1,44
+2025-06-15,Europe,United Kingdom,Technology,Laptops,Partner,4,3654
+2025-04-07,Latin America,Brazil,Technology,Laptops,Retail,2,2025
+2025-04-15,Asia Pacific,Australia,Office Supplies,Paper,Online,177,1643
+2025-03-04,North America,Mexico,Office Supplies,Pens,Online,111,393
+2025-08-17,Europe,Germany,Furniture,Bookcases,Partner,3,335
+2025-05-22,North America,United States,Technology,Printers,Online,8,1577
+2025-10-31,Latin America,Brazil,Furniture,Bookcases,Online,7,1017
+2025-02-19,North America,United States,Office Supplies,Pens,Online,44,160
+2025-09-28,Latin America,Brazil,Furniture,Lamps,Partner,5,180
+2025-06-16,Asia Pacific,Australia,Furniture,Lamps,Partner,8,284
+2025-07-13,North America,United States,Technology,Phones,Retail,1,746
+2025-10-12,Asia Pacific,Japan,Office Supplies,Paper,Partner,118,1046
+2025-10-29,Asia Pacific,Japan,Technology,Printers,Retail,2,447
+2025-03-16,Europe,Spain,Furniture,Bookcases,Online,8,1192
+2025-07-12,North America,Mexico,Furniture,Chairs,Online,8,1505
+2025-08-29,Europe,Germany,Technology,Phones,Online,3,2050
+2025-11-13,Latin America,Brazil,Technology,Printers,Online,8,1782
+2025-06-18,Europe,Germany,Office Supplies,Paper,Online,85,660
+2025-10-31,Europe,Italy,Furniture,Chairs,Online,1,182
+2025-10-23,Europe,Italy,Technology,Laptops,Partner,4,3728
+2025-01-31,Europe,United Kingdom,Office Supplies,Paper,Partner,105,817
+2025-12-03,Europe,Italy,Office Supplies,Binders,Retail,190,1462
+2025-08-10,Asia Pacific,Australia,Technology,Laptops,Online,7,8419
+2025-06-18,North America,United States,Furniture,Desks,Online,6,1966
+2025-12-14,North America,United States,Furniture,Bookcases,Online,1,144
+2025-11-02,Asia Pacific,Australia,Technology,Laptops,Retail,8,9264
+2025-09-11,Europe,France,Office Supplies,Pens,Retail,45,195
+2025-08-06,North America,Canada,Technology,Phones,Retail,8,5498
+2025-01-22,North America,United States,Office Supplies,Labels,Partner,97,495
+2025-11-15,Europe,Netherlands,Technology,Printers,Partner,5,1022
+2025-10-23,Latin America,Brazil,Office Supplies,Binders,Retail,130,894
+2025-11-19,North America,United States,Office Supplies,Labels,Online,117,617
+2025-05-07,Europe,United Kingdom,Technology,Monitors,Retail,1,239
+2025-03-09,Europe,Spain,Technology,Laptops,Online,4,4645
+2025-07-21,Latin America,Colombia,Office Supplies,Pens,Online,124,439
+2025-11-15,Europe,Germany,Technology,Monitors,Partner,1,250
+2025-10-28,Europe,Germany,Office Supplies,Paper,Online,82,746
+2025-09-25,North America,United States,Furniture,Lamps,Retail,10,447
+2025-02-02,Asia Pacific,India,Furniture,Lamps,Online,3,141
+2025-06-03,Europe,Germany,Technology,Phones,Online,2,1507
+2025-02-09,Asia Pacific,India,Furniture,Chairs,Retail,8,1495
+2025-11-26,Europe,Germany,Furniture,Desks,Online,12,3985
+2025-05-16,Europe,Spain,Technology,Printers,Retail,7,1665
+2025-11-11,Europe,France,Furniture,Bookcases,Online,6,895
+2025-04-18,Latin America,Colombia,Technology,Printers,Online,8,1921
+2025-11-20,Latin America,Brazil,Technology,Phones,Online,3,1887
+2025-06-08,Asia Pacific,Australia,Office Supplies,Binders,Online,187,1371
+2025-04-04,North America,Mexico,Technology,Printers,Online,4,924
+2025-01-12,Europe,Spain,Technology,Laptops,Partner,3,2936
+2025-04-16,North America,United States,Furniture,Bookcases,Online,7,909
+2025-02-27,Asia Pacific,Japan,Furniture,Bookcases,Partner,4,434
+2025-12-29,Latin America,Brazil,Furniture,Chairs,Online,9,1500
+2025-10-09,Europe,United Kingdom,Furniture,Bookcases,Online,11,1334
+2025-12-25,Europe,United Kingdom,Technology,Phones,Online,3,2057
+2025-05-02,Latin America,Chile,Office Supplies,Pens,Online,137,468
+2025-05-27,Asia Pacific,Singapore,Office Supplies,Binders,Retail,47,296
+2025-08-07,Asia Pacific,Australia,Office Supplies,Paper,Retail,62,497
+2025-12-13,Latin America,Argentina,Office Supplies,Labels,Retail,142,901
+2025-09-28,North America,United States,Furniture,Bookcases,Online,3,442
+2025-10-15,Europe,United Kingdom,Technology,Monitors,Online,6,1369
+2025-09-03,Europe,France,Furniture,Lamps,Retail,6,294
+2025-11-16,Europe,France,Furniture,Desks,Online,7,1963
+2025-01-08,Asia Pacific,Japan,Technology,Monitors,Partner,1,205
+2025-10-29,North America,United States,Technology,Monitors,Online,3,674
+2025-09-25,North America,United States,Office Supplies,Pens,Online,51,191
+2025-01-30,North America,Canada,Furniture,Chairs,Online,9,1405
+2025-09-18,Europe,Germany,Office Supplies,Pens,Retail,23,95
+2025-12-16,Europe,Netherlands,Office Supplies,Pens,Retail,163,632
+2025-05-10,North America,United States,Office Supplies,Pens,Retail,186,695
+2025-06-20,Europe,France,Technology,Printers,Online,5,1068
+2025-10-12,North America,Mexico,Furniture,Chairs,Online,4,724
+2025-10-23,Asia Pacific,Japan,Technology,Monitors,Online,3,835
+2025-11-08,Latin America,Brazil,Office Supplies,Pens,Retail,60,249
+2025-06-21,North America,United States,Furniture,Lamps,Partner,3,115
+2025-09-28,North America,United States,Technology,Printers,Partner,4,733
+2025-10-31,Europe,Spain,Office Supplies,Labels,Online,148,874
+2025-02-21,North America,Mexico,Technology,Laptops,Online,3,3053
+2025-11-10,North America,Canada,Technology,Phones,Partner,1,643
+2025-09-22,Europe,Germany,Technology,Phones,Retail,6,3640
+2025-11-02,Asia Pacific,Japan,Technology,Phones,Retail,3,1848
+2025-04-03,Europe,Germany,Technology,Laptops,Partner,4,4175
+2025-06-30,Latin America,Brazil,Technology,Laptops,Online,7,8062
+2025-01-06,Europe,Netherlands,Technology,Phones,Partner,4,2201
+2025-12-16,Europe,Italy,Office Supplies,Pens,Partner,185,611
+2025-04-27,Europe,France,Technology,Phones,Retail,4,2883
+2025-03-02,North America,Mexico,Technology,Phones,Retail,4,2735
+2025-06-25,North America,Mexico,Office Supplies,Paper,Online,125,1014
+2025-12-30,North America,United States,Technology,Laptops,Retail,8,10071
+2025-12-19,North America,Canada,Furniture,Lamps,Partner,1,42
+2025-12-28,North America,United States,Technology,Phones,Retail,7,4628
+2025-07-01,Europe,France,Office Supplies,Binders,Online,24,151
+2025-10-23,Europe,Italy,Technology,Printers,Online,3,750
+2025-11-17,Europe,Netherlands,Furniture,Chairs,Online,4,663
+2025-10-17,Europe,United Kingdom,Office Supplies,Labels,Partner,138,716
+2025-03-07,North America,Canada,Furniture,Lamps,Retail,10,475
+2025-11-17,Europe,United Kingdom,Furniture,Chairs,Retail,4,770
+2025-12-26,Europe,France,Office Supplies,Paper,Online,158,1426
+2025-05-12,North America,Canada,Furniture,Desks,Online,11,3021
+2025-12-29,Europe,France,Technology,Printers,Online,1,245
+2025-10-08,Europe,Germany,Technology,Laptops,Online,1,1030
+2025-12-09,Asia Pacific,India,Office Supplies,Paper,Online,112,1029
+2025-12-06,Asia Pacific,Singapore,Technology,Phones,Online,1,710
+2025-10-05,Latin America,Brazil,Technology,Phones,Retail,3,2047
+2025-03-27,North America,United States,Technology,Monitors,Partner,7,1441
+2025-09-16,Asia Pacific,Australia,Furniture,Bookcases,Online,9,1213
+2025-11-09,North America,United States,Technology,Monitors,Retail,5,1280
+2025-01-14,Latin America,Argentina,Furniture,Lamps,Retail,8,384
+2025-10-02,North America,United States,Office Supplies,Paper,Retail,91,877
+2025-11-06,Asia Pacific,Australia,Furniture,Bookcases,Retail,10,1334
+2025-06-23,Europe,United Kingdom,Office Supplies,Pens,Partner,37,130
+2025-05-12,North America,United States,Technology,Laptops,Online,1,1068
+2025-09-15,Europe,France,Technology,Printers,Partner,8,1622
+2025-11-06,Asia Pacific,India,Technology,Monitors,Partner,3,659
+2025-04-05,Asia Pacific,Japan,Office Supplies,Pens,Retail,49,205
+2025-07-09,Europe,Spain,Furniture,Desks,Online,10,3327
+2025-06-15,Europe,France,Office Supplies,Binders,Partner,129,787
+2025-01-10,Latin America,Brazil,Technology,Phones,Online,3,2225
+2025-04-09,Europe,Spain,Furniture,Bookcases,Online,12,1779
+2025-02-27,Europe,Italy,Furniture,Bookcases,Online,7,978
+2025-08-21,Latin America,Argentina,Technology,Phones,Retail,4,2714
+2025-02-03,Europe,Germany,Technology,Laptops,Retail,8,9103
+2025-11-27,Latin America,Argentina,Office Supplies,Paper,Retail,109,1003
+2025-02-12,Europe,Germany,Technology,Monitors,Online,2,457
+2025-06-16,Europe,France,Furniture,Bookcases,Online,9,1091
+2025-10-21,Asia Pacific,Japan,Furniture,Chairs,Online,4,630
+2025-01-27,North America,United States,Technology,Printers,Partner,5,940
+2025-09-03,Europe,United Kingdom,Furniture,Lamps,Online,10,443
+2025-05-03,Europe,Spain,Technology,Phones,Online,7,4998
+2025-08-15,Europe,United Kingdom,Technology,Printers,Online,1,221
+2025-09-19,Europe,Netherlands,Technology,Monitors,Online,7,1908
+2025-01-20,Asia Pacific,Japan,Office Supplies,Labels,Retail,50,304
+2025-12-06,North America,United States,Technology,Printers,Partner,2,436
+2025-03-21,Europe,Netherlands,Technology,Phones,Online,5,3795
+2025-11-15,Latin America,Argentina,Technology,Laptops,Partner,2,1910
+2025-07-12,Europe,France,Office Supplies,Labels,Partner,100,499
+2025-04-06,North America,United States,Office Supplies,Labels,Retail,159,894
+2025-06-23,Europe,Italy,Furniture,Chairs,Online,1,182
+2025-09-04,Europe,Spain,Furniture,Bookcases,Online,3,387
+2025-09-03,Asia Pacific,Australia,Furniture,Desks,Retail,6,1743
+2025-12-12,Asia Pacific,India,Technology,Printers,Retail,8,1899
+2025-07-12,Europe,Germany,Furniture,Desks,Online,6,2049
+2025-11-20,North America,Canada,Furniture,Chairs,Partner,12,1815
+2025-08-30,North America,Canada,Office Supplies,Binders,Retail,122,750
+2025-07-11,North America,Canada,Furniture,Chairs,Retail,1,173
+2025-09-08,Asia Pacific,Australia,Technology,Printers,Retail,3,735
+2025-06-20,North America,Canada,Office Supplies,Binders,Online,127,868
+2025-05-31,Asia Pacific,Australia,Technology,Monitors,Retail,5,1240
+2025-05-16,Europe,Germany,Office Supplies,Binders,Partner,167,1103
+2025-08-22,North America,United States,Office Supplies,Binders,Online,105,698
+2025-12-18,Europe,France,Office Supplies,Binders,Retail,83,594
+2025-02-11,Latin America,Brazil,Office Supplies,Binders,Online,151,1081
+2025-03-21,Asia Pacific,India,Office Supplies,Labels,Retail,85,469
+2025-04-15,Europe,Italy,Technology,Monitors,Online,2,495
+2025-12-05,Europe,Italy,Office Supplies,Labels,Partner,27,125
+2025-08-04,Asia Pacific,Singapore,Office Supplies,Labels,Partner,179,935
+2025-06-20,Asia Pacific,India,Office Supplies,Binders,Online,96,607
+2025-12-25,North America,United States,Furniture,Chairs,Online,2,344
+2025-03-30,North America,United States,Furniture,Desks,Online,3,871
+2025-11-30,Europe,Germany,Office Supplies,Paper,Retail,197,1826
+2025-01-03,Europe,Spain,Technology,Laptops,Retail,5,5856
+2025-07-02,North America,United States,Office Supplies,Binders,Partner,76,506
+2025-12-16,Asia Pacific,India,Office Supplies,Paper,Retail,164,1477
+2025-05-03,Europe,France,Technology,Monitors,Online,6,1710
+2025-04-15,North America,Mexico,Furniture,Lamps,Online,12,488
+2025-08-09,Europe,Germany,Technology,Phones,Online,4,2882
+2025-01-26,Asia Pacific,Japan,Furniture,Lamps,Retail,6,286
+2025-12-31,Europe,Germany,Furniture,Desks,Retail,8,2729
+2025-11-02,Asia Pacific,Japan,Office Supplies,Paper,Online,125,964
+2025-01-18,Europe,Netherlands,Office Supplies,Labels,Partner,141,712
+2025-04-15,North America,United States,Furniture,Desks,Retail,9,2958
+2025-08-25,Latin America,Brazil,Technology,Monitors,Retail,3,733
+2025-04-26,North America,United States,Technology,Printers,Online,6,1189
+2025-10-20,Asia Pacific,India,Furniture,Chairs,Online,5,799
+2025-08-02,Europe,Italy,Furniture,Chairs,Retail,1,158
+2025-01-30,Europe,Germany,Office Supplies,Labels,Partner,156,860
+2025-01-09,Europe,Italy,Furniture,Lamps,Online,11,533
+2025-01-26,Europe,United Kingdom,Technology,Laptops,Online,3,3369
+2025-04-22,Latin America,Brazil,Office Supplies,Paper,Online,163,1585
+2025-04-07,Latin America,Brazil,Technology,Laptops,Retail,1,1237
+2025-11-22,Asia Pacific,Australia,Office Supplies,Binders,Retail,64,406
+2025-05-18,North America,Canada,Office Supplies,Paper,Online,105,845
+2025-04-11,Europe,Italy,Technology,Monitors,Retail,1,249
+2025-07-22,Asia Pacific,India,Furniture,Chairs,Online,11,2023
+2025-09-29,Latin America,Argentina,Furniture,Bookcases,Online,10,1305
+2025-10-04,Asia Pacific,India,Office Supplies,Paper,Online,170,1372
+2025-02-23,Asia Pacific,India,Technology,Phones,Retail,8,5368
+2025-04-19,Asia Pacific,Australia,Technology,Monitors,Online,8,1770
+2025-04-13,Europe,United Kingdom,Office Supplies,Labels,Online,48,273
+2025-04-24,Asia Pacific,Singapore,Furniture,Bookcases,Online,6,841
+2025-02-03,Europe,France,Office Supplies,Binders,Online,147,930
+2025-07-25,Asia Pacific,Australia,Office Supplies,Binders,Online,141,888
+2025-04-23,Latin America,Chile,Technology,Printers,Partner,2,373
+2025-12-02,Asia Pacific,Japan,Technology,Phones,Online,6,3554
+2025-06-25,Europe,France,Office Supplies,Binders,Retail,182,1209
+2025-02-10,North America,United States,Furniture,Bookcases,Retail,4,524
+2025-10-19,Latin America,Argentina,Office Supplies,Binders,Online,43,273
+2025-07-08,Asia Pacific,Australia,Technology,Laptops,Partner,2,2086
+2025-01-19,Europe,United Kingdom,Office Supplies,Paper,Retail,126,995
+2025-01-22,Europe,Germany,Technology,Printers,Online,3,684
+2025-06-07,Latin America,Brazil,Office Supplies,Paper,Partner,136,980
+2025-08-03,Europe,United Kingdom,Technology,Printers,Partner,6,1143
+2025-01-03,North America,United States,Technology,Monitors,Retail,2,550
+2025-12-14,Europe,Spain,Furniture,Lamps,Partner,6,253
+2025-05-22,Europe,Germany,Office Supplies,Labels,Online,21,135
+2025-11-05,Europe,France,Office Supplies,Binders,Partner,68,414
+2025-07-22,Asia Pacific,Australia,Office Supplies,Labels,Retail,192,1049
+2025-01-31,North America,United States,Furniture,Chairs,Online,11,2018
+2025-05-11,Asia Pacific,Japan,Furniture,Bookcases,Partner,12,1363
+2025-03-06,Europe,Germany,Furniture,Chairs,Partner,10,1749
+2025-03-05,Europe,Netherlands,Office Supplies,Paper,Online,63,566
+2025-09-01,North America,Canada,Furniture,Chairs,Retail,11,2068
+2025-04-17,Europe,Germany,Technology,Phones,Online,5,3075
+2025-07-11,North America,Mexico,Furniture,Bookcases,Online,1,129
+2025-06-16,Europe,Italy,Technology,Printers,Online,7,1667
+2025-06-07,Asia Pacific,India,Office Supplies,Binders,Retail,98,738
+2025-04-06,Europe,United Kingdom,Technology,Printers,Retail,2,477
+2025-07-04,Latin America,Argentina,Furniture,Bookcases,Partner,10,1224
+2025-12-01,Latin America,Argentina,Technology,Phones,Online,7,4271
+2025-03-25,Latin America,Argentina,Office Supplies,Binders,Online,123,795
+2025-06-01,North America,Mexico,Technology,Monitors,Retail,3,764
+2025-10-16,Europe,United Kingdom,Office Supplies,Binders,Partner,41,243
+2025-04-28,Europe,France,Office Supplies,Binders,Retail,130,805
+2025-11-15,North America,Mexico,Furniture,Chairs,Online,8,1250
+2025-12-22,North America,United States,Technology,Printers,Partner,7,1524
+2025-08-02,Asia Pacific,India,Furniture,Bookcases,Partner,4,478
+2025-07-10,Europe,Germany,Furniture,Lamps,Online,4,159
+2025-09-22,Europe,Germany,Technology,Printers,Online,2,463
+2025-01-13,Latin America,Brazil,Office Supplies,Binders,Online,66,421
+2025-12-20,Europe,Germany,Office Supplies,Labels,Online,193,1034
+2025-09-21,Asia Pacific,Japan,Furniture,Bookcases,Partner,9,1243
+2025-08-12,Europe,Germany,Office Supplies,Binders,Partner,144,921
+2025-11-02,Europe,France,Technology,Printers,Partner,6,1165
+2025-05-22,Europe,Italy,Furniture,Desks,Online,4,1117
+2025-08-13,North America,United States,Technology,Laptops,Online,6,6226
+2025-05-10,North America,United States,Furniture,Lamps,Online,5,213
+2025-01-22,Europe,France,Office Supplies,Binders,Partner,124,816
+2025-03-10,Europe,Netherlands,Technology,Laptops,Retail,5,5914
+2025-06-06,Europe,France,Furniture,Desks,Retail,3,1027
+2025-09-02,Latin America,Chile,Office Supplies,Labels,Online,42,214
+2025-12-11,North America,United States,Technology,Laptops,Retail,1,1227
+2025-09-09,Latin America,Chile,Office Supplies,Binders,Retail,22,141
+2025-06-12,North America,Mexico,Furniture,Lamps,Online,5,240
+2025-10-23,Europe,France,Furniture,Chairs,Retail,12,2023
+2025-06-21,Europe,United Kingdom,Furniture,Bookcases,Retail,2,289
+2025-05-03,Europe,Netherlands,Technology,Printers,Online,2,455
+2025-12-02,Europe,France,Technology,Monitors,Partner,6,1433
+2025-12-15,Europe,Italy,Furniture,Chairs,Retail,4,615
+2025-05-29,North America,United States,Office Supplies,Pens,Retail,60,259
+2025-01-03,North America,United States,Technology,Printers,Retail,1,242
+2025-04-27,Europe,France,Office Supplies,Labels,Online,93,476
+2025-06-25,Asia Pacific,Japan,Office Supplies,Binders,Retail,45,315
+2025-12-11,Europe,Netherlands,Furniture,Lamps,Partner,12,416
+2025-05-01,North America,Mexico,Technology,Printers,Partner,4,885
+2025-03-20,Europe,France,Technology,Monitors,Online,3,747
+2025-10-20,North America,Canada,Technology,Laptops,Online,7,8156
+2025-12-21,Latin America,Brazil,Office Supplies,Binders,Online,84,567
+2025-08-01,Europe,Germany,Furniture,Bookcases,Retail,5,699
+2025-02-14,Europe,Germany,Technology,Printers,Online,5,1239
+2025-10-16,North America,United States,Furniture,Chairs,Online,4,732
+2025-12-07,Europe,Netherlands,Technology,Monitors,Online,6,1475
+2025-01-03,Europe,Spain,Furniture,Chairs,Online,11,2024
+2025-10-18,North America,United States,Technology,Laptops,Retail,5,5789
+2025-11-01,Asia Pacific,Japan,Office Supplies,Pens,Retail,161,625
+2025-09-30,North America,United States,Technology,Printers,Online,5,1235
+2025-03-28,North America,United States,Technology,Phones,Retail,1,694
+2025-03-13,Asia Pacific,Japan,Office Supplies,Paper,Partner,56,393
+2025-09-30,Europe,United Kingdom,Furniture,Chairs,Retail,9,1403
+2025-06-24,North America,Canada,Office Supplies,Binders,Online,75,515
+2025-08-22,Latin America,Brazil,Technology,Monitors,Online,4,1054
+2025-05-17,North America,Canada,Furniture,Lamps,Retail,4,156
+2025-12-19,North America,United States,Technology,Phones,Online,8,5625
+2025-05-31,Europe,Germany,Office Supplies,Binders,Partner,84,558
+2025-01-20,Asia Pacific,India,Technology,Laptops,Online,4,4316
+2025-11-24,North America,Canada,Office Supplies,Paper,Partner,199,1619
+2025-07-25,Europe,Germany,Technology,Printers,Online,3,656
+2025-10-25,Asia Pacific,Singapore,Technology,Monitors,Online,6,1413
+2025-10-04,North America,United States,Office Supplies,Pens,Online,162,585
+2025-11-11,Europe,United Kingdom,Furniture,Chairs,Online,12,2225
+2025-11-11,Europe,Netherlands,Technology,Laptops,Online,7,8766
+2025-05-06,Latin America,Brazil,Office Supplies,Labels,Retail,86,441
+2025-10-19,Europe,Italy,Technology,Printers,Online,8,1829
+2025-02-28,Asia Pacific,Australia,Office Supplies,Labels,Retail,125,652
+2025-12-31,North America,United States,Technology,Printers,Partner,7,1441
+2025-04-21,North America,Canada,Office Supplies,Binders,Retail,120,725
+2025-09-14,Europe,Netherlands,Furniture,Lamps,Retail,7,285
+2025-11-15,North America,United States,Furniture,Chairs,Retail,7,1237
+2025-03-08,Europe,Netherlands,Office Supplies,Labels,Retail,198,1245
+2025-12-18,Asia Pacific,India,Office Supplies,Binders,Retail,41,282
+2025-05-04,Asia Pacific,Australia,Office Supplies,Pens,Online,22,95
+2025-12-31,Europe,Germany,Furniture,Desks,Partner,3,880
+2025-09-06,Asia Pacific,Singapore,Office Supplies,Binders,Partner,59,347
+2025-02-03,Latin America,Colombia,Technology,Phones,Online,1,607
+2025-07-25,Europe,United Kingdom,Office Supplies,Labels,Retail,121,622
+2025-05-25,Latin America,Brazil,Furniture,Chairs,Online,7,1286
+2025-06-12,Europe,United Kingdom,Office Supplies,Pens,Partner,174,611
+2025-04-11,North America,Canada,Technology,Printers,Retail,6,1406
+2025-07-28,Asia Pacific,Japan,Technology,Phones,Online,4,2861
+2025-06-01,Latin America,Brazil,Furniture,Lamps,Retail,2,93
+2025-08-19,Europe,Germany,Furniture,Lamps,Retail,5,193
+2025-12-26,Europe,Spain,Office Supplies,Binders,Online,141,946
+2025-08-08,Asia Pacific,Australia,Office Supplies,Labels,Retail,66,362
+2025-03-13,North America,Mexico,Furniture,Bookcases,Partner,7,964
+2025-01-11,Latin America,Brazil,Technology,Monitors,Online,7,1881
+2025-01-04,Asia Pacific,Australia,Technology,Phones,Online,1,639
+2025-09-21,Asia Pacific,India,Furniture,Bookcases,Partner,7,783
+2025-09-10,Europe,United Kingdom,Technology,Printers,Partner,6,1245
+2025-03-28,Europe,Italy,Office Supplies,Labels,Online,189,1233
+2025-02-15,Europe,France,Technology,Monitors,Retail,6,1516
+2025-01-01,Europe,Germany,Office Supplies,Paper,Retail,75,722
+2025-10-22,Europe,Germany,Office Supplies,Labels,Online,62,329
+2025-04-15,Latin America,Chile,Office Supplies,Pens,Retail,155,576
+2025-12-03,Asia Pacific,Singapore,Technology,Phones,Retail,7,5025
+2025-01-01,Europe,Netherlands,Furniture,Chairs,Online,7,1188
+2025-11-27,North America,United States,Technology,Printers,Online,6,1337
+2025-04-06,Latin America,Colombia,Office Supplies,Binders,Retail,136,948
+2025-10-14,Europe,Netherlands,Technology,Phones,Retail,3,2063
+2025-05-06,Europe,United Kingdom,Furniture,Desks,Partner,6,1582
+2025-06-12,Latin America,Brazil,Furniture,Chairs,Online,5,893
+2025-11-30,Europe,Italy,Furniture,Bookcases,Retail,11,1558
+2025-03-24,Latin America,Colombia,Office Supplies,Paper,Retail,157,1437
+2025-07-11,Asia Pacific,Australia,Office Supplies,Binders,Online,23,153
+2025-10-05,Latin America,Brazil,Technology,Printers,Online,4,799
+2025-12-22,Europe,Netherlands,Office Supplies,Binders,Partner,99,654
+2025-07-10,Europe,United Kingdom,Office Supplies,Pens,Retail,38,131
+2025-07-20,Europe,Germany,Office Supplies,Binders,Retail,24,163
+2025-09-13,Latin America,Brazil,Technology,Printers,Retail,4,925
+2025-05-03,Latin America,Brazil,Furniture,Chairs,Retail,7,1272
+2025-03-05,Europe,Italy,Office Supplies,Binders,Retail,70,464
+2025-10-10,Europe,United Kingdom,Furniture,Bookcases,Online,2,267
+2025-10-20,Europe,Germany,Furniture,Chairs,Retail,2,393
+2025-08-29,Asia Pacific,Australia,Office Supplies,Labels,Online,107,621
+2025-12-20,Europe,Germany,Office Supplies,Paper,Retail,162,1554
+2025-08-07,Latin America,Chile,Technology,Phones,Online,3,2037
+2025-03-23,North America,United States,Technology,Laptops,Partner,1,938
+2025-01-23,Europe,France,Technology,Laptops,Retail,4,4392
+2025-03-01,Asia Pacific,Singapore,Furniture,Chairs,Online,11,2168
+2025-04-12,Asia Pacific,Australia,Technology,Phones,Online,4,2454
+2025-11-18,Europe,United Kingdom,Office Supplies,Labels,Online,91,473
+2025-04-14,Europe,Germany,Technology,Phones,Online,4,2349
+2025-11-04,Asia Pacific,India,Technology,Monitors,Online,6,1442
+2025-06-26,Europe,France,Furniture,Bookcases,Retail,7,1001
+2025-10-31,Asia Pacific,India,Furniture,Bookcases,Retail,6,770
+2025-09-18,Europe,Netherlands,Office Supplies,Paper,Retail,184,1763
+2025-12-25,Asia Pacific,Japan,Furniture,Bookcases,Online,11,1554
+2025-12-19,Asia Pacific,Japan,Furniture,Desks,Online,4,1243
+2025-07-19,Asia Pacific,Australia,Technology,Phones,Partner,8,4969
+2025-03-01,Europe,Netherlands,Technology,Monitors,Online,1,227
+2025-06-15,Europe,Italy,Furniture,Desks,Partner,6,1735
+2025-03-18,Europe,United Kingdom,Technology,Monitors,Online,4,900
+2025-11-07,North America,Canada,Office Supplies,Binders,Online,189,1408
+2025-02-11,Europe,Italy,Office Supplies,Paper,Retail,79,780
+2025-03-12,North America,Mexico,Technology,Laptops,Online,7,8145
+2025-12-12,Europe,Italy,Technology,Printers,Retail,5,1124
+2025-11-23,North America,United States,Office Supplies,Pens,Retail,142,568
+2025-09-07,Asia Pacific,Japan,Technology,Printers,Retail,7,1561
+2025-09-08,Europe,France,Office Supplies,Pens,Retail,175,720
+2025-09-03,Europe,Germany,Office Supplies,Binders,Retail,80,591
+2025-03-24,Asia Pacific,Japan,Office Supplies,Binders,Online,121,813
+2025-08-01,Europe,United Kingdom,Office Supplies,Pens,Online,72,312
+2025-07-24,Asia Pacific,Australia,Office Supplies,Binders,Retail,111,774
+2025-01-31,Europe,Netherlands,Technology,Laptops,Retail,7,8587
+2025-03-31,North America,United States,Office Supplies,Binders,Partner,90,538
+2025-07-08,Europe,France,Office Supplies,Paper,Online,36,347
+2025-05-15,Europe,Italy,Furniture,Chairs,Retail,5,931
+2025-11-05,North America,United States,Furniture,Bookcases,Retail,10,1472
+2025-02-22,Europe,Italy,Furniture,Desks,Online,4,1202
+2025-09-25,Europe,Netherlands,Office Supplies,Labels,Online,26,155
+2025-11-01,Europe,United Kingdom,Furniture,Chairs,Retail,7,1071
+2025-04-09,Europe,Spain,Office Supplies,Labels,Retail,198,1211
+2025-01-25,Europe,Germany,Office Supplies,Paper,Partner,60,456
+2025-12-20,North America,United States,Furniture,Chairs,Retail,5,880
+2025-09-16,Europe,Germany,Technology,Printers,Retail,8,1785
+2025-03-02,Europe,Italy,Technology,Printers,Online,3,608
+2025-10-12,Europe,Italy,Furniture,Lamps,Online,1,42
+2025-11-08,North America,United States,Technology,Printers,Online,2,413
+2025-12-27,Europe,United Kingdom,Office Supplies,Binders,Retail,64,408
+2025-12-22,Asia Pacific,Australia,Technology,Phones,Partner,3,1902
+2025-03-29,Europe,Germany,Office Supplies,Pens,Partner,83,291
+2025-08-28,Asia Pacific,Singapore,Technology,Monitors,Partner,6,1266
+2025-03-01,Europe,Spain,Technology,Printers,Online,4,906
+2025-12-29,Asia Pacific,Japan,Furniture,Bookcases,Retail,2,273
+2025-08-20,Europe,France,Office Supplies,Binders,Online,105,703
+2025-07-16,Europe,France,Furniture,Bookcases,Online,1,151
+2025-11-04,Europe,France,Furniture,Lamps,Retail,2,88
+2025-12-04,Europe,Germany,Technology,Phones,Retail,6,4535
+2025-06-19,Europe,Italy,Office Supplies,Pens,Online,151,537
+2025-10-23,Asia Pacific,Japan,Furniture,Desks,Retail,5,1635
+2025-09-07,Asia Pacific,Australia,Furniture,Desks,Online,11,3708
+2025-11-14,Asia Pacific,India,Furniture,Desks,Online,7,1960
+2025-03-10,North America,United States,Furniture,Desks,Online,11,3089
+2025-06-16,Latin America,Brazil,Technology,Printers,Retail,3,662
+2025-03-24,North America,United States,Office Supplies,Pens,Online,149,618
+2025-07-10,Latin America,Argentina,Office Supplies,Pens,Partner,98,385
+2025-06-07,Europe,Germany,Technology,Monitors,Online,2,489
+2025-11-29,Asia Pacific,Japan,Technology,Phones,Online,4,2921
+2025-09-07,Latin America,Argentina,Technology,Phones,Partner,3,1790
+2025-10-28,North America,United States,Technology,Monitors,Online,3,668
+2025-04-17,Europe,Spain,Technology,Printers,Retail,8,1977
+2025-11-04,Asia Pacific,Australia,Office Supplies,Pens,Partner,45,145
+2025-11-21,Europe,France,Office Supplies,Pens,Retail,22,88
+2025-11-03,Europe,Germany,Furniture,Bookcases,Retail,4,614
+2025-12-22,Europe,United Kingdom,Office Supplies,Paper,Online,92,825
+2025-08-11,North America,Canada,Office Supplies,Labels,Retail,144,821
+2025-01-31,Europe,Spain,Office Supplies,Paper,Retail,177,1665
+2025-11-19,North America,United States,Office Supplies,Labels,Online,87,490
+2025-11-15,North America,Canada,Furniture,Bookcases,Retail,3,376
+2025-04-11,North America,United States,Office Supplies,Paper,Retail,43,332
+2025-12-21,Latin America,Colombia,Furniture,Lamps,Retail,8,389
+2025-10-07,Europe,Netherlands,Furniture,Bookcases,Online,3,448
+2025-05-23,North America,United States,Furniture,Chairs,Retail,1,198
+2025-03-01,Europe,Germany,Office Supplies,Labels,Online,144,899
+2025-10-24,Latin America,Brazil,Technology,Monitors,Online,2,474
+2025-04-12,North America,United States,Furniture,Desks,Partner,2,596
+2025-03-05,Latin America,Brazil,Technology,Printers,Partner,3,634
+2025-01-23,Latin America,Brazil,Office Supplies,Labels,Partner,86,396
+2025-06-12,North America,United States,Furniture,Desks,Online,9,3047
+2025-02-03,Europe,United Kingdom,Technology,Monitors,Online,4,1042
+2025-12-25,Europe,Germany,Office Supplies,Labels,Retail,187,1169
+2025-11-18,North America,Canada,Office Supplies,Binders,Retail,175,1167
+2025-12-04,Europe,Italy,Office Supplies,Pens,Retail,200,814
+2025-03-21,North America,United States,Technology,Printers,Online,3,665
+2025-12-25,Europe,France,Office Supplies,Binders,Online,157,1132
+2025-12-26,Europe,Germany,Office Supplies,Pens,Online,64,226
+2025-10-25,North America,United States,Furniture,Desks,Partner,4,1004
+2025-05-26,Latin America,Chile,Furniture,Chairs,Retail,4,623
+2025-02-07,Asia Pacific,Australia,Furniture,Bookcases,Partner,10,1290
+2025-05-13,Asia Pacific,India,Technology,Printers,Online,2,412
+2025-12-26,Europe,United Kingdom,Furniture,Desks,Retail,9,3091
+2025-11-25,Europe,France,Technology,Phones,Online,4,2880
+2025-10-05,Europe,Germany,Office Supplies,Binders,Retail,123,847
+2025-03-22,Europe,Netherlands,Technology,Phones,Online,6,4135
+2025-02-01,Latin America,Brazil,Furniture,Desks,Online,8,2813
+2025-03-09,North America,Canada,Office Supplies,Binders,Online,143,1061
+2025-05-19,North America,United States,Technology,Printers,Online,1,220
+2025-11-03,North America,United States,Technology,Printers,Retail,2,459
+2025-11-14,Europe,France,Office Supplies,Binders,Partner,196,1142
+2025-10-24,Europe,Germany,Office Supplies,Paper,Online,197,1743
+2025-11-28,Europe,Italy,Office Supplies,Labels,Retail,185,979
+2025-06-29,Asia Pacific,India,Office Supplies,Labels,Online,162,1005
+2025-03-22,Asia Pacific,Japan,Technology,Printers,Retail,7,1465
+2025-10-15,North America,United States,Technology,Monitors,Online,1,258
+2025-08-17,Asia Pacific,Singapore,Furniture,Chairs,Partner,11,1520
+2025-10-27,Asia Pacific,Japan,Furniture,Lamps,Retail,12,468
+2025-05-20,Europe,France,Office Supplies,Pens,Retail,81,351
+2025-03-24,North America,United States,Technology,Phones,Partner,8,5248
+2025-03-26,Europe,Italy,Office Supplies,Pens,Online,168,643
+2025-04-28,North America,United States,Office Supplies,Binders,Online,116,776
+2025-07-20,Latin America,Argentina,Office Supplies,Labels,Online,190,1052
+2025-01-21,North America,United States,Technology,Phones,Online,4,2742
+2025-04-11,Latin America,Brazil,Furniture,Desks,Retail,5,1471
+2025-08-29,Asia Pacific,Japan,Furniture,Chairs,Retail,3,521
+2025-10-27,Europe,United Kingdom,Furniture,Lamps,Online,4,170
+2025-06-23,North America,United States,Technology,Monitors,Partner,4,896
+2025-12-15,Europe,Italy,Technology,Printers,Online,4,826
+2025-04-21,Asia Pacific,Japan,Office Supplies,Binders,Online,172,1249
+2025-01-22,Europe,France,Technology,Monitors,Online,3,737
+2025-08-17,North America,Canada,Technology,Laptops,Partner,1,1083
+2025-11-12,North America,United States,Technology,Printers,Online,8,1800
+2025-02-05,Europe,United Kingdom,Office Supplies,Pens,Retail,46,172
+2025-11-18,North America,United States,Furniture,Desks,Online,12,3567
+2025-12-26,Asia Pacific,India,Furniture,Bookcases,Retail,7,1011
+2025-09-26,Europe,United Kingdom,Technology,Printers,Online,3,682
+2025-07-27,Asia Pacific,India,Furniture,Desks,Online,3,1043
+2025-08-28,Asia Pacific,Japan,Technology,Laptops,Partner,3,2671
+2025-09-25,North America,Canada,Technology,Laptops,Online,2,2521
+2025-11-08,Europe,Germany,Furniture,Lamps,Partner,3,113
+2025-12-13,Europe,Italy,Office Supplies,Labels,Partner,137,721
+2025-09-21,Europe,France,Technology,Printers,Online,2,461
+2025-10-25,North America,Canada,Technology,Laptops,Online,4,4719
+2025-04-03,Europe,Germany,Furniture,Lamps,Partner,7,304
+2025-07-08,North America,United States,Office Supplies,Paper,Retail,185,1732
+2025-09-26,Asia Pacific,Japan,Furniture,Lamps,Online,12,470
+2025-08-22,Europe,Italy,Office Supplies,Labels,Retail,30,166
+2025-11-07,Europe,Italy,Technology,Printers,Partner,3,570
+2025-05-30,Latin America,Brazil,Technology,Laptops,Online,5,5223
+2025-07-29,Europe,United Kingdom,Furniture,Desks,Online,10,3114
+2025-09-10,Asia Pacific,India,Office Supplies,Labels,Retail,25,146
+2025-06-27,Europe,Germany,Office Supplies,Binders,Retail,108,774
+2025-05-14,Latin America,Colombia,Office Supplies,Labels,Online,111,617
+2025-06-18,North America,Canada,Office Supplies,Labels,Online,188,1044
+2025-03-06,Asia Pacific,Australia,Furniture,Desks,Online,3,893
+2025-01-26,Europe,Italy,Office Supplies,Labels,Retail,184,1175
+2025-01-27,Latin America,Brazil,Office Supplies,Pens,Partner,111,348
+2025-01-16,Europe,France,Technology,Monitors,Online,5,1179
+2025-12-09,Europe,Germany,Furniture,Lamps,Online,12,470
+2025-10-10,Asia Pacific,Singapore,Furniture,Chairs,Online,8,1352
+2025-12-12,Latin America,Argentina,Office Supplies,Binders,Online,159,1166
+2025-02-18,Europe,Netherlands,Office Supplies,Binders,Retail,156,1071
+2025-10-11,North America,Canada,Technology,Printers,Partner,7,1386
+2025-04-12,Latin America,Colombia,Office Supplies,Labels,Online,182,1158
+2025-02-07,North America,United States,Furniture,Desks,Retail,5,1424
+2025-08-09,Europe,United Kingdom,Technology,Laptops,Online,7,6859
+2025-11-23,Asia Pacific,Japan,Office Supplies,Pens,Partner,186,576
+2025-07-28,Europe,Germany,Technology,Laptops,Retail,4,4034
+2025-11-09,Europe,France,Office Supplies,Pens,Online,92,338
+2025-09-05,Latin America,Colombia,Furniture,Bookcases,Retail,4,528
+2025-04-28,North America,United States,Furniture,Lamps,Partner,7,250
+2025-09-24,Europe,Spain,Office Supplies,Labels,Retail,89,543
+2025-09-13,Latin America,Brazil,Furniture,Bookcases,Online,11,1583
+2025-07-26,Asia Pacific,Japan,Furniture,Chairs,Online,12,2301
+2025-12-08,Asia Pacific,Japan,Office Supplies,Pens,Online,197,721
+2025-10-24,Latin America,Argentina,Office Supplies,Labels,Online,146,880
+2025-12-20,Europe,Netherlands,Technology,Monitors,Partner,7,1585
+2025-04-16,Europe,France,Furniture,Chairs,Online,3,563
+2025-03-09,Europe,Netherlands,Technology,Monitors,Online,5,1425
+2025-06-06,Asia Pacific,Australia,Furniture,Lamps,Retail,2,80
+2025-03-04,Europe,Germany,Office Supplies,Paper,Partner,66,560
+2025-01-01,Asia Pacific,Japan,Office Supplies,Pens,Online,69,277
+2025-07-19,Asia Pacific,Australia,Technology,Phones,Online,7,4981
+2025-06-07,North America,United States,Furniture,Chairs,Partner,1,143
+2025-07-02,Europe,Germany,Office Supplies,Labels,Retail,56,316
+2025-07-30,Asia Pacific,Australia,Technology,Monitors,Partner,1,207
+2025-08-28,Europe,Germany,Office Supplies,Labels,Online,98,611
+2025-04-12,Latin America,Colombia,Furniture,Desks,Online,12,4012
+2025-04-08,Asia Pacific,Japan,Office Supplies,Pens,Retail,89,322
+2025-09-25,Europe,Germany,Furniture,Bookcases,Online,7,1009
+2025-05-09,North America,United States,Office Supplies,Paper,Retail,112,1027
+2025-01-16,North America,United States,Technology,Printers,Partner,8,1462
+2025-12-28,North America,Canada,Technology,Laptops,Partner,5,4982
+2025-08-13,Latin America,Brazil,Furniture,Bookcases,Retail,9,1148
+2025-01-18,Europe,Germany,Technology,Printers,Retail,1,251
+2025-03-05,North America,United States,Technology,Monitors,Online,4,934
+2025-05-13,Europe,United Kingdom,Technology,Printers,Online,5,1050
+2025-01-09,North America,United States,Furniture,Bookcases,Retail,8,1154
+2025-08-09,Europe,Spain,Technology,Printers,Retail,8,1863
+2025-04-19,Latin America,Brazil,Office Supplies,Binders,Online,146,937
+2025-09-30,North America,United States,Office Supplies,Pens,Online,113,399
+2025-10-09,Latin America,Brazil,Furniture,Lamps,Online,10,383
+2025-10-07,Europe,Germany,Technology,Printers,Retail,7,1562
+2025-03-13,Europe,United Kingdom,Technology,Laptops,Retail,5,6282
+2025-03-04,Asia Pacific,Singapore,Office Supplies,Pens,Online,26,101
+2025-05-19,Europe,Netherlands,Furniture,Bookcases,Retail,12,1660
+2025-07-27,Europe,Spain,Technology,Printers,Retail,8,1603
+2025-11-01,Europe,Spain,Furniture,Chairs,Online,8,1554
+2025-01-23,North America,United States,Technology,Laptops,Partner,4,4546
+2025-02-27,Europe,Germany,Furniture,Chairs,Partner,7,1236
+2025-07-29,North America,United States,Office Supplies,Pens,Retail,145,523
+2025-09-04,Europe,Netherlands,Furniture,Bookcases,Partner,4,511
+2025-11-02,Europe,France,Technology,Monitors,Retail,1,247
+2025-08-09,Europe,Netherlands,Office Supplies,Pens,Online,81,302
+2025-04-02,Asia Pacific,Japan,Furniture,Chairs,Partner,4,576
+2025-02-15,Europe,Spain,Furniture,Chairs,Online,9,1433
+2025-02-23,Europe,United Kingdom,Technology,Phones,Online,8,5535
+2025-10-08,Latin America,Colombia,Furniture,Bookcases,Partner,6,677
+2025-12-15,Europe,Germany,Furniture,Chairs,Online,12,1854
+2025-06-16,Europe,Germany,Technology,Laptops,Partner,7,6885
+2025-05-25,North America,United States,Technology,Laptops,Retail,8,7888
+2025-05-16,Europe,France,Furniture,Bookcases,Online,3,370
+2025-12-20,Europe,France,Technology,Monitors,Online,6,1450
+2025-12-15,Asia Pacific,Japan,Furniture,Desks,Retail,11,3197
+2025-12-03,North America,United States,Furniture,Bookcases,Online,6,891
+2025-12-28,North America,United States,Furniture,Desks,Partner,2,563
+2025-11-30,Latin America,Chile,Technology,Phones,Online,8,5926
+2025-02-26,Europe,Netherlands,Technology,Laptops,Online,2,2426
+2025-03-25,Europe,United Kingdom,Furniture,Chairs,Retail,5,863
+2025-06-22,Europe,Italy,Technology,Laptops,Online,5,5630
+2025-09-25,Latin America,Brazil,Office Supplies,Binders,Online,168,1029
+2025-07-30,Europe,United Kingdom,Furniture,Chairs,Online,11,2011
+2025-06-22,Europe,Spain,Office Supplies,Binders,Online,90,651
+2025-02-28,Asia Pacific,India,Office Supplies,Paper,Online,198,1674
+2025-04-20,Europe,Spain,Technology,Phones,Online,3,1922
+2025-10-26,Europe,France,Technology,Phones,Online,8,5152
+2025-10-08,Asia Pacific,Singapore,Furniture,Chairs,Online,5,969
+2025-12-22,Latin America,Colombia,Office Supplies,Labels,Retail,131,709
+2025-10-16,Asia Pacific,Japan,Furniture,Chairs,Retail,4,621
+2025-09-08,Latin America,Chile,Technology,Monitors,Online,4,987
+2025-02-15,Asia Pacific,Singapore,Technology,Printers,Online,3,642
+2025-02-21,Europe,France,Furniture,Lamps,Retail,1,42
+2025-07-27,Europe,Italy,Office Supplies,Pens,Online,58,253
+2025-02-05,Asia Pacific,India,Furniture,Chairs,Online,1,173
+2025-01-28,Europe,Germany,Furniture,Lamps,Partner,9,353
+2025-04-01,Europe,Germany,Office Supplies,Pens,Online,51,213
+2025-12-28,Latin America,Chile,Office Supplies,Labels,Partner,86,491
+2025-08-21,North America,United States,Office Supplies,Binders,Partner,64,401
+2025-11-14,North America,United States,Office Supplies,Labels,Retail,132,700
+2025-02-14,Latin America,Brazil,Office Supplies,Paper,Retail,164,1351
+2025-03-02,Asia Pacific,Japan,Technology,Printers,Retail,2,435
+2025-01-01,North America,Canada,Technology,Phones,Online,1,644
+2025-03-25,Europe,France,Furniture,Bookcases,Online,2,260
+2025-05-07,Europe,Italy,Furniture,Desks,Online,9,3101
+2025-02-25,North America,United States,Furniture,Desks,Online,7,2232
+2025-01-10,Europe,France,Technology,Monitors,Online,2,505
+2025-04-15,North America,United States,Technology,Monitors,Online,5,1166
+2025-01-20,Asia Pacific,Japan,Office Supplies,Paper,Online,71,675
+2025-05-06,Asia Pacific,Australia,Furniture,Bookcases,Partner,3,394
+2025-10-08,Europe,France,Office Supplies,Binders,Retail,41,264
+2025-12-10,Latin America,Brazil,Furniture,Lamps,Retail,12,559
+2025-05-17,North America,United States,Office Supplies,Paper,Online,168,1497
+2025-12-24,Asia Pacific,Japan,Technology,Laptops,Online,3,2991
+2025-11-22,Europe,United Kingdom,Office Supplies,Pens,Partner,62,223
+2025-02-06,Europe,Spain,Furniture,Desks,Online,6,2019
+2025-05-01,North America,United States,Office Supplies,Labels,Online,127,755
+2025-11-13,Europe,United Kingdom,Furniture,Bookcases,Online,5,757
+2025-05-18,Europe,Spain,Technology,Monitors,Retail,8,2238
+2025-10-12,North America,United States,Technology,Monitors,Online,7,1710
+2025-06-20,Asia Pacific,Australia,Furniture,Bookcases,Partner,6,687
+2025-12-12,Asia Pacific,Australia,Furniture,Desks,Retail,2,608
+2025-09-08,Europe,United Kingdom,Technology,Printers,Online,5,1246
+2025-06-09,Europe,Germany,Office Supplies,Pens,Partner,164,643
+2025-11-28,Europe,Italy,Office Supplies,Binders,Retail,129,882
+2025-09-24,Europe,Germany,Technology,Monitors,Online,6,1602
+2025-07-19,Asia Pacific,Japan,Furniture,Lamps,Partner,9,339
+2025-01-10,Europe,Italy,Technology,Laptops,Online,5,4932
+2025-04-03,Asia Pacific,Japan,Technology,Phones,Online,1,663
+2025-10-10,Asia Pacific,Japan,Furniture,Bookcases,Online,6,915
+2025-06-26,North America,United States,Furniture,Desks,Partner,9,2660
+2025-11-25,Asia Pacific,Australia,Technology,Monitors,Retail,5,1174
+2025-12-26,Europe,United Kingdom,Furniture,Bookcases,Partner,4,524
+2025-12-04,North America,Mexico,Furniture,Bookcases,Online,6,795
+2025-09-02,Europe,Germany,Furniture,Desks,Partner,9,2788
+2025-03-13,Europe,Spain,Office Supplies,Labels,Retail,146,854
+2025-05-22,North America,Mexico,Furniture,Chairs,Online,6,1155
+2025-05-29,Europe,Spain,Furniture,Lamps,Online,2,82
+2025-10-10,Asia Pacific,Australia,Office Supplies,Binders,Partner,54,354
+2025-11-27,Europe,United Kingdom,Office Supplies,Pens,Online,38,137
+2025-10-15,Asia Pacific,Australia,Technology,Laptops,Online,2,2456
+2025-06-22,Latin America,Brazil,Furniture,Desks,Partner,3,738
+2025-10-27,North America,Mexico,Furniture,Lamps,Online,2,82
+2025-12-16,Europe,United Kingdom,Furniture,Desks,Online,7,2379
+2025-07-07,North America,United States,Furniture,Bookcases,Online,3,462
+2025-11-11,Asia Pacific,Japan,Furniture,Desks,Retail,8,2429
+2025-12-01,North America,United States,Technology,Printers,Retail,4,927
+2025-10-07,North America,Mexico,Office Supplies,Labels,Partner,199,1174
+2025-03-27,Europe,United Kingdom,Furniture,Desks,Partner,2,529
+2025-03-07,Europe,Germany,Technology,Monitors,Retail,5,1423
+2025-03-22,Asia Pacific,Japan,Technology,Laptops,Partner,7,7153
+2025-11-05,Europe,Germany,Technology,Printers,Retail,6,1338
+2025-10-28,Europe,France,Furniture,Bookcases,Online,10,1398
+2025-01-01,Europe,United Kingdom,Technology,Printers,Online,7,1486
+2025-11-10,North America,Mexico,Furniture,Chairs,Partner,11,1705
+2025-03-30,Europe,United Kingdom,Furniture,Lamps,Retail,12,567
+2025-10-15,Europe,France,Office Supplies,Paper,Retail,156,1533
+2025-05-25,Europe,Germany,Technology,Printers,Retail,5,1116
+2025-09-30,Europe,Germany,Furniture,Desks,Partner,1,267
+2025-10-06,Europe,Italy,Furniture,Lamps,Online,2,95
+2025-11-28,Europe,France,Technology,Phones,Online,7,4466
+2025-09-03,Europe,Germany,Technology,Laptops,Retail,5,5418
+2025-02-21,Europe,United Kingdom,Technology,Monitors,Retail,6,1692
+2025-04-02,Asia Pacific,Japan,Furniture,Chairs,Online,4,728
+2025-04-24,Europe,United Kingdom,Furniture,Lamps,Online,4,174
+2025-05-29,North America,Canada,Furniture,Desks,Online,12,4070
+2025-04-01,Europe,Italy,Office Supplies,Binders,Online,171,1104
+2025-02-01,Europe,Spain,Technology,Printers,Partner,5,1041
+2025-03-26,Europe,Spain,Furniture,Lamps,Retail,4,154
+2025-11-01,Asia Pacific,Australia,Technology,Laptops,Retail,4,4048
+2025-11-21,Europe,France,Furniture,Lamps,Partner,6,221
+2025-03-12,Europe,Netherlands,Office Supplies,Paper,Retail,24,207
+2025-06-11,Asia Pacific,India,Furniture,Bookcases,Online,1,132
+2025-02-27,Asia Pacific,Japan,Furniture,Bookcases,Online,5,748
+2025-08-27,North America,Mexico,Office Supplies,Binders,Online,69,523
+2025-08-17,Europe,Italy,Technology,Laptops,Retail,4,4905
+2025-06-20,Europe,Spain,Technology,Monitors,Partner,4,838
+2025-06-12,Europe,Spain,Technology,Monitors,Partner,2,451
+2025-06-10,Europe,Italy,Office Supplies,Labels,Online,101,595
+2025-09-15,Latin America,Colombia,Office Supplies,Binders,Online,172,1185
+2025-01-29,Latin America,Brazil,Furniture,Desks,Online,7,1931
+2025-03-29,Asia Pacific,Australia,Office Supplies,Labels,Retail,73,449
+2025-06-02,Asia Pacific,Japan,Furniture,Chairs,Partner,10,1405
+2025-10-13,North America,United States,Furniture,Desks,Retail,2,676
+2025-03-31,Asia Pacific,Singapore,Furniture,Lamps,Retail,2,99
+2025-12-11,North America,United States,Technology,Printers,Online,4,987
+2025-10-11,Latin America,Brazil,Furniture,Desks,Partner,11,2994
+2025-04-26,North America,United States,Office Supplies,Paper,Retail,175,1731
+2025-12-31,North America,Canada,Furniture,Bookcases,Retail,5,662
+2025-07-10,Latin America,Colombia,Furniture,Lamps,Online,1,41
+2025-09-20,Europe,Spain,Technology,Monitors,Retail,6,1628
+2025-07-25,Latin America,Argentina,Office Supplies,Pens,Retail,92,371
+2025-12-13,Europe,Italy,Furniture,Bookcases,Retail,2,284
+2025-11-02,Europe,France,Office Supplies,Labels,Retail,53,277
+2025-07-06,Europe,Spain,Office Supplies,Binders,Online,121,824
+2025-03-28,Latin America,Colombia,Technology,Monitors,Online,4,884
+2025-10-27,Europe,United Kingdom,Office Supplies,Binders,Partner,127,689
+2025-05-14,Latin America,Brazil,Technology,Laptops,Online,8,8547
+2025-10-28,Latin America,Brazil,Furniture,Bookcases,Online,10,1231
+2025-02-27,Asia Pacific,India,Office Supplies,Labels,Online,194,1259
+2025-11-10,North America,United States,Technology,Laptops,Partner,4,3718
+2025-04-01,Europe,Netherlands,Technology,Monitors,Online,3,802
+2025-04-06,North America,United States,Office Supplies,Paper,Retail,32,308
+2025-08-15,Asia Pacific,Australia,Furniture,Chairs,Online,2,338
+2025-01-20,Asia Pacific,Australia,Office Supplies,Pens,Retail,110,439
+2025-09-16,North America,United States,Office Supplies,Paper,Retail,118,1158
+2025-11-28,Asia Pacific,Japan,Furniture,Desks,Online,9,2717
+2025-10-11,Europe,Germany,Technology,Phones,Retail,4,2651
+2025-12-30,Europe,United Kingdom,Technology,Phones,Online,1,665
+2025-12-13,Asia Pacific,Japan,Furniture,Bookcases,Retail,1,154
+2025-06-17,Latin America,Brazil,Technology,Printers,Partner,7,1402
+2025-01-16,Latin America,Brazil,Office Supplies,Pens,Retail,64,250
+2025-04-23,North America,Mexico,Technology,Laptops,Online,8,8360
+2025-03-07,Europe,Spain,Technology,Laptops,Online,1,1217
+2025-10-10,North America,United States,Furniture,Lamps,Retail,9,396
+2025-10-05,Europe,Netherlands,Office Supplies,Pens,Online,117,425
+2025-12-17,North America,United States,Technology,Monitors,Retail,8,2196
+2025-05-13,Asia Pacific,Japan,Technology,Laptops,Online,5,5380
+2025-02-12,Latin America,Brazil,Technology,Phones,Online,8,5875
+2025-09-07,North America,Canada,Furniture,Desks,Retail,3,826
+2025-03-18,Europe,Germany,Office Supplies,Paper,Online,30,261
+2025-12-19,North America,United States,Furniture,Lamps,Partner,11,482
+2025-07-10,Europe,Spain,Office Supplies,Paper,Retail,96,860
+2025-11-26,Europe,United Kingdom,Office Supplies,Pens,Online,99,390
+2025-10-11,North America,United States,Technology,Laptops,Partner,4,4110
+2025-01-31,North America,United States,Office Supplies,Paper,Online,104,907
+2025-12-30,Europe,United Kingdom,Technology,Phones,Retail,8,6008
+2025-11-07,Europe,France,Office Supplies,Binders,Online,28,167
+2025-04-17,North America,United States,Furniture,Bookcases,Retail,3,445
+2025-10-28,North America,Mexico,Furniture,Chairs,Retail,3,542
+2025-12-16,Europe,United Kingdom,Technology,Monitors,Online,1,261
+2025-10-30,North America,Canada,Furniture,Desks,Partner,7,1898
+2025-03-13,Europe,Germany,Office Supplies,Pens,Partner,195,654
+2025-10-05,Asia Pacific,Japan,Technology,Printers,Retail,1,220
+2025-11-15,North America,Canada,Technology,Printers,Retail,6,1235
+2025-12-09,Europe,United Kingdom,Office Supplies,Binders,Retail,136,884
+2025-05-14,Europe,Italy,Furniture,Desks,Partner,8,2169
+2025-03-26,Europe,Germany,Technology,Phones,Retail,6,4155
+2025-08-27,Europe,United Kingdom,Office Supplies,Pens,Online,35,123
+2025-02-25,Europe,France,Office Supplies,Binders,Retail,91,652
+2025-10-01,North America,Canada,Office Supplies,Pens,Online,27,93
+2025-08-16,North America,United States,Technology,Laptops,Online,2,2312
+2025-04-22,North America,United States,Furniture,Lamps,Online,7,329
+2025-06-18,Asia Pacific,Japan,Technology,Laptops,Partner,3,2763
+2025-11-13,Europe,Italy,Office Supplies,Paper,Partner,116,835
+2025-07-28,Europe,United Kingdom,Technology,Phones,Online,4,2519
+2025-04-10,Latin America,Chile,Office Supplies,Binders,Retail,150,1035
+2025-10-30,Europe,Italy,Technology,Printers,Retail,3,665
+2025-05-19,Latin America,Colombia,Technology,Laptops,Retail,2,2000
+2025-11-26,Asia Pacific,India,Office Supplies,Pens,Online,149,606
+2025-09-25,Europe,France,Office Supplies,Paper,Online,87,753
+2025-05-26,North America,Canada,Office Supplies,Binders,Retail,91,621
+2025-11-22,Europe,France,Technology,Printers,Partner,2,354
+2025-11-08,Europe,Netherlands,Office Supplies,Paper,Retail,41,388
+2025-10-17,North America,Canada,Technology,Printers,Retail,7,1571
+2025-11-19,Asia Pacific,Japan,Office Supplies,Paper,Partner,64,449
+2025-12-27,Europe,France,Technology,Laptops,Partner,3,2692
+2025-08-03,North America,United States,Office Supplies,Labels,Online,68,405
+2025-05-23,North America,United States,Technology,Printers,Retail,6,1455
+2025-10-20,Europe,Germany,Furniture,Desks,Online,3,937
+2025-04-15,Asia Pacific,Singapore,Furniture,Desks,Retail,10,2911
+2025-06-13,Asia Pacific,Japan,Furniture,Bookcases,Online,9,1149
+2025-04-12,Latin America,Brazil,Office Supplies,Pens,Online,160,593
+2025-10-02,Europe,United Kingdom,Furniture,Desks,Retail,11,3575
+2025-05-15,Europe,France,Office Supplies,Labels,Online,54,353
+2025-09-25,Europe,Italy,Office Supplies,Labels,Online,184,1212
+2025-12-26,Europe,Germany,Furniture,Chairs,Online,7,1138
+2025-03-25,Europe,Germany,Furniture,Lamps,Retail,1,39
+2025-10-30,North America,United States,Technology,Printers,Retail,7,1446
+2025-09-11,Europe,United Kingdom,Office Supplies,Binders,Online,181,1089
+2025-05-08,North America,Canada,Technology,Phones,Online,6,4227
+2025-06-05,Asia Pacific,India,Technology,Laptops,Retail,5,5730
+2025-11-26,Asia Pacific,Japan,Technology,Phones,Online,8,5739
+2025-06-06,North America,United States,Office Supplies,Labels,Online,185,1033
+2025-02-28,North America,Mexico,Office Supplies,Binders,Online,125,893
+2025-10-12,Europe,France,Furniture,Desks,Retail,8,2593
+2025-12-13,Europe,Germany,Technology,Laptops,Online,1,1082
+2025-12-25,North America,United States,Office Supplies,Pens,Retail,147,559
+2025-10-28,Europe,Germany,Technology,Phones,Retail,6,3990
+2025-10-12,Europe,Italy,Office Supplies,Pens,Retail,27,92
+2025-10-21,North America,United States,Technology,Phones,Retail,7,4757
+2025-09-18,North America,United States,Furniture,Desks,Retail,5,1696
+2025-04-09,Latin America,Argentina,Furniture,Lamps,Retail,9,356
+2025-04-28,Europe,Germany,Technology,Monitors,Online,1,248
+2025-03-22,Asia Pacific,India,Technology,Monitors,Online,1,229
+2025-03-05,Europe,France,Technology,Phones,Online,5,3297
+2025-02-22,Asia Pacific,Australia,Office Supplies,Binders,Online,183,1408
+2025-02-18,Europe,Germany,Technology,Printers,Online,7,1638
+2025-04-29,Europe,Germany,Office Supplies,Labels,Online,131,754
+2025-07-28,Europe,France,Office Supplies,Labels,Online,55,321
+2025-10-25,Europe,United Kingdom,Office Supplies,Labels,Online,28,171
+2025-08-16,Asia Pacific,Singapore,Furniture,Desks,Online,2,620
+2025-01-09,Latin America,Brazil,Office Supplies,Paper,Retail,53,521
+2025-01-10,North America,United States,Furniture,Bookcases,Partner,3,407
+2025-03-21,Europe,Germany,Office Supplies,Binders,Online,72,479
+2025-02-12,Asia Pacific,Singapore,Technology,Laptops,Online,8,8458
+2025-12-29,North America,Canada,Office Supplies,Pens,Retail,105,389
+2025-01-26,Europe,Germany,Office Supplies,Pens,Online,165,711
+2025-11-28,Latin America,Colombia,Furniture,Lamps,Online,1,40
+2025-12-22,Latin America,Brazil,Office Supplies,Pens,Online,198,846
+2025-06-05,Europe,Italy,Technology,Laptops,Online,6,7359
+2025-12-18,Europe,Germany,Technology,Printers,Online,5,1142
+2025-02-24,Latin America,Brazil,Office Supplies,Binders,Online,146,954
+2025-06-09,Asia Pacific,Japan,Office Supplies,Pens,Online,147,558
+2025-11-12,North America,United States,Technology,Phones,Retail,6,3993
+2025-11-29,Europe,France,Technology,Printers,Online,6,1262
+2025-06-13,Asia Pacific,Japan,Furniture,Bookcases,Retail,3,403
+2025-07-16,Europe,United Kingdom,Furniture,Lamps,Retail,7,297
+2025-04-14,North America,United States,Furniture,Bookcases,Online,11,1384
+2025-06-28,North America,Canada,Technology,Monitors,Online,3,848
+2025-02-25,North America,United States,Furniture,Lamps,Partner,10,346
+2025-09-09,Asia Pacific,Japan,Office Supplies,Binders,Partner,117,733
+2025-12-19,North America,Canada,Technology,Printers,Online,6,1186
+2025-12-10,North America,United States,Technology,Laptops,Online,4,4240
+2025-12-29,Europe,Germany,Furniture,Chairs,Online,4,655
+2025-04-27,North America,United States,Technology,Printers,Online,3,622
+2025-12-14,North America,Mexico,Furniture,Chairs,Retail,8,1234
+2025-09-11,North America,United States,Technology,Printers,Online,1,246
+2025-04-30,North America,United States,Furniture,Bookcases,Online,2,252
+2025-08-07,Europe,Germany,Furniture,Chairs,Online,9,1712
+2025-02-05,Asia Pacific,Australia,Office Supplies,Binders,Retail,139,966
+2025-09-29,Latin America,Brazil,Furniture,Lamps,Online,11,509
+2025-05-14,Europe,Germany,Technology,Phones,Retail,8,6063
+2025-06-10,North America,Canada,Technology,Monitors,Online,2,542
+2025-11-04,Europe,United Kingdom,Office Supplies,Labels,Online,156,830
+2025-06-14,Europe,Spain,Office Supplies,Binders,Retail,168,1192
+2025-03-16,North America,Mexico,Furniture,Bookcases,Online,2,273
+2025-10-15,Europe,United Kingdom,Furniture,Desks,Retail,1,303
+2025-05-09,Europe,United Kingdom,Technology,Printers,Retail,3,707
+2025-08-19,Europe,Spain,Office Supplies,Labels,Online,50,318
+2025-04-10,Europe,Italy,Technology,Laptops,Online,3,3460
+2025-02-15,Asia Pacific,Australia,Furniture,Chairs,Online,1,177
+2025-09-03,Latin America,Argentina,Technology,Printers,Partner,7,1308
+2025-09-06,Europe,Netherlands,Technology,Laptops,Retail,5,5140
+2025-01-31,North America,United States,Technology,Monitors,Retail,3,750
+2025-07-04,Latin America,Chile,Office Supplies,Labels,Retail,198,1012
+2025-05-05,Europe,United Kingdom,Furniture,Desks,Online,4,1368
+2025-08-22,North America,Canada,Furniture,Desks,Retail,12,3717
+2025-07-26,North America,United States,Technology,Monitors,Online,5,1265
+2025-11-23,Europe,Spain,Technology,Laptops,Retail,8,9282
+2025-08-10,Europe,France,Office Supplies,Labels,Partner,129,712
+2025-10-16,Europe,Italy,Office Supplies,Paper,Online,86,778
+2025-01-10,North America,Canada,Furniture,Bookcases,Retail,2,278
+2025-05-25,Europe,Netherlands,Furniture,Chairs,Retail,2,343
+2025-04-10,North America,United States,Technology,Monitors,Online,2,551
+2025-05-04,Asia Pacific,Japan,Technology,Phones,Retail,3,2260
+2025-02-23,Europe,France,Furniture,Lamps,Retail,5,219
+2025-06-13,North America,Canada,Technology,Phones,Retail,1,752
+2025-07-26,Latin America,Brazil,Furniture,Bookcases,Retail,11,1520
+2025-03-06,North America,United States,Technology,Phones,Partner,8,4279
+2025-02-28,Europe,United Kingdom,Technology,Phones,Retail,1,593
+2025-04-04,North America,United States,Office Supplies,Labels,Online,75,452
+2025-02-20,North America,United States,Furniture,Desks,Retail,12,4002
+2025-05-16,Asia Pacific,India,Office Supplies,Labels,Online,128,745
+2025-06-15,Asia Pacific,Japan,Office Supplies,Labels,Online,74,417
+2025-06-02,Europe,Italy,Furniture,Lamps,Retail,5,198
+2025-01-26,Latin America,Brazil,Technology,Phones,Online,5,3787
+2025-07-18,Europe,United Kingdom,Furniture,Bookcases,Partner,12,1437
+2025-09-23,Asia Pacific,India,Furniture,Chairs,Online,2,332
+2025-09-01,North America,Mexico,Office Supplies,Pens,Retail,83,288
+2025-05-01,North America,United States,Furniture,Desks,Online,10,3279
+2025-03-04,Latin America,Argentina,Office Supplies,Binders,Online,142,1047
+2025-04-13,North America,United States,Furniture,Lamps,Online,11,537
+2025-12-19,Asia Pacific,Japan,Technology,Monitors,Online,5,1384
+2025-03-16,Europe,United Kingdom,Office Supplies,Binders,Retail,133,951
+2025-08-19,Europe,Germany,Furniture,Chairs,Retail,8,1468
+2025-08-28,Europe,Italy,Office Supplies,Binders,Online,175,1059
+2025-12-04,Europe,France,Office Supplies,Pens,Retail,31,128
+2025-03-25,Europe,Spain,Furniture,Chairs,Retail,1,197
+2025-11-13,North America,United States,Technology,Printers,Online,6,1277
+2025-12-24,Latin America,Brazil,Technology,Monitors,Online,1,282
+2025-09-03,Europe,United Kingdom,Office Supplies,Paper,Retail,46,384
+2025-11-10,Europe,United Kingdom,Technology,Printers,Online,2,413
+2025-01-14,Europe,Germany,Office Supplies,Paper,Partner,177,1272
+2025-11-09,Europe,Spain,Office Supplies,Paper,Partner,83,691
+2025-09-23,Latin America,Argentina,Office Supplies,Paper,Retail,150,1209
+2025-11-24,Asia Pacific,India,Technology,Printers,Partner,1,177
+2025-08-02,Europe,Netherlands,Technology,Laptops,Retail,8,7884
+2025-02-13,Asia Pacific,India,Technology,Phones,Online,5,3270
+2025-03-15,Europe,Germany,Technology,Printers,Retail,1,238
+2025-01-05,Europe,Netherlands,Furniture,Lamps,Retail,6,276
+2025-03-13,Latin America,Brazil,Technology,Phones,Retail,5,3279
+2025-12-19,Europe,Spain,Furniture,Bookcases,Retail,3,395
+2025-12-22,North America,United States,Furniture,Bookcases,Partner,4,448
+2025-05-19,North America,Canada,Technology,Laptops,Online,7,7476
+2025-06-03,North America,Mexico,Technology,Printers,Partner,4,908
+2025-04-08,Europe,Germany,Technology,Monitors,Partner,7,1520
+2025-12-11,Latin America,Brazil,Technology,Laptops,Retail,4,4294
+2025-03-10,Europe,Netherlands,Technology,Printers,Online,3,733
+2025-05-24,North America,Mexico,Technology,Laptops,Retail,4,4133
+2025-10-19,North America,United States,Technology,Phones,Online,2,1205
+2025-01-17,Europe,Netherlands,Furniture,Chairs,Online,12,2201
+2025-12-22,North America,United States,Furniture,Bookcases,Online,3,370
+2025-03-29,Europe,Germany,Office Supplies,Binders,Online,112,780
+2025-04-10,Europe,Italy,Office Supplies,Paper,Retail,177,1456
+2025-04-06,North America,Mexico,Furniture,Chairs,Partner,2,342
+2025-03-11,Europe,Germany,Furniture,Desks,Partner,3,779
+2025-12-11,North America,Mexico,Furniture,Desks,Retail,5,1468
+2025-06-11,North America,United States,Furniture,Bookcases,Online,12,1829
+2025-09-01,North America,United States,Furniture,Chairs,Retail,3,470
+2025-10-30,Europe,United Kingdom,Technology,Phones,Retail,3,1992
+2025-12-13,Europe,Spain,Furniture,Lamps,Online,2,92
+2025-02-13,North America,Mexico,Furniture,Bookcases,Online,2,304
+2025-01-08,Europe,France,Office Supplies,Pens,Online,164,584
+2025-09-05,Europe,Italy,Technology,Phones,Online,1,745
+2025-10-14,Europe,Germany,Technology,Phones,Retail,2,1363
+2025-12-12,North America,Mexico,Furniture,Lamps,Retail,11,497
+2025-12-05,Asia Pacific,India,Technology,Monitors,Online,8,2074
+2025-08-21,Latin America,Chile,Technology,Phones,Partner,7,4107
+2025-09-02,Europe,United Kingdom,Technology,Monitors,Online,8,1976
+2025-11-16,Latin America,Brazil,Technology,Printers,Partner,4,908
+2025-10-28,North America,United States,Office Supplies,Labels,Online,109,570
+2025-11-03,North America,United States,Furniture,Desks,Retail,4,1377
+2025-03-30,Asia Pacific,Australia,Office Supplies,Paper,Retail,48,405
+2025-02-03,North America,United States,Technology,Printers,Partner,2,371
+2025-01-05,North America,United States,Technology,Laptops,Partner,6,5800
+2025-08-21,Asia Pacific,Japan,Furniture,Desks,Retail,9,2537
+2025-01-21,Europe,Germany,Furniture,Chairs,Online,9,1439
+2025-09-06,Europe,United Kingdom,Furniture,Lamps,Retail,11,469
+2025-10-26,Latin America,Brazil,Office Supplies,Pens,Partner,191,680
+2025-04-04,Asia Pacific,Japan,Technology,Laptops,Online,6,6848
+2025-05-22,Asia Pacific,India,Technology,Monitors,Retail,1,239
+2025-12-26,North America,United States,Office Supplies,Paper,Online,58,550
+2025-09-14,Europe,Germany,Office Supplies,Pens,Partner,23,83
+2025-08-17,Asia Pacific,Australia,Furniture,Lamps,Online,1,39
+2025-05-22,Europe,United Kingdom,Furniture,Chairs,Retail,3,535
+2025-11-20,North America,United States,Office Supplies,Paper,Online,34,265
+2025-10-07,Asia Pacific,Japan,Furniture,Lamps,Online,7,295
+2025-09-14,Europe,Spain,Office Supplies,Labels,Online,169,893
+2025-12-09,Europe,Germany,Furniture,Lamps,Retail,9,437
+2025-12-03,Europe,Italy,Furniture,Bookcases,Retail,9,1323
+2025-02-11,Europe,France,Technology,Monitors,Online,4,950
+2025-10-11,Asia Pacific,Singapore,Office Supplies,Pens,Retail,149,576
+2025-04-10,Asia Pacific,India,Furniture,Desks,Online,10,3235
+2025-10-25,Europe,Spain,Office Supplies,Pens,Online,99,380
+2025-12-31,Europe,United Kingdom,Office Supplies,Binders,Partner,133,851
+2025-05-30,Europe,United Kingdom,Technology,Phones,Partner,1,530
+2025-09-25,Asia Pacific,Japan,Furniture,Chairs,Retail,6,1135
+2025-11-23,Latin America,Colombia,Office Supplies,Pens,Online,196,708
+2025-05-04,North America,United States,Furniture,Chairs,Online,1,164
+2025-11-14,Latin America,Colombia,Technology,Printers,Partner,3,670
+2025-12-23,North America,United States,Furniture,Desks,Retail,12,3645
+2025-10-19,Europe,Germany,Technology,Monitors,Online,4,1131
+2025-09-26,Asia Pacific,Australia,Technology,Printers,Online,3,659
+2025-10-15,Asia Pacific,Japan,Office Supplies,Paper,Partner,107,818
+2025-05-12,Europe,Germany,Furniture,Desks,Partner,2,625
+2025-01-03,North America,Canada,Office Supplies,Paper,Online,63,531
+2025-02-19,North America,United States,Technology,Phones,Partner,6,3492
+2025-04-18,North America,Mexico,Office Supplies,Paper,Online,77,742
+2025-05-16,North America,United States,Office Supplies,Paper,Online,153,1493
+2025-01-27,North America,United States,Furniture,Lamps,Partner,1,37
+2025-11-23,Asia Pacific,Singapore,Office Supplies,Paper,Retail,24,230
+2025-01-03,Asia Pacific,India,Office Supplies,Labels,Retail,151,790
+2025-11-10,Europe,Germany,Technology,Printers,Retail,5,1019
+2025-02-12,Europe,France,Technology,Printers,Partner,3,543
+2025-06-10,Asia Pacific,Japan,Office Supplies,Pens,Online,164,638
+2025-04-22,Latin America,Brazil,Office Supplies,Paper,Online,57,519
+2025-11-30,Asia Pacific,Australia,Technology,Monitors,Partner,2,411
+2025-06-22,Europe,Germany,Office Supplies,Pens,Online,113,385
+2025-07-19,Asia Pacific,Australia,Technology,Printers,Online,5,1091
+2025-05-19,Europe,Italy,Furniture,Bookcases,Online,11,1669
+2025-05-11,Europe,Germany,Technology,Monitors,Retail,2,495
+2025-03-01,Europe,Germany,Technology,Laptops,Online,7,8611
+2025-11-21,Latin America,Brazil,Furniture,Lamps,Retail,3,146
+2025-12-07,North America,United States,Office Supplies,Pens,Online,52,217
+2025-05-18,Europe,United Kingdom,Technology,Phones,Online,6,3864
+2025-12-03,Asia Pacific,India,Office Supplies,Binders,Online,92,552
+2025-05-26,North America,Canada,Office Supplies,Pens,Retail,36,141
+2025-03-27,Asia Pacific,Australia,Furniture,Desks,Partner,8,2498
+2025-06-24,North America,Mexico,Furniture,Lamps,Partner,4,139
+2025-11-01,Asia Pacific,Japan,Office Supplies,Labels,Online,47,260
+2025-02-10,Asia Pacific,Japan,Furniture,Chairs,Retail,1,155
+2025-10-08,Latin America,Colombia,Technology,Laptops,Online,4,4890
+2025-02-14,Asia Pacific,Australia,Office Supplies,Paper,Online,95,884
+2025-08-07,Latin America,Chile,Furniture,Desks,Online,5,1754
+2025-08-09,Europe,Spain,Technology,Laptops,Online,3,3538
+2025-08-02,Latin America,Chile,Office Supplies,Binders,Online,45,321
+2025-08-18,Europe,Germany,Office Supplies,Paper,Partner,24,199
+2025-04-07,North America,United States,Technology,Monitors,Online,1,282
+2025-01-10,North America,United States,Technology,Printers,Partner,6,1215
+2025-06-08,North America,Canada,Furniture,Chairs,Partner,11,1673
+2025-06-03,Asia Pacific,Japan,Technology,Monitors,Retail,5,1415
+2025-09-27,Europe,Germany,Technology,Laptops,Retail,2,2117
+2025-10-06,Europe,France,Technology,Phones,Partner,3,1611
+2025-10-29,North America,United States,Furniture,Bookcases,Retail,2,297
+2025-02-21,Europe,France,Office Supplies,Pens,Online,111,446
+2025-03-15,North America,Canada,Office Supplies,Binders,Online,39,253
+2025-01-01,Latin America,Argentina,Office Supplies,Binders,Partner,39,224
+2025-09-28,Asia Pacific,India,Furniture,Bookcases,Online,11,1426
+2025-11-09,Europe,United Kingdom,Technology,Laptops,Retail,4,4030
+2025-01-14,North America,United States,Office Supplies,Paper,Online,114,972
+2025-01-26,Europe,Spain,Furniture,Chairs,Partner,3,483
+2025-09-20,Europe,Germany,Technology,Phones,Online,7,4129
+2025-03-25,Europe,France,Furniture,Lamps,Online,9,357
+2025-03-08,Asia Pacific,India,Furniture,Desks,Partner,4,1218
+2025-05-25,Europe,Italy,Furniture,Chairs,Retail,3,498
+2025-09-17,Europe,Spain,Furniture,Chairs,Retail,2,372
+2025-10-23,Europe,Netherlands,Technology,Printers,Retail,7,1583
+2025-11-29,Asia Pacific,Japan,Technology,Phones,Retail,3,2111
+2025-11-02,Europe,France,Office Supplies,Binders,Partner,143,780
+2025-11-11,Asia Pacific,Japan,Office Supplies,Paper,Partner,53,458
+2025-09-29,Europe,United Kingdom,Office Supplies,Paper,Online,99,874
+2025-06-03,North America,United States,Technology,Printers,Retail,3,718
+2025-08-22,Asia Pacific,Australia,Technology,Printers,Online,3,745
+2025-10-19,North America,Canada,Office Supplies,Binders,Online,25,160
+2025-03-27,North America,United States,Technology,Laptops,Retail,7,8758
+2025-12-15,Europe,France,Furniture,Chairs,Partner,10,1475
+2025-12-18,Asia Pacific,Japan,Technology,Phones,Online,8,4957
+2025-04-25,North America,United States,Technology,Laptops,Online,1,1046
+2025-02-21,Asia Pacific,India,Technology,Printers,Online,7,1575
+2025-12-11,Europe,Netherlands,Office Supplies,Labels,Retail,181,1152
+2025-06-03,Asia Pacific,Japan,Furniture,Lamps,Online,3,127
+2025-11-25,North America,Mexico,Furniture,Lamps,Retail,5,236
+2025-01-05,Europe,France,Furniture,Lamps,Retail,3,146
+2025-08-04,North America,United States,Office Supplies,Paper,Retail,185,1755
+2025-07-24,Europe,Italy,Technology,Printers,Online,4,945
+2025-10-17,Asia Pacific,Japan,Furniture,Chairs,Online,7,1305
+2025-01-12,Europe,Spain,Technology,Monitors,Partner,4,923
+2025-09-25,Asia Pacific,Singapore,Office Supplies,Paper,Online,137,1353
+2025-11-08,Europe,France,Office Supplies,Binders,Retail,25,177
+2025-12-20,Europe,Germany,Technology,Monitors,Retail,5,1421
+2025-02-11,Europe,Germany,Furniture,Chairs,Online,5,934
+2025-09-01,Asia Pacific,Japan,Furniture,Bookcases,Retail,10,1362
+2025-05-10,North America,United States,Technology,Printers,Retail,2,393
+2025-05-11,Europe,France,Technology,Laptops,Online,1,1199
+2025-12-15,Latin America,Argentina,Furniture,Lamps,Retail,8,341
+2025-01-06,Europe,Spain,Furniture,Desks,Online,1,325
+2025-12-11,Europe,Spain,Technology,Laptops,Partner,7,6600
+2025-11-16,Latin America,Argentina,Office Supplies,Labels,Retail,56,360
+2025-12-15,Latin America,Brazil,Office Supplies,Pens,Partner,179,576
+2025-08-26,Asia Pacific,Japan,Technology,Laptops,Online,5,5416
+2025-10-18,Latin America,Brazil,Furniture,Desks,Partner,1,291
+2025-03-08,Europe,Germany,Office Supplies,Pens,Online,30,121
+2025-11-21,Latin America,Argentina,Furniture,Chairs,Partner,10,1768
+2025-09-28,Europe,United Kingdom,Furniture,Chairs,Retail,3,575
+2025-03-31,Europe,Germany,Technology,Phones,Retail,8,5096
+2025-12-04,Asia Pacific,India,Technology,Printers,Retail,5,990
+2025-11-03,Europe,France,Furniture,Lamps,Retail,3,126
+2025-03-09,North America,Mexico,Office Supplies,Pens,Online,81,302
+2025-02-01,Asia Pacific,Japan,Technology,Monitors,Retail,3,804
+2025-09-08,Latin America,Brazil,Furniture,Bookcases,Online,3,436
+2025-02-02,North America,United States,Technology,Monitors,Retail,4,1097
+2025-07-28,Latin America,Brazil,Technology,Monitors,Retail,1,264
+2025-09-11,Europe,France,Furniture,Desks,Online,10,3172
+2025-06-28,North America,United States,Technology,Printers,Retail,7,1662
+2025-06-17,North America,United States,Office Supplies,Pens,Online,92,400
+2025-01-25,Europe,Italy,Office Supplies,Paper,Retail,132,1180
+2025-11-12,Asia Pacific,India,Technology,Phones,Partner,3,1666
+2025-12-24,North America,Canada,Furniture,Lamps,Partner,6,259
+2025-11-04,North America,United States,Furniture,Bookcases,Partner,5,684
+2025-02-10,Asia Pacific,India,Office Supplies,Pens,Online,37,128
+2025-07-15,North America,United States,Technology,Monitors,Online,5,1346
+2025-04-12,North America,United States,Technology,Monitors,Retail,4,1040
+2025-06-03,Europe,Germany,Technology,Monitors,Retail,5,1299
+2025-12-09,Europe,Germany,Furniture,Lamps,Online,7,295
+2025-09-06,North America,United States,Office Supplies,Labels,Retail,134,685
+2025-04-03,Europe,France,Technology,Laptops,Retail,6,6725
+2025-10-12,North America,United States,Office Supplies,Binders,Partner,111,710
+2025-12-04,Latin America,Brazil,Office Supplies,Labels,Online,114,612
+2025-01-20,Latin America,Brazil,Technology,Printers,Online,6,1339
+2025-05-31,Europe,United Kingdom,Furniture,Desks,Online,7,2343
+2025-11-17,North America,United States,Furniture,Bookcases,Online,12,1844
+2025-08-25,Latin America,Brazil,Furniture,Lamps,Online,9,441
+2025-12-12,North America,Canada,Office Supplies,Labels,Retail,156,908
+2025-07-28,Latin America,Chile,Technology,Printers,Retail,6,1401
+2025-10-16,Europe,Germany,Technology,Printers,Online,2,475
+2025-05-04,Latin America,Chile,Furniture,Desks,Partner,2,598
+2025-12-28,North America,Mexico,Office Supplies,Labels,Retail,132,707
+2025-02-26,Asia Pacific,Japan,Furniture,Chairs,Partner,9,1504
+2025-11-02,North America,United States,Office Supplies,Binders,Partner,86,570
+2025-10-29,Asia Pacific,Singapore,Furniture,Lamps,Partner,3,105
+2025-04-09,Asia Pacific,Singapore,Office Supplies,Pens,Retail,20,70
+2025-11-01,Latin America,Argentina,Technology,Phones,Partner,8,5011
+2025-04-23,North America,Canada,Technology,Laptops,Online,7,7801
+2025-01-26,Europe,United Kingdom,Technology,Laptops,Online,3,3398
+2025-03-25,North America,United States,Office Supplies,Labels,Partner,67,380
+2025-03-02,Europe,Germany,Furniture,Bookcases,Retail,3,403
+2025-09-05,Asia Pacific,Japan,Technology,Monitors,Retail,7,1566
+2025-06-12,Europe,Germany,Technology,Printers,Retail,8,1727
+2025-01-18,Europe,Netherlands,Furniture,Lamps,Online,4,171
+2025-04-02,North America,Canada,Furniture,Lamps,Online,1,49
+2025-12-06,Asia Pacific,India,Office Supplies,Pens,Retail,128,530
+2025-06-20,North America,Canada,Furniture,Chairs,Online,1,168
+2025-06-09,Europe,Italy,Furniture,Lamps,Online,1,43
+2025-02-20,Asia Pacific,Australia,Furniture,Bookcases,Retail,3,446
+2025-09-09,Asia Pacific,Australia,Office Supplies,Paper,Retail,172,1658
+2025-09-04,Europe,Germany,Furniture,Desks,Online,2,623
+2025-10-20,Europe,France,Technology,Laptops,Online,8,9571
+2025-01-09,Europe,United Kingdom,Technology,Monitors,Partner,5,1019
+2025-07-02,North America,United States,Office Supplies,Paper,Online,127,999
+2025-10-07,Asia Pacific,Japan,Technology,Laptops,Online,7,8476
+2025-05-03,Europe,Italy,Office Supplies,Paper,Partner,85,649
+2025-09-28,Latin America,Chile,Office Supplies,Binders,Retail,76,519
+2025-03-31,Asia Pacific,Japan,Office Supplies,Labels,Partner,173,855
+2025-07-13,Asia Pacific,Australia,Technology,Printers,Online,7,1602
+2025-06-23,Europe,France,Furniture,Desks,Online,9,2992
+2025-11-02,Europe,France,Office Supplies,Labels,Partner,164,843
+2025-04-12,North America,United States,Office Supplies,Paper,Retail,142,1234
+2025-10-10,North America,Canada,Technology,Phones,Retail,8,5397
+2025-12-17,Europe,Germany,Furniture,Lamps,Online,9,348
+2025-07-01,Latin America,Colombia,Furniture,Lamps,Retail,12,554
+2025-11-16,Europe,Netherlands,Office Supplies,Labels,Retail,127,781
+2025-03-10,Asia Pacific,Singapore,Office Supplies,Labels,Retail,119,739
+2025-03-08,North America,Mexico,Furniture,Desks,Retail,3,959
+2025-09-30,Asia Pacific,Japan,Office Supplies,Pens,Online,61,210
+2025-04-21,Europe,Italy,Office Supplies,Pens,Retail,60,246
+2025-10-02,Asia Pacific,India,Technology,Printers,Retail,2,405
+2025-03-17,Europe,France,Office Supplies,Binders,Online,117,745
+2025-05-29,Europe,Germany,Furniture,Chairs,Online,12,1967
+2025-03-12,Europe,France,Technology,Monitors,Online,3,675
+2025-12-19,Europe,France,Office Supplies,Labels,Online,186,977
+2025-01-03,Asia Pacific,Australia,Technology,Printers,Retail,3,758
+2025-12-15,Asia Pacific,Japan,Furniture,Lamps,Online,1,49
+2025-01-28,Europe,France,Office Supplies,Pens,Retail,125,499
+2025-10-20,North America,Canada,Furniture,Lamps,Online,1,39
+2025-07-16,Asia Pacific,Japan,Technology,Monitors,Retail,6,1528
+2025-11-05,Asia Pacific,India,Furniture,Bookcases,Online,12,1629
+2025-06-16,North America,Canada,Office Supplies,Pens,Online,27,116
+2025-07-09,Asia Pacific,Japan,Technology,Monitors,Retail,7,1955
+2025-04-11,Europe,Italy,Technology,Phones,Retail,3,2154
+2025-06-20,Europe,Netherlands,Office Supplies,Labels,Online,145,831
+2025-03-30,Europe,Netherlands,Office Supplies,Labels,Retail,49,309
+2025-10-11,Europe,Italy,Office Supplies,Pens,Partner,80,259
+2025-11-28,Europe,United Kingdom,Furniture,Desks,Retail,11,3260
+2025-04-06,North America,United States,Technology,Laptops,Online,3,3125
+2025-07-26,Asia Pacific,Australia,Technology,Printers,Retail,7,1724
+2025-11-02,North America,Canada,Furniture,Desks,Online,7,1908
+2025-07-17,Latin America,Chile,Office Supplies,Pens,Online,51,174
+2025-11-12,Latin America,Argentina,Office Supplies,Paper,Partner,172,1445
+2025-06-22,North America,Canada,Office Supplies,Binders,Retail,165,1140
+2025-09-04,North America,United States,Office Supplies,Labels,Online,77,455
+2025-01-08,North America,Canada,Furniture,Bookcases,Retail,7,858
+2025-10-04,Latin America,Colombia,Furniture,Desks,Partner,1,289
+2025-10-11,Europe,France,Technology,Phones,Online,7,4412
+2025-12-19,North America,Canada,Office Supplies,Labels,Online,158,810
+2025-02-05,Europe,Spain,Furniture,Desks,Retail,2,606
+2025-04-04,Europe,Germany,Technology,Phones,Partner,8,4873
+2025-11-01,Europe,Italy,Office Supplies,Pens,Retail,186,797
+2025-12-26,North America,Mexico,Technology,Laptops,Online,5,5046
+2025-11-15,North America,United States,Technology,Phones,Partner,7,4263
+2025-07-03,Europe,France,Office Supplies,Binders,Online,174,1053
+2025-10-16,Europe,France,Furniture,Desks,Partner,8,2278
+2025-11-04,Europe,France,Furniture,Chairs,Online,6,969
+2025-04-28,North America,United States,Office Supplies,Binders,Online,69,473
+2025-07-09,Europe,United Kingdom,Technology,Printers,Online,1,204
+2025-04-20,North America,Canada,Office Supplies,Paper,Online,166,1285
+2025-05-31,North America,United States,Office Supplies,Labels,Online,146,783
+2025-03-15,North America,United States,Technology,Laptops,Online,1,1144
+2025-06-20,Asia Pacific,Japan,Technology,Monitors,Partner,6,1482
+2025-05-02,North America,United States,Office Supplies,Labels,Online,145,819
+2025-02-06,Asia Pacific,Japan,Office Supplies,Labels,Online,46,269
+2025-04-12,Europe,United Kingdom,Furniture,Bookcases,Retail,8,1175
+2025-12-06,Europe,Spain,Technology,Phones,Retail,7,5101
+2025-12-26,Europe,United Kingdom,Technology,Printers,Partner,1,209
+2025-12-01,North America,Mexico,Furniture,Chairs,Online,2,385
+2025-03-13,Europe,Spain,Technology,Laptops,Partner,2,1922
+2025-12-29,Europe,United Kingdom,Technology,Monitors,Retail,1,232
+2025-07-13,Latin America,Chile,Technology,Printers,Retail,5,1112
+2025-08-01,North America,Canada,Technology,Laptops,Partner,4,4221
+2025-03-13,North America,United States,Furniture,Desks,Retail,8,2209
+2025-04-24,Europe,Spain,Office Supplies,Labels,Retail,22,128
+2025-11-20,North America,Canada,Furniture,Chairs,Retail,8,1457
+2025-04-15,North America,United States,Technology,Phones,Partner,6,3375
+2025-10-17,Europe,United Kingdom,Furniture,Bookcases,Partner,5,588
+2025-01-27,Europe,France,Furniture,Desks,Partner,1,294
+2025-02-18,North America,United States,Technology,Laptops,Partner,1,924
+2025-03-02,Asia Pacific,Japan,Technology,Laptops,Online,4,4468
+2025-10-14,Latin America,Argentina,Furniture,Chairs,Partner,5,842
+2025-12-19,Asia Pacific,Japan,Office Supplies,Binders,Retail,69,456
+2025-01-08,North America,United States,Furniture,Desks,Retail,5,1448
+2025-08-14,Asia Pacific,India,Technology,Monitors,Partner,5,1217
+2025-09-25,North America,Mexico,Furniture,Chairs,Retail,3,515
+2025-04-17,Europe,Italy,Office Supplies,Binders,Online,32,244
+2025-12-23,Europe,Italy,Technology,Printers,Retail,6,1408
+2025-09-21,Europe,United Kingdom,Office Supplies,Paper,Partner,147,1305
+2025-01-30,Latin America,Brazil,Office Supplies,Labels,Online,130,842
+2025-09-09,North America,Canada,Technology,Monitors,Retail,1,252
+2025-05-17,Europe,Germany,Technology,Printers,Online,5,1256
+2025-01-14,Europe,Italy,Technology,Printers,Partner,2,385
+2025-01-06,Europe,United Kingdom,Office Supplies,Pens,Online,177,621
+2025-05-10,Europe,France,Technology,Phones,Online,8,5750
+2025-10-22,Europe,United Kingdom,Technology,Laptops,Online,1,1199
+2025-07-07,Europe,Netherlands,Technology,Printers,Partner,8,1799
+2025-06-26,Asia Pacific,Japan,Furniture,Lamps,Retail,8,390
+2025-06-05,Asia Pacific,Japan,Furniture,Bookcases,Online,3,374
+2025-05-08,Asia Pacific,Australia,Technology,Monitors,Online,6,1401
+2025-06-27,Europe,Netherlands,Office Supplies,Labels,Online,187,1153
+2025-11-02,North America,United States,Furniture,Desks,Partner,1,273
+2025-04-19,Asia Pacific,India,Technology,Phones,Online,1,739
+2025-02-24,Latin America,Brazil,Office Supplies,Pens,Online,146,577
+2025-04-26,Europe,Italy,Furniture,Lamps,Partner,5,222
+2025-10-04,Europe,Spain,Office Supplies,Paper,Online,22,191
+2025-06-28,North America,United States,Technology,Monitors,Online,4,1118
+2025-11-21,Europe,Germany,Technology,Laptops,Online,7,8705
+2025-01-18,North America,United States,Office Supplies,Labels,Online,169,899
+2025-05-11,North America,United States,Technology,Phones,Online,4,2679
+2025-04-20,Europe,United Kingdom,Office Supplies,Binders,Online,24,149
+2025-10-30,Europe,Italy,Technology,Printers,Partner,8,1732
+2025-09-13,Latin America,Brazil,Furniture,Lamps,Retail,9,416
+2025-04-04,Asia Pacific,Japan,Furniture,Bookcases,Partner,5,608
+2025-01-26,Asia Pacific,Singapore,Furniture,Desks,Online,12,3314
+2025-12-27,Asia Pacific,Japan,Furniture,Desks,Partner,3,905
+2025-09-15,Europe,France,Office Supplies,Pens,Retail,117,505
+2025-05-18,Latin America,Chile,Technology,Monitors,Retail,6,1363
+2025-08-17,Europe,Germany,Office Supplies,Paper,Retail,133,1029
+2025-05-22,Europe,Spain,Furniture,Bookcases,Retail,12,1842
+2025-01-07,Asia Pacific,Japan,Furniture,Bookcases,Partner,2,216
+2025-01-20,Asia Pacific,Japan,Furniture,Lamps,Partner,8,280
+2025-09-22,Europe,United Kingdom,Technology,Laptops,Retail,7,8565
+2025-11-21,Europe,United Kingdom,Technology,Laptops,Retail,6,6171
+2025-01-05,North America,United States,Technology,Laptops,Retail,1,1239
+2025-06-09,Europe,France,Office Supplies,Paper,Retail,62,554
+2025-07-26,Europe,France,Furniture,Chairs,Partner,4,702
+2025-05-17,Asia Pacific,Japan,Technology,Laptops,Online,5,5660
+2025-12-24,Latin America,Chile,Furniture,Lamps,Online,2,88
+2025-11-12,Europe,United Kingdom,Office Supplies,Pens,Partner,141,524
+2025-06-05,North America,United States,Office Supplies,Labels,Online,117,615
+2025-07-25,North America,United States,Office Supplies,Pens,Retail,77,317
+2025-03-29,Asia Pacific,Japan,Furniture,Desks,Retail,2,633
+2025-07-10,Europe,Netherlands,Furniture,Lamps,Online,11,426
+2025-12-11,Latin America,Brazil,Technology,Monitors,Online,1,225
+2025-11-23,North America,Mexico,Furniture,Desks,Partner,4,1142
+2025-01-14,Europe,Italy,Technology,Printers,Online,6,1310
+2025-10-25,North America,United States,Furniture,Chairs,Online,6,1097
+2025-03-15,Europe,France,Furniture,Chairs,Partner,8,1173
+2025-05-21,Asia Pacific,Japan,Office Supplies,Binders,Retail,30,190
+2025-03-09,Europe,United Kingdom,Furniture,Lamps,Retail,4,160
+2025-05-04,Europe,Germany,Technology,Monitors,Partner,1,206
+2025-12-23,North America,Canada,Furniture,Chairs,Partner,4,671
+2025-03-27,Asia Pacific,India,Office Supplies,Pens,Online,92,319
+2025-04-21,Asia Pacific,Japan,Technology,Laptops,Partner,5,5388
+2025-04-25,Europe,Netherlands,Technology,Phones,Retail,3,1762
+2025-12-15,North America,Mexico,Furniture,Lamps,Online,9,358
+2025-03-09,Europe,Germany,Furniture,Chairs,Partner,1,168
+2025-04-05,Europe,United Kingdom,Office Supplies,Pens,Partner,43,144
+2025-11-26,North America,Canada,Furniture,Chairs,Online,1,169
+2025-07-02,Asia Pacific,Japan,Technology,Phones,Retail,4,2440
+2025-09-17,Europe,Germany,Office Supplies,Labels,Online,196,1237
+2025-11-30,Europe,Italy,Furniture,Desks,Online,4,1381
+2025-10-06,Europe,United Kingdom,Office Supplies,Labels,Retail,101,542
+2025-10-26,Europe,Spain,Furniture,Chairs,Partner,8,1288
+2025-11-09,Asia Pacific,Japan,Technology,Monitors,Online,1,260
+2025-08-01,Asia Pacific,Singapore,Office Supplies,Binders,Online,96,620
+2025-12-30,Europe,Spain,Office Supplies,Paper,Retail,123,1142
+2025-07-21,Asia Pacific,Australia,Furniture,Bookcases,Online,1,138
+2025-04-15,Europe,Netherlands,Technology,Monitors,Online,1,237
+2025-12-30,Latin America,Colombia,Office Supplies,Paper,Online,50,491
+2025-09-07,North America,Canada,Technology,Printers,Online,5,1029
+2025-09-12,Asia Pacific,Australia,Furniture,Desks,Online,10,3251
+2025-08-14,Asia Pacific,Japan,Office Supplies,Labels,Online,26,137
+2025-12-10,Europe,United Kingdom,Furniture,Desks,Retail,11,3467
+2025-05-16,Europe,Germany,Furniture,Bookcases,Partner,1,130
+2025-03-10,Europe,Netherlands,Technology,Laptops,Retail,5,6057
+2025-02-22,North America,United States,Furniture,Chairs,Online,11,1876
+2025-04-21,Europe,Italy,Technology,Laptops,Retail,3,3671
+2025-12-07,North America,Canada,Furniture,Bookcases,Retail,6,917
+2025-12-12,Asia Pacific,India,Office Supplies,Labels,Retail,98,537
+2025-09-18,Europe,Italy,Technology,Monitors,Online,3,734
+2025-02-27,Europe,United Kingdom,Furniture,Desks,Online,11,3276
+2025-04-24,Europe,Germany,Office Supplies,Binders,Online,200,1463
+2025-04-30,Asia Pacific,Japan,Furniture,Bookcases,Online,7,842
+2025-03-03,Europe,Spain,Technology,Phones,Online,2,1185
+2025-03-06,Europe,Spain,Office Supplies,Binders,Online,76,518
+2025-03-14,Europe,Germany,Furniture,Bookcases,Online,9,1100
+2025-08-12,Europe,United Kingdom,Technology,Phones,Retail,6,3629
+2025-07-22,Asia Pacific,Australia,Office Supplies,Pens,Online,97,422
+2025-11-19,Europe,United Kingdom,Technology,Laptops,Online,4,4721
+2025-03-13,Europe,United Kingdom,Furniture,Lamps,Retail,9,407
+2025-10-06,North America,United States,Furniture,Lamps,Online,6,237
+2025-01-05,Asia Pacific,Japan,Furniture,Desks,Online,9,3058
+2025-12-24,Europe,United Kingdom,Technology,Phones,Retail,7,4174
+2025-06-03,Europe,France,Furniture,Chairs,Partner,8,1391
+2025-12-26,Asia Pacific,Japan,Technology,Monitors,Retail,6,1462
+2025-02-22,North America,Mexico,Furniture,Lamps,Partner,2,86
+2025-01-12,North America,Canada,Furniture,Chairs,Partner,9,1512
+2025-07-31,Asia Pacific,Japan,Office Supplies,Paper,Online,197,1761
+2025-05-31,Latin America,Argentina,Technology,Phones,Retail,1,650
+2025-09-23,Europe,France,Office Supplies,Paper,Online,196,1844
+2025-02-14,Europe,Netherlands,Furniture,Desks,Online,7,2042
+2025-10-31,Europe,Spain,Furniture,Desks,Online,11,3096
+2025-08-08,Latin America,Brazil,Furniture,Lamps,Retail,7,283
+2025-10-06,Europe,Italy,Office Supplies,Binders,Retail,182,1161
+2025-09-12,Europe,Germany,Office Supplies,Paper,Online,33,320
+2025-12-22,Europe,United Kingdom,Office Supplies,Pens,Online,137,489
+2025-10-24,Asia Pacific,Japan,Furniture,Bookcases,Retail,2,245
+2025-07-31,Europe,France,Technology,Printers,Partner,5,1075
+2025-09-07,North America,United States,Furniture,Bookcases,Retail,5,755
+2025-10-18,Europe,Netherlands,Furniture,Bookcases,Partner,7,956
+2025-01-27,Europe,Netherlands,Technology,Phones,Online,4,2985
+2025-01-02,Asia Pacific,India,Office Supplies,Labels,Partner,154,775
+2025-02-26,Asia Pacific,Japan,Technology,Printers,Online,5,1074
+2025-02-04,Europe,Germany,Office Supplies,Binders,Online,195,1193
+2025-02-26,Europe,France,Furniture,Bookcases,Retail,12,1750
+2025-02-27,Latin America,Brazil,Office Supplies,Pens,Retail,32,134
+2025-05-20,North America,Mexico,Technology,Laptops,Retail,4,4971
+2025-04-28,Europe,Netherlands,Furniture,Desks,Online,1,343
+2025-12-16,Latin America,Brazil,Office Supplies,Pens,Online,158,580
+2025-07-29,Asia Pacific,Japan,Office Supplies,Labels,Online,140,891
+2025-07-21,North America,Canada,Technology,Laptops,Retail,7,8636
+2025-02-16,Europe,Italy,Furniture,Chairs,Online,4,719
+2025-06-04,Europe,Germany,Office Supplies,Paper,Online,155,1403
+2025-12-12,Asia Pacific,Japan,Office Supplies,Paper,Online,157,1268
+2025-12-13,Asia Pacific,India,Technology,Laptops,Online,5,6319
+2025-09-24,Latin America,Brazil,Office Supplies,Paper,Retail,79,652
+2025-09-24,Europe,France,Technology,Phones,Online,8,5685
+2025-01-23,Latin America,Argentina,Technology,Laptops,Partner,5,4811
+2025-12-14,Latin America,Brazil,Office Supplies,Binders,Online,44,303
+2025-08-27,Europe,Germany,Technology,Laptops,Online,8,7837
+2025-04-14,Europe,United Kingdom,Furniture,Chairs,Online,4,750
+2025-07-03,Asia Pacific,Japan,Office Supplies,Binders,Online,69,449
+2025-04-03,Europe,Germany,Office Supplies,Paper,Retail,172,1345
+2025-12-21,Europe,United Kingdom,Furniture,Bookcases,Retail,1,138
+2025-05-09,Latin America,Chile,Furniture,Lamps,Retail,7,334
+2025-05-25,Asia Pacific,India,Furniture,Lamps,Online,7,282
+2025-05-22,Europe,Germany,Furniture,Lamps,Online,9,393
+2025-08-25,Europe,Spain,Furniture,Lamps,Partner,12,507
+2025-11-20,Asia Pacific,Singapore,Furniture,Lamps,Online,2,99
+2025-11-21,North America,United States,Technology,Phones,Online,1,594
+2025-01-30,Asia Pacific,Japan,Furniture,Desks,Partner,2,562
+2025-10-15,Europe,Spain,Office Supplies,Labels,Partner,68,403
+2025-06-11,Europe,Italy,Technology,Monitors,Retail,4,961
+2025-01-16,North America,United States,Technology,Printers,Partner,8,1816
+2025-11-20,North America,Canada,Office Supplies,Paper,Partner,73,512
+2025-02-26,Latin America,Brazil,Technology,Phones,Online,6,4025
+2025-03-26,Europe,France,Office Supplies,Binders,Partner,147,812
+2025-06-10,Europe,Spain,Office Supplies,Labels,Retail,80,443
+2025-12-09,Latin America,Argentina,Technology,Printers,Online,3,694
+2025-11-09,Europe,Spain,Technology,Monitors,Retail,7,1837
+2025-02-07,Europe,France,Office Supplies,Paper,Partner,127,988
+2025-12-06,North America,United States,Office Supplies,Binders,Retail,35,220
+2025-01-10,North America,United States,Furniture,Desks,Online,7,2183
+2025-12-03,Europe,United Kingdom,Furniture,Chairs,Retail,10,1589
+2025-07-31,Europe,Germany,Technology,Monitors,Retail,4,986
+2025-10-12,Asia Pacific,Australia,Furniture,Lamps,Partner,5,192
+2025-04-14,Europe,United Kingdom,Office Supplies,Binders,Retail,21,140
+2025-12-22,Asia Pacific,Japan,Furniture,Chairs,Online,2,351
+2025-04-16,Europe,United Kingdom,Technology,Printers,Online,4,998
+2025-09-29,Asia Pacific,Japan,Furniture,Desks,Online,6,1687
+2025-04-06,North America,United States,Furniture,Chairs,Retail,6,1148
+2025-09-11,Europe,Germany,Technology,Printers,Retail,3,716
+2025-11-15,Asia Pacific,Japan,Furniture,Bookcases,Online,8,1182
+2025-02-09,Europe,Italy,Furniture,Chairs,Retail,7,1202
+2025-08-03,Latin America,Colombia,Furniture,Chairs,Retail,11,2063
+2025-08-20,Latin America,Chile,Technology,Printers,Retail,5,1259
+2025-10-16,Europe,United Kingdom,Technology,Monitors,Retail,8,1990
+2025-01-21,Europe,Netherlands,Technology,Printers,Retail,4,896
+2025-05-19,Europe,Germany,Furniture,Lamps,Retail,2,85
+2025-10-13,Europe,Netherlands,Office Supplies,Binders,Partner,129,712
+2025-06-18,North America,United States,Office Supplies,Labels,Partner,87,496
+2025-01-06,Asia Pacific,Singapore,Furniture,Bookcases,Partner,6,712
+2025-11-12,Latin America,Chile,Technology,Phones,Retail,5,2985
+2025-12-18,North America,Mexico,Office Supplies,Binders,Retail,78,558
+2025-12-18,Europe,United Kingdom,Furniture,Desks,Retail,5,1401
+2025-09-26,Latin America,Brazil,Furniture,Desks,Online,7,2350
+2025-04-17,Europe,France,Furniture,Lamps,Online,2,78
+2025-06-13,Europe,United Kingdom,Office Supplies,Labels,Retail,43,263
+2025-08-01,Latin America,Brazil,Technology,Printers,Partner,3,531
+2025-11-03,Europe,Italy,Technology,Phones,Partner,2,1298
+2025-10-21,Europe,France,Office Supplies,Pens,Online,179,666
+2025-10-09,Europe,Spain,Furniture,Desks,Retail,2,676
+2025-07-11,North America,Mexico,Furniture,Bookcases,Retail,5,692
+2025-12-07,North America,Canada,Furniture,Desks,Online,5,1571
+2025-03-21,Latin America,Argentina,Technology,Printers,Partner,4,707
+2025-12-08,Europe,Italy,Technology,Printers,Retail,6,1426
+2025-10-14,Europe,France,Office Supplies,Labels,Online,108,688
+2025-05-15,North America,United States,Office Supplies,Labels,Partner,52,305
+2025-03-24,North America,United States,Furniture,Bookcases,Online,4,536
+2025-09-06,North America,United States,Furniture,Lamps,Online,2,81
+2025-10-31,Europe,Italy,Furniture,Bookcases,Retail,5,769
+2025-06-18,Europe,Germany,Furniture,Chairs,Partner,7,1204
+2025-12-24,Europe,Spain,Furniture,Lamps,Online,12,475
+2025-08-29,Europe,Germany,Office Supplies,Labels,Retail,147,878
+2025-05-10,Latin America,Colombia,Technology,Printers,Partner,4,888
+2025-07-14,Asia Pacific,Singapore,Technology,Monitors,Online,5,1203

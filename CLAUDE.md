@@ -413,7 +413,13 @@ files' terms); `store/listing/README.md` maps the fields to Google
 Play, the App Store and the Microsoft Store, lists each store's locale
 codes and the claims to keep true (e.g. "Open with" on iOS/macOS), and
 `test/store_listing_test.dart` checks every file against the limits
-and that every ARB language has one. The account work itself is logged in the owner's vault
+and that every ARB language has one. `store/screenshots/README.md` is
+the shot list (the same screens on every store, per-store sizes, the
+Xvfb and emulator recipes); `tool/demo_data.dart` (`dart run`, fixed
+seed; `tessera` is a dev dependency for it) writes the demo data into
+`store/screenshots/demo/`: `sales.csv` and two snapshots that open
+straight on the pivot the screenshots start from. The sets live next to
+it (`desktop/` for the README, `play-phone/`, …). The account work itself is logged in the owner's vault
 (`~/LaciBox/Braniac/Projektek/fejlesztoi_fiokok`), not here.
 
 Windows ships twice (owner's choice, 2026-10-10): the Microsoft Store
@@ -463,8 +469,12 @@ first (plain keys, e.g. `{"settings:themeMode":"dark",
 "settings:gridStyle":"compact","settings:cubeLayout":"cubeOnly"}`), and
 pass a `.tsnp` snapshot (made with `TesseraSnapshot().encode(facts,
 config:)` from a throwaway test) as the argument: it opens on its own
-pivot without the schema page. Under Xvfb the app picks up the
-desktop's large text scaling, a fair stress test of fixed row heights.
+pivot without the schema page. The owner's session exports
+`GDK_SCALE=2` and `GDK_DPI_SCALE=0.5` (4K monitor), so under Xvfb the
+app renders at 2× — a fair stress test of fixed row heights, but for
+true-size screenshots start it with `env -u GDK_SCALE -u GDK_DPI_SCALE`
+(and `GSETTINGS_BACKEND=memory`); `ffmpeg -draw_mouse 0` leaves the
+pointer out.
 Stop the app and Xvfb by pid afterwards (`pkill -f <pattern>` matches
 the shell running it and kills that shell instead). **Stale icon
   font:** release builds tree-shake `MaterialIcons-Regular.otf` and the

@@ -7,6 +7,13 @@ conventions live in `CLAUDE.md`, not here.
 
 ## Viewer flow
 
+- [ ] Bug (seen 2026-10-10 on the API 36 emulator): Android back while
+      a value chip's menu ("Show values as", tessera_flutter's
+      `AggregateEditor` `MenuAnchor`) is open closes what is under it
+      too — the editors sheet on a phone, the whole file on a tablet —
+      instead of only the menu. Find out whether it is Flutter's
+      `MenuAnchor` or our back handling (`PopScope` on the cube page),
+      and check the other menus (dimension `▾`, the overflow menu).
 - [ ] Cube page follow-ups: a "Settings" entry to restore the automatic
       layout after an explicit choice; the charts pane beside/below the
       grid as in the example.
@@ -107,8 +114,11 @@ conventions live in `CLAUDE.md`, not here.
       anyway; a code-signing certificate or service costs money).
 - [ ] Linux: `.desktop` file, icon, MIME types (`text/csv`, XLSX, ODS,
       JSON, `application/vnd.tessera.snapshot`).
-- [ ] Store screenshots (desktop with the Xvfb recipe, phone and tablet
-      on the emulator, light and dark) and the README: free, ad-free, no
+- [ ] Store screenshots: shot list and demo data in `store/screenshots/`;
+      the desktop (README) and Google Play phone and tablet sets are
+      taken. Still to do: the Play feature graphic (1024 × 500), the
+      Microsoft Store set by the owner on Windows, Apple's on the Mac.
+      Then the README: free, ad-free, no
       telemetry, the 14 languages. The listing texts are done
       (`store/listing/`); a native speaker's read of the translations
       would not hurt, the owner reviews Hungarian.
