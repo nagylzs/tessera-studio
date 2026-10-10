@@ -142,17 +142,22 @@ flutter_launcher_icons:
 # Windows package (MSIX) for the Microsoft Store, built by CI on Windows:
 #   dart run msix:create --build-windows false
 # The version comes from `version:` above (1.0.0+1 → 1.0.0.0, the fourth
-# number 0 as the Store requires). PLACEHOLDERS until the name "Tessera
-# Studio" is reserved in Microsoft Partner Center: identity_name and
-# publisher_display_name below, and the publisher (`CN=…`), must then be
-# exactly Partner Center's values. CI passes them for the Store package
-# from the repository variables MSIX_IDENTITY_NAME, MSIX_PUBLISHER and
-# MSIX_PUBLISHER_DISPLAY_NAME; without them it builds a test package
-# signed with the msix tool's test certificate (sideloading only).
+# number 0 as the Store requires). The Store identity, reserved in
+# Partner Center on 2026-10-10 (the name "Tessera Studio" lapses on
+# 2027-01-10 unless an app has been submitted by then):
+#   Package/Identity/Name                    LszlZsoltNagy.TesseraStudio
+#   Package/Identity/Publisher               CN=D8CA4CDE-319D-426D-AF14-5FB7FF9F4273
+#   Package/Properties/PublisherDisplayName  László Zsolt Nagy
+# CI passes all three with --store from the repository variables
+# MSIX_IDENTITY_NAME, MSIX_PUBLISHER and MSIX_PUBLISHER_DISPLAY_NAME.
+# `publisher` is deliberately not set here: a build without --store is
+# signed with the msix tool's test certificate (sideloading, to try the
+# installation and the file associations), and the manifest's publisher
+# must then be that certificate's subject.
 msix_config:
   display_name: Tessera Studio
-  identity_name: eu.nagylzs.TesseraStudio        # PLACEHOLDER (Partner Center)
-  publisher_display_name: László Zsolt Nagy      # PLACEHOLDER (Partner Center)
+  identity_name: LszlZsoltNagy.TesseraStudio
+  publisher_display_name: László Zsolt Nagy
   logo_path: assets/icon/tessera-icon.png
   # URLs the user opens; files come through the picker and associations
   capabilities: internetClient

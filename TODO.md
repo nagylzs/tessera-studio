@@ -90,13 +90,14 @@ conventions live in `CLAUDE.md`, not here.
       certificates and profiles, Windows code signing — as CI secrets
       only; Play and App Store uploads manual at first.
 - [ ] Windows, Microsoft Store first and a portable zip besides (owner,
-      2026-10-10; CI builds both, see CLAUDE.md): a Partner Center
-      account, reserve "Tessera Studio", put its three identity values
-      into the repository variables `MSIX_IDENTITY_NAME`,
-      `MSIX_PUBLISHER`, `MSIX_PUBLISHER_DISPLAY_NAME` (CI then builds
-      the Store package instead of the test one) and into
-      `msix_config` in place of the placeholders; Store listing, upload
-      by hand at first. Tried on the owner's Windows (2026-10-10, CI's
+      2026-10-10; CI builds both, see CLAUDE.md). Done 2026-10-10: the
+      Partner Center account, "Tessera Studio" reserved, its identity in
+      the repository variables and `msix_config`, CI builds the Store
+      package. Left: the Store listing and the **first submission
+      before 2027-01-10**, when the name reservation lapses (submit with
+      manual publishing if the joint release is later); upload by hand
+      at first. Account log: the owner's vault,
+      `Projektek/fejlesztoi_fiokok`. Tried on the owner's Windows (2026-10-10, CI's
       manual-run build): the portable zip runs; the test MSIX installs
       once its certificate is in Local Machine → Trusted People, and
       Explorer offers Tessera Studio under "Open with" for a CSV, which
@@ -106,6 +107,9 @@ conventions live in `CLAUDE.md`, not here.
       anyway; a code-signing certificate or service costs money).
 - [ ] Linux: `.desktop` file, icon, MIME types (`text/csv`, XLSX, ODS,
       JSON, `application/vnd.tessera.snapshot`).
+- [ ] Publish the privacy policy (`store/privacy/index.html`, English
+      and Hungarian) at `https://nagylzs.eu/tessera-studio/privacy/`
+      (owner, on the nagylzs.eu web server); every store asks for the URL.
 - [ ] Store listing and README: free, ad-free, no telemetry, the 14
       languages, screenshots from the Xvfb recipe.
 - [ ] After the first release: register `application/vnd.tessera.snapshot`

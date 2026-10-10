@@ -397,6 +397,18 @@ tags and manual runs ("Run workflow"). Signing comes later through CI
 secrets, never through the repository. Iterate on CI from a short-lived
 branch, not on `main`.
 
+`store/` holds what the stores need besides the builds:
+`store/privacy/index.html` is the privacy policy (English and
+Hungarian, self-contained, published at
+`https://nagylzs.eu/tessera-studio/privacy/`). It states what the app
+does with data — files processed on the device only, the Android open
+cache emptied at start, settings, schemas and pivots kept locally
+(pivots can hold column names and values), the network used only for
+URLs the user opens and About's links, the clipboard read only on
+"Open from clipboard". Any change to those behaviours updates the page
+and its date. The account work itself is logged in the owner's vault
+(`~/LaciBox/Braniac/Projektek/fejlesztoi_fiokok`), not here.
+
 Windows ships twice (owner's choice, 2026-10-10): the Microsoft Store
 first, an MSIX made by the `msix` dev dependency (`msix_config` at the
 end of the pubspec: display name, logo, `internetClient`, the 14
@@ -412,8 +424,15 @@ false`, with `--store` and the Partner Center identity when the
 repository variables `MSIX_IDENTITY_NAME` / `MSIX_PUBLISHER` /
 `MSIX_PUBLISHER_DISPLAY_NAME` are set, else signed with the msix
 tool's test certificate (sideloading, to try installation and file
-associations). The identity values in `msix_config` are placeholders
-until then. A packaged app gets an opened file as its command-line
+associations). The variables are set since 2026-10-10 (Partner Center:
+`LszlZsoltNagy.TesseraStudio`, `CN=D8CA4CDE-319D-426D-AF14-5FB7FF9F4273`,
+"László Zsolt Nagy"; also in the pubspec comment), so CI builds the
+Store package — for upload only, it cannot be sideloaded. A test
+package for a Windows machine: `dart run msix:create` there (`publisher`
+stays out of `msix_config` for that reason), or clear the variables
+for one run. The reserved name lapses on 2027-01-10 unless a
+submission is made (it can wait for manual publishing). A packaged app
+gets an opened file as its command-line
 argument, which `main` already loads. The portable app keeps its
 settings in AppData like any Flutter app, has no file associations,
 and is unsigned (SmartScreen warns) unless the owner buys signing.
