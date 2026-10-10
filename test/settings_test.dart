@@ -97,7 +97,7 @@ void main() {
     expect(await s.readGridStyle(), 'spreadsheet');
   });
 
-  testWidgets('About: version, the promise, licences, links', (tester) async {
+  testWidgets('About: version, the promise, licenses, links', (tester) async {
     PackageInfo.setMockInitialValues(
       appName: 'tessera_studio',
       packageName: 'eu.nagylzs.tessera_studio',
@@ -113,7 +113,7 @@ void main() {
     expect(find.byType(AboutDialog), findsOneWidget);
     expect(find.text('Tessera Studio'), findsWidgets);
     expect(find.text('1.0.0 (1)'), findsOneWidget);
-    expect(find.text('© 2026 László Zsolt Nagy\nMIT licence'), findsOneWidget);
+    expect(find.text('© 2026 László Zsolt Nagy\nMIT license'), findsOneWidget);
     expect(find.textContaining('Free and ad-free, forever'), findsOneWidget);
     expect(find.text('View licenses'), findsOneWidget);
 
@@ -122,7 +122,7 @@ void main() {
     expect(links.opened, [guideUrl, sourceUrl]);
   });
 
-  test('the licences page lists the PDF font', () async {
+  test('the licenses page lists the PDF font', () async {
     registerLicenses();
     final entries = await LicenseRegistry.licenses.toList();
     final noto = entries.where((e) => e.packages.contains('Noto Sans'));
@@ -142,7 +142,7 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('Grid style'), findsOneWidget);
     expect(find.text('Standard'), findsOneWidget);
-    expect(find.text("Colours from the app's theme"), findsOneWidget);
+    expect(find.text("Colors from the app's theme"), findsOneWidget);
     await tester.tap(find.text('Spreadsheet'));
     await tester.pumpAndSettle();
     expect(find.byType(AlertDialog), findsNothing);

@@ -408,9 +408,9 @@
   },
   "gridStandard": "Standard",
   "@gridStandard": {
-    "description": "Grid style: colours derived from the app theme (the default)."
+    "description": "Grid style: colors derived from the app theme (the default)."
   },
-  "gridStandardInfo": "Colours from the app's theme",
+  "gridStandardInfo": "Colors from the app's theme",
   "@gridStandardInfo": {
     "description": "One-line description under the grid style name."
   },
@@ -418,7 +418,7 @@
   "@gridSpreadsheet": {
     "description": "Grid style: plain spreadsheet look."
   },
-  "gridSpreadsheetInfo": "White cells, grey lines, monospace figures",
+  "gridSpreadsheetInfo": "White cells, gray lines, monospace figures",
   "@gridSpreadsheetInfo": {
     "description": "One-line description under the grid style name."
   },
@@ -474,7 +474,7 @@
   "@aboutSource": {
     "description": "Link to the app's source code repository."
   },
-  "aboutLegalese": "© {year} {holder}\nMIT licence",
+  "aboutLegalese": "© {year} {holder}\nMIT license",
   "@aboutLegalese": {
     "description": "Copyright line; year and holder are filled in, not translated.",
     "placeholders": {
