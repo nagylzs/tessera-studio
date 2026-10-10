@@ -96,10 +96,12 @@ conventions live in `CLAUDE.md`, not here.
       `MSIX_PUBLISHER`, `MSIX_PUBLISHER_DISPLAY_NAME` (CI then builds
       the Store package instead of the test one) and into
       `msix_config` in place of the placeholders; Store listing, upload
-      by hand at first. Try on a Windows machine: the test MSIX
-      (installing needs its test certificate trusted), the file
-      associations, the portable zip on a Windows without the Visual
-      C++ runtime. Decide on signing the portable exe (unsigned means
+      by hand at first. Tried on the owner's Windows (2026-10-10, CI's
+      manual-run build): the portable zip runs; the test MSIX installs
+      once its certificate is in Local Machine → Trusted People, and
+      Explorer offers Tessera Studio under "Open with" for a CSV, which
+      opens on the file (and on its remembered pivot the second time).
+      Decide on signing the portable exe (unsigned means
       SmartScreen's "Windows protected your PC" → More info → Run
       anyway; a code-signing certificate or service costs money).
 - [ ] Linux: `.desktop` file, icon, MIME types (`text/csv`, XLSX, ODS,
