@@ -107,11 +107,11 @@ conventions live in `CLAUDE.md`, not here.
       anyway; a code-signing certificate or service costs money).
 - [ ] Linux: `.desktop` file, icon, MIME types (`text/csv`, XLSX, ODS,
       JSON, `application/vnd.tessera.snapshot`).
-- [ ] Publish the privacy policy (`store/privacy/index.html`, English
-      and Hungarian) at `https://nagylzs.eu/tessera-studio/privacy/`
-      (owner, on the nagylzs.eu web server); every store asks for the URL.
-- [ ] Store listing and README: free, ad-free, no telemetry, the 14
-      languages, screenshots from the Xvfb recipe.
+- [ ] Store screenshots (desktop with the Xvfb recipe, phone and tablet
+      on the emulator, light and dark) and the README: free, ad-free, no
+      telemetry, the 14 languages. The listing texts are done
+      (`store/listing/`); a native speaker's read of the translations
+      would not hurt, the owner reviews Hungarian.
 - [ ] After the first release: register `application/vnd.tessera.snapshot`
       with IANA naming Tessera Studio as the application (form and field
       values in `../tessera/TODO.md`), then claim the type in the file
@@ -121,12 +121,20 @@ conventions live in `CLAUDE.md`, not here.
       the id with Apple; run on a device and a Mac;
       `CFBundleDocumentTypes` and opening a file from Finder / the Files
       app ("Open with" hands a URL to the app delegate — a channel like
-      Android's `OpenRequests`); share
+      Android's `OpenRequests`; owner wants it, and the store listing
+      already claims it, so it must land before the Apple release); share
       needs `sharePositionOrigin` on the iPad (the share button's
       rect); try drag and drop on macOS (enabled, untested).
 
 ## Done
 
+- [x] Store listing texts in all 14 languages (`store/listing/`): the
+      English master reviewed by the owner (American English), 13
+      translations with the app's own terms, every store's fields within
+      its limits (`test/store_listing_test.dart`) (2026-10-10).
+- [x] Privacy policy (`store/privacy/index.html`, English and Hungarian)
+      published at `https://nagylzs.eu/tessera-studio/privacy/`, checked
+      identical to the repository's (2026-10-10).
 - [x] "Tessera snapshot" in the export dialog ("To reopen in Tessera
       Studio"): the facts with the pivot and expanded groups in one
       `.tsnp`, named like the source, which reopens as it was

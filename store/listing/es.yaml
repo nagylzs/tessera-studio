@@ -1,0 +1,76 @@
+# Store listing, Spanish. Translates en.yaml; fields and limits: README.md.
+
+name: Tessera Studio
+
+short: Abra archivos CSV, Excel y JSON como tablas dinámicas. Gratis, sin anuncios.
+
+subtitle: Tablas dinámicas al instante
+
+promo: >-
+  Abra una hoja de cálculo, un CSV o un JSON y véalo al instante como tabla
+  dinámica; luego guárdelo en Excel, PDF y más. Gratis para siempre, sin
+  anuncios ni rastreo.
+
+keywords: tabla dinámica,pivot,tabla cruzada,csv,excel,xlsx,ods,json,hoja de cálculo,visor,informe,pdf
+
+summary: >-
+  Tessera Studio abre archivos CSV, Excel, OpenDocument y JSON como tablas
+  dinámicas que puede desplegar, filtrar y ordenar, y las guarda en Excel,
+  PDF, HTML y más. Gratis y sin anuncios para siempre: sin cuenta, sin
+  rastreo, sus datos se quedan en su dispositivo.
+
+description: |-
+  Tessera Studio convierte los archivos de datos que ya tiene en tablas dinámicas. Abra un archivo CSV, Excel, OpenDocument o JSON y aparecerá al instante como una tabla dinámica lista para explorar: agrupe filas y columnas, despliegue y contraiga los niveles, añada sumas, recuentos y promedios, filtre y ordene. Cuando tenga lo que necesita, guárdelo o compártalo como libro de Excel, PDF, página web u otro formato.
+
+  Es un visor, no un editor: sus archivos nunca se modifican y nada sale de su dispositivo, salvo que usted lo guarde o lo comparta.
+
+  ABRIR
+  • CSV y texto separado por tabulaciones (el separador se detecta), Excel (.xlsx), OpenDocument (.ods), JSON y JSON Lines
+  • desde el selector de archivos, desde otras aplicaciones («Abrir con», compartir), arrastrando y soltando en el ordenador o desde el portapapeles: una dirección web o celdas copiadas de una hoja de cálculo
+  • se detectan los tipos de columna, las etiquetas, las fechas y los formatos de número; ajústelos una vez y Tessera Studio los recordará para todos los archivos con las mismas columnas
+
+  EXPLORAR
+  • filas y columnas en niveles anidados que se despliegan y se contraen
+  • sumas, recuentos, promedios, mínimos, máximos, recuentos de valores distintos, desviaciones estándar y sus propias fórmulas
+  • valores como porcentaje de un total, totales acumulados y clasificaciones
+  • filtros y orden por etiquetas o por valores
+  • un archivo que vuelve a abrir regresa con la tabla dinámica en la que lo dejó
+  • pantalla completa en el teléfono: toque un valor para ocultar todo salvo la cuadrícula
+
+  GUARDAR Y COMPARTIR
+  • la tabla dinámica tal como se ve, en Excel, OpenDocument, PDF, HTML, SVG, CSV, JSON o JSON Lines
+  • las filas subyacentes como tabla simple, en Excel, OpenDocument, CSV o JSON Lines
+  • una instantánea de Tessera: los datos y la tabla dinámica en un solo archivo que se vuelve a abrir exactamente como estaba
+
+  A SU GUSTO
+  • seis estilos de cuadrícula, desde el aspecto clásico de hoja de cálculo hasta el alto contraste; las exportaciones siguen el estilo elegido
+  • temas claro y oscuro
+  • 14 idiomas: alemán, checo, chino, español, francés, húngaro, inglés, italiano, japonés, neerlandés, polaco, portugués, ruso y turco
+
+  GRATIS, PARA SIEMPRE
+  Sin anuncios, sin compras dentro de la aplicación, sin suscripciones, sin cuenta. Sin análisis ni rastreo: la aplicación solo se conecta cuando usted abre una dirección web o un enlace. Tessera Studio es de código abierto (licencia MIT) y se basa en tessera, un motor de tablas dinámicas de código abierto para Dart y Flutter.
+
+features:
+  - Abre archivos CSV, separados por tabulaciones, Excel (.xlsx), OpenDocument (.ods), JSON y JSON Lines
+  - Muestra cualquier tabla como tabla dinámica, con filas y columnas anidadas que se despliegan
+  - Sumas, recuentos, promedios, mínimos, máximos, valores distintos, desviaciones estándar y fórmulas
+  - Porcentajes de un total, totales acumulados y clasificaciones
+  - Filtros y orden por etiquetas o por valores
+  - Detecta tipos de columna, fechas y formatos de número, y recuerda sus ajustes
+  - Vuelve a abrir un archivo con la tabla dinámica en la que lo dejó
+  - Exporta a Excel, OpenDocument, PDF, HTML, SVG, CSV, JSON y JSON Lines
+  - Instantáneas de Tessera que se vuelven a abrir tal como estaban
+  - Abre archivos arrastrando y soltando, con «Abrir con» o desde el portapapeles
+  - Seis estilos de cuadrícula, temas claro y oscuro
+  - 14 idiomas
+  - Nunca modifica sus archivos
+  - Gratis y sin anuncios para siempre, sin cuenta y sin rastreo
+
+search_terms:
+  - tabla dinámica
+  - visor csv
+  - visor excel
+  - visor json
+  - hoja de cálculo
+  - análisis de datos
+  - tabla cruzada

@@ -1,0 +1,64 @@
+# Store listing texts
+
+One YAML file per app language (`<code>.yaml`, the codes of `lib/l10n`),
+each with every store's fields. `en.yaml` is the master; the others
+translate it. `test/store_listing_test.dart` checks every file against
+the limits below and that all 14 languages are here.
+
+| Field | Google Play | App Store | Microsoft Store | Limit |
+|---|---|---|---|---|
+| `name` | Title | Name | (the reserved name) | 30 |
+| `short` | Short description | – | – | 80 |
+| `subtitle` | – | Subtitle | – | 30 |
+| `promo` | – | Promotional text | – | 170 |
+| `keywords` | – | Keywords (comma-separated, no spaces after commas, not repeating the name) | – | 100 |
+| `summary` | – | – | Short description (1000 allowed, 270 shown) | 270 |
+| `description` | Full description | Description | Description (10 000 allowed) | 4000 |
+| `features` | – | – | Product features | 20 × 200 |
+| `search_terms` | – | – | Search terms, if offered | 7 × 30 |
+
+Limits count characters (Unicode code points). Plain text everywhere:
+no HTML, no URLs (Microsoft asks for links in their own fields). The
+Microsoft Store's "What's new" stays empty for the first submission.
+
+## Store locale codes
+
+| File | Google Play | App Store | Microsoft Store |
+|---|---|---|---|
+| `cs` | cs-CZ | cs | cs-cz |
+| `de` | de-DE | de-DE | de-de |
+| `en` | en-US | en-US | en-us |
+| `es` | es-ES | es-ES | es-es |
+| `fr` | fr-FR | fr-FR | fr-fr |
+| `hu` | hu-HU | hu | hu-hu |
+| `it` | it-IT | it | it-it |
+| `ja` | ja-JP | ja | ja-jp |
+| `nl` | nl-NL | nl-NL | nl-nl |
+| `pl` | pl-PL | pl | pl-pl |
+| `pt` | pt-BR | pt-BR | pt-br |
+| `ru` | ru-RU | ru | ru-ru |
+| `tr` | tr-TR | tr | tr-tr |
+| `zh` | zh-CN | zh-Hans | zh-cn |
+
+`pt` is Brazilian Portuguese and `zh` Simplified Chinese, as in the app.
+English is American English everywhere: the listing (the stores label
+it en-US), the app's texts and the privacy policy.
+
+## Keep it true
+
+The listing may only claim what the app does on that store's platform.
+Before each release check:
+
+- **"Open with" / share from other apps** works on Android and Windows;
+  on iOS and macOS it needs `CFBundleDocumentTypes` and the open-URL
+  handling (TODO.md, the Mac work). Until then the Apple listings must
+  not claim it.
+- **Drag and drop**: Windows, Linux, web; macOS enabled but untested.
+- **Full screen on phones**: Android and iOS.
+- No charts yet: the charts pane is still in TODO.md.
+- When a feature, a format or a language is added or removed, the
+  description, the features and the keywords follow, in every language.
+
+Account and submission steps are logged in the owner's vault
+(`Projektek/fejlesztoi_fiokok`); the privacy policy is
+`../privacy/index.html`.

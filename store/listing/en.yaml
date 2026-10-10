@@ -1,0 +1,90 @@
+# Store listing, English: the master the other languages translate.
+# Fields, limits and store locale codes: README.md next to this file;
+# test/store_listing_test.dart checks every language against them.
+
+# Every store; the Microsoft Store takes the reserved name.
+name: Tessera Studio
+
+# Google Play short description (≤ 80).
+short: Open CSV, Excel and JSON files as pivot tables. Free, no ads, no tracking.
+
+# App Store subtitle (≤ 30).
+subtitle: Pivot tables from your files
+
+# App Store promotional text (≤ 170); can change without a new version.
+promo: >-
+  Open a spreadsheet, CSV or JSON file and see it as a pivot table at once,
+  then save it as Excel, PDF and more. Free forever, no ads, no tracking.
+
+# App Store keywords (≤ 100, comma-separated, no spaces after commas; the
+# name is already searchable, so it is not repeated).
+keywords: pivot,pivot table,csv,excel,xlsx,ods,json,spreadsheet,viewer,crosstab,report,data,pdf
+
+# Microsoft Store short description (≤ 1000; only the first 270 show in
+# some views, so it stays under that).
+summary: >-
+  Tessera Studio opens CSV, Excel, OpenDocument and JSON files as pivot
+  tables you can expand, filter and sort, and saves them as Excel, PDF,
+  HTML and more. Free and ad-free forever: no account, no tracking, and
+  your data stays on your device.
+
+# Every store's description (≤ 4000: Google Play and the App Store; the
+# Microsoft Store allows 10 000). Plain text, no URLs.
+description: |-
+  Tessera Studio turns the data files you already have into pivot tables. Open a CSV, Excel, OpenDocument or JSON file and it appears as a pivot you can explore right away: group rows and columns, open and close the levels, add sums, counts and averages, filter and sort. When you have what you need, save or share it as an Excel workbook, a PDF, a web page or another format.
+
+  It is a viewer, not an editor: your files are never changed, and nothing leaves your device unless you save or share it.
+
+  OPEN
+  • CSV and tab-separated text (the separator is detected), Excel (.xlsx), OpenDocument (.ods), JSON and JSON Lines
+  • from the file picker, from other apps ("Open with", share), by drag and drop on the desktop, or from the clipboard: a web address, or cells copied from a spreadsheet
+  • column types, labels, dates and number formats are detected; adjust them once and Tessera Studio remembers them for every file with the same columns
+
+  EXPLORE
+  • rows and columns in nested levels that open and close
+  • sums, counts, averages, minimums, maximums, distinct counts, standard deviations and your own formulas
+  • values as a percentage of a total, running totals and ranks
+  • filters, and sorting by labels or by values
+  • a file you open again comes back on the pivot you left it on
+  • full screen on phones: tap a value to hide everything but the grid
+
+  SAVE AND SHARE
+  • the pivot as shown, in Excel, OpenDocument, PDF, HTML, SVG, CSV, JSON or JSON Lines
+  • the underlying rows as a plain table in Excel, OpenDocument, CSV or JSON Lines
+  • a Tessera snapshot: the data and the pivot in one file that reopens exactly as it was
+
+  MAKE IT YOURS
+  • six grid styles, from a classic spreadsheet look to high contrast; exports follow the style you choose
+  • light and dark themes
+  • 14 languages: Chinese, Czech, Dutch, English, French, German, Hungarian, Italian, Japanese, Polish, Portuguese, Russian, Spanish and Turkish
+
+  FREE, FOREVER
+  No ads, no in-app purchases, no subscriptions, no account. No analytics and no tracking: the app goes online only when you open a web address or a link yourself. Tessera Studio is open source (MIT license) and built on tessera, an open-source pivot table engine for Dart and Flutter.
+
+# Microsoft Store product features (≤ 20 items, ≤ 200 each; the Store
+# adds the bullets).
+features:
+  - Opens CSV, tab-separated, Excel (.xlsx), OpenDocument (.ods), JSON and JSON Lines files
+  - Shows any table as a pivot, with nested rows and columns that open and close
+  - Sums, counts, averages, minimums, maximums, distinct counts, standard deviations and formulas
+  - Percentages of totals, running totals and ranks
+  - Filters, and sorting by labels or by values
+  - Detects column types, dates and number formats, and remembers your adjustments
+  - Reopens a file on the pivot you left it on
+  - Exports to Excel, OpenDocument, PDF, HTML, SVG, CSV, JSON and JSON Lines
+  - Tessera snapshots that reopen exactly as they were
+  - Opens files by drag and drop, "Open with", or from the clipboard
+  - Six grid styles, light and dark themes
+  - 14 languages
+  - Never changes your files
+  - Free and ad-free forever, with no account and no tracking
+
+# Microsoft Store search terms, if the form offers them (≤ 7, ≤ 30 each).
+search_terms:
+  - pivot table
+  - csv viewer
+  - excel viewer
+  - json viewer
+  - spreadsheet
+  - data analysis
+  - crosstab

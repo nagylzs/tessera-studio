@@ -1,0 +1,76 @@
+# Store listing, Polish. Translates en.yaml; fields and limits: README.md.
+
+name: Tessera Studio
+
+short: Pliki CSV, Excel i JSON jako tabele przestawne. Za darmo, bez reklam.
+
+subtitle: Tabele przestawne z plików
+
+promo: >-
+  Otwórz arkusz, plik CSV lub JSON i od razu zobacz go jako tabelę
+  przestawną, a potem zapisz jako Excel, PDF i nie tylko. Na zawsze za
+  darmo, bez reklam i śledzenia.
+
+keywords: tabela przestawna,pivot,tabela krzyżowa,csv,excel,xlsx,ods,json,arkusz,przeglądarka,raport,pdf
+
+summary: >-
+  Tessera Studio otwiera pliki CSV, Excel, OpenDocument i JSON jako tabele
+  przestawne do rozwijania, filtrowania i sortowania, i zapisuje je jako
+  Excel, PDF, HTML i nie tylko. Na zawsze za darmo i bez reklam: bez konta,
+  bez śledzenia, dane zostają na urządzeniu.
+
+description: |-
+  Tessera Studio zamienia pliki z danymi, które już masz, w tabele przestawne. Otwórz plik CSV, Excel, OpenDocument lub JSON, a od razu pojawi się jako tabela przestawna gotowa do analizy: grupuj wiersze i kolumny, rozwijaj i zwijaj poziomy, dodawaj sumy, liczebności i średnie, filtruj i sortuj. Gdy masz to, czego potrzebujesz, zapisz lub udostępnij wynik jako skoroszyt Excel, PDF, stronę internetową lub w innym formacie.
+
+  To przeglądarka, a nie edytor: Twoje pliki nigdy nie są zmieniane i nic nie opuszcza Twojego urządzenia, chyba że sam to zapiszesz lub udostępnisz.
+
+  OTWIERANIE
+  • CSV i tekst rozdzielany tabulatorami (separator jest wykrywany), Excel (.xlsx), OpenDocument (.ods), JSON i JSON Lines
+  • z wyboru plików, z innych aplikacji („Otwórz za pomocą”, udostępnianie), przez przeciąganie na komputerze lub ze schowka: adres internetowy albo komórki skopiowane z arkusza
+  • typy kolumn, etykiety, daty i formaty liczb są wykrywane; dostosuj je raz, a Tessera Studio zapamięta je dla każdego pliku z tymi samymi kolumnami
+
+  ANALIZA
+  • wiersze i kolumny w zagnieżdżonych poziomach, które się rozwijają i zwijają
+  • sumy, liczebności, średnie, minima, maksima, liczby unikalnych wartości, odchylenia standardowe i własne formuły
+  • wartości jako procent sumy, sumy narastające i rangi
+  • filtry oraz sortowanie według etykiet lub wartości
+  • ponownie otwarty plik wraca do tej samej tabeli przestawnej, na której skończyłeś
+  • pełny ekran na telefonie: dotknij wartości, aby ukryć wszystko oprócz siatki
+
+  ZAPIS I UDOSTĘPNIANIE
+  • tabela przestawna tak, jak ją widać: Excel, OpenDocument, PDF, HTML, SVG, CSV, JSON lub JSON Lines
+  • wiersze źródłowe jako zwykła tabela: Excel, OpenDocument, CSV lub JSON Lines
+  • migawka Tessera: dane i tabela przestawna w jednym pliku, który otwiera się dokładnie tak, jak był
+
+  PO SWOJEMU
+  • sześć stylów siatki, od klasycznego arkusza po wysoki kontrast; eksporty zachowują wybrany styl
+  • jasny i ciemny motyw
+  • 14 języków: angielski, chiński, czeski, francuski, hiszpański, holenderski, japoński, niemiecki, polski, portugalski, rosyjski, turecki, węgierski i włoski
+
+  ZA DARMO, NA ZAWSZE
+  Bez reklam, bez zakupów w aplikacji, bez subskrypcji, bez konta. Bez analityki i śledzenia: aplikacja łączy się z siecią tylko wtedy, gdy sam otworzysz adres internetowy lub link. Tessera Studio ma otwarte źródła (licencja MIT) i jest zbudowana na tessera — otwartoźródłowym silniku tabel przestawnych dla Darta i Fluttera.
+
+features:
+  - Otwiera pliki CSV, rozdzielane tabulatorami, Excel (.xlsx), OpenDocument (.ods), JSON i JSON Lines
+  - Pokazuje każdą tabelę jako tabelę przestawną, z zagnieżdżonymi wierszami i kolumnami do rozwijania
+  - Sumy, liczebności, średnie, minima, maksima, unikalne wartości, odchylenia standardowe i formuły
+  - Procent sumy, sumy narastające i rangi
+  - Filtry oraz sortowanie według etykiet lub wartości
+  - Wykrywa typy kolumn, daty i formaty liczb oraz zapamiętuje Twoje ustawienia
+  - Otwiera plik ponownie z tabelą przestawną, na której skończyłeś
+  - Eksport do Excela, OpenDocument, PDF, HTML, SVG, CSV, JSON i JSON Lines
+  - Migawki Tessera, które otwierają się dokładnie tak, jak były
+  - Otwiera pliki przez przeciąganie, „Otwórz za pomocą” lub ze schowka
+  - Sześć stylów siatki, jasny i ciemny motyw
+  - 14 języków
+  - Nigdy nie zmienia Twoich plików
+  - Na zawsze za darmo i bez reklam, bez konta i bez śledzenia
+
+search_terms:
+  - tabela przestawna
+  - przeglądarka csv
+  - przeglądarka excel
+  - przeglądarka json
+  - arkusz kalkulacyjny
+  - analiza danych
+  - tabela krzyżowa

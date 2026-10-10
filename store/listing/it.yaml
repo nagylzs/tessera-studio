@@ -1,0 +1,76 @@
+# Store listing, Italian. Translates en.yaml; fields and limits: README.md.
+
+name: Tessera Studio
+
+short: Apri file CSV, Excel e JSON come tabelle pivot. Gratis, senza pubblicità.
+
+subtitle: Tabelle pivot dai tuoi file
+
+promo: >-
+  Apri un foglio di calcolo, un CSV o un JSON e vedilo subito come tabella
+  pivot, poi salvalo in Excel, PDF e altro. Gratis per sempre, senza
+  pubblicità né tracciamento.
+
+keywords: tabella pivot,pivot,tabella incrociata,csv,excel,xlsx,ods,json,foglio di calcolo,report,pdf
+
+summary: >-
+  Tessera Studio apre file CSV, Excel, OpenDocument e JSON come tabelle
+  pivot da espandere, filtrare e ordinare, e le salva in Excel, PDF, HTML e
+  altro. Gratis e senza pubblicità per sempre: nessun account, nessun
+  tracciamento, i tuoi dati restano sul tuo dispositivo.
+
+description: |-
+  Tessera Studio trasforma i file di dati che hai già in tabelle pivot. Apri un file CSV, Excel, OpenDocument o JSON e compare subito come tabella pivot da esplorare: raggruppa righe e colonne, espandi e comprimi i livelli, aggiungi somme, conteggi e medie, filtra e ordina. Quando hai ciò che ti serve, salvalo o condividilo come cartella di lavoro Excel, PDF, pagina web o in un altro formato.
+
+  È un visualizzatore, non un editor: i tuoi file non vengono mai modificati e nulla lascia il tuo dispositivo, a meno che tu non lo salvi o lo condivida.
+
+  APRIRE
+  • CSV e testo separato da tabulazioni (il separatore viene rilevato), Excel (.xlsx), OpenDocument (.ods), JSON e JSON Lines
+  • dal selettore di file, da altre app («Apri con», condivisione), trascinando sul computer o dagli appunti: un indirizzo web o celle copiate da un foglio di calcolo
+  • tipi di colonna, etichette, date e formati numerici vengono rilevati; regolali una volta e Tessera Studio li ricorda per ogni file con le stesse colonne
+
+  ESPLORARE
+  • righe e colonne in livelli annidati che si espandono e si comprimono
+  • somme, conteggi, medie, minimi, massimi, conteggi distinti, deviazioni standard e formule personalizzate
+  • valori come percentuale di un totale, totali progressivi e classifiche
+  • filtri e ordinamento per etichette o per valori
+  • un file riaperto torna con la tabella pivot in cui l’avevi lasciato
+  • schermo intero sul telefono: tocca un valore per lasciare solo la griglia
+
+  SALVARE E CONDIVIDERE
+  • la tabella pivot così come appare, in Excel, OpenDocument, PDF, HTML, SVG, CSV, JSON o JSON Lines
+  • le righe sottostanti come tabella semplice, in Excel, OpenDocument, CSV o JSON Lines
+  • uno snapshot Tessera: i dati e la tabella pivot in un unico file che si riapre esattamente com’era
+
+  A TUO GUSTO
+  • sei stili di griglia, dall’aspetto classico del foglio di calcolo al contrasto elevato; le esportazioni seguono lo stile scelto
+  • temi chiaro e scuro
+  • 14 lingue: ceco, cinese, francese, giapponese, inglese, italiano, olandese, polacco, portoghese, russo, spagnolo, tedesco, turco e ungherese
+
+  GRATIS, PER SEMPRE
+  Niente pubblicità, niente acquisti in-app, niente abbonamenti, niente account. Niente analisi e niente tracciamento: l’app va online solo quando apri tu un indirizzo web o un link. Tessera Studio è open source (licenza MIT) e si basa su tessera, un motore open source per tabelle pivot in Dart e Flutter.
+
+features:
+  - Apre file CSV, separati da tabulazioni, Excel (.xlsx), OpenDocument (.ods), JSON e JSON Lines
+  - Mostra qualsiasi tabella come tabella pivot, con righe e colonne annidate che si espandono
+  - Somme, conteggi, medie, minimi, massimi, conteggi distinti, deviazioni standard e formule
+  - Percentuali di un totale, totali progressivi e classifiche
+  - Filtri e ordinamento per etichette o per valori
+  - Rileva tipi di colonna, date e formati numerici e ricorda le tue modifiche
+  - Riapre un file con la tabella pivot in cui l’avevi lasciato
+  - Esporta in Excel, OpenDocument, PDF, HTML, SVG, CSV, JSON e JSON Lines
+  - Snapshot Tessera che si riaprono esattamente com’erano
+  - Apre i file trascinandoli, con «Apri con» o dagli appunti
+  - Sei stili di griglia, temi chiaro e scuro
+  - 14 lingue
+  - Non modifica mai i tuoi file
+  - Gratis e senza pubblicità per sempre, senza account né tracciamento
+
+search_terms:
+  - tabella pivot
+  - visualizzatore csv
+  - visualizzatore excel
+  - visualizzatore json
+  - foglio di calcolo
+  - analisi dati
+  - tabella incrociata

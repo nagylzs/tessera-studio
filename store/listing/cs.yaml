@@ -1,0 +1,76 @@
+# Store listing, Czech. Translates en.yaml; fields and limits: README.md.
+
+name: Tessera Studio
+
+short: Soubory CSV, Excel a JSON jako kontingenční tabulky. Zdarma, bez reklam.
+
+subtitle: Kontingenční tabulky z dat
+
+promo: >-
+  Otevřete tabulku, CSV nebo JSON a hned ji uvidíte jako kontingenční
+  tabulku, pak ji uložte jako Excel, PDF a další. Navždy zdarma, bez reklam a
+  sledování.
+
+keywords: kontingenční tabulka,pivot,csv,excel,xlsx,ods,json,tabulka,prohlížeč,přehled,data,pdf
+
+summary: >-
+  Tessera Studio otevírá soubory CSV, Excel, OpenDocument a JSON jako
+  kontingenční tabulky, které můžete rozbalovat, filtrovat a řadit, a ukládá
+  je jako Excel, PDF, HTML a další. Navždy zdarma a bez reklam: žádný účet,
+  žádné sledování.
+
+description: |-
+  Tessera Studio vytvoří z datových souborů, které už máte, kontingenční tabulky. Otevřete soubor CSV, Excel, OpenDocument nebo JSON a hned se zobrazí jako kontingenční tabulka připravená k prozkoumání: seskupujte řádky a sloupce, rozbalujte a sbalujte úrovně, přidávejte součty, počty a průměry, filtrujte a řaďte. Až budete mít, co potřebujete, uložte nebo sdílejte výsledek jako sešit Excelu, PDF, webovou stránku nebo v jiném formátu.
+
+  Je to prohlížeč, ne editor: vaše soubory se nikdy nemění a nic neopustí vaše zařízení, pokud to sami neuložíte nebo nesdílíte.
+
+  OTEVÍRÁNÍ
+  • CSV a text oddělený tabulátory (oddělovač se rozpozná), Excel (.xlsx), OpenDocument (.ods), JSON a JSON Lines
+  • z výběru souborů, z jiných aplikací („Otevřít v aplikaci“, sdílení), přetažením na počítači nebo ze schránky: webová adresa nebo buňky zkopírované z tabulky
+  • typy sloupců, popisky, data a formáty čísel se rozpoznají; upravte je jednou a Tessera Studio si je zapamatuje pro každý soubor se stejnými sloupci
+
+  ZKOUMÁNÍ
+  • řádky a sloupce ve vnořených úrovních, které se rozbalují a sbalují
+  • součty, počty, průměry, minima, maxima, počty jedinečných hodnot, směrodatné odchylky a vlastní vzorce
+  • hodnoty jako procento z celku, průběžné součty a pořadí
+  • filtry a řazení podle popisků nebo hodnot
+  • znovu otevřený soubor se vrátí do kontingenční tabulky, ve které jste ho opustili
+  • celá obrazovka v telefonu: klepnutím na hodnotu skryjete vše kromě mřížky
+
+  UKLÁDÁNÍ A SDÍLENÍ
+  • kontingenční tabulka tak, jak ji vidíte: Excel, OpenDocument, PDF, HTML, SVG, CSV, JSON nebo JSON Lines
+  • zdrojové řádky jako prostá tabulka: Excel, OpenDocument, CSV nebo JSON Lines
+  • snímek Tessera: data i kontingenční tabulka v jednom souboru, který se otevře přesně tak, jak byl
+
+  PODLE VAŠEHO GUSTA
+  • šest stylů mřížky, od klasického vzhledu tabulkového procesoru po vysoký kontrast; exporty se řídí zvoleným stylem
+  • světlý a tmavý motiv
+  • 14 jazyků: angličtina, čeština, čínština, francouzština, italština, japonština, maďarština, němčina, nizozemština, polština, portugalština, ruština, španělština a turečtina
+
+  ZDARMA, NAVŽDY
+  Žádné reklamy, žádné nákupy v aplikaci, žádné předplatné, žádný účet. Žádná analytika ani sledování: aplikace se připojí k síti jen tehdy, když sami otevřete webovou adresu nebo odkaz. Tessera Studio je open source (licence MIT) a stojí na tessera, open-source jádru kontingenčních tabulek pro Dart a Flutter.
+
+features:
+  - Otevírá soubory CSV, oddělené tabulátory, Excel (.xlsx), OpenDocument (.ods), JSON a JSON Lines
+  - Zobrazí jakoukoli tabulku jako kontingenční, s vnořenými řádky a sloupci, které se rozbalují
+  - Součty, počty, průměry, minima, maxima, jedinečné hodnoty, směrodatné odchylky a vzorce
+  - Procenta z celku, průběžné součty a pořadí
+  - Filtry a řazení podle popisků nebo hodnot
+  - Rozpozná typy sloupců, data a formáty čísel a zapamatuje si vaše úpravy
+  - Znovu otevře soubor v kontingenční tabulce, ve které jste ho opustili
+  - Export do Excelu, OpenDocument, PDF, HTML, SVG, CSV, JSON a JSON Lines
+  - Snímky Tessera, které se otevřou přesně tak, jak byly
+  - Otevírá soubory přetažením, příkazem „Otevřít v aplikaci“ nebo ze schránky
+  - Šest stylů mřížky, světlý a tmavý motiv
+  - 14 jazyků
+  - Nikdy nemění vaše soubory
+  - Navždy zdarma a bez reklam, bez účtu a bez sledování
+
+search_terms:
+  - kontingenční tabulka
+  - prohlížeč csv
+  - prohlížeč excel
+  - prohlížeč json
+  - tabulkový procesor
+  - analýza dat
+  - pivot tabulka

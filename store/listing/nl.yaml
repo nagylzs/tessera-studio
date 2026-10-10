@@ -1,0 +1,76 @@
+# Store listing, Dutch. Translates en.yaml; fields and limits: README.md.
+
+name: Tessera Studio
+
+short: Open CSV-, Excel- en JSON-bestanden als draaitabel. Gratis, zonder reclame.
+
+subtitle: Draaitabellen uit bestanden
+
+promo: >-
+  Open een spreadsheet, CSV- of JSON-bestand en zie het meteen als
+  draaitabel; sla het daarna op als Excel, PDF en meer. Voor altijd gratis,
+  zonder reclame of tracking.
+
+keywords: draaitabel,pivot,kruistabel,csv,excel,xlsx,ods,json,spreadsheet,viewer,rapport,gegevens,pdf
+
+summary: >-
+  Tessera Studio opent CSV-, Excel-, OpenDocument- en JSON-bestanden als
+  draaitabellen om uit te klappen, te filteren en te sorteren, en slaat ze
+  op als Excel, PDF, HTML en meer. Voor altijd gratis en zonder reclame: geen
+  account, geen tracking, uw gegevens blijven bij u.
+
+description: |-
+  Tessera Studio maakt van de gegevensbestanden die u al hebt draaitabellen. Open een CSV-, Excel-, OpenDocument- of JSON-bestand en het verschijnt meteen als draaitabel om te verkennen: groepeer rijen en kolommen, klap niveaus in en uit, voeg sommen, aantallen en gemiddelden toe, filter en sorteer. Hebt u wat u nodig hebt, sla het dan op of deel het als Excel-werkmap, pdf, webpagina of in een ander formaat.
+
+  Het is een viewer, geen editor: uw bestanden worden nooit gewijzigd en er verlaat niets uw apparaat, tenzij u het opslaat of deelt.
+
+  OPENEN
+  • CSV en door tabs gescheiden tekst (het scheidingsteken wordt herkend), Excel (.xlsx), OpenDocument (.ods), JSON en JSON Lines
+  • via de bestandskiezer, vanuit andere apps (‘Openen met’, delen), door slepen op de computer of vanaf het klembord: een webadres of cellen gekopieerd uit een spreadsheet
+  • kolomtypen, labels, datums en getalnotaties worden herkend; pas ze één keer aan en Tessera Studio onthoudt ze voor elk bestand met dezelfde kolommen
+
+  VERKENNEN
+  • rijen en kolommen in geneste niveaus die in- en uitklappen
+  • sommen, aantallen, gemiddelden, minima, maxima, aantallen unieke waarden, standaarddeviaties en eigen formules
+  • waarden als percentage van een totaal, lopende totalen en rangen
+  • filters, en sorteren op labels of op waarden
+  • een bestand dat u opnieuw opent, komt terug met de draaitabel waar u het liet
+  • volledig scherm op de telefoon: tik op een waarde om alles behalve het raster te verbergen
+
+  OPSLAAN EN DELEN
+  • de draaitabel zoals weergegeven, als Excel, OpenDocument, PDF, HTML, SVG, CSV, JSON of JSON Lines
+  • de onderliggende rijen als eenvoudige tabel, in Excel, OpenDocument, CSV of JSON Lines
+  • een Tessera-snapshot: de gegevens en de draaitabel in één bestand dat precies zo weer opent
+
+  NAAR UW SMAAK
+  • zes rasterstijlen, van een klassieke spreadsheetlook tot hoog contrast; exports volgen de gekozen stijl
+  • licht en donker thema
+  • 14 talen: Chinees, Duits, Engels, Frans, Hongaars, Italiaans, Japans, Nederlands, Pools, Portugees, Russisch, Spaans, Tsjechisch en Turks
+
+  VOOR ALTIJD GRATIS
+  Geen reclame, geen in-app-aankopen, geen abonnementen, geen account. Geen analyse en geen tracking: de app gaat alleen online als u zelf een webadres of link opent. Tessera Studio is open source (MIT-licentie) en gebouwd op tessera, een open-source draaitabel-engine voor Dart en Flutter.
+
+features:
+  - Opent CSV-, door tabs gescheiden, Excel- (.xlsx), OpenDocument- (.ods), JSON- en JSON Lines-bestanden
+  - Toont elke tabel als draaitabel, met geneste rijen en kolommen die in- en uitklappen
+  - Sommen, aantallen, gemiddelden, minima, maxima, unieke waarden, standaarddeviaties en formules
+  - Percentages van een totaal, lopende totalen en rangen
+  - Filters, en sorteren op labels of op waarden
+  - Herkent kolomtypen, datums en getalnotaties en onthoudt uw aanpassingen
+  - Opent een bestand opnieuw met de draaitabel waar u het liet
+  - Exporteert naar Excel, OpenDocument, PDF, HTML, SVG, CSV, JSON en JSON Lines
+  - Tessera-snapshots die precies zo weer openen
+  - Opent bestanden door slepen, met ‘Openen met’ of vanaf het klembord
+  - Zes rasterstijlen, licht en donker thema
+  - 14 talen
+  - Wijzigt uw bestanden nooit
+  - Voor altijd gratis en zonder reclame, zonder account en zonder tracking
+
+search_terms:
+  - draaitabel
+  - csv viewer
+  - excel viewer
+  - json viewer
+  - spreadsheet
+  - data-analyse
+  - kruistabel

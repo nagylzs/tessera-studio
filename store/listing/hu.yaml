@@ -1,0 +1,76 @@
+# Store listing, Hungarian. Translates en.yaml; fields and limits: README.md.
+
+name: Tessera Studio
+
+short: CSV-, Excel- és JSON-fájlok kimutatásként. Ingyenes, reklám és követés nélkül.
+
+subtitle: Kimutatások a fájljaiból
+
+promo: >-
+  Nyisson meg egy táblázatot, CSV- vagy JSON-fájlt, és azonnal kimutatásként
+  látja, majd mentse Excelbe, PDF-be és másba. Örökre ingyenes, reklám és
+  követés nélkül.
+
+keywords: kimutatás,pivot,kereszttábla,csv,excel,xlsx,ods,json,táblázat,megjelenítő,jelentés,adatok,pdf
+
+summary: >-
+  A Tessera Studio a CSV-, Excel-, OpenDocument- és JSON-fájlokat
+  kimutatásként nyitja meg, amelyet kinyithat, szűrhet és rendezhet, és
+  Excel, PDF, HTML és más formátumba ment. Örökre ingyenes és reklámmentes:
+  nincs fiók, nincs követés, az adatai az eszközén maradnak.
+
+description: |-
+  A Tessera Studio a meglévő adatfájljaiból kimutatást készít. Nyisson meg egy CSV-, Excel-, OpenDocument- vagy JSON-fájlt, és azonnal felfedezhető kimutatásként jelenik meg: csoportosítsa a sorokat és az oszlopokat, nyissa ki és csukja be a szinteket, adjon hozzá összegeket, darabszámokat és átlagokat, szűrjön és rendezzen. Ha megvan, amit keresett, mentse vagy ossza meg Excel-munkafüzetként, PDF-ként, weblapként vagy más formátumban.
+
+  Megjelenítő, nem szerkesztő: a fájljait soha nem módosítja, és semmi sem hagyja el az eszközét, hacsak Ön nem menti vagy osztja meg.
+
+  MEGNYITÁS
+  • CSV és tabulátorral tagolt szöveg (az elválasztót felismeri), Excel (.xlsx), OpenDocument (.ods), JSON és JSON Lines
+  • a fájlválasztóból, más alkalmazásokból („Megnyitás ezzel”, megosztás), számítógépen behúzással, vagy a vágólapról: webcímet vagy táblázatból másolt cellákat
+  • felismeri az oszlopok típusát, nevét, a dátumokat és a számformátumokat; ha egyszer beállítja őket, a Tessera Studio megjegyzi minden azonos oszlopú fájlhoz
+
+  FELFEDEZÉS
+  • sorok és oszlopok egymásba ágyazott, kinyitható és becsukható szinteken
+  • összeg, darabszám, átlag, minimum, maximum, különböző értékek száma, szórás és saját képletek
+  • értékek a végösszeg százalékában, göngyölített összeg és rangsor
+  • szűrők, rendezés címke vagy érték szerint
+  • egy újra megnyitott fájl azzal a kimutatással jön vissza, amelyen hagyta
+  • teljes képernyő telefonon: egy értékre koppintva csak a rács marad látható
+
+  MENTÉS ÉS MEGOSZTÁS
+  • a kimutatás úgy, ahogy látja: Excel, OpenDocument, PDF, HTML, SVG, CSV, JSON vagy JSON Lines formátumban
+  • a mögötte lévő sorok sima táblázatként: Excel, OpenDocument, CSV vagy JSON Lines formátumban
+  • Tessera-pillanatkép: az adatok és a kimutatás egy fájlban, amely pontosan úgy nyílik meg újra, ahogy volt
+
+  SAJÁT ÍZLÉSE SZERINT
+  • hat rácsstílus, a klasszikus táblázatkezelőstől a nagy kontrasztúig; az exportok a választott stílust követik
+  • világos és sötét téma
+  • 14 nyelv: angol, cseh, francia, holland, japán, kínai, lengyel, magyar, német, olasz, orosz, portugál, spanyol és török
+
+  INGYENES, ÖRÖKRE
+  Nincs reklám, nincs alkalmazáson belüli vásárlás, nincs előfizetés, nincs fiók. Nincs elemzés és követés: az alkalmazás csak akkor használja a hálózatot, ha Ön nyit meg egy webcímet vagy hivatkozást. A Tessera Studio nyílt forráskódú (MIT-licenc), és a tesserára épül, amely egy nyílt forráskódú kimutatásmotor Darthoz és Flutterhez.
+
+features:
+  - Megnyitja a CSV-, tabulátorral tagolt, Excel- (.xlsx), OpenDocument- (.ods), JSON- és JSON Lines-fájlokat
+  - Bármely táblázatot kimutatásként mutat, egymásba ágyazott, kinyitható sorokkal és oszlopokkal
+  - Összeg, darabszám, átlag, minimum, maximum, különböző értékek száma, szórás és képletek
+  - Végösszeg-százalék, göngyölített összeg és rangsor
+  - Szűrők, rendezés címke vagy érték szerint
+  - Felismeri az oszloptípusokat, a dátumokat és a számformátumokat, és megjegyzi a módosításait
+  - Egy fájlt azzal a kimutatással nyit meg újra, amelyen hagyta
+  - Export Excelbe, OpenDocumentbe, PDF-be, HTML-be, SVG-be, CSV-be, JSON-ba és JSON Lines-ba
+  - Tessera-pillanatképek, amelyek pontosan úgy nyílnak meg újra, ahogy voltak
+  - Fájlok megnyitása behúzással, a „Megnyitás ezzel” paranccsal vagy a vágólapról
+  - Hat rácsstílus, világos és sötét téma
+  - 14 nyelv
+  - Soha nem módosítja a fájljait
+  - Örökre ingyenes és reklámmentes, fiók és követés nélkül
+
+search_terms:
+  - kimutatás
+  - pivot tábla
+  - csv megjelenítő
+  - excel megjelenítő
+  - json megjelenítő
+  - táblázat
+  - kereszttábla

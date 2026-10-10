@@ -1,0 +1,77 @@
+# Store listing, Brazilian Portuguese. Translates en.yaml; fields and
+# limits: README.md.
+
+name: Tessera Studio
+
+short: Abra arquivos CSV, Excel e JSON como tabelas dinâmicas. Grátis, sem anúncios.
+
+subtitle: Tabelas dinâmicas de arquivos
+
+promo: >-
+  Abra uma planilha, um CSV ou um JSON e veja-o na hora como tabela dinâmica;
+  depois salve em Excel, PDF e mais. Grátis para sempre, sem anúncios nem
+  rastreamento.
+
+keywords: tabela dinâmica,pivot,tabela cruzada,csv,excel,xlsx,ods,json,planilha,visualizador,relatório,pdf
+
+summary: >-
+  O Tessera Studio abre arquivos CSV, Excel, OpenDocument e JSON como tabelas
+  dinâmicas que você pode expandir, filtrar e ordenar, e as salva em Excel,
+  PDF, HTML e mais. Grátis e sem anúncios para sempre: sem conta, sem
+  rastreamento, seus dados ficam com você.
+
+description: |-
+  O Tessera Studio transforma os arquivos de dados que você já tem em tabelas dinâmicas. Abra um arquivo CSV, Excel, OpenDocument ou JSON e ele aparece na hora como uma tabela dinâmica para explorar: agrupe linhas e colunas, expanda e recolha os níveis, adicione somas, contagens e médias, filtre e ordene. Quando tiver o que precisa, salve ou compartilhe como pasta de trabalho do Excel, PDF, página da web ou em outro formato.
+
+  É um visualizador, não um editor: seus arquivos nunca são alterados, e nada sai do seu dispositivo a menos que você salve ou compartilhe.
+
+  ABRIR
+  • CSV e texto separado por tabulações (o separador é detectado), Excel (.xlsx), OpenDocument (.ods), JSON e JSON Lines
+  • pelo seletor de arquivos, a partir de outros apps ("Abrir com", compartilhar), arrastando e soltando no computador ou pela área de transferência: um endereço da web ou células copiadas de uma planilha
+  • tipos de coluna, rótulos, datas e formatos de número são detectados; ajuste uma vez e o Tessera Studio se lembra deles para todo arquivo com as mesmas colunas
+
+  EXPLORAR
+  • linhas e colunas em níveis aninhados que se expandem e se recolhem
+  • somas, contagens, médias, mínimos, máximos, contagens de valores distintos, desvios padrão e suas próprias fórmulas
+  • valores como porcentagem de um total, totais acumulados e classificações
+  • filtros e ordenação por rótulos ou por valores
+  • um arquivo aberto de novo volta na tabela dinâmica em que você o deixou
+  • tela cheia no celular: toque em um valor para esconder tudo menos a grade
+
+  SALVAR E COMPARTILHAR
+  • a tabela dinâmica como aparece, em Excel, OpenDocument, PDF, HTML, SVG, CSV, JSON ou JSON Lines
+  • as linhas de origem como tabela simples, em Excel, OpenDocument, CSV ou JSON Lines
+  • um instantâneo Tessera: os dados e a tabela dinâmica em um só arquivo, que reabre exatamente como estava
+
+  DO SEU JEITO
+  • seis estilos de grade, do visual clássico de planilha ao alto contraste; as exportações seguem o estilo escolhido
+  • temas claro e escuro
+  • 14 idiomas: alemão, chinês, espanhol, francês, holandês, húngaro, inglês, italiano, japonês, polonês, português, russo, tcheco e turco
+
+  GRÁTIS, PARA SEMPRE
+  Sem anúncios, sem compras no app, sem assinaturas, sem conta. Sem análises e sem rastreamento: o app só se conecta quando você mesmo abre um endereço da web ou um link. O Tessera Studio é de código aberto (licença MIT) e se baseia no tessera, um mecanismo de tabelas dinâmicas de código aberto para Dart e Flutter.
+
+features:
+  - Abre arquivos CSV, separados por tabulações, Excel (.xlsx), OpenDocument (.ods), JSON e JSON Lines
+  - Mostra qualquer tabela como tabela dinâmica, com linhas e colunas aninhadas que se expandem
+  - Somas, contagens, médias, mínimos, máximos, valores distintos, desvios padrão e fórmulas
+  - Porcentagens de um total, totais acumulados e classificações
+  - Filtros e ordenação por rótulos ou por valores
+  - Detecta tipos de coluna, datas e formatos de número e se lembra dos seus ajustes
+  - Reabre um arquivo na tabela dinâmica em que você o deixou
+  - Exporta para Excel, OpenDocument, PDF, HTML, SVG, CSV, JSON e JSON Lines
+  - Instantâneos Tessera que reabrem exatamente como estavam
+  - Abre arquivos arrastando e soltando, com "Abrir com" ou pela área de transferência
+  - Seis estilos de grade, temas claro e escuro
+  - 14 idiomas
+  - Nunca altera seus arquivos
+  - Grátis e sem anúncios para sempre, sem conta e sem rastreamento
+
+search_terms:
+  - tabela dinâmica
+  - visualizador csv
+  - visualizador excel
+  - visualizador json
+  - planilha
+  - análise de dados
+  - tabela cruzada

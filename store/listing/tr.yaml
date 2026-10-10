@@ -1,0 +1,76 @@
+# Store listing, Turkish. Translates en.yaml; fields and limits: README.md.
+
+name: Tessera Studio
+
+short: CSV, Excel ve JSON dosyalarını pivot tablo olarak açın. Ücretsiz, reklamsız.
+
+subtitle: Dosyalarınızdan pivot tablo
+
+promo: >-
+  Bir elektronik tablo, CSV veya JSON dosyası açın ve hemen pivot tablo
+  olarak görün; sonra Excel, PDF ve daha fazlası olarak kaydedin. Sonsuza dek
+  ücretsiz, reklamsız.
+
+keywords: pivot tablo,pivot,çapraz tablo,csv,excel,xlsx,ods,json,elektronik tablo,görüntüleyici,rapor,pdf
+
+summary: >-
+  Tessera Studio; CSV, Excel, OpenDocument ve JSON dosyalarını açıp
+  kapatabileceğiniz, filtreleyip sıralayabileceğiniz pivot tablolar olarak
+  açar ve Excel, PDF, HTML gibi biçimlerde kaydeder. Sonsuza dek ücretsiz ve
+  reklamsız: hesap yok, izleme yok.
+
+description: |-
+  Tessera Studio, elinizdeki veri dosyalarını pivot tablolara dönüştürür. Bir CSV, Excel, OpenDocument veya JSON dosyası açın; hemen keşfedebileceğiniz bir pivot tablo olarak görünür: satırları ve sütunları gruplayın, düzeyleri açıp kapatın, toplam, sayı ve ortalama ekleyin, filtreleyin ve sıralayın. İstediğinizi elde ettiğinizde sonucu Excel çalışma kitabı, PDF, web sayfası veya başka bir biçimde kaydedin ya da paylaşın.
+
+  Bir görüntüleyicidir, düzenleyici değil: dosyalarınız asla değiştirilmez ve siz kaydetmedikçe ya da paylaşmadıkça hiçbir şey cihazınızdan çıkmaz.
+
+  AÇMA
+  • CSV ve sekmeyle ayrılmış metin (ayırıcı algılanır), Excel (.xlsx), OpenDocument (.ods), JSON ve JSON Lines
+  • dosya seçiciden, diğer uygulamalardan ("Birlikte aç", paylaş), bilgisayarda sürükleyip bırakarak veya panodan: bir web adresi ya da bir elektronik tablodan kopyalanan hücreler
+  • sütun türleri, etiketler, tarihler ve sayı biçimleri algılanır; bir kez ayarlayın, Tessera Studio aynı sütunlara sahip her dosya için hatırlar
+
+  KEŞFETME
+  • açılıp kapanan iç içe düzeylerde satırlar ve sütunlar
+  • toplam, sayı, ortalama, en küçük, en büyük, benzersiz değer sayısı, standart sapma ve kendi formülleriniz
+  • bir toplamın yüzdesi olarak değerler, kümülatif toplamlar ve sıralar
+  • filtreler ve etiketlere ya da değerlere göre sıralama
+  • yeniden açtığınız bir dosya, bıraktığınız pivot tabloyla geri gelir
+  • telefonda tam ekran: yalnızca ızgarayı bırakmak için bir değere dokunun
+
+  KAYDETME VE PAYLAŞMA
+  • pivot tablo göründüğü gibi: Excel, OpenDocument, PDF, HTML, SVG, CSV, JSON veya JSON Lines
+  • alttaki satırlar düz tablo olarak: Excel, OpenDocument, CSV veya JSON Lines
+  • Tessera anlık görüntüsü: veriler ve pivot tablo, tam olarak olduğu gibi yeniden açılan tek bir dosyada
+
+  ZEVKİNİZE GÖRE
+  • klasik elektronik tablo görünümünden yüksek karşıtlığa altı ızgara stili; dışa aktarımlar seçtiğiniz stili izler
+  • açık ve koyu tema
+  • 14 dil: Almanca, Çekçe, Çince, Fransızca, Felemenkçe, İngilizce, İspanyolca, İtalyanca, Japonca, Lehçe, Macarca, Portekizce, Rusça ve Türkçe
+
+  ÜCRETSİZ, SONSUZA DEK
+  Reklam yok, uygulama içi satın alma yok, abonelik yok, hesap yok. Analiz ve izleme yok: uygulama yalnızca siz bir web adresi veya bağlantı açtığınızda internete bağlanır. Tessera Studio açık kaynaklıdır (MIT lisansı) ve Dart ile Flutter için açık kaynaklı bir pivot tablo motoru olan tessera üzerine kuruludur.
+
+features:
+  - CSV, sekmeyle ayrılmış, Excel (.xlsx), OpenDocument (.ods), JSON ve JSON Lines dosyalarını açar
+  - Her tabloyu açılıp kapanan iç içe satır ve sütunlarla pivot tablo olarak gösterir
+  - Toplam, sayı, ortalama, en küçük, en büyük, benzersiz değerler, standart sapma ve formüller
+  - Toplamın yüzdesi, kümülatif toplamlar ve sıralar
+  - Filtreler ve etiketlere ya da değerlere göre sıralama
+  - Sütun türlerini, tarihleri ve sayı biçimlerini algılar, ayarlarınızı hatırlar
+  - Bir dosyayı bıraktığınız pivot tabloyla yeniden açar
+  - Excel, OpenDocument, PDF, HTML, SVG, CSV, JSON ve JSON Lines biçimlerine aktarır
+  - Tam olarak olduğu gibi yeniden açılan Tessera anlık görüntüleri
+  - Dosyaları sürükleyip bırakarak, "Birlikte aç" ile veya panodan açar
+  - Altı ızgara stili, açık ve koyu tema
+  - 14 dil
+  - Dosyalarınızı asla değiştirmez
+  - Sonsuza dek ücretsiz ve reklamsız, hesapsız ve izlemesiz
+
+search_terms:
+  - pivot tablo
+  - csv görüntüleyici
+  - excel görüntüleyici
+  - json görüntüleyici
+  - elektronik tablo
+  - veri analizi
+  - çapraz tablo

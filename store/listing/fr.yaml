@@ -1,0 +1,76 @@
+# Store listing, French. Translates en.yaml; fields and limits: README.md.
+
+name: Tessera Studio
+
+short: Fichiers CSV, Excel et JSON en tableaux croisés. Gratuit, sans pub ni pistage.
+
+subtitle: Tableaux croisés de fichiers
+
+promo: >-
+  Ouvrez un classeur, un CSV ou un JSON et voyez-le aussitôt en tableau croisé,
+  puis enregistrez-le en Excel, PDF et plus. Gratuit pour toujours, sans pub ni
+  pistage.
+
+keywords: tableau croisé,croisé dynamique,pivot,csv,excel,xlsx,ods,json,tableur,visionneuse,rapport,pdf
+
+summary: >-
+  Tessera Studio ouvre les fichiers CSV, Excel, OpenDocument et JSON en
+  tableaux croisés à déplier, filtrer et trier, et les enregistre en Excel,
+  PDF, HTML et plus. Gratuit et sans publicité pour toujours : aucun compte,
+  aucun pistage, vos données restent chez vous.
+
+description: |-
+  Tessera Studio transforme vos fichiers de données en tableaux croisés dynamiques. Ouvrez un fichier CSV, Excel, OpenDocument ou JSON : il s’affiche aussitôt en tableau croisé à explorer. Regroupez les lignes et les colonnes, dépliez et repliez les niveaux, ajoutez des sommes, des nombres et des moyennes, filtrez et triez. Une fois le résultat obtenu, enregistrez-le ou partagez-le en classeur Excel, en PDF, en page web ou dans un autre format.
+
+  C’est une visionneuse, pas un éditeur : vos fichiers ne sont jamais modifiés, et rien ne quitte votre appareil sauf si vous l’enregistrez ou le partagez.
+
+  OUVRIR
+  • CSV et texte séparé par des tabulations (le séparateur est détecté), Excel (.xlsx), OpenDocument (.ods), JSON et JSON Lines
+  • depuis le sélecteur de fichiers, depuis d’autres applications (« Ouvrir avec », partage), par glisser-déposer sur ordinateur, ou depuis le presse-papiers : une adresse web ou des cellules copiées d’un tableur
+  • les types de colonnes, les libellés, les dates et les formats de nombres sont détectés ; ajustez-les une fois et Tessera Studio s’en souvient pour tous les fichiers ayant les mêmes colonnes
+
+  EXPLORER
+  • lignes et colonnes en niveaux imbriqués qui se déplient et se replient
+  • sommes, nombres, moyennes, minimums, maximums, nombres de valeurs distinctes, écarts types et vos propres formules
+  • valeurs en pourcentage d’un total, cumuls et rangs
+  • filtres, et tri par libellés ou par valeurs
+  • un fichier rouvert revient sur le tableau croisé où vous l’aviez laissé
+  • plein écran sur téléphone : touchez une valeur pour ne garder que la grille
+
+  ENREGISTRER ET PARTAGER
+  • le tableau croisé tel qu’affiché, en Excel, OpenDocument, PDF, HTML, SVG, CSV, JSON ou JSON Lines
+  • les lignes sous-jacentes en tableau simple, en Excel, OpenDocument, CSV ou JSON Lines
+  • un instantané Tessera : les données et le tableau croisé dans un seul fichier qui se rouvre exactement à l’identique
+
+  À VOTRE GOÛT
+  • six styles de grille, de l’aspect tableur classique au contraste élevé ; les exports suivent le style choisi
+  • thèmes clair et sombre
+  • 14 langues : allemand, anglais, chinois, espagnol, français, hongrois, italien, japonais, néerlandais, polonais, portugais, russe, tchèque et turc
+
+  GRATUIT, POUR TOUJOURS
+  Pas de publicité, pas d’achats intégrés, pas d’abonnement, pas de compte. Pas d’analyse ni de pistage : l’application ne se connecte que lorsque vous ouvrez vous-même une adresse web ou un lien. Tessera Studio est open source (licence MIT) et repose sur tessera, un moteur de tableaux croisés open source pour Dart et Flutter.
+
+features:
+  - Ouvre les fichiers CSV, séparés par des tabulations, Excel (.xlsx), OpenDocument (.ods), JSON et JSON Lines
+  - Affiche n’importe quel tableau en tableau croisé, avec des lignes et des colonnes imbriquées à déplier
+  - Sommes, nombres, moyennes, minimums, maximums, valeurs distinctes, écarts types et formules
+  - Pourcentages d’un total, cumuls et rangs
+  - Filtres, et tri par libellés ou par valeurs
+  - Détecte les types de colonnes, les dates et les formats de nombres, et retient vos réglages
+  - Rouvre un fichier sur le tableau croisé où vous l’aviez laissé
+  - Exporte en Excel, OpenDocument, PDF, HTML, SVG, CSV, JSON et JSON Lines
+  - Instantanés Tessera qui se rouvrent à l’identique
+  - Ouvre les fichiers par glisser-déposer, « Ouvrir avec » ou depuis le presse-papiers
+  - Six styles de grille, thèmes clair et sombre
+  - 14 langues
+  - Ne modifie jamais vos fichiers
+  - Gratuit et sans publicité pour toujours, sans compte ni pistage
+
+search_terms:
+  - tableau croisé
+  - visionneuse csv
+  - visionneuse excel
+  - visionneuse json
+  - tableur
+  - analyse de données
+  - croisé dynamique

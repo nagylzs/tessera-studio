@@ -406,7 +406,14 @@ cache emptied at start, settings, schemas and pivots kept locally
 (pivots can hold column names and values), the network used only for
 URLs the user opens and About's links, the clipboard read only on
 "Open from clipboard". Any change to those behaviours updates the page
-and its date. The account work itself is logged in the owner's vault
+and its date. `store/listing/<lang>.yaml` are the store listing texts,
+one file per app language with every store's fields (`en.yaml` the
+American-English master, the 13 others translations using the ARB
+files' terms); `store/listing/README.md` maps the fields to Google
+Play, the App Store and the Microsoft Store, lists each store's locale
+codes and the claims to keep true (e.g. "Open with" on iOS/macOS), and
+`test/store_listing_test.dart` checks every file against the limits
+and that every ARB language has one. The account work itself is logged in the owner's vault
 (`~/LaciBox/Braniac/Projektek/fejlesztoi_fiokok`), not here.
 
 Windows ships twice (owner's choice, 2026-10-10): the Microsoft Store

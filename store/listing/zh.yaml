@@ -1,0 +1,72 @@
+# Store listing, Simplified Chinese. Translates en.yaml; fields and
+# limits: README.md.
+
+name: Tessera Studio
+
+short: 将 CSV、Excel 和 JSON 文件打开为数据透视表。免费、无广告、无跟踪。
+
+subtitle: 用文件生成数据透视表
+
+promo: >-
+  打开电子表格、CSV 或 JSON 文件，立即以数据透视表查看，再保存为 Excel、PDF 等格式。永久免费，无广告，无跟踪。
+
+keywords: 数据透视表,透视表,交叉表,csv,excel,xlsx,ods,json,电子表格,查看器,报表,数据,pdf
+
+summary: >-
+  Tessera Studio 将 CSV、Excel、OpenDocument 和 JSON 文件打开为可展开、筛选和排序的数据透视表，并可保存为 Excel、PDF、HTML 等格式。永久免费、无广告：无需账户，没有跟踪，数据留在您的设备上。
+
+description: |-
+  Tessera Studio 把您已有的数据文件变成数据透视表。打开 CSV、Excel、OpenDocument 或 JSON 文件，它会立即显示为可供探索的数据透视表：对行和列分组，展开和折叠层级，添加求和、计数和平均值，筛选和排序。得到所需结果后，可将其保存或分享为 Excel 工作簿、PDF、网页或其他格式。
+
+  这是一个查看器，而不是编辑器：您的文件永远不会被修改；除非您自己保存或分享，否则任何数据都不会离开您的设备。
+
+  打开
+  • CSV 和制表符分隔文本（自动识别分隔符）、Excel (.xlsx)、OpenDocument (.ods)、JSON 和 JSON Lines
+  • 通过文件选择器、从其他应用（“打开方式”、分享）、在电脑上拖放，或从剪贴板：网址或从电子表格复制的单元格
+  • 自动识别列类型、标签、日期和数字格式；调整一次后，Tessera Studio 会为所有列相同的文件记住这些设置
+
+  探索
+  • 可展开和折叠的多层嵌套行与列
+  • 求和、计数、平均值、最小值、最大值、非重复计数、标准差以及自定义公式
+  • 占总计的百分比、累计值和排名
+  • 筛选，以及按标签或按值排序
+  • 再次打开的文件会回到您上次离开时的数据透视表
+  • 手机全屏：点按一个值，只留下表格
+
+  保存和分享
+  • 按显示效果导出数据透视表：Excel、OpenDocument、PDF、HTML、SVG、CSV、JSON 或 JSON Lines
+  • 将源数据行导出为普通表格：Excel、OpenDocument、CSV 或 JSON Lines
+  • Tessera 快照：数据和数据透视表保存在一个文件中，重新打开时完全保持原样
+
+  随心定制
+  • 六种网格样式，从经典电子表格外观到高对比度；导出文件沿用所选样式
+  • 浅色和深色主题
+  • 14 种语言：中文、英语、德语、法语、西班牙语、意大利语、葡萄牙语、俄语、日语、荷兰语、波兰语、捷克语、匈牙利语和土耳其语
+
+  永久免费
+  没有广告，没有应用内购买，没有订阅，无需账户。没有分析，也没有跟踪：只有当您自己打开网址或链接时，应用才会联网。Tessera Studio 是开源软件（MIT 许可证），基于 tessera——一个面向 Dart 和 Flutter 的开源数据透视表引擎。
+
+features:
+  - 打开 CSV、制表符分隔、Excel (.xlsx)、OpenDocument (.ods)、JSON 和 JSON Lines 文件
+  - 将任何表格显示为数据透视表，行和列可多层嵌套、展开和折叠
+  - 求和、计数、平均值、最小值、最大值、非重复计数、标准差和公式
+  - 占总计的百分比、累计值和排名
+  - 筛选，以及按标签或按值排序
+  - 自动识别列类型、日期和数字格式，并记住您的调整
+  - 以您上次离开时的数据透视表重新打开文件
+  - 导出为 Excel、OpenDocument、PDF、HTML、SVG、CSV、JSON 和 JSON Lines
+  - Tessera 快照，重新打开时完全保持原样
+  - 通过拖放、“打开方式”或剪贴板打开文件
+  - 六种网格样式，浅色和深色主题
+  - 14 种语言
+  - 从不修改您的文件
+  - 永久免费、无广告，无需账户，没有跟踪
+
+search_terms:
+  - 数据透视表
+  - CSV 查看器
+  - Excel 查看器
+  - JSON 查看器
+  - 电子表格
+  - 数据分析
+  - 交叉表

@@ -1,0 +1,76 @@
+# Store listing, German. Translates en.yaml; fields and limits: README.md.
+
+name: Tessera Studio
+
+short: CSV-, Excel- und JSON-Dateien als Pivot-Tabellen. Kostenlos, ohne Werbung.
+
+subtitle: Pivot-Tabellen aus Dateien
+
+promo: >-
+  Tabelle, CSV- oder JSON-Datei öffnen und sofort als Pivot-Tabelle sehen,
+  dann als Excel, PDF und mehr speichern. Für immer kostenlos, ohne Werbung
+  und Tracking.
+
+keywords: pivot,pivot-tabelle,kreuztabelle,csv,excel,xlsx,ods,json,tabelle,viewer,bericht,daten,pdf
+
+summary: >-
+  Tessera Studio öffnet CSV-, Excel-, OpenDocument- und JSON-Dateien als
+  Pivot-Tabellen zum Aufklappen, Filtern und Sortieren und speichert sie als
+  Excel, PDF, HTML und mehr. Für immer kostenlos und werbefrei: kein Konto,
+  kein Tracking, Ihre Daten bleiben bei Ihnen.
+
+description: |-
+  Tessera Studio macht aus den Datendateien, die Sie schon haben, Pivot-Tabellen. Öffnen Sie eine CSV-, Excel-, OpenDocument- oder JSON-Datei, und sie erscheint sofort als Pivot-Tabelle zum Erkunden: Zeilen und Spalten gruppieren, Ebenen auf- und zuklappen, Summen, Anzahlen und Mittelwerte bilden, filtern und sortieren. Wenn Sie haben, was Sie brauchen, speichern oder teilen Sie das Ergebnis als Excel-Arbeitsmappe, PDF, Webseite oder in einem anderen Format.
+
+  Tessera Studio ist ein Viewer, kein Editor: Ihre Dateien werden nie verändert, und nichts verlässt Ihr Gerät, außer Sie speichern oder teilen es.
+
+  ÖFFNEN
+  • CSV und tabulatorgetrennter Text (das Trennzeichen wird erkannt), Excel (.xlsx), OpenDocument (.ods), JSON und JSON Lines
+  • über die Dateiauswahl, aus anderen Apps („Öffnen mit“, Teilen), per Drag & Drop am Computer oder aus der Zwischenablage: eine Webadresse oder aus einer Tabelle kopierte Zellen
+  • Spaltentypen, Bezeichnungen, Datums- und Zahlenformate werden erkannt; einmal angepasst, merkt sich Tessera Studio sie für jede Datei mit denselben Spalten
+
+  ERKUNDEN
+  • Zeilen und Spalten in verschachtelten Ebenen, die sich auf- und zuklappen lassen
+  • Summen, Anzahlen, Mittelwerte, Minima, Maxima, eindeutige Anzahlen, Standardabweichungen und eigene Formeln
+  • Werte als Prozent einer Summe, laufende Summen und Ränge
+  • Filter und Sortierung nach Bezeichnungen oder Werten
+  • eine erneut geöffnete Datei kommt mit der Pivot-Tabelle zurück, bei der Sie aufgehört haben
+  • Vollbild auf dem Handy: Ein Tippen auf einen Wert blendet alles außer dem Raster aus
+
+  SPEICHERN UND TEILEN
+  • die Pivot-Tabelle wie angezeigt, als Excel, OpenDocument, PDF, HTML, SVG, CSV, JSON oder JSON Lines
+  • die zugrunde liegenden Zeilen als einfache Tabelle in Excel, OpenDocument, CSV oder JSON Lines
+  • ein Tessera-Snapshot: Daten und Pivot-Tabelle in einer Datei, die sich genau so wieder öffnet
+
+  NACH IHREM GESCHMACK
+  • sechs Rasterstile, vom klassischen Tabellenkalkulations-Look bis zu hohem Kontrast; Exporte folgen dem gewählten Stil
+  • helles und dunkles Design
+  • 14 Sprachen: Chinesisch, Deutsch, Englisch, Französisch, Italienisch, Japanisch, Niederländisch, Polnisch, Portugiesisch, Russisch, Spanisch, Tschechisch, Türkisch und Ungarisch
+
+  KOSTENLOS, FÜR IMMER
+  Keine Werbung, keine In-App-Käufe, keine Abos, kein Konto. Keine Analyse und kein Tracking: Die App geht nur online, wenn Sie selbst eine Webadresse oder einen Link öffnen. Tessera Studio ist Open Source (MIT-Lizenz) und baut auf tessera auf, einer quelloffenen Pivot-Engine für Dart und Flutter.
+
+features:
+  - Öffnet CSV-, tabulatorgetrennte, Excel- (.xlsx), OpenDocument- (.ods), JSON- und JSON-Lines-Dateien
+  - Zeigt jede Tabelle als Pivot-Tabelle mit verschachtelten, aufklappbaren Zeilen und Spalten
+  - Summen, Anzahlen, Mittelwerte, Minima, Maxima, eindeutige Anzahlen, Standardabweichungen und Formeln
+  - Prozent einer Summe, laufende Summen und Ränge
+  - Filter und Sortierung nach Bezeichnungen oder Werten
+  - Erkennt Spaltentypen, Datums- und Zahlenformate und merkt sich Ihre Anpassungen
+  - Öffnet eine Datei wieder mit der Pivot-Tabelle, bei der Sie aufgehört haben
+  - Export nach Excel, OpenDocument, PDF, HTML, SVG, CSV, JSON und JSON Lines
+  - Tessera-Snapshots, die sich genau so wieder öffnen
+  - Öffnet Dateien per Drag & Drop, „Öffnen mit“ oder aus der Zwischenablage
+  - Sechs Rasterstile, helles und dunkles Design
+  - 14 Sprachen
+  - Verändert Ihre Dateien nie
+  - Für immer kostenlos und werbefrei, ohne Konto und ohne Tracking
+
+search_terms:
+  - pivot-tabelle
+  - csv viewer
+  - excel viewer
+  - json viewer
+  - kreuztabelle
+  - tabellenkalkulation
+  - datenanalyse
