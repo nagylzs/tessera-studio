@@ -397,6 +397,27 @@ tags and manual runs ("Run workflow"). Signing comes later through CI
 secrets, never through the repository. Iterate on CI from a short-lived
 branch, not on `main`.
 
+Windows ships twice (owner's choice, 2026-10-10): the Microsoft Store
+first, an MSIX made by the `msix` dev dependency (`msix_config` at the
+end of the pubspec: display name, logo, `internetClient`, the 14
+languages, the file types the app opens except `.txt`; the version from
+`version:`, `1.0.0+1` → `1.0.0.0`), and a portable zip. CI's Windows
+job makes both after `flutter build windows`: "Portable zip" copies
+`Release/` into `build/portable/Tessera Studio/` with the Visual C++
+runtime DLLs from the runner's Visual Studio (`vswhere`, the newest
+`Microsoft.VC*.CRT`; a fresh Windows may lack them and the app would
+not start) and zips it as `tessera-studio-<version>-windows-x64-
+portable.zip`; "MSIX" runs `dart run msix:create --build-windows
+false`, with `--store` and the Partner Center identity when the
+repository variables `MSIX_IDENTITY_NAME` / `MSIX_PUBLISHER` /
+`MSIX_PUBLISHER_DISPLAY_NAME` are set, else signed with the msix
+tool's test certificate (sideloading, to try installation and file
+associations). The identity values in `msix_config` are placeholders
+until then. A packaged app gets an opened file as its command-line
+argument, which `main` already loads. The portable app keeps its
+settings in AppData like any Flutter app, has no file associations,
+and is unsigned (SmartScreen warns) unless the owner buys signing.
+
 Screenshots, driving the app with synthetic input, and any test that
 needs a display: always use the virtual display recipe from
 `../tessera/CLAUDE.md` (`Xvfb :5`, `xdotool`, `ffmpeg x11grab`; the

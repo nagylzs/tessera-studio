@@ -89,9 +89,21 @@ conventions live in `CLAUDE.md`, not here.
 - [ ] Release signing in CI: the Android upload key, Apple
       certificates and profiles, Windows code signing — as CI secrets
       only; Play and App Store uploads manual at first.
+- [ ] Windows, Microsoft Store first and a portable zip besides (owner,
+      2026-10-10; CI builds both, see CLAUDE.md): a Partner Center
+      account, reserve "Tessera Studio", put its three identity values
+      into the repository variables `MSIX_IDENTITY_NAME`,
+      `MSIX_PUBLISHER`, `MSIX_PUBLISHER_DISPLAY_NAME` (CI then builds
+      the Store package instead of the test one) and into
+      `msix_config` in place of the placeholders; Store listing, upload
+      by hand at first. Try on a Windows machine: the test MSIX
+      (installing needs its test certificate trusted), the file
+      associations, the portable zip on a Windows without the Visual
+      C++ runtime. Decide on signing the portable exe (unsigned means
+      SmartScreen's "Windows protected your PC" → More info → Run
+      anyway; a code-signing certificate or service costs money).
 - [ ] Linux: `.desktop` file, icon, MIME types (`text/csv`, XLSX, ODS,
-      JSON, `application/vnd.tessera.snapshot`); Windows: file
-      associations in the installer.
+      JSON, `application/vnd.tessera.snapshot`).
 - [ ] Store listing and README: free, ad-free, no telemetry, the 14
       languages, screenshots from the Xvfb recipe.
 - [ ] After the first release: register `application/vnd.tessera.snapshot`

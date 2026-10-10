@@ -64,6 +64,7 @@ dev_dependencies:
   flutter_lints: ^6.0.0
   flutter_launcher_icons: ^0.14.4
   shared_preferences_platform_interface: ^2.4.2
+  msix: ^3.18.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -137,3 +138,28 @@ flutter_launcher_icons:
   macos:
     generate: true
     image_path: "assets/icon/tessera-icon.png"
+
+# Windows package (MSIX) for the Microsoft Store, built by CI on Windows:
+#   dart run msix:create --build-windows false
+# The version comes from `version:` above (1.0.0+1 → 1.0.0.0, the fourth
+# number 0 as the Store requires). PLACEHOLDERS until the name "Tessera
+# Studio" is reserved in Microsoft Partner Center: identity_name and
+# publisher_display_name below, and the publisher (`CN=…`), must then be
+# exactly Partner Center's values. CI passes them for the Store package
+# from the repository variables MSIX_IDENTITY_NAME, MSIX_PUBLISHER and
+# MSIX_PUBLISHER_DISPLAY_NAME; without them it builds a test package
+# signed with the msix tool's test certificate (sideloading only).
+msix_config:
+  display_name: Tessera Studio
+  identity_name: eu.nagylzs.TesseraStudio        # PLACEHOLDER (Partner Center)
+  publisher_display_name: László Zsolt Nagy      # PLACEHOLDER (Partner Center)
+  logo_path: assets/icon/tessera-icon.png
+  # URLs the user opens; files come through the picker and associations
+  capabilities: internetClient
+  # the 14 languages of the app (pt: Brazilian, zh: Simplified)
+  languages: en-us, cs-cz, de-de, es-es, fr-fr, hu-hu, it-it, ja-jp, nl-nl, pl-pl, pt-br, ru-ru, tr-tr, zh-cn
+  # what the app opens (not .txt: it would claim every text file)
+  file_extension: .csv, .tsv, .tab, .xlsx, .ods, .json, .jsonl, .ndjson, .tsnp
+  output_path: build/msix
+  output_name: tessera-studio
+  install_certificate: false

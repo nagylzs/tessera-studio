@@ -114,11 +114,51 @@ jobs:
           channel: stable
           cache: true
       - run: flutter build windows --release
+      # The portable download: the app folder plus the Visual C++ runtime
+      # a fresh Windows may lack (Microsoft allows it next to the app),
+      # taken from this machine's Visual Studio, zipped.
+      - name: Portable zip
+        shell: pwsh
+        run: |
+          $vs = & "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe" -latest -property installationPath
+          $crt = Get-ChildItem "$vs\VC\Redist\MSVC\*\x64\Microsoft.VC*.CRT" -Directory |
+            Sort-Object FullName | Select-Object -Last 1
+          if (-not $crt) { throw 'No Visual C++ runtime redistributable found' }
+          $version = (Select-String -Path pubspec.yaml -Pattern '^version:\s*([0-9.]+)').Matches[0].Groups[1].Value
+          $dir = 'build\portable\Tessera Studio'
+          New-Item -ItemType Directory -Force -Path $dir | Out-Null
+          Copy-Item -Recurse build\windows\x64\runner\Release\* $dir
+          Copy-Item "$($crt.FullName)\*.dll" $dir
+          Compress-Archive -Path $dir -DestinationPath "build\portable\tessera-studio-$version-windows-x64-portable.zip"
+          Get-ChildItem -Recurse build\portable -Filter *.dll | Select-Object Name
+      # The Store package once the Partner Center identity is in the
+      # repository variables (Settings → Secrets and variables → Actions
+      # → Variables; they are public in the Store, so not secrets); a
+      # package signed with the msix tool's test certificate until then,
+      # for trying the installation and the file associations.
+      - name: MSIX
+        shell: pwsh
+        env:
+          IDENTITY: ${{ vars.MSIX_IDENTITY_NAME }}
+          PUBLISHER: ${{ vars.MSIX_PUBLISHER }}
+          PUBLISHER_NAME: ${{ vars.MSIX_PUBLISHER_DISPLAY_NAME }}
+        run: |
+          if ($env:IDENTITY) {
+            dart run msix:create --build-windows false --store `
+              --identity-name $env:IDENTITY `
+              --publisher $env:PUBLISHER `
+              --publisher-display-name $env:PUBLISHER_NAME
+          } else {
+            dart run msix:create --build-windows false
+          }
+          Get-ChildItem build\msix
       - if: env.KEEP_BUILDS == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: windows-x64
-          path: build/windows/x64/runner/Release
+          path: |
+            build/portable/*.zip
+            build/msix/*.msix
           retention-days: 14
 
   macos:
