@@ -1,4 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Opening an http(s) URL the user gave (e.g. from the clipboard).
+         Flutter's debug and profile manifests add it; release needs it here. -->
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:label="Tessera Studio"
         android:name="${applicationName}"
