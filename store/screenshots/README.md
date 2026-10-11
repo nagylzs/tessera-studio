@@ -54,6 +54,19 @@ phone set shows the sheet instead.
 
 Files go to `<set>/<nn>-<name>.png`, e.g. `play-phone/2-fullscreen.png`.
 
+Google Play also wants two graphics, both here:
+
+- `play-feature-graphic.png` (1024 × 500), rendered from
+  `feature-graphic.svg`: the icon and the name on the tessera green,
+  beside tablet shot 1 at half size. No other words: Play shows the
+  default language's graphic in every language without its own, and
+  Japanese or Chinese text would need CJK fonts this machine lacks.
+  `cd store/screenshots && rsvg-convert feature-graphic.svg | magick -
+  -alpha off PNG24:play-feature-graphic.png` (after retaking that shot).
+- `play-icon.png` (512 × 512): `rsvg-convert -w 512 -h 512
+  ../tessera/icon/tessera-icon.svg`, then `magick … PNG32:…` (Play asks
+  for 32-bit with alpha); full bleed, Play rounds it.
+
 ## Per store
 
 | Set | Store | Size (px) | Where |
@@ -73,7 +86,7 @@ Rules as of October 2026 — check them again at upload time:
   1080 × 2400 phone is too long: override its size). 1080 px or more
   on the short side and at least 4 screenshots make the app eligible
   for promotion. Tablets: 16:9 or 9:16. Also required: the 512 × 512
-  icon (`assets/icon/`) and a 1024 × 500 feature graphic.
+  icon and the 1024 × 500 feature graphic (above).
 - **Microsoft Store:** PNG, ≥ 1366 × 768, up to 3840 × 2160, < 50 MB.
   Taken on Windows so the window frame is the real one: maximize the
   window on a 1920 × 1080 screen at 100 % scaling and capture the

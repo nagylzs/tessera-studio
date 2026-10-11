@@ -115,8 +115,8 @@ conventions live in `CLAUDE.md`, not here.
 - [ ] Linux: `.desktop` file, icon, MIME types (`text/csv`, XLSX, ODS,
       JSON, `application/vnd.tessera.snapshot`).
 - [ ] Store screenshots: shot list and demo data in `store/screenshots/`;
-      the desktop (README) and Google Play phone and tablet sets are
-      taken. Still to do: the Play feature graphic (1024 × 500), the
+      the desktop (README) and Google Play phone and tablet sets, the
+      Play feature graphic and 512 px icon are done. Still to do: the
       Microsoft Store set by the owner on Windows, Apple's on the Mac.
       Then the README: free, ad-free, no
       telemetry, the 14 languages. The listing texts are done
