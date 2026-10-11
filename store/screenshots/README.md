@@ -73,7 +73,7 @@ Google Play also wants two graphics, both here:
 |-----|-------|-----------|-------|
 | `play-phone` | Google Play, phone (2–8) | 1080 × 1920 | emulator, here |
 | `play-tablet` | Google Play, 7" and 10" tablet (up to 8 each; the same images fit both) | 2560 × 1440 | emulator (Medium_Tablet), here |
-| `microsoft` | Microsoft Store, desktop (up to 10) | 1920 × 1080 or larger | the owner's Windows |
+| `microsoft` | Microsoft Store, desktop (up to 10) | 1920 × 1080 (150 % scaling) | the owner's Windows |
 | `apple-iphone` | App Store, 6.9" iPhone | 1320 × 2868 | Mac (simulator), later |
 | `apple-ipad` | App Store, 13" iPad | 2064 × 2752 | Mac (simulator), later |
 | `apple-mac` | Mac App Store | 2880 × 1800 (16:10) | Mac, later |
@@ -88,9 +88,17 @@ Rules as of October 2026 — check them again at upload time:
   for promotion. Tablets: 16:9 or 9:16. Also required: the 512 × 512
   icon and the 1024 × 500 feature graphic (above).
 - **Microsoft Store:** PNG, ≥ 1366 × 768, up to 3840 × 2160, < 50 MB.
-  Taken on Windows so the window frame is the real one: maximize the
-  window on a 1920 × 1080 screen at 100 % scaling and capture the
-  window (Win+Shift+S → window).
+  Taken on Windows so the window frame is the real one, with the
+  portable zip from a manual CI run (the CI's MSIX is the Store upload
+  and does not install). What worked (2026-10-11): a 1920 × 1080 screen
+  at **150 %** scaling (at 100 % the pivot fills only the left half),
+  the taskbar set to hide automatically (else the Total row is cut
+  off), the window maximized, the app's language set to English and
+  its theme to Light (it follows Windows otherwise), then Win+Shift+S
+  → window: 1920 × 1080. The app remembers language and theme, so set
+  Dark and Hue levels only for the last shot. A snapshot keeps no
+  changes, so reopening it undoes a stray click (a "Show values as"
+  item chosen while closing the menu).
 - **Apple:** PNG or JPEG, no transparency. One 6.9" iPhone set and one
   13" iPad set cover all devices; the Mac takes 16:10 sizes from
   1280 × 800 to 2880 × 1800.
