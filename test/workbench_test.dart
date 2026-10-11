@@ -218,6 +218,27 @@ void main() {
     expect(bars.hidden, isFalse);
   });
 
+  testWidgets('back closes an open menu first, then the file', (tester) async {
+    _size(tester, 1400, 900);
+    _register();
+    await _toCube(tester);
+    // what an open tessera menu does: a local history entry on the route
+    var menuClosed = false;
+    ModalRoute.of(tester.element(find.byType(CubeView)))!.addLocalHistoryEntry(
+      LocalHistoryEntry(onRemove: () => menuClosed = true),
+    );
+    await tester.pumpAndSettle();
+
+    await tester.binding.handlePopRoute();
+    await tester.pumpAndSettle();
+    expect(menuClosed, isTrue);
+    expect(find.byType(WorkbenchPage), findsOneWidget);
+
+    await tester.binding.handlePopRoute();
+    await tester.pumpAndSettle();
+    expect(find.byType(WorkbenchPage), findsNothing);
+  });
+
   testWidgets('a tap on a value only selects with the editors on top', (
     tester,
   ) async {

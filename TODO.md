@@ -7,13 +7,18 @@ conventions live in `CLAUDE.md`, not here.
 
 ## Viewer flow
 
-- [ ] Bug (seen 2026-10-10 on the API 36 emulator): Android back while
-      a value chip's menu ("Show values as", tessera_flutter's
-      `AggregateEditor` `MenuAnchor`) is open closes what is under it
-      too — the editors sheet on a phone, the whole file on a tablet —
-      instead of only the menu. Find out whether it is Flutter's
-      `MenuAnchor` or our back handling (`PopScope` on the cube page),
-      and check the other menus (dimension `▾`, the overflow menu).
+- [ ] **Bug, fixed but not shipped:** Android back while one of
+      tessera_flutter's menus was open (a value chip's "Show values as",
+      the "Rows ▾" caption, a dimension's `▾`, the filter editor's add
+      menu) popped what lay under it too — the editors sheet on a phone,
+      the whole file on a tablet. Flutter's `MenuAnchor` ignores back
+      (flutter#80052). Fixed 2026-10-11 in `../tessera` (unreleased:
+      `BackClosingMenuAnchor` holds a `LocalHistoryEntry` while open)
+      and on the cube page (`PopScope.canPop` follows
+      `willHandlePopInternally`); verified on the emulator against the
+      local checkout, phone and tablet. Ships with the next
+      tessera_flutter release: release it, bump the constraint, then
+      tick this.
 - [ ] Cube page follow-ups: a "Settings" entry to restore the automatic
       layout after an explicit choice; the charts pane beside/below the
       grid as in the example.

@@ -277,7 +277,11 @@ the next step.
   `SystemChrome` `immersiveSticky`, back to `edgeToEdge` — verified on
   an API 36 emulator despite Flutter's docs saying API 36 ignores it).
   In full screen any tap on a value, or back, leaves it, whatever the
-  layout has become (a window resized past the breakpoints);
+  layout has become (a window resized past the breakpoints); the
+  page's `PopScope` lets a pop through while the route
+  `willHandlePopInternally` — an open tessera menu holds a local history
+  entry (from the tessera_flutter release after 0.2.1), and back must
+  close the menu, not the file;
   leaving the page restores the bars. A `GlobalKey` on the `CubeView`
   keeps its scroll position across these and layout switches; the page
   is keyed by document in `app.dart`, so a new file starts fresh.

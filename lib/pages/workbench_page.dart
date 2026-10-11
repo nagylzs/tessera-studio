@@ -145,7 +145,9 @@ class _WorkbenchPageState extends State<WorkbenchPage> {
     final settings = GetIt.I<AppSettings>();
     final canShare = GetIt.I<ExportTarget>().canShare;
     return PopScope(
-      canPop: false,
+      // An open tessera menu holds a local history entry on this route
+      // (like a drawer): let that back through to close the menu only.
+      canPop: ModalRoute.of(context)?.willHandlePopInternally ?? false,
       onPopInvokedWithResult: (didPop, _) {
         if (didPop) return;
         _fullScreen ? _setFullScreen(false) : state.closeFile();
