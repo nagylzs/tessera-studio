@@ -21,6 +21,16 @@ Limits count characters (Unicode code points). Plain text everywhere:
 no HTML, no URLs (Microsoft asks for links in their own fields). The
 Microsoft Store's "What's new" stays empty for the first submission.
 
+**Microsoft Store: no typing.** Partner Center → Application overview →
+"Export listings" gives a .csv with a column per package language;
+`dart run tool/ms_listing.dart <export.csv> <folder>` fills it from these
+files (`summary` is the short description) and puts the screenshots of
+`store/screenshots/microsoft` and the 300 px logo next to it; then
+"Import listings" → **Import folder** on that folder. Partner Center
+wants image paths starting with the folder's own name (the tool writes
+them so) and shows no reason when a .csv fails — an empty "View errors"
+was a wrong image path (2026-10-11).
+
 ## Store locale codes
 
 | File | Google Play | App Store | Microsoft Store |
