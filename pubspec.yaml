@@ -1,5 +1,5 @@
 name: tessera_studio
-description: "Pivot tables from CSV, Excel, ODS and JSON files, with charts and XLSX/ODS/HTML/SVG/PDF export. Built on the tessera engine."
+description: "Pivot tables from CSV, Excel, ODS and JSON files, with XLSX/ODS/HTML/SVG/PDF export. Built on the tessera engine."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev

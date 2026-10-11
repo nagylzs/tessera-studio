@@ -106,9 +106,10 @@ conventions live in `CLAUDE.md`, not here.
 - [ ] Store screenshots: shot list and demo data in `store/screenshots/`;
       the desktop (README), Google Play phone and tablet, and Microsoft
       Store sets, the Play feature graphic and 512 px icon are done.
-      Still to do: Apple's on the Mac.
-      Then the README: free, ad-free, no
-      telemetry, the 14 languages. The listing texts are done
+      Still to do: Apple's on the Mac. The README is rewritten
+      (2026-10-11): what the app does, the promise, screenshots, the
+      platforms' state — update its "Not released yet" note and the
+      platform table at the release. The listing texts are done
       (`store/listing/`); a native speaker's read of the translations
       would not hurt, the owner reviews Hungarian.
 - [ ] After the first release: register `application/vnd.tessera.snapshot`
