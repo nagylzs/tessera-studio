@@ -42,6 +42,12 @@ jobs:
     name: Android
     runs-on: ubuntu-latest
     timeout-minutes: 45
+    env:
+      # The Google Play upload key, when the repository has it: the
+      # keystore as base64 and its password (alias "upload"; a PKCS12
+      # keystore has one password for the store and the key). Without
+      # them the release builds are signed with the debug key.
+      HAS_UPLOAD_KEY: ${{ secrets.ANDROID_UPLOAD_KEYSTORE != '' }}
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-java@v5
@@ -52,8 +58,21 @@ jobs:
         with:
           channel: stable
           cache: true
+      - name: Upload key
+        if: env.HAS_UPLOAD_KEY == 'true'
+        env:
+          KEYSTORE: ${{ secrets.ANDROID_UPLOAD_KEYSTORE }}
+          PASSWORD: ${{ secrets.ANDROID_UPLOAD_PASSWORD }}
+        run: |
+          echo "$KEYSTORE" | base64 -d > android/app/upload-keystore.jks
+          printf 'storeFile=upload-keystore.jks\nstorePassword=%s\nkeyAlias=upload\nkeyPassword=%s\n' \
+            "$PASSWORD" "$PASSWORD" > android/key.properties
       - run: flutter build apk --release --split-per-abi
       - run: flutter build appbundle --release
+      - name: Signer
+        run: >-
+          keytool -printcert -jarfile build/app/outputs/bundle/release/app-release.aab
+          | grep -E 'Owner:|SHA256:'
       - if: env.KEEP_BUILDS == 'true'
         uses: actions/upload-artifact@v4
         with:

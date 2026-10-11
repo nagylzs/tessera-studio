@@ -84,7 +84,11 @@ conventions live in `CLAUDE.md`, not here.
 
 - [ ] Release signing in CI: the Android upload key, Apple
       certificates and profiles, Windows code signing — as CI secrets
-      only; Play and App Store uploads manual at first.
+      only; Play and App Store uploads manual at first. Android: the
+      build and CI are ready (2026-10-11, `key.properties`, secrets
+      `ANDROID_UPLOAD_KEYSTORE` / `ANDROID_UPLOAD_PASSWORD`); the owner
+      creates the key and sets the secrets, then a manual CI run must
+      show the upload key in its "Signer" step.
 - [ ] Windows, Microsoft Store first and a portable zip besides (owner,
       2026-10-10; CI builds both, see CLAUDE.md). Done 2026-10-10: the
       Partner Center account, "Tessera Studio" reserved, its identity in

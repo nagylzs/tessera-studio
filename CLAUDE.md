@@ -395,12 +395,22 @@ gh run list -L 3 / gh run watch <id> --exit-status   # CI, see below
 
 CI (`.github/workflows/ci.yml`): on every push, analyze + format check
 + tests on Ubuntu, and release builds of Android (split APKs and the
-bundle, debug-signed), web, Linux, Windows (`windows-latest`), macOS
-and iOS (`macos-latest`, `--no-codesign`) — proof that each platform
-compiles. The builds are kept as downloads (14 days) only for `v*`
-tags and manual runs ("Run workflow"). Signing comes later through CI
-secrets, never through the repository. Iterate on CI from a short-lived
-branch, not on `main`.
+bundle), web, Linux, Windows (`windows-latest`), macOS and iOS
+(`macos-latest`, `--no-codesign`) — proof that each platform compiles.
+The builds are kept as downloads (14 days) only for `v*` tags and
+manual runs ("Run workflow"). Signing goes through CI secrets, never
+through the repository. Android: `android/app/build.gradle.kts` signs
+release builds with the Google Play **upload key** named by
+`android/key.properties` (`storeFile` relative to `android/app`,
+`storePassword`, `keyAlias`, `keyPassword`; it and `*.jks` are
+git-ignored), else with the debug key as before. CI writes both from
+the secrets `ANDROID_UPLOAD_KEYSTORE` (the PKCS12 keystore, base64) and
+`ANDROID_UPLOAD_PASSWORD` (store and key; alias `upload`; letters and
+digits only, a `.properties` file would read a backslash as an escape)
+and prints the bundle's signer ("Signer" step). Google Play re-signs
+with its own app signing key (Play App Signing); a lost upload key can
+be reset through Play Console support. Apple and Windows signing come
+later. Iterate on CI from a short-lived branch, not on `main`.
 
 `store/` holds what the stores need besides the builds:
 `store/privacy/index.html` is the privacy policy (English and
