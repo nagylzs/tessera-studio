@@ -48,7 +48,7 @@ Future<Uint8List> cubeExport(
     ),
     ExportFormat.pdf => await PdfCubeExporter(
       strings: strings,
-      theme: style.pdfExportTheme,
+      theme: exportTheme,
       fonts: await _pdfFonts,
       footer: const PdfPageText(left: '{date}', right: '{page} / {pages}'),
     ).export(layout, aggregates: aggregates, title: title),

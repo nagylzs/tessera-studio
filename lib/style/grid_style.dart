@@ -129,18 +129,6 @@ enum GridStyle {
       summaryFont: ExportFont(size: 8, bold: true),
     ),
   };
-
-  /// The PDF's: as [exportTheme], except that the standard green gets
-  /// dark text on a light green — tessera_pdf 0.2.0 writes the page
-  /// header and footer in the header cells' text colour, white on the
-  /// green (fixed in the library, unreleased).
-  CubeExportTheme get pdfExportTheme =>
-      this == standard ? _pdfBrand : exportTheme;
 }
 
 final _brand = CubeExportTheme.brand(primary: tesseraGreen.toARGB32());
-
-final _pdfBrand = CubeExportTheme.brand(
-  primary: CubeExportTheme.mix(0xFFFFFFFF, tesseraGreen.toARGB32(), 0.35),
-  onPrimary: 0xFF191C1B,
-);

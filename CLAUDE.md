@@ -56,9 +56,10 @@ lives here.
   depth; its `docs/` is the fifteen-chapter user guide — read those
   before touching anything pivot-related, do not re-derive them here.
 - The committed `pubspec.yaml` depends on the **published** versions
-  (`tessera_flutter ^0.2.1`, `tessera_xlsx` and `tessera_ods ^0.2.1` —
-  these pull in `tessera` 0.2.2, the first with `Schema.structureKey` —
-  the other exporters `^0.2.0`). For developing both at once, a
+  (`tessera_flutter ^0.2.2` — menus that close on back —, `tessera_pdf
+  ^0.2.1` — page texts in the cell colour —, `tessera_xlsx` and
+  `tessera_ods ^0.2.1` — these pull in `tessera` 0.2.2, the first with
+  `Schema.structureKey` — the other exporters `^0.2.0`). For developing both at once, a
   git-ignored `pubspec_overrides.yaml` points all seven packages at
   `../tessera/packages/*`; delete it to build against pub.dev, and never
   commit a `pubspec.lock` resolved through it (it records path sources).
@@ -280,7 +281,7 @@ the next step.
   layout has become (a window resized past the breakpoints); the
   page's `PopScope` lets a pop through while the route
   `willHandlePopInternally` — an open tessera menu holds a local history
-  entry (from the tessera_flutter release after 0.2.1), and back must
+  entry (since tessera_flutter 0.2.2), and back must
   close the menu, not the file;
   leaving the page restores the bars. A `GlobalKey` on the `CubeView`
   keeps its scroll position across these and layout switches; the page
@@ -301,10 +302,10 @@ the next step.
   `fileNameOverrides` because the IO `XFile.fromData` drops the name).
   File names are localized ("sales pivot.xlsx", "sales facts.csv").
   Theme: the grid style's (`GridStyle.exportTheme`, below; standard =
-  `CubeExportTheme.brand` on `tesseraGreen`); the standard PDF gets a
-  light variant (`GridStyle.pdfExportTheme`) because tessera_pdf 0.2.0
-  colours page texts like header cells (fixed in ../tessera,
-  unreleased; see TODO). PDF fonts: Noto Sans Regular/Bold subsets in
+  `CubeExportTheme.brand` on `tesseraGreen`), the PDF's too since
+  tessera_pdf 0.2.1 draws the page title, date and page numbers in the
+  cell text colour (0.2.0 used the header cells', white on the green,
+  and the app had a light PDF variant until 2026-10-11). PDF fonts: Noto Sans Regular/Bold subsets in
   `assets/fonts/` (Latin incl. Extended-A/B/Additional, combining marks,
   Greek, Cyrillic, punctuation, currency; `tool/subset_fonts.sh`, about
   240 KB each), SIL OFL in `assets/fonts/OFL.txt`, registered with the

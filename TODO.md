@@ -7,18 +7,6 @@ conventions live in `CLAUDE.md`, not here.
 
 ## Viewer flow
 
-- [ ] **Bug, fixed but not shipped:** Android back while one of
-      tessera_flutter's menus was open (a value chip's "Show values as",
-      the "Rows ▾" caption, a dimension's `▾`, the filter editor's add
-      menu) popped what lay under it too — the editors sheet on a phone,
-      the whole file on a tablet. Flutter's `MenuAnchor` ignores back
-      (flutter#80052). Fixed 2026-10-11 in `../tessera` (unreleased:
-      `BackClosingMenuAnchor` holds a `LocalHistoryEntry` while open)
-      and on the cube page (`PopScope.canPop` follows
-      `willHandlePopInternally`); verified on the emulator against the
-      local checkout, phone and tablet. Ships with the next
-      tessera_flutter release: release it, bump the constraint, then
-      tick this.
 - [ ] Cube page follow-ups: a "Settings" entry to restore the automatic
       layout after an explicit choice; the charts pane beside/below the
       grid as in the example.
@@ -63,10 +51,6 @@ conventions live in `CLAUDE.md`, not here.
       3. Leave it: say so in the store listing, revisit on demand.
       (Installed system fonts are no way out: Noto CJK on Linux is
       OpenType/CFF, which dart_pdf cannot embed.)
-- [ ] After tessera_pdf 0.2.1 is out (the page header/footer colour fix,
-      `PdfCubeExporter.pageTextColor`, under Unreleased in
-      `../tessera`): bump the constraint and drop `pdfExportTheme`, so
-      the PDF gets the same green headers as the other formats.
 - [ ] Charts pane: `ChartData` / `ScatterData` + `fl_chart`, exportable
       as SVG/PDF/PNG.
 - [ ] Entry points beyond the desktop argument, Android intents, the
@@ -143,6 +127,17 @@ conventions live in `CLAUDE.md`, not here.
 
 ## Done
 
+- [x] Android back with one of tessera's menus open (a value chip's
+      "Show values as", "Rows ▾", a dimension's `▾`, the filter
+      editor's add menu) closes only the menu; it used to close the
+      editors sheet on a phone and the whole file on a tablet. Flutter's
+      `MenuAnchor` ignores back (flutter#80052): tessera_flutter 0.2.2
+      menus hold a local history entry while open, and the cube page's
+      `PopScope` lets that pop through (2026-10-11).
+- [x] tessera_pdf 0.2.1: the PDF's page title, date and page numbers in
+      the cell text colour, so the standard style's PDF has the same
+      green headers as the other formats; the light PDF variant is gone
+      (2026-10-11).
 - [x] Store listing texts in all 14 languages (`store/listing/`): the
       English master reviewed by the owner (American English), 13
       translations with the app's own terms, every store's fields within

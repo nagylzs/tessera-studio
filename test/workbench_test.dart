@@ -222,16 +222,24 @@ void main() {
     _size(tester, 1400, 900);
     _register();
     await _toCube(tester);
-    // what an open tessera menu does: a local history entry on the route
-    var menuClosed = false;
-    ModalRoute.of(tester.element(find.byType(CubeView)))!.addLocalHistoryEntry(
-      LocalHistoryEntry(onRemove: () => menuClosed = true),
+    // a value chip's menu with its "Show values as" submenu open
+    await tester.longPress(
+      find
+          .descendant(
+            of: find.byType(AggregateEditor),
+            matching: find.byType(InputChip),
+          )
+          .first,
     );
     await tester.pumpAndSettle();
+    await tester.tap(find.text('Show values as'));
+    await tester.pumpAndSettle();
+    expect(find.text('Plain value'), findsOneWidget);
 
     await tester.binding.handlePopRoute();
     await tester.pumpAndSettle();
-    expect(menuClosed, isTrue);
+    expect(find.text('Plain value'), findsNothing);
+    expect(find.text('Show values as'), findsNothing);
     expect(find.byType(WorkbenchPage), findsOneWidget);
 
     await tester.binding.handlePopRoute();
