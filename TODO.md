@@ -100,10 +100,13 @@ conventions live in `CLAUDE.md`, not here.
       properties (Productivity, the privacy policy, apps@nagylzs.eu),
       age ratings, the CI's 1.0.0.0 package (validated), the listings in
       all 14 languages imported with `tool/ms_listing.dart`, testing
-      notes; to go to certification with the publishing hold "until I
-      select Publish now", so it waits for the joint release. The name
-      reservation (2027-01-10) needs that submission. Upload by hand at
-      first. Account log: the owner's vault,
+      notes; submitted 2026-10-11, **certified 2026-10-12, "Ready to
+      publish"**, held "until I select Publish now": on the joint release
+      day, Partner Center → Tessera Studio → Publish now. Store ID
+      `9PB0S6Q0K039` (`https://apps.microsoft.com/detail/9PB0S6Q0K039`
+      once published; then into the README). A newer package before the
+      release means a new submission and certification (likely with a
+      version above 1.0.0.0; check). Upload by hand at first. Account log: the owner's vault,
       `Projektek/fejlesztoi_fiokok`. Tried on the owner's Windows (2026-10-10, CI's
       manual-run build): the portable zip runs; the test MSIX installs
       once its certificate is in Local Machine → Trusted People, and
@@ -112,6 +115,14 @@ conventions live in `CLAUDE.md`, not here.
       Decide on signing the portable exe (unsigned means
       SmartScreen's "Windows protected your PC" → More info → Run
       anyway; a code-signing certificate or service costs money).
+- [ ] Google Play: the account exists (2026-10-12), identity verified
+      2026-10-14; phone and device verification are the owner's. Then
+      the app, the listing, the App content forms, internal testing and
+      a closed test of 12+ testers for 14 days before production can be
+      applied for: every answer in `store/play-console.md`. Account
+      log: the owner's vault. Internal testing released 2026-10-14
+      (`1.0.0 (1)`); `1.0.0 (2)` (2026-10-15, the landscape pickers fix)
+      is the build for the closed test.
 - [ ] Linux: `.desktop` file, icon, MIME types (`text/csv`, XLSX, ODS,
       JSON, `application/vnd.tessera.snapshot`).
 - [ ] Store screenshots: shot list and demo data in `store/screenshots/`;
