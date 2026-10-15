@@ -59,8 +59,9 @@ lives here.
   (`tessera_flutter ^0.2.3` — menus that close on back, full-screen
   pickers on a phone in landscape —, `tessera_pdf
   ^0.2.1` — page texts in the cell colour —, `tessera_xlsx` and
-  `tessera_ods ^0.2.1` — these pull in `tessera` 0.2.2, the first with
-  `Schema.structureKey` — the other exporters `^0.2.0`). For developing both at once, a
+  `tessera_ods ^0.2.2` — their own zip writer, as LibreOffice refuses
+  what `archive` 4.4+ writes; they pull in `tessera` 0.2.2, the first
+  with `Schema.structureKey` — the other exporters `^0.2.0`). For developing both at once, a
   git-ignored `pubspec_overrides.yaml` points all seven packages at
   `../tessera/packages/*`; delete it to build against pub.dev, and never
   commit a `pubspec.lock` resolved through it (it records path sources).

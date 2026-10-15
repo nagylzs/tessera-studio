@@ -774,10 +774,10 @@ packages:
     dependency: "direct main"
     description:
       name: tessera_ods
-      sha256: "5d0554bd3c3737fc1719256f29effb46394a08af1867c0cb95ce4524c1b47629"
+      sha256: "466b8ac65c9cce83faf228182482ce4b4fed6ac4199823b8deae33450948275d"
       url: "https://pub.dev"
     source: hosted
-    version: "0.2.1"
+    version: "0.2.2"
   tessera_pdf:
     dependency: "direct main"
     description:
@@ -798,10 +798,10 @@ packages:
     dependency: "direct main"
     description:
       name: tessera_xlsx
-      sha256: "3e92079110f3933e9faf606ee3fb3deb8962b07faa97c4d616e670c05299eb46"
+      sha256: "6d3ed988e571a76c102a4e1f78c805846c6c3e9c7496555b4dc8ee7346fdc304"
       url: "https://pub.dev"
     source: hosted
-    version: "0.2.1"
+    version: "0.2.2"
   test_api:
     dependency: transitive
     description:
