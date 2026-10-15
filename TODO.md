@@ -139,6 +139,11 @@ conventions live in `CLAUDE.md`, not here.
 
 ## Done
 
+- [x] The dimension picker, the aggregate picker and the filter's
+      value list on a phone in landscape: the search field opened the
+      keyboard at once and the fixed-size dialog left the list no room
+      (owner, iPhone 14). tessera_flutter 0.2.3 opens them full screen
+      under 480 dp of height, without opening the keyboard (2026-10-15).
 - [x] Android back with one of tessera's menus open (a value chip's
       "Show values as", "Rows ▾", a dimension's `▾`, the filter
       editor's add menu) closes only the menu; it used to close the

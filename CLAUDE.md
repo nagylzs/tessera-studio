@@ -56,7 +56,8 @@ lives here.
   depth; its `docs/` is the fifteen-chapter user guide — read those
   before touching anything pivot-related, do not re-derive them here.
 - The committed `pubspec.yaml` depends on the **published** versions
-  (`tessera_flutter ^0.2.2` — menus that close on back —, `tessera_pdf
+  (`tessera_flutter ^0.2.3` — menus that close on back, full-screen
+  pickers on a phone in landscape —, `tessera_pdf
   ^0.2.1` — page texts in the cell colour —, `tessera_xlsx` and
   `tessera_ods ^0.2.1` — these pull in `tessera` 0.2.2, the first with
   `Schema.structureKey` — the other exporters `^0.2.0`). For developing both at once, a
