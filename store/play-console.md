@@ -168,10 +168,13 @@ below 12 restarts the count; recruit 15–20 for a margin).
    track → Testers: an email list "testers" (their Google
    accounts), feedback URL or email `apps@nagylzs.eu` → Countries: all
    → promote `1.0.0 (2)` from internal testing → Send changes for
-   review (closed releases are reviewed, a few days). Then send the
-   testers the opt-in link (web): they join with the same Google
-   account, then install from Play. The 14 days count from the
-   review's approval and each tester's opt-in.
+   review (closed releases are reviewed, a few days). Being on the
+   list does nothing by itself, and nobody can join or install before
+   the approval. After it, send the testers the opt-in link (Testers
+   tab): opened in a browser with the Google account of their phone,
+   it shows "Become a tester" — that tap is the opt-in — and then a
+   link to install from Play. Each tester's 14 days count from their
+   own opt-in.
 4. **Keep a record of the feedback** (date, tester, what, what changed):
    the production application asks for a summary. In the vault, next
    to the Play Console log.
