@@ -26,6 +26,48 @@
             "flutterMode": "release"
         },
         {
+            "name": "macos debug",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "macos",
+            "flutterMode": "debug"
+        },
+        {
+            "name": "macos profile",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "macos",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "macos release",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "macos",
+            "flutterMode": "release"
+        },
+        {
+            "name": "iphone debug (iPhone 14)",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "00008110-00014DA22628201E",
+            "flutterMode": "debug"
+        },
+        {
+            "name": "iphone profile (iPhone 14)",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "00008110-00014DA22628201E",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "iphone release (iPhone 14)",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "00008110-00014DA22628201E",
+            "flutterMode": "release"
+        },
+        {
             "name": "tablet debug (Android: 2405CPCFBG)",
             "request": "launch",
             "type": "dart",
@@ -55,6 +97,6 @@
             "args": [
                 "--web-browser-flag=--force-device-scale-factor=1.5"
             ]
-        }        
+        }
     ]
 }
