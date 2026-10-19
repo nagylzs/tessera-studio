@@ -435,6 +435,34 @@ flutter build linux --release / windows --release / web --release / appbundle
 gh run list -L 3 / gh run watch <id> --exit-status   # CI, see below
 ```
 
+App Store uploads (by hand from the Mac, first one 2026-10-19, iOS
+`1.0.0 (2)` to TestFlight): `flutter build ipa --release` archives
+(`build/ios/archive/Runner.xcarchive`; its own IPA export may fail, see
+below), then
+`env PATH=/usr/bin:/bin:/usr/sbin:/sbin xcodebuild -exportArchive
+-archivePath build/ios/archive/Runner.xcarchive -exportOptionsPlist
+tool/apple_export_options.plist -exportPath <scratch> -allowProvisioningUpdates`
+signs for the App Store and uploads with the Xcode account (set
+`destination` to `export` in a copy of the plist for a local .ipa).
+Two traps, both met on the first upload:
+- **Homebrew's rsync breaks Xcode's IPA step** ("exportArchive Copy
+  failed"; the log in the `.xcdistributionlogs` folder xcodebuild names
+  says `--extended-attributes: unknown option … [server=3.5.1]`):
+  `/usr/bin/rsync` starts the `rsync` first on the PATH as its other
+  end, and `/opt/homebrew/bin/rsync` (installed 2026-10-19 for the
+  website's deploy) speaks another dialect. Hence the system-only PATH.
+- **Cloud-managed signing breaks on the accents in the owner's name**:
+  Apple's servers write "LÁSZLÓ" decomposed into the designated
+  requirement while the certificate has it precomposed, so the upload
+  fails as ITMS-90035 "Invalid Signature … not properly signed" and
+  `codesign --verify --strict` says "does not satisfy its Designated
+  Requirement". The fix is a **local** Apple Distribution certificate
+  (Xcode → Settings → Accounts → the team → Manage Certificates → + →
+  Apple Distribution; made 2026-10-19, key in the login keychain),
+  which automatic signing then prefers. Before uploading, unzip the
+  .ipa and check `codesign --verify --strict` on `Runner.app` and every
+  `Frameworks/*.framework`.
+
 CI (`.github/workflows/ci.yml`): on every push, analyze + format check
 + tests on Ubuntu, and release builds of Android (split APKs and the
 bundle), web, Linux, Windows (`windows-latest`), macOS and iOS

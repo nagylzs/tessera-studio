@@ -87,7 +87,7 @@ final class OpenRequests: NSObject, FlutterStreamHandler, FlutterSceneLifeCycleD
         let files = FileManager.default
         let dir = try Self.cacheDir()
         try files.createDirectory(at: dir, withIntermediateDirectories: true)
-        let target = dir.appendingPathComponent("\(DispatchTime.now().uptimeNanoseconds)_\(name)")
+        let target = dir.appendingPathComponent("\(UUID().uuidString)_\(name)")
         try files.copyItem(at: url, to: target)
         // iOS's copy in our container (the inbox) is not needed again.
         if url.standardizedFileURL.path.hasPrefix(NSHomeDirectory()) {
