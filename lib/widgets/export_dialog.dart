@@ -17,7 +17,8 @@ typedef ExportChoice = ({ExportFormat format, bool facts});
 /// Asks for a format, writes the export of [cube] (with the [aggregates]
 /// the grid shows, in its [style]) and shares it ([share]) or saves it
 /// where the user says; the outcome goes to a snack bar. [onBusy] brackets the writing,
-/// which runs on this isolate like the cube layout does.
+/// which runs on this isolate like the cube layout does. [shareOrigin] is
+/// the share button's rect, where an iPad's share popover points.
 Future<void> runExport(
   BuildContext context, {
   required String documentName,
@@ -25,6 +26,7 @@ Future<void> runExport(
   List<Aggregate>? aggregates,
   GridStyle style = GridStyle.standard,
   required bool share,
+  Rect? shareOrigin,
   required ValueChanged<bool> onBusy,
 }) async {
   final l10n = AppLocalizations.of(context);
@@ -63,7 +65,12 @@ Future<void> runExport(
       onBusy(false);
     }
     if (share) {
-      await target.share(bytes, fileName: fileName, mimeType: format.mimeType);
+      await target.share(
+        bytes,
+        fileName: fileName,
+        mimeType: format.mimeType,
+        origin: shareOrigin,
+      );
       return;
     }
     final saved = await target.save(

@@ -2,9 +2,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
 /// A file the operating system asked us to open ("Open with…", the share
-/// sheet), as delivered by the platform side: see
-/// `android/.../MainActivity.kt`, which copies the content stream to the
-/// cache and reports these events.
+/// sheet, AirDrop, Finder), as delivered by the platform side: see
+/// `android/.../MainActivity.kt` and `ios/Runner/AppDelegate.swift`, which
+/// copy the file to the cache and report these events, and
+/// `macos/Runner/AppDelegate.swift`, which reports the file's own path.
 sealed class OpenRequest {
   const OpenRequest(this.name);
 
@@ -31,14 +32,20 @@ final class OpenRequestFailed extends OpenRequest {
   final String error;
 }
 
-/// Source of [OpenRequest]s. Registered in get_it; a no-op everywhere
-/// but Android for now.
+/// Source of [OpenRequest]s. Registered in get_it; the platform channel
+/// on Android, iOS and macOS, a no-op elsewhere (Windows and Linux pass
+/// the file as the command-line argument instead).
 abstract interface class OpenRequests {
   Stream<OpenRequest> get requests;
 
   /// The implementation for the current platform.
   static OpenRequests forPlatform() =>
-      !kIsWeb && defaultTargetPlatform == TargetPlatform.android
+      !kIsWeb &&
+          const {
+            TargetPlatform.android,
+            TargetPlatform.iOS,
+            TargetPlatform.macOS,
+          }.contains(defaultTargetPlatform)
       ? const ChannelOpenRequests()
       : const NoOpenRequests();
 }

@@ -1,5 +1,4 @@
-import 'dart:typed_data';
-
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get_it/get_it.dart';
@@ -207,6 +206,27 @@ void main() {
       () => ChannelOpenRequests.decode({'event': 'other'}),
       throwsFormatException,
     );
+  });
+
+  test('files arrive on the channel on Android, iOS and macOS', () {
+    try {
+      for (final platform in TargetPlatform.values) {
+        debugDefaultTargetPlatformOverride = platform;
+        expect(
+          OpenRequests.forPlatform(),
+          const {
+                TargetPlatform.android,
+                TargetPlatform.iOS,
+                TargetPlatform.macOS,
+              }.contains(platform)
+              ? isA<ChannelOpenRequests>()
+              : isA<NoOpenRequests>(),
+          reason: '$platform',
+        );
+      }
+    } finally {
+      debugDefaultTargetPlatformOverride = null;
+    }
   });
 
   test('the app is localised for exactly the tessera locales', () {

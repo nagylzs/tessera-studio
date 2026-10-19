@@ -160,12 +160,12 @@ conventions live in `CLAUDE.md`, not here.
 - [ ] iOS and macOS on the owner's Mac (the folders, names, icons and
       CI builds exist; bundle id `eu.nagylzs.tessera-studio`, registered
       with the team 2026-10-19; runs on the Mac mini and the iPhone 14
-      since 2026-10-15). Still to do: `CFBundleDocumentTypes` and opening a file from Finder / the Files
-      app ("Open with" hands a URL to the app delegate — a channel like
-      Android's `OpenRequests`; owner wants it, and the store listing
-      already claims it, so it must land before the Apple release); share
-      needs `sharePositionOrigin` on the iPad (the share button's
-      rect); try drag and drop on macOS (enabled, untested).
+      since 2026-10-15). "Open with" from Finder and the Files app,
+      `.tsnp` as the app's own type, the iPad share origin and the
+      export-compliance key landed 2026-10-19 (`CLAUDE.md`). Still to
+      do: try drag and drop on macOS (enabled, untested); the share
+      sheet on an iPad (an iPad simulator); JSON Lines for "Open with"
+      (needs an imported type: there is no system one).
 
 - [ ] Idea (owner, 2026-10-15; not decided for the first release): a
       web demo on GitHub Pages (`https://nagylzs.github.io/tessera-studio/`,

@@ -10,8 +10,9 @@ import 'state/settings.dart';
 
 /// Desktop runners pass the command line through: the single optional
 /// argument is a file path or an http(s) URL to open right away (extra
-/// arguments are ignored). Android instead delivers "Open with…" and
-/// share-sheet files through [OpenRequests]; the web gets neither yet.
+/// arguments are ignored). Android, iOS and macOS deliver "Open with…",
+/// share-sheet, AirDrop and Finder files through [OpenRequests]; the web
+/// gets neither yet.
 Future<void> main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
   registerLicenses();

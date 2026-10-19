@@ -77,10 +77,19 @@ class _WorkbenchPageState extends State<WorkbenchPage> {
   }
 
   /// Exports the cube with the aggregates the grid shows.
+  /// Where [context]'s widget is on the screen: the share button, for
+  /// an iPad's share popover.
+  static Rect? _globalRect(BuildContext context) {
+    final box = context.findRenderObject();
+    if (box is! RenderBox || !box.hasSize) return null;
+    return box.localToGlobal(Offset.zero) & box.size;
+  }
+
   Future<void> _export(
     BuildContext context,
     CubeController ctrl, {
     required bool share,
+    Rect? shareOrigin,
   }) {
     final spec = ctrl.cube.spec.aggregates;
     final shown = GetIt.I<AppState>().cube.shown.value
@@ -93,6 +102,7 @@ class _WorkbenchPageState extends State<WorkbenchPage> {
       aggregates: shown == null || shown.isEmpty ? null : shown,
       style: GetIt.I<AppSettings>().gridStyle.value,
       share: share,
+      shareOrigin: shareOrigin,
       onBusy: (busy) {
         if (mounted) setState(() => _exporting = busy);
       },
@@ -195,16 +205,23 @@ class _WorkbenchPageState extends State<WorkbenchPage> {
                                 ? null
                                 : () => _editFilter(context, ctrl),
                           ),
-                        IconButton(
-                          icon: Icon(
-                            canShare
-                                ? Icons.share
-                                : Icons.file_download_outlined,
+                        Builder(
+                          builder: (button) => IconButton(
+                            icon: Icon(
+                              canShare
+                                  ? Icons.share
+                                  : Icons.file_download_outlined,
+                            ),
+                            tooltip: canShare ? l10n.share : l10n.saveAs,
+                            onPressed: canExport
+                                ? () => _export(
+                                    context,
+                                    ctrl,
+                                    share: canShare,
+                                    shareOrigin: _globalRect(button),
+                                  )
+                                : null,
                           ),
-                          tooltip: canShare ? l10n.share : l10n.saveAs,
-                          onPressed: canExport
-                              ? () => _export(context, ctrl, share: canShare)
-                              : null,
                         ),
                         AppMenuButton(
                           entries: [

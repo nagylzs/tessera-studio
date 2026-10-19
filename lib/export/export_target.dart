@@ -1,3 +1,5 @@
+import 'dart:ui' show Rect;
+
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:share_plus/share_plus.dart';
@@ -19,11 +21,15 @@ abstract interface class ExportTarget {
     String? dialogTitle,
   });
 
-  /// Hands [bytes] to the share sheet as a file named [fileName].
+  /// Hands [bytes] to the share sheet as a file named [fileName]. On an
+  /// iPad the sheet is a popover that points at [origin] (in global
+  /// coordinates), the button that asked for it; share_plus refuses to
+  /// share there without one.
   Future<void> share(
     Uint8List bytes, {
     required String fileName,
     required String mimeType,
+    Rect? origin,
   });
 }
 
@@ -56,11 +62,13 @@ final class PlatformExportTarget implements ExportTarget {
     Uint8List bytes, {
     required String fileName,
     required String mimeType,
+    Rect? origin,
   }) => SharePlus.instance.share(
     ShareParams(
       files: [XFile.fromData(bytes, mimeType: mimeType, name: fileName)],
       // the IO XFile.fromData ignores its name
       fileNameOverrides: [fileName],
+      sharePositionOrigin: origin,
     ),
   );
 }

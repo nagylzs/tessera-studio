@@ -9,6 +9,8 @@ class MainFlutterWindow: NSWindow {
     self.setFrame(windowFrame, display: true)
 
     RegisterGeneratedPlugins(registry: flutterViewController)
+    OpenRequests.shared.register(
+      with: flutterViewController.registrar(forPlugin: "OpenRequests"))
 
     super.awakeFromNib()
   }

@@ -164,6 +164,32 @@ the next step.
   accelerometer_rotation 0` + `user_rotation 1` (0 back); bar
   visibility in `adb shell dumpsys window | grep InsetsSource`. Stop it
   with `adb emu kill`.
+- iOS and macOS file handling (2026-10-19), hand-written like
+  Android's: both Info.plists declare `CFBundleDocumentTypes` — CSV,
+  TSV, JSON, XLSX, ODS as Viewer with `LSHandlerRank` Alternate (Numbers
+  and Excel stay the default), `.tsnp` as Owner of the exported type
+  `eu.nagylzs.tessera.snapshot` (application/vnd.tessera.snapshot);
+  no plain text and no JSON Lines (no system type for it) — and
+  `ITSAppUsesNonExemptEncryption` false (HTTPS only). iOS
+  (`ios/Runner/AppDelegate.swift`): `LSSupportsOpeningDocumentsInPlace`
+  false, so iOS hands over a copy in our container; `OpenRequests`, a
+  `FlutterSceneLifeCycleDelegate` added with `addSceneDelegate` on the
+  implicit engine's registrar (the selectors pinned with `@objc(…)`: a
+  mistyped optional method compiles and is never called), copies it to
+  `Caches/open` (emptied at start), deletes iOS's copy and sends the
+  Android events; `FlutterDeepLinkingEnabled` false keeps file URLs out
+  of the router. AirDrop does not hand documents to an app: it saves
+  them in Files → Downloads and previews them, where Share → Tessera
+  Studio opens them (owner, iPhone 14). macOS
+  (`macos/Runner/AppDelegate.swift`, registered in
+  `MainFlutterWindow`): `handleOpenURLs` sends `ready` with the file's
+  own path, which the sandbox grants for Finder opens. Tested on the Mac
+  without clicks: `open -a build/macos/Build/Products/Debug/tessera_studio.app
+  <file>` into a `flutter run -d macos` session (warm), and `open -a …
+  --stdout out.log <file>` then `flutter attach -d macos --debug-url
+  <the VM service URL from out.log>` (cold); `w` in either dumps the
+  widget tree, which names the page shown (`SchemaPage`,
+  `WorkbenchPage`). Drive both through a fifo on stdin.
 - Home screen buttons: "Open file…" (picker) and "Open from clipboard"
   (`AppState.openFromClipboard`: a single line that is an http(s) URL,
   a `file:` URL or an absolute path goes through `loadFrom`, anything
@@ -306,7 +332,9 @@ the next step.
   behind a `LinearProgressIndicator` under the bar, then
   `ExportTarget.save` (`FilePicker.saveFile(bytes:)`, which writes the
   file itself on every platform) or `.share` (`share_plus`,
-  `fileNameOverrides` because the IO `XFile.fromData` drops the name).
+  `fileNameOverrides` because the IO `XFile.fromData` drops the name;
+  on an iPad the sheet is a popover at the share button's rect,
+  `share(origin:)`, without which share_plus refuses — untested, no iPad).
   File names are localized ("sales pivot.xlsx", "sales facts.csv").
   Theme: the grid style's (`GridStyle.exportTheme`, below; standard =
   `CubeExportTheme.brand` on `tesseraGreen`), the PDF's too since

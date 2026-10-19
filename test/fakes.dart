@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:typed_data';
+import 'dart:ui' show Rect;
 
 import 'package:tessera_studio/export/export_target.dart';
 import 'package:tessera_studio/files/clipboard_reader.dart';
@@ -86,6 +87,7 @@ final class FakeExportTarget implements ExportTarget {
     Uint8List bytes, {
     required String fileName,
     required String mimeType,
+    Rect? origin,
   }) async {
     if (error case final e?) throw e;
     shared.add((fileName: fileName, mimeType: mimeType, bytes: bytes));
