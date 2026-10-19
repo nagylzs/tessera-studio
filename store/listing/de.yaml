@@ -2,9 +2,11 @@
 
 name: Tessera Studio
 
+app_store_name: "Tessera Studio: Pivot-Tabellen"
+
 short: CSV-, Excel- und JSON-Dateien als Pivot-Tabellen. Kostenlos, ohne Werbung.
 
-subtitle: Pivot-Tabellen aus Dateien
+subtitle: Viewer für CSV, Excel und JSON
 
 promo: >-
   Tabelle, CSV- oder JSON-Datei öffnen und sofort als Pivot-Tabelle sehen,

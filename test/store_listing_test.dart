@@ -7,6 +7,7 @@ import 'package:yaml/yaml.dart';
 /// store/listing/README.md.
 const _limits = {
   'name': 30,
+  'app_store_name': 30,
   'short': 80,
   'subtitle': 30,
   'promo': 170,
@@ -47,6 +48,11 @@ void main() {
         );
       }
       expect(yaml['name'], 'Tessera Studio', reason: '$lang: the name');
+      expect(
+        yaml['app_store_name'],
+        startsWith('Tessera Studio: '),
+        reason: '$lang: the App Store name',
+      );
 
       final keywords = (yaml['keywords'] as String).split(',');
       expect(

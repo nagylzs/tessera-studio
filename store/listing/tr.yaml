@@ -2,9 +2,11 @@
 
 name: Tessera Studio
 
+app_store_name: "Tessera Studio: Pivot tablolar"
+
 short: CSV, Excel ve JSON dosyalarını pivot tablo olarak açın. Ücretsiz, reklamsız.
 
-subtitle: Dosyalarınızdan pivot tablo
+subtitle: CSV, Excel, JSON görüntüleyici
 
 promo: >-
   Bir elektronik tablo, CSV veya JSON dosyası açın ve hemen pivot tablo

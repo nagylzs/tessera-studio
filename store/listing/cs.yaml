@@ -2,9 +2,11 @@
 
 name: Tessera Studio
 
+app_store_name: "Tessera Studio: Pivot tabulky"
+
 short: Soubory CSV, Excel a JSON jako kontingenční tabulky. Zdarma, bez reklam.
 
-subtitle: Kontingenční tabulky z dat
+subtitle: Prohlížeč CSV, Excel a JSON
 
 promo: >-
   Otevřete tabulku, CSV nebo JSON a hned ji uvidíte jako kontingenční

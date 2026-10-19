@@ -2,9 +2,11 @@
 
 name: Tessera Studio
 
+app_store_name: "Tessera Studio: Tabelle pivot"
+
 short: Apri file CSV, Excel e JSON come tabelle pivot. Gratis, senza pubblicità.
 
-subtitle: Tabelle pivot dai tuoi file
+subtitle: Apri CSV, Excel e JSON
 
 promo: >-
   Apri un foglio di calcolo, un CSV o un JSON e vedilo subito come tabella

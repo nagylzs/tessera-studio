@@ -2,9 +2,11 @@
 
 name: Tessera Studio
 
+app_store_name: "Tessera Studio: Tabla dinámica"
+
 short: Abra archivos CSV, Excel y JSON como tablas dinámicas. Gratis, sin anuncios.
 
-subtitle: Tablas dinámicas al instante
+subtitle: Visor de CSV, Excel y JSON
 
 promo: >-
   Abra una hoja de cálculo, un CSV o un JSON y véalo al instante como tabla

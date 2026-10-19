@@ -2,9 +2,11 @@
 
 name: Tessera Studio
 
+app_store_name: "Tessera Studio: ピボットテーブル"
+
 short: CSV・Excel・JSONファイルをピボットテーブルで表示。無料・広告なし・トラッキングなし。
 
-subtitle: ファイルからピボットテーブル
+subtitle: CSV・Excel・JSONビューア
 
 promo: >-
   スプレッドシート、CSV、JSONファイルを開くとすぐにピボットテーブルで表示。Excel、PDFなどで保存できます。ずっと無料、広告もトラッキングもありません。

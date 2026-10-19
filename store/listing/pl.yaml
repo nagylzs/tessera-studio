@@ -2,9 +2,11 @@
 
 name: Tessera Studio
 
+app_store_name: "Tessera Studio: Tabele pivot"
+
 short: Pliki CSV, Excel i JSON jako tabele przestawne. Za darmo, bez reklam.
 
-subtitle: Tabele przestawne z plików
+subtitle: Przeglądarka CSV, Excel i JSON
 
 promo: >-
   Otwórz arkusz, plik CSV lub JSON i od razu zobacz go jako tabelę

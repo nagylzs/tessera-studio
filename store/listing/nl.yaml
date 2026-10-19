@@ -2,9 +2,11 @@
 
 name: Tessera Studio
 
+app_store_name: "Tessera Studio: Draaitabellen"
+
 short: Open CSV-, Excel- en JSON-bestanden als draaitabel. Gratis, zonder reclame.
 
-subtitle: Draaitabellen uit bestanden
+subtitle: Viewer voor CSV, Excel en JSON
 
 promo: >-
   Open een spreadsheet, CSV- of JSON-bestand en zie het meteen als

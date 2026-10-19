@@ -2,9 +2,11 @@
 
 name: Tessera Studio
 
+app_store_name: "Tessera Studio: Tableau croisé"
+
 short: Fichiers CSV, Excel et JSON en tableaux croisés. Gratuit, sans pub ni pistage.
 
-subtitle: Tableaux croisés de fichiers
+subtitle: Visionneuse CSV, Excel et JSON
 
 promo: >-
   Ouvrez un classeur, un CSV ou un JSON et voyez-le aussitôt en tableau croisé,

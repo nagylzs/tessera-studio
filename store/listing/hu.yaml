@@ -2,9 +2,11 @@
 
 name: Tessera Studio
 
+app_store_name: "Tessera Studio: Kimutatások"
+
 short: CSV-, Excel- és JSON-fájlok kimutatásként. Ingyenes, reklám és követés nélkül.
 
-subtitle: Kimutatások a fájljaiból
+subtitle: CSV-, Excel- és JSON-nézegető
 
 promo: >-
   Nyisson meg egy táblázatot, CSV- vagy JSON-fájlt, és azonnal kimutatásként

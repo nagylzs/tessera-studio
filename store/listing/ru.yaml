@@ -2,9 +2,11 @@
 
 name: Tessera Studio
 
+app_store_name: "Tessera Studio: Pivot-таблицы"
+
 short: Открывайте CSV, Excel и JSON как сводные таблицы. Бесплатно, без рекламы.
 
-subtitle: Сводные таблицы из файлов
+subtitle: Просмотр CSV, Excel и JSON
 
 promo: >-
   Откройте таблицу, CSV или JSON и сразу увидите сводную таблицу, а затем

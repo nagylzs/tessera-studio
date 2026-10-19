@@ -2,14 +2,18 @@
 # Fields, limits and store locale codes: README.md next to this file;
 # test/store_listing_test.dart checks every language against them.
 
-# Every store; the Microsoft Store takes the reserved name.
+# Google Play and the Microsoft Store (its reserved name).
 name: Tessera Studio
+
+# App Store name (≤ 30): plain "Tessera Studio" is taken there; the name
+# under the icon stays "Tessera Studio".
+app_store_name: "Tessera Studio: Pivot Tables"
 
 # Google Play short description (≤ 80).
 short: Open CSV, Excel and JSON files as pivot tables. Free, no ads, no tracking.
 
-# App Store subtitle (≤ 30).
-subtitle: Pivot tables from your files
+# App Store subtitle (≤ 30); the name already says "pivot tables".
+subtitle: CSV, Excel and JSON viewer
 
 # App Store promotional text (≤ 170); can change without a new version.
 promo: >-

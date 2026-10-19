@@ -3,9 +3,11 @@
 
 name: Tessera Studio
 
+app_store_name: "Tessera Studio: 数据透视表"
+
 short: 将 CSV、Excel 和 JSON 文件打开为数据透视表。免费、无广告、无跟踪。
 
-subtitle: 用文件生成数据透视表
+subtitle: CSV、Excel 和 JSON 查看器
 
 promo: >-
   打开电子表格、CSV 或 JSON 文件，立即以数据透视表查看，再保存为 Excel、PDF 等格式。永久免费，无广告，无跟踪。
