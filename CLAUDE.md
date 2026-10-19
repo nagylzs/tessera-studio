@@ -199,7 +199,8 @@ the next step.
   `clipboardAvailable`, refreshed by `HomePage` (stateful for its
   `AppLifecycleListener`) on appearance and on resume. Drag and drop:
   `HomePage` wraps its body in `desktop_drop`'s `DropTarget` where
-  `dropSupported` (Windows, Linux, web — macOS later, iOS never: the
+  `dropSupported` (Windows, Linux, macOS — tried on the owner's Mac
+  2026-10-19 with a .tsnp and a .csv —, web; iOS never: the
   plugin has no iOS side, accepted by the owner as a niche), shows a
   highlight overlay while dragging, and hands the first non-directory
   item to `AppState.openDropped` (path → `loadFrom` on desktop; bytes →

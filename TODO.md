@@ -55,9 +55,12 @@ conventions live in `CLAUDE.md`, not here.
       as SVG/PDF/PNG.
 - [ ] Entry points beyond the desktop argument, Android intents, the
       clipboard and drag and drop: a web `?open=<url>` query parameter,
-      Windows and Linux file associations with packaging (below), drag
-      and drop on macOS once that target exists (`desktop_drop` has the
-      plugin; enable it in `HomePage.dropSupported`).
+      Windows and Linux file associations with packaging (below).
+- [ ] Idea (owner, 2026-10-19; not decided for the first release): a
+      file dropped on the cube page opens it, as viewers do (mpv, Eye of
+      GNOME). Today only the home screen is a drop target. Replace the
+      file in place, or ask first when the pivot differs from its
+      default? The schema and layout are remembered either way.
 - [ ] Idea (owner, 2026-10-15; not decided for the first release):
       choose the sheet of an .xlsx / .ods file. Today the first sheet is
       read; offer the non-empty ones when there are several (a short
@@ -162,9 +165,9 @@ conventions live in `CLAUDE.md`, not here.
       with the team 2026-10-19; runs on the Mac mini and the iPhone 14
       since 2026-10-15). "Open with" from Finder and the Files app,
       `.tsnp` as the app's own type, the iPad share origin and the
-      export-compliance key landed 2026-10-19 (`CLAUDE.md`). Still to
-      do: try drag and drop on macOS (enabled, untested); the share
-      sheet on an iPad (an iPad simulator); JSON Lines for "Open with"
+      export-compliance key landed 2026-10-19 (`CLAUDE.md`). Drag and
+      drop onto the home screen works on the Mac (2026-10-19). Still to
+      do: the share sheet on an iPad (an iPad simulator); JSON Lines for "Open with"
       (needs an imported type: there is no system one).
 
 - [ ] Idea (owner, 2026-10-15; not decided for the first release): a

@@ -33,7 +33,7 @@ class _HomePageState extends State<HomePage> {
   var _dragging = false;
 
   /// Where `desktop_drop` is wired up for this app (not iOS: the plugin
-  /// has no iOS side). macOS is built by CI but not yet tried on a Mac.
+  /// has no iOS side). Tried on a Mac 2026-10-19.
   static bool get dropSupported =>
       kIsWeb ||
       defaultTargetPlatform == TargetPlatform.windows ||
