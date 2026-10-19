@@ -180,7 +180,8 @@ the next step.
   Android events; `FlutterDeepLinkingEnabled` false keeps file URLs out
   of the router. AirDrop does not hand documents to an app: it saves
   them in Files → Downloads and previews them, where Share → Tessera
-  Studio opens them (owner, iPhone 14). macOS
+  Studio opens them (owner, iPhone 14, 2026-10-19: with the app
+  running and after killing it). macOS
   (`macos/Runner/AppDelegate.swift`, registered in
   `MainFlutterWindow`): `handleOpenURLs` sends `ready` with the file's
   own path, which the sandbox grants for Finder opens. Tested on the Mac
