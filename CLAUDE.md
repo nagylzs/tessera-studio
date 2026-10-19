@@ -5,10 +5,15 @@ Excel, ODS or JSON file, pivot it with expandable row and column
 hierarchies, filter, calculate, chart, export. Owner: László Zsolt Nagy
 (nagylzs@gmail.com). MIT. Targets: Android (Google Play), iOS and
 macOS (App Store), Windows, Linux and the web; the first release goes
-out on all of them at once, once the owner has a Mac. `ios/` and
-`macos/` exist since 2026-10-09 (made by `flutter create` in a scratch
-project and copied in) and are built by CI on GitHub's macOS runners,
-unsigned; nothing has run on an Apple device yet. **Ask the owner
+out on all of them at once. `ios/` and `macos/` exist since 2026-10-09
+(made by `flutter create` in a scratch project and copied in) and are
+built by CI on GitHub's macOS runners, unsigned. The owner has a Mac
+mini (macOS 27, Xcode 27) since 2026-10-12 and an iPhone 14 (iOS 27)
+since 2026-10-15; the app has run on both since 2026-10-15 (VS Code's
+`macos …` and `iphone … (iPhone 14)` entries). Apple Developer Program:
+individual, team `Y8M7VVUK26`, active since 2026-10-18; both Xcode
+projects set `DEVELOPMENT_TEAM` with automatic signing, and the Mac
+build still signs to run locally. **Ask the owner
 before adding a dependency that does not support every one of these
 platforms.**
 
@@ -381,7 +386,12 @@ the next step.
   display name "Tessera Studio". There are unrelated "Tessera" apps on
   Google Play (RSS reader, prayer app, games); the "Studio" suffix and
   our own icon keep the listing distinct — never publish as plain
-  "Tessera".
+  "Tessera". On the App Store even "Tessera Studio" was taken (reserved
+  by someone, no app published under it): the App Store Connect record
+  (iOS and macOS in one, universal purchase, SKU `tessera-studio`,
+  2026-10-19) is **"Tessera Studio: Pivot Tables"**, `app_store_name`
+  in `store/listing/`, localized; the name under the icon stays
+  "Tessera Studio".
 
 ## Commands
 

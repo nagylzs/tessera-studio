@@ -58,6 +58,25 @@ conventions live in `CLAUDE.md`, not here.
       Windows and Linux file associations with packaging (below), drag
       and drop on macOS once that target exists (`desktop_drop` has the
       plugin; enable it in `HomePage.dropSupported`).
+- [ ] Idea (owner, 2026-10-15; not decided for the first release):
+      choose the sheet of an .xlsx / .ods file. Today the first sheet is
+      read; offer the non-empty ones when there are several (a short
+      list before the schema page, remembered with the layout by
+      structure key). Library work first: `XlsxWorkbook.sheets` is
+      public, but `OdsDocument.sheetNames` is internal, and neither
+      package has a cheap "is this sheet empty" check (`sheetDimension`
+      trusts a `<dimension>` element that may be stale or missing).
+- [ ] Idea (owner, 2026-10-15; not decided for the first release): an
+      opt-in "Esc closes the app" setting for desktops (Windows, Linux,
+      macOS), off by default, for use as the viewer of a file manager:
+      Double Commander's F3 with an external viewer → look → Esc → next
+      file → F3 (IrfanView has the same option). Esc keeps closing
+      menus, dialogs, the editors sheet and full screen first; only an
+      Esc nothing else takes exits, through
+      `ServicesBinding.exitApplication` (no `dart:io` in `lib/`). A
+      checkable menu entry like "Editors on top", key
+      `settings:escClosesApp`, the label in all 14 languages. Worth
+      measuring the time from launch to the first pivot for this use.
 - [ ] Clipboard: files copied as file objects (Explorer, Finder, GNOME
       Files) are not text, so Flutter's `Clipboard` cannot see them;
       `super_clipboard` (all platforms, iOS and macOS included) reads
@@ -139,14 +158,26 @@ conventions live in `CLAUDE.md`, not here.
       values in `../tessera/TODO.md`), then claim the type in the file
       associations of every platform, including the Android manifest.
 - [ ] iOS and macOS on the owner's Mac (the folders, names, icons and
-      CI builds exist; bundle id `eu.nagylzs.tessera-studio`): register
-      the id with Apple; run on a device and a Mac;
-      `CFBundleDocumentTypes` and opening a file from Finder / the Files
+      CI builds exist; bundle id `eu.nagylzs.tessera-studio`, registered
+      with the team 2026-10-19; runs on the Mac mini and the iPhone 14
+      since 2026-10-15). Still to do: `CFBundleDocumentTypes` and opening a file from Finder / the Files
       app ("Open with" hands a URL to the app delegate — a channel like
       Android's `OpenRequests`; owner wants it, and the store listing
       already claims it, so it must land before the Apple release); share
       needs `sharePositionOrigin` on the iPad (the share button's
       rect); try drag and drop on macOS (enabled, untested).
+
+- [ ] Idea (owner, 2026-10-15; not decided for the first release): a
+      web demo on GitHub Pages (`https://nagylzs.github.io/tessera-studio/`,
+      or under nagylzs.eu next to the privacy policy), deployed by CI on
+      `v*` tags with the matching `--base-href`, linked from the README,
+      the store listings and the tessera guide; with the `?open=<url>`
+      parameter (Viewer flow) a link could open the demo files directly.
+      Check first, for the web target as a whole: Flutter's web build
+      by default loads CanvasKit from gstatic.com and missing glyphs'
+      fonts from fonts.gstatic.com — requests the user did not start,
+      against the privacy promise. `--no-web-resources-cdn` bundles
+      CanvasKit; verify the rest in the browser's network tab.
 
 ## Done
 
