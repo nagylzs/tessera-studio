@@ -54,7 +54,9 @@ if [ -e "$bundle/data/flutter_assets/kernel_blob.bin" ]; then
     "rm -rf build/flutter_assets $bundle and build again" >&2
   exit 1
 fi
-: "${SOURCE_DATE_EPOCH:=$(git log -1 --format=%ct)}"
+if [ -z "${SOURCE_DATE_EPOCH-}" ]; then
+  SOURCE_DATE_EPOCH=$(git log -1 --format=%ct)
+fi
 
 rm -rf "$out/stage"
 mkdir -p "$stage"

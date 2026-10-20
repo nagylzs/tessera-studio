@@ -134,6 +134,9 @@ jobs:
             clang cmake ninja-build pkg-config libgtk-3-dev liblzma-dev libstdc++-12-dev \
             dpkg-dev librsvg2-bin
       - uses: actions/checkout@v5
+      # The workspace belongs to the runner's user, not the container's
+      # root; checkout trusts it only in a config of its own.
+      - run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
       - name: Flutter ${{ env.FLUTTER_VERSION }}
         run: |
           git clone --depth 1 --branch "$FLUTTER_VERSION" https://github.com/flutter/flutter.git /opt/flutter
