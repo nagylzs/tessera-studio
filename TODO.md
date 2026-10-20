@@ -166,6 +166,10 @@ conventions live in `CLAUDE.md`, not here.
       platform table at the release. The listing texts are done
       (`store/listing/`); a native speaker's read of the translations
       would not hurt, the owner reviews Hungarian.
+- [ ] App Store: iPhone Duo screenshots (outer 1398 × 2034, inner
+      2007 × 2853) become required in April 2027 for apps built with the
+      iOS 27.1 SDK or later (Apple's screenshot specifications, checked
+      2026-10-20); a simulator for it, once Xcode has one.
 - [ ] After the first release: register `application/vnd.tessera.snapshot`
       with IANA naming Tessera Studio as the application (form and field
       values in `../tessera/TODO.md`), then claim the type in the file

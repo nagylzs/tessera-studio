@@ -74,7 +74,8 @@ Google Play also wants two graphics, both here:
 | `play-phone` | Google Play, phone (2–8) | 1080 × 1920 | emulator, here |
 | `play-tablet` | Google Play, 7" and 10" tablet (up to 8 each; the same images fit both) | 2560 × 1440 | emulator (Medium_Tablet), here |
 | `microsoft` | Microsoft Store, desktop (up to 10) | 1920 × 1080 (150 % scaling) | the owner's Windows |
-| `apple-iphone` | App Store, 6.9" iPhone (phone list) | 1320 × 2868 | Mac, simulator |
+| `apple-iphone-medium` | App Store, iPhone with Dynamic Island (medium display), the required class since 2026 (phone list) | 1206 × 2622 | `apple-iphone` scaled (`magick -filter Lanczos -resize 1206x2622!`: 0.06 % change of shape) |
+| `apple-iphone` | App Store, 6.9" iPhone (large display, optional) | 1320 × 2868 | Mac, simulator |
 | `apple-ipad` | App Store, 13" iPad (wide list, landscape) | 2752 × 2064 | Mac, simulator |
 | `apple-mac` | Mac App Store (wide list) | 2880 × 1800 (16:10) | Mac, the owner's window shots |
 | `desktop` | README, GitHub | 1440 × 900 | Xvfb, here |
@@ -99,9 +100,15 @@ Rules as of October 2026 — check them again at upload time:
   Dark and Hue levels only for the last shot. A snapshot keeps no
   changes, so reopening it undoes a stray click (a "Show values as"
   item chosen while closing the menu).
-- **Apple:** PNG or JPEG, no transparency. One 6.9" iPhone set and one
-  13" iPad set cover all devices; the Mac takes 16:10 sizes from
-  1280 × 800 to 2880 × 1800.
+- **Apple:** PNG or JPEG, no transparency. Required (October 2026):
+  iPhone with Dynamic Island, **medium display** (1179 × 2556 or
+  1206 × 2622; App Store Connect refused the 6.9" 1320 × 2868 there as
+  "File dimensions are invalid") and the 13" iPad (2064 × 2752 or
+  2048 × 2732, either orientation); the others are scaled from them. The
+  Mac takes 16:10 sizes from 1280 × 800 to 2880 × 1800. iPhone Duo
+  (outer 1398 × 2034, inner 2007 × 2853) is optional until April 2027,
+  then required for apps built with the iOS 27.1 SDK or later. The
+  reference: Apple's "Screenshot specifications" page.
 
 ## Recipes
 

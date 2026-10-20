@@ -8,7 +8,7 @@ the limits below and that all 14 languages are here.
 | Field | Google Play | App Store | Microsoft Store | Limit |
 |---|---|---|---|---|
 | `name` | Title | – | (the reserved name) | 30 |
-| `app_store_name` | – | Name (plain "Tessera Studio" is taken there, 2026-10-19; the name under the icon stays) | – | 30 |
+| `app_store_name` | – | Name (plain "Tessera Studio" is taken there, 2026-10-19; the name under the icon stays). English in every language: App Store Connect refused the localized names it was given (Czech, German) as "already being used" (2026-10-20) | – | 30 |
 | `short` | Short description | – | – | 80 |
 | `subtitle` | – | Subtitle | – | 30 |
 | `promo` | – | Promotional text | – | 170 |
