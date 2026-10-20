@@ -60,11 +60,12 @@ it en-US), the app's texts and the privacy policy.
 The listing may only claim what the app does on that store's platform.
 Before each release check:
 
-- **"Open with" / share from other apps** works on Android and Windows;
-  on iOS and macOS it needs `CFBundleDocumentTypes` and the open-URL
-  handling (TODO.md, the Mac work). Until then the Apple listings must
-  not claim it.
-- **Drag and drop**: Windows, Linux, web; macOS enabled but untested.
+- **"Open with" / share from other apps** works on Android, Windows,
+  iOS and macOS (Apple since 2026-10-19: Finder's Open With and double
+  click, the iOS share sheet and Files; AirDrop saves into Files first).
+  Not for JSON Lines on Apple (no system type) or plain `.txt` files.
+- **Drag and drop**: Windows, Linux, web and macOS (tried 2026-10-19);
+  not iOS.
 - **Full screen on phones**: Android and iOS.
 - No charts yet: the charts pane is still in TODO.md.
 - When a feature, a format or a language is added or removed, the

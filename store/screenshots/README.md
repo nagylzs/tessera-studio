@@ -217,8 +217,9 @@ flutter run -d $I    # debug only: "Release mode is not supported for simulators
 - **Capture:** `xcrun simctl io $I screenshot raw.png` (the device's own
   size), then `magick raw.png -fill "$(magick raw.png -format
   '%[pixel:p{8,8}]' info:)" -draw 'rectangle 0,0 5,5' -alpha off
-  PNG24:shot.png`: the capture has an alpha channel, and the app draws
-  a 1-point dark square in the top-left corner (TODO.md).
+  PNG24:shot.png`: the capture has an alpha channel, and the debug build
+  in the simulator has a 1-point black square in the top-left corner
+  (not on a device: TODO.md, Done).
 
 Things that got in the way (2026-10-20):
 - The iPad runs apps in windows (the app's name in the status bar, a

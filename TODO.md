@@ -7,11 +7,6 @@ conventions live in `CLAUDE.md`, not here.
 
 ## Viewer flow
 
-- [ ] A 1-point black square at the very top-left corner of the iOS
-      screen (simulator screenshots, debug build, every page; found
-      2026-10-20). Rounded display corners hide it on a device, but a
-      screenshot shows it. Check a screenshot of the TestFlight build on
-      the iPhone; find what draws it. The App Store shots cover it.
 - [ ] On the Mac the window's title bar follows the system appearance,
       not the app's Theme setting: Light in the app on a dark Mac gives a
       dark title bar over a light window (found 2026-10-20 taking the
@@ -196,6 +191,12 @@ conventions live in `CLAUDE.md`, not here.
 
 ## Done
 
+- [x] A 1-point black square at the top-left corner of the iOS screen in
+      the simulator's screenshots (debug build). Not on the device: a
+      screenshot of the TestFlight release build on the owner's iPhone 14
+      has no such pixel (iOS rounds all four corners of its screenshots
+      transparent), so a debug or simulator artefact, not the app's
+      drawing; the store shots cover it (2026-10-20).
 - [x] A file opened from outside ("Open with", the share sheet, a drop)
       left the old page's sheets and dialogs on top of the new file's
       page, still showing — and acting on — the old file (found on the
