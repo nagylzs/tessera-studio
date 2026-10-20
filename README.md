@@ -79,7 +79,7 @@ pictures: open a file, see it as a pivot, save or send what you need.
 |----------|-------|
 | Android | tested on a tablet (Android 16) and the emulator; Google Play coming |
 | Windows | portable build tested; Microsoft Store package coming |
-| Linux | builds and runs; a `.desktop` file and file types to come |
+| Linux | a tarball and a `.deb` for x64 and arm64 (Ubuntu 22.04, Debian 12 or newer), with the menu entry and "Open with"; installed and tested by CI on Ubuntu 22.04 and 24.04 and Debian 12; on the GitHub Release at launch |
 | Web | builds |
 | iOS, macOS | build in CI; not yet run on Apple hardware |
 
