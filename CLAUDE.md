@@ -185,8 +185,8 @@ the next step.
   (`macos/Runner/AppDelegate.swift`, registered in
   `MainFlutterWindow`): `handleOpenURLs` sends `ready` with the file's
   own path, which the sandbox grants for Finder opens. Tested on the Mac
-  without clicks: `open -a build/macos/Build/Products/Debug/tessera_studio.app
-  <file>` into a `flutter run -d macos` session (warm), and `open -a …
+  without clicks: `open -a "build/macos/Build/Products/Debug/Tessera
+  Studio.app" <file>` into a `flutter run -d macos` session (warm), and `open -a …
   --stdout out.log <file>` then `flutter attach -d macos --debug-url
   <the VM service URL from out.log>` (cold); `w` in either dumps the
   widget tree, which names the page shown (`SchemaPage`,
@@ -407,7 +407,11 @@ the next step.
   2026-10-09 over Flutter's default `tesseraStudio`; fixed once
   registered with Apple), their `CFBundleName`
   / `CFBundleDisplayName` "Tessera Studio", the macOS copyright in
-  `macos/Runner/Configs/AppInfo.xcconfig`, the sandbox entitlements
+  `macos/Runner/Configs/AppInfo.xcconfig` with `PRODUCT_NAME` "Tessera
+  Studio" (the bundle's file name, which Finder and `/Applications`
+  show; until 2026-10-20 it was `tessera_studio`; the menus' and the
+  window's `APP_NAME` placeholders are replaced at launch by
+  `FlutterAppDelegate` with `CFBundleDisplayName`), the sandbox entitlements
   `files.user-selected.read-write` (picker, save dialog, drops) and
   `network.client` (URLs) in both `.entitlements`. Icons: the
   `flutter_launcher_icons` config covers iOS (no alpha: the paper
@@ -444,6 +448,21 @@ below), then
 tool/apple_export_options.plist -exportPath <scratch> -allowProvisioningUpdates`
 signs for the App Store and uploads with the Xcode account (set
 `destination` to `export` in a copy of the plist for a local .ipa).
+macOS (first one 2026-10-20, `1.0.0 (2)`): the project signs to run
+locally (`CODE_SIGN_IDENTITY "-"`, so CI builds without certificates),
+so archive with the identity and the team on the command line —
+`flutter build macos --release --config-only`, then `xcodebuild
+-workspace macos/Runner.xcworkspace -scheme Runner -configuration
+Release -archivePath build/macos/archive/Runner.xcarchive archive
+CODE_SIGN_IDENTITY="Apple Development" DEVELOPMENT_TEAM=Y8M7VVUK26
+-allowProvisioningUpdates` (without the team the Swift packages'
+resource bundles fail: "requires a development team") — and export it
+the same way as iOS, into a `.pkg` signed with the local Mac
+Installer Distribution certificate ("3rd Party Mac Developer
+Installer", made 2026-10-20; the first `productbuild` asks for the
+keychain once: Always Allow). Check with `pkgutil --check-signature`,
+`pkgutil --expand-full`, then `codesign --verify --strict` on the
+app and its frameworks.
 Two traps, both met on the first upload:
 - **Homebrew's rsync breaks Xcode's IPA step** ("exportArchive Copy
   failed"; the log in the `.xcdistributionlogs` folder xcodebuild names
