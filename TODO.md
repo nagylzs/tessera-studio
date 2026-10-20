@@ -7,6 +7,18 @@ conventions live in `CLAUDE.md`, not here.
 
 ## Viewer flow
 
+- [ ] A 1-point black square at the very top-left corner of the iOS
+      screen (simulator screenshots, debug build, every page; found
+      2026-10-20). Rounded display corners hide it on a device, but a
+      screenshot shows it. Check a screenshot of the TestFlight build on
+      the iPhone; find what draws it. The App Store shots cover it.
+- [ ] On the Mac the window's title bar follows the system appearance,
+      not the app's Theme setting: Light in the app on a dark Mac gives a
+      dark title bar over a light window (found 2026-10-20 taking the
+      Mac shots, which were therefore taken with the Mac's appearance
+      matching). Set the window's `NSAppearance` from `AppSettings.themeMode`
+      (aqua / darkAqua / nil for System) through a small channel. Polish,
+      not a release blocker.
 - [ ] Cube page follow-ups: a "Settings" entry to restore the automatic
       layout after an explicit choice; the charts pane beside/below the
       grid as in the example.
@@ -184,6 +196,15 @@ conventions live in `CLAUDE.md`, not here.
 
 ## Done
 
+- [x] A file opened from outside ("Open with", the share sheet, a drop)
+      left the old page's sheets and dialogs on top of the new file's
+      page, still showing — and acting on — the old file (found on the
+      iPhone simulator with the editors sheet open, 2026-10-20; Android,
+      the desktops and the Mac alike). `app.dart` now closes every route
+      above the root whenever the document, the failure or the page
+      changes (a navigator key, `popUntil(isFirst)` in an effect); a
+      widget test opens a dialog, delivers an open request and expects
+      the dialog gone (2026-10-20).
 - [x] The dimension picker, the aggregate picker and the filter's
       value list on a phone in landscape: the search field opened the
       keyboard at once and the fixed-size dialog left the list no room

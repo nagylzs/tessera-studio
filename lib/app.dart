@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get_it/get_it.dart';
@@ -15,8 +17,41 @@ import 'state/settings.dart';
 /// The tessera green, also the seed of both colour schemes.
 const tesseraGreen = Color(0xFF00856E);
 
-class TesseraStudioApp extends StatelessWidget {
+class TesseraStudioApp extends StatefulWidget {
   const TesseraStudioApp({super.key});
+
+  @override
+  State<TesseraStudioApp> createState() => _TesseraStudioAppState();
+}
+
+class _TesseraStudioAppState extends State<TesseraStudioApp> {
+  final _navigator = GlobalKey<NavigatorState>();
+  late final EffectCleanup _closeRoutes;
+
+  @override
+  void initState() {
+    super.initState();
+    final state = GetIt.I<AppState>();
+    // The root below swaps the page when the document, the failure or the
+    // page changes, but what the old page opened on top of it — a sheet,
+    // a dialog — would stay, still showing (and acting on) the old file:
+    // a file opened from outside arrives whatever is open. Closed after
+    // the signal update, outside its notification.
+    _closeRoutes = effect(() {
+      state.document.value;
+      state.failure.value;
+      state.page.value;
+      scheduleMicrotask(
+        () => _navigator.currentState?.popUntil((route) => route.isFirst),
+      );
+    });
+  }
+
+  @override
+  void dispose() {
+    _closeRoutes();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +59,7 @@ class TesseraStudioApp extends StatelessWidget {
     final settings = GetIt.I<AppSettings>();
     return SignalBuilder(
       builder: (context) => MaterialApp(
+        navigatorKey: _navigator,
         onGenerateTitle: (context) => AppLocalizations.of(context).appTitle,
         theme: ThemeData(colorSchemeSeed: tesseraGreen),
         darkTheme: ThemeData(

@@ -12,6 +12,7 @@ import 'package:tessera_studio/files/file_opener.dart';
 import 'package:tessera_studio/files/open_requests.dart';
 import 'package:tessera_studio/files/opened_document.dart';
 import 'package:tessera_studio/l10n/generated/app_localizations.dart';
+import 'package:tessera_studio/pages/home_page.dart';
 import 'package:tessera_studio/pages/schema_page.dart';
 import 'package:tessera_studio/pages/workbench_page.dart';
 import 'package:tessera_studio/state/app_state.dart';
@@ -169,6 +170,34 @@ void main() {
     });
     await tester.pumpAndSettle();
     expect(find.byType(SchemaPage), findsOneWidget);
+  });
+
+  testWidgets('a file opened from outside closes what the old page had open', (
+    tester,
+  ) async {
+    final loader = FakeLoader();
+    _register(_FakeOpener(() async => null), loader);
+    final state = GetIt.I<AppState>();
+    await tester.pumpWidget(const TesseraStudioApp());
+    showDialog<void>(
+      context: tester.element(find.byType(HomePage)),
+      builder: (_) => const AlertDialog(title: Text('Left over')),
+    );
+    await tester.pumpAndSettle();
+    expect(find.text('Left over'), findsOneWidget);
+
+    await tester.runAsync(() async {
+      state.handleOpenRequest(const OpenReady('sales.csv', '/cache/open/1_x'));
+      await tester.pump();
+      loader.completer.complete(_salesCsv());
+      for (var i = 0; i < 500 && state.busy.value; i++) {
+        await Future<void>.delayed(const Duration(milliseconds: 10));
+        await tester.pump();
+      }
+    });
+    await tester.pumpAndSettle();
+    expect(find.byType(SchemaPage), findsOneWidget);
+    expect(find.text('Left over'), findsNothing);
   });
 
   testWidgets('a failed system open request is shown', (tester) async {
