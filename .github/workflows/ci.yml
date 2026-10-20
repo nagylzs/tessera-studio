@@ -162,15 +162,31 @@ jobs:
           PUBLISHER: ${{ vars.MSIX_PUBLISHER }}
           PUBLISHER_NAME: ${{ vars.MSIX_PUBLISHER_DISPLAY_NAME }}
         run: |
+          # The Store reserves the package version's fourth part (it must
+          # be 0) and wants every upload higher than the last, so the
+          # pubspec's build number goes into the third: 1.0.0+4 → 1.0.4.0
+          # (msix itself would make every 1.0.0+N 1.0.0.0). About still
+          # says 1.0.0 (4).
+          $m = (Select-String -Path pubspec.yaml -Pattern '^version:\s*(\d+)\.(\d+)\.\d+\+(\d+)\s*$').Matches
+          if (-not $m) { throw 'The pubspec version is not x.y.z+N' }
+          $g = $m[0].Groups
+          $msixVersion = "$($g[1].Value).$($g[2].Value).$($g[3].Value).0"
+          Write-Output "MSIX version $msixVersion"
           if ($env:IDENTITY) {
-            dart run msix:create --build-windows false --store `
+            dart run msix:create --build-windows false --store --version $msixVersion `
               --identity-name $env:IDENTITY `
               --publisher $env:PUBLISHER `
               --publisher-display-name $env:PUBLISHER_NAME
           } else {
-            dart run msix:create --build-windows false
+            dart run msix:create --build-windows false --version $msixVersion
           }
           Get-ChildItem build\msix
+          # The manifest inside the package must carry that version.
+          Copy-Item build\msix\tessera-studio.msix build\msix-check.zip
+          Expand-Archive build\msix-check.zip build\msix-check
+          $identity = ([xml](Get-Content build\msix-check\AppxManifest.xml)).Package.Identity
+          Write-Output "Package $($identity.Name) $($identity.Version)"
+          if ($identity.Version -ne $msixVersion) { throw "The package says $($identity.Version)" }
       - if: env.KEEP_BUILDS == 'true'
         uses: actions/upload-artifact@v4
         with:

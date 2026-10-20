@@ -538,8 +538,11 @@ it (`desktop/` for the README, `play-phone/`, …). The account work itself is l
 Windows ships twice (owner's choice, 2026-10-10): the Microsoft Store
 first, an MSIX made by the `msix` dev dependency (`msix_config` at the
 end of the pubspec: display name, logo, `internetClient`, the 14
-languages, the file types the app opens except `.txt`; the version from
-`version:`, `1.0.0+1` → `1.0.0.0`), and a portable zip. CI's Windows
+languages, the file types the app opens except `.txt`; the version is
+`major.minor.N.0` from `version:`, N the build number, passed by CI as
+`--version` — `1.0.0+4` → `1.0.4.0` — because the Store reserves the
+fourth part (0) and wants each upload higher, while msix alone would
+make every `1.0.0+N` `1.0.0.0`), and a portable zip. CI's Windows
 job makes both after `flutter build windows`: "Portable zip" copies
 `Release/` into `build/portable/Tessera Studio/` with the Visual C++
 runtime DLLs from the runner's Visual Studio (`vswhere`, the newest
