@@ -22,6 +22,16 @@ id=eu.nagylzs.tessera_studio
 demo=store/screenshots/demo
 shots=build/linux/smoke
 
+# The app's processes that are not zombies. In a CI container PID 1 is
+# `tail -f /dev/null`, which reaps nothing, so an app started by gio and
+# killed stays listed as a zombie.
+running() {
+  for p in $(pgrep -x 'tessera[-_]studio'); do
+    state=$(sed -n 's/^State:[[:space:]]*\([A-Z]\).*/\1/p' "/proc/$p/status" 2>/dev/null)
+    if [ -n "$state" ] && [ "$state" != Z ]; then echo "$p"; fi
+  done
+}
+
 # One launch: waits for the window, screenshots it after the file has
 # loaded, checks it is still running and stops it.
 launch() {
@@ -45,13 +55,24 @@ launch() {
       exit 1
       ;;
   esac
-  if ! pgrep -x 'tessera[-_]studio' >/dev/null; then
+  if [ -z "$(running)" ]; then
     echo "$name: the app has exited"
     cat "$shots/$name.log"
     exit 1
   fi
   pkill -x 'tessera[-_]studio'
-  timeout 20 sh -c 'while pgrep -x 'tessera[-_]studio' >/dev/null; do sleep 1; done'
+  # Gone means no process and no window: the next launch must not find
+  # this one's window while the X server is still removing it.
+  i=0
+  while [ -n "$(running)" ] ||
+    xdotool search --onlyvisible --class "$id" >/dev/null 2>&1; do
+    i=$((i + 1))
+    if [ $i -gt 20 ]; then
+      echo "$name: the app did not stop"
+      exit 1
+    fi
+    sleep 1
+  done
 }
 
 # What GIO, which file managers use, thinks of a file and a type.
