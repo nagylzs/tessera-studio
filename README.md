@@ -1,5 +1,7 @@
 # Tessera Studio
 
+[![CI](https://github.com/nagylzs/tessera-studio/actions/workflows/ci.yml/badge.svg)](https://github.com/nagylzs/tessera-studio/actions/workflows/ci.yml)
+
 Open a CSV, Excel, OpenDocument or JSON file and see it as a pivot table
 at once: group rows and columns, open and close the levels, add sums,
 counts and averages, filter and sort — then save or share the result as
