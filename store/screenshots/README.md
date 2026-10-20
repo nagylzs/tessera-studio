@@ -74,9 +74,9 @@ Google Play also wants two graphics, both here:
 | `play-phone` | Google Play, phone (2–8) | 1080 × 1920 | emulator, here |
 | `play-tablet` | Google Play, 7" and 10" tablet (up to 8 each; the same images fit both) | 2560 × 1440 | emulator (Medium_Tablet), here |
 | `microsoft` | Microsoft Store, desktop (up to 10) | 1920 × 1080 (150 % scaling) | the owner's Windows |
-| `apple-iphone` | App Store, 6.9" iPhone | 1320 × 2868 | Mac (simulator), later |
-| `apple-ipad` | App Store, 13" iPad | 2064 × 2752 | Mac (simulator), later |
-| `apple-mac` | Mac App Store | 2880 × 1800 (16:10) | Mac, later |
+| `apple-iphone` | App Store, 6.9" iPhone (phone list) | 1320 × 2868 | Mac, simulator |
+| `apple-ipad` | App Store, 13" iPad (wide list, landscape) | 2752 × 2064 | Mac, simulator |
+| `apple-mac` | Mac App Store (wide list) | 2880 × 1800 (16:10) | Mac, the owner's window shots |
 | `desktop` | README, GitHub | 1440 × 900 | Xvfb, here |
 
 Rules as of October 2026 — check them again at upload time:
@@ -185,3 +185,83 @@ Things that get in the way:
 for Play with `magick shot.png -alpha off PNG24:shot.png`.
 
 Afterwards: `$A emu kill`.
+
+### Simulator (App Store iPhone and iPad sets)
+
+Xcode 27 has no Simulator app: **DeviceHub**
+(`/Applications/Xcode.app/Contents/Applications/DeviceHub.app`) shows
+the simulators, and the owner clicks there (never script clicks on the
+owner's desktop). Fresh devices leave the owner's own simulators alone:
+
+```bash
+I=$(xcrun simctl create "Tessera iPhone 6.9" \
+  com.apple.CoreSimulator.SimDeviceType.iPhone-17-Pro-Max \
+  com.apple.CoreSimulator.SimRuntime.iOS-27-0)   # iPad: …iPad-Pro-13-inch-M5-12GB
+xcrun simctl boot $I && xcrun simctl bootstatus $I -b
+xcrun simctl spawn $I defaults write -g AppleLanguages -array en-US
+xcrun simctl spawn $I defaults write -g AppleLocale -string en_US
+xcrun simctl status_bar $I override --time 9:41 --dataNetwork wifi \
+  --wifiMode active --wifiBars 3 --cellularMode active --cellularBars 4 \
+  --batteryState discharging --batteryLevel 100   # "charged" draws a bolt
+xcrun simctl ui $I appearance light               # dark for the last shot
+flutter run -d $I    # debug only: "Release mode is not supported for simulators"
+```
+
+- **No DEBUG banner without a code change:** the VM service that `flutter
+  run` prints takes HTTP GETs — `curl <url>getVM` for the main isolate's
+  id, then `curl "<url>ext.flutter.debugAllowBanner?isolateId=<id>&enabled=false"`
+  (the toggle DevTools uses).
+- **Open the demo files without taps:** `xcrun simctl openurl $I
+  "file://<scratch copy of demo/>/Sales%202025.tsnp"` delivers them like
+  "Open with" (cold or warm); `sales.csv` the same way.
+- **Capture:** `xcrun simctl io $I screenshot raw.png` (the device's own
+  size), then `magick raw.png -fill "$(magick raw.png -format
+  '%[pixel:p{8,8}]' info:)" -draw 'rectangle 0,0 5,5' -alpha off
+  PNG24:shot.png`: the capture has an alpha channel, and the app draws
+  a 1-point dark square in the top-left corner (TODO.md).
+
+Things that got in the way (2026-10-20):
+- The iPad runs apps in windows (the app's name in the status bar, a
+  resize handle in the corner): Settings → Multitasking & Gestures →
+  Full Screen Apps, then rotate to landscape in DeviceHub.
+- iPadOS draws a bevel around the clock while the Simulator window is
+  not focused — the owner typing "done" in the terminal is enough — and
+  while a menu is open. Refocus DeviceHub before the capture; for the
+  "Show values as" shot the top 64 rows came from shot 1 (identical
+  elsewhere: `magick compare -metric AE` on the strips gave 0).
+- iPad pointer hover effects: park the pointer on empty space.
+- An "Open with" while a sheet is open leaves the sheet over the new
+  file (TODO.md): close sheets and dialogs before the next `openurl`.
+
+Afterwards `xcrun simctl shutdown $I` (and `delete` once the listing is
+uploaded).
+
+### Mac (Mac App Store set)
+
+On the owner's 5K display (2560 × 1440 points, Retina) a window of
+1440 × 900 points is 2880 × 1800. A build only for the shots, with two
+temporary changes reverted right after `flutter build macos --release`
+and never committed:
+
+- `PRODUCT_BUNDLE_IDENTIFIER = eu.nagylzs.tessera-studio.shots` in
+  `macos/Runner/Configs/AppInfo.xcconfig`: its own sandbox container,
+  so fresh settings and the owner's left alone (another app's container
+  cannot be read from the shell);
+- in `MainFlutterWindow.swift`, after the existing `setFrame`:
+  `self.setFrame(NSRect(x: 240, y: 200, width: 1440, height: 900),
+  display: true)`.
+
+Copy the built app to a scratch folder and open each file with `open -a
+<copy> <file>`. The owner takes the shots (capturing from the shell
+needs Screen Recording permission): click the window's title bar (an
+inactive window has grey traffic lights), ⌘⇧4, Space, Option-click the
+window; for the menu shot, open the menu and capture without leaving
+the window. The title bar follows the Mac's appearance, not the app's
+Theme (TODO.md): switch the Mac to Light or Dark and leave the app on
+System. Processing: `magick raw.png -alpha extract -threshold 99.9%
+-format %@ info:` gives the opaque window (`2880x1800+X+Y`, also when
+the shadow was included); crop it, then fill the transparent rounded
+corners by compositing it over a canvas in the bottom edge's colour
+with the top 40 rows in the title bar's colour, `-alpha off PNG24:`.
+Afterwards quit the copy, `lsregister -u` it and delete it (else it
+stays in Finder's "Open With").
