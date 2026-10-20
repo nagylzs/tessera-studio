@@ -24,7 +24,7 @@ import 'fakes.dart';
 
 final class _NoOpener implements FileOpener {
   @override
-  Future<OpenedDocument?> pick() async => null;
+  Future<OpenedDocument?> pick({String? dialogTitle}) async => null;
 }
 
 late MemoryLayoutStore layouts;

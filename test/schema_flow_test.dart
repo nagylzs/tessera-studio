@@ -29,7 +29,7 @@ final class _Opener implements FileOpener {
   final String text;
 
   @override
-  Future<OpenedDocument?> pick() async => OpenedDocument(
+  Future<OpenedDocument?> pick({String? dialogTitle}) async => OpenedDocument(
     name: 'sales.csv',
     format: FileFormat.csv,
     bytes: Uint8List.fromList(text.codeUnits),

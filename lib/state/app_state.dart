@@ -39,6 +39,14 @@ final class NothingToOpen extends OpenFailure {
   const NothingToOpen() : super('');
 }
 
+/// The platform's file dialog could not be shown ([error] says why, for
+/// the log; the user gets a sentence instead).
+final class PickerUnavailable extends OpenFailure {
+  const PickerUnavailable(this.error) : super('');
+
+  final Object error;
+}
+
 /// The screens of the viewer, in the order a file passes through them.
 enum AppPage { home, schema, workbench }
 
@@ -110,17 +118,19 @@ final class AppState {
     () => opening.value || loading.value != null || cube.importing.value,
   );
 
-  /// Shows the picker and opens the chosen file. Returns `null` on
-  /// success or cancel, a failure otherwise.
-  Future<OpenFailure?> openFile() async {
+  /// Shows the picker, titled [dialogTitle], and opens the chosen file.
+  /// Returns `null` on success or cancel, a failure otherwise.
+  Future<OpenFailure?> openFile({String? dialogTitle}) async {
     if (opening.value) return null;
     opening.value = true;
     try {
-      final doc = await GetIt.I<FileOpener>().pick();
+      final doc = await GetIt.I<FileOpener>().pick(dialogTitle: dialogTitle);
       if (doc != null) await _open(doc);
       return null;
     } on UnsupportedFileException catch (e) {
       return UnsupportedFile(e.fileName);
+    } on PickerUnavailableException catch (e) {
+      return PickerUnavailable(e.cause);
     } catch (e) {
       return OpenError('', e);
     } finally {

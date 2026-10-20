@@ -27,7 +27,7 @@ final class _Opener implements FileOpener {
   final queue = <(String, List<int>)>[];
 
   @override
-  Future<OpenedDocument?> pick() async {
+  Future<OpenedDocument?> pick({String? dialogTitle}) async {
     final (name, bytes) = queue.removeAt(0);
     return OpenedDocument.detect(name: name, bytes: Uint8List.fromList(bytes));
   }

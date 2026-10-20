@@ -38,7 +38,7 @@ final class _Opener implements FileOpener {
   String text = csv;
 
   @override
-  Future<OpenedDocument?> pick() async => OpenedDocument(
+  Future<OpenedDocument?> pick({String? dialogTitle}) async => OpenedDocument(
     name: name,
     format: FileFormat.csv,
     bytes: Uint8List.fromList(text.codeUnits),

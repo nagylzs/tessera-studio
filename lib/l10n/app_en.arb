@@ -168,6 +168,18 @@
   "@nothingToOpen": {
     "description": "Error when the clipboard is empty or holds no URL, path or tabular text."
   },
+  "openFileTitle": "Open file",
+  "@openFileTitle": {
+    "description": "Title of the system file dialog that \"Open file…\" shows (where the platform shows one)."
+  },
+  "pickerUnavailable": "The file dialog could not be opened.",
+  "@pickerUnavailable": {
+    "description": "Error when the system file dialog cannot be shown at all."
+  },
+  "pickerUnavailableLinux": "The file dialog could not be opened: on Linux it needs xdg-desktop-portal. You can also drop the file onto the window.",
+  "@pickerUnavailableLinux": {
+    "description": "The same error on Linux, where the file dialog comes from xdg-desktop-portal (a program name, not translated) and drag and drop still works."
+  },
   "dropHint": "Drop a file to open it",
   "@dropHint": {
     "description": "Overlay on the home screen while a file is dragged over it."

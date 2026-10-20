@@ -28,9 +28,21 @@ final class _FakeOpener implements FileOpener {
 
   final Future<OpenedDocument?> Function() result;
 
+  /// The title the last [pick] was asked to show.
+  String? dialogTitle;
+
   @override
-  Future<OpenedDocument?> pick() => result();
+  Future<OpenedDocument?> pick({String? dialogTitle}) {
+    this.dialogTitle = dialogTitle;
+    return result();
+  }
 }
+
+/// What file_picker_linux throws when no xdg-desktop-portal runs.
+const _noPortal = PickerUnavailableException(
+  'org.freedesktop.DBus.Error.ServiceUnknown: The name '
+  'org.freedesktop.portal.Desktop was not provided by any .service files',
+);
 
 late MemoryLayoutStore layouts;
 void _register(FileOpener opener, [DocumentLoader? loader]) {
@@ -84,6 +96,48 @@ void main() {
       find.widgetWithText(FilledButton, 'Fájl megnyitása…'),
       findsOneWidget,
     );
+  });
+
+  testWidgets('the file dialog is titled in the app language', (tester) async {
+    tester.platformDispatcher.localesTestValue = const [Locale('hu', 'HU')];
+    addTearDown(tester.platformDispatcher.clearLocalesTestValue);
+    final opener = _FakeOpener(() async => null);
+    _register(opener);
+    await tester.pumpWidget(const TesseraStudioApp());
+    await tester.pumpAndSettle();
+    await tester.tap(find.widgetWithText(FilledButton, 'Fájl megnyitása…'));
+    await tester.pumpAndSettle();
+    expect(opener.dialogTitle, 'Fájl megnyitása');
+  });
+
+  testWidgets('a file dialog that cannot be shown says so', (tester) async {
+    _register(_FakeOpener(() async => throw _noPortal));
+    await tester.pumpWidget(const TesseraStudioApp());
+    await tester.tap(find.widgetWithText(FilledButton, 'Open file…'));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 500));
+    expect(find.text('The file dialog could not be opened.'), findsOneWidget);
+    expect(find.textContaining('DBus'), findsNothing);
+  });
+
+  testWidgets('on Linux it names the missing xdg-desktop-portal', (
+    tester,
+  ) async {
+    debugDefaultTargetPlatformOverride = TargetPlatform.linux;
+    _register(_FakeOpener(() async => throw _noPortal));
+    await tester.pumpWidget(const TesseraStudioApp());
+    await tester.tap(find.widgetWithText(FilledButton, 'Open file…'));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 500));
+    final shown = find.textContaining('xdg-desktop-portal');
+    final text = shown.evaluate().map((e) => (e.widget as Text).data).toList();
+    // Reset before the body ends: the framework checks debug variables
+    // before the tear-downs run.
+    debugDefaultTargetPlatformOverride = null;
+    expect(text, [
+      'The file dialog could not be opened: on Linux it needs '
+          'xdg-desktop-portal. You can also drop the file onto the window.',
+    ]);
   });
 
   testWidgets('opening a file shows it in the workbench', (tester) async {
