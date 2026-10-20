@@ -48,11 +48,16 @@ static void my_application_activate(GApplication* application) {
     gtk_header_bar_set_title(header_bar, "Tessera Studio");
     gtk_header_bar_set_show_close_button(header_bar, TRUE);
     gtk_window_set_titlebar(window, GTK_WIDGET(header_bar));
-  } else {
-    gtk_window_set_title(window, "Tessera Studio");
   }
+  // The window's own title in both cases: with only the header bar's,
+  // GTK titles the X11 window with the prgname (the application id),
+  // which window switchers and taskbars show.
+  gtk_window_set_title(window, "Tessera Studio");
 
   gtk_window_set_default_size(window, 1280, 720);
+  // The hicolor icon installed by the .deb or the tarball's install.sh;
+  // X11 taskbars that do not match windows to desktop files use it.
+  gtk_window_set_icon_name(window, APPLICATION_ID);
 
   g_autoptr(FlDartProject) project = fl_dart_project_new();
   fl_dart_project_set_dart_entrypoint_arguments(
