@@ -398,8 +398,9 @@ the next step.
   rasterized from them with `rsvg-convert -w 1024 -h 1024`;
   `dart run flutter_launcher_icons` (config at the end of the pubspec)
   writes Android (adaptive + monochrome), web and Windows icons. Linux
-  has no launcher icon in Flutter's runner; it comes with packaging (a
-  `.desktop` file + PNG) later.
+  has its own variant, the icon on a rounded tile
+  (`linux/packaging/eu.nagylzs.tessera_studio.svg`, approved by the owner
+  2026-10-20; PNGs are rendered from it when packaging, see Linux below).
 - Names: "Tessera Studio" is set in the Android manifest label, the web
   manifest/`index.html`, `linux/runner/my_application.cc` (window and
   header-bar title), `windows/runner/main.cpp` and `Runner.rc`
@@ -498,6 +499,10 @@ CI (`.github/workflows/ci.yml`): on every push, analyze + format check
 + tests on Ubuntu, and release builds of Android (split APKs and the
 bundle), web, Linux, Windows (`windows-latest`), macOS and iOS
 (`macos-latest`, `--no-codesign`) — proof that each platform compiles.
+Every job uses the Flutter of `FLUTTER_VERSION` in the workflow's env
+(3.47.7 since 2026-10-20, the Mac's, which builds the Apple uploads;
+bump it together with the machines). The Linux job also packages and
+tests, see Linux below.
 The builds are kept as downloads (14 days) only for `v*` tags and
 manual runs ("Run workflow"). Signing goes through CI secrets, never
 through the repository. Android: `android/app/build.gradle.kts` signs
@@ -568,6 +573,78 @@ gets an opened file as its command-line
 argument, which `main` already loads. The portable app keeps its
 settings in AppData like any Flutter app, has no file associations,
 and is unsigned (SmartScreen warns) unless the owner buys signing.
+
+Linux ships as a tarball and a `.deb` for x64 and arm64 (owner,
+2026-10-20; our own Flatpak repository after the first release; not
+Flathub, whose rules exclude AI-assisted packaging and machine
+translations: TODO.md). The work was done from the owner's Linux laptop
+("tessera-studio on linux laptop"). `linux/packaging/` holds what both
+install, four of the files written by `dart run
+tool/linux_metadata.dart` and checked by
+`test/linux_metadata_test.dart`:
+- the desktop entry `eu.nagylzs.tessera_studio.desktop`. Its name is the
+  GTK application id, which is also the window's WM_CLASS and Wayland
+  app id. `Exec=tessera-studio %f`: a path, not a URL, as `main` takes
+  one. GenericName is the ARBs' `exportPivot` (the App Store name is
+  English everywhere); Comment and Keywords come from `store/listing/`.
+  `Version=1.4`, because the desktop-file-validate of Ubuntu 22.04 and
+  Debian 12 rejects 1.5;
+- the MIME type `application/vnd.tessera.snapshot`: `*.tsnp`, magic
+  `TSNP` at 0, named by `formatSnapshot`;
+- the AppStream metainfo. No vcs-browser URL, as AppStream 0.15 on
+  Ubuntu 22.04 fails on it. No `<releases>` until `releases` in the tool
+  has the version and its date, to be set before each release tag; the
+  screenshots are fetched from that tag;
+- `control.in`, the `.deb`'s control file. Depends adds libegl1 and
+  libgles2, which the engine loads through libepoxy at run time; without
+  them it does not start.
+Besides these, the folder has the rounded icon (above) and the tarball's
+`install.sh` and README. The runner sets the window title in both of its
+branches (with only the header bar's title, GTK titles the X11 window
+with the prgname; the GNOME header-bar case is unverified) and the icon
+name.
+`tool/linux_package.sh [x64|arm64]` makes two packages from the release
+bundle:
+- `tessera-studio-<version>-linux-<arch>.tar.gz`, an unversioned
+  `tessera-studio/` folder. `install.sh` integrates it in place for the
+  user (the entry with the absolute Exec, the icons, the MIME type,
+  `~/.local/bin/tessera-studio`), and `--uninstall` undoes it;
+- `tessera-studio_<version>_<arch>.deb`, where `dpkg-deb` and `dpkg-
+  shlibdeps` exist: `/usr/lib/tessera-studio`, with `/usr/bin/tessera-
+  studio` a symlink (the engine finds `data/` through `/proc/self/exe`;
+  the process is then named `tessera-studio`). Depends from `dpkg-
+  shlibdeps`, the portal in Recommends, no maintainer scripts.
+Both are reproducible: file times are the last commit's. The script
+refuses a bundle holding `kernel_blob.bin`. Release bundles copy
+`build/flutter_assets`, which debug builds and `flutter run` share and
+leave their 75 MB kernel in, so `rm -rf build/flutter_assets` and the
+bundle before a local release build. `file_picker_linux` talks to the
+xdg-desktop-portal FileChooser over D-Bus with no fallback: without a
+portal, `PickerFileOpener` throws `PickerUnavailableException`, and the
+snack bar says what is missing (`pickerUnavailableLinux`).
+CI:
+- the Linux job builds both packages in an `ubuntu:22.04` container
+  (glibc 2.35 floor) on `ubuntu-24.04` and `ubuntu-24.04-arm`, with
+  Flutter cloned at `FLUTTER_VERSION`, as no arm64 SDK archive exists.
+  It marks the workspace a git `safe.directory`: checkout trusts it only
+  in a temporary config, and without it the commit time for the
+  reproducible packages cannot be read;
+- "Linux test" runs `tool/linux_smoke_test.sh` in fresh Ubuntu 22.04,
+  24.04 and Debian 12 containers: the .deb with its Depends from the
+  archive, the tarball's install.sh, `gio open` and `gio launch` on
+  Xvfb, screenshots as an artifact. PID 1 there reaps nothing, so killed
+  apps linger as zombies, which the test ignores;
+- "Release draft" makes the draft GitHub Release on a `v*` tag, with the
+  Linux packages, the Windows portable zip and SHA256SUMS; the owner
+  publishes it.
+Locally, `podman run` (rootless, installed on the laptop 2026-10-20)
+runs the same commands as CI in `ubuntu:22.04`, with the working tree
+mounted read-only and copied, and with `-e TAR_OPTIONS=--no-same-owner`:
+Flutter's downloads hold uids beyond the 65,536 mapped ones. The "Open
+with" checks also run without a container, under Xvfb with a scratch
+`HOME`, `XDG_*` dirs and `XDG_RUNTIME_DIR` inside `dbus-run-session`: a
+private bus, so the portal's dialogs open on :5, never on the owner's
+desktop.
 
 Screenshots, driving the app with synthetic input, and any test that
 needs a display: always use the virtual display recipe from
