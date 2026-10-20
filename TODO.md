@@ -212,6 +212,19 @@ conventions live in `CLAUDE.md`, not here.
       platform table at the release. The listing texts are done
       (`store/listing/`); a native speaker's read of the translations
       would not hurt, the owner reviews Hungarian.
+- [ ] GitHub issue forms (`.github/ISSUE_TEMPLATE/*.yml` and a
+      `config.yml`), since the App Store's support URL points at the
+      issues: a bug report (platform, the version from About, steps,
+      what happened; a warning not to attach confidential files, with an
+      offer to describe the data instead), a translation correction
+      (language, where the text appears, current and suggested wording;
+      the README's Translations section says where the texts live), and
+      a question (the user guide linked first). `config.yml` adds
+      apps@nagylzs.eu as the contact for anything else.
+- [ ] After the release: a line in About saying that the languages
+      other than English and Hungarian are AI translations and inviting
+      corrections, linking the README's Translations section (a new
+      string in all 14 languages).
 - [ ] App Store: iPhone Duo screenshots (outer 1398 × 2034, inner
       2007 × 2853) become required in April 2027 for apps built with the
       iOS 27.1 SDK or later (Apple's screenshot specifications, checked

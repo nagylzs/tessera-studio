@@ -81,7 +81,7 @@ pictures: open a file, see it as a pivot, save or send what you need.
 | Windows | portable build tested; Microsoft Store package coming |
 | Linux | a tarball and a `.deb` for x64 and arm64 (Ubuntu 22.04, Debian 12 or newer), with the menu entry and "Open with"; installed and tested by CI on Ubuntu 22.04 and 24.04 and Debian 12; on the GitHub Release at launch |
 | Web | builds |
-| iOS, macOS | build in CI; not yet run on Apple hardware |
+| iOS, macOS | tested on an iPhone 14 and a Mac mini (TestFlight); App Store coming |
 
 Every push is analyzed, tested and built for all six platforms by
 [CI](.github/workflows/ci.yml).
@@ -135,6 +135,21 @@ do not commit a `pubspec.lock` resolved through the overrides.
 `store/` holds what the app stores need besides the builds: the privacy
 policy, the listing texts in all 14 languages, and the screenshots with
 their demo data (`dart run tool/demo_data.dart`).
+
+## Translations
+
+English is the original, and the author reviews the Hungarian texts. The
+other twelve languages were translated by AI and may read unnaturally in
+places. Corrections from native speakers are very welcome:
+
+- open an [issue](https://github.com/nagylzs/tessera-studio/issues) with
+  the language, where the text appears, its current wording and your
+  suggestion, or
+- edit the texts in a pull request: `lib/l10n/app_<code>.arb` for the
+  app's own texts, `store/listing/<code>.yaml` for the store
+  descriptions. The grid, the editors and the exports take their texts
+  from tessera, in
+  [`packages/tessera/lib/src/l10n/l10n_<code>.dart`](https://github.com/nagylzs/tessera/tree/main/packages/tessera/lib/src/l10n).
 
 ## Feedback
 
