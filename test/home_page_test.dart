@@ -61,6 +61,31 @@ void main() {
     expect(find.widgetWithText(FilledButton, 'Open file…'), findsOneWidget);
   });
 
+  testWidgets('an unsupported system language falls back to English', (
+    tester,
+  ) async {
+    // The generated list is alphabetical (cs first) and Flutter falls back
+    // to its first entry: l10n.yaml puts English there.
+    tester.platformDispatcher.localesTestValue = const [Locale('sv', 'SE')];
+    addTearDown(tester.platformDispatcher.clearLocalesTestValue);
+    _register(_FakeOpener(() async => null));
+    await tester.pumpWidget(const TesseraStudioApp());
+    await tester.pumpAndSettle();
+    expect(find.widgetWithText(FilledButton, 'Open file…'), findsOneWidget);
+  });
+
+  testWidgets('a supported system language is used', (tester) async {
+    tester.platformDispatcher.localesTestValue = const [Locale('hu', 'HU')];
+    addTearDown(tester.platformDispatcher.clearLocalesTestValue);
+    _register(_FakeOpener(() async => null));
+    await tester.pumpWidget(const TesseraStudioApp());
+    await tester.pumpAndSettle();
+    expect(
+      find.widgetWithText(FilledButton, 'Fájl megnyitása…'),
+      findsOneWidget,
+    );
+  });
+
   testWidgets('opening a file shows it in the workbench', (tester) async {
     _register(_FakeOpener(() async => _salesCsv()));
     await tester.pumpWidget(const TesseraStudioApp());

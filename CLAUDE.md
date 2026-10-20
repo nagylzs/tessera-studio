@@ -215,7 +215,10 @@ the next step.
   web.
 - Settings (`lib/state/settings.dart`): `AppSettings` with the
   `themeMode` and `locale` signals (both default to the system; `null`
-  locale lets Flutter resolve, English fallback), backed by a
+  locale lets Flutter resolve; English is the fallback because
+  `preferred-supported-locales: [en]` in `l10n.yaml` puts it first —
+  without it the alphabetical list made Czech the fallback, found
+  2026-10-20), backed by a
   `SettingsStore` (`PreferencesSettingsStore`, keys `settings:*`;
   `MemorySettingsStore` in tests). `main` awaits `AppSettings.load()`
   before `runApp` so there is no flash; `app.dart` wraps the
