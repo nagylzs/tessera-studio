@@ -155,8 +155,54 @@ conventions live in `CLAUDE.md`, not here.
       log: the owner's vault. Internal testing released 2026-10-14
       (`1.0.0 (1)`); `1.0.0 (2)` (2026-10-15, the landscape pickers fix)
       is the build for the closed test.
-- [ ] Linux: `.desktop` file, icon, MIME types (`text/csv`, XLSX, ODS,
-      JSON, `application/vnd.tessera.snapshot`).
+- [ ] Linux (owner, 2026-10-20): a tarball and a `.deb` for x64 and
+      arm64, built by CI and attached to the GitHub Release; later our
+      own Flatpak repository (next item); not Flathub (below). On the
+      `linux-packaging` branch since 2026-10-20: `linux/packaging/` (the
+      desktop entry, the snapshot MIME type with its `TSNP` magic, the
+      AppStream metainfo and the `.deb` control template, all written
+      by `tool/linux_metadata.dart` from `store/listing/` and the ARB
+      files and checked by `test/linux_metadata_test.dart`; the icon on
+      a rounded tile; the tarball's `install.sh` and README),
+      `tool/linux_package.sh` (both packages), `tool/linux_smoke_test.sh`;
+      CI builds in an `ubuntu:22.04` container (glibc 2.35 and later) on
+      x64 and arm64 runners, tests in fresh Ubuntu 22.04 / 24.04 and
+      Debian 12 containers, and drafts the release on `v*` tags (with
+      the Windows portable zip); Flutter is pinned CI-wide (3.47.7).
+      Without xdg-desktop-portal "Open file…" now says what is missing
+      (`PickerUnavailable`), and the dialog has a localized title
+      (2026-10-20). Still to do: before the release tag, the version
+      and date into `releases` in `tool/linux_metadata.dart` (AppStream
+      wants a dated release, and the metainfo's screenshots are fetched
+      from the tag); the GTK file chooser's filter is named "Custom",
+      hardcoded in `file_picker_linux` (an upstream issue).
+- [ ] Our own Flatpak repository (owner, 2026-10-20: yes, after the
+      first release): built by CI from the tarball, hosted as static
+      files (nagylzs.eu or GitHub Pages), GPG-signed, a `.flatpakref`
+      for a one-click install, the runtime from Flathub; it gives the
+      menu entry, the MIME types, the sandbox and `flatpak update` like
+      a Flathub app. finish-args: `--share=ipc --socket=wayland
+      --socket=fallback-x11 --device=dri --share=network` (URLs the user
+      opens) and no filesystem access: `file_picker_linux` uses the
+      FileChooser portal, "Open with" Flatpak's file forwarding.
+- Flathub: not, by decision (2026-10-20). Its requirements
+      (`https://docs.flathub.org/docs/for-app-authors/requirements`,
+      read 2026-10-20; the generative AI policy was amended on
+      2026-09-04) rule this app out: "Flathub manifests must not contain
+      AI-generated or AI-assisted content. Disclosure does not exempt
+      manifests from this restriction."; "AI tools or agents must not
+      open or automate Flathub submission pull requests, or generate
+      their commit messages, descriptions, review comments, or
+      replies."; AI-generated code must be disclosed ("The disclosure
+      must identify the affected parts and approximate extent") and
+      "Reviewers may reject a submission … based on the extent or role
+      of generated material"; "Low quality, automated or machine-
+      generated or mixed translations cannot be used." (the interface,
+      the desktop file and the metainfo); "Applications that have only
+      existed for a very short period of time will generally not be
+      accepted." The id `eu.nagylzs.tessera_studio` would have been
+      valid, verified through `https://nagylzs.eu/.well-known/
+      org.flathub.VerifiedApps.txt`.
 - [ ] Store screenshots: shot list and demo data in `store/screenshots/`;
       the desktop (README), Google Play phone and tablet, and Microsoft
       Store sets, the Play feature graphic and 512 px icon are done.
