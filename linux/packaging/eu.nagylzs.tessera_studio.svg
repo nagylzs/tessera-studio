@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+<!-- The tessera icon (tessera/icon/tessera-icon.svg) on a rounded tile
+     for Linux icon themes: 864 px at an 80 px margin, corners 160, the
+     artwork scaled with it (0.84375), a faint edge for light panels. -->
+<rect x="84" y="84" width="856" height="856" rx="156" fill="#f2f9f6" stroke="#00856e" stroke-opacity="0.2" stroke-width="8"/>
+<g transform="translate(80 80) scale(0.84375)">
+<path fill="#00856e" d="M188 144 H836 A44 44 0 0 1 880 188 V320 H336 A16 16 0 0 0 320 336 V880 H188 A44 44 0 0 1 144 836 V188 A44 44 0 0 1 188 144 Z"/><rect x="336" y="336" width="176" height="176" rx="10" fill="#adeedb"/><rect x="520" y="336" width="176" height="176" rx="10" fill="#adeedb"/><rect x="704" y="336" width="176" height="176" rx="10" fill="#adeedb"/><rect x="336" y="520" width="176" height="176" rx="10" fill="#eed2ff"/><rect x="520" y="520" width="176" height="176" rx="10" fill="#eed2ff"/><rect x="704" y="520" width="176" height="176" rx="10" fill="#eed2ff"/><rect x="336" y="704" width="176" height="176" rx="10" fill="#f5dc98"/><rect x="520" y="704" width="176" height="176" rx="10" fill="#f5dc98"/><rect x="704" y="704" width="176" height="176" rx="10" fill="#f5dc98"/>
+</g>
+</svg>

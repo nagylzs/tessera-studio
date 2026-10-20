@@ -1,0 +1,15 @@
+Package: tessera-studio
+Version: @VERSION@
+Architecture: @ARCH@
+Maintainer: László Zsolt Nagy <apps@nagylzs.eu>
+Installed-Size: @SIZE@
+Depends: @DEPENDS@, libegl1, libgles2
+Recommends: xdg-desktop-portal, xdg-desktop-portal-gtk | xdg-desktop-portal-backend
+Section: utils
+Priority: optional
+Homepage: https://github.com/nagylzs/tessera-studio
+Description: CSV, Excel and JSON viewer
+ Tessera Studio opens CSV, Excel, OpenDocument and JSON files as pivot
+ tables you can expand, filter and sort, and saves them as Excel, PDF,
+ HTML and more. Free and ad-free forever: no account, no tracking, and
+ your data stays on your device.
