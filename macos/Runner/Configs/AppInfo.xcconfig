@@ -12,3 +12,11 @@ PRODUCT_BUNDLE_IDENTIFIER = eu.nagylzs.tessera-studio
 
 // The copyright displayed in application information
 PRODUCT_COPYRIGHT = Copyright © 2026 László Zsolt Nagy. MIT licence.
+
+// Signed to run locally, so CI builds without certificates. An App Store
+// archive passes TESSERA_CODE_SIGN_IDENTITY="Apple Development" on the
+// command line: only this target reads it, while CODE_SIGN_IDENTITY there
+// would also sign the Swift packages' resource bundles, which the export
+// leaves with a development signature (ITMS-90284).
+TESSERA_CODE_SIGN_IDENTITY = -
+CODE_SIGN_IDENTITY = $(TESSERA_CODE_SIGN_IDENTITY)

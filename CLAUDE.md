@@ -448,21 +448,30 @@ below), then
 tool/apple_export_options.plist -exportPath <scratch> -allowProvisioningUpdates`
 signs for the App Store and uploads with the Xcode account (set
 `destination` to `export` in a copy of the plist for a local .ipa).
-macOS (first one 2026-10-20, `1.0.0 (2)`): the project signs to run
-locally (`CODE_SIGN_IDENTITY "-"`, so CI builds without certificates),
-so archive with the identity and the team on the command line —
-`flutter build macos --release --config-only`, then `xcodebuild
--workspace macos/Runner.xcworkspace -scheme Runner -configuration
-Release -archivePath build/macos/archive/Runner.xcarchive archive
-CODE_SIGN_IDENTITY="Apple Development" DEVELOPMENT_TEAM=Y8M7VVUK26
--allowProvisioningUpdates` (without the team the Swift packages'
-resource bundles fail: "requires a development team") — and export it
-the same way as iOS, into a `.pkg` signed with the local Mac
-Installer Distribution certificate ("3rd Party Mac Developer
-Installer", made 2026-10-20; the first `productbuild` asks for the
-keychain once: Always Allow). Check with `pkgutil --check-signature`,
-`pkgutil --expand-full`, then `codesign --verify --strict` on the
-app and its frameworks.
+macOS (2026-10-20: `1.0.0 (2)` rejected, `1.0.0 (3)` uploaded): the
+project signs to run locally (`CODE_SIGN_IDENTITY "-"`, so CI builds
+without certificates), so the archive gets the identity on the command
+line —
+`flutter build macos --release --config-only` (with `--build-number N`
+when the store needs a number the pubspec does not have yet), then
+`xcodebuild -workspace macos/Runner.xcworkspace -scheme Runner
+-configuration Release -archivePath build/macos/archive/Runner.xcarchive
+archive TESSERA_CODE_SIGN_IDENTITY="Apple Development"
+-allowProvisioningUpdates` — and is exported the same way as iOS,
+into a `.pkg` signed with the local Mac Installer Distribution
+certificate ("3rd Party Mac Developer Installer", made 2026-10-20;
+the first `productbuild` asks for the keychain once: Always Allow).
+`TESSERA_CODE_SIGN_IDENTITY` (`AppInfo.xcconfig`) reaches only the
+Runner target. **Never pass `CODE_SIGN_IDENTITY` itself**: it also
+signs the Swift packages' resource bundles (`Contents/Resources/
+*_*.bundle`, unsigned in a normal build), the export re-signs only the
+app and its frameworks, and Apple rejects the build after the upload
+by email as ITMS-90284 "must be signed with the certificate that is
+contained in the provisioning profile" — that happened to `1.0.0 (2)`;
+a rejected build number cannot be reused. Check with `pkgutil
+--check-signature`, `pkgutil --expand-full`, `codesign --verify
+--strict --deep` on the app, and `codesign -dvv` on every item with a
+`_CodeSignature`: all must say Apple Distribution.
 Two traps, both met on the first upload:
 - **Homebrew's rsync breaks Xcode's IPA step** ("exportArchive Copy
   failed"; the log in the `.xcdistributionlogs` folder xcodebuild names
