@@ -93,6 +93,15 @@ conventions live in `CLAUDE.md`, not here.
       `text/uri-list` and file items and would let "Open from
       clipboard" take them too. Also HTML tables copied from a browser
       (`text/html`) could be parsed into rows.
+- [ ] Old Excel files (`.xls`, the binary BIFF8 format of Excel 97–2003;
+      a closed-test user had some, 2026-10-21): today "Unsupported file
+      type". Library work first: tessera has no reader for it, and BIFF8
+      lives in an OLE2 compound file, so a reader is a package of its
+      own (`tessera_xls`), unless a maintained pure-Dart reader exists
+      to build on. Then `FileFormat.xls`, the media type
+      `application/vnd.ms-excel` in the Android intent filters and the
+      Apple document types, the MSIX file types and the Linux desktop
+      entry, and the store listings' format lists.
 
 ## App
 
@@ -258,6 +267,19 @@ conventions live in `CLAUDE.md`, not here.
 
 ## Done
 
+- [x] Android's "Open file…" greyed out files the app opens: the picker
+      filters by the media type the system has on record for a file, and
+      `file_picker` builds that filter from the device's extension table,
+      dropping the extensions it does not know — so `.tsnp` (the app's
+      own snapshots; confirmed by the owner on the Xiaomi pad),
+      `.jsonl` and `.ndjson` could never be picked, nor a CSV that a
+      website served as Excel or as binary data (a closed-test user's
+      screenshot, 2026-10-21). On Android the picker now shows every
+      file (`FileType.any`), and a name without a known extension is
+      judged by its first 64 KB before the whole file is read, so a film
+      picked by mistake is turned down as "Unsupported file type"
+      without filling the memory (`test/file_opener_test.dart`,
+      2026-10-21). The other platforms filter by extension, which works.
 - [x] A 1-point black square at the top-left corner of the iOS screen in
       the simulator's screenshots (debug build). Not on the device: a
       screenshot of the TestFlight release build on the owner's iPhone 14

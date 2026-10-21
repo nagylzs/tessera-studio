@@ -108,7 +108,11 @@ the next step.
   `Clipboard`, text only, `hasStrings` for the button state, always
   available on web), `FileOpener` (interface) with
   `PickerFileOpener` (`file_picker`, `FileType.custom` with every known
-  extension, `readAsBytes`), `DocumentLoader` (interface) with
+  extension, `readAsBytes`; on Android `FileType.any`, because its
+  picker filters by the media type on record and `file_picker` drops
+  the extensions the device does not know, `.tsnp` among them — found
+  2026-10-21 —, so a name without a known extension is first judged by
+  its first 64 KB), `DocumentLoader` (interface) with
   `IoDocumentLoader` (paths through `cross_file`, URLs through
   `package:http` streaming, byte-level `LoadProgress`; a URL's name is
   its `Content-Disposition` file name (`dispositionFileName`, RFC 5987
