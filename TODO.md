@@ -145,8 +145,8 @@ conventions live in `CLAUDE.md`, not here.
       once published; then into the README). A newer package before the
       release means a new submission and certification: 1.0.0.0 from
       2026-10-11 predated the xlsx/ods 0.2.2 fix, so 1.0.6.0 (`1.0.0+6`)
-      replaced it and was resubmitted 2026-10-21, held for Publish now
-      as before. Package versions are `major.minor.N.0` since
+      replaced it, resubmitted and **certified 2026-10-21**, held for
+      Publish now as before (`1.0.0+7` changed Android only). Package versions are `major.minor.N.0` since
       2026-10-20 (CI's `--version`, N the build number: `1.0.0+4` →
       `1.0.4.0`), always above the last. Upload by hand at first. Account log: the owner's vault,
       `Projektek/fejlesztoi_fiokok`. Tried on the owner's Windows (2026-10-10, CI's
