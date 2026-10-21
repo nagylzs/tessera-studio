@@ -134,9 +134,10 @@ conventions live in `CLAUDE.md`, not here.
       day, Partner Center → Tessera Studio → Publish now. Store ID
       `9PB0S6Q0K039` (`https://apps.microsoft.com/detail/9PB0S6Q0K039`
       once published; then into the README). A newer package before the
-      release means a new submission and certification; the certified
-      one is 1.0.0.0 from 2026-10-11 (before the xlsx/ods 0.2.2 fix), so
-      the release needs one. Package versions are `major.minor.N.0` since
+      release means a new submission and certification: 1.0.0.0 from
+      2026-10-11 predated the xlsx/ods 0.2.2 fix, so 1.0.6.0 (`1.0.0+6`)
+      replaced it and was resubmitted 2026-10-21, held for Publish now
+      as before. Package versions are `major.minor.N.0` since
       2026-10-20 (CI's `--version`, N the build number: `1.0.0+4` →
       `1.0.4.0`), always above the last. Upload by hand at first. Account log: the owner's vault,
       `Projektek/fejlesztoi_fiokok`. Tried on the owner's Windows (2026-10-10, CI's
