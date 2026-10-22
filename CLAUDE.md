@@ -129,8 +129,13 @@ the next step.
   / `failed {name, error}` maps on the `EventChannel`
   `eu.nagylzs.tessera_studio/open` (queued until Dart listens, flushed
   to the first listener; `onNewIntent` covers a second file while the
-  app runs, `singleTop`). The manifest's intent filters match by MIME
-  type (CSV, TSV, plain text, JSON, NDJSON, XLSX, ODS); `.tsnp` is not
+  app runs). `singleTask`: one instance, always in its own task. It was
+  `singleTop` until 2026-10-22, and apps that start a viewer without
+  `FLAG_ACTIVITY_NEW_TASK` (Telegram, the Files app) got it in their own
+  task (their icon on the recents card), so the launcher icon then
+  started a second, empty instance (owner, Xiaomi pad). The manifest's
+  intent filters match by MIME type (CSV, TSV, plain text, JSON,
+  NDJSON, XLSX, ODS); `.tsnp` is not
   claimed because it would need application/octet-stream. Dart side:
   `lib/files/open_requests.dart` (`OpenRequests.forPlatform()`,
   `ChannelOpenRequests`, `NoOpenRequests` elsewhere), and
@@ -153,7 +158,13 @@ the next step.
   Always pass `-n …/.MainActivity`: the tessera example app on the
   device also claims CSV, so a bare VIEW intent opens a chooser.
   `adb shell am force-stop eu.nagylzs.tessera_studio` before an `am
-  start` tests the cold-start path; without it `onNewIntent`.
+  start` tests the cold-start path; without it `onNewIntent`. `am
+  start` always makes a new task; for a start from inside another app's
+  task, open the file in the Files app on the emulator (`am start -a
+  android.intent.action.VIEW -t vnd.android.document/root -d
+  content://com.android.providers.downloads.documents/root/downloads`,
+  then tap it at the bounds from `uiautomator dump`), and list the tasks
+  with `adb shell dumpsys activity activities | grep -E "^ *\* (Task\{|Hist)"`.
   Screenshots: `adb exec-out screencap -p > shot.png`. `adb shell input
   tap` is silently ignored on the owner's Xiaomi unless "USB debugging
   (Security settings)" is enabled in Developer options — taps must come

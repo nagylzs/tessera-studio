@@ -6,10 +6,16 @@
         android:label="Tessera Studio"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+        <!-- singleTask: one instance, always in its own task. With
+             singleTop, "Open with…" from an app that starts us without
+             FLAG_ACTIVITY_NEW_TASK (Telegram, Files) put the activity in
+             that app's task; the launcher icon then started a second,
+             empty instance, and the file seemed lost. Now every launch
+             reaches the one instance (a file through onNewIntent). -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:launchMode="singleTop"
+            android:launchMode="singleTask"
             android:taskAffinity=""
             android:theme="@style/LaunchTheme"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"

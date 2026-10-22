@@ -117,6 +117,18 @@ conventions live in `CLAUDE.md`, not here.
       `encoding:`; Dart has `latin1` built in, Windows-1250 (Central
       Europe) and the others need a codec package (check iOS/macOS
       support first).
+- [ ] Lower priority (owner, 2026-10-22): survive the system killing
+      the app in the background (MIUI does it readily; iOS too). The
+      task comes back with a recreated activity and a fresh Dart
+      isolate, so the home screen shows: `MainActivity.onCreate` skips
+      the intent when `savedInstanceState` is set and empties
+      `cacheDir/open` either way. Keep the open file's cache copy
+      across a recreation (empty the folder on a fresh start only),
+      remember its path and name (Flutter's state restoration, or
+      `onSaveInstanceState` on Android), and reopen it; the pivot then
+      comes back by itself from `LayoutStore`, unsaved schema edits
+      only if they are restored too. Test with `adb shell am kill
+      eu.nagylzs.tessera_studio` while the app is in the background.
 
 ## Packaging and release
 
@@ -267,6 +279,18 @@ conventions live in `CLAUDE.md`, not here.
 
 ## Done
 
+- [x] Android: a file opened from Telegram showed the schema page, but
+      after a screenshot the launcher icon brought back the home screen
+      and the page seemed lost (owner, Xiaomi pad, 2026-10-22). Telegram
+      starts viewers without `FLAG_ACTIVITY_NEW_TASK`, so the
+      `singleTop` activity ran in Telegram's task (Telegram's icon on
+      the recents card), and the launcher started a second, empty
+      instance. `MainActivity` is `singleTask` now: one instance in its
+      own task, a file arriving through `onNewIntent`. Verified on the
+      API 36 emulator from the Files app, which starts viewers the same
+      way: the launcher returns to the schema page, back twice returns
+      to Files, a second file reaches the running instance, the in-app
+      picker still returns its file.
 - [x] Android's "Open file…" greyed out files the app opens: the picker
       filters by the media type the system has on record for a file, and
       `file_picker` builds that filter from the device's extension table,
