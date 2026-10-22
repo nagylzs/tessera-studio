@@ -31,7 +31,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  tessera_flutter: ^0.2.3
+  tessera_flutter: ^0.2.4
   tessera_xlsx: ^0.2.2
   tessera_ods: ^0.2.2
   tessera_html: ^0.2.0

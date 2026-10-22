@@ -279,6 +279,17 @@ conventions live in `CLAUDE.md`, not here.
 
 ## Done
 
+- [x] Computed dimensions (owner, 2026-10-22: a list of movies, the
+      average rating per decade of the integer `year`): the dimension
+      picker's "Expression…" entry, pinned under the list, adds an
+      `ExpressionDimension` such as `floor(year / 10) * 10` with an
+      optional label ("Decade"). Library work, tessera_flutter 0.2.4;
+      the engine already grouped, saved and restored them, so the
+      layout store brings them back with the file. Checked under Xvfb
+      against the local packages (decades with the average rating,
+      restored after a restart; `rating >= 8`; the full-screen picker).
+      Follow-ups in tessera's TODO.md: editing from the chip, localized
+      true/false.
 - [x] Android: a file opened from Telegram showed the schema page, but
       after a screenshot the launcher icon brought back the home screen
       and the page seemed lost (owner, Xiaomi pad, 2026-10-22). Telegram
