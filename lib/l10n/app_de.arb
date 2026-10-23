@@ -3,6 +3,7 @@
   "appTitle": "Tessera Studio",
   "openFile": "Datei öffnen…",
   "closeFile": "Datei schließen",
+  "chooseSheet": "Tabellenblatt wählen",
   "unsupportedFile": "Nicht unterstützter Dateityp: {name}",
   "openFailed": "{name} konnte nicht geöffnet werden: {error}",
   "fileSize": "{count, plural, =1{1 Byte} other{{count} Bytes}}",

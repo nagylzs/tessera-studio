@@ -13,6 +13,7 @@ import '../platform/system_bars.dart';
 import '../state/app_state.dart';
 import '../state/settings.dart';
 import '../widgets/app_menu.dart';
+import '../widgets/document_title.dart';
 import '../widgets/editors_panel.dart';
 import '../widgets/export_dialog.dart';
 import '../widgets/failure_view.dart';
@@ -97,7 +98,7 @@ class _WorkbenchPageState extends State<WorkbenchPage> {
         .toList();
     return runExport(
       context,
-      documentName: document.name,
+      baseName: document.exportBaseName,
       cube: ctrl.cube,
       aggregates: shown == null || shown.isEmpty ? null : shown,
       style: GetIt.I<AppSettings>().gridStyle.value,
@@ -176,8 +177,12 @@ class _WorkbenchPageState extends State<WorkbenchPage> {
               appBar: _fullScreen
                   ? null
                   : AppBar(
-                      title: Text(document.name),
-                      bottom: _exporting
+                      title: DocumentTitle(
+                        document: document,
+                        title: document.name,
+                      ),
+                      // writing an export, or reading another sheet
+                      bottom: _exporting || state.loading.value != null
                           ? const PreferredSize(
                               preferredSize: Size.fromHeight(4),
                               child: LinearProgressIndicator(),

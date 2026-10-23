@@ -16,12 +16,13 @@ typedef ExportChoice = ({ExportFormat format, bool facts});
 
 /// Asks for a format, writes the export of [cube] (with the [aggregates]
 /// the grid shows, in its [style]) and shares it ([share]) or saves it
-/// where the user says; the outcome goes to a snack bar. [onBusy] brackets the writing,
+/// where the user says; the outcome goes to a snack bar. File names and
+/// titles start from [baseName] (`OpenedDocument.exportBaseName`). [onBusy] brackets the writing,
 /// which runs on this isolate like the cube layout does. [shareOrigin] is
 /// the share button's rect, where an iPad's share popover points.
 Future<void> runExport(
   BuildContext context, {
-  required String documentName,
+  required String baseName,
   required Cube cube,
   List<Aggregate>? aggregates,
   GridStyle style = GridStyle.standard,
@@ -35,14 +36,13 @@ Future<void> runExport(
   final title = (share ? l10n.share : l10n.saveAs).replaceAll('…', '');
   final choice = await showExportDialog(context, title: title);
   if (choice == null) return;
-  final base = documentName.replaceFirst(RegExp(r'\.[^.]*$'), '');
   final format = choice.format;
   // a snapshot is the file itself again, under its own extension
   final stem = format == ExportFormat.snapshot
-      ? base
+      ? baseName
       : choice.facts
-      ? l10n.factsFileName(base)
-      : l10n.pivotFileName(base);
+      ? l10n.factsFileName(baseName)
+      : l10n.pivotFileName(baseName);
   final fileName = '$stem.${format.extension}';
   final target = GetIt.I<ExportTarget>();
   try {
@@ -52,11 +52,11 @@ Future<void> runExport(
       // let the progress bar paint before the work holds the isolate
       await WidgetsBinding.instance.endOfFrame;
       bytes = choice.facts
-          ? factsExport(cube, format, title: base)
+          ? factsExport(cube, format, title: baseName)
           : await cubeExport(
               cube,
               format,
-              title: base,
+              title: baseName,
               strings: strings,
               aggregates: aggregates,
               style: style,

@@ -3,6 +3,7 @@
   "appTitle": "Tessera Studio",
   "openFile": "打开文件…",
   "closeFile": "关闭文件",
+  "chooseSheet": "选择工作表",
   "unsupportedFile": "不支持的文件类型：{name}",
   "openFailed": "无法打开 {name}：{error}",
   "fileSize": "{count, plural, other{{count} 字节}}",

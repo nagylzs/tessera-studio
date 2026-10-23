@@ -6,6 +6,11 @@ import 'package:tessera_flutter/tessera_flutter.dart';
 import 'package:tessera_ods/tessera_ods.dart';
 import 'package:tessera_xlsx/tessera_xlsx.dart';
 
+/// A sheet of a workbook as tessera lists it (`XlsxSheetInfo` and
+/// `OdsSheetInfo` are this record): hidden from the tabs, without any
+/// value, the one the file was saved on.
+typedef SheetInfo = ({String name, bool hidden, bool empty, bool active});
+
 /// The file types Tessera Studio opens.
 ///
 /// A format is found from the file name ([ofFileName]), else from an
@@ -38,6 +43,17 @@ enum FileFormat {
   bool get isText => switch (this) {
     csv || tsv || json || jsonl => true,
     xlsx || ods || snapshot => false,
+  };
+
+  /// Whether a file of this format is a workbook of several sheets.
+  bool get hasSheets => this == xlsx || this == ods;
+
+  /// The sheets of a workbook in [bytes], in order; empty for the
+  /// formats without sheets.
+  Future<List<SheetInfo>> sheets(Uint8List bytes) => switch (this) {
+    xlsx => XlsxDataSource.fromData(bytes).sheets(),
+    ods => OdsDataSource.fromData(bytes).sheets(),
+    _ => Future.value(const []),
   };
 
   /// Lower-case extensions without the dot; the first one is canonical.
@@ -188,12 +204,14 @@ enum FileFormat {
   }
 
   /// A [DataSource] reading [bytes] already in memory, so the result is
-  /// sendable to an import isolate. [delimiter] applies to [csv] only.
-  /// `null` for [snapshot].
+  /// sendable to an import isolate. [delimiter] applies to [csv] only,
+  /// [sheet] (`null`: the first) to [xlsx] and [ods]. `null` for
+  /// [snapshot].
   DataSource? dataSource(
     Uint8List bytes, {
     required String name,
     String? delimiter,
+    String? sheet,
   }) => switch (this) {
     csv => CsvDataSource.fromData(
       bytes,
@@ -205,8 +223,16 @@ enum FileFormat {
       name: name,
       options: const CsvOptions(delimiter: '\t'),
     ),
-    xlsx => XlsxDataSource.fromData(bytes, name: name),
-    ods => OdsDataSource.fromData(bytes, name: name),
+    xlsx => XlsxDataSource.fromData(
+      bytes,
+      name: name,
+      options: XlsxOptions(sheet: sheet),
+    ),
+    ods => OdsDataSource.fromData(
+      bytes,
+      name: name,
+      options: OdsOptions(sheet: sheet),
+    ),
     json => JsonDataSource.fromData(bytes, name: name),
     jsonl => JsonlDataSource.fromData(bytes, name: name),
     snapshot => null,

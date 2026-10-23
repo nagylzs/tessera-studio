@@ -85,7 +85,12 @@ class _TesseraStudioAppState extends State<TesseraStudioApp> {
             if (document == null) return const HomePage();
             return switch (state.page.value) {
               AppPage.home => const HomePage(),
-              AppPage.schema => SchemaPage(document: document),
+              // keyed like the workbench: its edits belong to one file
+              // (or sheet), and another may arrive while it is up
+              AppPage.schema => SchemaPage(
+                key: ObjectKey(document),
+                document: document,
+              ),
               AppPage.workbench => WorkbenchPage(
                 key: ObjectKey(document),
                 document: document,

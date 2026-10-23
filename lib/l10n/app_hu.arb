@@ -3,6 +3,7 @@
   "appTitle": "Tessera Studio",
   "openFile": "Fájl megnyitása…",
   "closeFile": "Fájl bezárása",
+  "chooseSheet": "Munkalap kiválasztása",
   "unsupportedFile": "Nem támogatott fájltípus: {name}",
   "openFailed": "A(z) {name} fájlt nem sikerült megnyitni: {error}",
   "fileSize": "{count, plural, other{{count} bájt}}",

@@ -68,14 +68,6 @@ conventions live in `CLAUDE.md`, not here.
       GNOME). Today only the home screen is a drop target. Replace the
       file in place, or ask first when the pivot differs from its
       default? The schema and layout are remembered either way.
-- [ ] Idea (owner, 2026-10-15; not decided for the first release):
-      choose the sheet of an .xlsx / .ods file. Today the first sheet is
-      read; offer the non-empty ones when there are several (a short
-      list before the schema page, remembered with the layout by
-      structure key). Library work first: `XlsxWorkbook.sheets` is
-      public, but `OdsDocument.sheetNames` is internal, and neither
-      package has a cheap "is this sheet empty" check (`sheetDimension`
-      trusts a `<dimension>` element that may be stale or missing).
 - [ ] Idea (owner, 2026-10-15; not decided for the first release): an
       opt-in "Esc closes the app" setting for desktops (Windows, Linux,
       macOS), off by default, for use as the viewer of a file manager:
@@ -279,6 +271,20 @@ conventions live in `CLAUDE.md`, not here.
 
 ## Done
 
+- [x] Sheets of .xlsx / .ods files (a tester, 2026-10-23: only the first
+      sheet could be opened; his workbook starts with a README sheet).
+      A workbook opens on the sheet it was saved on, as Excel and
+      LibreOffice do (owner's choice), else on its first sheet with a
+      value; a sheet with a heading and no rows gives way to the next.
+      With several sheets, the title of the schema and cube pages shows
+      the sheet with a ▾ and opens the list (hidden and empty sheets
+      left out); each sheet is read like a new file, with its own stored
+      schema and pivot, and exports are named "<file> - <sheet> …".
+      Library work: `sheets()` in tessera_xlsx and tessera_ods 0.2.3.
+      The schema page is keyed by document now, as the workbench was: a
+      file arriving while it was up kept the old file's columns.
+      Checked with the tester's file under Xvfb and on the API 36
+      emulator.
 - [x] Computed dimensions (owner, 2026-10-22: a list of movies, the
       average rating per decade of the integer `year`): the dimension
       picker's "Expression…" entry, pinned under the list, adds an

@@ -12,6 +12,10 @@
   "@closeFile": {
     "description": "Tooltip of the close button in the workbench."
   },
+  "chooseSheet": "Choose sheet",
+  "@chooseSheet": {
+    "description": "Tooltip of the app bar title of a workbook with several sheets (Excel, OpenDocument), which opens the list of its sheets (worksheets) to show another one."
+  },
   "unsupportedFile": "Unsupported file type: {name}",
   "@unsupportedFile": {
     "description": "Error shown when the picked file has an unknown extension.",

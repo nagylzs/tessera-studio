@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
+import 'package:signals_flutter/signals_flutter.dart';
 import 'package:tessera_flutter/tessera_flutter.dart';
 
 import '../files/opened_document.dart';
@@ -7,6 +8,7 @@ import '../l10n/generated/app_localizations.dart';
 import '../l10n/labels.dart';
 import '../state/app_state.dart';
 import '../widgets/app_menu.dart';
+import '../widgets/document_title.dart';
 
 /// Lets the user override the inferred [Schema] before importing:
 /// include or exclude columns, change their type and label, and set the
@@ -47,69 +49,75 @@ class _SchemaPageState extends State<SchemaPage> {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
-    final theme = Theme.of(context);
     final fromWorkbench = _state.schemaBack.value == AppPage.workbench;
     return PopScope(
       canPop: false,
       onPopInvokedWithResult: (didPop, _) {
         if (!didPop) _state.cancelSchema();
       },
-      child: Scaffold(
-        appBar: AppBar(
-          leading: IconButton(
-            icon: Icon(fromWorkbench ? Icons.arrow_back : Icons.close),
-            tooltip: fromWorkbench
-                ? MaterialLocalizations.of(context).backButtonTooltip
-                : l10n.closeFile,
-            onPressed: _state.cancelSchema,
+      child: SignalBuilder(
+        builder: (context) => Scaffold(
+          appBar: AppBar(
+            leading: IconButton(
+              icon: Icon(fromWorkbench ? Icons.arrow_back : Icons.close),
+              tooltip: fromWorkbench
+                  ? MaterialLocalizations.of(context).backButtonTooltip
+                  : l10n.closeFile,
+              onPressed: _state.cancelSchema,
+            ),
+            title: DocumentTitle(
+              document: widget.document,
+              title: l10n.schemaTitle,
+              subtitle: widget.document.name,
+            ),
+            // reading another sheet
+            bottom: _state.loading.value != null
+                ? const PreferredSize(
+                    preferredSize: Size.fromHeight(4),
+                    child: LinearProgressIndicator(),
+                  )
+                : null,
+            // Phones: an icon for "Continue", "Reset" in the overflow menu.
+            actions: MediaQuery.sizeOf(context).width < _compact
+                ? [
+                    IconButton(
+                      icon: const Icon(Icons.check),
+                      tooltip: l10n.continueButton,
+                      onPressed: () => _state.acceptSchema(_schema),
+                    ),
+                    AppMenuButton(
+                      entries: [
+                        AppMenuEntry(
+                          label: l10n.resetToInferred,
+                          icon: Icons.restart_alt,
+                          onTap: () => setState(() => _schema = _info.inferred),
+                        ),
+                      ],
+                    ),
+                  ]
+                : [
+                    TextButton(
+                      onPressed: () => setState(() => _schema = _info.inferred),
+                      child: Text(l10n.resetToInferred),
+                    ),
+                    const SizedBox(width: 8),
+                    FilledButton.icon(
+                      onPressed: () => _state.acceptSchema(_schema),
+                      icon: const Icon(Icons.check),
+                      label: Text(l10n.continueButton),
+                    ),
+                    const AppMenuButton(),
+                  ],
           ),
-          title: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(l10n.schemaTitle),
-              Text(widget.document.name, style: theme.textTheme.bodySmall),
-            ],
-          ),
-          // Phones: an icon for "Continue", "Reset" in the overflow menu.
-          actions: MediaQuery.sizeOf(context).width < _compact
-              ? [
-                  IconButton(
-                    icon: const Icon(Icons.check),
-                    tooltip: l10n.continueButton,
-                    onPressed: () => _state.acceptSchema(_schema),
-                  ),
-                  AppMenuButton(
-                    entries: [
-                      AppMenuEntry(
-                        label: l10n.resetToInferred,
-                        icon: Icons.restart_alt,
-                        onTap: () => setState(() => _schema = _info.inferred),
-                      ),
-                    ],
-                  ),
-                ]
-              : [
-                  TextButton(
-                    onPressed: () => setState(() => _schema = _info.inferred),
-                    child: Text(l10n.resetToInferred),
-                  ),
-                  const SizedBox(width: 8),
-                  FilledButton.icon(
-                    onPressed: () => _state.acceptSchema(_schema),
-                    icon: const Icon(Icons.check),
-                    label: Text(l10n.continueButton),
-                  ),
-                  const AppMenuButton(),
-                ],
-        ),
-        body: ListView.separated(
-          padding: const EdgeInsets.all(8),
-          itemCount: _schema.columns.length,
-          separatorBuilder: (_, _) => const Divider(height: 1),
-          itemBuilder: (context, i) => _ColumnRow(
-            spec: _schema.columns[i],
-            samples: _samples(_schema.columns[i].name),
-            onChanged: _set,
+          body: ListView.separated(
+            padding: const EdgeInsets.all(8),
+            itemCount: _schema.columns.length,
+            separatorBuilder: (_, _) => const Divider(height: 1),
+            itemBuilder: (context, i) => _ColumnRow(
+              spec: _schema.columns[i],
+              samples: _samples(_schema.columns[i].name),
+              onChanged: _set,
+            ),
           ),
         ),
       ),

@@ -3,6 +3,7 @@
   "appTitle": "Tessera Studio",
   "openFile": "Открыть файл…",
   "closeFile": "Закрыть файл",
+  "chooseSheet": "Выбрать лист",
   "unsupportedFile": "Неподдерживаемый тип файла: {name}",
   "openFailed": "Не удалось открыть {name}: {error}",
   "fileSize": "{count, plural, one{{count} байт} few{{count} байта} many{{count} байт} other{{count} байта}}",

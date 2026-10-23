@@ -17,6 +17,8 @@ final class OpenedDocument {
     required this.format,
     required this.bytes,
     this.delimiter,
+    this.sheet,
+    this.sheets = const [],
   });
 
   /// Finds the format from [name], else [mimeType], else the [bytes]
@@ -53,11 +55,43 @@ final class OpenedDocument {
   /// default comma and for other formats.
   final String? delimiter;
 
+  /// The sheet of a workbook that is shown, `null` before one is chosen
+  /// (the first is read) and for the other formats.
+  final String? sheet;
+
+  /// The sheets of a workbook there is something to show on — not
+  /// hidden, not empty —, in workbook order. The user can switch between
+  /// them when there are several.
+  final List<String> sheets;
+
   int get size => bytes.length;
+
+  /// The same file showing [sheet] of [sheets] (default: this one's).
+  OpenedDocument withSheet(String sheet, {List<String>? sheets}) =>
+      OpenedDocument(
+        name: name,
+        format: format,
+        bytes: bytes,
+        delimiter: delimiter,
+        sheet: sheet,
+        sheets: sheets ?? this.sheets,
+      );
+
+  /// The file name, followed by the sheet's when the workbook has
+  /// several.
+  String get title =>
+      sheets.length > 1 && sheet != null ? '$name - $sheet' : name;
+
+  /// The name exports start from: the file name without its extension,
+  /// followed by the sheet's when the workbook has several.
+  String get exportBaseName {
+    final base = name.replaceFirst(RegExp(r'\.[^.]*$'), '');
+    return sheets.length > 1 && sheet != null ? '$base - $sheet' : base;
+  }
 
   /// The tessera source for a tabular file, `null` for a snapshot.
   DataSource? get dataSource =>
-      format.dataSource(bytes, name: name, delimiter: delimiter);
+      format.dataSource(bytes, name: name, delimiter: delimiter, sheet: sheet);
 
   /// The decoded contents of a `.tsnp` file, `null` for tabular files.
   SnapshotContents? get snapshot => format == FileFormat.snapshot

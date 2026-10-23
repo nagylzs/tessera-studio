@@ -3,6 +3,7 @@
   "appTitle": "Tessera Studio",
   "openFile": "Dosya aç…",
   "closeFile": "Dosyayı kapat",
+  "chooseSheet": "Sayfa seç",
   "unsupportedFile": "Desteklenmeyen dosya türü: {name}",
   "openFailed": "{name} açılamadı: {error}",
   "fileSize": "{count, plural, other{{count} bayt}}",

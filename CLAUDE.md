@@ -65,8 +65,8 @@ lives here.
   pickers on a phone in landscape, computed dimensions ("Expression…"
   in the dimension picker) —, `tessera_pdf
   ^0.2.1` — page texts in the cell colour —, `tessera_xlsx` and
-  `tessera_ods ^0.2.2` — their own zip writer, as LibreOffice refuses
-  what `archive` 4.4+ writes; they pull in `tessera` 0.2.2, the first
+  `tessera_ods ^0.2.3` — `sheets()`, the sheet list; 0.2.2 brought their
+  own zip writer, as LibreOffice refuses what `archive` 4.4+ writes; they pull in `tessera` 0.2.2, the first
   with `Schema.structureKey` — the other exporters `^0.2.0`). For developing both at once, a
   git-ignored `pubspec_overrides.yaml` points all seven packages at
   `../tessera/packages/*`; delete it to build against pub.dev, and never
@@ -268,7 +268,20 @@ the next step.
 - Flow after a file is read (`AppState._open` → `_prepare`):
   `columnNames()`, the first 5 rows as samples, `inferSchema`, then
   `SchemaStore` and `LayoutStore` lookups by `Schema.structureKey` of
-  the inferred schema. Neither → `SchemaPage` (the example's column editor reshaped:
+  the inferred schema. A workbook (.xlsx, .ods) first gets its sheet
+  (`AppState._prepareWorkbook`, 2026-10-23): `FileFormat.sheets` lists
+  them through tessera's `sheets()` (`SheetInfo`: name, hidden, empty,
+  active — the sheet the file was saved on), `OpenedDocument.sheets`
+  keeps the visible ones with a value, `sheet` the one shown: the saved
+  one, else the first, and one that throws `EmptySourceException` (a
+  title, no rows) gives way to the next. With several, `DocumentTitle`
+  (`lib/widgets/document_title.dart`, the title of the schema and cube
+  pages) shows the sheet with a ▾ and opens a `PopupMenuButton` of
+  them; `AppState.openSheet` goes through `_open` again, so each sheet
+  has its own stored schema and pivot by structure key, and the pages
+  show a progress bar under the app bar while `loading`. Exports and
+  failures name the sheet (`exportBaseName`, `title`). Both pages are
+  keyed by document in `app.dart`. Neither → `SchemaPage` (the example's column editor reshaped:
   include switch, type, label, date format / number syntax, samples;
   rows wrap under 720 px for phones; "Reset to inferred", "Continue",
   close/back = discard). Either → a known structure, straight to

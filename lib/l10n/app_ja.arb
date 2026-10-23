@@ -3,6 +3,7 @@
   "appTitle": "Tessera Studio",
   "openFile": "ファイルを開く…",
   "closeFile": "ファイルを閉じる",
+  "chooseSheet": "シートを選択",
   "unsupportedFile": "サポートされていないファイル形式: {name}",
   "openFailed": "{name} を開けませんでした: {error}",
   "fileSize": "{count, plural, other{{count} バイト}}",

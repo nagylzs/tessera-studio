@@ -254,20 +254,30 @@ final class AppState {
     }
   }
 
+  /// The sheet chooser: shows [sheet] of the open workbook, read and
+  /// inferred like a new file, so its own stored schema and pivot apply.
+  Future<void> openSheet(String sheet) async {
+    final doc = document.value;
+    if (doc == null || sheet == doc.sheet || busy.value) return;
+    await _open(doc.withSheet(sheet));
+  }
+
   /// Makes [doc] the document and takes it to the schema page, or
   /// straight to the workbench when a schema or a pivot is stored for
-  /// its structure (or it is a snapshot). A source that cannot be read
+  /// its structure (or it is a snapshot). A workbook opened anew shows
+  /// the sheet [_prepareWorkbook] picks. A source that cannot be read
   /// goes to [failure], leaving the previous document as it was.
   Future<void> _open(OpenedDocument doc) async {
     loadFailure.value = null;
     failure.value = null;
     loading.value = LoadProgress(name: doc.name);
     try {
-      await _prepare(doc);
-      document.value = doc;
+      document.value = doc.format.hasSheets && doc.sheet == null
+          ? await _prepareWorkbook(doc)
+          : await _prepare(doc);
     } catch (e) {
       failure.value = FileFailure.of(
-        doc.name,
+        doc.title,
         e,
         format: doc.format,
         bytes: doc.bytes,
@@ -277,7 +287,38 @@ final class AppState {
     }
   }
 
-  Future<void> _prepare(OpenedDocument doc) async {
+  /// Prepares the sheet [doc] was saved on, as Excel and LibreOffice
+  /// open it, else the first one with something to show; hidden and
+  /// empty sheets are not offered. A sheet with no rows under its
+  /// heading (a cover page's title) gives way to the next. Returns the
+  /// document with its sheet and the sheets to offer.
+  Future<OpenedDocument> _prepareWorkbook(OpenedDocument doc) async {
+    final infos = await doc.format.sheets(doc.bytes);
+    final shown = [
+      for (final s in infos)
+        if (!s.hidden && !s.empty) s.name,
+    ];
+    // nothing to show: the first sheet, to fail the usual way
+    if (shown.isEmpty) return _prepare(doc);
+    final saved = infos.where((s) => s.active).firstOrNull?.name;
+    final order = [
+      if (shown.contains(saved)) saved!,
+      ...shown.where((s) => s != saved),
+    ];
+    var i = 0;
+    while (true) {
+      try {
+        return await _prepare(doc.withSheet(order[i], sheets: shown));
+      } on EmptySourceException {
+        if (++i == order.length) rethrow;
+      }
+    }
+  }
+
+  /// Reads and infers [doc] and sets everything up for it but the
+  /// [document] itself; returns [doc]. Throws before changing any state
+  /// when the source cannot be read.
+  Future<OpenedDocument> _prepare(OpenedDocument doc) async {
     final snapshot = doc.snapshot;
     if (snapshot != null) {
       source.value = null;
@@ -286,7 +327,7 @@ final class AppState {
       restoredLayout.value = null;
       page.value = AppPage.workbench;
       unawaited(cube.start(doc, snapshot.facts.schema));
-      return;
+      return doc;
     }
     final src = doc.dataSource!;
     final columnNames = await src.columnNames();
@@ -318,6 +359,7 @@ final class AppState {
       schemaBack.value = AppPage.home;
       page.value = AppPage.schema;
     }
+    return doc;
   }
 
   /// The schema page's "Continue": [edited] is the schema from now on

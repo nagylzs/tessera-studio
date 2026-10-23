@@ -3,6 +3,7 @@
   "appTitle": "Tessera Studio",
   "openFile": "Bestand openen…",
   "closeFile": "Bestand sluiten",
+  "chooseSheet": "Werkblad kiezen",
   "unsupportedFile": "Niet-ondersteund bestandstype: {name}",
   "openFailed": "Kan {name} niet openen: {error}",
   "fileSize": "{count, plural, =1{1 byte} other{{count} bytes}}",
