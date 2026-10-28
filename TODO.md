@@ -124,6 +124,35 @@ conventions live in `CLAUDE.md`, not here.
 
 ## Packaging and release
 
+- [ ] The joint release (plan agreed with the owner, 2026-10-23): one
+      final build for every store, not a resubmission after each change.
+      Until the freeze only Android's closed test gets new builds, as
+      the testers need the fixes (`1.0.0 (9)`, with the workbook sheets
+      a tester asked for, goes out 2026-10-23); the App Store build in
+      review (`1.0.0 (5)`) and the certified MSIX (1.0.6.0) stay as they
+      are. The freeze comes shortly before Google Play's production
+      access: the 14 days end around 2026-11-03/04, then Google decides
+      within about 7 days. Before it, the open bugs in this file. Then,
+      from the release commit with build number N:
+      - Android: the production release, versionCode N, once access is
+        granted.
+      - App Store: iOS and macOS `1.0.0 (N)`, uploaded as in CLAUDE.md,
+        chosen as the version's build and submitted for review, released
+        manually. macOS `1.0.0 (5)` was approved 2026-10-28 and waits
+        as Pending Developer Release (App Store ID 6824598370): withdraw
+        it first (the version → "remove this version from review", or
+        App Review → the submission → Cancel Submission; the status
+        becomes Developer Rejected), then choose build N and submit
+        again. The review starts over.
+      - Microsoft Store: the MSIX 1.0.N.0 in a new submission,
+        certification (up to 3 business days), held for Publish now.
+      - Linux and the portable Windows zip: `releases` in
+        `tool/linux_metadata.dart`, the tag `v1.0.0`, CI's draft GitHub
+        Release.
+      - Release day: Publish now (Microsoft), Release (Apple), the
+        production rollout (Google Play), the GitHub Release published;
+        then the store links in the README instead of "Not released
+        yet", and CHANGELOG.md starts.
 - [ ] Release signing in CI: the Android upload key, Apple
       certificates and profiles, Windows code signing — as CI secrets
       only; Play and App Store uploads manual at first. Android done
