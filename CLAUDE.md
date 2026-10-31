@@ -4,8 +4,11 @@ The end-user application built on the tessera packages: open a CSV,
 Excel, ODS or JSON file, pivot it with expandable row and column
 hierarchies, filter, calculate, chart, export. Owner: László Zsolt Nagy
 (nagylzs@gmail.com). MIT. Targets: Android (Google Play), iOS and
-macOS (App Store), Windows, Linux and the web; the first release goes
-out on all of them at once. `ios/` and `macos/` exist since 2026-10-09
+macOS (App Store), Windows, Linux and the web. 1.0.0 goes out in each
+store as soon as it is approved (owner, 2026-10-30, instead of the joint
+release planned at first: the reviews took over a week), and the first
+update, 1.1.0, brings the same code to every store (TODO.md, "Packaging
+and release"). `ios/` and `macos/` exist since 2026-10-09
 (made by `flutter create` in a scratch project and copied in) and are
 built by CI on GitHub's macOS runners, unsigned. The owner has a Mac
 mini (macOS 27, Xcode 27) since 2026-10-12 and an iPhone 14 (iOS 27)
