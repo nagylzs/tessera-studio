@@ -55,7 +55,7 @@ const snapshotType = 'application/vnd.tessera.snapshot';
 /// Released versions, newest first, with their dates (AppStream insists
 /// on one): add the new version on its release day, before the tag, as
 /// `('1.0.0', '2026-11-10')`. Without any, the metainfo has no releases.
-const releases = <(String, String)>[];
+const releases = <(String, String)>[('1.1.0', '2026-11-01')];
 
 /// The files this tool writes, by path from the project root.
 Map<String, String> linuxMetadataFiles() {

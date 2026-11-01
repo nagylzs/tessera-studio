@@ -135,8 +135,8 @@ conventions live in `CLAUDE.md`, not here.
         Store ID `9PB0S6Q0K039`).
       - macOS: `1.0.0 (5)`, approved 2026-10-28, released 2026-10-30
         ("Ready for Distribution"; App Store ID 6824598370).
-      - iOS: `1.0.0 (5)`, Waiting for Review since 2026-10-20: Release
-        once approved.
+      - iOS: `1.0.0 (5)`, approved and released 2026-10-31 (the same
+        App Store ID).
       - Then 1.1.0 (`1.1.0+N`) from main, with the workbook sheets,
         computed dimensions and the fixes since build 5 (one is a macOS
         bug: a file opened from Finder while the schema page was up kept
@@ -147,9 +147,12 @@ conventions live in `CLAUDE.md`, not here.
         `tool/linux_metadata.dart`, the tag `v1.1.0`, CI's draft) start
         at 1.1.0, Android once production access is granted (the 14
         days end around 2026-11-03/04, then Google decides within about
-        7 days). CHANGELOG.md starts with it.
-      - The README's "Not released yet" note gives way to the store
-        links as they go live.
+        7 days). CHANGELOG.md starts with it. 2026-11-01: `1.1.0 (10)`
+        (`1ffd640`) in review for iOS and macOS, the MSIX 1.1.10.0 in
+        certification, the GitHub Release `v1.1.0` made; Android waits
+        for production access.
+      - The README's "Not released yet" note gave way to the store
+        links (2026-11-01); Google Play's joins them once it is live.
 - [ ] Release signing in CI: the Android upload key, Apple
       certificates and profiles, Windows code signing — as CI secrets
       only; Play and App Store uploads manual at first. Android done
@@ -212,11 +215,12 @@ conventions live in `CLAUDE.md`, not here.
       the Windows portable zip); Flutter is pinned CI-wide (3.47.7).
       Without xdg-desktop-portal "Open file…" now says what is missing
       (`PickerUnavailable`), and the dialog has a localized title
-      (2026-10-20). Still to do: before the release tag, the version
-      and date into `releases` in `tool/linux_metadata.dart` (AppStream
-      wants a dated release, and the metainfo's screenshots are fetched
-      from the tag); the GTK file chooser's filter is named "Custom",
-      hardcoded in `file_picker_linux` (an upstream issue).
+      (2026-10-20). Before each release tag, the version and date go
+      into `releases` in `tool/linux_metadata.dart` (AppStream wants a
+      dated release, and the metainfo's screenshots are fetched from
+      the tag); first for `v1.1.0`. Still to do: the GTK file chooser's
+      filter is named "Custom", hardcoded in `file_picker_linux` (an
+      upstream issue).
 - [ ] Our own Flatpak repository (owner, 2026-10-20: yes, after the
       first release): built by CI from the tarball, hosted as static
       files (nagylzs.eu or GitHub Pages), GPG-signed, a `.flatpakref`

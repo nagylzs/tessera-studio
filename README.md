@@ -15,10 +15,14 @@ open a web address or a link yourself
 
 ![Sales by region and quarter, with Europe and North America expanded](store/screenshots/desktop/1-pivot.png)
 
-> **Not released yet.** Tessera Studio is coming to Google Play, the
-> App Store, the Mac App Store and the Microsoft Store at once, with a
-> portable Windows build, Linux and the web besides. Until then you can
-> build it yourself (below).
+**Get it** from the
+[App Store](https://apps.apple.com/app/tessera-studio-pivot-tables/id6824598370)
+(iPhone, iPad and Mac), the
+[Microsoft Store](https://apps.microsoft.com/detail/9PB0S6Q0K039)
+(Windows) or the
+[latest release](https://github.com/nagylzs/tessera-studio/releases/latest)
+here (Linux `.deb` and tarball, portable Windows build). Google Play is
+coming soon.
 
 ## What it does
 
@@ -30,10 +34,11 @@ pictures: open a file, see it as a pivot, save or send what you need.
   (`.xlsx`), OpenDocument (`.ods`), JSON and JSON Lines, and Tessera
   snapshots (`.tsnp`)
 - from the file picker, from other apps ("Open with" and the share
-  sheet on Android, "Open with" in Explorer with the Windows package —
-  the other platforms follow), by drag and drop on Windows, Linux and
-  the web, as a command-line argument, or from the clipboard: a web
-  address, or cells copied from a spreadsheet
+  sheet on Android, the share sheet on iOS, "Open With" in the Finder,
+  "Open with" in Explorer with the Store package and in Linux file
+  managers), by drag and drop on Windows, macOS, Linux and the web, as
+  a command-line argument, or from the clipboard: a web address, or
+  cells copied from a spreadsheet
 - column types, labels, dates and number formats are detected; adjust
   them once and they are remembered for every file with the same columns
 
@@ -77,11 +82,11 @@ pictures: open a file, see it as a pivot, save or send what you need.
 
 | Platform | State |
 |----------|-------|
-| Android | tested on a tablet (Android 16) and the emulator; Google Play coming |
-| Windows | portable build tested; Microsoft Store package coming |
-| Linux | a tarball and a `.deb` for x64 and arm64 (Ubuntu 22.04, Debian 12 or newer), with the menu entry and "Open with"; installed and tested by CI on Ubuntu 22.04 and 24.04 and Debian 12; on the GitHub Release at launch |
+| Android | in a closed test on Google Play; tested on a tablet (Android 16) and the emulator |
+| Windows | [Microsoft Store](https://apps.microsoft.com/detail/9PB0S6Q0K039); a portable build (zip) on the [releases](https://github.com/nagylzs/tessera-studio/releases/latest) page |
+| Linux | a tarball and a `.deb` for x64 and arm64 (Ubuntu 22.04, Debian 12 or newer), with the menu entry and "Open with", on the [releases](https://github.com/nagylzs/tessera-studio/releases/latest) page; installed and tested by CI on Ubuntu 22.04 and 24.04 and Debian 12 |
 | Web | builds |
-| iOS, macOS | tested on an iPhone 14 and a Mac mini (TestFlight); App Store coming |
+| iOS, macOS | [App Store](https://apps.apple.com/app/tessera-studio-pivot-tables/id6824598370), one app for iPhone, iPad and Mac |
 
 Every push is analyzed, tested and built for all six platforms by
 [CI](.github/workflows/ci.yml).
