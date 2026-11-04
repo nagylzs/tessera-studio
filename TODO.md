@@ -7,6 +7,17 @@ conventions live in `CLAUDE.md`, not here.
 
 ## Viewer flow
 
+- [ ] Help for expressions (a closed-test user, 2026-11-04, could not
+      write a formula without knowing the syntax and the functions, and
+      the app has no help offline). Agreed with the owner: the help
+      belongs in tessera_flutter, next to `ExpressionField` (item in
+      `../tessera/TODO.md`): a ? button in the field opens a reference —
+      examples with the file's own columns, the columns, operators,
+      values, empty values, the functions — where a tap inserts at the
+      cursor. Here: raise `tessera_flutter` to the release that brings
+      it, check it on a phone and the desktop, CHANGELOG. Perhaps later
+      an "Expression help" entry in the app menu (`ExpressionHelp`
+      without insertion).
 - [ ] On the Mac the window's title bar follows the system appearance,
       not the app's Theme setting: Light in the app on a dark Mac gives a
       dark title bar over a light window (found 2026-10-20 taking the
