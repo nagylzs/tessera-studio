@@ -7,17 +7,10 @@ conventions live in `CLAUDE.md`, not here.
 
 ## Viewer flow
 
-- [ ] Help for expressions (a closed-test user, 2026-11-04, could not
-      write a formula without knowing the syntax and the functions, and
-      the app has no help offline). Agreed with the owner: the help
-      belongs in tessera_flutter, next to `ExpressionField` (item in
-      `../tessera/TODO.md`): a ? button in the field opens a reference —
-      examples with the file's own columns, the columns, operators,
-      values, empty values, the functions — where a tap inserts at the
-      cursor. Here: raise `tessera_flutter` to the release that brings
-      it, check it on a phone and the desktop, CHANGELOG. Perhaps later
-      an "Expression help" entry in the app menu (`ExpressionHelp`
-      without insertion).
+- [ ] "Expression help" in the app menu, perhaps later (left over from
+      the help for expressions, Done): tessera_flutter's `ExpressionHelp`
+      on a page of its own, without insertion, to read before opening an
+      editor; with the open file's columns where there is one.
 - [ ] On the Mac the window's title bar follows the system appearance,
       not the app's Theme setting: Light in the app on a dark Mac gives a
       dark title bar over a light window (found 2026-10-20 taking the
@@ -312,6 +305,21 @@ conventions live in `CLAUDE.md`, not here.
       CanvasKit; verify the rest in the browser's network tab.
 
 ## Done
+
+- [x] Help for expressions (a closed-test user, 2026-11-04, could not
+      write a formula without knowing the syntax and the functions, and
+      the app has no help offline). The help is tessera_flutter's
+      (agreed with the owner; 0.2.5): a ? at the end of every expression
+      field opens a reference — what the expression does there, examples
+      with the file's own columns, the columns, operators, values, empty
+      values, the functions — where a tap inserts at the cursor; full
+      screen on a phone, offline, in the app's language. Checked on the
+      Android emulator and the Linux build from the owner's laptop,
+      which found what 0.2.6 fixed: on desktop every return from the
+      help selected the whole expression; on a phone in landscape with
+      the keyboard up the filter dialog had no room for its rows and the
+      dimension picker's form hid its field; a rotation mid-edit lost
+      the forms' labels and the help's insert.
 
 - [x] Sheets of .xlsx / .ods files (a tester, 2026-10-23: only the first
       sheet could be opened; his workbook starts with a README sheet).

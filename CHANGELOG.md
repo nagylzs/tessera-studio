@@ -9,6 +9,12 @@
   write values, what happens to empty values, and every function. A
   tap on an example, a column or a function puts it in the field at
   the cursor.
+* On a phone in landscape the filter takes the whole screen, with Clear
+  and Apply at the top: with the keyboard up, the dialog left its rows
+  no room. The expression form of "Add dimension" keeps its field above
+  the keyboard there.
+* Rotating the phone with an expression form open in "Add dimension" or
+  "Add aggregate" no longer empties its label field.
 
 ## 1.1.0
 
