@@ -1,5 +1,15 @@
 # Changelog
 
+## Unreleased
+
+* Help for expressions: the ? at the end of every expression field
+  (filter, calculated measure, computed dimension, cell formula) opens
+  a reference that works offline and in the app's language — examples
+  written with the file's own columns, the columns, operators, how to
+  write values, what happens to empty values, and every function. A
+  tap on an example, a column or a function puts it in the field at
+  the cursor.
+
 ## 1.1.0
 
 The same version in every store. 1.0.0, the first release, came out in

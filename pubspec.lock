@@ -750,18 +750,18 @@ packages:
     dependency: "direct dev"
     description:
       name: tessera
-      sha256: "382b4335392a219754aaadf11378da6b1a6e536b514e9366aa9337d04f242e5d"
+      sha256: c0e3845f0be61c277e9cb68d0ef0aa58600652b70266c9271c83ccad7f5386aa
       url: "https://pub.dev"
     source: hosted
-    version: "0.2.2"
+    version: "0.2.3"
   tessera_flutter:
     dependency: "direct main"
     description:
       name: tessera_flutter
-      sha256: "0607cfaf523fc956b468b31d16bde49966b4e9e59c0ea2561499df8502777c05"
+      sha256: "7d3241e036f556c81943be95f0de929ea92686690f125855e3f167210845443c"
       url: "https://pub.dev"
     source: hosted
-    version: "0.2.4"
+    version: "0.2.5"
   tessera_html:
     dependency: "direct main"
     description:

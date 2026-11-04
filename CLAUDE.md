@@ -64,9 +64,10 @@ lives here.
   depth; its `docs/` is the fifteen-chapter user guide — read those
   before touching anything pivot-related, do not re-derive them here.
 - The committed `pubspec.yaml` depends on the **published** versions
-  (`tessera_flutter ^0.2.4` — menus that close on back, full-screen
+  (`tessera_flutter ^0.2.5` — menus that close on back, full-screen
   pickers on a phone in landscape, computed dimensions ("Expression…"
-  in the dimension picker) —, `tessera_pdf
+  in the dimension picker), the expression help (the ? in every
+  expression field; it pulls in `tessera` 0.2.3) —, `tessera_pdf
   ^0.2.1` — page texts in the cell colour —, `tessera_xlsx` and
   `tessera_ods ^0.2.3` — `sheets()`, the sheet list; 0.2.2 brought their
   own zip writer, as LibreOffice refuses what `archive` 4.4+ writes; they pull in `tessera` 0.2.2, the first
