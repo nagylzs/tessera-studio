@@ -155,6 +155,14 @@ conventions live in `CLAUDE.md`, not here.
         (`1ffd640`) in review for iOS and macOS, the MSIX 1.1.10.0 in
         certification, the GitHub Release `v1.1.0` made; Android waits
         for production access.
+      - 1.2.0 (`1.2.0+11`, 2026-11-06), the help for expressions, goes
+        to Android's closed test first, while Google reviews the
+        production application (sent 2026-11-06, whose answers say the
+        help comes in the next build). If it holds there, Android's
+        production release starts at 1.2.0, not 1.1.0: the CHANGELOG's
+        1.1.0 intro then needs correcting. The App Store, the Microsoft
+        Store and the GitHub Release stay on 1.1.0 until the owner
+        decides when they follow.
       - The README's "Not released yet" note gave way to the store
         links (2026-11-01); Google Play's joins them once it is live.
 - [ ] Release signing in CI: the Android upload key, Apple

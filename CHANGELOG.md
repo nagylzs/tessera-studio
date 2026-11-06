@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 1.2.0
 
 * Help for expressions: the ? at the end of every expression field
   (filter, calculated measure, computed dimension, cell formula) opens
