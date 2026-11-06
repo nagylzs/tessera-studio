@@ -27,7 +27,6 @@ Future<Uint8List> chartPng(
   required String title,
 }) async {
   final boundary = GlobalKey();
-  final parentTheme = Theme.of(context);
   final entry = OverlayEntry(
     builder: (_) => Positioned(
       // beyond the window's left edge, and painted all the same
@@ -40,10 +39,7 @@ Future<Uint8List> chartPng(
         child: MediaQuery(
           data: const MediaQueryData(textScaler: TextScaler.noScaling),
           child: Theme(
-            data: ThemeData(
-              colorSchemeSeed: tesseraGreen,
-              fontFamily: parentTheme.textTheme.bodyMedium?.fontFamily,
-            ),
+            data: ThemeData(colorSchemeSeed: tesseraGreen),
             child: _ChartPage(content: content, cube: cube, title: title),
           ),
         ),

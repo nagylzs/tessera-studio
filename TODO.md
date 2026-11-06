@@ -19,8 +19,7 @@ conventions live in `CLAUDE.md`, not here.
       (aqua / darkAqua / nil for System) through a small channel. Polish,
       not a release blocker.
 - [ ] Cube page follow-ups: a "Settings" entry to restore the automatic
-      layout after an explicit choice; the charts pane beside/below the
-      grid as in the example.
+      layout after an explicit choice.
 - [ ] Save/load a pivot layout as a `.json` file (`CubeConfig` /
       `CubeJson`, through the file picker), e.g. to apply one pivot to
       another file of the same structure on another device. Less urgent
@@ -62,8 +61,27 @@ conventions live in `CLAUDE.md`, not here.
       3. Leave it: say so in the store listing, revisit on demand.
       (Installed system fonts are no way out: Noto CJK on Linux is
       OpenType/CFF, which dart_pdf cannot embed.)
-- [ ] Charts pane: `ChartData` / `ScatterData` + `fl_chart`, exportable
-      as SVG/PDF/PNG.
+- [x] Charts (`lib/charts/`, 2026-11-07, branch `charts`, in no build
+      yet): the pivot or the current cell's breakdown as bars, stacked bars,
+      a line, a pie or a scatter chart; beside the grid, above it, or on a
+      phone in its place; remembered per structure; PNG export. The owner
+      chose the data, the phone's switch and PNG only on 2026-11-06; the
+      tablet rule and the defaults were proposed then, without objection.
+- [ ] Charts, before they ship: try them on real devices (the Xiaomi pad,
+      a phone, the Mac, Windows) and on the web, where the PNG export has
+      not run; so far Linux under Xvfb and the API 36 phone and tablet
+      emulators, CI compiles the rest. Then the README's feature list, the
+      store listings in 14 languages and the screenshots, and publish the
+      privacy page with its new date.
+- [ ] Charts, later: vector export. `fl_chart` draws on a canvas only, so
+      SVG and PDF need drawing code of our own that targets screen, SVG and
+      PDF alike. The chart's own dimensions independent of the pivot
+      (`ChartData.fromFacts`), a scatter of single facts
+      (`ScatterData.ofFacts`), values on a pie's slices when touched.
+- [ ] A raw date on a pivot axis reads as a whole timestamp in the grid,
+      "2025-01-01 00:00:00.000Z" (`Dimension.formatValue` in tessera, found
+      2026-11-07). The charts shorten it themselves; the grid, the
+      current-cell line and the exports do not. Library work.
 - [ ] Entry points beyond the desktop argument, Android intents, the
       clipboard and drag and drop: a web `?open=<url>` query parameter,
       Windows and Linux file associations with packaging (below).

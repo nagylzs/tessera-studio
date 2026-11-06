@@ -557,6 +557,10 @@ sealed class LineAxis {
     if (periods.length == 1 && periods.first != null) {
       return PeriodAxis(periods.first!);
     }
+    // a timestamp column with some values at midnight is still timestamps
+    if (cs.every((c) => c.value is DateTime)) {
+      return const PeriodAxis(ChartPeriod.instant);
+    }
     // a date part without a period start (a month on its own, a weekday)
     // is a number too, but an ordinal one: its months are named
     if (cs.every(
@@ -592,7 +596,15 @@ enum ChartPeriod { year, quarter, month, week, day, instant }
 
 ChartPeriod? _periodOf(ChartCategory c) {
   if (c.periodStart == null) return null;
-  if (c.value is DateTime) return ChartPeriod.day;
+  if (c.value case final DateTime d) {
+    final midnight = d.hour == 0 && d.minute == 0 && d.second == 0;
+    return midnight ? ChartPeriod.day : ChartPeriod.instant;
+  }
+  bool has(DatePart part) => c.path.entries.any(
+    (e) =>
+        e.dimension is DatePartDimension &&
+        (e.dimension as DatePartDimension).part == part,
+  );
   final last = c.path.last.dimension;
   if (last is! DatePartDimension) return null;
   return switch (last.part) {
@@ -600,8 +612,9 @@ ChartPeriod? _periodOf(ChartCategory c) {
     DatePart.quarter => ChartPeriod.quarter,
     DatePart.month => ChartPeriod.month,
     DatePart.week => ChartPeriod.week,
-    DatePart.day => ChartPeriod.day,
-    DatePart.hour => ChartPeriod.instant,
+    // the 5th of no month in particular, or 14:00 of no day: not positions
+    DatePart.day => has(DatePart.month) ? ChartPeriod.day : null,
+    DatePart.hour => has(DatePart.day) ? ChartPeriod.instant : null,
     DatePart.weekday => null,
   };
 }

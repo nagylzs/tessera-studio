@@ -67,7 +67,9 @@ Before each release check:
 - **Drag and drop**: Windows, Linux, web and macOS (tried 2026-10-19);
   not iOS.
 - **Full screen on phones**: Android and iOS.
-- No charts yet: the charts pane is still in TODO.md.
+- **Charts** are in no store build yet, so no listing claims them. The
+  release that carries them adds them to the description, the features
+  and the keywords, in every language.
 - When a feature, a format or a language is added or removed, the
   description, the features and the keywords follow, in every language.
 

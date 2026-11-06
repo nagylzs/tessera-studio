@@ -395,6 +395,55 @@ void main() {
     });
   });
 
+  group('values shown as something else', () {
+    test('chart in the pivot and in a cell\'s breakdown', () async {
+      final facts = await _facts();
+      final base = amount;
+      final shown = <Aggregate>[
+        PercentOfTotalAggregate(base, TotalOf.grand),
+        RunningTotalAggregate(base, AxisSide.columns),
+        RankAggregate(base, AxisSide.rows),
+        DifferenceFromAggregate(base, AxisSide.columns, const PreviousItem()),
+      ];
+      for (final a in shown) {
+        final cube = _cube(
+          facts,
+          rows: [region],
+          columns: [year],
+          aggregates: [base, a],
+        );
+        final eu = cube.layout.cellFor(
+          _group(region, 'EU'),
+          DimensionPath.root,
+        )!;
+        for (final kind in ChartKind.values) {
+          final pivot = _content(
+            cube,
+            settings: ChartSettings(kind: kind, value: a, x: base, y: a),
+          );
+          expect(pivot.problem == null || kind == ChartKind.pie, isTrue);
+          final cell = _content(
+            cube,
+            cell: eu,
+            settings: ChartSettings(
+              kind: kind,
+              source: ChartSource.cell,
+              value: a,
+              x: base,
+              y: a,
+              category: product,
+            ),
+          );
+          expect(
+            cell.data != null || cell.scatter != null || cell.problem != null,
+            isTrue,
+            reason: '$a $kind',
+          );
+        }
+      }
+    });
+  });
+
   group('a scatter chart', () {
     test('needs two values', () async {
       final facts = await _facts();
@@ -471,6 +520,14 @@ void main() {
     test('numbers follow the locale', () {
       expect(axisNumbers(AxisRange([0, 0.8]), 'hu')(0.2), '0,2');
       expect(axisNumbers(AxisRange([0, 8000]), 'de')(2000), '2.000');
+    });
+
+    test('short numbers exist in every language', () {
+      for (final code in TesseraStrings.supportedLanguages) {
+        final numbers = axisNumbers(AxisRange([0, 9000000]), code);
+        expect(numbers(2000000), isNotEmpty, reason: code);
+        expect(axisNumbers(AxisRange([0, 0.8]), code)(0.2), isNotEmpty);
+      }
     });
 
     test('periods have whole positions and read as periods', () {
