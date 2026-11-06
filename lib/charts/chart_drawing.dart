@@ -144,12 +144,30 @@ String Function(double) axisNumbers(AxisRange range, String locale) {
   return labels.toSet().length == labels.length ? short.format : plain.format;
 }
 
-/// Reserved width for the [numbers] of the ticks of [range]: long axis
-/// numbers would otherwise wrap inside a fixed width.
-double _axisWidth(AxisRange range, String Function(double) numbers) {
-  final longest = range.ticks.map((v) => numbers(v).length).fold(0, math.max);
-  return math.max(32, longest * 6.5 + 12);
+/// Width of [text] in [style], at the user's text size.
+double _textWidth(BuildContext context, String text, TextStyle style) {
+  final painter = TextPainter(
+    text: TextSpan(text: text, style: style),
+    textDirection: TextDirection.ltr,
+    textScaler: MediaQuery.textScalerOf(context),
+    maxLines: 1,
+  )..layout();
+  final width = painter.width;
+  painter.dispose();
+  return width;
 }
+
+/// Reserved width for the [numbers] of the ticks of [range]: the widest,
+/// and the gap fl_chart leaves ([SideTitleWidget.space]).
+double _axisWidth(
+  BuildContext context,
+  AxisRange range,
+  String Function(double) numbers,
+  TextStyle style,
+) =>
+    [for (final v in range.ticks) _textWidth(context, numbers(v), style)]
+        .fold(24.0, math.max) +
+    12;
 
 const _axisFontSize = 10.0;
 
@@ -215,11 +233,11 @@ FlTitlesData _titles(
     leftTitles: AxisTitles(
       sideTitles: SideTitles(
         showTitles: true,
-        reservedSize: _axisWidth(left, numbers),
+        reservedSize: _axisWidth(context, left, numbers, style),
         interval: left.interval,
         getTitlesWidget: (v, meta) => SideTitleWidget(
           meta: meta,
-          child: Text(numbers(v), style: style),
+          child: Text(numbers(v), style: style, softWrap: false),
         ),
       ),
     ),
@@ -265,31 +283,45 @@ Widget _bottomTitle(BuildContext context, String text, TitleMeta meta) =>
 /// Room on the right for a bottom title near the chart's edge.
 const _rightMargin = EdgeInsets.only(right: 24);
 
+/// fl_chart's default wraps a group's name and value into many lines.
+const _tooltipWidth = 260.0;
+
 TextStyle _tooltipStyle(BuildContext context) =>
     TextStyle(color: Theme.of(context).colorScheme.onInverseSurface);
 
 Color _tooltipColor(BuildContext context) =>
     Theme.of(context).colorScheme.inverseSurface;
 
+/// A date, short enough for an axis: the time only when it has one.
+String _dateText(DateTime d) {
+  String two(int n) => n.toString().padLeft(2, '0');
+  final date = '${d.year}-${two(d.month)}-${two(d.day)}';
+  return d.hour == 0 && d.minute == 0 && d.second == 0
+      ? date
+      : '$date ${two(d.hour)}:${two(d.minute)}';
+}
+
+/// One group's own name. A raw date reads short: the engine's default has
+/// the whole timestamp, which fits a table's column but not an axis.
+String _groupText(TesseraStrings strings, DimensionValue e) =>
+    switch (e.value) {
+      null => strings.emptyGroup,
+      final DateTime d => _dateText(d),
+      final value => strings.formatValue(e.dimension, value),
+    };
+
 /// A group's label with its ancestors when it sits deeper than the first
 /// level (visible leaves under an expanded group): "Electronics › Africa",
 /// so two "(empty)" groups — or 2024's Q1 and 2025's — can be told apart.
-/// The engine labels a group by its own value only.
+/// [own] names the summary, which has no path.
 String pathLabel(
   TesseraStrings strings,
   DimensionPath path,
   String own, {
   String separator = ' › ',
-}) {
-  if (path.length <= 1) return own;
-  return path.entries
-      .map(
-        (e) => e.value == null
-            ? strings.emptyGroup
-            : strings.formatValue(e.dimension, e.value),
-      )
-      .join(separator);
-}
+}) => path.isRoot
+    ? own
+    : path.entries.map((e) => _groupText(strings, e)).join(separator);
 
 List<String> _categoryLabels(BuildContext context, ChartData data) {
   final strings = TesseraLocalizations.of(context);
@@ -308,8 +340,22 @@ bool _deep(ChartData data) => data.categories.any((c) => c.path.length > 1);
 double _bottomSize(ChartData data) => _deep(data) ? 48 : 28;
 
 /// Narrowest slot a category's name is written in: narrower ones share
-/// their name's slot with their neighbours, whose names are left out.
-const _minLabelWidth = 48.0;
+/// their name's slot with their neighbours, whose names are left out. Text
+/// may be cut short and still say something; a date or a number may not,
+/// so it needs its whole width.
+double _minLabelWidth(BuildContext context, ChartData data, TextStyle style) {
+  const atLeast = 48.0;
+  final strings = TesseraLocalizations.of(context);
+  final cs = data.categories;
+  if (!cs.every((c) => c.value is DateTime || c.value is num)) return atLeast;
+  return cs
+          .map(
+            (c) =>
+                _textWidth(context, pathLabel(strings, c.path, c.label), style),
+          )
+          .fold(atLeast - 8, math.max) +
+      8;
+}
 
 /// Bottom titles naming the categories at integer positions; a deep
 /// category's own label goes on a second line under its ancestors
@@ -321,13 +367,14 @@ Widget Function(double, TitleMeta) _categoryTitles(
 ) {
   final strings = TesseraLocalizations.of(context);
   final style = _axisStyle(context);
-  String of(DimensionValue e) => e.value == null
-      ? strings.emptyGroup
-      : strings.formatValue(e.dimension, e.value);
+  final minWidth = _minLabelWidth(context, data, style);
   final ancestorsOf = [
     for (final c in data.categories)
       c.path.length > 1
-          ? c.path.entries.take(c.path.length - 1).map(of).join(' › ')
+          ? c.path.entries
+                .take(c.path.length - 1)
+                .map((e) => _groupText(strings, e))
+                .join(' › ')
           : null,
   ];
   return (v, meta) {
@@ -336,9 +383,12 @@ Widget Function(double, TitleMeta) _categoryTitles(
       return const SizedBox.shrink();
     }
     final slot = meta.parentAxisSize / data.categories.length;
-    final step = (_minLabelWidth / slot).ceil().clamp(1, 1 << 20);
+    final step = (minWidth / slot).ceil().clamp(1, 1 << 20);
     if (i % step != 0) return const SizedBox.shrink();
-    final own = data.categories[i].label;
+    final category = data.categories[i];
+    final own = category.path.isRoot
+        ? category.label
+        : _groupText(strings, category.path.last);
     final ancestors = ancestorsOf[i];
     Widget line(String text) => Text(
       text,
@@ -463,6 +513,7 @@ Widget _bars(BuildContext context, ChartData data, {required bool stacked}) {
                     getTooltipColor: (_) => _tooltipColor(context),
                     fitInsideHorizontally: true,
                     fitInsideVertically: true,
+                    maxContentWidth: _tooltipWidth,
                     getTooltipItem: (group, gi, rod, ri) {
                       final text = stacked
                           ? [
@@ -498,7 +549,8 @@ sealed class LineAxis {
   /// one when every value is a plain number, else evenly spaced names.
   static LineAxis of(ChartData data) {
     final cs = data.categories;
-    if (cs.isEmpty) return const CategoryAxis();
+    // a single point has no scale, and would sit at the end of one
+    if (cs.length < 2) return const CategoryAxis();
     final periods = {for (final c in cs) _periodOf(c)};
     if (periods.length == 1 && periods.first != null) {
       return PeriodAxis(periods.first!);
@@ -685,6 +737,7 @@ Widget _line(BuildContext context, ChartData source) {
                       getTooltipColor: (_) => _tooltipColor(context),
                       fitInsideHorizontally: true,
                       fitInsideVertically: true,
+                      maxContentWidth: _tooltipWidth,
                       getTooltipItems: (spots) => [
                         for (var k = 0; k < spots.length; k++)
                           LineTooltipItem(
@@ -765,9 +818,10 @@ Widget _pie(BuildContext context, ChartData data) {
         ),
       ),
       _legend(context, [
+        // the percentage first: a long name is cut short
         for (final s in slices)
-          '${s.index == null ? l10n.chartOthers : labels[s.index!]} '
-              '${percent.format(s.value / total)}',
+          '${percent.format(s.value / total)} '
+              '${s.index == null ? l10n.chartOthers : labels[s.index!]}',
       ], colors),
     ],
   );
@@ -847,6 +901,7 @@ Widget _scatter(BuildContext context, ScatterData data) {
                       getTooltipColor: (_) => _tooltipColor(context),
                       fitInsideHorizontally: true,
                       fitInsideVertically: true,
+                      maxContentWidth: _tooltipWidth,
                       getTooltipItems: (spot) => ScatterTooltipItem(
                         labels[(spot.x, spot.y)] ?? '',
                         textStyle: _tooltipStyle(context),

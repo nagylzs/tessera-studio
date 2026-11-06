@@ -39,7 +39,7 @@ List<String> chartCaption(
         data.series.first.label,
       if (hasCell) describeCoordinate(t, facts, coordinate),
       if (isCell && content.category != null)
-        t.dimensionLabel(content.category!, facts),
+        '${l10n.chartBreakDownBy}: ${t.dimensionLabel(content.category!, facts)}',
       if (filter != null) describeFilter(t, filter),
     ].join(' — '),
     if (isCell && !hasCell) l10n.chartNoCell,

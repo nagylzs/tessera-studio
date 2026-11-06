@@ -99,6 +99,21 @@ bool hasOwnOrder(Dimension dimension, FactTable facts) {
   return false;
 }
 
+Dimension? _fewestValues(List<Dimension> dimensions, FactTable facts) {
+  Dimension? best;
+  var fewest = 1 << 62;
+  for (final d in dimensions) {
+    if (d is! ColumnDimension) continue;
+    final column = facts.findColumn(d.sourceColumn);
+    if (column == null || column.type != ColumnType.text) continue;
+    if (column.distinctCount > 1 && column.distinctCount < fewest) {
+      best = d;
+      fewest = column.distinctCount;
+    }
+  }
+  return best;
+}
+
 /// The dimensions a chart can use: [dimensions] and the pivot's own (a
 /// computed one is not among the standard ones).
 List<Dimension> chartDimensions(Cube cube, List<Dimension> dimensions) => [
@@ -141,7 +156,8 @@ ChartContent chartContent({
       if (!pinned(d)) d,
   ];
   // the first breakdown follows the pivot: its first row dimension (then
-  // column dimension) the cell does not pin, else any
+  // column dimension) the cell does not pin, else the text column with the
+  // fewest values, as the first pivot of a file has, else any
   final category = !isCell
       ? null
       : usable.contains(settings.category)
@@ -151,6 +167,7 @@ ChartContent chartContent({
                 for (final d in axis.dimensions)
                   if (usable.contains(d.dimension)) d.dimension,
             ].firstOrNull ??
+            _fewestValues(usable, facts) ??
             usable.firstOrNull;
   final series =
       isCell && usable.contains(settings.series) && settings.series != category

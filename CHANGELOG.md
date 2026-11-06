@@ -2,12 +2,12 @@
 
 ## Unreleased
 
-- Charts: the chart button shows the pivot as bars, stacked bars, a line, a
+* Charts: the chart button shows the pivot as bars, stacked bars, a line, a
   pie or a scatter chart, and follows it live. It can also break the current
   cell down by another column. Beside the grid on a desktop or a tablet in
   landscape, above it on a tablet in portrait, in its place on a phone, with
   a full screen of its own. Remembered per file structure.
-- Export: a showing chart saves or shares as a PNG.
+* Export: a showing chart saves or shares as a PNG.
 
 ## 1.2.0
 

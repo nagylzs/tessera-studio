@@ -497,6 +497,11 @@ class _WorkbenchPageState extends State<WorkbenchPage> {
     if (!chart.visible.value) return view;
     final settings = GetIt.I<AppSettings>();
     final instead = _placement == ChartPlacement.instead;
+    // The grid's cells draw their hover and ink on the nearest Material, the
+    // page's, which no scrolling clips: beside a chart it would show on it.
+    final grid = ClipRect(
+      child: Material(type: MaterialType.transparency, child: view),
+    );
     final panel = ChartPanel(
       key: _chartKey,
       controller: ctrl,
@@ -511,7 +516,7 @@ class _WorkbenchPageState extends State<WorkbenchPage> {
         axis: Axis.horizontal,
         fraction: settings.chartSplit.value,
         onChanged: settings.setChartSplit,
-        first: view,
+        first: grid,
         second: panel,
       ),
       ChartPlacement.above => SplitView(
@@ -519,7 +524,7 @@ class _WorkbenchPageState extends State<WorkbenchPage> {
         fraction: settings.chartSplit.value,
         onChanged: settings.setChartSplit,
         first: panel,
-        second: view,
+        second: grid,
       ),
       // the grid stays, offstage, with its scroll position and selection
       ChartPlacement.instead => Stack(
