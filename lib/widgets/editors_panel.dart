@@ -156,6 +156,24 @@ Future<void> showImportReport(BuildContext context, ImportReport report) {
   );
 }
 
+/// [filter] in words, for a line under the grid or the chart.
+String describeFilter(TesseraStrings t, FactFilter filter) =>
+    '${t.filter}: '
+    '${filter.toExpressionSource() ?? (filter is PredicateFilter ? filter.label : null) ?? t.customFilter}';
+
+/// "Region = Europe, Quarter = Q2".
+String describeCoordinate(
+  TesseraStrings t,
+  FactTable facts,
+  Coordinate coordinate,
+) => coordinate.values.entries
+    .map(
+      (e) =>
+          '${t.dimensionLabel(e.key, facts)} = '
+          '${e.value == null ? t.emptyGroup : t.formatValue(e.key, e.value)}',
+    )
+    .join(', ');
+
 /// The active filter and the current cell — what an app charts or
 /// drills into. Below the grid on wide windows, atop the sheet on
 /// narrow ones.
@@ -174,22 +192,13 @@ class CurrentCellLine extends StatelessWidget {
         final t = TesseraLocalizations.of(context);
         final facts = controller.cube.facts;
         final filter = controller.cube.spec.filter;
-        final filterText = filter == null
-            ? null
-            : '${t.filter}: '
-                  '${filter.toExpressionSource() ?? (filter is PredicateFilter ? filter.label : null) ?? t.customFilter}';
+        final filterText = filter == null ? null : describeFilter(t, filter);
         final text = cell == null
             ? l10n.noCurrentCell
             : cell.coordinate.isEmpty
             ? l10n.currentCellTotal(cell.factCount)
             : l10n.currentCell(
-                cell.coordinate.values.entries
-                    .map(
-                      (e) =>
-                          '${t.dimensionLabel(e.key, facts)} = '
-                          '${e.value == null ? t.emptyGroup : t.formatValue(e.key, e.value)}',
-                    )
-                    .join(', '),
+                describeCoordinate(t, facts, cell.coordinate),
                 cell.factCount,
               );
         return Padding(

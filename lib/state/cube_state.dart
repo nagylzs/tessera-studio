@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
@@ -6,6 +7,7 @@ import 'package:signals_flutter/signals_flutter.dart';
 import 'package:tessera_flutter/tessera_flutter.dart';
 
 import '../files/opened_document.dart';
+import 'chart_state.dart';
 import 'layout_store.dart';
 
 /// The cube of the open document: the import (off the UI isolate, with
@@ -40,6 +42,9 @@ final class CubeState {
   /// through [setShown] so that the change is remembered.
   final shown = signal<List<Aggregate>?>(null);
 
+  /// The chart of this cube.
+  final chart = ChartState();
+
   /// Where changes of the pivot are remembered; `null` for none (a
   /// snapshot carries its own pivot).
   String? _layoutKey;
@@ -69,6 +74,9 @@ final class CubeState {
     StoredLayout? layout,
   }) async {
     clear();
+    // not awaited: the import should not wait, and the chart appears with
+    // the cube anyway
+    unawaited(chart.start(layoutKey));
     final snapshot = doc.snapshot;
     if (snapshot != null) {
       _schema = null;
@@ -282,6 +290,7 @@ final class CubeState {
         ];
 
   void clear() {
+    chart.clear();
     _layoutKey = null;
     _savedJson = null;
     _checkedCube = null;

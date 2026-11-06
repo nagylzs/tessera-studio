@@ -19,7 +19,8 @@ typedef ExportChoice = ({ExportFormat format, bool facts});
 /// where the user says; the outcome goes to a snack bar. File names and
 /// titles start from [baseName] (`OpenedDocument.exportBaseName`). [onBusy] brackets the writing,
 /// which runs on this isolate like the cube layout does. [shareOrigin] is
-/// the share button's rect, where an iPad's share popover points.
+/// the share button's rect, where an iPad's share popover points. With a
+/// [chartPng], a chart is showing: the dialog offers it first.
 Future<void> runExport(
   BuildContext context, {
   required String baseName,
@@ -29,17 +30,24 @@ Future<void> runExport(
   required bool share,
   Rect? shareOrigin,
   required ValueChanged<bool> onBusy,
+  Future<Uint8List> Function()? chartPng,
 }) async {
   final l10n = AppLocalizations.of(context);
   final strings = TesseraLocalizations.of(context);
   final messenger = ScaffoldMessenger.of(context);
   final title = (share ? l10n.share : l10n.saveAs).replaceAll('…', '');
-  final choice = await showExportDialog(context, title: title);
+  final choice = await showExportDialog(
+    context,
+    title: title,
+    chart: chartPng != null,
+  );
   if (choice == null) return;
   final format = choice.format;
   // a snapshot is the file itself again, under its own extension
   final stem = format == ExportFormat.snapshot
       ? baseName
+      : format == ExportFormat.png
+      ? l10n.chartFileName(baseName)
       : choice.facts
       ? l10n.factsFileName(baseName)
       : l10n.pivotFileName(baseName);
@@ -51,7 +59,9 @@ Future<void> runExport(
     try {
       // let the progress bar paint before the work holds the isolate
       await WidgetsBinding.instance.endOfFrame;
-      bytes = choice.facts
+      bytes = format == ExportFormat.png
+          ? await chartPng!()
+          : choice.facts
           ? factsExport(cube, format, title: baseName)
           : await cubeExport(
               cube,
@@ -90,11 +100,12 @@ Future<void> runExport(
   }
 }
 
-/// Every format, the cube's first, then the facts' as a table. A
-/// dialog rather than a menu: thumbs as well as mice.
+/// Every format: the [chart]'s when one is showing, the cube's, then the
+/// facts' as a table. A dialog rather than a menu: thumbs as well as mice.
 Future<ExportChoice?> showExportDialog(
   BuildContext context, {
   required String title,
+  bool chart = false,
 }) {
   final l10n = AppLocalizations.of(context);
   return showDialog<ExportChoice>(
@@ -121,6 +132,11 @@ Future<ExportChoice?> showExportDialog(
           child: ListView(
             shrinkWrap: true,
             children: [
+              if (chart) ...[
+                header(l10n.exportChart),
+                for (final f in ExportFormat.charts) tile(f, facts: false),
+                const Divider(),
+              ],
               header(l10n.exportPivot),
               for (final f in ExportFormat.pivots) tile(f, facts: false),
               const Divider(),
@@ -154,6 +170,7 @@ String formatName(AppLocalizations l10n, ExportFormat format) =>
       ExportFormat.json => l10n.formatJson,
       ExportFormat.jsonl => l10n.formatJsonl,
       ExportFormat.snapshot => l10n.formatSnapshot,
+      ExportFormat.png => l10n.formatPng,
     };
 
 IconData formatIcon(ExportFormat format) => switch (format) {
@@ -164,4 +181,5 @@ IconData formatIcon(ExportFormat format) => switch (format) {
   ExportFormat.csv => Icons.notes,
   ExportFormat.json || ExportFormat.jsonl => Icons.data_object,
   ExportFormat.snapshot => Icons.inventory_2_outlined,
+  ExportFormat.png => Icons.image_outlined,
 };

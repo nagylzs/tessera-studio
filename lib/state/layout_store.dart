@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tessera_flutter/tessera_flutter.dart';
 
+import '../charts/chart_settings.dart';
+
 /// The pivot the user left files of one structure on: spec and expanded
 /// groups ([config], without a schema — that is [StoredSchema]'s), the
 /// aggregates the grid showed ([shown], positions in the spec's list,
@@ -46,6 +48,12 @@ abstract interface class LayoutStore {
   Future<StoredLayout?> read(String structureKey);
   Future<void> write(String structureKey, StoredLayout stored);
   Future<void> delete(String structureKey);
+
+  /// The chart beside that pivot, kept apart: a pivot back at the default
+  /// has no entry, and the chart stays.
+  Future<StoredChart?> readChart(String structureKey);
+  Future<void> writeChart(String structureKey, StoredChart stored);
+  Future<void> deleteChart(String structureKey);
 }
 
 /// The real store: one JSON string per structure in the platform's
@@ -77,6 +85,29 @@ final class PreferencesLayoutStore implements LayoutStore {
 
   @override
   Future<void> delete(String structureKey) => _prefs.remove(_key(structureKey));
+
+  static String _chartKey(String structureKey) => 'chart:$structureKey';
+
+  @override
+  Future<StoredChart?> readChart(String structureKey) async {
+    final text = await _prefs.getString(_chartKey(structureKey));
+    if (text == null) return null;
+    try {
+      return StoredChart.fromJson(
+        (jsonDecode(text) as Map).cast<String, Object?>(),
+      );
+    } on Object {
+      return null; // a damaged entry is as good as none
+    }
+  }
+
+  @override
+  Future<void> writeChart(String structureKey, StoredChart stored) =>
+      _prefs.setString(_chartKey(structureKey), jsonEncode(stored.toJson()));
+
+  @override
+  Future<void> deleteChart(String structureKey) =>
+      _prefs.remove(_chartKey(structureKey));
 }
 
 /// In-memory store for tests.
@@ -94,4 +125,18 @@ final class MemoryLayoutStore implements LayoutStore {
   @override
   Future<void> delete(String structureKey) async =>
       entries.remove(structureKey);
+
+  final charts = <String, StoredChart>{};
+
+  @override
+  Future<StoredChart?> readChart(String structureKey) async =>
+      charts[structureKey];
+
+  @override
+  Future<void> writeChart(String structureKey, StoredChart stored) async =>
+      charts[structureKey] = stored;
+
+  @override
+  Future<void> deleteChart(String structureKey) async =>
+      charts.remove(structureKey);
 }

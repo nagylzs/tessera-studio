@@ -566,5 +566,170 @@
   "exportSnapshot": "To reopen in Tessera Studio",
   "@exportSnapshot": {
     "description": "Heading in the export dialog above the Tessera snapshot: the data and the pivot in one file that the app reopens as it was."
+  },
+  "chartShow": "Show chart",
+  "@chartShow": {
+    "description": "Tooltip of the app bar button that shows a chart of the pivot table."
+  },
+  "chartHide": "Hide chart",
+  "@chartHide": {
+    "description": "Tooltip of the app bar button that hides the chart."
+  },
+  "chartShowTable": "Show pivot table",
+  "@chartShowTable": {
+    "description": "Tooltip of the app bar button on a phone, where the chart takes the pivot table's place: back to the table."
+  },
+  "chartKindBar": "Bars",
+  "@chartKindBar": {
+    "description": "Tooltip of a chart type: bars, one group per category."
+  },
+  "chartKindStacked": "Stacked bars",
+  "@chartKindStacked": {
+    "description": "Tooltip of a chart type: bars stacked on each other."
+  },
+  "chartKindLine": "Line",
+  "@chartKindLine": {
+    "description": "Tooltip of a chart type: a line chart."
+  },
+  "chartKindPie": "Pie",
+  "@chartKindPie": {
+    "description": "Tooltip of a chart type: a pie chart."
+  },
+  "chartKindScatter": "Scatter",
+  "@chartKindScatter": {
+    "description": "Tooltip of a chart type: a scatter chart."
+  },
+  "chartSourceTooltip": "What the chart shows",
+  "@chartSourceTooltip": {
+    "description": "Tooltip of the menu choosing where a chart's data comes from."
+  },
+  "chartSourcePivot": "Pivot table",
+  "@chartSourcePivot": {
+    "description": "Chart data: the pivot table as it is shown."
+  },
+  "chartSourceCell": "Current cell",
+  "@chartSourceCell": {
+    "description": "Chart data: the facts behind the current cell. Same term as in noCurrentCell."
+  },
+  "chartValue": "Value",
+  "@chartValue": {
+    "description": "Label of the menu choosing which aggregate a chart draws."
+  },
+  "chartAxisX": "X axis",
+  "@chartAxisX": {
+    "description": "Label of the menu choosing a scatter chart's horizontal value."
+  },
+  "chartAxisY": "Y axis",
+  "@chartAxisY": {
+    "description": "Label of the menu choosing a scatter chart's vertical value."
+  },
+  "chartBreakDownBy": "Break down by",
+  "@chartBreakDownBy": {
+    "description": "Label of the menu choosing the dimension the current cell's facts are split by in a chart. Short: followed by the dimension's name."
+  },
+  "chartSeries": "Series",
+  "@chartSeries": {
+    "description": "Label of the menu choosing a second dimension, one chart series per value."
+  },
+  "chartNoSeries": "None",
+  "@chartNoSeries": {
+    "description": "Menu entry: no second dimension."
+  },
+  "chartSwapAxes": "Swap rows and columns",
+  "@chartSwapAxes": {
+    "description": "Tooltip: the pivot's columns become the chart's categories and its rows the series."
+  },
+  "chartFullScreen": "Full screen",
+  "@chartFullScreen": {
+    "description": "Tooltip: the chart alone on the whole screen."
+  },
+  "chartExitFullScreen": "Exit full screen",
+  "@chartExitFullScreen": {
+    "description": "Tooltip: leave the full screen chart."
+  },
+  "chartNothing": "Nothing to chart here.",
+  "@chartNothing": {
+    "description": "Shown instead of a chart when the data gives nothing to draw."
+  },
+  "chartNeedsTwoValues": "A scatter chart needs two values: add another one to the pivot table.",
+  "@chartNeedsTwoValues": {
+    "description": "Shown instead of a scatter chart when the pivot table has only one aggregate."
+  },
+  "chartNoBreakdown": "The current cell already fixes every column, so there is nothing left to break it down by.",
+  "@chartNoBreakdown": {
+    "description": "Shown when every dimension of the file is already fixed by the current cell."
+  },
+  "chartNoPositive": "A pie chart needs positive values, and there are none here.",
+  "@chartNoPositive": {
+    "description": "Shown instead of a pie chart when no value is above zero."
+  },
+  "chartNoCell": "No current cell, so this is all the data. Tap a cell or use the arrow keys.",
+  "@chartNoCell": {
+    "description": "Under a chart of the current cell when there is none. Same term as in noCurrentCell."
+  },
+  "chartFirstGroups": "Showing the first {shown} of {total} groups.",
+  "@chartFirstGroups": {
+    "description": "Under a chart of a large pivot table: only part of the groups (row values) are drawn.",
+    "placeholders": {
+      "shown": {
+        "type": "int",
+        "example": "60",
+        "format": "decimalPattern"
+      },
+      "total": {
+        "type": "int",
+        "example": "300",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "chartFirstSeries": "Showing the first {shown} of {total} series.",
+  "@chartFirstSeries": {
+    "description": "Under a chart of a large pivot table: only part of the series are drawn.",
+    "placeholders": {
+      "shown": {
+        "type": "int",
+        "example": "12",
+        "format": "decimalPattern"
+      },
+      "total": {
+        "type": "int",
+        "example": "40",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "chartPieLeftOut": "Groups left out because their value is not positive: {count}.",
+  "@chartPieLeftOut": {
+    "description": "Under a pie chart: zero or negative values cannot be slices.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "3",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "chartOthers": "Others",
+  "@chartOthers": {
+    "description": "Legend of a pie chart: the small slices merged into one."
+  },
+  "exportChart": "Chart",
+  "@exportChart": {
+    "description": "Heading in the export dialog: the chart as an image."
+  },
+  "formatPng": "PNG image",
+  "@formatPng": {
+    "description": "Export format name."
+  },
+  "chartFileName": "{name} chart",
+  "@chartFileName": {
+    "description": "File name of an exported chart, without extension; {name} is the source file's.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "sales"
+      }
+    }
   }
 }

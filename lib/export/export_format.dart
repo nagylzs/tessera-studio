@@ -2,7 +2,8 @@ import 'package:tessera_flutter/tessera_flutter.dart' show TesseraSnapshot;
 
 /// What an export writes: the cube as shown in one of [pivots], the facts
 /// behind it as a plain table in one of [tables], or both at once in a
-/// [snapshot], which Tessera Studio reopens as it was.
+/// [snapshot], which Tessera Studio reopens as it was; the chart in one
+/// of [charts].
 enum ExportFormat {
   xlsx(
     'xlsx',
@@ -15,7 +16,8 @@ enum ExportFormat {
   csv('csv', 'text/csv'),
   json('json', 'application/json'),
   jsonl('jsonl', 'application/x-ndjson'),
-  snapshot(TesseraSnapshot.fileExtension, TesseraSnapshot.mimeType);
+  snapshot(TesseraSnapshot.fileExtension, TesseraSnapshot.mimeType),
+  png('png', 'image/png');
 
   const ExportFormat(this.extension, this.mimeType);
 
@@ -24,6 +26,10 @@ enum ExportFormat {
 
   /// The formats the facts export to as a table.
   static const tables = [xlsx, ods, csv, jsonl];
+
+  /// The formats the chart exports to. fl_chart draws on a canvas only, so
+  /// no vector format yet (TODO.md).
+  static const charts = [png];
 
   final String extension;
   final String mimeType;

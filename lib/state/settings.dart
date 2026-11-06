@@ -48,6 +48,10 @@ abstract interface class SettingsStore {
   /// The stored [GridStyle] name, `null` for [GridStyle.standard].
   Future<String?> readGridStyle();
   Future<void> writeGridStyle(String? name);
+
+  /// The grid's share of a window split with a chart, `null` for half.
+  Future<double?> readChartSplit();
+  Future<void> writeChartSplit(double? fraction);
 }
 
 final class PreferencesSettingsStore implements SettingsStore {
@@ -93,6 +97,16 @@ final class PreferencesSettingsStore implements SettingsStore {
   Future<void> writeGridStyle(String? name) => name == null
       ? _prefs.remove(_gridStyle)
       : _prefs.setString(_gridStyle, name);
+
+  static const _chartSplit = 'settings:chartSplit';
+
+  @override
+  Future<double?> readChartSplit() => _prefs.getDouble(_chartSplit);
+
+  @override
+  Future<void> writeChartSplit(double? fraction) => fraction == null
+      ? _prefs.remove(_chartSplit)
+      : _prefs.setDouble(_chartSplit, fraction);
 }
 
 /// In-memory store for tests.
@@ -127,6 +141,14 @@ final class MemorySettingsStore implements SettingsStore {
 
   @override
   Future<void> writeGridStyle(String? name) async => gridStyle = name;
+
+  double? chartSplit;
+
+  @override
+  Future<double?> readChartSplit() async => chartSplit;
+
+  @override
+  Future<void> writeChartSplit(double? fraction) async => chartSplit = fraction;
 }
 
 /// The user's settings as signals the `MaterialApp` reads. Both default
@@ -142,6 +164,9 @@ final class AppSettings {
   final locale = signal<Locale?>(null);
   final cubeLayout = signal(CubePageLayout.auto);
   final gridStyle = signal(GridStyle.standard);
+
+  /// The first pane's share of a window split between grid and chart.
+  final chartSplit = signal(0.5);
 
   /// Reads the stored values; call once before the first frame.
   Future<void> load() async {
@@ -163,6 +188,12 @@ final class AppSettings {
       (s) => s.name == style,
       orElse: () => GridStyle.standard,
     );
+    chartSplit.value = await _store.readChartSplit() ?? 0.5;
+  }
+
+  Future<void> setChartSplit(double fraction) async {
+    chartSplit.value = fraction;
+    await _store.writeChartSplit(fraction);
   }
 
   Future<void> setGridStyle(GridStyle style) async {

@@ -73,6 +73,11 @@ Future<Uint8List> cubeExport(
       cube.facts,
       config: CubeConfig.of(cube),
     ),
+    ExportFormat.png => throw ArgumentError.value(
+      format,
+      'format',
+      'not a cube format',
+    ),
   };
 }
 
