@@ -458,14 +458,22 @@ class _WorkbenchPageState extends State<WorkbenchPage> {
     }
     final shown = state.cube.shown.value ?? ctrl.cube.spec.aggregates;
     final style = GetIt.I<AppSettings>().gridStyle.value;
-    final view = Listener(
-      onPointerDown: (event) => _pointer = event.kind,
-      child: CubeView(
-        key: _gridKey,
-        controller: ctrl,
-        theme: style.theme(Theme.of(context).brightness),
-        aggregates: shown,
-        onCellTap: (_) => _cellTapped(editorsInline),
+    // The cells draw their hover and ink on the nearest Material; were that
+    // the page's, no scrolling would clip them and they would show on a chart
+    // beside the grid. All this moves together when the layout changes.
+    final view = ClipRect(
+      key: _gridKey,
+      child: Material(
+        type: MaterialType.transparency,
+        child: Listener(
+          onPointerDown: (event) => _pointer = event.kind,
+          child: CubeView(
+            controller: ctrl,
+            theme: style.theme(Theme.of(context).brightness),
+            aggregates: shown,
+            onCellTap: (_) => _cellTapped(editorsInline),
+          ),
+        ),
       ),
     );
     final content = _withChart(state, ctrl, view, shown);
@@ -497,11 +505,6 @@ class _WorkbenchPageState extends State<WorkbenchPage> {
     if (!chart.visible.value) return view;
     final settings = GetIt.I<AppSettings>();
     final instead = _placement == ChartPlacement.instead;
-    // The grid's cells draw their hover and ink on the nearest Material, the
-    // page's, which no scrolling clips: beside a chart it would show on it.
-    final grid = ClipRect(
-      child: Material(type: MaterialType.transparency, child: view),
-    );
     final panel = ChartPanel(
       key: _chartKey,
       controller: ctrl,
@@ -516,7 +519,7 @@ class _WorkbenchPageState extends State<WorkbenchPage> {
         axis: Axis.horizontal,
         fraction: settings.chartSplit.value,
         onChanged: settings.setChartSplit,
-        first: grid,
+        first: view,
         second: panel,
       ),
       ChartPlacement.above => SplitView(
@@ -524,7 +527,7 @@ class _WorkbenchPageState extends State<WorkbenchPage> {
         fraction: settings.chartSplit.value,
         onChanged: settings.setChartSplit,
         first: panel,
-        second: grid,
+        second: view,
       ),
       // the grid stays, offstage, with its scroll position and selection
       ChartPlacement.instead => Stack(
