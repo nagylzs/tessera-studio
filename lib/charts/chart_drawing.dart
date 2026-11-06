@@ -400,6 +400,8 @@ Widget Function(double, TitleMeta) _categoryTitles(
     );
     return SideTitleWidget(
       meta: meta,
+      // a name wider than its bar stays on the chart at both ends
+      fitInside: SideTitleFitInsideData.fromTitleMeta(meta),
       child: SizedBox(
         width: slot * step,
         child: ancestors == null
@@ -426,7 +428,7 @@ Widget _bars(BuildContext context, ChartData data, {required bool stacked}) {
   double rodWidth(double chartWidth) {
     final slots =
         data.categories.length * (stacked ? 2 : data.series.length + 1);
-    return ((chartWidth - 60) / math.max(slots, 1)).clamp(1.0, 32.0);
+    return ((chartWidth - 60) / math.max(slots, 1)).clamp(1.0, 56.0);
   }
 
   for (var i = 0; i < data.categories.length; i++) {

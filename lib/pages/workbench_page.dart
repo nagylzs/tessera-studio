@@ -476,7 +476,7 @@ class _WorkbenchPageState extends State<WorkbenchPage> {
         ),
       ),
     );
-    final content = _withChart(state, ctrl, view, shown);
+    final content = _withChart(state, ctrl, view, shown, editorsInline);
     // Nothing but the grid or a phone's chart, kept clear of a notch.
     if (_fullScreen) {
       return SafeArea(
@@ -500,6 +500,7 @@ class _WorkbenchPageState extends State<WorkbenchPage> {
     CubeController ctrl,
     Widget view,
     List<Aggregate> shown,
+    bool editorsInline,
   ) {
     final chart = state.cube.chart;
     if (!chart.visible.value) return view;
@@ -514,19 +515,26 @@ class _WorkbenchPageState extends State<WorkbenchPage> {
       fullScreen: _fullScreen,
       onFullScreen: instead ? () => _setFullScreen(!_fullScreen) : null,
     );
+    // The chart's captions and buttons, unlike the grid's scrolling cells,
+    // must keep clear of a gesture bar or a notch where they touch the edge.
     return switch (_placement) {
       ChartPlacement.beside => SplitView(
         axis: Axis.horizontal,
         fraction: settings.chartSplit.value,
         onChanged: settings.setChartSplit,
         first: view,
-        second: panel,
+        second: SafeArea(
+          top: false,
+          left: false,
+          bottom: !editorsInline,
+          child: panel,
+        ),
       ),
       ChartPlacement.above => SplitView(
         axis: Axis.vertical,
         fraction: settings.chartSplit.value,
         onChanged: settings.setChartSplit,
-        first: panel,
+        first: SafeArea(top: false, bottom: false, child: panel),
         second: view,
       ),
       // the grid stays, offstage, with its scroll position and selection
@@ -534,7 +542,7 @@ class _WorkbenchPageState extends State<WorkbenchPage> {
         fit: StackFit.expand,
         children: [
           Offstage(child: view),
-          panel,
+          SafeArea(top: false, bottom: !editorsInline, child: panel),
         ],
       ),
     };
