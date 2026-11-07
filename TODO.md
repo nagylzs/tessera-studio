@@ -83,22 +83,19 @@ conventions live in `CLAUDE.md`, not here.
       "2025-01-01 00:00:00.000Z" (`Dimension.formatValue` in tessera, found
       2026-11-07). The charts shorten it themselves; the grid, the
       current-cell line and the exports do not. Library work.
-- [ ] Idea (owner, 2026-11-07; "not important"): on desktops, Save as… and a
-      second button to send the file, side by side. On the Mac the owner first
-      looked for Save as… in the share menu. Tried at `d01669a` by adding the
-      platform to `canShare`:
-      - macOS: `share_plus` works. The menu opens at the button, Mail gets the
-        attachment under its real name, accents too, in the sandbox and the
-        release build (`~/transfer/tessera-studio/reports/20261107-0945-mac.md`).
-      - Windows: do not use `share_plus` for files. Its mixed path makes the
-        dialog fail, and with a native path it stays loading, cannot be
-        selected from or closed, and outlives the app until Explorer restarts
-        (`~/transfer/tessera-studio/reports/20261107-1034-windows.md`).
-        It would not reach the owner's Betterbird anyway, and neither would MAPI
-        while the PC's default mail client points at a missing Thunderbird.
-      - Linux: `share_plus` refuses files; it would take our own code (the
-        desktop portal's email call or `xdg-email --attach`), not tried.
-      None of these reach webmail.
+- [x] Share on the Mac, beside Save as… (owner, 2026-11-07). Tried at
+      `d01669a`: `share_plus`'s menu opens at the button, Mail gets the
+      attachment under its real name, accents too, in the sandbox and the
+      release build (`~/transfer/tessera-studio/reports/20261107-0945-mac.md`).
+- [ ] Sending a file on Linux, for later (owner, 2026-11-07): `share_plus`
+      refuses files there, so it takes our own code, the desktop portal's
+      email call or `xdg-email --attach`; not tried.
+- [ ] Sending a file on Windows: not through `share_plus`. Its mixed path makes
+      the dialog fail, and with a native path it stays loading, cannot be
+      selected from or closed, and outlives the app until Explorer restarts
+      (`~/transfer/tessera-studio/reports/20261107-1034-windows.md`). It would
+      not reach the owner's Betterbird anyway, and neither would MAPI while
+      the PC's default mail client points at a missing Thunderbird. No plan.
 - [ ] A grid narrower than its row headers shows no values: the pinned
       columns fill it (`TableView` warns "pinned columns ... exceeds the
       viewport width"). Found on the Mac on 2026-11-07, dragging the chart's

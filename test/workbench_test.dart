@@ -2,6 +2,8 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:typed_data';
 
+import 'package:flutter/foundation.dart'
+    show debugDefaultTargetPlatformOverride;
 import 'package:flutter/gestures.dart' show PointerDeviceKind;
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -51,9 +53,9 @@ late MemorySettingsStore settingsStore;
 late FakeSystemBars bars;
 late FakeExportTarget exports;
 
-void _register({bool canShare = false}) {
+void _register({bool canShare = false, bool? sharesFirst}) {
   _opener = _Opener();
-  exports = FakeExportTarget(canShare: canShare);
+  exports = FakeExportTarget(canShare: canShare, sharesFirst: sharesFirst);
   settingsStore = MemorySettingsStore();
   bars = FakeSystemBars();
   GetIt.I
@@ -317,6 +319,53 @@ void main() {
     final lines = utf8.decode(exports.saved.single.bytes).trim().split('\n');
     expect(lines, hasLength(4)); // header + three facts
     expect(find.text('Saved /tmp/sales facts.csv'), findsOneWidget);
+  });
+
+  testWidgets('a Mac has Save as… and Share side by side', (tester) async {
+    _size(tester, 1400, 900);
+    _register(canShare: true, sharesFirst: false);
+    await _toCube(tester);
+    expect(find.byTooltip('Save as…'), findsOneWidget);
+    expect(find.byTooltip('Share…'), findsOneWidget);
+    await tester.tap(find.byTooltip('More'));
+    await tester.pumpAndSettle();
+    expect(find.text('Save as…'), findsNothing); // not in the menu as well
+    await tester.tapAt(Offset.zero);
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.byTooltip('Share…'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Excel workbook'));
+    await tester.pumpAndSettle();
+    expect(exports.shared.single.fileName, 'sales pivot.xlsx');
+    expect(exports.saved, isEmpty);
+
+    await tester.tap(find.byTooltip('Save as…'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Excel workbook'));
+    await tester.pumpAndSettle();
+    expect(exports.saved.single.fileName, 'sales pivot.xlsx');
+    expect(exports.shared, hasLength(1));
+  });
+
+  test('sharing is offered where it reaches another app', () {
+    const target = PlatformExportTarget();
+    final expected = {
+      TargetPlatform.android: (canShare: true, first: true),
+      TargetPlatform.iOS: (canShare: true, first: true),
+      TargetPlatform.macOS: (canShare: true, first: false),
+      TargetPlatform.windows: (canShare: false, first: false),
+      TargetPlatform.linux: (canShare: false, first: false),
+    };
+    try {
+      for (final MapEntry(key: platform, :value) in expected.entries) {
+        debugDefaultTargetPlatformOverride = platform;
+        expect(target.canShare, value.canShare, reason: '$platform');
+        expect(target.sharesFirst, value.first, reason: '$platform');
+      }
+    } finally {
+      debugDefaultTargetPlatformOverride = null;
+    }
   });
 
   testWidgets('a desktop saves from the bar; failures are told', (

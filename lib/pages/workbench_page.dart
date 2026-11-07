@@ -30,7 +30,8 @@ import '../widgets/split_view.dart';
 /// the "Editors" button; by window size unless the user chose.
 ///
 /// Export is one tap away: Share on phones and tablets (Save as… then
-/// sits in the menu), Save as… elsewhere; both open the format dialog.
+/// sits in the menu), both side by side on a Mac, Save as… elsewhere; each
+/// opens the format dialog.
 ///
 /// Full screen, like a video player: in the grid-alone layout a tap (a
 /// finger, not a mouse click) on a value hides the app bar and the
@@ -222,6 +223,7 @@ class _WorkbenchPageState extends State<WorkbenchPage> {
     final state = GetIt.I<AppState>();
     final settings = GetIt.I<AppSettings>();
     final canShare = GetIt.I<ExportTarget>().canShare;
+    final sharesFirst = GetIt.I<ExportTarget>().sharesFirst;
     return PopScope(
       // An open tessera menu holds a local history entry on this route
       // (like a drawer): let that back through to close the menu only.
@@ -279,27 +281,32 @@ class _WorkbenchPageState extends State<WorkbenchPage> {
                                 : () => _editFilter(context, ctrl),
                           ),
                         _chartButton(context, state, ctrl, chartVisible),
-                        Builder(
-                          builder: (button) => IconButton(
-                            icon: Icon(
-                              canShare
-                                  ? Icons.share
-                                  : Icons.file_download_outlined,
-                            ),
-                            tooltip: canShare ? l10n.share : l10n.saveAs,
+                        if (!sharesFirst)
+                          IconButton(
+                            icon: const Icon(Icons.file_download_outlined),
+                            tooltip: l10n.saveAs,
                             onPressed: canExport
-                                ? () => _export(
-                                    context,
-                                    ctrl,
-                                    share: canShare,
-                                    shareOrigin: _globalRect(button),
-                                  )
+                                ? () => _export(context, ctrl, share: false)
                                 : null,
                           ),
-                        ),
+                        if (canShare)
+                          Builder(
+                            builder: (button) => IconButton(
+                              icon: const Icon(Icons.share),
+                              tooltip: l10n.share,
+                              onPressed: canExport
+                                  ? () => _export(
+                                      context,
+                                      ctrl,
+                                      share: true,
+                                      shareOrigin: _globalRect(button),
+                                    )
+                                  : null,
+                            ),
+                          ),
                         AppMenuButton(
                           entries: [
-                            if (canShare)
+                            if (sharesFirst)
                               AppMenuEntry(
                                 label: l10n.saveAs,
                                 icon: Icons.file_download_outlined,

@@ -13,6 +13,8 @@
 * The export dialog asks first what to export (the chart, the pivot table or
   the facts), then lists only that one's formats, instead of every format of
   all of them in one long list.
+* On a Mac, Share sits beside Save as…: the system's share menu, which gives
+  Mail, Messages or AirDrop the file.
 * The grid style dialog is as wide as its descriptions need, so they stay on
   one line at a larger text size where the window has room.
 

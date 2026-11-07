@@ -61,10 +61,13 @@ final class FakeSystemBars implements SystemBars {
 /// Records what was saved or shared; [saveTo] is what the save dialog
 /// "picks" (`null` = cancelled), [error] makes both throw.
 final class FakeExportTarget implements ExportTarget {
-  FakeExportTarget({this.canShare = false});
+  FakeExportTarget({this.canShare = false, bool? sharesFirst})
+    : sharesFirst = sharesFirst ?? canShare;
 
   @override
   final bool canShare;
+  @override
+  final bool sharesFirst;
   Uri? saveTo;
   Object? error;
   final saved = <({String fileName, String mimeType, Uint8List bytes})>[];

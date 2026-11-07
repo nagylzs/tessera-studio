@@ -357,9 +357,10 @@ the next step.
   leaving the page restores the bars. A `GlobalKey` on the `CubeView`
   keeps its scroll position across these and layout switches; the page
   is keyed by document in `app.dart`, so a new file starts fresh.
-  Export (`lib/export/`, `lib/widgets/export_dialog.dart`): one bar
-  button — Share where `ExportTarget.canShare` (Android, iOS; "Save as…"
-  then heads the overflow menu), Save as… elsewhere — opens the format
+  Export (`lib/export/`, `lib/widgets/export_dialog.dart`): bar buttons —
+  Share where `ExportTarget.sharesFirst` (Android, iOS; "Save as…" then heads
+  the overflow menu), Save as… and Share side by side on a Mac (`canShare`;
+  not Windows or Linux, TODO.md), Save as… elsewhere — open the format
   dialog (`showExportDialog`: chips for the `ExportKind`, starting on a
   showing chart, then one tap on a format: the chart in
   `ExportFormat.charts`, its look above them, the cube in
