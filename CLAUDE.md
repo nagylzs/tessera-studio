@@ -387,7 +387,10 @@ the next step.
   and the app had a light PDF variant until 2026-10-11). PDF fonts: Noto Sans Regular/Bold subsets in
   `assets/fonts/` (Latin incl. Extended-A/B/Additional, combining marks,
   Greek, Cyrillic, punctuation, currency; `tool/subset_fonts.sh`, about
-  240 KB each), SIL OFL in `assets/fonts/OFL.txt`, registered with the
+  240 KB each; each empty glyph but the space's holds one point, which draws
+  nothing, because `package:pdf` embeds the next glyph's outline for an empty
+  one, and the no-break space, tessera's thousands separator in cs, fr, hu, pl
+  and ru, printed as "¡" until 2026-11-07), SIL OFL in `assets/fonts/OFL.txt`, registered with the
   `LicenseRegistry` in `main`. No CJK glyphs (TODO). Verified on the
   API 36 emulator: share sheet, the documents UI save dialog (Downloads),
   a Hungarian PDF through `pdftotext`/`pdftoppm`.
@@ -426,9 +429,11 @@ the next step.
   `beside` the grid from 840 × 480 dp, `above` it from 600 × 600, else
   `instead` of it, a phone either way up, where the button and back return
   to the grid, which waits `Offstage` with its scroll position. In any of
-  the three a button gives the chart the whole window (`_FullScreen.chart`,
-  which draws it as `instead`; Esc, back or the button leave it), as a tap on
-  a value does for the grid on a touch screen. `SplitView` is the divider; its share is
+  the three a button in the pane's corner gives the chart the whole window
+  (`_FullScreen.chart`, which draws it as `instead`; Esc, back or the button
+  leave it), as a tap on a value does for the grid on a touch screen. The grid
+  keeps its size offstage meanwhile (`_gridSizeBehindChart`): at the window's
+  size a pivot may fit and scroll back to its top. `SplitView` is the divider; its share is
   the global `AppSettings.chartSplit`. `chartContent` (`chart_content.dart`,
   no widgets, tested against the grid's cells) resolves `ChartSettings`
   against the cube on every change, as an aggregate or dimension may be gone,
@@ -455,8 +460,9 @@ the next step.
   write the shapes out. The formats so match each other, and the screen only
   closely: a change to how a chart reads usually belongs in `chart_layout.dart`
   as well. Render all three when changing them (`rsvg-convert`, `pdftoppm`,
-  side by side): the PDF's y runs upwards, and an inverted arc made star-shaped
-  pies that every test passed. Text the font lacks: other fonts in PNG and SVG,
+  side by side), in Hungarian too, whose numbers hold no-break spaces: the PDF's
+  y runs upwards, and an inverted arc made star-shaped pies that every test
+  passed. Text the font lacks: other fonts in PNG and SVG,
   `?` in a PDF, hence "X: … · Y: …" for the screen's arrows, which it lacks too.
   They are drawn in the `ChartLook` chosen in the dialog, whatever the window
   and theme: light or dark, on its colour or on nothing, light on

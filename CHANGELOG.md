@@ -17,6 +17,9 @@
   Mail, Messages or AirDrop the file.
 * The grid style dialog is as wide as its descriptions need, so they stay on
   one line at a larger text size where the window has room.
+* PDF exports: in Czech, French, Hungarian, Polish and Russian the space
+  between the thousands of a number printed as "¡" ("1¡771¡020"). It is a space
+  again.
 
 ## 1.2.0
 

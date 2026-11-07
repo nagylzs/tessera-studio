@@ -102,6 +102,14 @@ conventions live in `CLAUDE.md`, not here.
       know that width, so `SplitView` cannot stop there; the grid could stop
       pinning what does not fit. Library work (`CubeView`). A phone with
       several row dimensions probably meets it too; not tried.
+      The same happens in height: with "Editors on top" a low window leaves
+      the grid less than its two header rows ("pinned rows with a total height
+      of 56.0, which exceeds the viewport height of 20.0"; the Mac, 2026-11-07).
+- [ ] The stores' pivot PDFs print the thousands separator as "¡" in cs, fr,
+      hu, pl and ru ("1¡771¡020"), since at least 1.1.0. Fixed in the bundled
+      fonts on `charts` (2026-11-07), so it goes out with the charts, unless
+      the owner wants it sooner. The cause is in `package:pdf` (3.13.0 and
+      3.13.1, `TtfParser.readGlyph`), which has not been told.
 - [ ] Large text outside the charts (found 2026-11-07 while testing them;
       fine at the owner's 1.5, debug builds show it, release builds cut it
       quietly): at 2 a 17 px overflow to the right before the cube opens, on
