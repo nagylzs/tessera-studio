@@ -21,8 +21,8 @@ typedef ExportChoice = ({ExportKind kind, ExportFormat format, ChartLook look});
 /// where the user says; the outcome goes to a snack bar. File names and
 /// titles start from [baseName] (`OpenedDocument.exportBaseName`). [onBusy] brackets the writing,
 /// which runs on this isolate like the cube layout does. [shareOrigin] is
-/// the share button's rect, where an iPad's share popover points. With a
-/// [chartPng], a chart is showing: the dialog starts on it.
+/// the share button's rect, where an iPad's share popover points. With
+/// [chartBytes], a chart is showing: the dialog starts on it.
 Future<void> runExport(
   BuildContext context, {
   required String baseName,
@@ -32,7 +32,7 @@ Future<void> runExport(
   required bool share,
   Rect? shareOrigin,
   required ValueChanged<bool> onBusy,
-  Future<Uint8List> Function(ChartLook look)? chartPng,
+  Future<Uint8List> Function(ExportFormat format, ChartLook look)? chartBytes,
 }) async {
   final l10n = AppLocalizations.of(context);
   final strings = TesseraLocalizations.of(context);
@@ -41,7 +41,7 @@ Future<void> runExport(
   final choice = await showExportDialog(
     context,
     title: title,
-    chart: chartPng != null,
+    chart: chartBytes != null,
   );
   if (choice == null) return;
   final format = choice.format;
@@ -62,7 +62,7 @@ Future<void> runExport(
       // let the progress bar paint before the work holds the isolate
       await WidgetsBinding.instance.endOfFrame;
       bytes = switch (choice.kind) {
-        ExportKind.chart => await chartPng!(choice.look),
+        ExportKind.chart => await chartBytes!(format, choice.look),
         ExportKind.facts => factsExport(cube, format, title: baseName),
         ExportKind.pivot => await cubeExport(
           cube,

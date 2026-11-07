@@ -444,10 +444,22 @@ the next step.
   Beside a chart a tap on a value only selects (it picks the cell a chart
   may show); on its own it goes full screen as before. `ChartState` stores
   under `chart:<structureKey>` through `LayoutStore`, apart from the pivot,
-  whose entry a return to the default deletes; a snapshot has no key. PNG
-  export (`chart_image.dart`): drawn off screen in an `OverlayEntry`, at a
-  fixed 1000 × 640 × 2, in the `ChartLook` chosen in the dialog whatever the
-  window and theme: light or dark, on its colour or on nothing, light on
+  whose entry a return to the default deletes; a snapshot has no key.
+  Exports (`chart_export.dart`, 2026-11-07): fl_chart only paints on a canvas
+  and its text cannot be read back, so PNG, SVG and PDF share a drawing of
+  their own. `chartScene` (`chart_layout.dart`, no widgets, tested without a
+  screen) lays a `ChartContent` out as the shapes of a `ChartScene`
+  (`chart_scene.dart`) on a fixed 1000 × 640 page, with the screen's axes,
+  colours and label rules and text measured in the bundled Noto Sans;
+  `scenePng` (× 2), `sceneSvg` and `scenePdf` (750 × 480 pt, which fits A4) only
+  write the shapes out. The formats so match each other, and the screen only
+  closely: a change to how a chart reads usually belongs in `chart_layout.dart`
+  as well. Render all three when changing them (`rsvg-convert`, `pdftoppm`,
+  side by side): the PDF's y runs upwards, and an inverted arc made star-shaped
+  pies that every test passed. Text the font lacks: other fonts in PNG and SVG,
+  `?` in a PDF, hence "X: … · Y: …" for the screen's arrows, which it lacks too.
+  They are drawn in the `ChartLook` chosen in the dialog, whatever the window
+  and theme: light or dark, on its colour or on nothing, light on
   white unless asked (`AppSettings.chartLook`, `settings:chartLook`). The
   grid's `ClipRect` and transparent `Material` keep its hover ink out of
   the chart; the `GlobalKey` must stay on the `ClipRect`, the outermost:

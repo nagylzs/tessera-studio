@@ -29,7 +29,8 @@ conventions live in `CLAUDE.md`, not here.
 - [ ] **Question for the owner: Japanese and Chinese in the PDF export?**
       The bundled Noto Sans has no CJK glyphs, so Japanese and Chinese
       text — in the data, or the ja/zh tessera strings such as the total
-      — comes out as stray marks in a PDF (the other formats are fine).
+      — comes out as stray marks in a pivot's PDF and as `?` in a chart's
+      (the other formats are fine).
       Prerequisite for every option but the last: per-character font
       fallback in tessera_pdf (in `../tessera/TODO.md`), because the CJK
       fonts lack ő, ű and Cyrillic, and one PDF may need both.
@@ -74,9 +75,7 @@ conventions live in `CLAUDE.md`, not here.
       the new export dialog), CI compiles the rest. Then the README's feature list, the
       store listings in 14 languages and the screenshots, and publish the
       privacy page with its new date.
-- [ ] Charts, later: vector export. `fl_chart` draws on a canvas only, so
-      SVG and PDF need drawing code of our own that targets screen, SVG and
-      PDF alike. The chart's own dimensions independent of the pivot
+- [ ] Charts, later: the chart's own dimensions independent of the pivot
       (`ChartData.fromFacts`), a scatter of single facts
       (`ScatterData.ofFacts`), values on a pie's slices when touched.
 - [ ] A raw date on a pivot axis reads as a whole timestamp in the grid,

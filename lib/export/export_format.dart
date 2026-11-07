@@ -30,9 +30,8 @@ enum ExportFormat {
   /// The formats the facts export to as a table.
   static const tables = [xlsx, ods, csv, jsonl];
 
-  /// The formats the chart exports to. fl_chart draws on a canvas only, so
-  /// no vector format yet (TODO.md).
-  static const charts = [png];
+  /// The formats the chart exports to.
+  static const charts = [png, svg, pdf];
 
   final String extension;
   final String mimeType;

@@ -581,6 +581,48 @@ void main() {
       return false;
     }
 
+    testWidgets('a chart also saves as SVG and as PDF', (tester) async {
+      _size(tester, 1400, 900);
+      _register();
+      await _toCube(tester);
+      await _showChart(tester);
+      for (final (name, file, mime, head) in const [
+        ('SVG image', 'sales chart.svg', 'image/svg+xml', '<?xml'),
+        ('PDF document', 'sales chart.pdf', 'application/pdf', '%PDF-'),
+      ]) {
+        _exports.saved.clear();
+        await _tapTooltip(tester, 'Save as…');
+        await tester.runAsync(() async {
+          await tester.tap(find.text(name));
+          await tester.pump();
+          for (var i = 0; i < 200 && _exports.saved.isEmpty; i++) {
+            await Future<void>.delayed(const Duration(milliseconds: 10));
+            await tester.pump();
+          }
+        });
+        await tester.pumpAndSettle();
+        final saved = _exports.saved.single;
+        expect(saved.fileName, file);
+        expect(saved.mimeType, mime);
+        expect(String.fromCharCodes(saved.bytes.take(5)), head);
+      }
+      // the pivot's SVG and PDF are still the pivot's
+      _exports.saved.clear();
+      await _tapTooltip(tester, 'Save as…');
+      await tester.tap(find.widgetWithText(ChoiceChip, 'Pivot table'));
+      await tester.pumpAndSettle();
+      await tester.runAsync(() async {
+        await tester.tap(find.text('SVG image'));
+        await tester.pump();
+        for (var i = 0; i < 200 && _exports.saved.isEmpty; i++) {
+          await Future<void>.delayed(const Duration(milliseconds: 10));
+          await tester.pump();
+        }
+      });
+      await tester.pumpAndSettle();
+      expect(_exports.saved.single.fileName, 'sales pivot.svg');
+    });
+
     testWidgets('a chart comes on white, dark or no background', (
       tester,
     ) async {

@@ -24,12 +24,10 @@ class ChartFigure extends StatelessWidget {
       return Center(
         child: Padding(
           padding: const EdgeInsets.all(16),
-          child: Text(switch (problem) {
-            ChartProblem.nothing => l10n.chartNothing,
-            ChartProblem.needsTwoValues => l10n.chartNeedsTwoValues,
-            ChartProblem.noBreakdown => l10n.chartNoBreakdown,
-            ChartProblem.noPositive => l10n.chartNoPositive,
-          }, textAlign: TextAlign.center),
+          child: Text(
+            chartProblemText(l10n, problem),
+            textAlign: TextAlign.center,
+          ),
         ),
       );
     }
@@ -45,10 +43,22 @@ class ChartFigure extends StatelessWidget {
   }
 }
 
+/// Why there is no chart, for the user.
+String chartProblemText(AppLocalizations l10n, ChartProblem problem) =>
+    switch (problem) {
+      ChartProblem.nothing => l10n.chartNothing,
+      ChartProblem.needsTwoValues => l10n.chartNeedsTwoValues,
+      ChartProblem.noBreakdown => l10n.chartNoBreakdown,
+      ChartProblem.noPositive => l10n.chartNoPositive,
+    };
+
 /// A palette of visually distinct hues, one per series, computed in OKLCH
 /// like the grid's hue levels; the first hue is the theme's primary.
-List<Color> seriesColors(BuildContext context, int count) {
-  final scheme = Theme.of(context).colorScheme;
+List<Color> seriesColors(BuildContext context, int count) =>
+    seriesColorsOf(Theme.of(context).colorScheme, count);
+
+/// [seriesColors] in a given [scheme].
+List<Color> seriesColorsOf(ColorScheme scheme, int count) {
   final start = Oklch.fromArgb(scheme.primary.toARGB32()).hue;
   final dark = scheme.brightness == Brightness.dark;
   return [
@@ -83,7 +93,7 @@ double niceInterval(double range, {int ticks = 8}) {
 }
 
 /// Ticks that fit an axis of [extent] pixels, one per [per] pixels.
-int _ticksFor(double extent, {double per = 50}) =>
+int ticksFor(double extent, {double per = 50}) =>
     (extent / per).floor().clamp(3, 8);
 
 /// An axis over [values]: a [niceInterval] for its extent (including zero
@@ -350,12 +360,11 @@ String _dateText(DateTime d) {
 
 /// One group's own name. A raw date reads short: the engine's default has
 /// the whole timestamp, which fits a table's column but not an axis.
-String _groupText(TesseraStrings strings, DimensionValue e) =>
-    switch (e.value) {
-      null => strings.emptyGroup,
-      final DateTime d => _dateText(d),
-      final value => strings.formatValue(e.dimension, value),
-    };
+String groupText(TesseraStrings strings, DimensionValue e) => switch (e.value) {
+  null => strings.emptyGroup,
+  final DateTime d => _dateText(d),
+  final value => strings.formatValue(e.dimension, value),
+};
 
 /// A group's label with its ancestors when it sits deeper than the first
 /// level (visible leaves under an expanded group): "Electronics › Africa",
@@ -368,7 +377,7 @@ String pathLabel(
   String separator = ' › ',
 }) => path.isRoot
     ? own
-    : path.entries.map((e) => _groupText(strings, e)).join(separator);
+    : path.entries.map((e) => groupText(strings, e)).join(separator);
 
 List<String> _categoryLabels(BuildContext context, ChartData data) {
   final strings = TesseraLocalizations.of(context);
@@ -381,10 +390,11 @@ List<String> _seriesLabels(BuildContext context, ChartData data) {
 }
 
 /// Whether any category sits below the first level.
-bool _deep(ChartData data) => data.categories.any((c) => c.path.length > 1);
+bool deepCategories(ChartData data) =>
+    data.categories.any((c) => c.path.length > 1);
 
 /// Lines of a category's label: its ancestors above it when it has any.
-int _categoryLines(ChartData data) => _deep(data) ? 2 : 1;
+int _categoryLines(ChartData data) => deepCategories(data) ? 2 : 1;
 
 /// Narrowest slot a category's name is written in: narrower ones share
 /// their name's slot with their neighbours, whose names are left out. Text
@@ -420,7 +430,7 @@ Widget Function(double, TitleMeta) _categoryTitles(
       c.path.length > 1
           ? c.path.entries
                 .take(c.path.length - 1)
-                .map((e) => _groupText(strings, e))
+                .map((e) => groupText(strings, e))
                 .join(' › ')
           : null,
   ];
@@ -435,7 +445,7 @@ Widget Function(double, TitleMeta) _categoryTitles(
     final category = data.categories[i];
     final own = category.path.isRoot
         ? category.label
-        : _groupText(strings, category.path.last);
+        : groupText(strings, category.path.last);
     final ancestors = ancestorsOf[i];
     Widget line(String text) => Text(
       text,
@@ -535,7 +545,7 @@ Widget _bars(BuildContext context, ChartData data, {required bool stacked}) {
           builder: (context, constraints) {
             final range = AxisRange(
               tops,
-              ticks: _ticksFor(constraints.maxHeight),
+              ticks: ticksFor(constraints.maxHeight),
             );
             return BarChart(
               BarChartData(
@@ -735,14 +745,14 @@ Widget _line(BuildContext context, ChartData source) {
               final range = AxisRange([
                 for (final s in data.series)
                   for (final v in s.values) ?v,
-              ], ticks: _ticksFor(constraints.maxHeight));
+              ], ticks: ticksFor(constraints.maxHeight));
               // a real axis is rounded to its ticks too; positions stay
               final xRange = axis is CategoryAxis || data.categories.isEmpty
                   ? null
                   : AxisRange(
                       [for (var i = 0; i < data.categories.length; i++) x(i)],
                       includeZero: false,
-                      ticks: _ticksFor(
+                      ticks: ticksFor(
                         constraints.maxWidth,
                         // dates are wide
                         per:
@@ -941,7 +951,7 @@ Widget _scatter(BuildContext context, ScatterData data) {
                   radius: room,
                 ),
                 includeZero: false,
-                ticks: _ticksFor(
+                ticks: ticksFor(
                   constraints.maxWidth,
                   per: 90 * chartTextScale(context),
                 ),
@@ -953,7 +963,7 @@ Widget _scatter(BuildContext context, ScatterData data) {
                   radius: room,
                 ),
                 includeZero: false,
-                ticks: _ticksFor(constraints.maxHeight),
+                ticks: ticksFor(constraints.maxHeight),
               );
               final xNumbers = axisNumbers(xRange, locale);
               return ScatterChart(

@@ -7,7 +7,8 @@ import 'package:signals_flutter/signals_flutter.dart';
 import 'package:tessera_flutter/tessera_flutter.dart' hide NumberFormat;
 
 import '../charts/chart_content.dart';
-import '../charts/chart_image.dart';
+import '../charts/chart_drawing.dart';
+import '../charts/chart_export.dart';
 import '../charts/chart_panel.dart';
 import '../charts/chart_settings.dart';
 import '../export/export_target.dart';
@@ -157,24 +158,37 @@ class _WorkbenchPageState extends State<WorkbenchPage> {
       onBusy: (busy) {
         if (mounted) setState(() => _exporting = busy);
       },
-      chartPng: !cubeState.chart.visible.value
+      chartBytes: !cubeState.chart.visible.value
           ? null
-          : (look) => chartPng(
-              context,
-              look: look,
-              content: chartContent(
+          : (format, look) {
+              final l10n = AppLocalizations.of(context);
+              final strings = TesseraLocalizations.of(context);
+              final settings = cubeState.chart.settings.value;
+              final content = chartContent(
                 cube: ctrl.cube,
-                settings: cubeState.chart.settings.value,
+                settings: settings,
                 dimensions: cubeState.dimensions.value,
-                strings: TesseraLocalizations.of(context),
+                strings: strings,
                 shown: shown,
-                cell: cubeState.chart.settings.value.source == ChartSource.cell
+                cell: settings.source == ChartSource.cell
                     ? ctrl.currentCell
                     : null,
-              ),
-              cube: ctrl.cube,
-              title: document.exportBaseName,
-            ),
+              );
+              return chartExport(
+                format,
+                content,
+                title: document.exportBaseName,
+                caption: chartCaption(context, content, ctrl.cube),
+                problem: switch (content.problem) {
+                  final problem? => chartProblemText(l10n, problem),
+                  null => null,
+                },
+                others: l10n.chartOthers,
+                look: look,
+                strings: strings,
+                locale: Localizations.localeOf(context).toString(),
+              );
+            },
     );
   }
 
