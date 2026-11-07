@@ -150,6 +150,51 @@ void main() {
     expect(store.gridStyle, 'spreadsheet');
   });
 
+  group('the grid style dialog at a larger text size', () {
+    Future<void> open(WidgetTester tester, double w, double h) async {
+      tester.view.physicalSize = Size(w, h);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.reset);
+      tester.platformDispatcher.textScaleFactorTestValue = 1.5;
+      addTearDown(tester.platformDispatcher.clearTextScaleFactorTestValue);
+      _register();
+      await tester.pumpWidget(const TesseraStudioApp());
+      await _openMenu(tester);
+      await tester.tap(find.text('Grid style…'));
+      await tester.pumpAndSettle();
+    }
+
+    testWidgets('keeps every description on one line where there is room', (
+      tester,
+    ) async {
+      await open(tester, 1800, 1000);
+      final lines = find.descendant(
+        of: find.byType(RadioListTile<GridStyle>),
+        matching: find.byType(Text),
+      );
+      expect(lines, findsAtLeastNWidgets(GridStyle.values.length * 2));
+      final title = tester.getSize(find.text('Standard')).height;
+      for (final line in lines.evaluate()) {
+        expect(line.size!.height, lessThan(title * 1.5));
+      }
+      expect(tester.takeException(), isNull);
+    });
+
+    testWidgets('stays inside a phone and reaches its last style', (
+      tester,
+    ) async {
+      await open(tester, 360, 640);
+      expect(tester.takeException(), isNull);
+      expect(tester.getSize(find.byType(Dialog)).width, lessThanOrEqualTo(360));
+      final last = find.text('Compact');
+      await tester.ensureVisible(last);
+      await tester.pumpAndSettle();
+      await tester.tap(last);
+      await tester.pumpAndSettle();
+      expect(GetIt.I<AppSettings>().gridStyle.value, GridStyle.compact);
+    });
+  });
+
   testWidgets('the theme dialog switches the app to dark', (tester) async {
     _register();
     await tester.pumpWidget(const TesseraStudioApp());

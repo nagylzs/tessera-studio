@@ -212,27 +212,32 @@ class _RadioDialog<T> extends StatelessWidget {
   Widget build(BuildContext context) => AlertDialog(
     title: Text(title.replaceAll('…', '')),
     contentPadding: const EdgeInsets.symmetric(vertical: 16),
-    content: SizedBox(
-      width: 320,
+    // as wide as its longest line, where the window has room: a fixed width
+    // wrapped the descriptions at a larger text size. A scroll view and not
+    // a list, which could not tell the dialog how wide it wants to be.
+    content: ConstrainedBox(
+      constraints: const BoxConstraints(minWidth: 320),
       child: RadioGroup<T>(
         groupValue: value,
         onChanged: (v) {
           Navigator.pop(context);
           onChanged(v as T);
         },
-        child: ListView(
-          shrinkWrap: true,
-          children: [
-            for (final (v, label) in options)
-              RadioListTile<T>(
-                value: v,
-                title: Text(label),
-                subtitle: switch (subtitles[v]) {
-                  final s? => Text(s),
-                  null => null,
-                },
-              ),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              for (final (v, label) in options)
+                RadioListTile<T>(
+                  value: v,
+                  title: Text(label),
+                  subtitle: switch (subtitles[v]) {
+                    final s? => Text(s),
+                    null => null,
+                  },
+                ),
+            ],
+          ),
         ),
       ),
     ),
