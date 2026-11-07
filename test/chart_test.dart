@@ -473,6 +473,49 @@ void main() {
       ]);
     });
 
+    // Found on the owner's Mac, 2026-11-07: "Nothing to chart here".
+    group('swapped', () {
+      Map<String, List<(String, double, double)>> bySeries(ChartContent c) => {
+        for (final s in c.scatter!.series)
+          s.label: [for (final p in s.points) (p.label, p.x, p.y)],
+      };
+
+      test('has a point per column and a series per row', () async {
+        final facts = await _facts();
+        final cube = _cube(
+          facts,
+          columns: const [year],
+          aggregates: [amount, units],
+        );
+        final content = _content(
+          cube,
+          settings: const ChartSettings(
+            kind: ChartKind.scatter,
+            transpose: true,
+          ),
+        );
+        expect(content.problem, isNull);
+        final series = bySeries(content);
+        expect(series['EU'], [('2023', 30.0, 3.0), ('2024', 30.0, 3.0)]);
+        expect(series['Asia'], [('2024', 5.0, 6.0)]);
+      });
+
+      test('without columns, every row is a series of one point', () async {
+        final facts = await _facts();
+        final cube = _cube(facts, aggregates: [amount, units]);
+        final content = _content(
+          cube,
+          settings: const ChartSettings(
+            kind: ChartKind.scatter,
+            transpose: true,
+          ),
+        );
+        expect(content.problem, isNull);
+        final points = content.scatter!.points.map((p) => (p.x, p.y)).toSet();
+        expect(points, containsAll({(5.0, 6.0), (60.0, 6.0), (90.0, 9.0)}));
+      });
+    });
+
     test('of the current cell plots its breakdown', () async {
       final facts = await _facts();
       final cube = _cube(facts, aggregates: [amount, units]);
@@ -590,6 +633,47 @@ void main() {
         LineAxis.of(ChartData.fromLayout(mixed.layout)),
         isA<CategoryAxis>(),
       );
+    });
+  });
+
+  group('room for a scatter chart\'s dots', () {
+    // the owner's Mac: 448,848 on an axis ending at 450K, half over its edge
+    test('an axis does not end right at a value near a round number', () {
+      final range = AxisRange(
+        withDotRoom([183228, 231686, 273170, 448848], extent: 800, radius: 11),
+        includeZero: false,
+      );
+      const hi = 448848.0;
+      final pixels = (range.max - hi) / (range.max - range.min) * 800;
+      expect(pixels, greaterThanOrEqualTo(11));
+      expect(range.min, lessThan(183228));
+    });
+
+    test('plain values stay above zero', () {
+      final range = AxisRange(
+        withDotRoom([0, 50, 100], extent: 800, radius: 11),
+        includeZero: false,
+      );
+      expect(range.min, 0);
+      expect(range.max, greaterThan(100));
+    });
+
+    test('negative values get room below them', () {
+      final range = AxisRange(
+        withDotRoom([-100, 100], extent: 800, radius: 11),
+        includeZero: false,
+      );
+      expect(range.min, lessThan(-100));
+      expect(range.max, greaterThan(100));
+    });
+
+    test('a single point has room on both sides', () {
+      final range = AxisRange(
+        withDotRoom([100], extent: 800, radius: 11),
+        includeZero: false,
+      );
+      expect(range.min, lessThan(100));
+      expect(range.max, greaterThan(100));
     });
   });
 

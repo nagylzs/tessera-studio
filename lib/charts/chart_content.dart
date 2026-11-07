@@ -265,8 +265,9 @@ ChartContent chartContent({
       layout,
       x: x,
       y: y,
-      points: transpose ? seriesChoice : categories,
-      series: transpose ? categories : seriesChoice,
+      // by what they are, not by axis: with transpose it swaps them itself
+      points: categories,
+      series: seriesChoice,
       transpose: transpose,
       strings: strings,
     );

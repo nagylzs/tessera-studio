@@ -126,6 +126,28 @@ class AxisRange {
   }
 }
 
+/// [values] with room beyond them for a dot of [radius] on an axis [extent]
+/// long. An [AxisRange] alone ends close to any value near a round number,
+/// with its dot half over the edge of the plot. Values that are not negative
+/// stay so: an axis into the negatives would suggest there are some.
+List<double> withDotRoom(
+  Iterable<double> values, {
+  required double extent,
+  required double radius,
+}) {
+  if (values.isEmpty) return const [];
+  final lo = values.reduce(math.min);
+  final hi = values.reduce(math.max);
+  final span = hi - lo;
+  final free = extent - 2 * radius;
+  final room = span == 0
+      ? (lo == 0 ? 1.0 : lo.abs() * 0.05)
+      : free > 0
+      ? span * radius / free
+      : span;
+  return [...values, lo >= 0 ? math.max(lo - room, 0.0) : lo - room, hi + room];
+}
+
 /// How the numbers of an axis read in [locale]: short forms ("12K", "3.4M")
 /// from five digits up, unless they would make two ticks read the same,
 /// and as many decimals as the interval needs.
@@ -879,15 +901,18 @@ Widget _scatter(BuildContext context, ScatterData data) {
       pathLabel(strings, s.path ?? DimensionPath.root, s.label);
   final spots = <ScatterSpot>[];
   final labels = <(double, double), String>{};
+  var biggest = 0.0;
   for (var s = 0; s < data.series.length; s++) {
     for (final p in data.series[s].points) {
+      final radius = 3 + math.log(p.factCount + 1);
+      biggest = math.max(biggest, radius);
       spots.add(
         ScatterSpot(
           p.x,
           p.y,
           dotPainter: FlDotCirclePainter(
             color: colors[s].withValues(alpha: 0.85),
-            radius: 3 + math.log(p.factCount + 1),
+            radius: radius,
           ),
         ),
       );
@@ -907,8 +932,14 @@ Widget _scatter(BuildContext context, ScatterData data) {
           padding: _rightMargin,
           child: LayoutBuilder(
             builder: (context, constraints) {
+              // the plot is a little smaller than this, hence the margin
+              final room = biggest + 2;
               final xRange = AxisRange(
-                [for (final s in spots) s.x],
+                withDotRoom(
+                  [for (final s in spots) s.x],
+                  extent: constraints.maxWidth,
+                  radius: room,
+                ),
                 includeZero: false,
                 ticks: _ticksFor(
                   constraints.maxWidth,
@@ -916,7 +947,11 @@ Widget _scatter(BuildContext context, ScatterData data) {
                 ),
               );
               final yRange = AxisRange(
-                [for (final s in spots) s.y],
+                withDotRoom(
+                  [for (final s in spots) s.y],
+                  extent: constraints.maxHeight,
+                  radius: room,
+                ),
                 includeZero: false,
                 ticks: _ticksFor(constraints.maxHeight),
               );
