@@ -8,6 +8,8 @@
   landscape, above it on a tablet in portrait, in its place on a phone, with
   a full screen of its own. Remembered per file structure.
 * Export: a showing chart saves or shares as a PNG.
+* The grid style dialog is as wide as its descriptions need, so they stay on
+  one line at a larger text size where the window has room.
 
 ## 1.2.0
 

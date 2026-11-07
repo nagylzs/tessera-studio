@@ -82,6 +82,11 @@ conventions live in `CLAUDE.md`, not here.
       "2025-01-01 00:00:00.000Z" (`Dimension.formatValue` in tessera, found
       2026-11-07). The charts shorten it themselves; the grid, the
       current-cell line and the exports do not. Library work.
+- [ ] Large text outside the charts (found 2026-11-07 while testing them;
+      fine at the owner's 1.5, debug builds show it, release builds cut it
+      quietly): at 2 a 17 px overflow to the right before the cube opens, on
+      a phone either way up, not pinned down; at 3 the schema page's bar by
+      349 px and the editors by 850 px in a 900 × 500 window.
 - [ ] Entry points beyond the desktop argument, Android intents, the
       clipboard and drag and drop: a web `?open=<url>` query parameter,
       Windows and Linux file associations with packaging (below).
