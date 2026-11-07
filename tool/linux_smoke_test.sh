@@ -38,7 +38,15 @@ launch() {
   name=$1
   shift
   "$@" >"$shots/$name.log" 2>&1 &
-  win=$(timeout 90 xdotool search --sync --onlyvisible --class "$id" | head -1)
+  # xdotool dies of a BadWindow when a window goes away while it looks, such
+  # as the last launch's, so an empty answer only counts when the time is up.
+  win=
+  deadline=$(($(date +%s) + 90))
+  while [ -z "$win" ] && [ "$(date +%s)" -lt "$deadline" ]; do
+    win=$(timeout 90 xdotool search --sync --onlyvisible --class "$id" \
+      2>/dev/null | head -1)
+    [ -n "$win" ] || sleep 1
+  done
   if [ -z "$win" ]; then
     echo "$name: no window after 90 s"
     cat "$shots/$name.log"
