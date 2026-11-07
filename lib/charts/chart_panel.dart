@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'dart:math' as math;
+
 import 'package:flutter/gestures.dart' show PointerDeviceKind;
 import 'package:flutter/material.dart';
 import 'package:signals_flutter/signals_flutter.dart';
@@ -213,11 +215,20 @@ class _ChartPanelState extends State<ChartPanel> {
         child: LayoutBuilder(
           builder: (context, constraints) {
             final controls = _controls(context, settings, content);
-            return Column(
+            final scale = chartTextScale(context);
+            // large text, or editors above a short window, can leave less
+            // than a chart needs: the pane scrolls then, nothing is cut
+            final needed =
+                40 * scale +
+                8 +
+                chartMinHeight(context) +
+                (caption.isEmpty ? 0 : 4 + 32 * scale);
+            final low = constraints.maxHeight < math.max(420, needed);
+            final column = Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 // low panes keep their height for the chart
-                if (constraints.maxHeight < 420)
+                if (low)
                   ScrollConfiguration(
                     behavior: ScrollConfiguration.of(
                       context,
@@ -242,12 +253,17 @@ class _ChartPanelState extends State<ChartPanel> {
                     child: Text(
                       caption.join('\n'),
                       style: Theme.of(context).textTheme.bodySmall,
-                      maxLines: constraints.maxHeight < 420 ? 2 : 4,
+                      maxLines: low ? 2 : 4,
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
               ],
             );
+            return constraints.maxHeight >= needed
+                ? column
+                : SingleChildScrollView(
+                    child: SizedBox(height: needed, child: column),
+                  );
           },
         ),
       );
@@ -418,7 +434,8 @@ class _Picker<T> extends StatelessWidget {
           ),
       ],
       child: Container(
-        height: 36,
+        // a minimum: the button grows with the user's text size
+        constraints: const BoxConstraints(minHeight: 36),
         padding: const EdgeInsets.only(left: 12, right: 4),
         decoration: BoxDecoration(
           border: Border.all(color: scheme.outlineVariant),

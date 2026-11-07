@@ -171,10 +171,35 @@ double _axisWidth(
 
 const _axisFontSize = 10.0;
 
+/// Set on the style, not inherited: [_bottomSize] depends on it.
+const _axisLineHeight = 1.3;
+
 TextStyle _axisStyle(BuildContext context) => TextStyle(
   fontSize: _axisFontSize,
+  height: _axisLineHeight,
   color: Theme.of(context).colorScheme.onSurfaceVariant,
 );
+
+/// How much larger than usual the user has their text, on axis labels.
+double chartTextScale(BuildContext context) =>
+    MediaQuery.textScalerOf(context).scale(_axisFontSize) / _axisFontSize;
+
+/// The least height a [ChartFigure] can be drawn in: the labels under the
+/// plot, a full legend, and some plot.
+double chartMinHeight(BuildContext context) =>
+    100 + 50 * chartTextScale(context);
+
+/// The gap fl_chart leaves above a bottom title ([SideTitleWidget.space]).
+const _bottomGap = 8.0;
+
+/// Height of the bottom titles: [lines] lines of labels at the user's text
+/// size. A fixed height only fits the size it was tried at: with text at
+/// 150 % in the system, two lines overflowed 48. Each line is a [Text] of
+/// its own, which rounds its height up, hence by line and not in total.
+double _bottomSize(BuildContext context, int lines) {
+  final line = chartTextScale(context) * _axisFontSize * _axisLineHeight;
+  return lines * line.ceilToDouble() + _bottomGap;
+}
 
 /// The legend fl_chart does not draw: a swatch per series. Scrolls when
 /// there is no room for it all.
@@ -221,7 +246,7 @@ FlTitlesData _titles(
   required AxisRange left,
   required Widget Function(double value, TitleMeta meta) bottom,
   double? bottomInterval,
-  double bottomSize = 28,
+  int bottomLines = 1,
   // the end labels of a numeric or time axis collide with their neighbours
   bool bottomEnds = true,
 }) {
@@ -244,7 +269,7 @@ FlTitlesData _titles(
     bottomTitles: AxisTitles(
       sideTitles: SideTitles(
         showTitles: true,
-        reservedSize: bottomSize,
+        reservedSize: _bottomSize(context, bottomLines),
         interval: bottomInterval,
         minIncluded: bottomEnds,
         maxIncluded: bottomEnds,
@@ -336,15 +361,15 @@ List<String> _seriesLabels(BuildContext context, ChartData data) {
 /// Whether any category sits below the first level.
 bool _deep(ChartData data) => data.categories.any((c) => c.path.length > 1);
 
-/// Height of the bottom titles: two lines for deep categories.
-double _bottomSize(ChartData data) => _deep(data) ? 48 : 28;
+/// Lines of a category's label: its ancestors above it when it has any.
+int _categoryLines(ChartData data) => _deep(data) ? 2 : 1;
 
 /// Narrowest slot a category's name is written in: narrower ones share
 /// their name's slot with their neighbours, whose names are left out. Text
 /// may be cut short and still say something; a date or a number may not,
 /// so it needs its whole width.
 double _minLabelWidth(BuildContext context, ChartData data, TextStyle style) {
-  const atLeast = 48.0;
+  final atLeast = 48.0 * chartTextScale(context);
   final strings = TesseraLocalizations.of(context);
   final cs = data.categories;
   if (!cs.every((c) => c.value is DateTime || c.value is num)) return atLeast;
@@ -403,7 +428,8 @@ Widget Function(double, TitleMeta) _categoryTitles(
       // a name wider than its bar stays on the chart at both ends
       fitInside: SideTitleFitInsideData.fromTitleMeta(meta),
       child: SizedBox(
-        width: slot * step,
+        // a little air, or neighbours cut short read as one word
+        width: math.max(slot * step - 4, 0),
         child: ancestors == null
             ? line(own)
             : Column(
@@ -506,7 +532,7 @@ Widget _bars(BuildContext context, ChartData data, {required bool stacked}) {
                   context,
                   left: range,
                   bottom: _categoryTitles(context, data),
-                  bottomSize: _bottomSize(data),
+                  bottomLines: _categoryLines(data),
                 ),
                 gridData: _grid(context, range.interval),
                 borderData: FlBorderData(show: false),
@@ -697,7 +723,9 @@ Widget _line(BuildContext context, ChartData source) {
                       ticks: _ticksFor(
                         constraints.maxWidth,
                         // dates are wide
-                        per: axis is PeriodAxis ? 110 : 90,
+                        per:
+                            (axis is PeriodAxis ? 110 : 90) *
+                            chartTextScale(context),
                       ),
                       minInterval: axis is PeriodAxis ? 1 : 0,
                     );
@@ -743,7 +771,7 @@ Widget _line(BuildContext context, ChartData source) {
                     bottom: bottom,
                     bottomInterval: xRange?.interval ?? 1,
                     bottomEnds: xRange == null,
-                    bottomSize: xRange == null ? _bottomSize(data) : 28,
+                    bottomLines: xRange == null ? _categoryLines(data) : 1,
                   ),
                   gridData: _grid(context, range.interval),
                   borderData: FlBorderData(show: false),
@@ -882,7 +910,10 @@ Widget _scatter(BuildContext context, ScatterData data) {
               final xRange = AxisRange(
                 [for (final s in spots) s.x],
                 includeZero: false,
-                ticks: _ticksFor(constraints.maxWidth, per: 90),
+                ticks: _ticksFor(
+                  constraints.maxWidth,
+                  per: 90 * chartTextScale(context),
+                ),
               );
               final yRange = AxisRange(
                 [for (final s in spots) s.y],

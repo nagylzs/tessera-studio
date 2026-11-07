@@ -474,4 +474,67 @@ void main() {
       expect(tester.takeException(), isNull, reason: code);
     }
   });
+
+  // The owner's desktop runs at 1.5, and phones go to 2: every height and
+  // width around a chart's text has to follow it.
+  group('at a larger text size', () {
+    Future<void> everyChart(
+      WidgetTester tester,
+      double scale, {
+      required double width,
+      required double height,
+    }) async {
+      _size(tester, width, height);
+      _register();
+      await _toCube(tester);
+      tester.platformDispatcher.textScaleFactorTestValue = scale;
+      addTearDown(tester.platformDispatcher.clearTextScaleFactorTestValue);
+      await tester.pumpAndSettle();
+      await _showChart(tester);
+      // two levels on an axis: the labels with two lines
+      final ctrl = _state.cube.controller.value!;
+      ctrl.updateSpec(
+        ctrl.cube.spec.copyWith(
+          rows: CubeAxis.of(const [
+            ColumnDimension('region'),
+            ColumnDimension('product'),
+          ]),
+        ),
+      );
+      ctrl.expandRowLevel(0);
+      await tester.pumpAndSettle();
+      for (final kind in ChartKind.values) {
+        // swapped: the rows' names in a legend
+        for (final transpose in const [false, true]) {
+          _state.cube.chart.update(
+            ChartSettings(kind: kind, transpose: transpose),
+          );
+          await tester.pumpAndSettle();
+          expect(
+            tester.takeException(),
+            isNull,
+            reason: '$kind, $transpose at $scale in $width × $height',
+          );
+        }
+      }
+    }
+
+    for (final scale in const [1.0, 1.3, 1.5, 2.0, 3.0]) {
+      testWidgets('$scale beside the grid', (tester) async {
+        await everyChart(tester, scale, width: 1200, height: 800);
+      });
+      testWidgets('$scale on a phone', (tester) async {
+        await everyChart(tester, scale, width: 400, height: 800);
+      });
+      testWidgets('$scale on a phone on its side', (tester) async {
+        await everyChart(tester, scale, width: 800, height: 360);
+      });
+      // not at 3: the editors alone overflow that, chart or no chart
+      if (scale < 3) {
+        testWidgets('$scale beside the grid, in a low window', (tester) async {
+          await everyChart(tester, scale, width: 900, height: 500);
+        });
+      }
+    }
+  });
 }
