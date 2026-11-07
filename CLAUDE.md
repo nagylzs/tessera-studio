@@ -381,7 +381,10 @@ the next step.
   and the app had a light PDF variant until 2026-10-11). PDF fonts: Noto Sans Regular/Bold subsets in
   `assets/fonts/` (Latin incl. Extended-A/B/Additional, combining marks,
   Greek, Cyrillic, punctuation, currency; `tool/subset_fonts.sh`, about
-  240 KB each), SIL OFL in `assets/fonts/OFL.txt`, registered with the
+  240 KB each; each empty glyph but the space's holds one point, which draws
+  nothing, because `package:pdf` embeds the next glyph's outline for an empty
+  one, and the no-break space, tessera's thousands separator in cs, fr, hu, pl
+  and ru, printed as "¡" until 2026-11-07), SIL OFL in `assets/fonts/OFL.txt`, registered with the
   `LicenseRegistry` in `main`. No CJK glyphs (TODO). Verified on the
   API 36 emulator: share sheet, the documents UI save dialog (Downloads),
   a Hungarian PDF through `pdftotext`/`pdftoppm`.

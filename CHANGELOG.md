@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.2.1
+
+* PDF exports: in Czech, French, Hungarian, Polish and Russian the space
+  between the thousands of a number printed as "¡" ("1¡771¡020"). It is a
+  space again.
+
 ## 1.2.0
 
 * Help for expressions: the ? at the end of every expression field
@@ -18,9 +24,9 @@
 
 ## 1.1.0
 
-The same version in every store. 1.0.0, the first release, came out in
-each store as it was approved; Google Play, Linux and the portable
-Windows build start with this one.
+The same version in every store but Google Play, whose first public
+release is 1.2.1. 1.0.0, the first release, came out in each store as it
+was approved; Linux and the portable Windows build start with this one.
 
 * Workbooks (`.xlsx`, `.ods`) open on the sheet they were saved on, as
   Excel and LibreOffice do, passing over hidden and empty sheets. With

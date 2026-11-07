@@ -16,7 +16,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 # In Windows, build-name is used as the major, minor, and patch parts
 # of the product and file versions while build-number is used as the build suffix.
-version: 1.2.0+11
+version: 1.2.1+12
 
 environment:
   sdk: ^3.13.3
@@ -69,6 +69,8 @@ dev_dependencies:
   tessera: ^0.2.2
   # builds the workbooks of the sheet tests
   archive: ^4.0.7
+  # reads the bundled fonts as the PDF exports do (test/pdf_fonts_test.dart)
+  pdf: ^3.11.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
