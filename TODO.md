@@ -68,8 +68,8 @@ conventions live in `CLAUDE.md`, not here.
       chose the data, the phone's switch and PNG only on 2026-11-06; the
       tablet rule and the defaults were proposed then, without objection.
 - [ ] Charts, before they ship: try them on real devices (the Xiaomi pad,
-      a phone, Windows) and on the web, where the PNG export has not run; so
-      far Linux under Xvfb, the API 36 phone and tablet emulators and the Mac
+      a phone) and on the web, where the PNG export has not run; so far Linux
+      under Xvfb, the API 36 phone and tablet emulators, the Mac and Windows
       (2026-11-07 at `d01669a`, with a PNG through the real save dialog, before
       the new export dialog), CI compiles the rest. Then the README's feature list, the
       store listings in 14 languages and the screenshots, and publish the
@@ -92,7 +92,8 @@ conventions live in `CLAUDE.md`, not here.
         release build (`~/transfer/tessera-studio/reports/20261107-0945-mac.md`).
       - Windows: do not use `share_plus` for files. Its mixed path makes the
         dialog fail, and with a native path it stays loading, cannot be
-        selected from or closed, and outlives the app until Explorer restarts.
+        selected from or closed, and outlives the app until Explorer restarts
+        (`~/transfer/tessera-studio/reports/20261107-1034-windows.md`).
         It would not reach the owner's Betterbird anyway, and neither would MAPI
         while the PC's default mail client points at a missing Thunderbird.
       - Linux: `share_plus` refuses files; it would take our own code (the
