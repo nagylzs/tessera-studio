@@ -107,9 +107,13 @@ conventions live in `CLAUDE.md`, not here.
       of 56.0, which exceeds the viewport height of 20.0"; the Mac, 2026-11-07).
 - [ ] The stores' pivot PDFs print the thousands separator as "¡" in cs, fr,
       hu, pl and ru ("1¡771¡020"), since at least 1.1.0. Fixed in the bundled
-      fonts on `charts` (2026-11-07), so it goes out with the charts, unless
-      the owner wants it sooner. The cause is in `package:pdf` (3.13.0 and
-      3.13.1, `TtfParser.readGlyph`), which has not been told.
+      fonts on `charts` (`0d783e6`). Owner, 2026-11-07: it goes into the first
+      Android production release, so once Google ships `1.2.0+11`, that commit
+      goes on `main` with a new build number. `pdf` is no direct dependency
+      there, so its test needs it as a dev dependency. The other stores' next
+      builds get it from `main` too. The cause is in `package:pdf` (3.13.0 and
+      3.13.1, `TtfParser.readGlyph`): reported as DavBfr/dart_pdf#2003, and the
+      open #1980 holds the same check among much else.
 - [ ] Large text outside the charts (found 2026-11-07 while testing them;
       fine at the owner's 1.5, debug builds show it, release builds cut it
       quietly): at 2 a 17 px overflow to the right before the cube opens, on
