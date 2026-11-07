@@ -5,8 +5,9 @@
 * Charts: the chart button shows the pivot as bars, stacked bars, a line, a
   pie or a scatter chart, and follows it live. It can also break the current
   cell down by another column. Beside the grid on a desktop or a tablet in
-  landscape, above it on a tablet in portrait, in its place on a phone, with
-  a full screen of its own. Remembered per file structure.
+  landscape, above it on a tablet in portrait, in its place on a phone. On
+  any of them a button lets it fill the window, and Esc or back returns.
+  Remembered per file structure.
 * Export: a showing chart saves or shares as a PNG.
 * The grid style dialog is as wide as its descriptions need, so they stay on
   one line at a larger text size where the window has room.

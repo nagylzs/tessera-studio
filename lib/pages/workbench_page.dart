@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart' show PointerDeviceKind;
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart' show KeyDownEvent, LogicalKeyboardKey;
 import 'package:get_it/get_it.dart';
 import 'package:intl/intl.dart' show NumberFormat;
 import 'package:signals_flutter/signals_flutter.dart';
@@ -47,10 +48,17 @@ class WorkbenchPage extends StatefulWidget {
   State<WorkbenchPage> createState() => _WorkbenchPageState();
 }
 
+/// What fills the screen: the grid, by a tap on a value on a touch screen,
+/// or the chart, by its button.
+enum _FullScreen { grid, chart }
+
 class _WorkbenchPageState extends State<WorkbenchPage> {
   OpenedDocument get document => widget.document;
 
-  bool _fullScreen = false;
+  _FullScreen? _fullScreen;
+
+  /// Holds the keyboard while the chart fills the screen, for Esc.
+  final _fullChartFocus = FocusNode(debugLabel: 'full screen chart');
 
   /// Keeps the grid's scroll position when its parents change (full
   /// screen, a switch of layout).
@@ -67,11 +75,17 @@ class _WorkbenchPageState extends State<WorkbenchPage> {
   /// Set while an export is written; a progress bar shows under the bar.
   bool _exporting = false;
 
-  void _setFullScreen(bool value) {
+  void _setFullScreen(_FullScreen? value) {
     if (value == _fullScreen) return;
     setState(() => _fullScreen = value);
     final bars = GetIt.I<SystemBars>();
-    value ? bars.hide() : bars.show();
+    value != null ? bars.hide() : bars.show();
+    if (value == _FullScreen.chart) {
+      // it has no node to take the focus from the grid until it is built
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) _fullChartFocus.requestFocus();
+      });
+    }
   }
 
   void _cellTapped(bool editorsInline) {
@@ -85,8 +99,11 @@ class _WorkbenchPageState extends State<WorkbenchPage> {
     final alongside =
         GetIt.I<AppState>().cube.chart.visible.value &&
         _placement != ChartPlacement.instead;
-    if (touch && (_fullScreen || (!editorsInline && !alongside))) {
-      _setFullScreen(!_fullScreen);
+    if (!touch) return;
+    if (_fullScreen != null) {
+      _setFullScreen(null);
+    } else if (!editorsInline && !alongside) {
+      _setFullScreen(_FullScreen.grid);
     }
   }
 
@@ -94,8 +111,8 @@ class _WorkbenchPageState extends State<WorkbenchPage> {
   /// out of the file.
   void _back(AppState state) {
     final chart = state.cube.chart;
-    if (_fullScreen) {
-      _setFullScreen(false);
+    if (_fullScreen != null) {
+      _setFullScreen(null);
     } else if (chart.visible.value && _placement == ChartPlacement.instead) {
       chart.setVisible(false);
     } else {
@@ -105,7 +122,8 @@ class _WorkbenchPageState extends State<WorkbenchPage> {
 
   @override
   void dispose() {
-    if (_fullScreen) GetIt.I<SystemBars>().show();
+    if (_fullScreen != null) GetIt.I<SystemBars>().show();
+    _fullChartFocus.dispose();
     super.dispose();
   }
 
@@ -223,7 +241,7 @@ class _WorkbenchPageState extends State<WorkbenchPage> {
             final canExport =
                 ctrl != null && !state.cube.importing.value && !_exporting;
             return Scaffold(
-              appBar: _fullScreen
+              appBar: _fullScreen != null
                   ? null
                   : AppBar(
                       title: DocumentTitle(
@@ -318,7 +336,7 @@ class _WorkbenchPageState extends State<WorkbenchPage> {
               body: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  if (!_fullScreen &&
+                  if (_fullScreen == null &&
                       (state.restored.value != null ||
                           state.restoredLayout.value != null))
                     _restoredBanner(context, state),
@@ -477,11 +495,25 @@ class _WorkbenchPageState extends State<WorkbenchPage> {
       ),
     );
     final content = _withChart(state, ctrl, view, shown, editorsInline);
-    // Nothing but the grid or a phone's chart, kept clear of a notch.
-    if (_fullScreen) {
-      return SafeArea(
-        child: _placement == ChartPlacement.instead ? content : view,
-      );
+    // Nothing but the grid or the chart, kept clear of a notch.
+    switch (_fullScreen) {
+      case _FullScreen.grid:
+        return SafeArea(child: view);
+      case _FullScreen.chart:
+        return Focus(
+          focusNode: _fullChartFocus,
+          onKeyEvent: (_, event) {
+            if (event is! KeyDownEvent ||
+                event.logicalKey != LogicalKeyboardKey.escape) {
+              return KeyEventResult.ignored;
+            }
+            _setFullScreen(null);
+            return KeyEventResult.handled;
+          },
+          child: SafeArea(child: content),
+        );
+      case null:
+        break;
     }
     if (!editorsInline) return content;
     return Column(
@@ -505,19 +537,19 @@ class _WorkbenchPageState extends State<WorkbenchPage> {
     final chart = state.cube.chart;
     if (!chart.visible.value) return view;
     final settings = GetIt.I<AppSettings>();
-    final instead = _placement == ChartPlacement.instead;
+    final fullChart = _fullScreen == _FullScreen.chart;
     final panel = ChartPanel(
       key: _chartKey,
       controller: ctrl,
       dimensions: state.cube.dimensions.value,
       state: chart,
       shown: shown,
-      fullScreen: _fullScreen,
-      onFullScreen: instead ? () => _setFullScreen(!_fullScreen) : null,
+      fullScreen: fullChart,
+      onFullScreen: () => _setFullScreen(fullChart ? null : _FullScreen.chart),
     );
     // The chart's captions and buttons, unlike the grid's scrolling cells,
     // must keep clear of a gesture bar or a notch where they touch the edge.
-    return switch (_placement) {
+    return switch (fullChart ? ChartPlacement.instead : _placement) {
       ChartPlacement.beside => SplitView(
         axis: Axis.horizontal,
         fraction: settings.chartSplit.value,

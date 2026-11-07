@@ -66,7 +66,7 @@ class ChartPanel extends StatefulWidget {
     required this.dimensions,
     required this.state,
     this.shown,
-    this.onFullScreen,
+    required this.onFullScreen,
     this.fullScreen = false,
   });
 
@@ -80,8 +80,8 @@ class ChartPanel extends StatefulWidget {
   final List<Aggregate>? shown;
 
   /// Set where a button should offer the whole screen, or leave it when
-  /// [fullScreen]: phones.
-  final VoidCallback? onFullScreen;
+  /// [fullScreen].
+  final VoidCallback onFullScreen;
 
   /// The figure alone, no controls.
   final bool fullScreen;
@@ -368,12 +368,11 @@ class _ChartPanelState extends State<ChartPanel> {
           onPressed: () =>
               _update(settings.copyWith(transpose: !settings.transpose)),
         ),
-      if (widget.onFullScreen != null)
-        IconButton(
-          icon: const Icon(Icons.fullscreen),
-          tooltip: l10n.chartFullScreen,
-          onPressed: widget.onFullScreen,
-        ),
+      IconButton(
+        icon: const Icon(Icons.fullscreen),
+        tooltip: l10n.chartFullScreen,
+        onPressed: widget.onFullScreen,
+      ),
     ];
   }
 }

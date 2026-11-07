@@ -3,6 +3,7 @@ import 'dart:typed_data';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/gestures.dart' show PointerDeviceKind;
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart' show LogicalKeyboardKey;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get_it/get_it.dart';
 import 'package:tessera_flutter/tessera_flutter.dart';
@@ -288,6 +289,95 @@ void main() {
       expect(_bars.hidden, isTrue);
       await _back(tester);
       expect(_bars.hidden, isFalse);
+    });
+  });
+
+  group('the chart fills the window', () {
+    Future<void> full(WidgetTester tester, double w, double h) async {
+      _size(tester, w, h);
+      _register();
+      await _toCube(tester);
+      await _showChart(tester);
+      await _tapTooltip(tester, 'Full screen');
+      expect(find.byType(AppBar), findsNothing);
+      expect(find.byType(SplitView), findsNothing);
+      expect(find.byType(BarChart), findsOneWidget);
+      expect(find.byType(CubeView), findsNothing); // offstage
+      expect(tester.getSize(find.byType(ChartPanel)), Size(w, h));
+      expect(tester.takeException(), isNull);
+    }
+
+    void backBeside(WidgetTester tester) {
+      expect(find.byType(AppBar), findsOneWidget);
+      expect(find.byType(SplitView), findsOneWidget);
+      expect(find.byType(CubeView), findsOneWidget);
+      expect(find.byType(BarChart), findsOneWidget);
+      expect(tester.takeException(), isNull);
+    }
+
+    testWidgets('beside the grid, and its button brings it back', (
+      tester,
+    ) async {
+      await full(tester, 1400, 900);
+      await _tapTooltip(tester, 'Exit full screen');
+      backBeside(tester);
+    });
+
+    testWidgets('above the grid too', (tester) async {
+      await full(tester, 800, 1200);
+      await _tapTooltip(tester, 'Exit full screen');
+      backBeside(tester);
+    });
+
+    testWidgets('Esc and back bring it back', (tester) async {
+      await full(tester, 1400, 900);
+      await tester.sendKeyEvent(LogicalKeyboardKey.escape);
+      await tester.pumpAndSettle();
+      backBeside(tester);
+
+      await _tapTooltip(tester, 'Full screen');
+      await _back(tester);
+      backBeside(tester);
+      // and back then closes the file, as it did
+      await _back(tester);
+      expect(find.byType(WorkbenchPage), findsNothing);
+    });
+
+    testWidgets('Esc does not leave a page that is not full screen', (
+      tester,
+    ) async {
+      _size(tester, 1400, 900);
+      _register();
+      await _toCube(tester);
+      await _showChart(tester);
+      await tester.sendKeyEvent(LogicalKeyboardKey.escape);
+      await tester.pumpAndSettle();
+      backBeside(tester);
+    });
+
+    testWidgets('the grid keeps its place and the chart its settings', (
+      tester,
+    ) async {
+      await full(tester, 1400, 900);
+      _state.cube.chart.update(const ChartSettings(kind: ChartKind.pie));
+      await tester.pumpAndSettle();
+      expect(find.byType(PieChart), findsOneWidget);
+      await tester.sendKeyEvent(LogicalKeyboardKey.escape);
+      await tester.pumpAndSettle();
+      expect(find.byType(PieChart), findsOneWidget);
+      expect(_state.cube.chart.settings.value.kind, ChartKind.pie);
+    });
+
+    testWidgets('a window made small stays on the chart', (tester) async {
+      await full(tester, 1400, 900);
+      _size(tester, 400, 800);
+      await tester.pumpAndSettle();
+      expect(find.byType(BarChart), findsOneWidget);
+      expect(find.byType(AppBar), findsNothing);
+      expect(tester.takeException(), isNull);
+      await _tapTooltip(tester, 'Exit full screen');
+      expect(find.byType(AppBar), findsOneWidget);
+      expect(find.byType(BarChart), findsOneWidget);
     });
   });
 

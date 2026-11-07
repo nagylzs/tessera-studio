@@ -420,8 +420,10 @@ the next step.
   asked for) adds a `ChartPanel` placed by `ChartPlacement.of(window)`:
   `beside` the grid from 840 × 480 dp, `above` it from 600 × 600, else
   `instead` of it, a phone either way up, where the button and back return
-  to the grid, which waits `Offstage` with its scroll position, and a button
-  gives the chart the whole screen. `SplitView` is the divider; its share is
+  to the grid, which waits `Offstage` with its scroll position. In any of
+  the three a button gives the chart the whole window (`_FullScreen.chart`,
+  which draws it as `instead`; Esc, back or the button leave it), as a tap on
+  a value does for the grid on a touch screen. `SplitView` is the divider; its share is
   the global `AppSettings.chartSplit`. `chartContent` (`chart_content.dart`,
   no widgets, tested against the grid's cells) resolves `ChartSettings`
   against the cube on every change, as an aggregate or dimension may be gone,
