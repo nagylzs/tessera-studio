@@ -68,9 +68,10 @@ conventions live in `CLAUDE.md`, not here.
       chose the data, the phone's switch and PNG only on 2026-11-06; the
       tablet rule and the defaults were proposed then, without objection.
 - [ ] Charts, before they ship: try them on real devices (the Xiaomi pad,
-      a phone, the Mac, Windows) and on the web, where the PNG export has
-      not run; so far Linux under Xvfb and the API 36 phone and tablet
-      emulators, CI compiles the rest. Then the README's feature list, the
+      a phone, Windows) and on the web, where the PNG export has not run; so
+      far Linux under Xvfb, the API 36 phone and tablet emulators and the Mac
+      (2026-11-07 at `d01669a`, with a PNG through the real save dialog, before
+      the new export dialog), CI compiles the rest. Then the README's feature list, the
       store listings in 14 languages and the screenshots, and publish the
       privacy page with its new date.
 - [ ] Charts, later: vector export. `fl_chart` draws on a canvas only, so
@@ -82,6 +83,28 @@ conventions live in `CLAUDE.md`, not here.
       "2025-01-01 00:00:00.000Z" (`Dimension.formatValue` in tessera, found
       2026-11-07). The charts shorten it themselves; the grid, the
       current-cell line and the exports do not. Library work.
+- [ ] Idea (owner, 2026-11-07; "not important"): on desktops, Save as… and a
+      second button to send the file, side by side. On the Mac the owner first
+      looked for Save as… in the share menu. Tried at `d01669a` by adding the
+      platform to `canShare`:
+      - macOS: `share_plus` works. The menu opens at the button, Mail gets the
+        attachment under its real name, accents too, in the sandbox and the
+        release build (`~/transfer/tessera-studio/reports/20261107-0945-mac.md`).
+      - Windows: do not use `share_plus` for files. Its mixed path makes the
+        dialog fail, and with a native path it stays loading, cannot be
+        selected from or closed, and outlives the app until Explorer restarts.
+        It would not reach the owner's Betterbird anyway, and neither would MAPI
+        while the PC's default mail client points at a missing Thunderbird.
+      - Linux: `share_plus` refuses files; it would take our own code (the
+        desktop portal's email call or `xdg-email --attach`), not tried.
+      None of these reach webmail.
+- [ ] A grid narrower than its row headers shows no values: the pinned
+      columns fill it (`TableView` warns "pinned columns ... exceeds the
+      viewport width"). Found on the Mac on 2026-11-07, dragging the chart's
+      divider to its limit, with headers of 235 px in 200. The app cannot
+      know that width, so `SplitView` cannot stop there; the grid could stop
+      pinning what does not fit. Library work (`CubeView`). A phone with
+      several row dimensions probably meets it too; not tried.
 - [ ] Large text outside the charts (found 2026-11-07 while testing them;
       fine at the owner's 1.5, debug builds show it, release builds cut it
       quietly): at 2 a 17 px overflow to the right before the cube opens, on
