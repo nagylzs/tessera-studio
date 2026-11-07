@@ -158,8 +158,9 @@ class _WorkbenchPageState extends State<WorkbenchPage> {
       },
       chartPng: !cubeState.chart.visible.value
           ? null
-          : () => chartPng(
+          : (look) => chartPng(
               context,
+              look: look,
               content: chartContent(
                 cube: ctrl.cube,
                 settings: cubeState.chart.settings.value,

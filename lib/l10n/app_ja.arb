@@ -133,6 +133,7 @@
   "chartFirstSeries": "{total} 系列のうち最初の {shown} 件を表示しています。",
   "chartPieLeftOut": "値が正でないため除外したグループ: {count}",
   "chartOthers": "その他",
+  "chartTransparent": "背景を透明にする",
   "exportChart": "グラフ",
   "formatPng": "PNG 画像",
   "chartFileName": "{name} グラフ"

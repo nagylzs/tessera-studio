@@ -133,6 +133,7 @@
   "chartFirstSeries": "Zobrazené řady: {shown} z {total}.",
   "chartPieLeftOut": "Vynechané skupiny, protože jejich hodnota není kladná: {count}.",
   "chartOthers": "Ostatní",
+  "chartTransparent": "Průhledné pozadí",
   "exportChart": "Graf",
   "formatPng": "Obrázek PNG",
   "chartFileName": "{name} graf"

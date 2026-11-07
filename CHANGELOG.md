@@ -8,7 +8,11 @@
   landscape, above it on a tablet in portrait, in its place on a phone. On
   any of them a button lets it fill the window, and Esc or back returns.
   Remembered per file structure.
-* Export: a showing chart saves or shares as a PNG.
+* Export: a showing chart saves or shares as a PNG, light or dark, with its
+  background or on a transparent one.
+* The export dialog asks first what to export (the chart, the pivot table or
+  the facts), then lists only that one's formats, instead of every format of
+  all of them in one long list.
 * The grid style dialog is as wide as its descriptions need, so they stay on
   one line at a larger text size where the window has room.
 

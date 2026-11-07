@@ -133,6 +133,7 @@
   "chartFirstSeries": "Die ersten {shown} von {total} Reihen.",
   "chartPieLeftOut": "Ausgelassene Gruppen, weil ihr Wert nicht positiv ist: {count}.",
   "chartOthers": "Sonstige",
+  "chartTransparent": "Transparenter Hintergrund",
   "exportChart": "Diagramm",
   "formatPng": "PNG-Bild",
   "chartFileName": "{name} Diagramm"

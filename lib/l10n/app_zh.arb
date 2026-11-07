@@ -133,6 +133,7 @@
   "chartFirstSeries": "显示 {total} 个系列中的前 {shown} 个。",
   "chartPieLeftOut": "因值不为正而省略的分组：{count}。",
   "chartOthers": "其他",
+  "chartTransparent": "透明背景",
   "exportChart": "图表",
   "formatPng": "PNG 图像",
   "chartFileName": "{name} 图表"

@@ -360,12 +360,16 @@ the next step.
   Export (`lib/export/`, `lib/widgets/export_dialog.dart`): one bar
   button — Share where `ExportTarget.canShare` (Android, iOS; "Save as…"
   then heads the overflow menu), Save as… elsewhere — opens the format
-  dialog (`showExportDialog`: a showing chart in `ExportFormat.charts`, then
-  the cube in `ExportFormat.pivots`, then
-  "Facts as a table" in `ExportFormat.tables`, then "To reopen in
-  Tessera Studio" with `ExportFormat.snapshot` — `TesseraSnapshot()
+  dialog (`showExportDialog`: chips for the `ExportKind`, starting on a
+  showing chart, then one tap on a format: the chart in
+  `ExportFormat.charts`, its look above them, the cube in
+  `ExportFormat.pivots` with "To reopen in Tessera Studio" under them
+  (`ExportFormat.snapshot` — `TesseraSnapshot()
   .encode(facts, config: CubeConfig.of(cube))`, named `<source>.tsnp`,
-  all aggregates of the spec); `runExport` writes the
+  all aggregates of the spec), "Facts as a table" in
+  `ExportFormat.tables`. Its top edge is pinned, so the chips stay under the
+  pointer as the height follows the kind, and all of it scrolls as one, for
+  low windows); `runExport` writes the
   bytes on this isolate (`cubeExport` with the aggregates the grid
   shows, `factsExport` = `ExportTable.ofFacts` with the spec's filter)
   behind a `LinearProgressIndicator` under the bar, then
@@ -441,7 +445,9 @@ the next step.
   under `chart:<structureKey>` through `LayoutStore`, apart from the pivot,
   whose entry a return to the default deletes; a snapshot has no key. PNG
   export (`chart_image.dart`): drawn off screen in an `OverlayEntry`, at a
-  fixed 1000 × 640 × 2, light on white whatever the window and theme. The
+  fixed 1000 × 640 × 2, in the `ChartLook` chosen in the dialog whatever the
+  window and theme: light or dark, on its colour or on nothing, light on
+  white unless asked (`AppSettings.chartLook`, `settings:chartLook`). The
   grid's `ClipRect` and transparent `Material` keep its hover ink out of
   the chart; the `GlobalKey` must stay on the `ClipRect`, the outermost:
   on the `CubeView` the move asserts in semantics geometry. Everything around

@@ -309,17 +309,9 @@ void main() {
     await tester.pumpAndSettle();
     await tester.tap(find.text('Save as…'));
     await tester.pumpAndSettle();
-    // to the end of the list: the last "CSV file" is the facts' one
-    await tester.drag(
-      find.descendant(
-        of: find.byType(AlertDialog),
-        matching: find.byType(ListView),
-      ),
-      const Offset(0, -2000),
-    );
+    await tester.tap(find.text('Facts as a table'));
     await tester.pumpAndSettle();
-    expect(find.text('Facts as a table'), findsOneWidget);
-    await tester.tap(find.text('CSV file').last);
+    await tester.tap(find.text('CSV file'));
     await tester.pumpAndSettle();
     expect(exports.saved.single.fileName, 'sales facts.csv');
     final lines = utf8.decode(exports.saved.single.bytes).trim().split('\n');
@@ -539,14 +531,6 @@ void main() {
     _register();
     await _toCube(tester);
     await tester.tap(find.byTooltip('Save as…'));
-    await tester.pumpAndSettle();
-    await tester.drag(
-      find.descendant(
-        of: find.byType(AlertDialog),
-        matching: find.byType(ListView),
-      ),
-      const Offset(0, -2000),
-    );
     await tester.pumpAndSettle();
     expect(find.text('To reopen in Tessera Studio'), findsOneWidget);
     await tester.tap(find.text('Tessera snapshot'));

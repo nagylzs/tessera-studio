@@ -714,6 +714,10 @@
   "@chartOthers": {
     "description": "Legend of a pie chart: the small slices merged into one."
   },
+  "chartTransparent": "Transparent background",
+  "@chartTransparent": {
+    "description": "Option in the export dialog: the exported chart has no background, for putting it on a page or a slide of any colour."
+  },
   "exportChart": "Chart",
   "@exportChart": {
     "description": "Heading in the export dialog: the chart as an image."

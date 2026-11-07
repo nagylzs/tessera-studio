@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:signals_flutter/signals_flutter.dart';
 
+import '../charts/chart_settings.dart';
 import '../style/grid_style.dart';
 
 /// Where the axis and aggregate editors live on the cube page.
@@ -52,6 +53,9 @@ abstract interface class SettingsStore {
   /// The grid's share of a window split with a chart, `null` for half.
   Future<double?> readChartSplit();
   Future<void> writeChartSplit(double? fraction);
+
+  Future<String?> readChartLook();
+  Future<void> writeChartLook(String? name);
 }
 
 final class PreferencesSettingsStore implements SettingsStore {
@@ -107,6 +111,16 @@ final class PreferencesSettingsStore implements SettingsStore {
   Future<void> writeChartSplit(double? fraction) => fraction == null
       ? _prefs.remove(_chartSplit)
       : _prefs.setDouble(_chartSplit, fraction);
+
+  static const _chartLook = 'settings:chartLook';
+
+  @override
+  Future<String?> readChartLook() => _prefs.getString(_chartLook);
+
+  @override
+  Future<void> writeChartLook(String? name) => name == null
+      ? _prefs.remove(_chartLook)
+      : _prefs.setString(_chartLook, name);
 }
 
 /// In-memory store for tests.
@@ -149,6 +163,14 @@ final class MemorySettingsStore implements SettingsStore {
 
   @override
   Future<void> writeChartSplit(double? fraction) async => chartSplit = fraction;
+
+  String? chartLook;
+
+  @override
+  Future<String?> readChartLook() async => chartLook;
+
+  @override
+  Future<void> writeChartLook(String? name) async => chartLook = name;
 }
 
 /// The user's settings as signals the `MaterialApp` reads. Both default
@@ -167,6 +189,9 @@ final class AppSettings {
 
   /// The first pane's share of a window split between grid and chart.
   final chartSplit = signal(0.5);
+
+  /// How the last exported chart looked: the next one starts from it.
+  final chartLook = signal<ChartLook>(plainChartLook);
 
   /// Reads the stored values; call once before the first frame.
   Future<void> load() async {
@@ -189,6 +214,23 @@ final class AppSettings {
       orElse: () => GridStyle.standard,
     );
     chartSplit.value = await _store.readChartSplit() ?? 0.5;
+    final look = await _store.readChartLook();
+    chartLook.value = (
+      dark: look?.contains('dark') ?? false,
+      transparent: look?.contains('transparent') ?? false,
+    );
+  }
+
+  Future<void> setChartLook(ChartLook look) async {
+    chartLook.value = look;
+    await _store.writeChartLook(
+      look == plainChartLook
+          ? null
+          : [
+              if (look.dark) 'dark',
+              if (look.transparent) 'transparent',
+            ].join(' '),
+    );
   }
 
   Future<void> setChartSplit(double fraction) async {

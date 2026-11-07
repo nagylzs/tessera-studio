@@ -133,6 +133,7 @@
   "chartFirstSeries": "Pokazane serie: {shown} z {total}.",
   "chartPieLeftOut": "Pominięte grupy, bo ich wartość nie jest dodatnia: {count}.",
   "chartOthers": "Inne",
+  "chartTransparent": "Przezroczyste tło",
   "exportChart": "Wykres",
   "formatPng": "Obraz PNG",
   "chartFileName": "{name} wykres"

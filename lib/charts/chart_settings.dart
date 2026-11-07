@@ -14,6 +14,13 @@ enum ChartSource {
   cell,
 }
 
+/// How an exported chart looks. Light on white unless asked, as exports go on
+/// paper. On no background the text has to suit the page it will land on,
+/// which only the user knows, so [dark] stays a choice of its own.
+typedef ChartLook = ({bool dark, bool transparent});
+
+const plainChartLook = (dark: false, transparent: false);
+
 /// Where the chart goes in a window, next to the grid or in its place.
 enum ChartPlacement {
   /// Beside the grid: desktops and tablets in landscape.

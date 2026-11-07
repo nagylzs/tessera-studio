@@ -9,6 +9,7 @@ import '../app.dart' show tesseraGreen;
 import 'chart_content.dart';
 import 'chart_drawing.dart';
 import 'chart_panel.dart';
+import 'chart_settings.dart';
 
 /// The size of an exported chart, whatever the window: a chart made on a
 /// phone reads as well in a document as one made on a desktop.
@@ -18,13 +19,14 @@ const chartImageSize = Size(1000, 640);
 const chartImageRatio = 2.0;
 
 /// [content] as a PNG, headed by [title] and with its caption. Drawn off
-/// screen and on a light background, whatever the theme: exports go on
-/// paper, like the grid's. Needs a frame to draw in.
+/// screen in the [look] asked for, whatever the app's theme. Needs a frame
+/// to draw in.
 Future<Uint8List> chartPng(
   BuildContext context, {
   required ChartContent content,
   required Cube cube,
   required String title,
+  ChartLook look = plainChartLook,
 }) async {
   final boundary = GlobalKey();
   final entry = OverlayEntry(
@@ -39,8 +41,16 @@ Future<Uint8List> chartPng(
         child: MediaQuery(
           data: const MediaQueryData(textScaler: TextScaler.noScaling),
           child: Theme(
-            data: ThemeData(colorSchemeSeed: tesseraGreen),
-            child: _ChartPage(content: content, cube: cube, title: title),
+            data: ThemeData(
+              colorSchemeSeed: tesseraGreen,
+              brightness: look.dark ? Brightness.dark : Brightness.light,
+            ),
+            child: _ChartPage(
+              content: content,
+              cube: cube,
+              title: title,
+              look: look,
+            ),
           ),
         ),
       ),
@@ -68,17 +78,24 @@ class _ChartPage extends StatelessWidget {
     required this.content,
     required this.cube,
     required this.title,
+    required this.look,
   });
 
   final ChartContent content;
   final Cube cube;
   final String title;
+  final ChartLook look;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Material(
-      color: Colors.white,
+      type: look.transparent ? MaterialType.transparency : MaterialType.canvas,
+      color: switch (look) {
+        (transparent: true, dark: _) => null,
+        (transparent: false, dark: true) => theme.colorScheme.surface,
+        (transparent: false, dark: false) => Colors.white,
+      },
       child: Padding(
         padding: const EdgeInsets.all(24),
         child: Column(

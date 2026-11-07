@@ -133,6 +133,7 @@
   "chartFirstSeries": "Affichage des {shown} premières séries sur {total}.",
   "chartPieLeftOut": "Groupes omis, car leur valeur n’est pas positive : {count}.",
   "chartOthers": "Autres",
+  "chartTransparent": "Arrière-plan transparent",
   "exportChart": "Graphique",
   "formatPng": "Image PNG",
   "chartFileName": "{name} graphique"

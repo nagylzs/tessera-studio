@@ -133,6 +133,7 @@
   "chartFirstSeries": "Az első {shown} adatsor látszik, összesen {total} van.",
   "chartPieLeftOut": "Kihagyott csoportok, mert az értékük nem pozitív: {count}.",
   "chartOthers": "Egyéb",
+  "chartTransparent": "Átlátszó háttér",
   "exportChart": "Diagram",
   "formatPng": "PNG-kép",
   "chartFileName": "{name} diagram"

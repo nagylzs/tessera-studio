@@ -133,6 +133,7 @@
   "chartFirstSeries": "Показано рядов: {shown} из {total}.",
   "chartPieLeftOut": "Группы, исключённые из-за неположительного значения: {count}.",
   "chartOthers": "Прочее",
+  "chartTransparent": "Прозрачный фон",
   "exportChart": "Диаграмма",
   "formatPng": "Изображение PNG",
   "chartFileName": "{name} диаграмма"

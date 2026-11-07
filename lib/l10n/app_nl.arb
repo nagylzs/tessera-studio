@@ -133,6 +133,7 @@
   "chartFirstSeries": "De eerste {shown} van {total} reeksen.",
   "chartPieLeftOut": "Weggelaten groepen omdat hun waarde niet positief is: {count}.",
   "chartOthers": "Overige",
+  "chartTransparent": "Transparante achtergrond",
   "exportChart": "Grafiek",
   "formatPng": "PNG-afbeelding",
   "chartFileName": "{name} grafiek"

@@ -1,5 +1,8 @@
 import 'package:tessera_flutter/tessera_flutter.dart' show TesseraSnapshot;
 
+/// What is exported; each has its own formats in [ExportFormat].
+enum ExportKind { chart, pivot, facts }
+
 /// What an export writes: the cube as shown in one of [pivots], the facts
 /// behind it as a plain table in one of [tables], or both at once in a
 /// [snapshot], which Tessera Studio reopens as it was; the chart in one

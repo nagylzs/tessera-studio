@@ -133,6 +133,7 @@
   "chartFirstSeries": "{total} serinin ilk {shown} tanesi gösteriliyor.",
   "chartPieLeftOut": "Değeri pozitif olmadığı için atlanan gruplar: {count}.",
   "chartOthers": "Diğer",
+  "chartTransparent": "Saydam arka plan",
   "exportChart": "Grafik",
   "formatPng": "PNG resmi",
   "chartFileName": "{name} grafik"

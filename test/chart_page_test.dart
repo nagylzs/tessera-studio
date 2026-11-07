@@ -1,4 +1,6 @@
+import 'dart:async';
 import 'dart:typed_data';
+import 'dart:ui' as ui;
 
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/gestures.dart' show PointerDeviceKind;
@@ -22,6 +24,7 @@ import 'package:tessera_studio/state/app_state.dart';
 import 'package:tessera_studio/state/layout_store.dart';
 import 'package:tessera_studio/state/schema_store.dart';
 import 'package:tessera_studio/state/settings.dart';
+import 'package:tessera_studio/widgets/export_dialog.dart';
 import 'package:tessera_studio/widgets/split_view.dart';
 
 import 'fakes.dart';
@@ -536,6 +539,245 @@ void main() {
       expect(header.getUint32(4), 1280);
       // nothing of the off-screen drawing stays behind
       expect(find.byType(BarChart), findsOneWidget);
+    });
+
+    /// Taps the PNG in the open dialog and returns what is saved.
+    Future<Uint8List> savePng(WidgetTester tester) async {
+      _exports.saved.clear();
+      await tester.runAsync(() async {
+        await tester.tap(find.text('PNG image'));
+        await tester.pump();
+        for (var i = 0; i < 200 && _exports.saved.isEmpty; i++) {
+          await Future<void>.delayed(const Duration(milliseconds: 10));
+          await tester.pump();
+        }
+      });
+      await tester.pumpAndSettle();
+      return _exports.saved.single.bytes;
+    }
+
+    /// The image's bytes as RGBA.
+    Future<ByteData> rgba(WidgetTester tester, Uint8List png) async =>
+        (await tester.runAsync(() async {
+          final codec = await ui.instantiateImageCodec(png);
+          final frame = await codec.getNextFrame();
+          final data = await frame.image.toByteData();
+          frame.image.dispose();
+          codec.dispose();
+          return data!;
+        }))!;
+
+    Color corner(ByteData data) => Color.fromARGB(
+      data.getUint8(3),
+      data.getUint8(0),
+      data.getUint8(1),
+      data.getUint8(2),
+    );
+
+    bool anyPainted(ByteData data) {
+      for (var i = 3; i < data.lengthInBytes; i += 4) {
+        if (data.getUint8(i) == 255) return true;
+      }
+      return false;
+    }
+
+    testWidgets('a chart comes on white, dark or no background', (
+      tester,
+    ) async {
+      _size(tester, 1400, 900);
+      _register();
+      await _toCube(tester);
+      await _showChart(tester);
+
+      await _tapTooltip(tester, 'Save as…');
+      final white = await rgba(tester, await savePng(tester));
+      expect(corner(white), const Color(0xFFFFFFFF));
+
+      await _tapTooltip(tester, 'Save as…');
+      await tester.tap(find.text('Dark'));
+      await tester.pumpAndSettle();
+      final dark = await rgba(tester, await savePng(tester));
+      expect(corner(dark).a, 1);
+      expect(corner(dark).computeLuminance(), lessThan(0.05));
+
+      await _tapTooltip(tester, 'Save as…');
+      await tester.tap(find.text('Transparent background'));
+      await tester.pumpAndSettle();
+      final clear = await rgba(tester, await savePng(tester));
+      expect(corner(clear).a, 0);
+      // the chart itself is still there, on nothing
+      expect(anyPainted(clear), isTrue);
+      expect(_settings.chartLook, 'dark transparent');
+
+      // the choice stays, and comes back as it was
+      await _tapTooltip(tester, 'Save as…');
+      final box = tester.widget<CheckboxListTile>(
+        find.byType(CheckboxListTile),
+      );
+      expect(box.value, isTrue);
+      await tester.tap(find.text('Transparent background'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Light'));
+      await tester.pumpAndSettle();
+      expect(_settings.chartLook, isNull); // the plain look stores nothing
+      await tester.tap(find.text('Cancel'));
+      await tester.pumpAndSettle();
+    });
+
+    testWidgets('the app keeps its theme while a dark chart is drawn', (
+      tester,
+    ) async {
+      _size(tester, 1400, 900);
+      _register();
+      await _toCube(tester);
+      await _showChart(tester);
+      final before = Theme.of(tester.element(find.byType(ChartPanel)));
+      await _tapTooltip(tester, 'Save as…');
+      await tester.tap(find.text('Dark'));
+      await tester.pumpAndSettle();
+      await savePng(tester);
+      final after = Theme.of(tester.element(find.byType(ChartPanel)));
+      expect(after.brightness, before.brightness);
+    });
+  });
+
+  group('the export dialog', () {
+    Finder inDialog(Finder of) =>
+        find.descendant(of: find.byType(AlertDialog), matching: of);
+
+    testWidgets('no chart: it starts on the pivot, with no chart to choose', (
+      tester,
+    ) async {
+      _size(tester, 1400, 900);
+      _register();
+      await _toCube(tester);
+      await _tapTooltip(tester, 'Save as…');
+      expect(find.widgetWithText(ChoiceChip, 'Chart'), findsNothing);
+      expect(find.text('Web page'), findsOneWidget);
+      expect(find.text('PNG image'), findsNothing);
+      expect(find.text('Transparent background'), findsNothing);
+      // a snapshot goes with the pivot
+      expect(find.text('Tessera snapshot'), findsOneWidget);
+      expect(tester.takeException(), isNull);
+    });
+
+    testWidgets('a chart showing: it starts on the chart', (tester) async {
+      _size(tester, 1400, 900);
+      _register();
+      await _toCube(tester);
+      await _showChart(tester);
+      await _tapTooltip(tester, 'Save as…');
+      expect(find.text('PNG image'), findsOneWidget);
+      expect(find.text('Web page'), findsNothing);
+      expect(find.text('Transparent background'), findsOneWidget);
+      expect(tester.takeException(), isNull);
+    });
+
+    testWidgets('each kind lists its own formats; the chips stay put', (
+      tester,
+    ) async {
+      _size(tester, 1400, 900);
+      _register();
+      await _toCube(tester);
+      await _showChart(tester);
+      await _tapTooltip(tester, 'Save as…');
+      final chip = tester.getTopLeft(find.widgetWithText(ChoiceChip, 'Chart'));
+
+      await tester.tap(find.widgetWithText(ChoiceChip, 'Pivot table'));
+      await tester.pumpAndSettle();
+      expect(find.text('Web page'), findsOneWidget);
+      expect(find.text('PNG image'), findsNothing);
+      expect(tester.getTopLeft(find.widgetWithText(ChoiceChip, 'Chart')), chip);
+
+      await tester.tap(find.text('Facts as a table'));
+      await tester.pumpAndSettle();
+      // the facts have no HTML, and a table has no snapshot of its own
+      expect(find.text('Web page'), findsNothing);
+      expect(find.text('Tessera snapshot'), findsNothing);
+      expect(find.text('CSV file'), findsOneWidget);
+      expect(tester.getTopLeft(find.widgetWithText(ChoiceChip, 'Chart')), chip);
+    });
+
+    testWidgets('a pivot saved with a chart showing is still the pivot', (
+      tester,
+    ) async {
+      _size(tester, 1400, 900);
+      _register();
+      await _toCube(tester);
+      await _showChart(tester);
+      await _tapTooltip(tester, 'Save as…');
+      await tester.tap(find.widgetWithText(ChoiceChip, 'Pivot table'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('CSV file'));
+      await tester.pumpAndSettle();
+      expect(_exports.saved.single.fileName, 'sales pivot.csv');
+    });
+
+    for (final (w, h, scale) in const [
+      (360.0, 640.0, 1.0),
+      (360.0, 640.0, 2.0),
+      (640.0, 360.0, 1.5),
+      (1400.0, 900.0, 1.5),
+      (1400.0, 900.0, 3.0),
+    ]) {
+      testWidgets('fits $w × $h at text size $scale, every row in reach', (
+        tester,
+      ) async {
+        _size(tester, w, h);
+        _register();
+        await _toCube(tester);
+        tester.platformDispatcher.textScaleFactorTestValue = scale;
+        addTearDown(tester.platformDispatcher.clearTextScaleFactorTestValue);
+        await tester.pumpAndSettle();
+        await _showChart(tester);
+        await _tapTooltip(tester, 'Save as…');
+        expect(tester.takeException(), isNull);
+        expect(tester.getSize(find.byType(Dialog)).width, lessThanOrEqualTo(w));
+        expect(inDialog(find.text('PNG image')), findsOneWidget);
+
+        await tester.tap(find.widgetWithText(ChoiceChip, 'Pivot table'));
+        await tester.pumpAndSettle();
+        expect(tester.takeException(), isNull);
+        final last = find.text('Tessera snapshot');
+        await tester.ensureVisible(last);
+        await tester.pumpAndSettle();
+        await tester.tap(last);
+        await tester.pumpAndSettle();
+        expect(_exports.saved.single.fileName, 'sales.tsnp');
+        expect(tester.takeException(), isNull);
+      });
+    }
+
+    testWidgets('fits every language', (tester) async {
+      _size(tester, 360, 640);
+      _register();
+      await _toCube(tester);
+      await _showChart(tester);
+      for (final code in const [
+        'cs',
+        'de',
+        'en',
+        'es',
+        'fr',
+        'hu',
+        'it',
+        'ja',
+        'nl',
+        'pl',
+        'pt',
+        'ru',
+        'tr',
+        'zh',
+      ]) {
+        await GetIt.I<AppSettings>().setLocale(Locale(code));
+        await tester.pumpAndSettle();
+        final context = tester.element(find.byType(ChartPanel));
+        unawaited(showExportDialog(context, title: 'T', chart: true));
+        await tester.pumpAndSettle();
+        expect(tester.takeException(), isNull, reason: code);
+        Navigator.of(tester.element(find.byType(AlertDialog))).pop();
+        await tester.pumpAndSettle();
+      }
     });
   });
 

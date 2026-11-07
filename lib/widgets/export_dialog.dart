@@ -1,18 +1,20 @@
+import 'dart:async';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:tessera_flutter/tessera_flutter.dart';
 
+import '../charts/chart_settings.dart';
 import '../export/export_format.dart';
 import '../export/export_target.dart';
 import '../export/exports.dart';
 import '../l10n/generated/app_localizations.dart';
+import '../state/settings.dart';
 import '../style/grid_style.dart';
 
-/// A format from the export dialog; [facts] = the facts as a table
-/// rather than the cube.
-typedef ExportChoice = ({ExportFormat format, bool facts});
+/// What the export dialog asks for; a snapshot counts as the pivot.
+typedef ExportChoice = ({ExportKind kind, ExportFormat format, ChartLook look});
 
 /// Asks for a format, writes the export of [cube] (with the [aggregates]
 /// the grid shows, in its [style]) and shares it ([share]) or saves it
@@ -20,7 +22,7 @@ typedef ExportChoice = ({ExportFormat format, bool facts});
 /// titles start from [baseName] (`OpenedDocument.exportBaseName`). [onBusy] brackets the writing,
 /// which runs on this isolate like the cube layout does. [shareOrigin] is
 /// the share button's rect, where an iPad's share popover points. With a
-/// [chartPng], a chart is showing: the dialog offers it first.
+/// [chartPng], a chart is showing: the dialog starts on it.
 Future<void> runExport(
   BuildContext context, {
   required String baseName,
@@ -30,7 +32,7 @@ Future<void> runExport(
   required bool share,
   Rect? shareOrigin,
   required ValueChanged<bool> onBusy,
-  Future<Uint8List> Function()? chartPng,
+  Future<Uint8List> Function(ChartLook look)? chartPng,
 }) async {
   final l10n = AppLocalizations.of(context);
   final strings = TesseraLocalizations.of(context);
@@ -46,11 +48,11 @@ Future<void> runExport(
   // a snapshot is the file itself again, under its own extension
   final stem = format == ExportFormat.snapshot
       ? baseName
-      : format == ExportFormat.png
-      ? l10n.chartFileName(baseName)
-      : choice.facts
-      ? l10n.factsFileName(baseName)
-      : l10n.pivotFileName(baseName);
+      : switch (choice.kind) {
+          ExportKind.chart => l10n.chartFileName(baseName),
+          ExportKind.facts => l10n.factsFileName(baseName),
+          ExportKind.pivot => l10n.pivotFileName(baseName),
+        };
   final fileName = '$stem.${format.extension}';
   final target = GetIt.I<ExportTarget>();
   try {
@@ -59,18 +61,18 @@ Future<void> runExport(
     try {
       // let the progress bar paint before the work holds the isolate
       await WidgetsBinding.instance.endOfFrame;
-      bytes = format == ExportFormat.png
-          ? await chartPng!()
-          : choice.facts
-          ? factsExport(cube, format, title: baseName)
-          : await cubeExport(
-              cube,
-              format,
-              title: baseName,
-              strings: strings,
-              aggregates: aggregates,
-              style: style,
-            );
+      bytes = switch (choice.kind) {
+        ExportKind.chart => await chartPng!(choice.look),
+        ExportKind.facts => factsExport(cube, format, title: baseName),
+        ExportKind.pivot => await cubeExport(
+          cube,
+          format,
+          title: baseName,
+          strings: strings,
+          aggregates: aggregates,
+          style: style,
+        ),
+      };
     } finally {
       onBusy(false);
     }
@@ -100,63 +102,177 @@ Future<void> runExport(
   }
 }
 
-/// Every format: the [chart]'s when one is showing, the cube's, then the
-/// facts' as a table. A dialog rather than a menu: thumbs as well as mice.
+/// What to export and in which format. A dialog rather than a menu: thumbs
+/// as well as mice. It starts on the [chart] when one is showing.
 Future<ExportChoice?> showExportDialog(
   BuildContext context, {
   required String title,
   bool chart = false,
-}) {
-  final l10n = AppLocalizations.of(context);
-  return showDialog<ExportChoice>(
-    context: context,
-    builder: (context) {
-      final heading = Theme.of(context).textTheme.titleSmall
-          ?.copyWith(color: Theme.of(context).colorScheme.primary);
-      Widget header(String text) => Padding(
-        padding: const EdgeInsets.fromLTRB(24, 16, 24, 4),
-        child: Text(text, style: heading),
-      );
-      Widget tile(ExportFormat format, {required bool facts}) => ListTile(
-        contentPadding: const EdgeInsets.symmetric(horizontal: 24),
-        leading: Icon(formatIcon(format)),
-        title: Text(formatName(l10n, format)),
-        trailing: Text('.${format.extension}'),
-        onTap: () => Navigator.pop(context, (format: format, facts: facts)),
-      );
-      return AlertDialog(
-        title: Text(title),
-        contentPadding: const EdgeInsets.only(bottom: 8),
-        content: SizedBox(
-          width: 400,
-          child: ListView(
-            shrinkWrap: true,
-            children: [
-              if (chart) ...[
-                header(l10n.exportChart),
-                for (final f in ExportFormat.charts) tile(f, facts: false),
-                const Divider(),
-              ],
-              header(l10n.exportPivot),
-              for (final f in ExportFormat.pivots) tile(f, facts: false),
-              const Divider(),
-              header(l10n.exportFacts),
-              for (final f in ExportFormat.tables) tile(f, facts: true),
-              const Divider(),
-              header(l10n.exportSnapshot),
-              tile(ExportFormat.snapshot, facts: false),
+}) => showDialog<ExportChoice>(
+  context: context,
+  builder: (context) => _ExportDialog(title: title, chart: chart),
+);
+
+class _ExportDialog extends StatefulWidget {
+  const _ExportDialog({required this.title, required this.chart});
+
+  final String title;
+  final bool chart;
+
+  @override
+  State<_ExportDialog> createState() => _ExportDialogState();
+}
+
+class _ExportDialogState extends State<_ExportDialog> {
+  final _settings = GetIt.I<AppSettings>();
+  late var _kind = widget.chart ? ExportKind.chart : ExportKind.pivot;
+
+  Widget _tile(ExportKind kind, ExportFormat format) {
+    final l10n = AppLocalizations.of(context);
+    return ListTile(
+      contentPadding: const EdgeInsets.symmetric(horizontal: 24),
+      visualDensity: VisualDensity.compact,
+      leading: Icon(formatIcon(format)),
+      title: Text(formatName(l10n, format)),
+      trailing: Text('.${format.extension}'),
+      onTap: () => Navigator.pop(context, (
+        kind: kind,
+        format: format,
+        look: _settings.chartLook.value,
+      )),
+    );
+  }
+
+  /// How the chart will look, then its formats.
+  List<Widget> _chart() {
+    final l10n = AppLocalizations.of(context);
+    final look = _settings.chartLook.value;
+    void change(ChartLook look) {
+      unawaited(_settings.setChartLook(look));
+      setState(() {});
+    }
+
+    return [
+      Padding(
+        padding: const EdgeInsets.fromLTRB(24, 4, 24, 0),
+        child: Align(
+          alignment: AlignmentDirectional.centerStart,
+          child: SegmentedButton<bool>(
+            showSelectedIcon: false,
+            segments: [
+              ButtonSegment(value: false, label: Text(l10n.themeLight)),
+              ButtonSegment(value: true, label: Text(l10n.themeDark)),
             ],
+            selected: {look.dark},
+            onSelectionChanged: (selected) =>
+                change((dark: selected.single, transparent: look.transparent)),
           ),
         ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: Text(MaterialLocalizations.of(context).cancelButtonLabel),
+      ),
+      CheckboxListTile(
+        contentPadding: const EdgeInsets.symmetric(horizontal: 24),
+        controlAffinity: ListTileControlAffinity.leading,
+        title: Text(l10n.chartTransparent),
+        value: look.transparent,
+        onChanged: (value) =>
+            change((dark: look.dark, transparent: value ?? false)),
+      ),
+      const Divider(),
+      for (final f in ExportFormat.charts) _tile(ExportKind.chart, f),
+    ];
+  }
+
+  List<Widget> _pivot() {
+    final l10n = AppLocalizations.of(context);
+    final theme = Theme.of(context);
+    return [
+      for (final f in ExportFormat.pivots) _tile(ExportKind.pivot, f),
+      const Divider(),
+      Padding(
+        padding: const EdgeInsets.fromLTRB(24, 8, 24, 4),
+        child: Text(
+          l10n.exportSnapshot,
+          style: theme.textTheme.titleSmall?.copyWith(
+            color: theme.colorScheme.primary,
           ),
-        ],
-      );
-    },
-  );
+        ),
+      ),
+      _tile(ExportKind.pivot, ExportFormat.snapshot),
+    ];
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    final kinds = [
+      if (widget.chart) ExportKind.chart,
+      ExportKind.pivot,
+      ExportKind.facts,
+    ];
+    return AlertDialog(
+      // its top stays put, so the chips stay under the pointer from one kind
+      // to the next, however many formats each has
+      alignment: Alignment.topCenter,
+      insetPadding: EdgeInsets.fromLTRB(
+        40,
+        MediaQuery.sizeOf(context).height * 0.1,
+        40,
+        24,
+      ),
+      // all of it scrolls: in a low window, a list of its own under the title
+      // and the chips would have room for a row or two
+      scrollable: true,
+      title: Text(widget.title),
+      contentPadding: const EdgeInsets.only(bottom: 8),
+      // as wide as its longest line where the window has room
+      content: ConstrainedBox(
+        constraints: const BoxConstraints(minWidth: 400),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            // chips, which wrap, as long names and large text may not fit
+            Padding(
+              padding: const EdgeInsets.fromLTRB(24, 12, 16, 8),
+              child: Wrap(
+                runSpacing: 4,
+                children: [
+                  for (final kind in kinds)
+                    // not the Wrap's spacing, which its width leaves out
+                    Padding(
+                      padding: const EdgeInsetsDirectional.only(end: 8),
+                      child: ChoiceChip(
+                        showCheckmark: false,
+                        label: Text(switch (kind) {
+                          ExportKind.chart => l10n.exportChart,
+                          ExportKind.pivot => l10n.exportPivot,
+                          ExportKind.facts => l10n.exportFacts,
+                        }),
+                        selected: kind == _kind,
+                        onSelected: (_) => setState(() => _kind = kind),
+                      ),
+                    ),
+                ],
+              ),
+            ),
+            ...switch (_kind) {
+              ExportKind.chart => _chart(),
+              ExportKind.pivot => _pivot(),
+              ExportKind.facts => [
+                for (final f in ExportFormat.tables) _tile(ExportKind.facts, f),
+              ],
+            },
+          ],
+        ),
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.pop(context),
+          child: Text(MaterialLocalizations.of(context).cancelButtonLabel),
+        ),
+      ],
+    );
+  }
 }
 
 String formatName(AppLocalizations l10n, ExportFormat format) =>
