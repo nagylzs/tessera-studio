@@ -77,8 +77,16 @@ class _WorkbenchPageState extends State<WorkbenchPage> {
   /// Set while an export is written; a progress bar shows under the bar.
   bool _exporting = false;
 
+  /// The size the grid had when the chart took the whole window, which it
+  /// keeps meanwhile: at the window's size a pivot that scrolled in its pane
+  /// may fit, and the grid would come back at its top.
+  Size? _gridSizeBehindChart;
+
   void _setFullScreen(_FullScreen? value) {
     if (value == _fullScreen) return;
+    _gridSizeBehindChart = value == _FullScreen.chart
+        ? _gridKey.currentContext?.size
+        : null;
     setState(() => _fullScreen = value);
     final bars = GetIt.I<SystemBars>();
     value != null ? bars.hide() : bars.show();
@@ -595,7 +603,13 @@ class _WorkbenchPageState extends State<WorkbenchPage> {
       ChartPlacement.instead => Stack(
         fit: StackFit.expand,
         children: [
-          Offstage(child: view),
+          if (_gridSizeBehindChart case final size?)
+            Positioned.fromRect(
+              rect: Offset.zero & size,
+              child: Offstage(child: view),
+            )
+          else
+            Offstage(child: view),
           SafeArea(top: false, bottom: !editorsInline, child: panel),
         ],
       ),

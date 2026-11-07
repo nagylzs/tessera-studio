@@ -40,9 +40,12 @@ final class _Opener implements FileOpener {
   Future<OpenedDocument?> pick({String? dialogTitle}) async => OpenedDocument(
     name: 'sales.csv',
     format: FileFormat.csv,
-    bytes: Uint8List.fromList(_csv.codeUnits),
+    bytes: Uint8List.fromList(_data.codeUnits),
   );
 }
+
+/// What the file holds; a test may ask for more rows than a pane can show.
+var _data = _csv;
 
 late MemoryLayoutStore _layouts;
 late MemorySettingsStore _settings;
@@ -137,7 +140,10 @@ Future<void> _tapValue(
 }
 
 void main() {
-  setUp(() => GetIt.I.reset());
+  setUp(() {
+    _data = _csv;
+    return GetIt.I.reset();
+  });
 
   testWidgets('a file opens on its pivot; the chart comes when asked', (
     tester,
@@ -331,6 +337,65 @@ void main() {
       await _tapTooltip(tester, 'Exit full screen');
       backBeside(tester);
     });
+
+    // In the whole window a pivot that scrolled in its pane may fit: the grid,
+    // laid out offstage at that size, would go back to its top.
+    testWidgets('the grid is still scrolled where it was', (tester) async {
+      _data = [
+        'region,product,amount,units',
+        for (var i = 0; i < 40; i++) 'r$i,p$i,$i,$i',
+      ].join('\n');
+      _size(tester, 1200, 490);
+      _register();
+      await _toCube(tester);
+      await _showChart(tester);
+      ScrollPosition vertical() => tester
+          .state<ScrollableState>(
+            find.descendant(
+              of: find.byType(CubeView),
+              matching: find.byWidgetPredicate(
+                (w) => w is Scrollable && w.axis == Axis.vertical,
+              ),
+            ),
+          )
+          .position;
+      final scrolled = vertical().maxScrollExtent;
+      expect(scrolled, greaterThan(0));
+      vertical().jumpTo(scrolled);
+      await tester.pumpAndSettle();
+
+      await _tapTooltip(tester, 'Full screen');
+      await _tapTooltip(tester, 'Exit full screen');
+      expect(vertical().pixels, scrolled);
+
+      await _tapTooltip(tester, 'Full screen');
+      await tester.sendKeyEvent(LogicalKeyboardKey.escape);
+      await tester.pumpAndSettle();
+      expect(vertical().pixels, scrolled);
+      expect(tester.takeException(), isNull);
+    });
+
+    // In a low pane the other controls scroll sideways, out of the window.
+    for (final (w, h) in [
+      (1400.0, 900.0),
+      (1000.0, 490.0),
+      (800.0, 700.0),
+      (420.0, 700.0),
+    ]) {
+      testWidgets('its button stays in the corner of the pane at $w × $h', (
+        tester,
+      ) async {
+        _size(tester, w, h);
+        _register();
+        await _toCube(tester);
+        await _showChart(tester);
+        final pane = tester.getRect(find.byType(ChartPanel));
+        final button = tester.getRect(find.byTooltip('Full screen'));
+        expect(button.right, closeTo(pane.right, 12));
+        expect(button.top, closeTo(pane.top, 12));
+        expect(tester.takeException(), isNull);
+      });
+    }
 
     testWidgets('Esc and back bring it back', (tester) async {
       await full(tester, 1400, 900);

@@ -227,24 +227,39 @@ class _ChartPanelState extends State<ChartPanel> {
             final column = Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                // low panes keep their height for the chart
-                if (low)
-                  ScrollConfiguration(
-                    behavior: ScrollConfiguration.of(
-                      context,
-                    ).copyWith(dragDevices: PointerDeviceKind.values.toSet()),
-                    child: SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(spacing: 8, children: controls),
+                // in the corner, where the full screen's own button is: the
+                // others may scroll sideways, out of the window
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      // low panes keep their height for the chart
+                      child: low
+                          ? ScrollConfiguration(
+                              behavior: ScrollConfiguration.of(context)
+                                  .copyWith(
+                                    dragDevices: PointerDeviceKind.values
+                                        .toSet(),
+                                  ),
+                              child: SingleChildScrollView(
+                                scrollDirection: Axis.horizontal,
+                                child: Row(spacing: 8, children: controls),
+                              ),
+                            )
+                          : Wrap(
+                              spacing: 8,
+                              runSpacing: 8,
+                              crossAxisAlignment: WrapCrossAlignment.center,
+                              children: controls,
+                            ),
                     ),
-                  )
-                else
-                  Wrap(
-                    spacing: 8,
-                    runSpacing: 8,
-                    crossAxisAlignment: WrapCrossAlignment.center,
-                    children: controls,
-                  ),
+                    IconButton(
+                      icon: const Icon(Icons.fullscreen),
+                      tooltip: AppLocalizations.of(context).chartFullScreen,
+                      onPressed: widget.onFullScreen,
+                    ),
+                  ],
+                ),
                 const SizedBox(height: 8),
                 Expanded(child: figure),
                 if (caption.isNotEmpty)
@@ -368,11 +383,6 @@ class _ChartPanelState extends State<ChartPanel> {
           onPressed: () =>
               _update(settings.copyWith(transpose: !settings.transpose)),
         ),
-      IconButton(
-        icon: const Icon(Icons.fullscreen),
-        tooltip: l10n.chartFullScreen,
-        onPressed: widget.onFullScreen,
-      ),
     ];
   }
 }
