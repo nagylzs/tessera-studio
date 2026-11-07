@@ -780,7 +780,9 @@ the shell running it and kills that shell instead). **Stale icon
   the last build renders as a *wrong glyph* (not a blank). Delete
   `build/flutter_assets/fonts/MaterialIcons-Regular.otf` and rebuild;
   verify with fontTools (`TTFont(...).getBestCmap()`) that the code
-  points from `Icons` are present. Applies to the APK too.
+  points from `Icons` are present. Applies to the APK too. `flutter run
+  --release` does not tree-shake (the full 1.6 MB font, seen on the Mac and
+  Windows 2026-11-07), so it cannot show this: try a `flutter build`.
 
 ## Conventions (carried over from tessera)
 
