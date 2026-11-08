@@ -107,7 +107,9 @@ internal testing build; the Mac and Windows sessions build from `dev`.
       and the screenshots of the desktop and Google Play sets followed on
       2026-11-08 (charts and the style gallery); left: the Apple and
       Microsoft sets (next device round), and publishing the privacy page
-      with its new date.
+      (dated 2026-11-08: the chart kept with each pivot, and the settings
+      for color by depth and charts) together with 1.3.0, not before: the
+      released 1.2.1 stores neither.
 - [ ] A raw date on a pivot axis reads as a whole timestamp in the grid,
       "2025-01-01 00:00:00.000Z" (`Dimension.formatValue` in tessera, found
       2026-11-07). The charts shorten it themselves; the grid, the
