@@ -125,6 +125,14 @@ conventions live in `CLAUDE.md`, not here.
       comes back by itself from `LayoutStore`, unsaved schema edits
       only if they are restored too. Test with `adb shell am kill
       eu.nagylzs.tessera_studio` while the app is in the background.
+- [ ] Number formats in XLSX and ODS pivot exports (found 2026-11-08 by
+      the Windows test of 1.2.1): every value cell gets the export
+      theme's one format, `CubeExportTheme.numberFormat`, two decimals
+      by default, so a count reads "1 014,00" in Excel and LibreOffice
+      while the grid and the PDF say "1 014". Exports have done this
+      since 1.0. The fix belongs in tessera_xlsx and tessera_ods: a
+      format per aggregate, as the grid formats its cells (integers for
+      counts and integer sums), then the app takes the release.
 
 ## Packaging and release
 
@@ -168,10 +176,15 @@ conventions live in `CLAUDE.md`, not here.
         The released 1.1.0 has that bug in every store. Sent to Google's
         production review 2026-11-07 (managed publishing off). The owner
         decided on 2026-11-08 that the other stores follow with the same
-        1.2.1: iOS and macOS `1.2.1 (12)`, the MSIX 1.2.12.0, the GitHub
-        Release `v1.2.1`; the charts come later as 1.3.0.
+        1.2.1, and the charts come later as 1.3.0. On 2026-11-08: the
+        GitHub Release `v1.2.1` published (Linux packages, the Windows
+        zip); iOS and macOS `1.2.1 (12)` tested through TestFlight and
+        submitted (automatic release); the MSIX 1.2.12.0 submitted
+        (published as soon as it is certified). Each store's 1.2.1 goes
+        live on its approval; tick this item when all four are out.
       - The README's "Not released yet" note gave way to the store
-        links (2026-11-01); Google Play's joins them once it is live.
+        links (2026-11-01); Google Play's joined them on 2026-11-08,
+        while its production release was still in review.
 - [ ] Release signing in CI: the Android upload key, Apple
       certificates and profiles, Windows code signing — as CI secrets
       only; Play and App Store uploads manual at first. Android done
