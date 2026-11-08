@@ -91,12 +91,19 @@ internal testing build; the Mac and Windows sessions build from `dev`.
       phone in its place; remembered per structure; PNG export. The owner
       chose the data, the phone's switch and PNG only on 2026-11-06; the
       tablet rule and the defaults were proposed then, without objection.
-- [ ] Charts, before they ship: the web, where the PNG export has not run
-      (Chrome under Xvfb), and the real devices of "Next device round"; so
-      far Linux under Xvfb, the API 36 phone and tablet emulators, the Mac
-      and Windows (2026-11-07 at `23f84fa`), CI compiles the rest. Then the
-      README's feature list, the store listings in 14 languages and the
-      screenshots, and publish the privacy page with its new date.
+- [ ] Charts, before they ship: the real devices of "Next device round";
+      so far Linux under Xvfb, the API 36 phone and tablet emulators, the
+      Mac and Windows (2026-11-07 at `23f84fa`) and the web (2026-11-08 at
+      `eb04313`, Chrome under Xvfb: a snapshot through the file chooser, a
+      group toggled by its label, the chart beside the grid, full screen and
+      Esc, at 500 px in the grid's place and back, a pie, and PNG, SVG and PDF
+      downloaded and right). Then the README's feature list, the store
+      listings in 14 languages and the screenshots, and publish the privacy
+      page with its new date.
+- [ ] A chart's legend that does not fit scrolls inside its 76 px with no
+      sign that it does (found on the web, 2026-11-08: a pie of 12 slices at
+      500 px wide listed 11, Singapore hidden below). A visible scrollbar,
+      a fade at the edge, or more room before it scrolls.
 - [ ] Charts, later: the chart's own dimensions independent of the pivot
       (`ChartData.fromFacts`), a scatter of single facts
       (`ScatterData.ofFacts`), values on a pie's slices when touched.

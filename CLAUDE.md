@@ -775,6 +775,20 @@ and `XDG_CONFIG_HOME` pointing at a scratch directory whose
 `glib-2.0/settings/keyfile` has `[org/gnome/desktop/interface]` and
 `text-scaling-factor=1.5`. In tests,
 `tester.platformDispatcher.textScaleFactorTestValue`.
+The web build (first checked 2026-11-08): `flutter build web --release`,
+served by `python3 -m http.server 8765 --bind 127.0.0.1 --directory
+build/web`, in `google-chrome-stable` on Xvfb :5 with a scratch
+`--user-data-dir`, `--remote-debugging-address=127.0.0.1
+--remote-debugging-port=9471` (another session's Chrome may hold 9333 on
+127.0.0.1 while ours binds ::1, and its page then answers instead) and
+`--use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader`
+(without them WebGL is blocklisted under Xvfb and CanvasKit cannot draw).
+`node tool/web_check.mjs` drives it over the DevTools protocol: screenshots,
+clicks at coordinates, the file chooser answered with a path (`open`), the
+window size (`winsize`; Chrome stops at 500 px wide). Downloads land
+without a prompt in the folder named by the profile's
+`Default/Preferences` (`download.default_directory`, `prompt_for_download`
+false), written before the start.
 Stop the app and Xvfb by pid afterwards (`pkill -f <pattern>` matches
 the shell running it and kills that shell instead). **Stale icon
   font:** release builds tree-shake `MaterialIcons-Regular.otf` and the
