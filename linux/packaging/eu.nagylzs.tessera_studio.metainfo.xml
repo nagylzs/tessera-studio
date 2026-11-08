@@ -454,6 +454,7 @@
   </branding>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release version="1.2.1" date="2026-11-08"/>
     <release version="1.1.0" date="2026-11-01"/>
   </releases>
 </component>

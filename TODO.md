@@ -165,9 +165,11 @@ conventions live in `CLAUDE.md`, not here.
         1.2.0 and the PDF font fix from the `charts` branch (`0d783e6`:
         the no-break space, the thousands separator in cs, fr, hu, pl
         and ru, printed as "¡"; reported upstream as DavBfr/dart_pdf#2003).
-        The released 1.1.0 has that bug in every store. The App Store,
-        the Microsoft Store and the GitHub Release stay on 1.1.0 until the
-        owner decides when they follow.
+        The released 1.1.0 has that bug in every store. Sent to Google's
+        production review 2026-11-07 (managed publishing off). The owner
+        decided on 2026-11-08 that the other stores follow with the same
+        1.2.1: iOS and macOS `1.2.1 (12)`, the MSIX 1.2.12.0, the GitHub
+        Release `v1.2.1`; the charts come later as 1.3.0.
       - The README's "Not released yet" note gave way to the store
         links (2026-11-01); Google Play's joins them once it is live.
 - [ ] Release signing in CI: the Android upload key, Apple
