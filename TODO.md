@@ -167,28 +167,6 @@ internal testing build; the Mac and Windows sessions build from `dev`.
 
 ## App
 
-- [ ] **For 1.3.0** (owner, 2026-11-08): colour by depth, a switch over
-      any grid style: a value cell's colour follows the depth of its row,
-      of its column, of both, or of neither ("off"). Today two styles
-      shade by depth on their own terms (Gradient by row + column depth,
-      Hue levels by the row's alone, `LevelColor`, `LevelBasis`); the
-      switch makes that the user's choice. In all 14 languages, and in the
-      exports too. Built 2026-11-08 with the gallery (next item).
-- [ ] **For 1.3.0** (owner, 2026-11-08): a gallery of grid styles,
-      replacing the six of "Grid style…" (the old theme-gallery idea of
-      2026-10-09). A style interface in `tessera` that gives the colours,
-      the font family, size and weight of every cell by its kind (value,
-      summary, row or column label, title, aggregate name, corner) and
-      depth, for the screen and the exports alike; an implementation that
-      reads it from JSON; a preview widget in `tessera_flutter` (a small
-      sample cube in the style); and the built-in gallery in this app,
-      about 20–30 hand-crafted styles to start, picked from previews.
-      Built-in only at first. Built 2026-11-08: tessera's `styles` branch
-      (`CubeStyle`, `JsonCubeStyle`, `docs/style.md`, `CubeTheme.fromStyle`,
-      `CubeStylePreview`, the exporters) and this repository's local
-      `styles` branch (24 styles, the gallery page, the fonts); waits for
-      the release of tessera 0.2.4, tessera_flutter 0.2.8, tessera_pdf
-      0.2.2 and tessera_html 0.2.1, then `styles` goes into `dev`.
 - [ ] Later (owner, 2026-11-08): a style editor: craft a style, preview
       it, export and import it as a file.
 - [ ] Settings persistence beyond theme and language (last export
@@ -346,6 +324,28 @@ internal testing build; the Mac and Windows sessions build from `dev`.
 
 ## Done
 
+- [x] **For 1.3.0** (owner, 2026-11-08): a gallery of grid styles,
+      replacing the six of "Grid style…" (the old theme-gallery idea of
+      2026-10-09). A style interface in `tessera` that gives the colours,
+      the font family, size and weight of every cell by its kind (value,
+      summary, row or column label, title, aggregate name, corner) and
+      depth, for the screen and the exports alike; an implementation that
+      reads it from JSON; a preview widget in `tessera_flutter` (a small
+      sample cube in the style); and the built-in gallery in this app,
+      about 20–30 hand-crafted styles to start, picked from previews.
+      Built-in only at first. Built 2026-11-08: tessera's `styles` branch
+      (`CubeStyle`, `JsonCubeStyle`, `docs/style.md`, `CubeTheme.fromStyle`,
+      `CubeStylePreview`, the exporters) and this repository's local
+      `styles` branch (24 styles, the gallery page, the fonts), released as
+      tessera 0.2.4, tessera_flutter 0.2.8, tessera_pdf 0.2.2 and
+      tessera_html 0.2.1 the same day and merged into `dev`.
+- [x] **For 1.3.0** (owner, 2026-11-08): colour by depth, a switch over
+      any grid style: a value cell's colour follows the depth of its row,
+      of its column, of both, or of neither ("off"). Today two styles
+      shade by depth on their own terms (Gradient by row + column depth,
+      Hue levels by the row's alone, `LevelColor`, `LevelBasis`); the
+      switch makes that the user's choice. In all 14 languages, and in the
+      exports too. Built 2026-11-08 with the gallery (next item).
 - [x] Charts (`lib/charts/`, since 2026-11-07, on `dev` for 1.3.0, in no
       store build yet): bars, stacked bars, a line, a pie or a scatter of
       the pivot, of all the data by dimensions of its own, or of the
