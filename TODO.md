@@ -5,6 +5,29 @@ Tick items as they land; once releases start, a feature commit also
 adds its bullet under `## Unreleased` in `CHANGELOG.md`. Rules and
 conventions live in `CLAUDE.md`, not here.
 
+## Next device round
+
+What only real devices can check, collected on `dev` and tested in one
+round when a batch of features is ready (`CLAUDE.md`, "Branches and
+releases"). The iPhone and the pad take one TestFlight and one Play
+internal testing build; the Mac and Windows sessions build from `dev`.
+
+- Charts on the iPhone 14, the Xiaomi pad and a phone: the chart button
+  in each placement (beside the grid from 840 × 480 dp, above it from
+  600 × 600, instead of it on a phone, and back), full screen and out
+  again (back, the button), the five kinds, a cell's breakdown, both
+  orientations, the system's larger text sizes.
+- Chart exports on the devices: PNG, SVG and PDF through the share sheet
+  and Save as… (Android, iOS), in every look; open them in the
+  platform's viewers. On the Mac, Share beside Save as….
+- The group header cell as the tap target (tessera_flutter 0.2.7): on the
+  iPhone and the pad a tap on a region's name expands or collapses it, a
+  swipe across it scrolls without toggling, and "Total" folds everything
+  only through its `−`.
+- Whole numbers in XLSX and ODS (tessera_xlsx and tessera_ods 0.2.4):
+  counts and integer sums without decimals in Excel (Windows has none;
+  LibreOffice is checked) and in Numbers on the Mac or the iPhone.
+
 ## Viewer flow
 
 - [ ] "Expression help" in the app menu, perhaps later (left over from
@@ -62,19 +85,18 @@ conventions live in `CLAUDE.md`, not here.
       3. Leave it: say so in the store listing, revisit on demand.
       (Installed system fonts are no way out: Noto CJK on Linux is
       OpenType/CFF, which dart_pdf cannot embed.)
-- [x] Charts (`lib/charts/`, 2026-11-07, branch `charts`, in no build
-      yet): the pivot or the current cell's breakdown as bars, stacked bars,
+- [x] Charts (`lib/charts/`, 2026-11-07, branch `charts`, `dev` since
+      2026-11-08, in no build yet): the pivot or the current cell's breakdown as bars, stacked bars,
       a line, a pie or a scatter chart; beside the grid, above it, or on a
       phone in its place; remembered per structure; PNG export. The owner
       chose the data, the phone's switch and PNG only on 2026-11-06; the
       tablet rule and the defaults were proposed then, without objection.
-- [ ] Charts, before they ship: try them on real devices (the Xiaomi pad,
-      a phone) and on the web, where the PNG export has not run; so far Linux
-      under Xvfb, the API 36 phone and tablet emulators, the Mac and Windows
-      (2026-11-07 at `d01669a`, with a PNG through the real save dialog, before
-      the new export dialog), CI compiles the rest. Then the README's feature list, the
-      store listings in 14 languages and the screenshots, and publish the
-      privacy page with its new date.
+- [ ] Charts, before they ship: the web, where the PNG export has not run
+      (Chrome under Xvfb), and the real devices of "Next device round"; so
+      far Linux under Xvfb, the API 36 phone and tablet emulators, the Mac
+      and Windows (2026-11-07 at `23f84fa`), CI compiles the rest. Then the
+      README's feature list, the store listings in 14 languages and the
+      screenshots, and publish the privacy page with its new date.
 - [ ] Charts, later: the chart's own dimensions independent of the pivot
       (`ChartData.fromFacts`), a scatter of single facts
       (`ScatterData.ofFacts`), values on a pie's slices when touched.

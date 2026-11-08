@@ -799,6 +799,22 @@ the shell running it and kills that shell instead). **Stale icon
   the repository (CI secrets or an ignored local properties file).
 - Widgets import `package:tessera_flutter/tessera_flutter.dart` (it
   re-exports the engine).
+- Branches and releases (owner, 2026-11-08, once every store had a stable
+  1.2.1; releasing costs four store reviews, 14-language texts and a test
+  round on every device, so it happens rarely):
+  - `main` is what the stores have. Only bug fixes go there, released as
+    patch versions (`1.2.x`) and tagged.
+  - `dev` collects the next release: new features, which can take
+    several sessions (it was `charts` until 2026-11-08). Merge `main` into
+    `dev` after every fix on `main`. `dev` goes into `main` only for a
+    release, with the owner's go.
+  - Device tests come in batches. Each feature adds what only a real device
+    can show to "Next device round" in `TODO.md`. Everything else gets
+    checked without the owner: the tests, CI, Linux under Xvfb (at text
+    scale 1.5 too), the Android emulators, the web in Chrome under Xvfb.
+    A round goes to the Mac and Windows sessions, which build from the
+    branch themselves, and through one TestFlight and one Play internal
+    testing build (no review) to the iPhone and the pad.
 
 ## Tech stack
 
