@@ -550,13 +550,19 @@ Widget Function(double, TitleMeta) _categoryTitles(
       textAlign: TextAlign.center,
       overflow: TextOverflow.ellipsis,
     );
+    // the label's own stretch of the axis, halfway to its neighbours' on
+    // either side, cut where the chart ends: kept on the chart there, it
+    // would otherwise slide over the next label (found 2026-11-08)
+    final centre = (i + 0.5) * slot;
+    final from = math.max(0.0, centre - step * slot / 2);
+    final to = math.min(meta.parentAxisSize, centre + step * slot / 2);
     return SideTitleWidget(
       meta: meta,
       // a name wider than its bar stays on the chart at both ends
       fitInside: SideTitleFitInsideData.fromTitleMeta(meta),
       child: SizedBox(
         // a little air, or neighbours cut short read as one word
-        width: math.max(slot * step - 4, 0),
+        width: math.max(to - from - 4, 0),
         child: ancestors == null
             ? line(own)
             : Column(

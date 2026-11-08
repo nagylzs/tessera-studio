@@ -294,11 +294,16 @@ final class _Drawing {
     if (count == 0) return;
     final slot = plot.width / count;
     final step = math.max((_narrowestLabel(data) / slot).ceil(), 1);
-    final bounds = Rect.fromLTRB(area.left, plot.top, area.right, area.bottom);
     for (var i = 0; i < count; i += step) {
       final category = data.categories[i];
-      final width = math.max(slot * step - 4, 0.0);
       final x = plot.left + slot * (i + 0.5);
+      // its own stretch, halfway to its neighbours' labels, cut at the
+      // page: kept inside the page at an end, a label would otherwise
+      // slide over the next one
+      final from = math.max(area.left, x - step * slot / 2);
+      final to = math.min(area.right, x + step * slot / 2);
+      final width = math.max(to - from - 4, 0.0);
+      final bounds = Rect.fromLTRB(from + 2, plot.top, to - 2, area.bottom);
       var baseline = plot.bottom + 8 + _textSize;
       if (category.path.length > 1) {
         final ancestors = category.path.entries

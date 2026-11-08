@@ -208,6 +208,44 @@ void main() {
     });
   });
 
+  test('labels that skip groups keep apart, at the ends too', () async {
+    // only every n-th group is labelled; one on the last group, kept on
+    // the page, once slid over the one before it: every count, as which
+    // group gets the last label depends on it
+    for (var count = 8; count <= 60; count++) {
+      final rows = StringBuffer('region,product,year,amount,units\n');
+      for (var p = 1; p <= count; p++) {
+        rows.writeln('North America,product ${'$p'.padLeft(2, '0')},2024,$p,1');
+      }
+      final facts = await _factsOf(rows.toString());
+      final cube = _cube(facts, rows: [region, product]).toggleRow(
+        DimensionPath([const DimensionValue(region, 'North America')]),
+      );
+      final scene = _scene(cube);
+      final byLine = <double, List<(double, double, String)>>{};
+      for (final t in _all<SceneText>(scene)) {
+        if (t.anchor != TextAnchor.middle) continue;
+        final w = _measure(t.text, t.size);
+        byLine.putIfAbsent(t.y, () => []).add((
+          t.x - w / 2,
+          t.x + w / 2,
+          t.text,
+        ));
+      }
+      for (final line in byLine.values.where((l) => l.length > 1)) {
+        line.sort((a, b) => a.$1.compareTo(b.$1));
+        for (var i = 1; i < line.length; i++) {
+          expect(
+            line[i].$1,
+            greaterThanOrEqualTo(line[i - 1].$2),
+            reason: '$count groups: "${line[i - 1].$3}" and "${line[i].$3}"',
+          );
+        }
+      }
+      _expectOnPage(scene);
+    }
+  });
+
   group('lines', () {
     test('have a point per value', () async {
       final scene = _scene(
