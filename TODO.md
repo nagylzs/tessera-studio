@@ -12,6 +12,14 @@ round when a batch of features is ready (`CLAUDE.md`, "Branches and
 releases"). The iPhone and the pad take one TestFlight and one Play
 internal testing build; the Mac and Windows sessions build from `dev`.
 
+**The 1.3.0 round started 2026-11-08 evening, at `2cffa70` (1.3.0+13).**
+The owner decided to release 1.3.0 with what `dev` has and to freeze it
+for the round: only fixes from the round go in until it ships. The iPhone
+takes TestFlight build 13 (uploaded by the Mac session), the Xiaomi pad
+the Play internal testing bundle of CI run 42521200978; the Mac and
+Windows sessions have the list below and run it with the owner. 1.3.0 is
+submitted once 1.2.1 is live in every store (one submission at a time).
+
 - Charts on the iPhone 14, the Xiaomi pad and a phone: the chart button
   in each placement (beside the grid from 840 × 480 dp, above it from
   600 × 600, instead of it on a phone, and back), full screen and out
