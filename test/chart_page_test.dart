@@ -684,6 +684,62 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
+  testWidgets('a pie names a slice when touched', (tester) async {
+    _size(tester, 1400, 900);
+    _register();
+    await _toCube(tester);
+    await _showChart(tester);
+    await _tapTooltip(tester, 'Pie');
+    // Count by region: EU 2 of 3 from the top clockwise, US 1 of 3
+    final pie = tester.getRect(find.byType(PieChart));
+    final r = pie.shortestSide / 4;
+    final eu = pie.center + Offset(r, 0);
+    final us = pie.center - Offset(r, 0);
+    final euBox = find.text('EU\n2 · 67%');
+    final usBox = find.text('US\n1 · 33%');
+    PieChartSectionData section(int k) =>
+        tester.widget<PieChart>(find.byType(PieChart)).data.sections[k];
+    final plain = section(0).radius;
+    expect(euBox, findsNothing);
+
+    await tester.tapAt(eu);
+    await tester.pumpAndSettle();
+    expect(euBox, findsOneWidget);
+    expect(section(0).radius, greaterThan(plain));
+    // it stays, for a finger
+    await tester.pump(const Duration(seconds: 2));
+    expect(euBox, findsOneWidget);
+    await tester.tapAt(us);
+    await tester.pumpAndSettle();
+    expect(euBox, findsNothing);
+    expect(usBox, findsOneWidget);
+    // a second tap on it hides it
+    await tester.tapAt(us);
+    await tester.pumpAndSettle();
+    expect(usBox, findsNothing);
+    expect(section(1).radius, plain);
+
+    // a thin slice is easier to hit in the legend
+    await tester.tap(find.text('33% US'));
+    await tester.pumpAndSettle();
+    expect(usBox, findsOneWidget);
+    await tester.tap(find.text('33% US'));
+    await tester.pumpAndSettle();
+    expect(usBox, findsNothing);
+
+    // a mouse shows it while it rests there
+    final mouse = await tester.createGesture(kind: PointerDeviceKind.mouse);
+    addTearDown(mouse.removePointer);
+    await mouse.addPointer(location: Offset.zero);
+    await mouse.moveTo(eu);
+    await tester.pumpAndSettle();
+    expect(euBox, findsOneWidget);
+    await mouse.moveTo(Offset.zero);
+    await tester.pumpAndSettle();
+    expect(euBox, findsNothing);
+    expect(tester.takeException(), isNull);
+  });
+
   group('remembered per structure', () {
     testWidgets('a chart comes back as it was left', (tester) async {
       _size(tester, 1400, 900);

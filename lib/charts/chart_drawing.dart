@@ -267,10 +267,22 @@ double legendRoom(BoxConstraints pane, {bool round = false}) {
 /// that only appears on a hover or a drag hid a pie's last slice on the web
 /// (2026-11-08).
 class _Legend extends StatefulWidget {
-  const _Legend(this.labels, this.colors, {required this.room});
+  const _Legend(
+    this.labels,
+    this.colors, {
+    required this.room,
+    this.selected,
+    this.onTap,
+  });
 
   final List<String> labels;
   final List<Color> colors;
+
+  /// The entry to stand out, a pie's shown slice.
+  final int? selected;
+
+  /// Where a tap on an entry picks its series or slice.
+  final ValueChanged<int>? onTap;
 
   /// The most height it takes, see [legendRoom].
   final double room;
@@ -310,25 +322,7 @@ class _LegendState extends State<_Legend> {
                 for (var i = 0; i < widget.labels.length; i++)
                   ConstrainedBox(
                     constraints: const BoxConstraints(maxWidth: 220),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Container(
-                          width: 12,
-                          height: 12,
-                          color: widget.colors[i],
-                        ),
-                        const SizedBox(width: 4),
-                        Flexible(
-                          child: Text(
-                            widget.labels[i],
-                            style: Theme.of(context).textTheme.bodySmall,
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                        ),
-                      ],
-                    ),
+                    child: _entry(context, i),
                   ),
               ],
             ),
@@ -337,6 +331,38 @@ class _LegendState extends State<_Legend> {
       ),
     ),
   );
+
+  Widget _entry(BuildContext context, int i) {
+    final style = Theme.of(context).textTheme.bodySmall;
+    final row = Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Container(width: 12, height: 12, color: widget.colors[i]),
+        const SizedBox(width: 4),
+        Flexible(
+          child: Text(
+            widget.labels[i],
+            style: i == widget.selected
+                ? style?.copyWith(fontWeight: FontWeight.bold)
+                : style,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+          ),
+        ),
+      ],
+    );
+    final onTap = widget.onTap;
+    if (onTap == null) return row;
+    return InkWell(
+      onTap: () => onTap(i),
+      borderRadius: BorderRadius.circular(4),
+      child: Semantics(
+        button: true,
+        selected: i == widget.selected,
+        child: row,
+      ),
+    );
+  }
 }
 
 /// Axis titles: numbers on the left at the ticks of [left], [bottom] below.
@@ -913,71 +939,194 @@ Widget _line(BuildContext context, ChartData source, BoxConstraints pane) {
   );
 }
 
+Widget _pie(BuildContext context, ChartData data, BoxConstraints pane) =>
+    _Pie(data: data, pane: pane);
+
 /// One series as a pie, the largest slice first, see [pieSlices]; the
 /// legend carries the percentages too small to fit on their slice.
-Widget _pie(BuildContext context, ChartData data, BoxConstraints pane) {
-  final l10n = AppLocalizations.of(context);
-  final scheme = Theme.of(context).colorScheme;
-  final percent = intl.NumberFormat.percentPattern(
-    Localizations.localeOf(context).toString(),
-  )..maximumFractionDigits = 0;
-  final (:slices, :left) = pieSlices(data);
-  final labels = _categoryLabels(context, data);
-  final total = slices.fold(0.0, (sum, s) => sum + s.value);
-  final colors = [
-    for (var k = 0; k < slices.length; k++)
-      if (slices[k].index == null)
-        scheme.outline
-      else
-        seriesColors(context, slices.length)[k],
-  ];
-  return Column(
-    children: [
-      Expanded(
-        child: LayoutBuilder(
-          builder: (context, constraints) => PieChart(
-            PieChartData(
-              sectionsSpace: 1,
-              centerSpaceRadius: 0,
-              startDegreeOffset: -90,
-              sections: [
-                for (var k = 0; k < slices.length; k++)
-                  PieChartSectionData(
-                    value: slices[k].value,
-                    color: colors[k],
-                    title: slices[k].value / total >= 0.04
-                        ? percent.format(slices[k].value / total)
-                        : '',
-                    titleStyle: TextStyle(
-                      fontSize: 11,
-                      color: scheme.brightness == Brightness.dark
-                          ? Colors.black
-                          : Colors.white,
-                    ),
-                    // fill the pane
-                    radius: (constraints.biggest.shortestSide / 2 - 8).clamp(
-                      20.0,
-                      400.0,
+///
+/// fl_chart has no tooltip for a pie, so it has its own: a slice under the
+/// pointer, or the last one tapped (on the pie or in the legend, where a
+/// thin slice is easier to hit), stands out, and a box names its group, its
+/// value and its share. A second tap on it, or one beside the pie, hides it.
+class _Pie extends StatefulWidget {
+  const _Pie({required this.data, required this.pane});
+
+  final ChartData data;
+  final BoxConstraints pane;
+
+  @override
+  State<_Pie> createState() => _PieState();
+}
+
+class _PieState extends State<_Pie> {
+  /// The slice under a mouse, and the one last tapped, by position.
+  int? _hovered;
+  int? _tapped;
+
+  int? get _shown => _hovered ?? _tapped;
+
+  @override
+  void didUpdateWidget(_Pie old) {
+    super.didUpdateWidget(old);
+    // other slices: what was picked may be another group now, or none
+    if (!identical(old.data, widget.data)) _hovered = _tapped = null;
+  }
+
+  void _tap(int index) =>
+      setState(() => _tapped = _tapped == index ? null : index);
+
+  void _touched(FlTouchEvent event, PieTouchResponse? response) {
+    final index = response?.touchedSection?.touchedSectionIndex;
+    final slice = index == null || index < 0 ? null : index;
+    switch (event) {
+      case FlPointerHoverEvent():
+        if (_hovered != slice) setState(() => _hovered = slice);
+      case FlPointerExitEvent():
+        if (_hovered != null) setState(() => _hovered = null);
+      case FlTapUpEvent():
+        if (slice == null) {
+          if (_tapped != null) setState(() => _tapped = null);
+        } else {
+          _tap(slice);
+        }
+      // a finger drawn across the pie: the slice under it
+      case FlPanUpdateEvent() || FlLongPressMoveUpdate():
+        if (slice != null && slice != _tapped) {
+          setState(() => _tapped = slice);
+        }
+      default:
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final data = widget.data;
+    final l10n = AppLocalizations.of(context);
+    final strings = TesseraLocalizations.of(context);
+    final scheme = Theme.of(context).colorScheme;
+    final percent = intl.NumberFormat.percentPattern(
+      Localizations.localeOf(context).toString(),
+    )..maximumFractionDigits = 0;
+    final (:slices, :left) = pieSlices(data);
+    final labels = _categoryLabels(context, data);
+    String name(int k) => switch (slices[k].index) {
+      final i? => labels[i],
+      null => l10n.chartOthers,
+    };
+    final total = slices.fold(0.0, (sum, s) => sum + s.value);
+    final colors = [
+      for (var k = 0; k < slices.length; k++)
+        if (slices[k].index == null)
+          scheme.outline
+        else
+          seriesColors(context, slices.length)[k],
+    ];
+    final shown = switch (_shown) {
+      final k? when k < slices.length => k,
+      _ => null,
+    };
+    return Column(
+      children: [
+        Expanded(
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              // fill the pane, with room for the shown slice to stand out
+              final radius = (constraints.biggest.shortestSide / 2 - 8).clamp(
+                20.0,
+                400.0,
+              );
+              return Stack(
+                children: [
+                  Positioned.fill(
+                    child: PieChart(
+                      PieChartData(
+                        sectionsSpace: 1,
+                        centerSpaceRadius: 0,
+                        startDegreeOffset: -90,
+                        pieTouchData: PieTouchData(
+                          touchCallback: _touched,
+                          mouseCursorResolver: (_, response) =>
+                              (response?.touchedSection?.touchedSectionIndex ??
+                                      -1) >=
+                                  0
+                              ? SystemMouseCursors.click
+                              : MouseCursor.defer,
+                        ),
+                        sections: [
+                          for (var k = 0; k < slices.length; k++)
+                            PieChartSectionData(
+                              value: slices[k].value,
+                              color: colors[k],
+                              title: slices[k].value / total >= 0.04
+                                  ? percent.format(slices[k].value / total)
+                                  : '',
+                              titleStyle: TextStyle(
+                                fontSize: 11,
+                                fontWeight: k == shown
+                                    ? FontWeight.bold
+                                    : FontWeight.normal,
+                                color: scheme.brightness == Brightness.dark
+                                    ? Colors.black
+                                    : Colors.white,
+                              ),
+                              radius: k == shown ? radius + 6 : radius,
+                            ),
+                        ],
+                      ),
+                      duration: Duration.zero,
                     ),
                   ),
-              ],
-            ),
-            duration: Duration.zero,
+                  if (shown != null)
+                    Positioned(
+                      left: 0,
+                      top: 0,
+                      child: ConstrainedBox(
+                        constraints: BoxConstraints(
+                          maxWidth: math.min(
+                            _tooltipWidth,
+                            constraints.maxWidth / 2,
+                          ),
+                        ),
+                        child: DecoratedBox(
+                          decoration: BoxDecoration(
+                            color: _tooltipColor(context),
+                            borderRadius: BorderRadius.circular(4),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 8,
+                              vertical: 6,
+                            ),
+                            child: Text(
+                              '${name(shown)}\n'
+                              '${strings.formatNumber(slices[shown].value)}'
+                              ' · ${percent.format(slices[shown].value / total)}',
+                              style: _tooltipStyle(context),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                ],
+              );
+            },
           ),
         ),
-      ),
-      _Legend(
-        [
-          // the percentage first: a long name is cut short
-          for (final s in slices)
-            '${percent.format(s.value / total)} '
-                '${s.index == null ? l10n.chartOthers : labels[s.index!]}',
-        ],
-        colors,
-        room: legendRoom(pane, round: true),
-      ),
-    ],
-  );
+        _Legend(
+          [
+            // the percentage first: a long name is cut short
+            for (var k = 0; k < slices.length; k++)
+              '${percent.format(slices[k].value / total)} ${name(k)}',
+          ],
+          colors,
+          room: legendRoom(widget.pane, round: true),
+          selected: shown,
+          onTap: _tap,
+        ),
+      ],
+    );
+  }
 }
 
 /// A scatter dot's radius: a group's grows with its fact count; a record's

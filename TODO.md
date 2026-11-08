@@ -18,6 +18,8 @@ internal testing build; the Mac and Windows sessions build from `dev`.
   again (back, the button), the five kinds, a cell's breakdown, both
   orientations, the system's larger text sizes. A legend too long for
   its room shows its scroll bar (on the iPhone the thin Cupertino one).
+  A tap on a pie's slice, and on its legend entry, names it and stays
+  until the next tap; a finger drawn across the pie follows it.
 - Chart exports on the devices: PNG, SVG and PDF through the share sheet
   and Save as… (Android, iOS), in every look; open them in the
   platform's viewers. On the Mac, Share beside Save as….
@@ -101,7 +103,6 @@ internal testing build; the Mac and Windows sessions build from `dev`.
       downloaded and right). Then the README's feature list, the store
       listings in 14 languages and the screenshots, and publish the privacy
       page with its new date.
-- [ ] Charts, later: values on a pie's slices when touched.
 - [ ] A raw date on a pivot axis reads as a whole timestamp in the grid,
       "2025-01-01 00:00:00.000Z" (`Dimension.formatValue` in tessera, found
       2026-11-07). The charts shorten it themselves; the grid, the
@@ -396,6 +397,13 @@ internal testing build; the Mac and Windows sessions build from `dev`.
 
 ## Done
 
+- [x] A pie's values when touched (owner, 2026-11-08): fl_chart has no
+      tooltip for a pie, so `_Pie` draws one. A slice under the pointer,
+      or tapped on the pie or in the legend, stands out, and a box in the
+      tooltips' style names its group, value and share; a second tap, or
+      one beside the pie, hides it. Seen under Xvfb with a mouse (hover,
+      click, "Others"); the touch is tested, the real one is in "Next
+      device round".
 - [x] A scatter of single records (owner, 2026-11-08): "Single records"
       heads a scatter's "Break down by" menu in "All data" and "Current
       cell"; a dot per record at two numeric columns (X and Y pick them,

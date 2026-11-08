@@ -452,7 +452,9 @@ the next step.
   what was cut), except a pie, which reads every group of the Total column
   and merges the small ones, as leaving them out would falsify percentages
   (`pieSlices`). `chart_drawing.dart` is the whole fl_chart adapter, reshaped
-  from the example's. `ChartPanel` keeps the result until the cube, settings
+  from the example's. fl_chart has no tooltip for a pie, so `_Pie` keeps the
+  slice under a mouse and the one last tapped (on the pie or in the legend)
+  and draws its own box in the tooltips' style. `ChartPanel` keeps the result until the cube, settings
   or language change; a cell's chart waits 150 ms for the selection to rest.
   Beside a chart a tap on a value only selects (it picks the cell a chart
   may show); on its own it goes full screen as before. `ChartState` stores
