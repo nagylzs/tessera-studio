@@ -41,7 +41,9 @@ List<String> chartCaption(
       if (content.kind == ChartKind.pie && !data!.series.first.path.isRoot)
         data.series.first.label,
       if (hasCell) describeCoordinate(t, facts, coordinate),
-      if (breaksDown && content.category != null)
+      if (content.records)
+        '${l10n.chartBreakDownBy}: ${l10n.chartEachRecord}'
+      else if (breaksDown && content.category != null)
         '${l10n.chartBreakDownBy}: ${t.dimensionLabel(content.category!, facts)}',
       if (filter != null) describeFilter(t, filter),
     ].join(' — '),
@@ -49,6 +51,8 @@ List<String> chartCaption(
     if (content.kind != ChartKind.pie &&
         content.categoriesShown < content.categoriesTotal)
       l10n.chartFirstGroups(content.categoriesShown, content.categoriesTotal),
+    if (content.recordsShown < content.recordsTotal)
+      l10n.chartRecordsSample(content.recordsShown, content.recordsTotal),
     if (content.kind != ChartKind.pie &&
         content.seriesShown < content.seriesTotal)
       l10n.chartFirstSeries(content.seriesShown, content.seriesTotal),
@@ -299,6 +303,8 @@ class _ChartPanelState extends State<ChartPanel> {
     final isScatter = settings.kind == ChartKind.scatter;
     String aggregate(Aggregate a) => t.aggregateLabel(a, facts);
     String dimension(Dimension d) => t.dimensionLabel(d, facts);
+    String measure(Measure m) => m.labelFor(facts);
+    final measures = content.measures;
     final pinned = content.cell?.coordinate;
     final usable = [
       for (final d in content.dimensions)
@@ -334,7 +340,26 @@ class _ChartPanelState extends State<ChartPanel> {
         },
         onSelected: (s) => _update(settings.copyWith(source: s)),
       ),
-      if (!isScatter)
+      if (content.records) ...[
+        if (measures.length > 1 && content.xMeasure != null) ...[
+          _Picker<Measure>(
+            label: l10n.chartAxisX,
+            value: content.xMeasure!,
+            items: measures,
+            itemLabel: measure,
+            onSelected: (m) => _update(settings.copyWith(xMeasure: m)),
+          ),
+          if (content.yMeasure case final y?)
+            _Picker<Measure>(
+              label: l10n.chartAxisY,
+              value: y,
+              items: measures,
+              itemLabel: measure,
+              enabled: (m) => m != content.xMeasure,
+              onSelected: (m) => _update(settings.copyWith(yMeasure: m)),
+            ),
+        ],
+      ] else if (!isScatter)
         _Picker<Aggregate>(
           label: l10n.chartValue,
           value: content.value,
@@ -360,7 +385,20 @@ class _ChartPanelState extends State<ChartPanel> {
         ),
       ],
       if (breaksDown) ...[
-        if (content.category case final category?)
+        // a scatter's dots: the groups of a dimension, or the records
+        if (isScatter)
+          _Picker<Dimension?>(
+            label: l10n.chartBreakDownBy,
+            value: content.records ? null : content.category,
+            items: [null, ...usable],
+            itemLabel: (d) => d == null ? l10n.chartEachRecord : dimension(d),
+            onSelected: (d) => _update(
+              d == null
+                  ? settings.copyWith(records: true)
+                  : settings.copyWith(records: false, category: d),
+            ),
+          )
+        else if (content.category case final category?)
           _Picker<Dimension>(
             label: l10n.chartBreakDownBy,
             value: category,
@@ -368,7 +406,8 @@ class _ChartPanelState extends State<ChartPanel> {
             itemLabel: dimension,
             onSelected: (d) => _update(settings.copyWith(category: d)),
           ),
-        if (settings.kind != ChartKind.pie && content.category != null)
+        if (settings.kind != ChartKind.pie &&
+            (content.category != null || content.records))
           _Picker<Dimension?>(
             label: l10n.chartSeries,
             value: content.series,

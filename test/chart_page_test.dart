@@ -628,6 +628,62 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
+  testWidgets('a scatter of single records', (tester) async {
+    _size(tester, 1400, 900);
+    _register();
+    await _toCube(tester);
+    await _showChart(tester);
+    _state.cube.chart.update(
+      const ChartSettings(kind: ChartKind.scatter, source: ChartSource.all),
+    );
+    await tester.pumpAndSettle();
+    // one value in the pivot: no scatter of groups, but of records
+    expect(find.textContaining('or choose "Single records"'), findsOneWidget);
+
+    await tester.tap(find.textContaining('Break down by: '));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Single records').last);
+    await tester.pumpAndSettle();
+    expect(_state.cube.chart.settings.value.records, isTrue);
+    final spots = tester
+        .widget<ScatterChart>(find.byType(ScatterChart))
+        .data
+        .scatterSpots;
+    // a dot per record, at its own amount and units
+    expect(
+      [for (final s in spots) (s.x, s.y)],
+      [(10.0, 1.0), (20.0, 2.0), (5.0, 3.0)],
+    );
+    expect(find.text('X axis: amount'), findsOneWidget);
+    expect(find.text('Y axis: units'), findsOneWidget);
+    expect(
+      find.textContaining('Break down by: Single records'),
+      findsNWidgets(2), // the menu, and the caption
+    );
+
+    // the columns swap through their menus
+    await tester.tap(find.text('X axis: amount'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('units').last);
+    await tester.pumpAndSettle();
+    await tester.tap(find.textContaining('Y axis: '));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('amount').last);
+    await tester.pumpAndSettle();
+    expect(
+      [
+        for (final s
+            in tester
+                .widget<ScatterChart>(find.byType(ScatterChart))
+                .data
+                .scatterSpots)
+          (s.x, s.y),
+      ],
+      [(1.0, 10.0), (2.0, 20.0), (3.0, 5.0)],
+    );
+    expect(tester.takeException(), isNull);
+  });
+
   group('remembered per structure', () {
     testWidgets('a chart comes back as it was left', (tester) async {
       _size(tester, 1400, 900);

@@ -573,7 +573,7 @@ final class _Drawing {
     final below = legend + 8 + 2 * line + 4;
     var biggest = 0.0;
     for (final p in data.points) {
-      biggest = math.max(biggest, _dotRadius(p));
+      biggest = math.max(biggest, scatterDotRadius(p));
     }
     final room = biggest + 2;
     final height = area.height - below;
@@ -611,8 +611,8 @@ final class _Drawing {
           SceneCircle(
             _along(xRange, p.x, plot.left, plot.right),
             _along(yRange, p.y, plot.bottom, plot.top),
-            _dotRadius(p),
-            colors[s].withValues(alpha: 0.85),
+            scatterDotRadius(p),
+            colors[s].withValues(alpha: scatterDotAlpha(data)),
           ),
         );
       }
@@ -625,7 +625,4 @@ final class _Drawing {
     );
     _legend(rows, area);
   }
-
-  /// A dot grows with its fact count, as on the screen.
-  static double _dotRadius(ScatterPoint p) => 3 + math.log(p.factCount + 1);
 }

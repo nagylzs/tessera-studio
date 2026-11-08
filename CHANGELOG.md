@@ -11,6 +11,10 @@
 * A chart of all the data can be broken down by columns of its own, whatever
   the pivot shows: revenue by month beside a pivot of regions ("All data" in
   the chart's source menu).
+* A scatter chart of all the data or of the current cell can show single
+  records, a dot each, two of their number columns against each other
+  ("Single records" under "Break down by"). Beyond 5,000 records it shows
+  5,000 taken at even steps, and says so.
 * Export: a showing chart saves or shares as a PNG, an SVG or a PDF, light or
   dark, with its background or on a transparent one.
 * The export dialog asks first what to export (the chart, the pivot table or

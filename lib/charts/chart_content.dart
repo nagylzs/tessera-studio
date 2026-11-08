@@ -10,6 +10,12 @@ enum ChartProblem {
   /// A scatter chart with fewer than two aggregates.
   needsTwoValues,
 
+  /// The same for a breakdown, where a scatter of records would do.
+  needsTwoValuesOrRecords,
+
+  /// A scatter of records with fewer than two numeric columns.
+  needsTwoMeasures,
+
   /// The current cell pins every dimension, or there is none at all.
   noBreakdown,
 
@@ -34,6 +40,11 @@ const maxSeries = 12;
 /// Slices a pie shows: the largest, and one more for all the others.
 const maxPieSlices = 12;
 
+/// Dots a scatter of records draws at most. Beyond it they are taken at
+/// even steps through the records, so the cloud keeps its shape wherever
+/// the file is sorted by, and the caption says so.
+const maxRecords = 5000;
+
 /// What a chart draws, resolved from [ChartSettings] against a cube: the
 /// data, or the [problem] instead, the choices in force and what was cut.
 final class ChartContent {
@@ -53,6 +64,12 @@ final class ChartContent {
     this.problem,
     this.categoriesTotal = 0,
     this.seriesTotal = 0,
+    this.records = false,
+    this.measures = const [],
+    this.xMeasure,
+    this.yMeasure,
+    this.recordsShown = 0,
+    this.recordsTotal = 0,
   });
 
   final ChartKind kind;
@@ -79,6 +96,19 @@ final class ChartContent {
   /// Groups and series available, before [maxCategories] and [maxSeries].
   final int categoriesTotal;
   final int seriesTotal;
+
+  /// A scatter of records ([ChartSettings.records]): one dot per record.
+  final bool records;
+
+  /// What a scatter of records may take as coordinates, see
+  /// [chartMeasures]; empty for any other chart.
+  final List<Measure> measures;
+  final Measure? xMeasure;
+  final Measure? yMeasure;
+
+  /// Records drawn and records there are, see [maxRecords].
+  final int recordsShown;
+  final int recordsTotal;
 
   int get categoriesShown => categoriesTotal < maxCategories(kind)
       ? categoriesTotal
@@ -123,6 +153,43 @@ List<Dimension> chartDimensions(Cube cube, List<Dimension> dimensions) => [
       if (!dimensions.contains(d.dimension)) d.dimension,
 ];
 
+/// The measures a scatter of records can use: the numeric columns, and the
+/// pivot's own (a computed one is not among the columns).
+List<Measure> chartMeasures(Cube cube) {
+  final measures = standardMeasures(cube.facts);
+  for (final a in cube.spec.aggregates) {
+    if (a is MeasureAggregate && !measures.contains(a.measure)) {
+      measures.add(a.measure);
+    }
+  }
+  return measures;
+}
+
+/// The rows of [facts] that [filter] lets through and that have both [x]
+/// and [y], at most [limit] of them, taken at even steps; and how many
+/// there are in all.
+({List<int> rows, int total}) sampleRecords(
+  FactTable facts, {
+  required Measure x,
+  required Measure y,
+  FactFilter? filter,
+  int limit = maxRecords,
+}) {
+  final pass = filter?.compile(facts);
+  final all = <int>[];
+  for (var row = 0; row < facts.rowCount; row++) {
+    if (pass != null && !pass(row)) continue;
+    if (facts.measureValue(row, x) == null) continue;
+    if (facts.measureValue(row, y) == null) continue;
+    all.add(row);
+  }
+  if (all.length <= limit) return (rows: all, total: all.length);
+  return (
+    rows: [for (var i = 0; i < limit; i++) all[i * all.length ~/ limit]],
+    total: all.length,
+  );
+}
+
 /// Resolves [settings] against [cube] and reads the chart's data, never
 /// more cells than it draws. [shown] are the aggregates the grid shows;
 /// [cell] the current cell, for [ChartSource.cell].
@@ -153,6 +220,25 @@ ChartContent chartContent({
   final kind = settings.kind;
   final isCell = settings.source == ChartSource.cell;
   final breaksDown = settings.source.breaksDown;
+  final isScatter = kind == ChartKind.scatter;
+  final records = isScatter && breaksDown && settings.records;
+  // a record has no aggregates: its columns, by default those the
+  // scatter's aggregates read
+  final measures = records ? chartMeasures(cube) : const <Measure>[];
+  Measure? measureOf(Aggregate a) => switch (a) {
+    final MeasureAggregate m when measures.contains(m.measure) => m.measure,
+    _ => null,
+  };
+  final xMeasure = measures.contains(settings.xMeasure)
+      ? settings.xMeasure
+      : measureOf(x) ?? measures.firstOrNull;
+  final yMeasure =
+      measures.contains(settings.yMeasure) && settings.yMeasure != xMeasure
+      ? settings.yMeasure
+      : [
+          measureOf(y),
+          ...measures,
+        ].firstWhere((m) => m != null && m != xMeasure, orElse: () => null);
 
   bool pinned(Dimension d) =>
       isCell && (cell?.coordinate.constrains(d) ?? false);
@@ -163,7 +249,7 @@ ChartContent chartContent({
   // the first breakdown follows the pivot: its first row dimension (then
   // column dimension) the cell does not pin, else the text column with the
   // fewest values, as the first pivot of a file has, else any
-  final category = !breaksDown
+  final category = !breaksDown || records
       ? null
       : usable.contains(settings.category)
       ? settings.category
@@ -187,6 +273,8 @@ ChartContent chartContent({
     ChartProblem? problem,
     int categoriesTotal = 0,
     int seriesTotal = 0,
+    int recordsShown = 0,
+    int recordsTotal = 0,
   }) => ChartContent(
     kind: kind,
     source: settings.source,
@@ -203,29 +291,75 @@ ChartContent chartContent({
     problem: problem,
     categoriesTotal: categoriesTotal,
     seriesTotal: seriesTotal,
+    records: records,
+    measures: measures,
+    xMeasure: xMeasure,
+    yMeasure: yMeasure,
+    recordsShown: recordsShown,
+    recordsTotal: recordsTotal,
   );
 
-  final isScatter = kind == ChartKind.scatter;
-  if (isScatter && x == y) {
-    return result(problem: ChartProblem.needsTwoValues);
+  if (records && (xMeasure == null || yMeasure == null)) {
+    return result(problem: ChartProblem.needsTwoMeasures);
   }
-  if (breaksDown && category == null) {
+  if (isScatter && !records && x == y) {
+    return result(
+      problem: breaksDown
+          ? ChartProblem.needsTwoValuesOrRecords
+          : ChartProblem.needsTwoValues,
+    );
+  }
+  if (breaksDown && !records && category == null) {
     return result(problem: ChartProblem.noBreakdown);
   }
 
   // Everything is read from a layout: the pivot's, or for a breakdown one
   // built over its facts, so that the chart can never disagree with a
   // table of the same spec.
+  final FactFilter? filter;
+  if (isCell) {
+    final whole = cube.layout;
+    final at = cell ?? whole.cellFor(DimensionPath.root, DimensionPath.root);
+    filter = at == null ? cube.spec.filter : cellFilter(whole, at);
+  } else {
+    filter = cube.spec.filter;
+  }
+
+  if (records) {
+    final (:rows, :total) = sampleRecords(
+      facts,
+      x: xMeasure!,
+      y: yMeasure!,
+      filter: filter,
+    );
+    final all = ScatterData.ofFacts(
+      facts,
+      x: xMeasure,
+      y: yMeasure,
+      series: series,
+      rows: rows,
+      strings: strings,
+    );
+    if (all.series.isEmpty) return result(problem: ChartProblem.nothing);
+    final scatter = all.series.length <= maxSeries
+        ? all
+        : ScatterData(
+            xLabel: all.xLabel,
+            yLabel: all.yLabel,
+            xMeasure: all.xMeasure,
+            yMeasure: all.yMeasure,
+            series: all.series.take(maxSeries).toList(),
+          );
+    return result(
+      scatter: scatter,
+      seriesTotal: all.series.length,
+      recordsShown: rows.length,
+      recordsTotal: total,
+    );
+  }
+
   final CubeLayout layout;
   if (breaksDown) {
-    final FactFilter? filter;
-    if (isCell) {
-      final whole = cube.layout;
-      final at = cell ?? whole.cellFor(DimensionPath.root, DimensionPath.root);
-      filter = at == null ? cube.spec.filter : cellFilter(whole, at);
-    } else {
-      filter = cube.spec.filter;
-    }
     layout = Cube(
       facts: facts,
       spec: CubeSpec(

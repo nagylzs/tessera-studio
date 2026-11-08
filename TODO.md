@@ -101,8 +101,7 @@ internal testing build; the Mac and Windows sessions build from `dev`.
       downloaded and right). Then the README's feature list, the store
       listings in 14 languages and the screenshots, and publish the privacy
       page with its new date.
-- [ ] Charts, later: a scatter of single facts (`ScatterData.ofFacts`),
-      values on a pie's slices when touched.
+- [ ] Charts, later: values on a pie's slices when touched.
 - [ ] A raw date on a pivot axis reads as a whole timestamp in the grid,
       "2025-01-01 00:00:00.000Z" (`Dimension.formatValue` in tessera, found
       2026-11-07). The charts shorten it themselves; the grid, the
@@ -397,6 +396,14 @@ internal testing build; the Mac and Windows sessions build from `dev`.
 
 ## Done
 
+- [x] A scatter of single records (owner, 2026-11-08): "Single records"
+      heads a scatter's "Break down by" menu in "All data" and "Current
+      cell"; a dot per record at two numeric columns (X and Y pick them,
+      by default those the scatter's values read), coloured by the series,
+      at most 5,000 taken at even steps with a caption saying so. Smaller,
+      fainter dots, so crowds show. Where a scatter of groups lacks a second
+      value, its message now points at it. Seen under Xvfb (3,000 records)
+      and in PNG, SVG and PDF.
 - [x] The chart's own dimensions, independent of the pivot (owner,
       2026-11-08): "All data" in the chart's source menu breaks all the
       facts the filter lets through down by any dimension and series, as

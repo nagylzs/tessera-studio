@@ -76,6 +76,9 @@ final class ChartSettings {
     this.y,
     this.category,
     this.series,
+    this.records = false,
+    this.xMeasure,
+    this.yMeasure,
   });
 
   factory ChartSettings.fromJson(Map<String, Object?> json) {
@@ -86,6 +89,9 @@ final class ChartSettings {
     Dimension? dimension(String key) => json[key] == null
         ? null
         : codec.decodeDimension((json[key] as Map).cast<String, Object?>());
+    Measure? measure(String key) => json[key] == null
+        ? null
+        : codec.decodeMeasure((json[key] as Map).cast<String, Object?>());
     return ChartSettings(
       kind: ChartKind.values.firstWhere(
         (k) => k.name == json['kind'],
@@ -101,6 +107,9 @@ final class ChartSettings {
       y: aggregate('y'),
       category: dimension('category'),
       series: dimension('series'),
+      records: json['records'] == true,
+      xMeasure: measure('xMeasure'),
+      yMeasure: measure('yMeasure'),
     );
   }
 
@@ -125,6 +134,15 @@ final class ChartSettings {
   /// All data or the current cell: a second breakdown, as series.
   final Dimension? series;
 
+  /// A scatter of all data or the current cell: one dot per record, at
+  /// [xMeasure] against [yMeasure], instead of one per group of [category].
+  final bool records;
+
+  /// The coordinates of a scatter of records: numeric columns, as a record
+  /// has no aggregates; `null` = those the scatter's aggregates sum up.
+  final Measure? xMeasure;
+  final Measure? yMeasure;
+
   ChartSettings copyWith({
     ChartKind? kind,
     ChartSource? source,
@@ -134,6 +152,9 @@ final class ChartSettings {
     Aggregate? y,
     Dimension? category,
     Dimension? Function()? series,
+    bool? records,
+    Measure? xMeasure,
+    Measure? yMeasure,
   }) => ChartSettings(
     kind: kind ?? this.kind,
     source: source ?? this.source,
@@ -143,6 +164,9 @@ final class ChartSettings {
     y: y ?? this.y,
     category: category ?? this.category,
     series: series == null ? this.series : series(),
+    records: records ?? this.records,
+    xMeasure: xMeasure ?? this.xMeasure,
+    yMeasure: yMeasure ?? this.yMeasure,
   );
 
   Map<String, Object?> toJson() {
@@ -156,6 +180,9 @@ final class ChartSettings {
       if (y case final a?) 'y': codec.encodeAggregate(a),
       if (category case final d?) 'category': codec.encodeDimension(d),
       if (series case final d?) 'series': codec.encodeDimension(d),
+      if (records) 'records': true,
+      if (xMeasure case final m?) 'xMeasure': codec.encodeMeasure(m),
+      if (yMeasure case final m?) 'yMeasure': codec.encodeMeasure(m),
     };
   }
 }

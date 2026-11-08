@@ -495,6 +495,140 @@ void main() {
     });
   });
 
+  group('a scatter of records', () {
+    const scatterOfRecords = ChartSettings(
+      kind: ChartKind.scatter,
+      source: ChartSource.all,
+      records: true,
+    );
+
+    test('one dot per record, on the columns its aggregates read', () async {
+      final facts = await _facts();
+      final content = _content(
+        _cube(facts, aggregates: [amount, units]),
+        settings: scatterOfRecords,
+      );
+      expect(content.records, isTrue);
+      expect(content.category, isNull);
+      expect(content.xMeasure, const Measure('amount'));
+      expect(content.yMeasure, const Measure('units'));
+      final scatter = content.scatter!;
+      expect(scatter.xLabel, 'amount');
+      expect(
+        [for (final p in scatter.points) (p.x, p.y)],
+        [
+          (10.0, 1.0),
+          (20.0, 2.0),
+          (30.0, 3.0),
+          (40.0, 4.0),
+          (50.0, 5.0),
+          (5.0, 6.0),
+        ],
+      );
+      expect(content.recordsShown, 6);
+      expect(content.recordsTotal, 6);
+    });
+
+    test('with one aggregate, on two different columns', () async {
+      final facts = await _facts();
+      final content = _content(_cube(facts), settings: scatterOfRecords);
+      // sum of amount is the only value: units, the next column, for y
+      expect(content.problem, isNull);
+      expect(content.xMeasure, const Measure('amount'));
+      expect(content.yMeasure, isNot(const Measure('amount')));
+    });
+
+    test('the chosen columns, coloured by a dimension', () async {
+      final facts = await _facts();
+      final scatter = _content(
+        _cube(facts),
+        settings: scatterOfRecords.copyWith(
+          xMeasure: const Measure('units'),
+          yMeasure: const Measure('amount'),
+          series: () => region,
+        ),
+      ).scatter!;
+      expect(scatter.series.map((s) => s.label), ['Asia', 'EU', 'US']);
+      expect(
+        [for (final p in scatter.series[1].points) (p.x, p.y)],
+        [(1.0, 10.0), (2.0, 20.0), (3.0, 30.0)],
+      );
+    });
+
+    test('of the current cell: only its records', () async {
+      final facts = await _facts();
+      final cube = _cube(facts);
+      final us = cube.layout.cellFor(_group(region, 'US'), DimensionPath.root)!;
+      final content = _content(
+        cube,
+        cell: us,
+        settings: const ChartSettings(
+          kind: ChartKind.scatter,
+          source: ChartSource.cell,
+          records: true,
+        ),
+      );
+      expect(content.scatter!.points.map((p) => p.x), [40, 50]);
+    });
+
+    test('within the filter', () async {
+      final facts = await _facts();
+      final content = _content(
+        _cube(facts, filter: ValueFilter(region, const ['EU'])),
+        settings: scatterOfRecords,
+      );
+      expect(content.scatter!.points.map((p) => p.x), [10, 20, 30]);
+    });
+
+    test('only from a breakdown: of the pivot, a dot per group', () async {
+      final facts = await _facts();
+      final content = _content(
+        _cube(facts, aggregates: [amount, units]),
+        settings: scatterOfRecords.copyWith(source: ChartSource.pivot),
+      );
+      expect(content.records, isFalse);
+      expect(content.scatter!.points, hasLength(3));
+    });
+
+    test('needs two columns of numbers', () async {
+      final source = CsvDataSource.fromData(
+        Uint8List.fromList(utf8.encode('region,amount\nEU,1\nUS,2\n')),
+        name: 'one.csv',
+      );
+      final facts = (await loadFacts(source)).facts;
+      expect(
+        _content(
+          _cube(facts),
+          dimensions: const [region],
+          settings: scatterOfRecords,
+        ).problem,
+        ChartProblem.needsTwoMeasures,
+      );
+    });
+
+    test('many are taken at even steps, and counted', () async {
+      final facts = await _facts();
+      final (:rows, :total) = sampleRecords(
+        facts,
+        x: const Measure('amount'),
+        y: const Measure('units'),
+        limit: 3,
+      );
+      expect(total, 6);
+      expect(rows, [0, 2, 4]);
+      final within = sampleRecords(
+        facts,
+        x: const Measure('amount'),
+        y: const Measure('units'),
+        filter: ValueFilter(region, const ['EU', 'US']),
+        limit: 2,
+      );
+      // rows 0–4 pass
+      expect(within.total, 5);
+      expect(within.rows, [0, 2]);
+    });
+  });
+
   group('values shown as something else', () {
     test('chart in the pivot and in a cell\'s breakdown', () async {
       final facts = await _facts();
@@ -553,6 +687,17 @@ void main() {
           settings: const ChartSettings(kind: ChartKind.scatter),
         ).problem,
         ChartProblem.needsTwoValues,
+      );
+      // where single records would do, it says so
+      expect(
+        _content(
+          _cube(facts),
+          settings: const ChartSettings(
+            kind: ChartKind.scatter,
+            source: ChartSource.all,
+          ),
+        ).problem,
+        ChartProblem.needsTwoValuesOrRecords,
       );
     });
 
@@ -802,6 +947,9 @@ void main() {
         y: units,
         category: product,
         series: const DatePartDimension('date', DatePart.quarter),
+        records: true,
+        xMeasure: const Measure('amount'),
+        yMeasure: Measure.expression('amount / units', label: 'price'),
       );
       final json = jsonDecode(
         jsonEncode(StoredChart(visible: true, settings: settings).toJson()),
@@ -816,6 +964,9 @@ void main() {
       expect(back.settings.y, units);
       expect(back.settings.category, product);
       expect(back.settings.series, settings.series);
+      expect(back.settings.records, isTrue);
+      expect(back.settings.xMeasure, const Measure('amount'));
+      expect(back.settings.yMeasure, settings.yMeasure);
     });
 
     test('the defaults stay small, and an unknown kind is the default', () {

@@ -57,6 +57,8 @@ String chartProblemText(AppLocalizations l10n, ChartProblem problem) =>
     switch (problem) {
       ChartProblem.nothing => l10n.chartNothing,
       ChartProblem.needsTwoValues => l10n.chartNeedsTwoValues,
+      ChartProblem.needsTwoValuesOrRecords => l10n.chartNeedsTwoValuesOrRecords,
+      ChartProblem.needsTwoMeasures => l10n.chartNeedsTwoMeasures,
       ChartProblem.noBreakdown => l10n.chartNoBreakdown,
       ChartProblem.noPositive => l10n.chartNoPositive,
     };
@@ -978,6 +980,15 @@ Widget _pie(BuildContext context, ChartData data, BoxConstraints pane) {
   );
 }
 
+/// A scatter dot's radius: a group's grows with its fact count; a record's
+/// is small, as there may be thousands of them.
+double scatterDotRadius(ScatterPoint p) =>
+    p.row != null ? 2.5 : 3 + math.log(p.factCount + 1);
+
+/// A scatter dot's opacity: records overlap, and where they crowd should
+/// show.
+double scatterDotAlpha(ScatterData data) => data.xMeasure != null ? 0.55 : 0.85;
+
 /// One dot per point, coloured by series; a dot grows with its fact count.
 Widget _scatter(BuildContext context, ScatterData data, BoxConstraints pane) {
   final strings = TesseraLocalizations.of(context);
@@ -987,17 +998,18 @@ Widget _scatter(BuildContext context, ScatterData data, BoxConstraints pane) {
       pathLabel(strings, s.path ?? DimensionPath.root, s.label);
   final spots = <ScatterSpot>[];
   final labels = <(double, double), String>{};
+  final alpha = scatterDotAlpha(data);
   var biggest = 0.0;
   for (var s = 0; s < data.series.length; s++) {
     for (final p in data.series[s].points) {
-      final radius = 3 + math.log(p.factCount + 1);
+      final radius = scatterDotRadius(p);
       biggest = math.max(biggest, radius);
       spots.add(
         ScatterSpot(
           p.x,
           p.y,
           dotPainter: FlDotCirclePainter(
-            color: colors[s].withValues(alpha: 0.85),
+            color: colors[s].withValues(alpha: alpha),
             radius: radius,
           ),
         ),

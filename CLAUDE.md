@@ -443,7 +443,11 @@ the next step.
   for a breakdown (`ChartSource.breaksDown`) a cube it builds by the chart's
   own dimensions, over the facts the pivot's filter lets through (`all`,
   2026-11-08: revenue by month beside a pivot of regions) or over the
-  current cell's (`cell`, `cellFilter`); the two share the breakdown. It selects the entries before reading, so that a huge pivot
+  current cell's (`cell`, `cellFilter`); the two share the breakdown. A
+  scatter of a breakdown can have a dot per record instead (`records`,
+  `ScatterData.ofFacts`, 2026-11-08), on two measures (`chartMeasures`: the
+  numeric columns and the pivot's own), at most `maxRecords` taken at even
+  steps (`sampleRecords`). It selects the entries before reading, so that a huge pivot
   costs only the cells drawn (`maxCategories`, `maxSeries`; the caption says
   what was cut), except a pie, which reads every group of the Total column
   and merges the small ones, as leaving them out would falsify percentages

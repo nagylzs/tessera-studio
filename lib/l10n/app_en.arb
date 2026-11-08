@@ -639,6 +639,10 @@
   "@chartNoSeries": {
     "description": "Menu entry: no second dimension."
   },
+  "chartEachRecord": "Single records",
+  "@chartEachRecord": {
+    "description": "The first item of a scatter chart's \"Break down by\" menu (chartBreakDownBy): one dot per record (row of the data, the term of importSummary) instead of one per group."
+  },
   "chartSwapAxes": "Swap rows and columns",
   "@chartSwapAxes": {
     "description": "Tooltip: the pivot's columns become the chart's categories and its rows the series."
@@ -658,6 +662,14 @@
   "chartNeedsTwoValues": "A scatter chart needs two values: add another one to the pivot table.",
   "@chartNeedsTwoValues": {
     "description": "Shown instead of a scatter chart when the pivot table has only one aggregate."
+  },
+  "chartNeedsTwoValuesOrRecords": "A scatter chart needs two values: add another one to the pivot table, or choose \"Single records\" under \"Break down by\".",
+  "@chartNeedsTwoValuesOrRecords": {
+    "description": "chartNeedsTwoValues for a chart of all data or the current cell, where single records (chartEachRecord, under chartBreakDownBy) need no second value. Quote the menu texts as they read."
+  },
+  "chartNeedsTwoMeasures": "A scatter chart of single records needs two columns of numbers.",
+  "@chartNeedsTwoMeasures": {
+    "description": "Instead of a scatter chart of single records (chartEachRecord): it plots two numeric columns against each other, and the file has fewer."
   },
   "chartNoBreakdown": "The current cell already fixes every column, so there is nothing left to break it down by.",
   "@chartNoBreakdown": {
@@ -699,6 +711,22 @@
       "total": {
         "type": "int",
         "example": "40",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "chartRecordsSample": "Showing {shown} of {total} records, taken at even steps.",
+  "@chartRecordsSample": {
+    "description": "Under a scatter chart of single records when there are too many to draw: every n-th record is shown, so the picture keeps its shape.",
+    "placeholders": {
+      "shown": {
+        "type": "int",
+        "example": "5000",
+        "format": "decimalPattern"
+      },
+      "total": {
+        "type": "int",
+        "example": "120000",
         "format": "decimalPattern"
       }
     }
