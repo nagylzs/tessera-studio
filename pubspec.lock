@@ -774,10 +774,10 @@ packages:
     dependency: "direct main"
     description:
       name: tessera_flutter
-      sha256: e5b241a4c83b87c3307d170cf0d53b8130c1d4edde619de369adf449c3fe7026
+      sha256: fd2e77561d5acbe36cabf7ba0ac6b0ea14731f0fac8fa99e0d8a753da9e367c8
       url: "https://pub.dev"
     source: hosted
-    version: "0.2.6"
+    version: "0.2.7"
   tessera_html:
     dependency: "direct main"
     description:

@@ -17,6 +17,9 @@
   Mail, Messages or AirDrop the file.
 * The grid style dialog is as wide as its descriptions need, so they stay on
   one line at a larger text size where the window has room.
+* A tap anywhere in a group's cell, its name included, expands or collapses
+  it; the small +/− was hard to hit on a phone (tessera_flutter 0.2.7). The
+  grand total still folds everything only through its −.
 * Excel and OpenDocument pivot exports show whole numbers, such as counts,
   without decimals ("1 014", not "1 014,00"), as the grid and the PDF do
   (tessera_xlsx and tessera_ods 0.2.4).
