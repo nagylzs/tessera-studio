@@ -395,6 +395,106 @@ void main() {
     });
   });
 
+  group('all data', () {
+    test('by a dimension the pivot does not show', () async {
+      final facts = await _facts();
+      final cube = _cube(facts, columns: [year]);
+      final content = _content(
+        cube,
+        settings: const ChartSettings(
+          source: ChartSource.all,
+          category: product,
+        ),
+      );
+      expect(content.category, product);
+      // text: largest first, over all the facts
+      expect(content.data!.categories.map((c) => c.label), ['p2', 'p3', 'p1']);
+      expect(content.data!.series.single.values, [60, 55, 40]);
+    });
+
+    test('starts from the pivot\'s first row dimension', () async {
+      final facts = await _facts();
+      final content = _content(
+        _cube(facts, rows: [product, region]),
+        settings: const ChartSettings(source: ChartSource.all),
+      );
+      expect(content.category, product);
+    });
+
+    test('whatever the current cell, within the filter', () async {
+      final facts = await _facts();
+      final cube = _cube(
+        facts,
+        filter: NotFilter(ValueFilter(region, const ['Asia'])),
+      );
+      final eu = cube.layout.cellFor(_group(region, 'EU'), DimensionPath.root)!;
+      final content = _content(
+        cube,
+        cell: eu,
+        settings: const ChartSettings(
+          source: ChartSource.all,
+          category: region,
+          series: year,
+        ),
+      );
+      // a cell pins nothing here: region stays, EU's facts are not alone
+      expect(content.cell, isNull);
+      expect(content.category, region);
+      expect(content.series, year);
+      final data = content.data!;
+      expect(data.categories.map((c) => c.label), ['US', 'EU']);
+      expect(data.series.map((s) => s.label), ['2023', '2024']);
+      expect(data.series[0].values, [40, 30]);
+      expect(data.series[1].values, [50, 30]);
+    });
+
+    test('ignores the pivot\'s swap', () async {
+      final facts = await _facts();
+      final content = _content(
+        _cube(facts, columns: [year]),
+        settings: const ChartSettings(
+          source: ChartSource.all,
+          transpose: true,
+          category: product,
+        ),
+      );
+      expect(content.data!.categories.map((c) => c.label), ['p2', 'p3', 'p1']);
+      expect(content.data!.series, hasLength(1));
+    });
+
+    test('with no dimension at all says so', () async {
+      final facts = await _facts();
+      expect(
+        _content(
+          Cube(
+            facts: facts,
+            spec: CubeSpec(aggregates: [amount]),
+          ),
+          dimensions: const [],
+          settings: const ChartSettings(source: ChartSource.all),
+        ).problem,
+        ChartProblem.noBreakdown,
+      );
+    });
+
+    test('a scatter: one point per group', () async {
+      final facts = await _facts();
+      final content = _content(
+        _cube(facts, aggregates: [amount, units]),
+        settings: const ChartSettings(
+          kind: ChartKind.scatter,
+          source: ChartSource.all,
+          category: product,
+        ),
+      );
+      final points = content.scatter!.series.single.points;
+      expect(
+        {for (final p in points) p.label: (p.x, p.y)},
+        {'p1': (40.0, 4.0), 'p2': (60.0, 6.0), 'p3': (55.0, 11.0)},
+      );
+    });
+  });
+
   group('values shown as something else', () {
     test('chart in the pivot and in a cell\'s breakdown', () async {
       final facts = await _facts();
@@ -678,6 +778,20 @@ void main() {
   });
 
   group('settings', () {
+    test('every source survives the store; an unknown one is the pivot', () {
+      for (final source in ChartSource.values) {
+        final json = jsonDecode(jsonEncode(ChartSettings(source: source)));
+        expect(
+          ChartSettings.fromJson(json as Map<String, Object?>).source,
+          source,
+        );
+      }
+      expect(
+        ChartSettings.fromJson(const {'source': 'later'}).source,
+        ChartSource.pivot,
+      );
+    });
+
     test('survive the store', () async {
       final settings = ChartSettings(
         kind: ChartKind.scatter,

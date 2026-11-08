@@ -115,6 +115,7 @@
   "chartSourceTooltip": "图表显示的内容",
   "chartSourcePivot": "数据透视表",
   "chartSourceCell": "当前单元格",
+  "chartSourceAll": "全部数据",
   "chartValue": "值",
   "chartAxisX": "X 轴",
   "chartAxisY": "Y 轴",

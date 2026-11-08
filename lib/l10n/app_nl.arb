@@ -115,6 +115,7 @@
   "chartSourceTooltip": "Wat de grafiek toont",
   "chartSourcePivot": "Draaitabel",
   "chartSourceCell": "Huidige cel",
+  "chartSourceAll": "Alle gegevens",
   "chartValue": "Waarde",
   "chartAxisX": "X-as",
   "chartAxisY": "Y-as",

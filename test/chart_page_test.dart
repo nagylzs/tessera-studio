@@ -589,6 +589,45 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
+  testWidgets('all data, by a column of its own, whatever the cell', (
+    tester,
+  ) async {
+    _size(tester, 1400, 900);
+    _register();
+    await _toCube(tester);
+    await _showChart(tester);
+    BarChartData data() => tester.widget<BarChart>(find.byType(BarChart)).data;
+
+    await tester.tap(find.byTooltip('What the chart shows'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('All data').last);
+    await tester.pumpAndSettle();
+    expect(_state.cube.chart.settings.value.source, ChartSource.all);
+    // it starts from the pivot's rows: Count by region, EU 2, US 1
+    expect(find.text('Break down by: region'), findsOneWidget);
+    expect(data().barGroups.map((g) => g.barRods.single.toY), [2, 1]);
+    // no swap: the chart has its own rows
+    expect(find.byTooltip('Swap rows and columns'), findsNothing);
+
+    await tester.tap(find.text('Break down by: region'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('product').last);
+    await tester.pumpAndSettle();
+    // Count by product, which the pivot does not show: p2 2, p1 1
+    expect(data().barGroups.map((g) => g.barRods.single.toY), [2, 1]);
+    expect(find.textContaining('Break down by: product'), findsWidgets);
+    // a cell in the grid changes nothing, nor does the caption name it
+    await _tapValue(tester, '2', kind: PointerDeviceKind.mouse);
+    expect(data().barGroups.map((g) => g.barRods.single.toY), [2, 1]);
+    Finder inChart(String text) => find.descendant(
+      of: find.byType(ChartPanel),
+      matching: find.textContaining(text),
+    );
+    expect(inChart('region = EU'), findsNothing);
+    expect(inChart('No current cell'), findsNothing);
+    expect(tester.takeException(), isNull);
+  });
+
   group('remembered per structure', () {
     testWidgets('a chart comes back as it was left', (tester) async {
       _size(tester, 1400, 900);

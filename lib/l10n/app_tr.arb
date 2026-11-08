@@ -115,6 +115,7 @@
   "chartSourceTooltip": "Grafiğin gösterdiği",
   "chartSourcePivot": "Pivot tablo",
   "chartSourceCell": "Geçerli hücre",
+  "chartSourceAll": "Tüm veriler",
   "chartValue": "Değer",
   "chartAxisX": "X ekseni",
   "chartAxisY": "Y ekseni",

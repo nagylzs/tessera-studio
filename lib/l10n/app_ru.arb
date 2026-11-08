@@ -115,6 +115,7 @@
   "chartSourceTooltip": "Что показывает диаграмма",
   "chartSourcePivot": "Сводная таблица",
   "chartSourceCell": "Текущая ячейка",
+  "chartSourceAll": "Все данные",
   "chartValue": "Значение",
   "chartAxisX": "Ось X",
   "chartAxisY": "Ось Y",

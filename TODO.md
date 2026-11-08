@@ -101,9 +101,8 @@ internal testing build; the Mac and Windows sessions build from `dev`.
       downloaded and right). Then the README's feature list, the store
       listings in 14 languages and the screenshots, and publish the privacy
       page with its new date.
-- [ ] Charts, later: the chart's own dimensions independent of the pivot
-      (`ChartData.fromFacts`), a scatter of single facts
-      (`ScatterData.ofFacts`), values on a pie's slices when touched.
+- [ ] Charts, later: a scatter of single facts (`ScatterData.ofFacts`),
+      values on a pie's slices when touched.
 - [ ] A raw date on a pivot axis reads as a whole timestamp in the grid,
       "2025-01-01 00:00:00.000Z" (`Dimension.formatValue` in tessera, found
       2026-11-07). The charts shorten it themselves; the grid, the
@@ -398,6 +397,14 @@ internal testing build; the Mac and Windows sessions build from `dev`.
 
 ## Done
 
+- [x] The chart's own dimensions, independent of the pivot (owner,
+      2026-11-08): "All data" in the chart's source menu breaks all the
+      facts the filter lets through down by any dimension and series, as
+      "Current cell" does a cell's, whatever the pivot shows and wherever
+      the selection is (`ChartSource.all`). The pickers are up to 320 px
+      wide, so "Break down by: Date month" is whole. Seen under Xvfb at
+      1400 × 900 and 500 × 800: revenue by month as bars, a line and stacked
+      by region beside a pivot of regions.
 - [x] A chart's legend that did not fit scrolled inside its 76 px with no
       sign that it did (found on the web, 2026-11-08: a pie of 12 slices at
       500 px wide listed 11, Singapore hidden below). Now its scroll bar

@@ -115,6 +115,7 @@
   "chartSourceTooltip": "Cosa mostra il grafico",
   "chartSourcePivot": "Tabella pivot",
   "chartSourceCell": "Cella corrente",
+  "chartSourceAll": "Tutti i dati",
   "chartValue": "Valore",
   "chartAxisX": "Asse X",
   "chartAxisY": "Asse Y",

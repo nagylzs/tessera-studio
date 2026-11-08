@@ -115,6 +115,7 @@
   "chartSourceTooltip": "Ce que montre le graphique",
   "chartSourcePivot": "Tableau croisé dynamique",
   "chartSourceCell": "Cellule courante",
+  "chartSourceAll": "Toutes les données",
   "chartValue": "Valeur",
   "chartAxisX": "Axe X",
   "chartAxisY": "Axe Y",

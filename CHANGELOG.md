@@ -8,6 +8,9 @@
   landscape, above it on a tablet in portrait, in its place on a phone. On
   any of them a button lets it fill the window, and Esc or back returns.
   Remembered per file structure.
+* A chart of all the data can be broken down by columns of its own, whatever
+  the pivot shows: revenue by month beside a pivot of regions ("All data" in
+  the chart's source menu).
 * Export: a showing chart saves or shares as a PNG, an SVG or a PDF, light or
   dark, with its background or on a transparent one.
 * The export dialog asks first what to export (the chart, the pivot table or

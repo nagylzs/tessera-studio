@@ -26,6 +26,7 @@ List<String> chartCaption(
   final facts = content.facts;
   if (content.problem != null) return const [];
   final isCell = content.source == ChartSource.cell;
+  final breaksDown = content.source.breaksDown;
   final filter = cube.spec.filter;
   final data = content.data;
   final coordinate = content.cell?.coordinate;
@@ -40,7 +41,7 @@ List<String> chartCaption(
       if (content.kind == ChartKind.pie && !data!.series.first.path.isRoot)
         data.series.first.label,
       if (hasCell) describeCoordinate(t, facts, coordinate),
-      if (isCell && content.category != null)
+      if (breaksDown && content.category != null)
         '${l10n.chartBreakDownBy}: ${t.dimensionLabel(content.category!, facts)}',
       if (filter != null) describeFilter(t, filter),
     ].join(' — '),
@@ -294,7 +295,7 @@ class _ChartPanelState extends State<ChartPanel> {
     final t = TesseraLocalizations.of(context);
     final facts = content.facts;
     final aggregates = widget.controller.cube.spec.aggregates;
-    final isCell = settings.source == ChartSource.cell;
+    final breaksDown = settings.source.breaksDown;
     final isScatter = settings.kind == ChartKind.scatter;
     String aggregate(Aggregate a) => t.aggregateLabel(a, facts);
     String dimension(Dimension d) => t.dimensionLabel(d, facts);
@@ -328,6 +329,7 @@ class _ChartPanelState extends State<ChartPanel> {
         items: ChartSource.values,
         itemLabel: (s) => switch (s) {
           ChartSource.pivot => l10n.chartSourcePivot,
+          ChartSource.all => l10n.chartSourceAll,
           ChartSource.cell => l10n.chartSourceCell,
         },
         onSelected: (s) => _update(settings.copyWith(source: s)),
@@ -357,7 +359,7 @@ class _ChartPanelState extends State<ChartPanel> {
           onSelected: (a) => _update(settings.copyWith(y: a)),
         ),
       ],
-      if (isCell) ...[
+      if (breaksDown) ...[
         if (content.category case final category?)
           _Picker<Dimension>(
             label: l10n.chartBreakDownBy,
@@ -451,7 +453,8 @@ class _Picker<T> extends StatelessWidget {
           borderRadius: BorderRadius.circular(8),
         ),
         child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 240),
+          // room for "Break down by: Date month", on a phone too
+          constraints: const BoxConstraints(maxWidth: 320),
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [

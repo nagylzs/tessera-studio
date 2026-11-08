@@ -115,6 +115,7 @@
   "chartSourceTooltip": "グラフの内容",
   "chartSourcePivot": "ピボットテーブル",
   "chartSourceCell": "現在のセル",
+  "chartSourceAll": "すべてのデータ",
   "chartValue": "値",
   "chartAxisX": "X 軸",
   "chartAxisY": "Y 軸",

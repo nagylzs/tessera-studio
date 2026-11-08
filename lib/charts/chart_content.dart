@@ -10,7 +10,7 @@ enum ChartProblem {
   /// A scatter chart with fewer than two aggregates.
   needsTwoValues,
 
-  /// The current cell pins every dimension.
+  /// The current cell pins every dimension, or there is none at all.
   noBreakdown,
 
   /// A pie chart without one positive value.
@@ -65,7 +65,7 @@ final class ChartContent {
   /// What the chart may be broken down by: the file's, and the pivot's own.
   final List<Dimension> dimensions;
 
-  /// Current cell only.
+  /// All data or the current cell only ([ChartSource.breaksDown]).
   final Dimension? category;
   final Dimension? series;
 
@@ -126,6 +126,10 @@ List<Dimension> chartDimensions(Cube cube, List<Dimension> dimensions) => [
 /// Resolves [settings] against [cube] and reads the chart's data, never
 /// more cells than it draws. [shown] are the aggregates the grid shows;
 /// [cell] the current cell, for [ChartSource.cell].
+///
+/// A breakdown ([ChartSource.all], [ChartSource.cell]) is read from a cube
+/// of its own over the facts that the pivot's filter, and the cell's
+/// coordinate, let through.
 ChartContent chartContent({
   required Cube cube,
   required ChartSettings settings,
@@ -148,6 +152,7 @@ ChartContent chartContent({
   final all = chartDimensions(cube, dimensions);
   final kind = settings.kind;
   final isCell = settings.source == ChartSource.cell;
+  final breaksDown = settings.source.breaksDown;
 
   bool pinned(Dimension d) =>
       isCell && (cell?.coordinate.constrains(d) ?? false);
@@ -158,7 +163,7 @@ ChartContent chartContent({
   // the first breakdown follows the pivot: its first row dimension (then
   // column dimension) the cell does not pin, else the text column with the
   // fewest values, as the first pivot of a file has, else any
-  final category = !isCell
+  final category = !breaksDown
       ? null
       : usable.contains(settings.category)
       ? settings.category
@@ -170,7 +175,9 @@ ChartContent chartContent({
             _fewestValues(usable, facts) ??
             usable.firstOrNull;
   final series =
-      isCell && usable.contains(settings.series) && settings.series != category
+      breaksDown &&
+          usable.contains(settings.series) &&
+          settings.series != category
       ? settings.series
       : null;
 
@@ -202,17 +209,23 @@ ChartContent chartContent({
   if (isScatter && x == y) {
     return result(problem: ChartProblem.needsTwoValues);
   }
-  if (isCell && category == null) {
+  if (breaksDown && category == null) {
     return result(problem: ChartProblem.noBreakdown);
   }
 
-  // Everything is read from a layout: the pivot's, or for a cell one built
-  // over the cell's facts, so that the chart can never disagree with a
+  // Everything is read from a layout: the pivot's, or for a breakdown one
+  // built over its facts, so that the chart can never disagree with a
   // table of the same spec.
   final CubeLayout layout;
-  if (isCell) {
-    final whole = cube.layout;
-    final at = cell ?? whole.cellFor(DimensionPath.root, DimensionPath.root);
+  if (breaksDown) {
+    final FactFilter? filter;
+    if (isCell) {
+      final whole = cube.layout;
+      final at = cell ?? whole.cellFor(DimensionPath.root, DimensionPath.root);
+      filter = at == null ? cube.spec.filter : cellFilter(whole, at);
+    } else {
+      filter = cube.spec.filter;
+    }
     layout = Cube(
       facts: facts,
       spec: CubeSpec(
@@ -234,13 +247,13 @@ ChartContent chartContent({
             ? const CubeAxis()
             : CubeAxis(dimensions: [AxisDimension(series)]),
         aggregates: isScatter ? [x, y] : [value],
-        filter: at == null ? cube.spec.filter : cellFilter(whole, at),
+        filter: filter,
       ),
     ).layout;
   } else {
     layout = cube.layout;
   }
-  final transpose = !isCell && settings.transpose;
+  final transpose = !breaksDown && settings.transpose;
   final categoryAxis = transpose ? layout.columns : layout.rows;
   final seriesAxis = transpose ? layout.rows : layout.columns;
   final categoryEntries = ChartEntries.leaves.select(categoryAxis);

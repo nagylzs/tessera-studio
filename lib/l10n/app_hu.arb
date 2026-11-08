@@ -115,6 +115,7 @@
   "chartSourceTooltip": "Mit mutat a diagram",
   "chartSourcePivot": "Kimutatás",
   "chartSourceCell": "Aktuális cella",
+  "chartSourceAll": "Összes adat",
   "chartValue": "Érték",
   "chartAxisX": "X tengely",
   "chartAxisY": "Y tengely",

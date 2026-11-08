@@ -440,8 +440,10 @@ the next step.
   no widgets, tested against the grid's cells) resolves `ChartSettings`
   against the cube on every change, as an aggregate or dimension may be gone,
   and reads everything from a `CubeLayout`: the pivot's visible leaves, or
-  for `ChartSource.cell` a cube it builds over the current cell's facts
-  (`cellFilter`). It selects the entries before reading, so that a huge pivot
+  for a breakdown (`ChartSource.breaksDown`) a cube it builds by the chart's
+  own dimensions, over the facts the pivot's filter lets through (`all`,
+  2026-11-08: revenue by month beside a pivot of regions) or over the
+  current cell's (`cell`, `cellFilter`); the two share the breakdown. It selects the entries before reading, so that a huge pivot
   costs only the cells drawn (`maxCategories`, `maxSeries`; the caption says
   what was cut), except a pie, which reads every group of the Total column
   and merges the small ones, as leaving them out would falsify percentages

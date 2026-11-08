@@ -115,6 +115,7 @@
   "chartSourceTooltip": "Co graf zobrazuje",
   "chartSourcePivot": "Kontingenční tabulka",
   "chartSourceCell": "Aktuální buňka",
+  "chartSourceAll": "Všechna data",
   "chartValue": "Hodnota",
   "chartAxisX": "Osa X",
   "chartAxisY": "Osa Y",

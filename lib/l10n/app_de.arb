@@ -115,6 +115,7 @@
   "chartSourceTooltip": "Was das Diagramm zeigt",
   "chartSourcePivot": "Pivot-Tabelle",
   "chartSourceCell": "Aktuelle Zelle",
+  "chartSourceAll": "Alle Daten",
   "chartValue": "Wert",
   "chartAxisX": "X-Achse",
   "chartAxisY": "Y-Achse",

@@ -115,6 +115,7 @@
   "chartSourceTooltip": "Co pokazuje wykres",
   "chartSourcePivot": "Tabela przestawna",
   "chartSourceCell": "Bieżąca komórka",
+  "chartSourceAll": "Wszystkie dane",
   "chartValue": "Wartość",
   "chartAxisX": "Oś X",
   "chartAxisY": "Oś Y",

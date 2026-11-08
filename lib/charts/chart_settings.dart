@@ -10,8 +10,17 @@ enum ChartSource {
   /// The pivot table as it is shown: its visible groups.
   pivot,
 
+  /// All the facts the pivot's filter lets through, broken down by
+  /// dimensions of the chart's own, whatever the pivot shows: revenue by
+  /// month beside a pivot of regions.
+  all,
+
   /// The facts behind the current cell, broken down by a dimension.
-  cell,
+  cell;
+
+  /// Whether the chart picks its own dimensions ([ChartSettings.category],
+  /// [ChartSettings.series]) instead of reading the pivot's.
+  bool get breaksDown => this != pivot;
 }
 
 /// How an exported chart looks. Light on white unless asked, as exports go on
@@ -108,11 +117,12 @@ final class ChartSettings {
   final Aggregate? x;
   final Aggregate? y;
 
-  /// Current cell only: the dimension it is broken down by; `null` = the
-  /// first one of the pivot the cell does not pin.
+  /// All data or the current cell ([ChartSource.breaksDown]): the dimension
+  /// it is broken down by; `null` = the first one of the pivot the cell does
+  /// not pin. The two sources share it, so a switch keeps the breakdown.
   final Dimension? category;
 
-  /// Current cell only: a second breakdown, as series.
+  /// All data or the current cell: a second breakdown, as series.
   final Dimension? series;
 
   ChartSettings copyWith({

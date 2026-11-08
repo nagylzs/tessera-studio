@@ -611,6 +611,10 @@
   "@chartSourceCell": {
     "description": "Chart data: the facts behind the current cell. Same term as in noCurrentCell."
   },
+  "chartSourceAll": "All data",
+  "@chartSourceAll": {
+    "description": "Chart data: all the facts (those the pivot's filter lets through), broken down by columns the chart picks itself rather than the pivot's. Same \"all the data\" as in chartNoCell."
+  },
   "chartValue": "Value",
   "@chartValue": {
     "description": "Label of the menu choosing which aggregate a chart draws."

@@ -115,6 +115,7 @@
   "chartSourceTooltip": "Qué muestra el gráfico",
   "chartSourcePivot": "Tabla dinámica",
   "chartSourceCell": "Celda actual",
+  "chartSourceAll": "Todos los datos",
   "chartValue": "Valor",
   "chartAxisX": "Eje X",
   "chartAxisY": "Eje Y",
