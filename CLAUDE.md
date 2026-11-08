@@ -69,7 +69,8 @@ lives here.
   ("Expression…" in the dimension picker), the expression help (the ?
   in every expression field; it pulls in `tessera` 0.2.3) —, `tessera_pdf
   ^0.2.1` — page texts in the cell colour —, `tessera_xlsx` and
-  `tessera_ods ^0.2.3` — `sheets()`, the sheet list; 0.2.2 brought their
+  `tessera_ods ^0.2.4` — whole numbers without decimals, as the grid
+  shows them; 0.2.3 `sheets()`, the sheet list; 0.2.2 brought their
   own zip writer, as LibreOffice refuses what `archive` 4.4+ writes; they pull in `tessera` 0.2.2, the first
   with `Schema.structureKey` — the other exporters `^0.2.0`). For developing both at once, a
   git-ignored `pubspec_overrides.yaml` points all seven packages at

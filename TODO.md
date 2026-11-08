@@ -105,15 +105,6 @@ conventions live in `CLAUDE.md`, not here.
       The same happens in height: with "Editors on top" a low window leaves
       the grid less than its two header rows ("pinned rows with a total height
       of 56.0, which exceeds the viewport height of 20.0"; the Mac, 2026-11-07).
-- [ ] The stores' pivot PDFs print the thousands separator as "¡" in cs, fr,
-      hu, pl and ru ("1¡771¡020"), since at least 1.1.0. Fixed in the bundled
-      fonts on `charts` (`0d783e6`). Owner, 2026-11-07: it goes into the first
-      Android production release, so once Google ships `1.2.0+11`, that commit
-      goes on `main` with a new build number. `pdf` is no direct dependency
-      there, so its test needs it as a dev dependency. The other stores' next
-      builds get it from `main` too. The cause is in `package:pdf` (3.13.0 and
-      3.13.1, `TtfParser.readGlyph`): reported as DavBfr/dart_pdf#2003, and the
-      open #1980 holds the same check among much else.
 - [ ] Large text outside the charts (found 2026-11-07 while testing them;
       fine at the owner's 1.5, debug builds show it, release builds cut it
       quietly): at 2 a 17 px overflow to the right before the cube opens, on
@@ -213,13 +204,25 @@ conventions live in `CLAUDE.md`, not here.
       - 1.2.0 (`1.2.0+11`, 2026-11-06), the help for expressions, goes
         to Android's closed test first, while Google reviews the
         production application (sent 2026-11-06, whose answers say the
-        help comes in the next build). If it holds there, Android's
-        production release starts at 1.2.0, not 1.1.0: the CHANGELOG's
-        1.1.0 intro then needs correcting. The App Store, the Microsoft
-        Store and the GitHub Release stay on 1.1.0 until the owner
-        decides when they follow.
+        help comes in the next build); the owner tried it on the pad and
+        the phone and sent it there the same day.
+      - 1.2.1 (`1.2.1+12`, 2026-11-07): Google granted production access
+        on 2026-11-07, and Android's production release starts here, with
+        1.2.0 and the PDF font fix from the `charts` branch (`0d783e6`:
+        the no-break space, the thousands separator in cs, fr, hu, pl
+        and ru, printed as "¡"; reported upstream as DavBfr/dart_pdf#2003).
+        The released 1.1.0 has that bug in every store. Sent to Google's
+        production review 2026-11-07 (managed publishing off). The owner
+        decided on 2026-11-08 that the other stores follow with the same
+        1.2.1, and the charts come later as 1.3.0. On 2026-11-08: the
+        GitHub Release `v1.2.1` published (Linux packages, the Windows
+        zip); iOS and macOS `1.2.1 (12)` tested through TestFlight and
+        submitted (automatic release); the MSIX 1.2.12.0 submitted
+        (published as soon as it is certified). Each store's 1.2.1 goes
+        live on its approval; tick this item when all four are out.
       - The README's "Not released yet" note gave way to the store
-        links (2026-11-01); Google Play's joins them once it is live.
+        links (2026-11-01); Google Play's joined them on 2026-11-08,
+        while its production release was still in review.
 - [ ] Release signing in CI: the Android upload key, Apple
       certificates and profiles, Windows code signing — as CI secrets
       only; Play and App Store uploads manual at first. Android done
@@ -369,6 +372,23 @@ conventions live in `CLAUDE.md`, not here.
 
 ## Done
 
+- [x] The stores' pivot PDFs printed the thousands separator as "¡" in cs,
+      fr, hu, pl and ru ("1¡771¡020"), since at least 1.1.0. Fixed in the
+      bundled fonts (`0d783e6` here, `64bdf09` on `main`) and shipped as
+      1.2.1 to every store (2026-11-08; see the release item). The cause is
+      in `package:pdf` (3.13.0 and 3.13.1, `TtfParser.readGlyph`): reported
+      as DavBfr/dart_pdf#2003, and the open #1980 holds the same check
+      among much else; the one-point glyphs can go once it is fixed there.
+- [x] Number formats in XLSX and ODS pivot exports (found 2026-11-08 by
+      the Windows test of 1.2.1): every value cell got the export
+      theme's one format, `CubeExportTheme.numberFormat`, two decimals
+      by default, so a count read "1 014,00" in Excel and LibreOffice
+      while the grid and the PDF say "1 014"; exports had done this
+      since 1.0. Fixed in tessera_xlsx and tessera_ods 0.2.4 (owner,
+      2026-11-08, before the charts): a whole number gets the theme's
+      format without decimals, as the grid and the text formats show
+      it, the others keep it; tested there through LibreOffice's "as
+      shown" csv.
 - [x] Help for expressions (a closed-test user, 2026-11-04, could not
       write a formula without knowing the syntax and the functions, and
       the app has no help offline). The help is tessera_flutter's

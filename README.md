@@ -15,14 +15,15 @@ open a web address or a link yourself
 
 ![Sales by region and quarter, with Europe and North America expanded](store/screenshots/desktop/1-pivot.png)
 
-**Get it** from the
+**Get it** from
+[Google Play](https://play.google.com/store/apps/details?id=eu.nagylzs.tessera_studio)
+(Android), the
 [App Store](https://apps.apple.com/app/tessera-studio-pivot-tables/id6824598370)
 (iPhone, iPad and Mac), the
 [Microsoft Store](https://apps.microsoft.com/detail/9PB0S6Q0K039)
 (Windows) or the
 [latest release](https://github.com/nagylzs/tessera-studio/releases/latest)
-here (Linux `.deb` and tarball, portable Windows build). Google Play is
-coming soon.
+here (Linux `.deb` and tarball, portable Windows build).
 
 ## What it does
 
@@ -82,7 +83,7 @@ pictures: open a file, see it as a pivot, save or send what you need.
 
 | Platform | State |
 |----------|-------|
-| Android | in a closed test on Google Play; tested on a tablet (Android 16) and the emulator |
+| Android | [Google Play](https://play.google.com/store/apps/details?id=eu.nagylzs.tessera_studio), Android 7 or newer, phones and tablets; tested on a tablet (Android 16), a phone and the emulator |
 | Windows | [Microsoft Store](https://apps.microsoft.com/detail/9PB0S6Q0K039); a portable build (zip) on the [releases](https://github.com/nagylzs/tessera-studio/releases/latest) page |
 | Linux | a tarball and a `.deb` for x64 and arm64 (Ubuntu 22.04, Debian 12 or newer), with the menu entry and "Open with", on the [releases](https://github.com/nagylzs/tessera-studio/releases/latest) page; installed and tested by CI on Ubuntu 22.04 and 24.04 and Debian 12 |
 | Web | builds |

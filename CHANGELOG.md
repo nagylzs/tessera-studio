@@ -17,9 +17,15 @@
   Mail, Messages or AirDrop the file.
 * The grid style dialog is as wide as its descriptions need, so they stay on
   one line at a larger text size where the window has room.
+* Excel and OpenDocument pivot exports show whole numbers, such as counts,
+  without decimals ("1 014", not "1 014,00"), as the grid and the PDF do
+  (tessera_xlsx and tessera_ods 0.2.4).
+
+## 1.2.1
+
 * PDF exports: in Czech, French, Hungarian, Polish and Russian the space
-  between the thousands of a number printed as "¡" ("1¡771¡020"). It is a space
-  again.
+  between the thousands of a number printed as "¡" ("1¡771¡020"). It is a
+  space again.
 
 ## 1.2.0
 
@@ -39,9 +45,9 @@
 
 ## 1.1.0
 
-The same version in every store. 1.0.0, the first release, came out in
-each store as it was approved; Google Play, Linux and the portable
-Windows build start with this one.
+The same version in every store but Google Play, whose first public
+release is 1.2.1. 1.0.0, the first release, came out in each store as it
+was approved; Linux and the portable Windows build start with this one.
 
 * Workbooks (`.xlsx`, `.ods`) open on the sheet they were saved on, as
   Excel and LibreOffice do, passing over hidden and empty sheets. With
