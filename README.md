@@ -4,8 +4,9 @@
 
 Open a CSV, Excel, OpenDocument or JSON file and see it as a pivot table
 at once: group rows and columns, open and close the levels, add sums,
-counts and averages, filter and sort — then save or share the result as
-an Excel workbook, a PDF, a web page or another format.
+counts and averages, filter, sort and chart — then save or share the
+result as an Excel workbook, a PDF, a web page, an image or another
+format.
 
 **Free and ad-free, forever.** No ads, no in-app purchases, no
 subscriptions, no account, no analytics, no tracking. Your files are
@@ -53,6 +54,17 @@ pictures: open a file, see it as a pivot, save or send what you need.
 - a file you open again comes back on the pivot you left it on
 - full screen on phones: tap a value to hide everything but the grid
 
+**Chart**
+- bars, stacked bars, a line, a pie or a scatter chart, beside the grid,
+  above it or in its place on a phone, and full screen
+- of the pivot as shown, of all the data by columns of your choice
+  (revenue by month beside a pivot of regions), or of the records behind
+  one cell; a scatter can show every single record
+- a pie names a slice when you tap it; the chart follows the pivot as
+  you change it
+- saved or shared as PNG, SVG or PDF, light or dark, with or without a
+  background
+
 **Save and share**
 - the pivot as shown, in Excel, OpenDocument, PDF, HTML, SVG, CSV, JSON
   or JSON Lines
@@ -62,22 +74,28 @@ pictures: open a file, see it as a pivot, save or send what you need.
   exactly as it was
 
 **Make it yours**
-- six grid styles, from a classic spreadsheet look to high contrast;
-  the exports follow the style you choose
+- 24 grid styles in a gallery, from a classic spreadsheet look to large
+  print, and color by the depth of rows, columns or both; the exports
+  follow the style you choose
 - light and dark themes
 - 14 languages: Chinese, Czech, Dutch, English, French, German,
   Hungarian, Italian, Japanese, Polish, Portuguese, Russian, Spanish and
   Turkish
 
+![Revenue by month, stacked by region, beside a pivot of regions by quarter](store/screenshots/desktop/2-chart.png)
+
 <p>
   <img src="store/screenshots/play-phone/1-pivot.png" width="200" alt="The pivot on a phone, largest regions first">
-  <img src="store/screenshots/play-phone/2-fullscreen.png" width="200" alt="Full screen on a phone">
-  <img src="store/screenshots/play-phone/3-editors.png" width="200" alt="Rows, columns and values in the editors sheet">
+  <img src="store/screenshots/play-phone/2-chart.png" width="200" alt="A pie chart on a phone, a tapped slice named">
+  <img src="store/screenshots/play-phone/3-fullscreen.png" width="200" alt="Full screen on a phone">
+  <img src="store/screenshots/play-phone/4-editors.png" width="200" alt="Rows, columns and values in the editors sheet">
 </p>
 
-![Show values as: percentages of totals, differences, running totals and ranks](store/screenshots/desktop/3-show-as.png)
+![Show values as: percentages of totals, differences, running totals and ranks](store/screenshots/desktop/4-show-as.png)
 
-![The dark theme with the Hue levels grid style](store/screenshots/desktop/5-dark.png)
+![The grid style gallery, with color by depth](store/screenshots/desktop/6-styles.png)
+
+![The dark theme with the Hue levels grid style](store/screenshots/desktop/7-dark.png)
 
 ## Platforms
 

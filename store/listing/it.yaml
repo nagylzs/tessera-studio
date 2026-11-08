@@ -9,17 +9,17 @@ short: Apri file CSV, Excel e JSON come tabelle pivot. Gratis, senza pubblicità
 subtitle: Apri CSV, Excel e JSON
 
 promo: >-
-  Apri un foglio di calcolo, un CSV o un JSON e vedilo subito come tabella
-  pivot, poi salvalo in Excel, PDF e altro. Gratis per sempre, senza
-  pubblicità né tracciamento.
+  Apri un foglio di calcolo, CSV o JSON e vedilo subito come tabella pivot e
+  grafico; salvalo in Excel, PDF e altro. Gratis per sempre, senza pubblicità
+  né tracciamento.
 
-keywords: tabella pivot,pivot,tabella incrociata,csv,excel,xlsx,ods,json,foglio di calcolo,report,pdf
+keywords: tabella pivot,pivot,tabella incrociata,csv,excel,xlsx,ods,json,foglio di calcolo,report,pdf,grafico
 
 summary: >-
-  Tessera Studio apre file CSV, Excel, OpenDocument e JSON come tabelle
-  pivot da espandere, filtrare e ordinare, e le salva in Excel, PDF, HTML e
-  altro. Gratis e senza pubblicità per sempre: nessun account, nessun
-  tracciamento, i tuoi dati restano sul tuo dispositivo.
+  Tessera Studio apre file CSV, Excel, OpenDocument e JSON come tabelle pivot
+  da espandere, filtrare, ordinare e vedere in grafico, e le salva in Excel,
+  PDF, HTML e altro. Gratis e senza pubblicità per sempre: nessun account,
+  nessun tracciamento.
 
 description: |-
   Tessera Studio trasforma i file di dati che hai già in tabelle pivot. Apri un file CSV, Excel, OpenDocument o JSON e compare subito come tabella pivot da esplorare: raggruppa righe e colonne, espandi e comprimi i livelli, aggiungi somme, conteggi e medie, filtra e ordina. Quando hai ciò che ti serve, salvalo o condividilo come cartella di lavoro Excel, PDF, pagina web o in un altro formato.
@@ -39,13 +39,18 @@ description: |-
   • un file riaperto torna con la tabella pivot in cui l’avevi lasciato
   • schermo intero sul telefono: tocca un valore per lasciare solo la griglia
 
+  GRAFICI
+  • barre, barre impilate, linee, torta o dispersione, accanto alla griglia o al suo posto sul telefono, e a schermo intero
+  • della tabella pivot come appare, di tutti i dati per le colonne che scegli o dei record dietro una cella; la dispersione può mostrare ogni singolo record
+  • salvati o condivisi come PNG, SVG o PDF, chiari o scuri, con o senza sfondo
+
   SALVARE E CONDIVIDERE
   • la tabella pivot così come appare, in Excel, OpenDocument, PDF, HTML, SVG, CSV, JSON o JSON Lines
   • le righe sottostanti come tabella semplice, in Excel, OpenDocument, CSV o JSON Lines
   • uno snapshot Tessera: i dati e la tabella pivot in un unico file che si riapre esattamente com’era
 
   A TUO GUSTO
-  • sei stili di griglia, dall’aspetto classico del foglio di calcolo al contrasto elevato; le esportazioni seguono lo stile scelto
+  • 24 stili di griglia in una galleria, dall’aspetto classico del foglio di calcolo ai caratteri grandi; colore per livello di righe, colonne o entrambi; le esportazioni seguono lo stile scelto
   • temi chiaro e scuro
   • 14 lingue: ceco, cinese, francese, giapponese, inglese, italiano, olandese, polacco, portoghese, russo, spagnolo, tedesco, turco e ungherese
 
@@ -58,12 +63,13 @@ features:
   - Somme, conteggi, medie, minimi, massimi, conteggi distinti, deviazioni standard e formule
   - Percentuali di un totale, totali progressivi e classifiche
   - Filtri e ordinamento per etichette o per valori
+  - "Grafici: barre, barre impilate, linee, torte e dispersione, salvati come PNG, SVG o PDF"
   - Rileva tipi di colonna, date e formati numerici e ricorda le tue modifiche
   - Riapre un file con la tabella pivot in cui l’avevi lasciato
   - Esporta in Excel, OpenDocument, PDF, HTML, SVG, CSV, JSON e JSON Lines
   - Snapshot Tessera che si riaprono esattamente com’erano
   - Apre i file trascinandoli, con «Apri con» o dagli appunti
-  - Sei stili di griglia, temi chiaro e scuro
+  - 24 stili di griglia, colore per livello, temi chiaro e scuro
   - 14 lingue
   - Non modifica mai i tuoi file
   - Gratis e senza pubblicità per sempre, senza account né tracciamento

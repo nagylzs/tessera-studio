@@ -33,21 +33,33 @@ Wide screens (desktop, tablet in landscape):
 | # | Name | Opens | Settings | Then |
 |---|------|-------|----------|------|
 | 1 | `pivot` | `Sales by quarter.tsnp` | light, Standard | tap Europe × Q4 (the current-cell line below the grid describes it) |
-| 2 | `schema` | `sales.csv` | light | nothing: the schema page with inferred types and samples |
-| 3 | `show-as` | `Sales by quarter.tsnp` | light | tap Europe × Q4, right-click (long-press) the value chip, hover "Show values as" |
-| 4 | `export` | `Sales by quarter.tsnp` | light | the export button: the export dialog |
-| 5 | `dark` | `Sales by quarter.tsnp` | dark, Hue levels | tap Europe × Q4 |
+| 2 | `chart` | `Sales by quarter.tsnp` | light | tap Europe × Q4, the chart button (beside the grid), then in the chart: "All data", "Break down by: Date month", "Series: Region", stacked bars — revenue by month beside a pivot of quarters |
+| 3 | `schema` | `sales.csv` | light | nothing: the schema page with inferred types and samples |
+| 4 | `show-as` | `Sales by quarter.tsnp` | light | tap Europe × Q4, right-click (long-press) the value chip, hover (tap) "Show values as" |
+| 5 | `export` | `Sales by quarter.tsnp` | light | tap Europe × Q4, the export button: the export dialog |
+| 6 | `styles` | `Sales by quarter.tsnp` | light | the menu, "Grid style…": the gallery, Standard chosen |
+| 7 | `dark` | `Sales by quarter.tsnp` | dark, Hue levels | tap Europe × Q4 |
 
 Phones (portrait):
 
 | # | Name | Opens | Settings | Then |
 |---|------|-------|----------|------|
 | 1 | `pivot` | `Sales 2025.tsnp` | light, Standard | nothing: the grid alone with the tune button |
-| 2 | `fullscreen` | `Sales 2025.tsnp` | light | tap Germany's value: full screen; then + on Latin America, the whole cube fits |
-| 3 | `editors` | `Sales 2025.tsnp` | light | tap Germany's value twice (full screen and back: the cell stays current), tune: the editors sheet |
-| 4 | `schema` | `sales.csv` | light | nothing: the schema page, rows wrapped |
-| 5 | `export` | `Sales 2025.tsnp` | light | the share button: the export dialog |
-| 6 | `dark` | `Sales 2025.tsnp` | dark, Hue levels | nothing |
+| 2 | `chart` | `Sales 2025.tsnp` | light | the chart button (in the grid's place), the pie, then tap its largest slice: the box names it, every slice in the legend |
+| 3 | `fullscreen` | `Sales 2025.tsnp` | light | tap Germany's value: full screen; then tap Latin America, the whole cube fits |
+| 4 | `editors` | `Sales 2025.tsnp` | light | tap Germany's value twice (full screen and back: the cell stays current), tune: the editors sheet |
+| 5 | `schema` | `sales.csv` | light | nothing: the schema page, rows wrapped |
+| 6 | `export` | `Sales 2025.tsnp` | light | the share button: the export dialog |
+| 7 | `styles` | `Sales 2025.tsnp` | light | the menu, "Grid style…": the gallery, two columns |
+| 8 | `dark` | `Sales 2025.tsnp` | dark, Hue levels | nothing |
+
+The chart and the gallery joined on 2026-11-08 for 1.3.0, which renumbered
+the shots after them. Retaken that day: `desktop`, `play-phone`,
+`play-tablet` and the feature graphic. The Apple sets (`apple-*`) and
+`microsoft` still have the five or six shots of 1.2.1 under the old
+numbers and need retaking on the Mac and Windows before 1.3.0 is
+submitted (TODO.md, "Next device round"): until then they show the app
+without its chart button.
 
 On a phone the "Show values as" submenu covers the whole screen, so the
 phone set shows the sheet instead.

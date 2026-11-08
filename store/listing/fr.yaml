@@ -9,17 +9,17 @@ short: Fichiers CSV, Excel et JSON en tableaux croisés. Gratuit, sans pub ni pi
 subtitle: Visionneuse CSV, Excel et JSON
 
 promo: >-
-  Ouvrez un classeur, un CSV ou un JSON et voyez-le aussitôt en tableau croisé,
-  puis enregistrez-le en Excel, PDF et plus. Gratuit pour toujours, sans pub ni
-  pistage.
+  Ouvrez un classeur, un CSV ou un JSON et voyez-le aussitôt en tableau croisé
+  et en graphique, puis enregistrez-le en Excel, PDF et plus. Gratuit, sans
+  pub ni pistage.
 
-keywords: tableau croisé,croisé dynamique,pivot,csv,excel,xlsx,ods,json,tableur,visionneuse,rapport,pdf
+keywords: tableau croisé,croisé dynamique,pivot,csv,excel,xlsx,ods,json,tableur,visionneuse,graphique,pdf
 
 summary: >-
   Tessera Studio ouvre les fichiers CSV, Excel, OpenDocument et JSON en
-  tableaux croisés à déplier, filtrer et trier, et les enregistre en Excel,
-  PDF, HTML et plus. Gratuit et sans publicité pour toujours : aucun compte,
-  aucun pistage, vos données restent chez vous.
+  tableaux croisés à déplier, filtrer, trier et mettre en graphique, et les
+  enregistre en Excel, PDF, HTML et plus. Gratuit et sans publicité pour
+  toujours, sans compte ni pistage.
 
 description: |-
   Tessera Studio transforme vos fichiers de données en tableaux croisés dynamiques. Ouvrez un fichier CSV, Excel, OpenDocument ou JSON : il s’affiche aussitôt en tableau croisé à explorer. Regroupez les lignes et les colonnes, dépliez et repliez les niveaux, ajoutez des sommes, des nombres et des moyennes, filtrez et triez. Une fois le résultat obtenu, enregistrez-le ou partagez-le en classeur Excel, en PDF, en page web ou dans un autre format.
@@ -39,13 +39,18 @@ description: |-
   • un fichier rouvert revient sur le tableau croisé où vous l’aviez laissé
   • plein écran sur téléphone : touchez une valeur pour ne garder que la grille
 
+  GRAPHIQUES
+  • barres, barres empilées, courbe, secteurs ou nuage de points, à côté de la grille ou à sa place sur un téléphone, et en plein écran
+  • du tableau croisé tel qu’il s’affiche, de toutes les données selon les colonnes de votre choix, ou des enregistrements derrière une cellule ; un nuage de points peut montrer chaque enregistrement
+  • enregistrés ou partagés en PNG, SVG ou PDF, clairs ou sombres, avec ou sans arrière-plan
+
   ENREGISTRER ET PARTAGER
   • le tableau croisé tel qu’affiché, en Excel, OpenDocument, PDF, HTML, SVG, CSV, JSON ou JSON Lines
   • les lignes sous-jacentes en tableau simple, en Excel, OpenDocument, CSV ou JSON Lines
   • un instantané Tessera : les données et le tableau croisé dans un seul fichier qui se rouvre exactement à l’identique
 
   À VOTRE GOÛT
-  • six styles de grille, de l’aspect tableur classique au contraste élevé ; les exports suivent le style choisi
+  • 24 styles de grille dans une galerie, de l’aspect tableur classique aux gros caractères ; couleur selon le niveau des lignes, des colonnes ou des deux ; les exports suivent le style choisi
   • thèmes clair et sombre
   • 14 langues : allemand, anglais, chinois, espagnol, français, hongrois, italien, japonais, néerlandais, polonais, portugais, russe, tchèque et turc
 
@@ -58,12 +63,13 @@ features:
   - Sommes, nombres, moyennes, minimums, maximums, valeurs distinctes, écarts types et formules
   - Pourcentages d’un total, cumuls et rangs
   - Filtres, et tri par libellés ou par valeurs
+  - "Graphiques : barres, barres empilées, courbes, secteurs et nuages de points, enregistrés en PNG, SVG ou PDF"
   - Détecte les types de colonnes, les dates et les formats de nombres, et retient vos réglages
   - Rouvre un fichier sur le tableau croisé où vous l’aviez laissé
   - Exporte en Excel, OpenDocument, PDF, HTML, SVG, CSV, JSON et JSON Lines
   - Instantanés Tessera qui se rouvrent à l’identique
   - Ouvre les fichiers par glisser-déposer, « Ouvrir avec » ou depuis le presse-papiers
-  - Six styles de grille, thèmes clair et sombre
+  - 24 styles de grille, couleur selon le niveau, thèmes clair et sombre
   - 14 langues
   - Ne modifie jamais vos fichiers
   - Gratuit et sans publicité pour toujours, sans compte ni pistage

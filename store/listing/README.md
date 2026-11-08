@@ -67,9 +67,11 @@ Before each release check:
 - **Drag and drop**: Windows, Linux, web and macOS (tried 2026-10-19);
   not iOS.
 - **Full screen on phones**: Android and iOS.
-- **Charts** are in no store build yet, so no listing claims them. The
-  release that carries them adds them to the description, the features
-  and the keywords, in every language.
+- **Charts and the style gallery** come with 1.3.0. Since 2026-11-08 the
+  listings on `dev` claim them in every language (the CHART section, a
+  feature, the keywords, the promotional text and the Microsoft summary;
+  24 grid styles and color by depth): upload these texts with 1.3.0, not
+  with a 1.2.x patch from `main`, which keeps its own copy.
 - When a feature, a format or a language is added or removed, the
   description, the features and the keywords follow, in every language.
 

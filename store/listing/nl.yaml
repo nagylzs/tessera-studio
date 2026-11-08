@@ -9,17 +9,17 @@ short: Open CSV-, Excel- en JSON-bestanden als draaitabel. Gratis, zonder reclam
 subtitle: Viewer voor CSV, Excel en JSON
 
 promo: >-
-  Open een spreadsheet, CSV- of JSON-bestand en zie het meteen als
-  draaitabel; sla het daarna op als Excel, PDF en meer. Voor altijd gratis,
-  zonder reclame of tracking.
+  Open een spreadsheet, CSV- of JSON-bestand en zie het meteen als draaitabel
+  en grafiek; sla het op als Excel, PDF en meer. Altijd gratis, zonder reclame
+  of tracking.
 
-keywords: draaitabel,pivot,kruistabel,csv,excel,xlsx,ods,json,spreadsheet,viewer,rapport,gegevens,pdf
+keywords: draaitabel,pivot,kruistabel,csv,excel,xlsx,ods,json,spreadsheet,viewer,rapport,gegevens,pdf,grafiek
 
 summary: >-
   Tessera Studio opent CSV-, Excel-, OpenDocument- en JSON-bestanden als
-  draaitabellen om uit te klappen, te filteren en te sorteren, en slaat ze
-  op als Excel, PDF, HTML en meer. Voor altijd gratis en zonder reclame: geen
-  account, geen tracking, uw gegevens blijven bij u.
+  draaitabellen om uit te klappen, te filteren, te sorteren en in een grafiek
+  te tonen, en slaat ze op als Excel, PDF, HTML en meer. Voor altijd gratis en
+  zonder reclame: geen account, geen tracking.
 
 description: |-
   Tessera Studio maakt van de gegevensbestanden die u al hebt draaitabellen. Open een CSV-, Excel-, OpenDocument- of JSON-bestand en het verschijnt meteen als draaitabel om te verkennen: groepeer rijen en kolommen, klap niveaus in en uit, voeg sommen, aantallen en gemiddelden toe, filter en sorteer. Hebt u wat u nodig hebt, sla het dan op of deel het als Excel-werkmap, pdf, webpagina of in een ander formaat.
@@ -39,13 +39,18 @@ description: |-
   • een bestand dat u opnieuw opent, komt terug met de draaitabel waar u het liet
   • volledig scherm op de telefoon: tik op een waarde om alles behalve het raster te verbergen
 
+  GRAFIEKEN
+  • staven, gestapelde staven, lijn, cirkel of spreiding, naast het raster of op een telefoon in zijn plaats, en schermvullend
+  • van de draaitabel zoals getoond, van alle gegevens op kolommen naar keuze, of van de records achter één cel; een spreidingsdiagram toont zo nodig elk afzonderlijk record
+  • opslaan of delen als PNG, SVG of PDF, licht of donker, met of zonder achtergrond
+
   OPSLAAN EN DELEN
   • de draaitabel zoals weergegeven, als Excel, OpenDocument, PDF, HTML, SVG, CSV, JSON of JSON Lines
   • de onderliggende rijen als eenvoudige tabel, in Excel, OpenDocument, CSV of JSON Lines
   • een Tessera-snapshot: de gegevens en de draaitabel in één bestand dat precies zo weer opent
 
   NAAR UW SMAAK
-  • zes rasterstijlen, van een klassieke spreadsheetlook tot hoog contrast; exports volgen de gekozen stijl
+  • 24 rasterstijlen in een galerij, van een klassieke spreadsheetlook tot grote letters; kleur per niveau van rijen, kolommen of beide; exports volgen de gekozen stijl
   • licht en donker thema
   • 14 talen: Chinees, Duits, Engels, Frans, Hongaars, Italiaans, Japans, Nederlands, Pools, Portugees, Russisch, Spaans, Tsjechisch en Turks
 
@@ -58,12 +63,13 @@ features:
   - Sommen, aantallen, gemiddelden, minima, maxima, unieke waarden, standaarddeviaties en formules
   - Percentages van een totaal, lopende totalen en rangen
   - Filters, en sorteren op labels of op waarden
+  - "Grafieken: staven, gestapelde staven, lijnen, cirkels en spreidingsdiagrammen, opgeslagen als PNG, SVG of PDF"
   - Herkent kolomtypen, datums en getalnotaties en onthoudt uw aanpassingen
   - Opent een bestand opnieuw met de draaitabel waar u het liet
   - Exporteert naar Excel, OpenDocument, PDF, HTML, SVG, CSV, JSON en JSON Lines
   - Tessera-snapshots die precies zo weer openen
   - Opent bestanden door slepen, met ‘Openen met’ of vanaf het klembord
-  - Zes rasterstijlen, licht en donker thema
+  - 24 rasterstijlen, kleur per niveau, licht en donker thema
   - 14 talen
   - Wijzigt uw bestanden nooit
   - Voor altijd gratis en zonder reclame, zonder account en zonder tracking

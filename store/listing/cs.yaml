@@ -9,17 +9,17 @@ short: Soubory CSV, Excel a JSON jako kontingenční tabulky. Zdarma, bez reklam
 subtitle: Prohlížeč CSV, Excel a JSON
 
 promo: >-
-  Otevřete tabulku, CSV nebo JSON a hned ji uvidíte jako kontingenční
-  tabulku, pak ji uložte jako Excel, PDF a další. Navždy zdarma, bez reklam a
+  Otevřete tabulku, CSV nebo JSON a hned ji uvidíte jako kontingenční tabulku
+  i graf, pak ji uložte jako Excel, PDF a další. Navždy zdarma, bez reklam a
   sledování.
 
-keywords: kontingenční tabulka,pivot,csv,excel,xlsx,ods,json,tabulka,prohlížeč,přehled,data,pdf
+keywords: kontingenční tabulka,pivot,csv,excel,xlsx,ods,json,tabulka,prohlížeč,přehled,data,pdf,graf
 
 summary: >-
   Tessera Studio otevírá soubory CSV, Excel, OpenDocument a JSON jako
-  kontingenční tabulky, které můžete rozbalovat, filtrovat a řadit, a ukládá
-  je jako Excel, PDF, HTML a další. Navždy zdarma a bez reklam: žádný účet,
-  žádné sledování.
+  kontingenční tabulky, které můžete rozbalovat, filtrovat, řadit a zobrazit v
+  grafu, a ukládá je jako Excel, PDF, HTML a další. Navždy zdarma a bez
+  reklam: žádný účet, žádné sledování.
 
 description: |-
   Tessera Studio vytvoří z datových souborů, které už máte, kontingenční tabulky. Otevřete soubor CSV, Excel, OpenDocument nebo JSON a hned se zobrazí jako kontingenční tabulka připravená k prozkoumání: seskupujte řádky a sloupce, rozbalujte a sbalujte úrovně, přidávejte součty, počty a průměry, filtrujte a řaďte. Až budete mít, co potřebujete, uložte nebo sdílejte výsledek jako sešit Excelu, PDF, webovou stránku nebo v jiném formátu.
@@ -39,13 +39,18 @@ description: |-
   • znovu otevřený soubor se vrátí do kontingenční tabulky, ve které jste ho opustili
   • celá obrazovka v telefonu: klepnutím na hodnotu skryjete vše kromě mřížky
 
+  GRAFY
+  • sloupce, skládané sloupce, spojnice, výseče nebo bodový graf, vedle mřížky nebo na telefonu místo ní, i na celou obrazovku
+  • z kontingenční tabulky, jak ji vidíte, ze všech dat podle vámi zvolených sloupců, nebo ze záznamů za jednou buňkou; bodový graf ukáže i každý jednotlivý záznam
+  • uložení nebo sdílení jako PNG, SVG nebo PDF, světlé nebo tmavé, s pozadím i bez něj
+
   UKLÁDÁNÍ A SDÍLENÍ
   • kontingenční tabulka tak, jak ji vidíte: Excel, OpenDocument, PDF, HTML, SVG, CSV, JSON nebo JSON Lines
   • zdrojové řádky jako prostá tabulka: Excel, OpenDocument, CSV nebo JSON Lines
   • snímek Tessera: data i kontingenční tabulka v jednom souboru, který se otevře přesně tak, jak byl
 
   PODLE VAŠEHO GUSTA
-  • šest stylů mřížky, od klasického vzhledu tabulkového procesoru po vysoký kontrast; exporty se řídí zvoleným stylem
+  • 24 stylů mřížky v galerii, od klasického vzhledu tabulkového procesoru po velké písmo; barva podle hloubky řádků, sloupců nebo obojího; exporty se řídí zvoleným stylem
   • světlý a tmavý motiv
   • 14 jazyků: angličtina, čeština, čínština, francouzština, italština, japonština, maďarština, němčina, nizozemština, polština, portugalština, ruština, španělština a turečtina
 
@@ -58,12 +63,13 @@ features:
   - Součty, počty, průměry, minima, maxima, jedinečné hodnoty, směrodatné odchylky a vzorce
   - Procenta z celku, průběžné součty a pořadí
   - Filtry a řazení podle popisků nebo hodnot
+  - "Grafy: sloupce, skládané sloupce, spojnice, výseče a bodové grafy, uložené jako PNG, SVG nebo PDF"
   - Rozpozná typy sloupců, data a formáty čísel a zapamatuje si vaše úpravy
   - Znovu otevře soubor v kontingenční tabulce, ve které jste ho opustili
   - Export do Excelu, OpenDocument, PDF, HTML, SVG, CSV, JSON a JSON Lines
   - Snímky Tessera, které se otevřou přesně tak, jak byly
   - Otevírá soubory přetažením, příkazem „Otevřít v aplikaci“ nebo ze schránky
-  - Šest stylů mřížky, světlý a tmavý motiv
+  - 24 stylů mřížky, barva podle hloubky, světlý a tmavý motiv
   - 14 jazyků
   - Nikdy nemění vaše soubory
   - Navždy zdarma a bez reklam, bez účtu a bez sledování

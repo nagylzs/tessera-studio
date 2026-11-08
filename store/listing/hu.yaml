@@ -9,17 +9,17 @@ short: CSV-, Excel- és JSON-fájlok kimutatásként. Ingyenes, reklám és köv
 subtitle: CSV-, Excel- és JSON-nézegető
 
 promo: >-
-  Nyisson meg egy táblázatot, CSV- vagy JSON-fájlt, és azonnal kimutatásként
-  látja, majd mentse Excelbe, PDF-be és másba. Örökre ingyenes, reklám és
-  követés nélkül.
+  Nyisson meg egy táblázatot, CSV- vagy JSON-fájlt, és azonnal kimutatásként,
+  diagramként látja; mentse Excelbe, PDF-be és másba. Örökre ingyenes, reklám
+  és követés nélkül.
 
-keywords: kimutatás,pivot,kereszttábla,csv,excel,xlsx,ods,json,táblázat,megjelenítő,jelentés,adatok,pdf
+keywords: kimutatás,pivot,kereszttábla,csv,excel,xlsx,ods,json,táblázat,megjelenítő,diagram,adatok,pdf
 
 summary: >-
   A Tessera Studio a CSV-, Excel-, OpenDocument- és JSON-fájlokat
-  kimutatásként nyitja meg, amelyet kinyithat, szűrhet és rendezhet, és
-  Excel, PDF, HTML és más formátumba ment. Örökre ingyenes és reklámmentes:
-  nincs fiók, nincs követés, az adatai az eszközén maradnak.
+  kimutatásként nyitja meg, amelyet kinyithat, szűrhet, rendezhet és diagramon
+  is megnézhet, és Excel, PDF, HTML és más formátumba ment. Örökre ingyenes és
+  reklámmentes, fiók és követés nélkül.
 
 description: |-
   A Tessera Studio a meglévő adatfájljaiból kimutatást készít. Nyisson meg egy CSV-, Excel-, OpenDocument- vagy JSON-fájlt, és azonnal felfedezhető kimutatásként jelenik meg: csoportosítsa a sorokat és az oszlopokat, nyissa ki és csukja be a szinteket, adjon hozzá összegeket, darabszámokat és átlagokat, szűrjön és rendezzen. Ha megvan, amit keresett, mentse vagy ossza meg Excel-munkafüzetként, PDF-ként, weblapként vagy más formátumban.
@@ -39,13 +39,18 @@ description: |-
   • egy újra megnyitott fájl azzal a kimutatással jön vissza, amelyen hagyta
   • teljes képernyő telefonon: egy értékre koppintva csak a rács marad látható
 
+  DIAGRAMOK
+  • oszlop-, halmozott oszlop-, vonal-, kör- vagy pontdiagram a rács mellett, telefonon a rács helyén, és teljes képernyőn
+  • a kimutatásból, ahogy látja, az összes adatból az Ön által választott oszlopok szerint, vagy egy cella mögötti rekordokból; a pontdiagram akár rekordonként is
+  • mentés vagy megosztás PNG, SVG vagy PDF formátumban, világosan vagy sötéten, háttérrel vagy anélkül
+
   MENTÉS ÉS MEGOSZTÁS
   • a kimutatás úgy, ahogy látja: Excel, OpenDocument, PDF, HTML, SVG, CSV, JSON vagy JSON Lines formátumban
   • a mögötte lévő sorok sima táblázatként: Excel, OpenDocument, CSV vagy JSON Lines formátumban
   • Tessera-pillanatkép: az adatok és a kimutatás egy fájlban, amely pontosan úgy nyílik meg újra, ahogy volt
 
   SAJÁT ÍZLÉSE SZERINT
-  • hat rácsstílus, a klasszikus táblázatkezelőstől a nagy kontrasztúig; az exportok a választott stílust követik
+  • 24 rácsstílus egy galériában, a klasszikus táblázatkezelőstől a nagy betűsig; szín a sorok, az oszlopok vagy mindkettő mélysége szerint; az exportok a választott stílust követik
   • világos és sötét téma
   • 14 nyelv: angol, cseh, francia, holland, japán, kínai, lengyel, magyar, német, olasz, orosz, portugál, spanyol és török
 
@@ -58,12 +63,13 @@ features:
   - Összeg, darabszám, átlag, minimum, maximum, különböző értékek száma, szórás és képletek
   - Végösszeg-százalék, göngyölített összeg és rangsor
   - Szűrők, rendezés címke vagy érték szerint
+  - "Diagramok: oszlop, halmozott oszlop, vonal, kör és pontdiagram, mentés PNG, SVG vagy PDF formátumban"
   - Felismeri az oszloptípusokat, a dátumokat és a számformátumokat, és megjegyzi a módosításait
   - Egy fájlt azzal a kimutatással nyit meg újra, amelyen hagyta
   - Export Excelbe, OpenDocumentbe, PDF-be, HTML-be, SVG-be, CSV-be, JSON-ba és JSON Lines-ba
   - Tessera-pillanatképek, amelyek pontosan úgy nyílnak meg újra, ahogy voltak
   - Fájlok megnyitása behúzással, a „Megnyitás ezzel” paranccsal vagy a vágólapról
-  - Hat rácsstílus, világos és sötét téma
+  - 24 rácsstílus, mélység szerinti szín, világos és sötét téma
   - 14 nyelv
   - Soha nem módosítja a fájljait
   - Örökre ingyenes és reklámmentes, fiók és követés nélkül

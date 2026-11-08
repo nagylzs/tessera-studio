@@ -10,16 +10,16 @@ subtitle: Visor de CSV, Excel y JSON
 
 promo: >-
   Abra una hoja de cálculo, un CSV o un JSON y véalo al instante como tabla
-  dinámica; luego guárdelo en Excel, PDF y más. Gratis para siempre, sin
+  dinámica y gráfico; guárdelo en Excel, PDF y más. Gratis para siempre, sin
   anuncios ni rastreo.
 
-keywords: tabla dinámica,pivot,tabla cruzada,csv,excel,xlsx,ods,json,hoja de cálculo,visor,informe,pdf
+keywords: tabla dinámica,pivot,tabla cruzada,csv,excel,xlsx,ods,json,hoja de cálculo,visor,gráfico,pdf
 
 summary: >-
   Tessera Studio abre archivos CSV, Excel, OpenDocument y JSON como tablas
-  dinámicas que puede desplegar, filtrar y ordenar, y las guarda en Excel,
-  PDF, HTML y más. Gratis y sin anuncios para siempre: sin cuenta, sin
-  rastreo, sus datos se quedan en su dispositivo.
+  dinámicas que puede desplegar, filtrar, ordenar y ver en gráficos, y las
+  guarda en Excel, PDF, HTML y más. Gratis y sin anuncios para siempre, sin
+  cuenta ni rastreo.
 
 description: |-
   Tessera Studio convierte los archivos de datos que ya tiene en tablas dinámicas. Abra un archivo CSV, Excel, OpenDocument o JSON y aparecerá al instante como una tabla dinámica lista para explorar: agrupe filas y columnas, despliegue y contraiga los niveles, añada sumas, recuentos y promedios, filtre y ordene. Cuando tenga lo que necesita, guárdelo o compártalo como libro de Excel, PDF, página web u otro formato.
@@ -39,13 +39,18 @@ description: |-
   • un archivo que vuelve a abrir regresa con la tabla dinámica en la que lo dejó
   • pantalla completa en el teléfono: toque un valor para ocultar todo salvo la cuadrícula
 
+  GRÁFICOS
+  • barras, barras apiladas, líneas, gráfico circular o de dispersión, junto a la cuadrícula o en su lugar en el teléfono, y a pantalla completa
+  • de la tabla dinámica tal como se ve, de todos los datos por las columnas que elija o de los registros de una celda; la dispersión puede mostrar cada registro
+  • guardados o compartidos como PNG, SVG o PDF, claros u oscuros, con o sin fondo
+
   GUARDAR Y COMPARTIR
   • la tabla dinámica tal como se ve, en Excel, OpenDocument, PDF, HTML, SVG, CSV, JSON o JSON Lines
   • las filas subyacentes como tabla simple, en Excel, OpenDocument, CSV o JSON Lines
   • una instantánea de Tessera: los datos y la tabla dinámica en un solo archivo que se vuelve a abrir exactamente como estaba
 
   A SU GUSTO
-  • seis estilos de cuadrícula, desde el aspecto clásico de hoja de cálculo hasta el alto contraste; las exportaciones siguen el estilo elegido
+  • 24 estilos de cuadrícula en una galería, desde el aspecto clásico de hoja de cálculo hasta la letra grande; color por nivel de filas, columnas o ambos; las exportaciones siguen el estilo elegido
   • temas claro y oscuro
   • 14 idiomas: alemán, checo, chino, español, francés, húngaro, inglés, italiano, japonés, neerlandés, polaco, portugués, ruso y turco
 
@@ -58,12 +63,13 @@ features:
   - Sumas, recuentos, promedios, mínimos, máximos, valores distintos, desviaciones estándar y fórmulas
   - Porcentajes de un total, totales acumulados y clasificaciones
   - Filtros y orden por etiquetas o por valores
+  - "Gráficos: barras, barras apiladas, líneas, circulares y de dispersión, guardados como PNG, SVG o PDF"
   - Detecta tipos de columna, fechas y formatos de número, y recuerda sus ajustes
   - Vuelve a abrir un archivo con la tabla dinámica en la que lo dejó
   - Exporta a Excel, OpenDocument, PDF, HTML, SVG, CSV, JSON y JSON Lines
   - Instantáneas de Tessera que se vuelven a abrir tal como estaban
   - Abre archivos arrastrando y soltando, con «Abrir con» o desde el portapapeles
-  - Seis estilos de cuadrícula, temas claro y oscuro
+  - 24 estilos de cuadrícula, color por nivel, temas claro y oscuro
   - 14 idiomas
   - Nunca modifica sus archivos
   - Gratis y sin anuncios para siempre, sin cuenta y sin rastreo

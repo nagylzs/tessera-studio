@@ -9,17 +9,17 @@ short: CSV, Excel ve JSON dosyalarını pivot tablo olarak açın. Ücretsiz, re
 subtitle: CSV, Excel, JSON görüntüleyici
 
 promo: >-
-  Bir elektronik tablo, CSV veya JSON dosyası açın ve hemen pivot tablo
-  olarak görün; sonra Excel, PDF ve daha fazlası olarak kaydedin. Sonsuza dek
-  ücretsiz, reklamsız.
+  Bir elektronik tablo, CSV veya JSON dosyası açın, hemen pivot tablo ve
+  grafik olarak görün; sonra Excel, PDF ve daha fazlasına kaydedin. Sonsuza
+  dek ücretsiz, reklamsız.
 
-keywords: pivot tablo,pivot,çapraz tablo,csv,excel,xlsx,ods,json,elektronik tablo,görüntüleyici,rapor,pdf
+keywords: pivot tablo,pivot,çapraz tablo,csv,excel,xlsx,ods,json,elektronik tablo,görüntüleyici,grafik,pdf
 
 summary: >-
   Tessera Studio; CSV, Excel, OpenDocument ve JSON dosyalarını açıp
-  kapatabileceğiniz, filtreleyip sıralayabileceğiniz pivot tablolar olarak
-  açar ve Excel, PDF, HTML gibi biçimlerde kaydeder. Sonsuza dek ücretsiz ve
-  reklamsız: hesap yok, izleme yok.
+  kapatabileceğiniz, filtreleyip sıralayabileceğiniz ve grafiğe
+  dökebileceğiniz pivot tablolar olarak açar ve Excel, PDF, HTML gibi
+  biçimlerde kaydeder. Sonsuza dek ücretsiz ve reklamsız.
 
 description: |-
   Tessera Studio, elinizdeki veri dosyalarını pivot tablolara dönüştürür. Bir CSV, Excel, OpenDocument veya JSON dosyası açın; hemen keşfedebileceğiniz bir pivot tablo olarak görünür: satırları ve sütunları gruplayın, düzeyleri açıp kapatın, toplam, sayı ve ortalama ekleyin, filtreleyin ve sıralayın. İstediğinizi elde ettiğinizde sonucu Excel çalışma kitabı, PDF, web sayfası veya başka bir biçimde kaydedin ya da paylaşın.
@@ -39,13 +39,18 @@ description: |-
   • yeniden açtığınız bir dosya, bıraktığınız pivot tabloyla geri gelir
   • telefonda tam ekran: yalnızca ızgarayı bırakmak için bir değere dokunun
 
+  GRAFİKLER
+  • çubuk, yığılmış çubuk, çizgi, pasta veya dağılım grafiği; ızgaranın yanında, telefonda ızgaranın yerine, tam ekran da
+  • pivot tablodan göründüğü gibi, seçtiğiniz sütunlara göre tüm verilerden ya da bir hücrenin ardındaki kayıtlardan; dağılım grafiği her kaydı tek tek de gösterebilir
+  • PNG, SVG veya PDF olarak kaydetme ya da paylaşma; açık veya koyu, arka planlı ya da arka plansız
+
   KAYDETME VE PAYLAŞMA
   • pivot tablo göründüğü gibi: Excel, OpenDocument, PDF, HTML, SVG, CSV, JSON veya JSON Lines
   • alttaki satırlar düz tablo olarak: Excel, OpenDocument, CSV veya JSON Lines
   • Tessera anlık görüntüsü: veriler ve pivot tablo, tam olarak olduğu gibi yeniden açılan tek bir dosyada
 
   ZEVKİNİZE GÖRE
-  • klasik elektronik tablo görünümünden yüksek karşıtlığa altı ızgara stili; dışa aktarımlar seçtiğiniz stili izler
+  • klasik elektronik tablo görünümünden büyük yazıya, bir galeride 24 ızgara stili; satırların, sütunların ya da ikisinin düzeyine göre renk; dışa aktarımlar seçtiğiniz stili izler
   • açık ve koyu tema
   • 14 dil: Almanca, Çekçe, Çince, Fransızca, Felemenkçe, İngilizce, İspanyolca, İtalyanca, Japonca, Lehçe, Macarca, Portekizce, Rusça ve Türkçe
 
@@ -58,12 +63,13 @@ features:
   - Toplam, sayı, ortalama, en küçük, en büyük, benzersiz değerler, standart sapma ve formüller
   - Toplamın yüzdesi, kümülatif toplamlar ve sıralar
   - Filtreler ve etiketlere ya da değerlere göre sıralama
+  - "Grafikler: çubuk, yığılmış çubuk, çizgi, pasta ve dağılım; PNG, SVG veya PDF olarak kaydedilir"
   - Sütun türlerini, tarihleri ve sayı biçimlerini algılar, ayarlarınızı hatırlar
   - Bir dosyayı bıraktığınız pivot tabloyla yeniden açar
   - Excel, OpenDocument, PDF, HTML, SVG, CSV, JSON ve JSON Lines biçimlerine aktarır
   - Tam olarak olduğu gibi yeniden açılan Tessera anlık görüntüleri
   - Dosyaları sürükleyip bırakarak, "Birlikte aç" ile veya panodan açar
-  - Altı ızgara stili, açık ve koyu tema
+  - 24 ızgara stili, düzeye göre renk, açık ve koyu tema
   - 14 dil
   - Dosyalarınızı asla değiştirmez
   - Sonsuza dek ücretsiz ve reklamsız, hesapsız ve izlemesiz

@@ -9,17 +9,17 @@ short: CSV-, Excel- und JSON-Dateien als Pivot-Tabellen. Kostenlos, ohne Werbung
 subtitle: Viewer für CSV, Excel und JSON
 
 promo: >-
-  Tabelle, CSV- oder JSON-Datei öffnen und sofort als Pivot-Tabelle sehen,
-  dann als Excel, PDF und mehr speichern. Für immer kostenlos, ohne Werbung
-  und Tracking.
+  Tabelle, CSV- oder JSON-Datei öffnen, sofort als Pivot-Tabelle und Diagramm
+  sehen, dann als Excel, PDF und mehr speichern. Für immer kostenlos, ohne
+  Werbung und Tracking.
 
-keywords: pivot,pivot-tabelle,kreuztabelle,csv,excel,xlsx,ods,json,tabelle,viewer,bericht,daten,pdf
+keywords: pivot,pivot-tabelle,kreuztabelle,csv,excel,xlsx,ods,json,tabelle,viewer,bericht,daten,pdf,diagramm
 
 summary: >-
   Tessera Studio öffnet CSV-, Excel-, OpenDocument- und JSON-Dateien als
-  Pivot-Tabellen zum Aufklappen, Filtern und Sortieren und speichert sie als
-  Excel, PDF, HTML und mehr. Für immer kostenlos und werbefrei: kein Konto,
-  kein Tracking, Ihre Daten bleiben bei Ihnen.
+  Pivot-Tabellen zum Aufklappen, Filtern, Sortieren und Visualisieren und
+  speichert sie als Excel, PDF, HTML und mehr. Für immer kostenlos und
+  werbefrei, ohne Konto und Tracking.
 
 description: |-
   Tessera Studio macht aus den Datendateien, die Sie schon haben, Pivot-Tabellen. Öffnen Sie eine CSV-, Excel-, OpenDocument- oder JSON-Datei, und sie erscheint sofort als Pivot-Tabelle zum Erkunden: Zeilen und Spalten gruppieren, Ebenen auf- und zuklappen, Summen, Anzahlen und Mittelwerte bilden, filtern und sortieren. Wenn Sie haben, was Sie brauchen, speichern oder teilen Sie das Ergebnis als Excel-Arbeitsmappe, PDF, Webseite oder in einem anderen Format.
@@ -39,13 +39,18 @@ description: |-
   • eine erneut geöffnete Datei kommt mit der Pivot-Tabelle zurück, bei der Sie aufgehört haben
   • Vollbild auf dem Handy: Ein Tippen auf einen Wert blendet alles außer dem Raster aus
 
+  DIAGRAMME
+  • Säulen, gestapelte Säulen, Linie, Kreis oder Streuung, neben dem Raster oder auf dem Telefon an seiner Stelle, auch im Vollbild
+  • aus der Pivot-Tabelle, wie sie angezeigt wird, aus allen Daten nach Spalten Ihrer Wahl oder aus den Datensätzen hinter einer Zelle; ein Streudiagramm zeigt auch jeden einzelnen Datensatz
+  • speichern oder teilen als PNG, SVG oder PDF, hell oder dunkel, mit oder ohne Hintergrund
+
   SPEICHERN UND TEILEN
   • die Pivot-Tabelle wie angezeigt, als Excel, OpenDocument, PDF, HTML, SVG, CSV, JSON oder JSON Lines
   • die zugrunde liegenden Zeilen als einfache Tabelle in Excel, OpenDocument, CSV oder JSON Lines
   • ein Tessera-Snapshot: Daten und Pivot-Tabelle in einer Datei, die sich genau so wieder öffnet
 
   NACH IHREM GESCHMACK
-  • sechs Rasterstile, vom klassischen Tabellenkalkulations-Look bis zu hohem Kontrast; Exporte folgen dem gewählten Stil
+  • 24 Rasterstile in einer Galerie, vom klassischen Tabellenkalkulations-Look bis Großdruck; Farbe nach der Tiefe von Zeilen, Spalten oder beiden; Exporte folgen dem gewählten Stil
   • helles und dunkles Design
   • 14 Sprachen: Chinesisch, Deutsch, Englisch, Französisch, Italienisch, Japanisch, Niederländisch, Polnisch, Portugiesisch, Russisch, Spanisch, Tschechisch, Türkisch und Ungarisch
 
@@ -58,12 +63,13 @@ features:
   - Summen, Anzahlen, Mittelwerte, Minima, Maxima, eindeutige Anzahlen, Standardabweichungen und Formeln
   - Prozent einer Summe, laufende Summen und Ränge
   - Filter und Sortierung nach Bezeichnungen oder Werten
+  - "Diagramme: Säulen, gestapelte Säulen, Linien, Kreise und Streudiagramme, gespeichert als PNG, SVG oder PDF"
   - Erkennt Spaltentypen, Datums- und Zahlenformate und merkt sich Ihre Anpassungen
   - Öffnet eine Datei wieder mit der Pivot-Tabelle, bei der Sie aufgehört haben
   - Export nach Excel, OpenDocument, PDF, HTML, SVG, CSV, JSON und JSON Lines
   - Tessera-Snapshots, die sich genau so wieder öffnen
   - Öffnet Dateien per Drag & Drop, „Öffnen mit“ oder aus der Zwischenablage
-  - Sechs Rasterstile, helles und dunkles Design
+  - 24 Rasterstile, Farbe nach Tiefe, helles und dunkles Design
   - 14 Sprachen
   - Verändert Ihre Dateien nie
   - Für immer kostenlos und werbefrei, ohne Konto und ohne Tracking

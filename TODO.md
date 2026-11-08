@@ -32,6 +32,10 @@ internal testing build; the Mac and Windows sessions build from `dev`.
   iPhone and the pad a tap on a region's name expands or collapses it, a
   swipe across it scrolls without toggling, and "Total" folds everything
   only through its `−`.
+- Store screenshots for 1.3.0 on the Mac and Windows: `apple-iphone`,
+  `apple-iphone-medium`, `apple-ipad`, `apple-mac` and `microsoft` in the
+  new shot list of `store/screenshots/README.md` (charts second, the style
+  gallery before the dark shot); the desktop and Google Play sets are done.
 - Whole numbers in XLSX and ODS (tessera_xlsx and tessera_ods 0.2.4):
   counts and integer sums without decimals in Excel (Windows has none;
   LibreOffice is checked) and in Numbers on the Mac or the iPhone.
@@ -99,9 +103,11 @@ internal testing build; the Mac and Windows sessions build from `dev`.
       `eb04313`, Chrome under Xvfb: a snapshot through the file chooser, a
       group toggled by its label, the chart beside the grid, full screen and
       Esc, at 500 px in the grid's place and back, a pie, and PNG, SVG and PDF
-      downloaded and right). Then the README's feature list, the store
-      listings in 14 languages and the screenshots, and publish the privacy
-      page with its new date.
+      downloaded and right). The README, the store listings in 14 languages
+      and the screenshots of the desktop and Google Play sets followed on
+      2026-11-08 (charts and the style gallery); left: the Apple and
+      Microsoft sets (next device round), and publishing the privacy page
+      with its new date.
 - [ ] A raw date on a pivot axis reads as a whole timestamp in the grid,
       "2025-01-01 00:00:00.000Z" (`Dimension.formatValue` in tessera, found
       2026-11-07). The charts shorten it themselves; the grid, the
@@ -324,6 +330,12 @@ internal testing build; the Mac and Windows sessions build from `dev`.
 
 ## Done
 
+- [x] A chart's axis labels that skip groups no longer collide at the ends
+      (found 2026-11-08 taking the screenshots: "North America" twice,
+      side by side, under a pivot's last two groups). The last label, kept
+      on the chart, slid over its neighbour; now each label stays within
+      its own stretch of the axis, on screen and in the exports
+      (`test/chart_scene_test.dart` tries every group count from 8 to 60).
 - [x] **For 1.3.0** (owner, 2026-11-08): a gallery of grid styles,
       replacing the six of "Grid style…" (the old theme-gallery idea of
       2026-10-09). A style interface in `tessera` that gives the colours,

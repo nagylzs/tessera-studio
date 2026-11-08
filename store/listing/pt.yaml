@@ -10,17 +10,17 @@ short: Abra arquivos CSV, Excel e JSON como tabelas dinâmicas. Grátis, sem an�
 subtitle: Visualize CSV, Excel e JSON
 
 promo: >-
-  Abra uma planilha, um CSV ou um JSON e veja-o na hora como tabela dinâmica;
-  depois salve em Excel, PDF e mais. Grátis para sempre, sem anúncios nem
+  Abra uma planilha, um CSV ou um JSON e veja-o na hora como tabela dinâmica e
+  gráfico; salve em Excel, PDF e mais. Grátis para sempre, sem anúncios nem
   rastreamento.
 
-keywords: tabela dinâmica,pivot,tabela cruzada,csv,excel,xlsx,ods,json,planilha,visualizador,relatório,pdf
+keywords: tabela dinâmica,pivot,tabela cruzada,csv,excel,xlsx,ods,json,planilha,visualizador,gráfico,pdf
 
 summary: >-
   O Tessera Studio abre arquivos CSV, Excel, OpenDocument e JSON como tabelas
-  dinâmicas que você pode expandir, filtrar e ordenar, e as salva em Excel,
-  PDF, HTML e mais. Grátis e sem anúncios para sempre: sem conta, sem
-  rastreamento, seus dados ficam com você.
+  dinâmicas que você pode expandir, filtrar, ordenar e ver em gráficos, e as
+  salva em Excel, PDF, HTML e mais. Grátis e sem anúncios para sempre: sem
+  conta, sem rastreamento.
 
 description: |-
   O Tessera Studio transforma os arquivos de dados que você já tem em tabelas dinâmicas. Abra um arquivo CSV, Excel, OpenDocument ou JSON e ele aparece na hora como uma tabela dinâmica para explorar: agrupe linhas e colunas, expanda e recolha os níveis, adicione somas, contagens e médias, filtre e ordene. Quando tiver o que precisa, salve ou compartilhe como pasta de trabalho do Excel, PDF, página da web ou em outro formato.
@@ -40,13 +40,18 @@ description: |-
   • um arquivo aberto de novo volta na tabela dinâmica em que você o deixou
   • tela cheia no celular: toque em um valor para esconder tudo menos a grade
 
+  GRÁFICOS
+  • barras, barras empilhadas, linhas, pizza ou dispersão, ao lado da grade ou no lugar dela no celular, e em tela cheia
+  • da tabela dinâmica como aparece, de todos os dados pelas colunas que você escolher ou dos registros por trás de uma célula; a dispersão pode mostrar cada registro
+  • salvos ou compartilhados como PNG, SVG ou PDF, claros ou escuros, com ou sem fundo
+
   SALVAR E COMPARTILHAR
   • a tabela dinâmica como aparece, em Excel, OpenDocument, PDF, HTML, SVG, CSV, JSON ou JSON Lines
   • as linhas de origem como tabela simples, em Excel, OpenDocument, CSV ou JSON Lines
   • um instantâneo Tessera: os dados e a tabela dinâmica em um só arquivo, que reabre exatamente como estava
 
   DO SEU JEITO
-  • seis estilos de grade, do visual clássico de planilha ao alto contraste; as exportações seguem o estilo escolhido
+  • 24 estilos de grade em uma galeria, do visual clássico de planilha às letras grandes; cor por nível de linhas, colunas ou ambos; as exportações seguem o estilo escolhido
   • temas claro e escuro
   • 14 idiomas: alemão, chinês, espanhol, francês, holandês, húngaro, inglês, italiano, japonês, polonês, português, russo, tcheco e turco
 
@@ -59,12 +64,13 @@ features:
   - Somas, contagens, médias, mínimos, máximos, valores distintos, desvios padrão e fórmulas
   - Porcentagens de um total, totais acumulados e classificações
   - Filtros e ordenação por rótulos ou por valores
+  - "Gráficos: barras, barras empilhadas, linhas, pizza e dispersão, salvos como PNG, SVG ou PDF"
   - Detecta tipos de coluna, datas e formatos de número e se lembra dos seus ajustes
   - Reabre um arquivo na tabela dinâmica em que você o deixou
   - Exporta para Excel, OpenDocument, PDF, HTML, SVG, CSV, JSON e JSON Lines
   - Instantâneos Tessera que reabrem exatamente como estavam
   - Abre arquivos arrastando e soltando, com "Abrir com" ou pela área de transferência
-  - Seis estilos de grade, temas claro e escuro
+  - 24 estilos de grade, cor por nível, temas claro e escuro
   - 14 idiomas
   - Nunca altera seus arquivos
   - Grátis e sem anúncios para sempre, sem conta e sem rastreamento
