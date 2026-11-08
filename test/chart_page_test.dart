@@ -301,6 +301,65 @@ void main() {
     });
   });
 
+  group('a long legend', () {
+    /// A pie of twelve slices, the most it has, with names [prefix] 01–12.
+    Future<void> pieOfTwelve(WidgetTester tester, String prefix) async {
+      _data = [
+        'region,product,amount,units',
+        for (var i = 1; i <= 12; i++)
+          '$prefix ${'$i'.padLeft(2, '0')},p1,${100 - 5 * i},1',
+      ].join('\n');
+      _register();
+      await _toCube(tester);
+      await _showChart(tester);
+      await _tapTooltip(tester, 'Pie');
+      expect(find.byType(PieChart), findsOneWidget);
+    }
+
+    /// The legend's scroll view, found by the slice named [name].
+    SingleChildScrollView legendOf(WidgetTester tester, String name) =>
+        tester.widget(
+          find
+              .ancestor(
+                of: find.textContaining(name),
+                matching: find.byType(SingleChildScrollView),
+              )
+              .first,
+        );
+
+    testWidgets('takes the room a tall pane leaves under a pie', (
+      tester,
+    ) async {
+      // found on the web at 500 px: the last slice's name was hidden
+      _size(tester, 400, 800);
+      await pieOfTwelve(tester, 'Region');
+      expect(
+        legendOf(tester, 'Region 12').controller!.position.maxScrollExtent,
+        0,
+      );
+      expect(tester.takeException(), isNull);
+    });
+
+    testWidgets('scrolls with its bar shown when it cannot', (tester) async {
+      // a small phone on its side: two names to a line, six lines
+      _size(tester, 640, 360);
+      await pieOfTwelve(tester, 'A region with a long name');
+      final scroll = legendOf(tester, 'long name 12');
+      expect(scroll.controller!.position.maxScrollExtent, greaterThan(0));
+      final bar = tester.widget<Scrollbar>(
+        find
+            .ancestor(
+              of: find.byWidget(scroll),
+              matching: find.byType(Scrollbar),
+            )
+            .first,
+      );
+      expect(bar.thumbVisibility, isTrue);
+      expect(bar.controller, same(scroll.controller));
+      expect(tester.takeException(), isNull);
+    });
+  });
+
   group('the chart fills the window', () {
     Future<void> full(WidgetTester tester, double w, double h) async {
       _size(tester, w, h);

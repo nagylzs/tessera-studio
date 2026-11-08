@@ -16,7 +16,8 @@ internal testing build; the Mac and Windows sessions build from `dev`.
   in each placement (beside the grid from 840 × 480 dp, above it from
   600 × 600, instead of it on a phone, and back), full screen and out
   again (back, the button), the five kinds, a cell's breakdown, both
-  orientations, the system's larger text sizes.
+  orientations, the system's larger text sizes. A legend too long for
+  its room shows its scroll bar (on the iPhone the thin Cupertino one).
 - Chart exports on the devices: PNG, SVG and PDF through the share sheet
   and Save as… (Android, iOS), in every look; open them in the
   platform's viewers. On the Mac, Share beside Save as….
@@ -100,10 +101,6 @@ internal testing build; the Mac and Windows sessions build from `dev`.
       downloaded and right). Then the README's feature list, the store
       listings in 14 languages and the screenshots, and publish the privacy
       page with its new date.
-- [ ] A chart's legend that does not fit scrolls inside its 76 px with no
-      sign that it does (found on the web, 2026-11-08: a pie of 12 slices at
-      500 px wide listed 11, Singapore hidden below). A visible scrollbar,
-      a fade at the edge, or more room before it scrolls.
 - [ ] Charts, later: the chart's own dimensions independent of the pivot
       (`ChartData.fromFacts`), a scatter of single facts
       (`ScatterData.ofFacts`), values on a pie's slices when touched.
@@ -401,6 +398,13 @@ internal testing build; the Mac and Windows sessions build from `dev`.
 
 ## Done
 
+- [x] A chart's legend that did not fit scrolled inside its 76 px with no
+      sign that it did (found on the web, 2026-11-08: a pie of 12 slices at
+      500 px wide listed 11, Singapore hidden below). Now its scroll bar
+      shows whenever it scrolls, and it has more room: a quarter of the
+      pane, a pie's a third and all that its circle leaves below
+      (`legendRoom`). Seen under Xvfb at 500 × 800 (all twelve) and
+      640 × 360 (scrolls, the bar shown).
 - [x] The stores' pivot PDFs printed the thousands separator as "¡" in cs,
       fr, hu, pl and ru ("1¡771¡020"), since at least 1.1.0. Fixed in the
       bundled fonts (`0d783e6` here, `64bdf09` on `main`) and shipped as

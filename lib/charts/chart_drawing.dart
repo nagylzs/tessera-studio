@@ -31,15 +31,24 @@ class ChartFigure extends StatelessWidget {
         ),
       );
     }
-    if (content.scatter case final data?) return _scatter(context, data);
-    final data = content.data!;
-    return switch (content.kind) {
-      ChartKind.bar => _bars(context, data, stacked: false),
-      ChartKind.stacked => _bars(context, data, stacked: true),
-      ChartKind.line => _line(context, data),
-      ChartKind.pie => _pie(context, data),
-      ChartKind.scatter => throw StateError('a scatter chart has no ChartData'),
-    };
+    // the pane's size, for the room the legend may take
+    return LayoutBuilder(
+      builder: (context, pane) {
+        if (content.scatter case final data?) {
+          return _scatter(context, data, pane);
+        }
+        final data = content.data!;
+        return switch (content.kind) {
+          ChartKind.bar => _bars(context, data, pane, stacked: false),
+          ChartKind.stacked => _bars(context, data, pane, stacked: true),
+          ChartKind.line => _line(context, data, pane),
+          ChartKind.pie => _pie(context, data, pane),
+          ChartKind.scatter => throw StateError(
+            'a scatter chart has no ChartData',
+          ),
+        };
+      },
+    );
   }
 }
 
@@ -233,42 +242,100 @@ double _bottomSize(BuildContext context, int lines) {
   return lines * line.ceilToDouble() + _bottomGap;
 }
 
+/// The least height a legend gets before it scrolls: four lines of it at
+/// the usual text size.
+const _legendMinHeight = 76.0;
+
+/// The height a legend may take in a chart of the [pane]'s size: a quarter
+/// of it, at least [_legendMinHeight]. A pie's ([round]) gets a third, as
+/// the names of its slices are nowhere else, and all that is left under a
+/// circle as wide as the pane. A legend only takes what it needs: the plot
+/// keeps the rest.
+double legendRoom(BoxConstraints pane, {bool round = false}) {
+  if (!pane.hasBoundedHeight) return _legendMinHeight;
+  return [
+    _legendMinHeight,
+    pane.maxHeight / (round ? 3 : 4),
+    if (round && pane.hasBoundedWidth) pane.maxHeight - pane.maxWidth,
+  ].reduce(math.max);
+}
+
 /// The legend fl_chart does not draw: a swatch per series. Scrolls when
-/// there is no room for it all.
-Widget _legend(BuildContext context, List<String> labels, List<Color> colors) =>
-    Padding(
-      padding: const EdgeInsets.only(top: 4),
-      child: ConstrainedBox(
-        constraints: const BoxConstraints(maxHeight: 76),
-        child: SingleChildScrollView(
-          child: Wrap(
-            spacing: 12,
-            runSpacing: 4,
-            children: [
-              for (var i = 0; i < labels.length; i++)
-                ConstrainedBox(
-                  constraints: const BoxConstraints(maxWidth: 220),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Container(width: 12, height: 12, color: colors[i]),
-                      const SizedBox(width: 4),
-                      Flexible(
-                        child: Text(
-                          labels[i],
-                          style: Theme.of(context).textTheme.bodySmall,
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
+/// there is no room for it all, with its scroll bar always shown then: one
+/// that only appears on a hover or a drag hid a pie's last slice on the web
+/// (2026-11-08).
+class _Legend extends StatefulWidget {
+  const _Legend(this.labels, this.colors, {required this.room});
+
+  final List<String> labels;
+  final List<Color> colors;
+
+  /// The most height it takes, see [legendRoom].
+  final double room;
+
+  @override
+  State<_Legend> createState() => _LegendState();
+}
+
+class _LegendState extends State<_Legend> {
+  final _scroll = ScrollController();
+
+  @override
+  void dispose() {
+    _scroll.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) => Padding(
+    padding: const EdgeInsets.only(top: 4),
+    child: ConstrainedBox(
+      constraints: BoxConstraints(maxHeight: widget.room),
+      // the bar below, not the one a desktop adds on its own as well
+      child: ScrollConfiguration(
+        behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
+        child: Scrollbar(
+          controller: _scroll,
+          thumbVisibility: true,
+          child: SingleChildScrollView(
+            controller: _scroll,
+            // the bar's own lane
+            padding: const EdgeInsets.only(right: 12),
+            child: Wrap(
+              spacing: 12,
+              runSpacing: 4,
+              children: [
+                for (var i = 0; i < widget.labels.length; i++)
+                  ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 220),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Container(
+                          width: 12,
+                          height: 12,
+                          color: widget.colors[i],
                         ),
-                      ),
-                    ],
+                        const SizedBox(width: 4),
+                        Flexible(
+                          child: Text(
+                            widget.labels[i],
+                            style: Theme.of(context).textTheme.bodySmall,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
-    );
+    ),
+  );
+}
 
 /// Axis titles: numbers on the left at the ticks of [left], [bottom] below.
 /// fl_chart labels the axis ends as well, so the charts round their ranges
@@ -475,7 +542,12 @@ Widget Function(double, TitleMeta) _categoryTitles(
 
 /// Grouped or stacked bars: one group per category, one rod per series
 /// (or one rod with a stack item per series).
-Widget _bars(BuildContext context, ChartData data, {required bool stacked}) {
+Widget _bars(
+  BuildContext context,
+  ChartData data,
+  BoxConstraints pane, {
+  required bool stacked,
+}) {
   final strings = TesseraLocalizations.of(context);
   final colors = seriesColors(context, data.series.length);
   final labels = _categoryLabels(context, data);
@@ -596,7 +668,7 @@ Widget _bars(BuildContext context, ChartData data, {required bool stacked}) {
         ),
       ),
       if (data.series.length > 1 || !data.series.first.path.isRoot)
-        _legend(context, series, colors),
+        _Legend(series, colors, room: legendRoom(pane)),
     ],
   );
 }
@@ -713,7 +785,7 @@ String periodLabel(ChartPeriod period, double v, TesseraStrings strings) {
 }
 
 /// One line per series, on the axis [LineAxis.of] finds.
-Widget _line(BuildContext context, ChartData source) {
+Widget _line(BuildContext context, ChartData source, BoxConstraints pane) {
   final strings = TesseraLocalizations.of(context);
   final locale = Localizations.localeOf(context).toString();
   // an empty group has no place on a numeric or time axis, but is a
@@ -834,14 +906,14 @@ Widget _line(BuildContext context, ChartData source) {
         ),
       ),
       if (data.series.length > 1 || !data.series.first.path.isRoot)
-        _legend(context, series, colors),
+        _Legend(series, colors, room: legendRoom(pane)),
     ],
   );
 }
 
 /// One series as a pie, the largest slice first, see [pieSlices]; the
 /// legend carries the percentages too small to fit on their slice.
-Widget _pie(BuildContext context, ChartData data) {
+Widget _pie(BuildContext context, ChartData data, BoxConstraints pane) {
   final l10n = AppLocalizations.of(context);
   final scheme = Theme.of(context).colorScheme;
   final percent = intl.NumberFormat.percentPattern(
@@ -892,18 +964,22 @@ Widget _pie(BuildContext context, ChartData data) {
           ),
         ),
       ),
-      _legend(context, [
-        // the percentage first: a long name is cut short
-        for (final s in slices)
-          '${percent.format(s.value / total)} '
-              '${s.index == null ? l10n.chartOthers : labels[s.index!]}',
-      ], colors),
+      _Legend(
+        [
+          // the percentage first: a long name is cut short
+          for (final s in slices)
+            '${percent.format(s.value / total)} '
+                '${s.index == null ? l10n.chartOthers : labels[s.index!]}',
+        ],
+        colors,
+        room: legendRoom(pane, round: true),
+      ),
     ],
   );
 }
 
 /// One dot per point, coloured by series; a dot grows with its fact count.
-Widget _scatter(BuildContext context, ScatterData data) {
+Widget _scatter(BuildContext context, ScatterData data, BoxConstraints pane) {
   final strings = TesseraLocalizations.of(context);
   final locale = Localizations.localeOf(context).toString();
   final colors = seriesColors(context, data.series.length);
@@ -1017,7 +1093,11 @@ Widget _scatter(BuildContext context, ScatterData data) {
         ),
       ),
       if (data.series.length > 1 || data.series.first.label.isNotEmpty)
-        _legend(context, [for (final s in data.series) seriesLabel(s)], colors),
+        _Legend(
+          [for (final s in data.series) seriesLabel(s)],
+          colors,
+          room: legendRoom(pane),
+        ),
     ],
   );
 }
