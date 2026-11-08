@@ -64,8 +64,10 @@ lives here.
   depth; its `docs/` is the fifteen-chapter user guide — read those
   before touching anything pivot-related, do not re-derive them here.
 - The committed `pubspec.yaml` depends on the **published** versions
-  (`tessera_flutter ^0.2.7` — a tap anywhere in a group's header cell
-  toggles it, the grand total only by its `−`; menus that close on back, full-screen
+  (`tessera_flutter ^0.2.8` — the grid in a `CubeStyle` and
+  `CubeStylePreview`, with tessera 0.2.4's style format, tessera_pdf 0.2.2's
+  font families and tessera_html 0.2.1's look classes; 0.2.7 a tap anywhere
+  in a group's header cell toggles it, the grand total only by its `−`; menus that close on back, full-screen
   pickers and filter on a phone in landscape, computed dimensions
   ("Expression…" in the dimension picker), the expression help (the ?
   in every expression field; it pulls in `tessera` 0.2.3) —, `tessera_pdf

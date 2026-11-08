@@ -766,26 +766,26 @@ packages:
     dependency: "direct dev"
     description:
       name: tessera
-      sha256: c0e3845f0be61c277e9cb68d0ef0aa58600652b70266c9271c83ccad7f5386aa
+      sha256: "9cdacb71138573bec6e3be5fbc209d665bc37e1c26054eccd0e56d06ceea8cf4"
       url: "https://pub.dev"
     source: hosted
-    version: "0.2.3"
+    version: "0.2.4"
   tessera_flutter:
     dependency: "direct main"
     description:
       name: tessera_flutter
-      sha256: fd2e77561d5acbe36cabf7ba0ac6b0ea14731f0fac8fa99e0d8a753da9e367c8
+      sha256: "12454cd4560a5162422ac84325c6ea5bd356b7818f4337cbce488e911e3ae3eb"
       url: "https://pub.dev"
     source: hosted
-    version: "0.2.7"
+    version: "0.2.8"
   tessera_html:
     dependency: "direct main"
     description:
       name: tessera_html
-      sha256: b68500a1c165891b401efe55b28ac9ef958a18a81db9b2818f62bcf67b9378d7
+      sha256: "4a3054351290d16d1b626cc473eb04ea6587870329365c739526f3e23d620050"
       url: "https://pub.dev"
     source: hosted
-    version: "0.2.0"
+    version: "0.2.1"
   tessera_ods:
     dependency: "direct main"
     description:
@@ -798,10 +798,10 @@ packages:
     dependency: "direct main"
     description:
       name: tessera_pdf
-      sha256: ae2dd4c1dafb5a73b231b4fd51c197522897221ab99a5d9ad8b0b3b46b5a88a2
+      sha256: "6eb8a66770ce64dc5eaffb77b1c588ac0cbf25114c4e12fbaad5f62ac84c04a8"
       url: "https://pub.dev"
     source: hosted
-    version: "0.2.1"
+    version: "0.2.2"
   tessera_svg:
     dependency: "direct main"
     description:
