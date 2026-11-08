@@ -1,0 +1,83 @@
+{
+  "format": "tessera-style",
+  "version": 1,
+  "id": "sand",
+  "name": {
+    "cs": "Písek",
+    "de": "Sand",
+    "en": "Sand",
+    "es": "Arena",
+    "fr": "Sable",
+    "hu": "Homok",
+    "it": "Sabbia",
+    "ja": "サンド",
+    "nl": "Zand",
+    "pl": "Piasek",
+    "pt": "Areia",
+    "ru": "Песок",
+    "tr": "Kum",
+    "zh": "沙色"
+  },
+  "_note": "Warm sand by day, deep teal by night; easy on the eyes.",
+  "light": {
+    "border": "#D6C9A8",
+    "selection": "#268BD2",
+    "sortKey": "#40268BD2",
+    "cell": {
+      "fill": "#FDF6E3",
+      "text": "#4A5D63",
+      "size": 12
+    },
+    "header": {
+      "fill": [
+        "#EEE8D5",
+        "#F3EEDC"
+      ],
+      "text": "#073642",
+      "bold": [
+        true,
+        false
+      ]
+    },
+    "value": {
+      "fill": [
+        "#FDF6E3",
+        "#F8F0D9",
+        "#F3EACF",
+        "#EEE4C5"
+      ]
+    },
+    "total": {
+      "fill": "#E4D9B6",
+      "text": "#073642",
+      "bold": true
+    }
+  },
+  "dark": {
+    "border": "#0E4B59",
+    "selection": "#268BD2",
+    "cell": {
+      "fill": "#002B36",
+      "text": "#A8B5B5"
+    },
+    "header": {
+      "fill": [
+        "#073642",
+        "#063340"
+      ],
+      "text": "#EEE8D5"
+    },
+    "value": {
+      "fill": [
+        "#002B36",
+        "#03313D",
+        "#063744",
+        "#093D4B"
+      ]
+    },
+    "total": {
+      "fill": "#0E4B59",
+      "text": "#EEE8D5"
+    }
+  }
+}

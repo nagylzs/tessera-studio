@@ -2,11 +2,16 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
 /// Adds what the app bundles beyond its packages to the licences page
-/// (About → View licenses): the PDF export embeds Noto Sans
-/// (assets/fonts), which comes under the SIL Open Font License.
+/// (About → View licenses): Noto Sans, Noto Serif and Noto Sans Mono
+/// (assets/fonts), which the grid styles draw with and the PDF export
+/// embeds, all under the SIL Open Font License.
 void registerLicenses() => LicenseRegistry.addLicense(_fontLicense);
 
 Stream<LicenseEntry> _fontLicense() async* {
   final text = await rootBundle.loadString('assets/fonts/OFL.txt');
-  yield LicenseEntryWithLineBreaks(const ['Noto Sans'], text);
+  yield LicenseEntryWithLineBreaks(const [
+    'Noto Sans',
+    'Noto Serif',
+    'Noto Sans Mono',
+  ], text);
 }

@@ -1,0 +1,77 @@
+{
+  "format": "tessera-style",
+  "version": 1,
+  "id": "compact",
+  "name": {
+    "cs": "Kompaktní",
+    "de": "Kompakt",
+    "en": "Compact",
+    "es": "Compacto",
+    "fr": "Compact",
+    "hu": "Tömör",
+    "it": "Compatto",
+    "ja": "コンパクト",
+    "nl": "Compact",
+    "pl": "Kompaktowy",
+    "pt": "Compacto",
+    "ru": "Компактный",
+    "tr": "Sıkışık",
+    "zh": "紧凑"
+  },
+  "_note": "Small text and short rows: more of the cube on the screen. A title needs 24 px for its sort arrow and menu button.",
+  "metrics": {
+    "rowHeight": 20,
+    "headerRowHeight": 24,
+    "padding": 3,
+    "minColumnWidth": 56,
+    "minRowHeaderWidth": 80
+  },
+  "light": {
+    "border": "#BFC9C4",
+    "selection": "#0D6B58",
+    "sortKey": "#73CDE9DE",
+    "cell": {
+      "fill": "#F5FBF7",
+      "text": "#171D1B",
+      "size": 11
+    },
+    "header": {
+      "fill": "#E9EFEB"
+    },
+    "value": {
+      "fill": [
+        "#F5FBF7",
+        "#EBFAF4",
+        "#E1F9F0",
+        "#D8F8ED"
+      ]
+    },
+    "total": {
+      "fill": "#DEE4E0",
+      "bold": true
+    }
+  },
+  "dark": {
+    "border": "#3F4945",
+    "selection": "#86D6BF",
+    "sortKey": "#73334C44",
+    "cell": {
+      "fill": "#0F1513",
+      "text": "#DEE4E0"
+    },
+    "header": {
+      "fill": "#1B211F"
+    },
+    "value": {
+      "fill": [
+        "#0F1513",
+        "#0D1C18",
+        "#0C231E",
+        "#0A2A23"
+      ]
+    },
+    "total": {
+      "fill": "#303634"
+    }
+  }
+}

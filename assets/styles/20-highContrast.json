@@ -1,0 +1,76 @@
+{
+  "format": "tessera-style",
+  "version": 1,
+  "id": "highContrast",
+  "name": {
+    "cs": "Vysoký kontrast",
+    "de": "Hoher Kontrast",
+    "en": "High contrast",
+    "es": "Alto contraste",
+    "fr": "Contraste élevé",
+    "hu": "Nagy kontraszt",
+    "it": "Contrasto elevato",
+    "ja": "ハイコントラスト",
+    "nl": "Hoog contrast",
+    "pl": "Wysoki kontrast",
+    "pt": "Alto contraste",
+    "ru": "Высокий контраст",
+    "tr": "Yüksek karşıtlık",
+    "zh": "高对比度"
+  },
+  "_note": "Strong grid lines, larger bold headers, taller rows.",
+  "metrics": {
+    "rowHeight": 34,
+    "headerRowHeight": 34,
+    "padding": 8
+  },
+  "light": {
+    "border": "#000000",
+    "selection": "#F44336",
+    "sortKey": "#73CDE9DE",
+    "cell": {
+      "fill": "#F5FBF7",
+      "text": "#171D1B",
+      "size": 14
+    },
+    "header": {
+      "fill": "#E9EFEB",
+      "bold": true
+    },
+    "value": {
+      "fill": [
+        "#F5FBF7",
+        "#EBFAF4",
+        "#E1F9F0",
+        "#D8F8ED"
+      ]
+    },
+    "total": {
+      "fill": "#DEE4E0",
+      "bold": true
+    }
+  },
+  "dark": {
+    "border": "#FFFFFF",
+    "selection": "#FF5252",
+    "sortKey": "#73334C44",
+    "cell": {
+      "fill": "#0F1513",
+      "text": "#DEE4E0"
+    },
+    "header": {
+      "fill": "#1B211F"
+    },
+    "value": {
+      "fill": [
+        "#0F1513",
+        "#0D1C18",
+        "#0C231E",
+        "#0A2A23"
+      ]
+    },
+    "total": {
+      "fill": "#303634"
+    }
+  }
+}

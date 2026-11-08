@@ -1,0 +1,82 @@
+{
+  "format": "tessera-style",
+  "version": 1,
+  "id": "sunset",
+  "name": {
+    "cs": "Západ slunce",
+    "de": "Sonnenuntergang",
+    "en": "Sunset",
+    "es": "Atardecer",
+    "fr": "Coucher de soleil",
+    "hu": "Naplemente",
+    "it": "Tramonto",
+    "ja": "サンセット",
+    "nl": "Zonsondergang",
+    "pl": "Zachód słońca",
+    "pt": "Pôr do sol",
+    "ru": "Закат",
+    "tr": "Gün batımı",
+    "zh": "日落"
+  },
+  "light": {
+    "border": "#FFCC80",
+    "selection": "#6A1B9A",
+    "sortKey": "#406A1B9A",
+    "cell": {
+      "fill": "#FFFFFF",
+      "text": "#3E2723",
+      "size": 12
+    },
+    "header": {
+      "fill": [
+        "#BF360C",
+        "#C2410C"
+      ],
+      "text": "#FFFFFF",
+      "bold": [
+        true,
+        false
+      ]
+    },
+    "value": {
+      "fill": [
+        "#FFFFFF",
+        "#FFF5EB",
+        "#FFE9D4",
+        "#FFDDBD"
+      ]
+    },
+    "total": {
+      "fill": "#FFCC99",
+      "text": "#3E2723",
+      "bold": true
+    }
+  },
+  "dark": {
+    "border": "#5D3A26",
+    "selection": "#CE93D8",
+    "cell": {
+      "fill": "#1E1410",
+      "text": "#F5E1D6"
+    },
+    "header": {
+      "fill": [
+        "#8C2F0E",
+        "#7A2A0D"
+      ],
+      "text": "#FFFFFF"
+    },
+    "value": {
+      "fill": [
+        "#1E1410",
+        "#271A14",
+        "#302018",
+        "#39271D"
+      ]
+    },
+    "total": {
+      "fill": "#4A2E1F",
+      "text": "#F5E1D6"
+    }
+  }
+}

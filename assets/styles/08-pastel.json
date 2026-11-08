@@ -1,0 +1,101 @@
+{
+  "format": "tessera-style",
+  "version": 1,
+  "id": "pastel",
+  "name": {
+    "cs": "Pastelové barvy",
+    "de": "Pastell",
+    "en": "Pastel",
+    "es": "Pastel",
+    "fr": "Pastel",
+    "hu": "Pasztell",
+    "it": "Pastello",
+    "ja": "パステル",
+    "nl": "Pastel",
+    "pl": "Pastele",
+    "pt": "Pastel",
+    "ru": "Пастель",
+    "tr": "Pastel",
+    "zh": "粉彩"
+  },
+  "_note": "A soft colour for every level, like the hue levels but quieter.",
+  "light": {
+    "border": "#E0E0E0",
+    "selection": "#7E57C2",
+    "sortKey": "#407E57C2",
+    "cell": {
+      "fill": "#FFFFFF",
+      "text": "#333333",
+      "size": 12
+    },
+    "header": {
+      "fill": [
+        "#FFD6E0",
+        "#D6F5E3",
+        "#FFF3C4",
+        "#D6ECFF"
+      ]
+    },
+    "columnLabel": {
+      "fill": [
+        "#FFF3C4",
+        "#D6ECFF",
+        "#EADCFF",
+        "#FFE2CC"
+      ]
+    },
+    "corner": {
+      "fill": "#F5F5F5"
+    },
+    "value": {
+      "fill": [
+        "#FFF0F4",
+        "#EEFBF3",
+        "#FFFBEA",
+        "#EEF6FF"
+      ]
+    },
+    "total": {
+      "fill": "#EEEEEE",
+      "bold": true
+    }
+  },
+  "dark": {
+    "border": "#3A3A3A",
+    "selection": "#B39DDB",
+    "cell": {
+      "fill": "#1C1C1E",
+      "text": "#EDEDED"
+    },
+    "header": {
+      "fill": [
+        "#4A2E36",
+        "#2B4237",
+        "#4A4430",
+        "#2E3D4F"
+      ]
+    },
+    "columnLabel": {
+      "fill": [
+        "#4A4430",
+        "#2E3D4F",
+        "#3D3352",
+        "#4D3A2E"
+      ]
+    },
+    "corner": {
+      "fill": "#262626"
+    },
+    "value": {
+      "fill": [
+        "#2A2124",
+        "#1F2A24",
+        "#2C2A20",
+        "#1F2630"
+      ]
+    },
+    "total": {
+      "fill": "#333333"
+    }
+  }
+}

@@ -18,6 +18,7 @@ import '../l10n/generated/app_localizations.dart';
 import '../platform/system_bars.dart';
 import '../state/app_state.dart';
 import '../state/settings.dart';
+import '../style/style_gallery.dart';
 import '../widgets/app_menu.dart';
 import '../widgets/document_title.dart';
 import '../widgets/editors_panel.dart';
@@ -160,7 +161,10 @@ class _WorkbenchPageState extends State<WorkbenchPage> {
       baseName: document.exportBaseName,
       cube: ctrl.cube,
       aggregates: shown == null || shown.isEmpty ? null : shown,
-      style: GetIt.I<AppSettings>().gridStyle.value,
+      style: GetIt.I<StyleGallery>().byId(
+        GetIt.I<AppSettings>().gridStyle.value,
+      ),
+      coloring: GetIt.I<AppSettings>().depthColoring.value,
       share: share,
       shareOrigin: shareOrigin,
       onBusy: (busy) {
@@ -505,7 +509,8 @@ class _WorkbenchPageState extends State<WorkbenchPage> {
       );
     }
     final shown = state.cube.shown.value ?? ctrl.cube.spec.aggregates;
-    final style = GetIt.I<AppSettings>().gridStyle.value;
+    final settings = GetIt.I<AppSettings>();
+    final style = GetIt.I<StyleGallery>().byId(settings.gridStyle.value);
     // The cells draw their hover and ink on the nearest Material; were that
     // the page's, no scrolling would clip them and they would show on a chart
     // beside the grid. All this moves together when the layout changes.
@@ -517,7 +522,11 @@ class _WorkbenchPageState extends State<WorkbenchPage> {
           onPointerDown: (event) => _pointer = event.kind,
           child: CubeView(
             controller: ctrl,
-            theme: style.theme(Theme.of(context).brightness),
+            theme: CubeTheme.fromStyle(
+              style,
+              coloring: settings.depthColoring.value,
+              fontFamilies: styleFontFamilies,
+            ),
             aggregates: shown,
             onCellTap: (_) => _cellTapped(editorsInline),
           ),

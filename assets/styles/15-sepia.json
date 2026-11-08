@@ -1,0 +1,80 @@
+{
+  "format": "tessera-style",
+  "version": 1,
+  "id": "sepia",
+  "name": {
+    "cs": "Sépie",
+    "de": "Sepia",
+    "en": "Sepia",
+    "es": "Sepia",
+    "fr": "Sépia",
+    "hu": "Szépia",
+    "it": "Seppia",
+    "ja": "セピア",
+    "nl": "Sepia",
+    "pl": "Sepia",
+    "pt": "Sépia",
+    "ru": "Сепия",
+    "tr": "Sepya",
+    "zh": "怀旧棕"
+  },
+  "_note": "Old paper and brown ink, in a serif.",
+  "light": {
+    "border": "#D8C3A0",
+    "selection": "#8D3B1F",
+    "sortKey": "#33B5651D",
+    "cell": {
+      "fill": "#FBF6EC",
+      "text": "#4A3622",
+      "family": "serif",
+      "size": 12
+    },
+    "header": {
+      "fill": [
+        "#EAD9B9",
+        "#F2E6CF"
+      ],
+      "bold": [
+        true,
+        false
+      ]
+    },
+    "value": {
+      "fill": [
+        "#FBF6EC",
+        "#F6EDDC",
+        "#F0E3CB",
+        "#EAD9B9"
+      ]
+    },
+    "total": {
+      "fill": "#E3CDA4",
+      "bold": true
+    }
+  },
+  "dark": {
+    "border": "#5A4632",
+    "selection": "#E0A267",
+    "cell": {
+      "fill": "#231C14",
+      "text": "#EADBC2"
+    },
+    "header": {
+      "fill": [
+        "#4A3A28",
+        "#3A2E20"
+      ]
+    },
+    "value": {
+      "fill": [
+        "#231C14",
+        "#2B2219",
+        "#33291E",
+        "#3B3023"
+      ]
+    },
+    "total": {
+      "fill": "#54432E"
+    }
+  }
+}

@@ -6,18 +6,21 @@ import 'package:package_info_plus/package_info_plus.dart';
 import 'package:shared_preferences_platform_interface/in_memory_shared_preferences_async.dart';
 import 'package:shared_preferences_platform_interface/shared_preferences_async_platform_interface.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:tessera_flutter/tessera_flutter.dart'
+    show CubeStylePreview, DepthColoring;
 import 'package:tessera_studio/app.dart';
 import 'package:tessera_studio/files/clipboard_reader.dart';
 import 'package:tessera_studio/files/document_loader.dart';
 import 'package:tessera_studio/files/file_opener.dart';
 import 'package:tessera_studio/files/opened_document.dart';
 import 'package:tessera_studio/licenses.dart';
+import 'package:tessera_studio/pages/style_gallery_page.dart';
 import 'package:tessera_studio/platform/links.dart';
 import 'package:tessera_studio/state/app_state.dart';
 import 'package:tessera_studio/state/layout_store.dart';
 import 'package:tessera_studio/state/schema_store.dart';
 import 'package:tessera_studio/state/settings.dart';
-import 'package:tessera_studio/style/grid_style.dart';
+import 'package:tessera_studio/style/style_gallery.dart';
 import 'package:tessera_studio/widgets/about.dart';
 
 import 'fakes.dart';
@@ -41,6 +44,7 @@ void _register() {
     ..registerSingleton<DocumentLoader>(FakeLoader())
     ..registerSingleton<SchemaStore>(MemorySchemaStore())
     ..registerSingleton<LayoutStore>(layouts = MemoryLayoutStore())
+    ..registerSingleton<StyleGallery>(testGallery())
     ..registerSingleton<AppSettings>(AppSettings(store))
     ..registerSingleton<AppState>(AppState());
 }
@@ -59,27 +63,33 @@ void main() {
     await settings.load();
     expect(settings.themeMode.value, ThemeMode.system);
     expect(settings.locale.value, isNull);
-    expect(settings.gridStyle.value, GridStyle.standard);
+    expect(settings.gridStyle.value, 'standard');
+    expect(settings.depthColoring.value, DepthColoring.both);
 
     await settings.setThemeMode(ThemeMode.dark);
     await settings.setLocale(const Locale('hu'));
-    await settings.setGridStyle(GridStyle.compact);
+    await settings.setGridStyle('compact');
+    await settings.setDepthColoring(DepthColoring.rows);
     expect(s.themeMode, 'dark');
     expect(s.language, 'hu');
     expect(s.gridStyle, 'compact');
+    expect(s.depthColoring, 'rows');
 
     final again = AppSettings(s);
     await again.load();
     expect(again.themeMode.value, ThemeMode.dark);
     expect(again.locale.value, const Locale('hu'));
-    expect(again.gridStyle.value, GridStyle.compact);
+    expect(again.gridStyle.value, 'compact');
+    expect(again.depthColoring.value, DepthColoring.rows);
 
     await again.setThemeMode(ThemeMode.system);
     await again.setLocale(null);
-    await again.setGridStyle(GridStyle.standard);
+    await again.setGridStyle('standard');
+    await again.setDepthColoring(DepthColoring.both);
     expect(s.themeMode, isNull);
     expect(s.language, isNull);
     expect(s.gridStyle, isNull);
+    expect(s.depthColoring, isNull);
   });
 
   test('the preferences store round-trips', () async {
@@ -95,6 +105,8 @@ void main() {
     expect(await s.readThemeMode(), isNull);
     await s.writeGridStyle('spreadsheet');
     expect(await s.readGridStyle(), 'spreadsheet');
+    await s.writeDepthColoring('columns');
+    expect(await s.readDepthColoring(), 'columns');
   });
 
   testWidgets('About: version, the promise, licenses, links', (tester) async {
@@ -127,12 +139,13 @@ void main() {
     final entries = await LicenseRegistry.licenses.toList();
     final noto = entries.where((e) => e.packages.contains('Noto Sans'));
     expect(noto, hasLength(1));
+    expect(noto.single.packages, containsAll(['Noto Serif', 'Noto Sans Mono']));
     final text = noto.single.paragraphs.map((p) => p.text).join('\n');
     expect(text, contains('SIL OPEN FONT LICENSE'));
     expect(text, contains('The Noto Project Authors'));
   });
 
-  testWidgets('the grid style dialog explains and applies a style', (
+  testWidgets('the style gallery applies a style and the depth coloring', (
     tester,
   ) async {
     _register();
@@ -140,59 +153,67 @@ void main() {
     await _openMenu(tester);
     await tester.tap(find.text('Grid style…'));
     await tester.pumpAndSettle();
+    expect(find.byType(StyleGalleryPage), findsOneWidget);
     expect(find.text('Grid style'), findsOneWidget);
     expect(find.text('Standard'), findsOneWidget);
-    expect(find.text("Colors from the app's theme"), findsOneWidget);
+    expect(find.byType(CubeStylePreview), findsWidgets);
     await tester.tap(find.text('Spreadsheet'));
     await tester.pumpAndSettle();
-    expect(find.byType(AlertDialog), findsNothing);
-    expect(GetIt.I<AppSettings>().gridStyle.value, GridStyle.spreadsheet);
+    // applied at once; the page stays, to compare
+    expect(GetIt.I<AppSettings>().gridStyle.value, 'spreadsheet');
     expect(store.gridStyle, 'spreadsheet');
+    expect(find.byType(StyleGalleryPage), findsOneWidget);
+    expect(
+      tester.getSemantics(find.bySemanticsLabel('Spreadsheet')),
+      matchesSemantics(
+        label: 'Spreadsheet',
+        isButton: true,
+        hasSelectedState: true,
+        isSelected: true,
+        hasTapAction: true,
+      ),
+    );
+    await tester.tap(find.text('Rows'));
+    await tester.pumpAndSettle();
+    expect(GetIt.I<AppSettings>().depthColoring.value, DepthColoring.rows);
+    expect(store.depthColoring, 'rows');
+    await tester.binding.handlePopRoute();
+    await tester.pumpAndSettle();
+    expect(find.byType(StyleGalleryPage), findsNothing);
   });
 
-  group('the grid style dialog at a larger text size', () {
-    Future<void> open(WidgetTester tester, double w, double h) async {
-      tester.view.physicalSize = Size(w, h);
-      tester.view.devicePixelRatio = 1;
-      addTearDown(tester.view.reset);
-      tester.platformDispatcher.textScaleFactorTestValue = 1.5;
-      addTearDown(tester.platformDispatcher.clearTextScaleFactorTestValue);
-      _register();
-      await tester.pumpWidget(const TesseraStudioApp());
-      await _openMenu(tester);
-      await tester.tap(find.text('Grid style…'));
-      await tester.pumpAndSettle();
-    }
-
-    testWidgets('keeps every description on one line where there is room', (
-      tester,
-    ) async {
-      await open(tester, 1800, 1000);
-      final lines = find.descendant(
-        of: find.byType(RadioListTile<GridStyle>),
-        matching: find.byType(Text),
-      );
-      expect(lines, findsAtLeastNWidgets(GridStyle.values.length * 2));
-      final title = tester.getSize(find.text('Standard')).height;
-      for (final line in lines.evaluate()) {
-        expect(line.size!.height, lessThan(title * 1.5));
-      }
-      expect(tester.takeException(), isNull);
-    });
-
-    testWidgets('stays inside a phone and reaches its last style', (
-      tester,
-    ) async {
-      await open(tester, 360, 640);
-      expect(tester.takeException(), isNull);
-      expect(tester.getSize(find.byType(Dialog)).width, lessThanOrEqualTo(360));
-      final last = find.text('Compact');
-      await tester.ensureVisible(last);
-      await tester.pumpAndSettle();
-      await tester.tap(last);
-      await tester.pumpAndSettle();
-      expect(GetIt.I<AppSettings>().gridStyle.value, GridStyle.compact);
-    });
+  testWidgets('the style gallery fits a phone at a larger text size', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(360, 640);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.reset);
+    tester.platformDispatcher.textScaleFactorTestValue = 1.5;
+    addTearDown(tester.platformDispatcher.clearTextScaleFactorTestValue);
+    _register();
+    await tester.pumpWidget(const TesseraStudioApp());
+    await _openMenu(tester);
+    await tester.tap(find.text('Grid style…'));
+    await tester.pumpAndSettle();
+    expect(tester.takeException(), isNull);
+    final gallery = GetIt.I<StyleGallery>();
+    final last = find.text(gallery.styles.last.name('en'));
+    await tester.scrollUntilVisible(
+      last,
+      300,
+      // the page's, not the depth switch's sideways one
+      scrollable: find
+          .descendant(
+            of: find.byType(CustomScrollView),
+            matching: find.byType(Scrollable),
+          )
+          .first,
+    );
+    await tester.pumpAndSettle();
+    await tester.tap(last);
+    await tester.pumpAndSettle();
+    expect(GetIt.I<AppSettings>().gridStyle.value, gallery.styles.last.id);
+    expect(tester.takeException(), isNull);
   });
 
   testWidgets('the theme dialog switches the app to dark', (tester) async {

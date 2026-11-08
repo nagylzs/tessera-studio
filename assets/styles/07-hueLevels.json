@@ -1,0 +1,102 @@
+{
+  "format": "tessera-style",
+  "version": 1,
+  "id": "hueLevels",
+  "name": {
+    "cs": "Úrovně odstínů",
+    "de": "Farbtonebenen",
+    "en": "Hue levels",
+    "es": "Niveles de tono",
+    "fr": "Niveaux de teinte",
+    "hu": "Árnyalatszintek",
+    "it": "Livelli di tinta",
+    "ja": "色相レベル",
+    "nl": "Tintniveaus",
+    "pl": "Poziomy barw",
+    "pt": "Níveis de matiz",
+    "ru": "Уровни оттенков",
+    "tr": "Renk tonu düzeyleri",
+    "zh": "色相层级"
+  },
+  "_note": "Every level in a hue of its own (OKLCH, from the tessera green), the column levels after the row levels; totals neutral.",
+  "light": {
+    "border": "#BFC9C4",
+    "selection": "#0D6B58",
+    "sortKey": "#73CDE9DE",
+    "cell": {
+      "fill": "#F5FBF7",
+      "text": "#171D1B",
+      "size": 12
+    },
+    "header": {
+      "fill": [
+        "#9CF2DA",
+        "#EED2FF",
+        "#F5DC98",
+        "#B2E7FF"
+      ]
+    },
+    "columnLabel": {
+      "fill": [
+        "#F5DC98",
+        "#B2E7FF",
+        "#FFD0D9",
+        "#BCEEB7"
+      ]
+    },
+    "corner": {
+      "fill": "#E9EFEB"
+    },
+    "value": {
+      "fill": [
+        "#D9F8EF",
+        "#F7EBFF",
+        "#F9F0D6",
+        "#DEF4FF"
+      ]
+    },
+    "total": {
+      "fill": "#DEE4E0",
+      "bold": true
+    }
+  },
+  "dark": {
+    "border": "#3F4945",
+    "selection": "#86D6BF",
+    "sortKey": "#73334C44",
+    "cell": {
+      "fill": "#0F1513",
+      "text": "#DEE4E0"
+    },
+    "header": {
+      "fill": [
+        "#004E40",
+        "#523264",
+        "#524000",
+        "#004A61"
+      ]
+    },
+    "columnLabel": {
+      "fill": [
+        "#524000",
+        "#004A61",
+        "#682B3C",
+        "#224E1F"
+      ]
+    },
+    "corner": {
+      "fill": "#1B211F"
+    },
+    "value": {
+      "fill": [
+        "#10352C",
+        "#35273E",
+        "#372D11",
+        "#11323F"
+      ]
+    },
+    "total": {
+      "fill": "#303634"
+    }
+  }
+}

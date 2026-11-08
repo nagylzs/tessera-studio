@@ -1,0 +1,83 @@
+{
+  "format": "tessera-style",
+  "version": 1,
+  "id": "navy",
+  "name": {
+    "cs": "Námořnická modř",
+    "de": "Marineblau",
+    "en": "Navy",
+    "es": "Azul marino",
+    "fr": "Bleu marine",
+    "hu": "Tengerészkék",
+    "it": "Blu navy",
+    "ja": "ネイビー",
+    "nl": "Marineblauw",
+    "pl": "Granatowy",
+    "pt": "Azul-marinho",
+    "ru": "Тёмно-синий",
+    "tr": "Lacivert",
+    "zh": "海军蓝"
+  },
+  "_note": "A dark blue band over white, a business report.",
+  "light": {
+    "border": "#9FA8DA",
+    "selection": "#FF6F00",
+    "sortKey": "#40FF6F00",
+    "cell": {
+      "fill": "#FFFFFF",
+      "text": "#1A1F3D",
+      "size": 12
+    },
+    "header": {
+      "fill": [
+        "#1A237E",
+        "#283593"
+      ],
+      "text": "#FFFFFF",
+      "bold": [
+        true,
+        false
+      ]
+    },
+    "value": {
+      "fill": [
+        "#FFFFFF",
+        "#F3F4FB",
+        "#E8EAF6",
+        "#DCDFF1"
+      ]
+    },
+    "total": {
+      "fill": "#C5CAE9",
+      "text": "#1A1F3D",
+      "bold": true
+    }
+  },
+  "dark": {
+    "border": "#303F7F",
+    "selection": "#FFB74D",
+    "cell": {
+      "fill": "#0D1026",
+      "text": "#E1E4F5"
+    },
+    "header": {
+      "fill": [
+        "#1A237E",
+        "#202B8C"
+      ],
+      "text": "#FFFFFF"
+    },
+    "value": {
+      "fill": [
+        "#0D1026",
+        "#111531",
+        "#151A3C",
+        "#191F47"
+      ]
+    },
+    "total": {
+      "fill": "#232A5C",
+      "text": "#E1E4F5"
+    }
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "format": "tessera-style",
+  "version": 1,
+  "id": "rose",
+  "name": {
+    "cs": "Růže",
+    "de": "Rose",
+    "en": "Rose",
+    "es": "Rosa",
+    "fr": "Rose",
+    "hu": "Rózsa",
+    "it": "Rosa",
+    "ja": "ローズ",
+    "nl": "Roos",
+    "pl": "Róża",
+    "pt": "Rosa",
+    "ru": "Роза",
+    "tr": "Gül",
+    "zh": "玫瑰"
+  },
+  "light": {
+    "border": "#F8BBD0",
+    "selection": "#1565C0",
+    "sortKey": "#401565C0",
+    "cell": {
+      "fill": "#FFFFFF",
+      "text": "#3B1426",
+      "size": 12
+    },
+    "header": {
+      "fill": [
+        "#AD1457",
+        "#C2185B"
+      ],
+      "text": "#FFFFFF",
+      "bold": [
+        true,
+        false
+      ]
+    },
+    "value": {
+      "fill": [
+        "#FFFFFF",
+        "#FFF4F8",
+        "#FDE8F0",
+        "#FBDCE8"
+      ]
+    },
+    "total": {
+      "fill": "#F8BBD0",
+      "text": "#3B1426",
+      "bold": true
+    }
+  },
+  "dark": {
+    "border": "#5C2A3E",
+    "selection": "#90CAF9",
+    "cell": {
+      "fill": "#1F1016",
+      "text": "#F6DDE7"
+    },
+    "header": {
+      "fill": [
+        "#880E4F",
+        "#7B0D47"
+      ],
+      "text": "#FFFFFF"
+    },
+    "value": {
+      "fill": [
+        "#1F1016",
+        "#29141D",
+        "#331924",
+        "#3D1E2B"
+      ]
+    },
+    "total": {
+      "fill": "#4E2638",
+      "text": "#F6DDE7"
+    }
+  }
+}

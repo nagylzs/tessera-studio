@@ -422,53 +422,29 @@
   "@menuGridStyle": {
     "description": "Overflow entry opening the grid style dialog."
   },
-  "gridStandard": "Standard",
-  "@gridStandard": {
-    "description": "Grid style: colors derived from the app theme (the default)."
+  "depthColoring": "Color by depth",
+  "@depthColoring": {
+    "description": "Label of the switch on the grid style page: which hierarchy levels pick a cell's colour from the style."
   },
-  "gridStandardInfo": "Colors from the app's theme",
-  "@gridStandardInfo": {
-    "description": "One-line description under the grid style name."
+  "depthColoringHint": "Which levels change a cell's color: its row's, its column's, both, or none.",
+  "@depthColoringHint": {
+    "description": "Under depthColoring: what the switch does."
   },
-  "gridSpreadsheet": "Spreadsheet",
-  "@gridSpreadsheet": {
-    "description": "Grid style: plain spreadsheet look."
+  "depthColoringOff": "Off",
+  "@depthColoringOff": {
+    "description": "depthColoring choice: one colour for every level."
   },
-  "gridSpreadsheetInfo": "White cells, gray lines, monospace figures",
-  "@gridSpreadsheetInfo": {
-    "description": "One-line description under the grid style name."
+  "depthColoringRows": "Rows",
+  "@depthColoringRows": {
+    "description": "depthColoring choice: by the depth of the cell's row."
   },
-  "gridGradient": "Gradient",
-  "@gridGradient": {
-    "description": "Grid style: levels shaded from pale to saturated teal."
+  "depthColoringColumns": "Columns",
+  "@depthColoringColumns": {
+    "description": "depthColoring choice: by the depth of the cell's column."
   },
-  "gridGradientInfo": "Deeper levels in deeper teal",
-  "@gridGradientInfo": {
-    "description": "One-line description under the grid style name."
-  },
-  "gridHueLevels": "Hue levels",
-  "@gridHueLevels": {
-    "description": "Grid style: each nesting level in a different hue."
-  },
-  "gridHueLevelsInfo": "Each level in a hue of its own",
-  "@gridHueLevelsInfo": {
-    "description": "One-line description under the grid style name."
-  },
-  "gridHighContrast": "High contrast",
-  "@gridHighContrast": {
-    "description": "Grid style: high contrast."
-  },
-  "gridHighContrastInfo": "Strong lines, larger bold text",
-  "@gridHighContrastInfo": {
-    "description": "One-line description under the grid style name."
-  },
-  "gridCompact": "Compact",
-  "@gridCompact": {
-    "description": "Grid style: small and dense."
-  },
-  "gridCompactInfo": "Small text, short rows: more on screen",
-  "@gridCompactInfo": {
-    "description": "One-line description under the grid style name."
+  "depthColoringBoth": "Both",
+  "@depthColoringBoth": {
+    "description": "depthColoring choice: by both depths (the default)."
   },
   "menuAbout": "About…",
   "@menuAbout": {

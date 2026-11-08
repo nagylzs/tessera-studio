@@ -1,0 +1,77 @@
+{
+  "format": "tessera-style",
+  "version": 1,
+  "id": "monochrome",
+  "name": {
+    "cs": "Černobílá",
+    "de": "Schwarzweiß",
+    "en": "Monochrome",
+    "es": "Monocromo",
+    "fr": "Monochrome",
+    "hu": "Fekete-fehér",
+    "it": "Monocromatico",
+    "ja": "モノクロ",
+    "nl": "Zwart-wit",
+    "pl": "Czarno-biały",
+    "pt": "Monocromático",
+    "ru": "Чёрно-белый",
+    "tr": "Siyah beyaz",
+    "zh": "黑白"
+  },
+  "_note": "Black and white only, the header band inverted.",
+  "light": {
+    "border": "#000000",
+    "selection": "#000000",
+    "sortKey": "#33000000",
+    "cell": {
+      "fill": "#FFFFFF",
+      "text": "#000000",
+      "size": 12
+    },
+    "header": {
+      "fill": "#000000",
+      "text": "#FFFFFF",
+      "bold": [
+        true,
+        false
+      ]
+    },
+    "value": {
+      "fill": [
+        "#FFFFFF",
+        "#F2F2F2",
+        "#E6E6E6",
+        "#D9D9D9"
+      ]
+    },
+    "total": {
+      "fill": "#BFBFBF",
+      "text": "#000000",
+      "bold": true
+    }
+  },
+  "dark": {
+    "border": "#FFFFFF",
+    "selection": "#FFFFFF",
+    "cell": {
+      "fill": "#000000",
+      "text": "#FFFFFF"
+    },
+    "header": {
+      "fill": "#FFFFFF",
+      "text": "#000000"
+    },
+    "value": {
+      "fill": [
+        "#000000",
+        "#141414",
+        "#262626",
+        "#383838"
+      ]
+    },
+    "total": {
+      "fill": "#4D4D4D",
+      "text": "#FFFFFF"
+    }
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "format": "tessera-style",
+  "version": 1,
+  "id": "lavender",
+  "name": {
+    "cs": "Levandule",
+    "de": "Lavendel",
+    "en": "Lavender",
+    "es": "Lavanda",
+    "fr": "Lavande",
+    "hu": "Levendula",
+    "it": "Lavanda",
+    "ja": "ラベンダー",
+    "nl": "Lavendel",
+    "pl": "Lawenda",
+    "pt": "Lavanda",
+    "ru": "Лаванда",
+    "tr": "Lavanta",
+    "zh": "薰衣草"
+  },
+  "light": {
+    "border": "#D1C4E9",
+    "selection": "#00897B",
+    "sortKey": "#4026A69A",
+    "cell": {
+      "fill": "#FFFFFF",
+      "text": "#2E1F47",
+      "size": 12
+    },
+    "header": {
+      "fill": [
+        "#6A44B0",
+        "#7650BA"
+      ],
+      "text": "#FFFFFF",
+      "bold": [
+        true,
+        false
+      ]
+    },
+    "value": {
+      "fill": [
+        "#FFFFFF",
+        "#F8F4FD",
+        "#F0E9FA",
+        "#E7DDF7"
+      ]
+    },
+    "total": {
+      "fill": "#D1C4E9",
+      "text": "#2E1F47",
+      "bold": true
+    }
+  },
+  "dark": {
+    "border": "#4A3B66",
+    "selection": "#80CBC4",
+    "cell": {
+      "fill": "#17121F",
+      "text": "#EAE2F6"
+    },
+    "header": {
+      "fill": [
+        "#4527A0",
+        "#3E2391"
+      ],
+      "text": "#FFFFFF"
+    },
+    "value": {
+      "fill": [
+        "#17121F",
+        "#1E1729",
+        "#251C33",
+        "#2C223D"
+      ]
+    },
+    "total": {
+      "fill": "#3B2D54",
+      "text": "#EAE2F6"
+    }
+  }
+}

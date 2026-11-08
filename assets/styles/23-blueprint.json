@@ -1,0 +1,62 @@
+{
+  "format": "tessera-style",
+  "version": 1,
+  "id": "blueprint",
+  "name": {
+    "cs": "Modrotisk",
+    "de": "Blaupause",
+    "en": "Blueprint",
+    "es": "Plano azul",
+    "fr": "Plan bleu",
+    "hu": "Tervrajz",
+    "it": "Cianografia",
+    "ja": "青写真",
+    "nl": "Blauwdruk",
+    "pl": "Światłokopia",
+    "pt": "Planta azul",
+    "ru": "Синька",
+    "tr": "Mavi baskı",
+    "zh": "蓝图"
+  },
+  "_note": "White lines on deep blue, in light and dark alike; its exports are blue too.",
+  "light": {
+    "border": "#7FA8D4",
+    "selection": "#FFEB3B",
+    "sortKey": "#40FFEB3B",
+    "icon": "#E3F2FD",
+    "cell": {
+      "fill": "#0F3C6E",
+      "text": "#E3F2FD",
+      "family": "mono",
+      "size": 12
+    },
+    "header": {
+      "fill": [
+        "#0A2F57",
+        "#0D3563"
+      ],
+      "text": "#FFFFFF",
+      "family": "sans",
+      "bold": [
+        true,
+        false
+      ]
+    },
+    "value": {
+      "fill": [
+        "#0F3C6E",
+        "#124479",
+        "#154C84",
+        "#18548F"
+      ]
+    },
+    "total": {
+      "fill": "#1E5FA0",
+      "text": "#FFFFFF",
+      "bold": true
+    },
+    "totalLabel": {
+      "family": "sans"
+    }
+  }
+}

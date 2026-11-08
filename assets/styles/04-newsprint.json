@@ -1,0 +1,56 @@
+{
+  "format": "tessera-style",
+  "version": 1,
+  "id": "newsprint",
+  "name": {
+    "cs": "Novinový papír",
+    "de": "Zeitungspapier",
+    "en": "Newsprint",
+    "es": "Papel de periódico",
+    "fr": "Papier journal",
+    "hu": "Újságpapír",
+    "it": "Carta di giornale",
+    "ja": "新聞紙",
+    "nl": "Krantenpapier",
+    "pl": "Papier gazetowy",
+    "pt": "Papel de jornal",
+    "ru": "Газетная бумага",
+    "tr": "Gazete kâğıdı",
+    "zh": "新闻纸"
+  },
+  "_note": "Black on white in a serif, as print; light in the dark theme too.",
+  "light": {
+    "border": "#BDBDBD",
+    "selection": "#000000",
+    "sortKey": "#26000000",
+    "icon": "#000000",
+    "cell": {
+      "fill": "#FFFFFF",
+      "text": "#111111",
+      "family": "serif",
+      "size": 13
+    },
+    "header": {
+      "fill": "#F2F2F2",
+      "bold": [
+        true,
+        false
+      ]
+    },
+    "title": {
+      "bold": false,
+      "italic": true
+    },
+    "value": {
+      "fill": [
+        "#FFFFFF",
+        "#F7F7F7",
+        "#EFEFEF"
+      ]
+    },
+    "total": {
+      "fill": "#E6E6E6",
+      "bold": true
+    }
+  }
+}

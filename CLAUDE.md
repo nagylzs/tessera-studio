@@ -382,33 +382,46 @@ the next step.
   on an iPad the sheet is a popover at the share button's rect,
   `share(origin:)`, without which share_plus refuses — untested, no iPad).
   File names are localized ("sales pivot.xlsx", "sales facts.csv").
-  Theme: the grid style's (`GridStyle.exportTheme`, below; standard =
-  `CubeExportTheme.brand` on `tesseraGreen`), the PDF's too since
+  Theme: the grid style's own (`CubeExportTheme.fromStyle`, its light
+  variant and the user's depth coloring, below), the PDF's too since
   tessera_pdf 0.2.1 draws the page title, date and page numbers in the
   cell text colour (0.2.0 used the header cells', white on the green,
-  and the app had a light PDF variant until 2026-10-11). PDF fonts: Noto Sans Regular/Bold subsets in
-  `assets/fonts/` (Latin incl. Extended-A/B/Additional, combining marks,
-  Greek, Cyrillic, punctuation, currency; `tool/subset_fonts.sh`, about
-  240 KB each; each empty glyph but the space's holds one point, which draws
+  and the app had a light PDF variant until 2026-10-11). Fonts: Noto Sans,
+  Noto Serif and Noto Sans Mono, Regular/Bold subsets in `assets/fonts/`,
+  the three kinds a style may name (`styleFontFamilies`: Flutter fonts on
+  the screen, embedded in a PDF under the same names through
+  `PdfFonts.families`, a family only if a cell uses it; spreadsheets and
+  web pages name Arial, Times New Roman and Courier New) (Latin incl.
+  Extended-A/B/Additional, combining marks, Greek, Cyrillic, punctuation,
+  currency; `tool/subset_fonts.sh`, 170–260 KB each, 1.4 MB in all; each empty glyph but the space's holds one point, which draws
   nothing, because `package:pdf` embeds the next glyph's outline for an empty
   one, and the no-break space, tessera's thousands separator in cs, fr, hu, pl
   and ru, printed as "¡" until 2026-11-07), SIL OFL in `assets/fonts/OFL.txt`, registered with the
   `LicenseRegistry` in `main`. No CJK glyphs (TODO). Verified on the
   API 36 emulator: share sheet, the documents UI save dialog (Downloads),
   a Hungarian PDF through `pdftotext`/`pdftoppm`.
-  Grid styles (`lib/style/grid_style.dart`): `GridStyle` standard /
-  spreadsheet / gradient / hueLevels / highContrast / compact, adapted
-  from the example's theme presets; `theme(brightness)` → `CubeTheme`,
-  `exportTheme` → `CubeExportTheme` authored to match (exports follow
-  the grid). "Grid style…" (palette icon) in the common menu entries
-  opens a radio dialog with a description line per style
-  (`_RadioDialog.subtitles`); `AppSettings.gridStyle`, key
-  `settings:gridStyle` (absent = standard). Dark mode: spreadsheet and
-  gradient stay light like paper and pin `headerIconColor` (the dark
-  theme's light icons vanish on light headers); high contrast draws
-  white lines; compact's header rows are 24 px (20 clipped the title
-  cells' descenders). Checked in both modes with the screenshot recipe
-  below.
+  Grid styles (2026-11-08, for 1.3.0): a gallery of hand-crafted
+  styles, each a JSON file in `assets/styles/` in tessera's style format
+  (`../tessera/docs/style.md`: looks by cell role and depth, a light and
+  an optional dark variant, names in the 14 languages), read at start by
+  `StyleGallery` (`lib/style/style_gallery.dart`, in get_it), in the
+  order of their file names. One style draws the grid
+  (`CubeTheme.fromStyle`) and every export (`CubeExportTheme.fromStyle`).
+  "Grid style…" (palette icon) in the common menu entries opens
+  `StyleGalleryPage`: a `CubeStylePreview` of each on one canvas, so that
+  their sizes compare, in the app's light or dark, a tap applies one, and
+  above them the "Color by depth" switch (`DepthColoring`: off, rows,
+  columns, both), whatever the style. `AppSettings.gridStyle` holds the
+  id (key `settings:gridStyle`, absent = `standard`; the six styles
+  before the gallery kept their ids, so a choice made then holds),
+  `depthColoring` the switch (`settings:depthColoring`, absent = both).
+  A style without a dark variant stays as it is in dark mode, like paper
+  (Spreadsheet, Newsprint, Ledger, Gradient); Blueprint and Terminal are
+  dark in both, exports included. `test/style_gallery_test.dart` reads
+  them all, wants every language's name, and checks WCAG AA contrast of
+  every cell's text and header icon at four depths in both variants: a
+  new style must pass it. Compact's header rows are 24 px (20 clipped the
+  title cells' descenders).
   Failures (`lib/files/file_failure.dart`, `lib/widgets/failure_view.dart`,
   `lib/pages/failure_page.dart`): a file that was read but cannot be
   opened — the reading and inference in `_open`, where `_prepare` also

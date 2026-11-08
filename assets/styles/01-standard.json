@@ -1,0 +1,70 @@
+{
+  "format": "tessera-style",
+  "version": 1,
+  "id": "standard",
+  "name": {
+    "cs": "Standardní",
+    "de": "Standard",
+    "en": "Standard",
+    "es": "Estándar",
+    "fr": "Standard",
+    "hu": "Normál",
+    "it": "Standard",
+    "ja": "標準",
+    "nl": "Standaard",
+    "pl": "Standardowy",
+    "pt": "Padrão",
+    "ru": "Стандартный",
+    "tr": "Standart",
+    "zh": "标准"
+  },
+  "_note": "The app colours: the tessera green scheme, values a shade deeper with every level.",
+  "light": {
+    "border": "#BFC9C4",
+    "selection": "#0D6B58",
+    "sortKey": "#73CDE9DE",
+    "cell": {
+      "fill": "#F5FBF7",
+      "text": "#171D1B",
+      "size": 12
+    },
+    "header": {
+      "fill": "#E9EFEB"
+    },
+    "value": {
+      "fill": [
+        "#F5FBF7",
+        "#EBFAF4",
+        "#E1F9F0",
+        "#D8F8ED"
+      ]
+    },
+    "total": {
+      "fill": "#DEE4E0",
+      "bold": true
+    }
+  },
+  "dark": {
+    "border": "#3F4945",
+    "selection": "#86D6BF",
+    "sortKey": "#73334C44",
+    "cell": {
+      "fill": "#0F1513",
+      "text": "#DEE4E0"
+    },
+    "header": {
+      "fill": "#1B211F"
+    },
+    "value": {
+      "fill": [
+        "#0F1513",
+        "#0D1C18",
+        "#0C231E",
+        "#0A2A23"
+      ]
+    },
+    "total": {
+      "fill": "#303634"
+    }
+  }
+}

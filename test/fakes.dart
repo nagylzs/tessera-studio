@@ -1,13 +1,16 @@
 import 'dart:async';
+import 'dart:io';
 import 'dart:typed_data';
 import 'dart:ui' show Rect;
 
+import 'package:tessera_flutter/tessera_flutter.dart' show JsonCubeStyle;
 import 'package:tessera_studio/export/export_target.dart';
 import 'package:tessera_studio/files/clipboard_reader.dart';
 import 'package:tessera_studio/files/document_loader.dart';
 import 'package:tessera_studio/files/opened_document.dart';
 import 'package:tessera_studio/platform/links.dart';
 import 'package:tessera_studio/platform/system_bars.dart';
+import 'package:tessera_studio/style/style_gallery.dart';
 
 final class FakeClipboard implements ClipboardReader {
   FakeClipboard([this.text]);
@@ -106,4 +109,19 @@ final class FakeLinkOpener implements LinkOpener {
     opened.add(uri);
     return true;
   }
+}
+
+/// The app's style gallery, read from `assets/styles/` as the app bundles
+/// it (tests run from the project's root).
+StyleGallery testGallery() {
+  final files =
+      Directory('assets/styles')
+          .listSync()
+          .whereType<File>()
+          .where((f) => f.path.endsWith('.json'))
+          .toList()
+        ..sort((a, b) => a.path.compareTo(b.path));
+  return StyleGallery([
+    for (final f in files) JsonCubeStyle.parse(f.readAsStringSync()),
+  ]);
 }

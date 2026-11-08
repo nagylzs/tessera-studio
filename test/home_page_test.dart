@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get_it/get_it.dart';
 import 'package:tessera_flutter/tessera_flutter.dart';
-import 'package:tessera_studio/export/export_target.dart';
 import 'package:tessera_studio/app.dart';
+import 'package:tessera_studio/export/export_target.dart';
 import 'package:tessera_studio/files/clipboard_reader.dart';
 import 'package:tessera_studio/files/document_loader.dart';
 import 'package:tessera_studio/files/file_format.dart';
@@ -19,6 +19,7 @@ import 'package:tessera_studio/state/app_state.dart';
 import 'package:tessera_studio/state/layout_store.dart';
 import 'package:tessera_studio/state/schema_store.dart';
 import 'package:tessera_studio/state/settings.dart';
+import 'package:tessera_studio/style/style_gallery.dart';
 import 'package:tessera_studio/widgets/tessera_logo.dart';
 
 import 'fakes.dart';
@@ -52,6 +53,7 @@ void _register(FileOpener opener, [DocumentLoader? loader]) {
     ..registerSingleton<DocumentLoader>(loader ?? FakeLoader())
     ..registerSingleton<SchemaStore>(MemorySchemaStore())
     ..registerSingleton<LayoutStore>(layouts = MemoryLayoutStore())
+    ..registerSingleton<StyleGallery>(testGallery())
     ..registerSingleton<AppSettings>(AppSettings(MemorySettingsStore()))
     ..registerSingleton<ExportTarget>(FakeExportTarget())
     ..registerSingleton<AppState>(AppState());

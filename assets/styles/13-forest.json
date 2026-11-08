@@ -1,0 +1,82 @@
+{
+  "format": "tessera-style",
+  "version": 1,
+  "id": "forest",
+  "name": {
+    "cs": "Les",
+    "de": "Wald",
+    "en": "Forest",
+    "es": "Bosque",
+    "fr": "Forêt",
+    "hu": "Erdő",
+    "it": "Foresta",
+    "ja": "フォレスト",
+    "nl": "Bos",
+    "pl": "Las",
+    "pt": "Floresta",
+    "ru": "Лес",
+    "tr": "Orman",
+    "zh": "森林"
+  },
+  "light": {
+    "border": "#A5D6A7",
+    "selection": "#F57F17",
+    "sortKey": "#40FFD54F",
+    "cell": {
+      "fill": "#FFFFFF",
+      "text": "#1B3320",
+      "size": 12
+    },
+    "header": {
+      "fill": [
+        "#1B5E20",
+        "#2E7D32"
+      ],
+      "text": "#FFFFFF",
+      "bold": [
+        true,
+        false
+      ]
+    },
+    "value": {
+      "fill": [
+        "#FFFFFF",
+        "#F1F8E9",
+        "#E3F1D6",
+        "#D4E9C3"
+      ]
+    },
+    "total": {
+      "fill": "#C5E1A5",
+      "text": "#1B3320",
+      "bold": true
+    }
+  },
+  "dark": {
+    "border": "#2F4F32",
+    "selection": "#FFD54F",
+    "cell": {
+      "fill": "#101A12",
+      "text": "#DCEBDD"
+    },
+    "header": {
+      "fill": [
+        "#1B5E20",
+        "#215F26"
+      ],
+      "text": "#FFFFFF"
+    },
+    "value": {
+      "fill": [
+        "#101A12",
+        "#142218",
+        "#182A1D",
+        "#1C3222"
+      ]
+    },
+    "total": {
+      "fill": "#24412A",
+      "text": "#DCEBDD"
+    }
+  }
+}

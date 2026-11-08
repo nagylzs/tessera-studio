@@ -1,5 +1,7 @@
 #!/bin/sh
-# Subsets Noto Sans for the PDF export: Latin with its extensions
+# Subsets Noto Sans, Noto Serif and Noto Sans Mono, the three font kinds a
+# grid style may name (sans, serif, mono), for the screen and the PDF
+# export alike: Latin with its extensions
 # (Hungarian ő/ű live in Extended-A, Vietnamese in Extended Additional),
 # combining marks, Greek, Cyrillic, general punctuation (… – — quotes),
 # currency, letterlike symbols, arrows and the minus sign. Needs fonttools
@@ -16,9 +18,10 @@
 set -e
 src=${1:-/usr/share/fonts/noto}
 dst=$(dirname "$0")/../assets/fonts
+for family in NotoSans NotoSerif NotoSansMono; do
 for face in Regular Bold; do
-  font="$dst/NotoSans-$face.ttf"
-  pyftsubset "$src/NotoSans-$face.ttf" \
+  font="$dst/$family-$face.ttf"
+  pyftsubset "$src/$family-$face.ttf" \
     --unicodes="U+0000-036F,U+0370-03FF,U+0400-052F,U+1E00-1EFF,U+2000-206F,U+20A0-20CF,U+2100-214F,U+2190-2199,U+2212" \
     --layout-features='*' --no-hinting --desubroutinize \
     --output-file="$font"
@@ -46,4 +49,5 @@ for rune, name in font.getBestCmap().items():
 font.save(sys.argv[1])
 EOF
   ls -l "$font"
+done
 done

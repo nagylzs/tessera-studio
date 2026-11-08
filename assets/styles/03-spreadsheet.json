@@ -1,0 +1,49 @@
+{
+  "format": "tessera-style",
+  "version": 1,
+  "id": "spreadsheet",
+  "name": {
+    "cs": "Tabulkový procesor",
+    "de": "Tabellenkalkulation",
+    "en": "Spreadsheet",
+    "es": "Hoja de cálculo",
+    "fr": "Tableur",
+    "hu": "Táblázatkezelő",
+    "it": "Foglio di calcolo",
+    "ja": "スプレッドシート",
+    "nl": "Spreadsheet",
+    "pl": "Arkusz kalkulacyjny",
+    "pt": "Planilha",
+    "ru": "Электронная таблица",
+    "tr": "Elektronik tablo",
+    "zh": "电子表格"
+  },
+  "_note": "Paper: white cells, grey lines, figures in a monospaced font; light in the dark theme too.",
+  "metrics": {
+    "padding": 4
+  },
+  "light": {
+    "border": "#9E9E9E",
+    "selection": "#2E7D32",
+    "sortKey": "#59FFEB3B",
+    "icon": "#8A000000",
+    "cell": {
+      "fill": "#FFFFFF",
+      "text": "#DE000000",
+      "family": "mono",
+      "size": 12
+    },
+    "header": {
+      "fill": "#EEEEEE",
+      "text": "#000000",
+      "family": "sans"
+    },
+    "total": {
+      "fill": "#E0E0E0",
+      "bold": true
+    },
+    "totalLabel": {
+      "family": "sans"
+    }
+  }
+}

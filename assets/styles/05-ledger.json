@@ -1,0 +1,59 @@
+{
+  "format": "tessera-style",
+  "version": 1,
+  "id": "ledger",
+  "name": {
+    "cs": "Účetní kniha",
+    "de": "Kassenbuch",
+    "en": "Ledger",
+    "es": "Libro de cuentas",
+    "fr": "Registre comptable",
+    "hu": "Főkönyv",
+    "it": "Libro mastro",
+    "ja": "帳簿",
+    "nl": "Grootboek",
+    "pl": "Księga rachunkowa",
+    "pt": "Livro-razão",
+    "ru": "Бухгалтерская книга",
+    "tr": "Defter-i kebir",
+    "zh": "账簿"
+  },
+  "_note": "Pale green ruled paper, figures in a monospaced font; light in the dark theme too.",
+  "light": {
+    "border": "#B5D3A7",
+    "selection": "#C62828",
+    "sortKey": "#33C62828",
+    "icon": "#2E4B26",
+    "cell": {
+      "fill": "#F6FBF2",
+      "text": "#1E3A18",
+      "family": "mono",
+      "size": 12
+    },
+    "header": {
+      "fill": [
+        "#DDEED2",
+        "#E8F4DF"
+      ],
+      "family": "sans",
+      "bold": [
+        true,
+        false
+      ]
+    },
+    "value": {
+      "fill": [
+        "#F6FBF2",
+        "#EEF7E7",
+        "#E5F2DC"
+      ]
+    },
+    "total": {
+      "fill": "#D3E8C4",
+      "bold": true
+    },
+    "totalLabel": {
+      "family": "sans"
+    }
+  }
+}

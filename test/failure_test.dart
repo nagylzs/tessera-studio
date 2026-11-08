@@ -19,6 +19,7 @@ import 'package:tessera_studio/state/app_state.dart';
 import 'package:tessera_studio/state/layout_store.dart';
 import 'package:tessera_studio/state/schema_store.dart';
 import 'package:tessera_studio/state/settings.dart';
+import 'package:tessera_studio/style/style_gallery.dart';
 
 import 'fakes.dart';
 
@@ -43,6 +44,7 @@ void _register() {
     ..registerSingleton<DocumentLoader>(FakeLoader())
     ..registerSingleton<SchemaStore>(MemorySchemaStore())
     ..registerSingleton<LayoutStore>(MemoryLayoutStore())
+    ..registerSingleton<StyleGallery>(testGallery())
     ..registerSingleton<AppSettings>(AppSettings(MemorySettingsStore()))
     ..registerSingleton<ExportTarget>(FakeExportTarget())
     ..registerSingleton<AppState>(AppState());

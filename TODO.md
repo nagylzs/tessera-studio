@@ -20,6 +20,11 @@ internal testing build; the Mac and Windows sessions build from `dev`.
   its room shows its scroll bar (on the iPhone the thin Cupertino one).
   A tap on a pie's slice, and on its legend entry, names it and stays
   until the next tap; a finger drawn across the pie follows it.
+- The grid style gallery: on the iPhone, the pad and a phone, the
+  previews in light and dark, a tap applies a style, the "Color by
+  depth" switch; the bundled serif and monospaced fonts on every platform
+  (Newsprint, Ledger, Terminal); a PDF in such a style opened in each
+  platform's viewer; at the system's larger text sizes.
 - Chart exports on the devices: PNG, SVG and PDF through the share sheet
   and Save as… (Android, iOS), in every look; open them in the
   platform's viewers. On the Mac, Share beside Save as….
@@ -168,7 +173,7 @@ internal testing build; the Mac and Windows sessions build from `dev`.
       shade by depth on their own terms (Gradient by row + column depth,
       Hue levels by the row's alone, `LevelColor`, `LevelBasis`); the
       switch makes that the user's choice. In all 14 languages, and in the
-      exports too.
+      exports too. Built 2026-11-08 with the gallery (next item).
 - [ ] **For 1.3.0** (owner, 2026-11-08): a gallery of grid styles,
       replacing the six of "Grid style…" (the old theme-gallery idea of
       2026-10-09). A style interface in `tessera` that gives the colours,
@@ -178,7 +183,12 @@ internal testing build; the Mac and Windows sessions build from `dev`.
       reads it from JSON; a preview widget in `tessera_flutter` (a small
       sample cube in the style); and the built-in gallery in this app,
       about 20–30 hand-crafted styles to start, picked from previews.
-      Built-in only at first.
+      Built-in only at first. Built 2026-11-08: tessera's `styles` branch
+      (`CubeStyle`, `JsonCubeStyle`, `docs/style.md`, `CubeTheme.fromStyle`,
+      `CubeStylePreview`, the exporters) and this repository's local
+      `styles` branch (24 styles, the gallery page, the fonts); waits for
+      the release of tessera 0.2.4, tessera_flutter 0.2.8, tessera_pdf
+      0.2.2 and tessera_html 0.2.1, then `styles` goes into `dev`.
 - [ ] Later (owner, 2026-11-08): a style editor: craft a style, preview
       it, export and import it as a file.
 - [ ] Settings persistence beyond theme and language (last export

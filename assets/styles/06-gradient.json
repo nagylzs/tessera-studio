@@ -1,0 +1,48 @@
+{
+  "format": "tessera-style",
+  "version": 1,
+  "id": "gradient",
+  "name": {
+    "cs": "Přechod",
+    "de": "Verlauf",
+    "en": "Gradient",
+    "es": "Degradado",
+    "fr": "Dégradé",
+    "hu": "Színátmenet",
+    "it": "Sfumatura",
+    "ja": "グラデーション",
+    "nl": "Verloop",
+    "pl": "Gradient",
+    "pt": "Gradiente",
+    "ru": "Градиент",
+    "tr": "Renk geçişi",
+    "zh": "渐变"
+  },
+  "_note": "Deeper levels in deeper teal; light in the dark theme too.",
+  "light": {
+    "border": "#00796B",
+    "selection": "#FF5722",
+    "sortKey": "#40FF5722",
+    "icon": "#8A000000",
+    "cell": {
+      "fill": "#FFFFFF",
+      "text": "#DE000000",
+      "size": 12
+    },
+    "header": {
+      "fill": "#B2DFDB",
+      "bold": true
+    },
+    "value": {
+      "fill": [
+        "#E0F2F1",
+        "#80CBC4",
+        "#26A69A"
+      ]
+    },
+    "total": {
+      "fill": "#B2DFDB",
+      "bold": true
+    }
+  }
+}

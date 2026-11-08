@@ -7,6 +7,7 @@ import 'files/open_requests.dart';
 import 'licenses.dart';
 import 'state/app_state.dart';
 import 'state/settings.dart';
+import 'style/style_gallery.dart';
 
 /// Desktop runners pass the command line through: the single optional
 /// argument is a file path or an http(s) URL to open right away (extra
@@ -18,6 +19,7 @@ Future<void> main(List<String> args) async {
   registerLicenses();
   registerServices();
   await GetIt.I<AppSettings>().load(); // before the first frame: no flash
+  GetIt.I.registerSingleton<StyleGallery>(await StyleGallery.load());
   final state = GetIt.I<AppState>();
   if (args.isNotEmpty) state.loadFrom(args.first);
   GetIt.I<OpenRequests>().requests.listen(state.handleOpenRequest);

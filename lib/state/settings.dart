@@ -3,7 +3,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:signals_flutter/signals_flutter.dart';
 
 import '../charts/chart_settings.dart';
-import '../style/grid_style.dart';
+
+import 'package:tessera_flutter/tessera_flutter.dart' show DepthColoring;
+
+import '../style/style_gallery.dart';
 
 /// Where the axis and aggregate editors live on the cube page.
 enum CubePageLayout {
@@ -46,9 +49,13 @@ abstract interface class SettingsStore {
   Future<String?> readCubeLayout();
   Future<void> writeCubeLayout(String? name);
 
-  /// The stored [GridStyle] name, `null` for [GridStyle.standard].
+  /// The stored grid style's id, `null` for [defaultStyleId].
   Future<String?> readGridStyle();
-  Future<void> writeGridStyle(String? name);
+  Future<void> writeGridStyle(String? id);
+
+  /// The stored [DepthColoring] name, `null` for [DepthColoring.both].
+  Future<String?> readDepthColoring();
+  Future<void> writeDepthColoring(String? name);
 
   /// The grid's share of a window split with a chart, `null` for half.
   Future<double?> readChartSplit();
@@ -93,14 +100,22 @@ final class PreferencesSettingsStore implements SettingsStore {
       : _prefs.setString(_cubeLayout, name);
 
   static const _gridStyle = 'settings:gridStyle';
+  static const _depthColoring = 'settings:depthColoring';
 
   @override
   Future<String?> readGridStyle() => _prefs.getString(_gridStyle);
 
   @override
-  Future<void> writeGridStyle(String? name) => name == null
-      ? _prefs.remove(_gridStyle)
-      : _prefs.setString(_gridStyle, name);
+  Future<void> writeGridStyle(String? id) =>
+      id == null ? _prefs.remove(_gridStyle) : _prefs.setString(_gridStyle, id);
+
+  @override
+  Future<String?> readDepthColoring() => _prefs.getString(_depthColoring);
+
+  @override
+  Future<void> writeDepthColoring(String? name) => name == null
+      ? _prefs.remove(_depthColoring)
+      : _prefs.setString(_depthColoring, name);
 
   static const _chartSplit = 'settings:chartSplit';
 
@@ -149,12 +164,19 @@ final class MemorySettingsStore implements SettingsStore {
   Future<void> writeCubeLayout(String? name) async => cubeLayout = name;
 
   String? gridStyle;
+  String? depthColoring;
 
   @override
   Future<String?> readGridStyle() async => gridStyle;
 
   @override
-  Future<void> writeGridStyle(String? name) async => gridStyle = name;
+  Future<void> writeGridStyle(String? id) async => gridStyle = id;
+
+  @override
+  Future<String?> readDepthColoring() async => depthColoring;
+
+  @override
+  Future<void> writeDepthColoring(String? name) async => depthColoring = name;
 
   double? chartSplit;
 
@@ -185,7 +207,13 @@ final class AppSettings {
   final themeMode = signal(ThemeMode.system);
   final locale = signal<Locale?>(null);
   final cubeLayout = signal(CubePageLayout.auto);
-  final gridStyle = signal(GridStyle.standard);
+
+  /// The id of the grid style ([StyleGallery]); one the gallery no longer
+  /// has shows as its default.
+  final gridStyle = signal(defaultStyleId);
+
+  /// Which depths pick the grid style's colours: the user's, for any style.
+  final depthColoring = signal(DepthColoring.both);
 
   /// The first pane's share of a window split between grid and chart.
   final chartSplit = signal(0.5);
@@ -208,10 +236,11 @@ final class AppSettings {
       (l) => l.name == layout,
       orElse: () => CubePageLayout.auto,
     );
-    final style = await _store.readGridStyle();
-    gridStyle.value = GridStyle.values.firstWhere(
-      (s) => s.name == style,
-      orElse: () => GridStyle.standard,
+    gridStyle.value = await _store.readGridStyle() ?? defaultStyleId;
+    final coloring = await _store.readDepthColoring();
+    depthColoring.value = DepthColoring.values.firstWhere(
+      (c) => c.name == coloring,
+      orElse: () => DepthColoring.both,
     );
     chartSplit.value = await _store.readChartSplit() ?? 0.5;
     final look = await _store.readChartLook();
@@ -238,10 +267,15 @@ final class AppSettings {
     await _store.writeChartSplit(fraction);
   }
 
-  Future<void> setGridStyle(GridStyle style) async {
-    gridStyle.value = style;
-    await _store.writeGridStyle(
-      style == GridStyle.standard ? null : style.name,
+  Future<void> setGridStyle(String id) async {
+    gridStyle.value = id;
+    await _store.writeGridStyle(id == defaultStyleId ? null : id);
+  }
+
+  Future<void> setDepthColoring(DepthColoring coloring) async {
+    depthColoring.value = coloring;
+    await _store.writeDepthColoring(
+      coloring == DepthColoring.both ? null : coloring.name,
     );
   }
 

@@ -1,0 +1,79 @@
+{
+  "format": "tessera-style",
+  "version": 1,
+  "id": "frost",
+  "name": {
+    "cs": "Mráz",
+    "de": "Frost",
+    "en": "Frost",
+    "es": "Escarcha",
+    "fr": "Givre",
+    "hu": "Dér",
+    "it": "Brina",
+    "ja": "フロスト",
+    "nl": "Rijp",
+    "pl": "Szron",
+    "pt": "Geada",
+    "ru": "Иней",
+    "tr": "Kırağı",
+    "zh": "霜"
+  },
+  "_note": "Cool, frosty greys and blues.",
+  "light": {
+    "border": "#D8DEE9",
+    "selection": "#5E81AC",
+    "sortKey": "#4088C0D0",
+    "cell": {
+      "fill": "#FFFFFF",
+      "text": "#2E3440",
+      "size": 12
+    },
+    "header": {
+      "fill": [
+        "#D8DEE9",
+        "#E5E9F0"
+      ],
+      "bold": [
+        true,
+        false
+      ]
+    },
+    "value": {
+      "fill": [
+        "#FFFFFF",
+        "#F5F7FA",
+        "#ECEFF4",
+        "#E2E7EF"
+      ]
+    },
+    "total": {
+      "fill": "#C9D3E3",
+      "bold": true
+    }
+  },
+  "dark": {
+    "border": "#4C566A",
+    "selection": "#88C0D0",
+    "cell": {
+      "fill": "#2E3440",
+      "text": "#ECEFF4"
+    },
+    "header": {
+      "fill": [
+        "#3B4252",
+        "#434C5E"
+      ]
+    },
+    "value": {
+      "fill": [
+        "#2E3440",
+        "#323947",
+        "#373E4D",
+        "#3B4252"
+      ]
+    },
+    "total": {
+      "fill": "#4C566A"
+    }
+  }
+}

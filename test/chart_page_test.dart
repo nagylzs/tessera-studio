@@ -24,6 +24,7 @@ import 'package:tessera_studio/state/app_state.dart';
 import 'package:tessera_studio/state/layout_store.dart';
 import 'package:tessera_studio/state/schema_store.dart';
 import 'package:tessera_studio/state/settings.dart';
+import 'package:tessera_studio/style/style_gallery.dart';
 import 'package:tessera_studio/widgets/export_dialog.dart';
 import 'package:tessera_studio/widgets/split_view.dart';
 
@@ -64,6 +65,7 @@ void _register() {
     ..registerSingleton<DocumentLoader>(FakeLoader())
     ..registerSingleton<SchemaStore>(MemorySchemaStore())
     ..registerSingleton<LayoutStore>(_layouts = MemoryLayoutStore())
+    ..registerSingleton<StyleGallery>(testGallery())
     ..registerSingleton<AppSettings>(AppSettings(_settings))
     ..registerSingleton<AppState>(AppState());
 }

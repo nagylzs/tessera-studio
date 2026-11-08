@@ -92,6 +92,26 @@ flutter:
   # SIL OFL 1.1 in OFL.txt, registered with the LicenseRegistry).
   assets:
     - assets/fonts/
+    - assets/styles/
+
+  # The three font kinds a grid style may name (sans, serif, mono), the
+  # same files the PDF export embeds (subsets: tool/subset_fonts.sh).
+  fonts:
+    - family: Noto Sans
+      fonts:
+        - asset: assets/fonts/NotoSans-Regular.ttf
+        - asset: assets/fonts/NotoSans-Bold.ttf
+          weight: 700
+    - family: Noto Serif
+      fonts:
+        - asset: assets/fonts/NotoSerif-Regular.ttf
+        - asset: assets/fonts/NotoSerif-Bold.ttf
+          weight: 700
+    - family: Noto Sans Mono
+      fonts:
+        - asset: assets/fonts/NotoSansMono-Regular.ttf
+        - asset: assets/fonts/NotoSansMono-Bold.ttf
+          weight: 700
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

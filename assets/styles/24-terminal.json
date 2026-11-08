@@ -1,0 +1,55 @@
+{
+  "format": "tessera-style",
+  "version": 1,
+  "id": "terminal",
+  "name": {
+    "cs": "Terminál",
+    "de": "Terminal",
+    "en": "Terminal",
+    "es": "Terminal",
+    "fr": "Terminal",
+    "hu": "Terminál",
+    "it": "Terminale",
+    "ja": "ターミナル",
+    "nl": "Terminal",
+    "pl": "Terminal",
+    "pt": "Terminal",
+    "ru": "Терминал",
+    "tr": "Terminal",
+    "zh": "终端"
+  },
+  "_note": "Green on black in a monospaced font, in light and dark alike; its exports are black too.",
+  "light": {
+    "border": "#1F4D2B",
+    "selection": "#FFB000",
+    "sortKey": "#40FFB000",
+    "icon": "#33FF66",
+    "cell": {
+      "fill": "#000000",
+      "text": "#33FF66",
+      "family": "mono",
+      "size": 12
+    },
+    "header": {
+      "fill": "#0A1F0F",
+      "text": "#66FF8C",
+      "bold": [
+        true,
+        false
+      ]
+    },
+    "value": {
+      "fill": [
+        "#000000",
+        "#04140A",
+        "#082010",
+        "#0C2C16"
+      ]
+    },
+    "total": {
+      "fill": "#103A1D",
+      "text": "#A6FFBF",
+      "bold": true
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "format": "tessera-style",
+  "version": 1,
+  "id": "tessera",
+  "name": {
+    "cs": "Zelená Tessera",
+    "de": "Tessera-Grün",
+    "en": "Tessera green",
+    "es": "Verde Tessera",
+    "fr": "Vert Tessera",
+    "hu": "Tessera-zöld",
+    "it": "Verde Tessera",
+    "ja": "Tessera グリーン",
+    "nl": "Tessera-groen",
+    "pl": "Zieleń Tessery",
+    "pt": "Verde Tessera",
+    "ru": "Зелёный Tessera",
+    "tr": "Tessera yeşili",
+    "zh": "Tessera 绿"
+  },
+  "_note": "The tessera green band, as the exports had it until the gallery.",
+  "light": {
+    "border": "#9FD3C5",
+    "selection": "#E65100",
+    "sortKey": "#40FFB74D",
+    "cell": {
+      "fill": "#FFFFFF",
+      "text": "#1B1B1B",
+      "size": 12
+    },
+    "header": {
+      "fill": "#00856E",
+      "text": "#FFFFFF",
+      "bold": [
+        true,
+        false
+      ]
+    },
+    "value": {
+      "fill": [
+        "#FFFFFF",
+        "#F0F8F6",
+        "#E1F1ED",
+        "#D2EAE4"
+      ]
+    },
+    "total": {
+      "fill": "#C2E3DB",
+      "text": "#0B3D33",
+      "bold": true
+    }
+  },
+  "dark": {
+    "border": "#2C5A50",
+    "selection": "#FFB74D",
+    "cell": {
+      "fill": "#101614",
+      "text": "#E0E6E3"
+    },
+    "header": {
+      "fill": "#005142",
+      "text": "#FFFFFF"
+    },
+    "value": {
+      "fill": [
+        "#101614",
+        "#13201C",
+        "#162A25",
+        "#1A342D"
+      ]
+    },
+    "total": {
+      "fill": "#1F4038",
+      "text": "#E0E6E3"
+    }
+  }
+}

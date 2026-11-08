@@ -8,23 +8,24 @@ import 'package:tessera_pdf/tessera_pdf.dart';
 import 'package:tessera_svg/tessera_svg.dart';
 import 'package:tessera_xlsx/tessera_xlsx.dart';
 
-import '../style/grid_style.dart';
 import 'export_format.dart';
 
 /// The cube as laid out, with the [aggregates] the grid shows (`null` =
-/// all of the spec's), as [format], in the export theme of [style] (the
-/// grid's; exports go on paper, so not the dark theme). [title] names
-/// the sheet or heads the page.
+/// all of the spec's), as [format], in the grid's [style] and depth
+/// [coloring] (its light variant: exports go on paper). [title] names the
+/// sheet or heads the page. Documents name fonts their readers have; a
+/// PDF embeds the app's own under its names.
 Future<Uint8List> cubeExport(
   Cube cube,
   ExportFormat format, {
   required String title,
   required TesseraStrings strings,
   List<Aggregate>? aggregates,
-  GridStyle style = GridStyle.standard,
+  required CubeStyle style,
+  DepthColoring coloring = DepthColoring.both,
 }) async {
   final layout = cube.layout;
-  final exportTheme = style.exportTheme;
+  final exportTheme = CubeExportTheme.fromStyle(style, coloring: coloring);
   return switch (format) {
     ExportFormat.xlsx => XlsxCubeExporter(
       strings: strings,
@@ -48,7 +49,11 @@ Future<Uint8List> cubeExport(
     ),
     ExportFormat.pdf => await PdfCubeExporter(
       strings: strings,
-      theme: exportTheme,
+      theme: CubeExportTheme.fromStyle(
+        style,
+        coloring: coloring,
+        families: _pdfFamilies,
+      ),
       fonts: await _pdfFonts,
       footer: const PdfPageText(left: '{date}', right: '{page} / {pages}'),
     ).export(layout, aggregates: aggregates, title: title),
@@ -108,13 +113,34 @@ Uint8List factsExport(Cube cube, ExportFormat format, {required String title}) {
 
 Uint8List _utf8(String text) => Uint8List.fromList(utf8.encode(text));
 
-/// Noto Sans, embedded so that accented, Greek and Cyrillic text
-/// survives (the PDF built-in Helvetica is WinAnsi only); loaded once.
+/// The names a PDF gives the style's font kinds: the app's fonts, which
+/// [_pdfFonts] embeds under them.
+const _pdfFamilies = ExportFamilies(
+  sans: 'Noto Sans',
+  serif: 'Noto Serif',
+  mono: 'Noto Sans Mono',
+);
+
+/// Noto Sans, Serif and Sans Mono, embedded so that accented, Greek and
+/// Cyrillic text survives (the PDF built-in Helvetica is WinAnsi only);
+/// loaded once. A family goes into a PDF only if one of its cells uses it.
 final Future<PdfFonts> _pdfFonts = () async {
-  final regular = await rootBundle.load('assets/fonts/NotoSans-Regular.ttf');
-  final bold = await rootBundle.load('assets/fonts/NotoSans-Bold.ttf');
+  Future<PdfFonts> family(String file) async {
+    final regular = await rootBundle.load('assets/fonts/$file-Regular.ttf');
+    final bold = await rootBundle.load('assets/fonts/$file-Bold.ttf');
+    return PdfFonts(
+      regular: regular.buffer.asUint8List(),
+      bold: bold.buffer.asUint8List(),
+    );
+  }
+
+  final sans = await family('NotoSans');
   return PdfFonts(
-    regular: regular.buffer.asUint8List(),
-    bold: bold.buffer.asUint8List(),
+    regular: sans.regular!,
+    bold: sans.bold,
+    families: {
+      _pdfFamilies.serif: await family('NotoSerif'),
+      _pdfFamilies.mono: await family('NotoSansMono'),
+    },
   );
 }();

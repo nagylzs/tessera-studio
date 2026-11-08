@@ -5,7 +5,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:tessera_flutter/tessera_flutter.dart';
 import 'package:tessera_studio/export/export_format.dart';
 import 'package:tessera_studio/export/exports.dart';
-import 'package:tessera_studio/style/grid_style.dart';
+
+import 'fakes.dart';
 
 // Hungarian, Cyrillic and CJK labels: the PDF font covers the first two
 // and must not fail on the third.
@@ -37,10 +38,18 @@ String _text(Uint8List bytes) => utf8.decode(bytes);
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized(); // rootBundle: PDF fonts
 
+  final gallery = testGallery();
+  final standard = gallery.byId('standard');
+
   test('the cube exports in every format', () async {
     final cube = await _cube();
-    Future<Uint8List> export(ExportFormat f) =>
-        cubeExport(cube, f, title: 'sales', strings: const TesseraStringsEn());
+    Future<Uint8List> export(ExportFormat f) => cubeExport(
+      cube,
+      f,
+      title: 'sales',
+      strings: const TesseraStringsEn(),
+      style: standard,
+    );
 
     for (final f in [ExportFormat.xlsx, ExportFormat.ods]) {
       expect(ascii.decode((await export(f)).sublist(0, 2)), 'PK', reason: '$f');
@@ -69,6 +78,7 @@ void main() {
       ExportFormat.snapshot,
       title: 'sales',
       strings: const TesseraStringsEn(),
+      style: standard,
     );
     expect(ascii.decode(bytes.sublist(0, 4)), 'TSNP');
     final back = TesseraSnapshot().decode(bytes);
@@ -88,20 +98,33 @@ void main() {
     );
   });
 
-  test('the exports take the grid style\'s export theme', () async {
-    final cube = await _cube();
-    Future<String> html(GridStyle style) async => _text(
+  test('the exports take the grid\'s style and depth coloring', () async {
+    final cube = (await _cube()).toggleRow(
+      DimensionPath([const DimensionValue(ColumnDimension('region'), 'Észak')]),
+    );
+    Future<String> html(
+      String id, {
+      DepthColoring coloring = DepthColoring.both,
+    }) async => _text(
       await cubeExport(
         cube,
         ExportFormat.html,
         title: 'sales',
         strings: const TesseraStringsEn(),
-        style: style,
+        style: gallery.byId(id),
+        coloring: coloring,
       ),
+    ).toLowerCase();
+    // the standard style's header colour, as on the screen
+    expect(await html('standard'), contains('e9efeb'));
+    expect(await html('spreadsheet'), contains('courier new'));
+    expect(await html('standard'), isNot(contains('courier new')));
+    // the second row level's fill, which coloring off leaves out
+    expect(await html('gradient'), contains('80cbc4'));
+    expect(
+      await html('gradient', coloring: DepthColoring.off),
+      isNot(contains('80cbc4')),
     );
-    expect((await html(GridStyle.standard)).toLowerCase(), contains('00856e'));
-    expect(await html(GridStyle.spreadsheet), contains('Courier New'));
-    expect(await html(GridStyle.standard), isNot(contains('Courier New')));
   });
 
   test('the cube exports only the aggregates shown', () async {
@@ -115,6 +138,7 @@ void main() {
         title: 'sales',
         strings: const TesseraStringsEn(),
         aggregates: aggregates,
+        style: standard,
       );
       return ((jsonDecode(_text(bytes)) as List).first as Map).cast();
     }

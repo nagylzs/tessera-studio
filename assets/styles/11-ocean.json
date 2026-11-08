@@ -1,0 +1,82 @@
+{
+  "format": "tessera-style",
+  "version": 1,
+  "id": "ocean",
+  "name": {
+    "cs": "Oceán",
+    "de": "Ozean",
+    "en": "Ocean",
+    "es": "Océano",
+    "fr": "Océan",
+    "hu": "Óceán",
+    "it": "Oceano",
+    "ja": "オーシャン",
+    "nl": "Oceaan",
+    "pl": "Ocean",
+    "pt": "Oceano",
+    "ru": "Океан",
+    "tr": "Okyanus",
+    "zh": "海洋"
+  },
+  "light": {
+    "border": "#81D4FA",
+    "selection": "#E65100",
+    "sortKey": "#40FFAB40",
+    "cell": {
+      "fill": "#FFFFFF",
+      "text": "#0D2B45",
+      "size": 12
+    },
+    "header": {
+      "fill": [
+        "#01579B",
+        "#0277BD"
+      ],
+      "text": "#FFFFFF",
+      "bold": [
+        true,
+        false
+      ]
+    },
+    "value": {
+      "fill": [
+        "#FFFFFF",
+        "#EEF8FE",
+        "#DDF1FD",
+        "#C9E9FB"
+      ]
+    },
+    "total": {
+      "fill": "#B3E5FC",
+      "text": "#0D2B45",
+      "bold": true
+    }
+  },
+  "dark": {
+    "border": "#1E4D6B",
+    "selection": "#FFAB40",
+    "cell": {
+      "fill": "#0B1A26",
+      "text": "#DCEEFB"
+    },
+    "header": {
+      "fill": [
+        "#01579B",
+        "#0D47A1"
+      ],
+      "text": "#FFFFFF"
+    },
+    "value": {
+      "fill": [
+        "#0B1A26",
+        "#0E2231",
+        "#112A3C",
+        "#143247"
+      ]
+    },
+    "total": {
+      "fill": "#1A3F5A",
+      "text": "#DCEEFB"
+    }
+  }
+}

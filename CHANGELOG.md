@@ -15,6 +15,14 @@
   records, a dot each, two of their number columns against each other
   ("Single records" under "Break down by"). Beyond 5,000 records it shows
   5,000 taken at even steps, and says so.
+* Grid styles: a gallery of 24, from the six before to new ones (Tessera
+  green, Newsprint, Ledger, Pastel, Slate, Frost, Ocean, Navy, Forest,
+  Sand, Sepia, Sunset, Rose, Lavender, Monochrome, Large print, Blueprint,
+  Terminal), each shown as a small pivot in its colours, light or dark as
+  the app is. Some use a serif or a monospaced font, bundled, so the
+  screen and the PDF look alike. The exports draw in the grid's style.
+* Color by depth: whatever the style, a switch says whether a cell's color
+  follows the depth of its row, of its column, of both, or of neither.
 * A pie names a slice's group, value and share when it is tapped, or while
   the pointer rests on it; a tap on its legend entry does the same, for
   slices too thin to hit. A second tap hides it.

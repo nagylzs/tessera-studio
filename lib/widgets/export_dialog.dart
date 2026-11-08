@@ -11,13 +11,12 @@ import '../export/export_target.dart';
 import '../export/exports.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../state/settings.dart';
-import '../style/grid_style.dart';
 
 /// What the export dialog asks for; a snapshot counts as the pivot.
 typedef ExportChoice = ({ExportKind kind, ExportFormat format, ChartLook look});
 
 /// Asks for a format, writes the export of [cube] (with the [aggregates]
-/// the grid shows, in its [style]) and shares it ([share]) or saves it
+/// the grid shows, in its [style] with its depth [coloring]) and shares it ([share]) or saves it
 /// where the user says; the outcome goes to a snack bar. File names and
 /// titles start from [baseName] (`OpenedDocument.exportBaseName`). [onBusy] brackets the writing,
 /// which runs on this isolate like the cube layout does. [shareOrigin] is
@@ -28,7 +27,8 @@ Future<void> runExport(
   required String baseName,
   required Cube cube,
   List<Aggregate>? aggregates,
-  GridStyle style = GridStyle.standard,
+  required CubeStyle style,
+  DepthColoring coloring = DepthColoring.both,
   required bool share,
   Rect? shareOrigin,
   required ValueChanged<bool> onBusy,
@@ -71,6 +71,7 @@ Future<void> runExport(
           strings: strings,
           aggregates: aggregates,
           style: style,
+          coloring: coloring,
         ),
       };
     } finally {

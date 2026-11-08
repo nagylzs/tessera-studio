@@ -1,0 +1,78 @@
+{
+  "format": "tessera-style",
+  "version": 1,
+  "id": "slate",
+  "name": {
+    "cs": "Břidlice",
+    "de": "Schiefer",
+    "en": "Slate",
+    "es": "Pizarra",
+    "fr": "Ardoise",
+    "hu": "Pala",
+    "it": "Ardesia",
+    "ja": "スレート",
+    "nl": "Leisteen",
+    "pl": "Łupek",
+    "pt": "Ardósia",
+    "ru": "Сланец",
+    "tr": "Arduvaz",
+    "zh": "石板灰"
+  },
+  "light": {
+    "border": "#B0BEC5",
+    "selection": "#455A64",
+    "sortKey": "#4090A4AE",
+    "cell": {
+      "fill": "#FFFFFF",
+      "text": "#263238",
+      "size": 12
+    },
+    "header": {
+      "fill": [
+        "#CFD8DC",
+        "#DDE3E6"
+      ],
+      "bold": [
+        true,
+        false
+      ]
+    },
+    "value": {
+      "fill": [
+        "#FFFFFF",
+        "#F4F6F7",
+        "#E9EDEF",
+        "#DEE4E7"
+      ]
+    },
+    "total": {
+      "fill": "#B0BEC5",
+      "bold": true
+    }
+  },
+  "dark": {
+    "border": "#455A64",
+    "selection": "#90A4AE",
+    "cell": {
+      "fill": "#1C2327",
+      "text": "#ECEFF1"
+    },
+    "header": {
+      "fill": [
+        "#37474F",
+        "#2E3B42"
+      ]
+    },
+    "value": {
+      "fill": [
+        "#1C2327",
+        "#222B30",
+        "#283339",
+        "#2E3B42"
+      ]
+    },
+    "total": {
+      "fill": "#455A64"
+    }
+  }
+}

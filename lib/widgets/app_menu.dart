@@ -3,8 +3,8 @@ import 'package:get_it/get_it.dart';
 import 'package:tessera_flutter/tessera_flutter.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../pages/style_gallery_page.dart';
 import '../state/settings.dart';
-import '../style/grid_style.dart';
 import 'about.dart';
 
 /// An entry a page adds above the common ones of [AppMenuButton].
@@ -51,7 +51,7 @@ class AppMenuButton extends StatelessWidget {
       AppMenuEntry(
         label: l10n.menuGridStyle,
         icon: Icons.palette_outlined,
-        onTap: () => showGridStyleDialog(context),
+        onTap: () => showStyleGallery(context),
       ),
       AppMenuEntry(
         label: l10n.menuAbout,
@@ -151,45 +151,10 @@ Future<void> showThemeDialog(BuildContext context) {
   );
 }
 
-/// The look of the cube grid, each with a line on what it does; applies
-/// on selection, the exports follow it.
-Future<void> showGridStyleDialog(BuildContext context) {
-  final l10n = AppLocalizations.of(context);
-  final settings = GetIt.I<AppSettings>();
-  return showDialog<void>(
-    context: context,
-    builder: (context) => _RadioDialog<GridStyle>(
-      title: l10n.menuGridStyle,
-      value: settings.gridStyle.value,
-      options: [
-        for (final style in GridStyle.values)
-          (style, gridStyleName(l10n, style)),
-      ],
-      subtitles: {
-        for (final style in GridStyle.values) style: gridStyleInfo(l10n, style),
-      },
-      onChanged: settings.setGridStyle,
-    ),
-  );
-}
-
-String gridStyleName(AppLocalizations l10n, GridStyle style) => switch (style) {
-  GridStyle.standard => l10n.gridStandard,
-  GridStyle.spreadsheet => l10n.gridSpreadsheet,
-  GridStyle.gradient => l10n.gridGradient,
-  GridStyle.hueLevels => l10n.gridHueLevels,
-  GridStyle.highContrast => l10n.gridHighContrast,
-  GridStyle.compact => l10n.gridCompact,
-};
-
-String gridStyleInfo(AppLocalizations l10n, GridStyle style) => switch (style) {
-  GridStyle.standard => l10n.gridStandardInfo,
-  GridStyle.spreadsheet => l10n.gridSpreadsheetInfo,
-  GridStyle.gradient => l10n.gridGradientInfo,
-  GridStyle.hueLevels => l10n.gridHueLevelsInfo,
-  GridStyle.highContrast => l10n.gridHighContrastInfo,
-  GridStyle.compact => l10n.gridCompactInfo,
-};
+/// The grid style gallery, over the page that asked; applies on a tap, the
+/// exports follow it.
+Future<void> showStyleGallery(BuildContext context) => Navigator.of(context)
+    .push(MaterialPageRoute<void>(builder: (_) => const StyleGalleryPage()));
 
 class _RadioDialog<T> extends StatelessWidget {
   const _RadioDialog({

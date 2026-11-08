@@ -13,8 +13,8 @@ import 'package:shared_preferences_platform_interface/shared_preferences_async_p
 import 'package:get_it/get_it.dart';
 import 'package:tessera_flutter/tessera_flutter.dart';
 import 'package:tessera_studio/app.dart';
-import 'package:tessera_studio/export/export_target.dart';
 import 'package:tessera_studio/export/export_format.dart';
+import 'package:tessera_studio/export/export_target.dart';
 import 'package:tessera_studio/files/clipboard_reader.dart';
 import 'package:tessera_studio/files/document_loader.dart';
 import 'package:tessera_studio/files/file_format.dart';
@@ -27,7 +27,7 @@ import 'package:tessera_studio/state/cube_state.dart';
 import 'package:tessera_studio/state/layout_store.dart';
 import 'package:tessera_studio/state/schema_store.dart';
 import 'package:tessera_studio/state/settings.dart';
-import 'package:tessera_studio/style/grid_style.dart';
+import 'package:tessera_studio/style/style_gallery.dart';
 import 'package:tessera_studio/widgets/editors_panel.dart';
 
 import 'fakes.dart';
@@ -66,6 +66,7 @@ void _register({bool canShare = false, bool? sharesFirst}) {
     ..registerSingleton<DocumentLoader>(FakeLoader())
     ..registerSingleton<SchemaStore>(MemorySchemaStore())
     ..registerSingleton<LayoutStore>(layouts = MemoryLayoutStore())
+    ..registerSingleton<StyleGallery>(testGallery())
     ..registerSingleton<AppSettings>(AppSettings(settingsStore))
     ..registerSingleton<AppState>(AppState());
 }
@@ -524,20 +525,30 @@ void main() {
     _register();
     await _toCube(tester);
     final settings = GetIt.I<AppSettings>();
-    CubeTheme theme() => tester.widget<CubeView>(find.byType(CubeView)).theme;
+    ResolvedCubeTheme theme() => tester
+        .widget<CubeView>(find.byType(CubeView))
+        .theme
+        .resolve(tester.element(find.byType(CubeView)));
     for (final mode in [ThemeMode.light, ThemeMode.dark]) {
       await settings.setThemeMode(mode);
-      for (final style in GridStyle.values) {
-        await settings.setGridStyle(style);
-        await tester.pumpAndSettle();
-        expect(tester.takeException(), isNull, reason: '$style $mode');
+      for (final style in GetIt.I<StyleGallery>().styles) {
+        await settings.setGridStyle(style.id);
+        for (final coloring in DepthColoring.values) {
+          await settings.setDepthColoring(coloring);
+          await tester.pumpAndSettle();
+          expect(
+            tester.takeException(),
+            isNull,
+            reason: '${style.id} $coloring $mode',
+          );
+        }
       }
     }
     // dark: high contrast draws white lines, compact stays compact
-    await settings.setGridStyle(GridStyle.highContrast);
+    await settings.setGridStyle('highContrast');
     await tester.pumpAndSettle();
     expect(theme().borderColor, Colors.white);
-    await settings.setGridStyle(GridStyle.compact);
+    await settings.setGridStyle('compact');
     await tester.pumpAndSettle();
     expect(theme().rowHeight, 20);
 
@@ -546,7 +557,8 @@ void main() {
     await tester.pumpAndSettle();
     await tester.tap(find.text('Web page'));
     await tester.pumpAndSettle();
-    expect(utf8.decode(exports.saved.single.bytes), contains('font-size: 8pt'));
+    // compact's 11 px, in points
+    expect(utf8.decode(exports.saved.single.bytes), contains('font-size: 9pt'));
   });
 
   testWidgets('an import failing down the file shows the failure view', (

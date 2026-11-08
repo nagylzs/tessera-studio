@@ -1,0 +1,80 @@
+{
+  "format": "tessera-style",
+  "version": 1,
+  "id": "largePrint",
+  "name": {
+    "cs": "Velké písmo",
+    "de": "Großdruck",
+    "en": "Large print",
+    "es": "Letra grande",
+    "fr": "Gros caractères",
+    "hu": "Nagy betűs",
+    "it": "Caratteri grandi",
+    "ja": "大きな文字",
+    "nl": "Grote letters",
+    "pl": "Duża czcionka",
+    "pt": "Letras grandes",
+    "ru": "Крупный шрифт",
+    "tr": "Büyük yazı",
+    "zh": "大字"
+  },
+  "_note": "Larger text and strong contrast; yellow on black in the dark.",
+  "metrics": {
+    "rowHeight": 38,
+    "headerRowHeight": 38,
+    "padding": 10,
+    "minColumnWidth": 90,
+    "minRowHeaderWidth": 120
+  },
+  "light": {
+    "border": "#000000",
+    "selection": "#D50000",
+    "sortKey": "#59FFD600",
+    "icon": "#000000",
+    "cell": {
+      "fill": "#FFFFFF",
+      "text": "#000000",
+      "size": 16
+    },
+    "header": {
+      "fill": "#E0E0E0",
+      "bold": true
+    },
+    "value": {
+      "fill": [
+        "#FFFFFF",
+        "#F5F5F5",
+        "#EBEBEB"
+      ]
+    },
+    "total": {
+      "fill": "#D6D6D6",
+      "bold": true
+    }
+  },
+  "dark": {
+    "border": "#FFFFFF",
+    "selection": "#FFEA00",
+    "sortKey": "#59FFEA00",
+    "icon": "#FFEA00",
+    "cell": {
+      "fill": "#000000",
+      "text": "#FFFFFF"
+    },
+    "header": {
+      "fill": "#1A1A1A",
+      "text": "#FFEA00"
+    },
+    "value": {
+      "fill": [
+        "#000000",
+        "#0D0D0D",
+        "#1A1A1A"
+      ]
+    },
+    "total": {
+      "fill": "#333333",
+      "text": "#FFEA00"
+    }
+  }
+}
