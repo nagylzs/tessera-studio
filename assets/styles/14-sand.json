@@ -18,6 +18,7 @@
     "tr": "Kum",
     "zh": "沙色"
   },
+  "_credits": "5 of its 18 colours are from Solarized, Copyright (c) 2011 Ethan Schoonover, MIT licence (https://ethanschoonover.com/solarized/); the depth ramps and the darker text are derived from them.",
   "_note": "Warm sand by day, deep teal by night; easy on the eyes.",
   "light": {
     "border": "#D6C9A8",

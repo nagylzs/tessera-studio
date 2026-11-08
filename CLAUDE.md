@@ -419,7 +419,12 @@ the next step.
   `depthColoring` the switch (`settings:depthColoring`, absent = both).
   A style without a dark variant stays as it is in dark mode, like paper
   (Spreadsheet, Newsprint, Ledger, Gradient); Blueprint and Terminal are
-  dark in both, exports included. `test/style_gallery_test.dart` reads
+  dark in both, exports included. Each file's `_credits` says where its
+  colours come from (2026-11-08): the Material palette (Google, as
+  Flutter's `Colors` has them) in most of the coloured ones, Solarized in
+  Sand and Nord in Frost, whose MIT notices are on the licences page
+  (`assets/licenses/`, `lib/licenses.dart`); the six styles before the
+  gallery are computed from the tessera green. `test/style_gallery_test.dart` reads
   them all, wants every language's name, and checks WCAG AA contrast of
   every cell's text and header icon at four depths in both variants: a
   new style must pass it. Compact's header rows are 24 px (20 clipped the

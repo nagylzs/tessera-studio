@@ -18,6 +18,7 @@
     "tr": "Elektronik tablo",
     "zh": "电子表格"
   },
+  "_credits": "5 of its 7 colours are from the Material Design colour palette by Google, as Flutter's Colors defines them: #2E7D32, #9E9E9E, #E0E0E0, #EEEEEE, #FFEB3B.",
   "_note": "Paper: white cells, grey lines, figures in a monospaced font; light in the dark theme too.",
   "metrics": {
     "padding": 4

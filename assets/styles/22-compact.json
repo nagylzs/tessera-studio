@@ -18,6 +18,7 @@
     "tr": "Sıkışık",
     "zh": "紧凑"
   },
+  "_credits": "Colours computed from the tessera green (#00856E) by Flutter's Material 3 colour scheme (ColorScheme.fromSeed), as the app's theme has them.",
   "_note": "Small text and short rows: more of the cube on the screen. A title needs 24 px for its sort arrow and menu button.",
   "metrics": {
     "rowHeight": 20,

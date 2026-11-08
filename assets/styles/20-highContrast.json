@@ -18,6 +18,7 @@
     "tr": "Yüksek karşıtlık",
     "zh": "高对比度"
   },
+  "_credits": "Colours computed from the tessera green (#00856E) by Flutter's Material 3 colour scheme (ColorScheme.fromSeed), as the app's theme has them. 2 of its 19 colours are from the Material Design colour palette by Google, as Flutter's Colors defines them: #F44336, #FF5252.",
   "_note": "Strong grid lines, larger bold headers, taller rows.",
   "metrics": {
     "rowHeight": 34,

@@ -18,6 +18,7 @@
     "tr": "Orman",
     "zh": "森林"
   },
+  "_credits": "7 of its 19 colours are from the Material Design colour palette by Google, as Flutter's Colors defines them: #1B5E20, #2E7D32, #A5D6A7, #C5E1A5, #F1F8E9, #F57F17, #FFD54F.",
   "light": {
     "border": "#A5D6A7",
     "selection": "#F57F17",

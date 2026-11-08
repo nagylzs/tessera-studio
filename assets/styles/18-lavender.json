@@ -18,6 +18,7 @@
     "tr": "Lavanta",
     "zh": "薰衣草"
   },
+  "_credits": "5 of its 20 colours are from the Material Design colour palette by Google, as Flutter's Colors defines them: #00897B, #26A69A, #4527A0, #80CBC4, #D1C4E9.",
   "light": {
     "border": "#D1C4E9",
     "selection": "#00897B",

@@ -18,6 +18,7 @@
     "tr": "Okyanus",
     "zh": "海洋"
   },
+  "_credits": "7 of its 19 colours are from the Material Design colour palette by Google, as Flutter's Colors defines them: #01579B, #0277BD, #0D47A1, #81D4FA, #B3E5FC, #E65100, #FFAB40.",
   "light": {
     "border": "#81D4FA",
     "selection": "#E65100",

@@ -92,6 +92,7 @@ flutter:
   # SIL OFL 1.1 in OFL.txt, registered with the LicenseRegistry).
   assets:
     - assets/fonts/
+    - assets/licenses/
     - assets/styles/
 
   # The three font kinds a grid style may name (sans, serif, mono), the

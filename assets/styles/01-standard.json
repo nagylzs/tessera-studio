@@ -18,6 +18,7 @@
     "tr": "Standart",
     "zh": "标准"
   },
+  "_credits": "Colours computed from the tessera green (#00856E) by Flutter's Material 3 colour scheme (ColorScheme.fromSeed), as the app's theme has them.",
   "_note": "The app colours: the tessera green scheme, values a shade deeper with every level.",
   "light": {
     "border": "#BFC9C4",

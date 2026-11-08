@@ -140,6 +140,16 @@ void main() {
     final noto = entries.where((e) => e.packages.contains('Noto Sans'));
     expect(noto, hasLength(1));
     expect(noto.single.packages, containsAll(['Noto Serif', 'Noto Sans Mono']));
+    // the palettes of the Sand and Frost grid styles
+    for (final (name, holder) in const [
+      ('Solarized', 'Ethan Schoonover'),
+      ('Nord', 'Sven Greb'),
+    ]) {
+      final entry = entries.singleWhere((e) => e.packages.contains(name));
+      final text = entry.paragraphs.map((p) => p.text).join('\n');
+      expect(text, contains(holder));
+      expect(text, contains('Permission is hereby granted'));
+    }
     final text = noto.single.paragraphs.map((p) => p.text).join('\n');
     expect(text, contains('SIL OPEN FONT LICENSE'));
     expect(text, contains('The Noto Project Authors'));

@@ -18,6 +18,7 @@
     "tr": "Lacivert",
     "zh": "海军蓝"
   },
+  "_credits": "7 of its 19 colours are from the Material Design colour palette by Google, as Flutter's Colors defines them: #1A237E, #283593, #9FA8DA, #C5CAE9, #E8EAF6, #FF6F00, #FFB74D.",
   "_note": "A dark blue band over white, a business report.",
   "light": {
     "border": "#9FA8DA",

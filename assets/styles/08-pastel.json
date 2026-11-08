@@ -18,6 +18,7 @@
     "tr": "Pastel",
     "zh": "粉彩"
   },
+  "_credits": "5 of its 31 colours are from the Material Design colour palette by Google, as Flutter's Colors defines them: #7E57C2, #B39DDB, #E0E0E0, #EEEEEE, #F5F5F5.",
   "_note": "A soft colour for every level, like the hue levels but quieter.",
   "light": {
     "border": "#E0E0E0",

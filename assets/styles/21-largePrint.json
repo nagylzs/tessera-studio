@@ -18,6 +18,7 @@
     "tr": "Büyük yazı",
     "zh": "大字"
   },
+  "_credits": "6 of its 12 colours are from the Material Design colour palette by Google, as Flutter's Colors defines them: #D50000, #D6D6D6, #E0E0E0, #F5F5F5, #FFD600, #FFEA00.",
   "_note": "Larger text and strong contrast; yellow on black in the dark.",
   "metrics": {
     "rowHeight": 38,

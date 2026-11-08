@@ -18,6 +18,7 @@
     "tr": "Tessera yeşili",
     "zh": "Tessera 绿"
   },
+  "_credits": "2 of its 19 colours are from the Material Design colour palette by Google, as Flutter's Colors defines them: #E65100, #FFB74D.",
   "_note": "The tessera green band, as the exports had it until the gallery.",
   "light": {
     "border": "#9FD3C5",

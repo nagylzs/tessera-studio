@@ -18,6 +18,7 @@
     "tr": "Renk geçişi",
     "zh": "渐变"
   },
+  "_credits": "6 of its 8 colours are from the Material Design colour palette by Google, as Flutter's Colors defines them: #00796B, #26A69A, #80CBC4, #B2DFDB, #E0F2F1, #FF5722.",
   "_note": "Deeper levels in deeper teal; light in the dark theme too.",
   "light": {
     "border": "#00796B",

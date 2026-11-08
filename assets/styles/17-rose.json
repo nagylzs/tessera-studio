@@ -18,6 +18,7 @@
     "tr": "Gül",
     "zh": "玫瑰"
   },
+  "_credits": "6 of its 19 colours are from the Material Design colour palette by Google, as Flutter's Colors defines them: #1565C0, #880E4F, #90CAF9, #AD1457, #C2185B, #F8BBD0.",
   "light": {
     "border": "#F8BBD0",
     "selection": "#1565C0",

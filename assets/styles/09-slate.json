@@ -18,6 +18,7 @@
     "tr": "Arduvaz",
     "zh": "石板灰"
   },
+  "_credits": "7 of its 16 colours are from the Material Design colour palette by Google, as Flutter's Colors defines them: #263238, #37474F, #455A64, #90A4AE, #B0BEC5, #CFD8DC, #ECEFF1.",
   "light": {
     "border": "#B0BEC5",
     "selection": "#455A64",

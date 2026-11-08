@@ -18,6 +18,7 @@
     "tr": "Defter-i kebir",
     "zh": "账簿"
   },
+  "_credits": "1 of its 10 colours are from the Material Design colour palette by Google, as Flutter's Colors defines them: #C62828.",
   "_note": "Pale green ruled paper, figures in a monospaced font; light in the dark theme too.",
   "light": {
     "border": "#B5D3A7",

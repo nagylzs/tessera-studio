@@ -18,6 +18,7 @@
     "tr": "Kırağı",
     "zh": "霜"
   },
+  "_credits": "9 of its 15 colours are from Nord, Copyright (c) 2016-present Sven Greb, MIT licence (https://www.nordtheme.com); the depth ramps are derived from them.",
   "_note": "Cool, frosty greys and blues.",
   "light": {
     "border": "#D8DEE9",

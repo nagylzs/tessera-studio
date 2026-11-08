@@ -18,6 +18,7 @@
     "tr": "Mavi baskı",
     "zh": "蓝图"
   },
+  "_credits": "2 of its 11 colours are from the Material Design colour palette by Google, as Flutter's Colors defines them: #E3F2FD, #FFEB3B.",
   "_note": "White lines on deep blue, in light and dark alike; its exports are blue too.",
   "light": {
     "border": "#7FA8D4",

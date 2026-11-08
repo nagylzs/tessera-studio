@@ -18,6 +18,7 @@
     "tr": "Gazete kâğıdı",
     "zh": "新闻纸"
   },
+  "_credits": "1 of its 8 colours are from the Material Design colour palette by Google, as Flutter's Colors defines them: #BDBDBD.",
   "_note": "Black on white in a serif, as print; light in the dark theme too.",
   "light": {
     "border": "#BDBDBD",
