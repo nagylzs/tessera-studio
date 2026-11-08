@@ -125,14 +125,6 @@ conventions live in `CLAUDE.md`, not here.
       comes back by itself from `LayoutStore`, unsaved schema edits
       only if they are restored too. Test with `adb shell am kill
       eu.nagylzs.tessera_studio` while the app is in the background.
-- [ ] Number formats in XLSX and ODS pivot exports (found 2026-11-08 by
-      the Windows test of 1.2.1): every value cell gets the export
-      theme's one format, `CubeExportTheme.numberFormat`, two decimals
-      by default, so a count reads "1 014,00" in Excel and LibreOffice
-      while the grid and the PDF say "1 014". Exports have done this
-      since 1.0. The fix belongs in tessera_xlsx and tessera_ods: a
-      format per aggregate, as the grid formats its cells (integers for
-      counts and integer sums), then the app takes the release.
 
 ## Packaging and release
 
@@ -334,6 +326,16 @@ conventions live in `CLAUDE.md`, not here.
 
 ## Done
 
+- [x] Number formats in XLSX and ODS pivot exports (found 2026-11-08 by
+      the Windows test of 1.2.1): every value cell got the export
+      theme's one format, `CubeExportTheme.numberFormat`, two decimals
+      by default, so a count read "1 014,00" in Excel and LibreOffice
+      while the grid and the PDF say "1 014"; exports had done this
+      since 1.0. Fixed in tessera_xlsx and tessera_ods 0.2.4 (owner,
+      2026-11-08, before the charts): a whole number gets the theme's
+      format without decimals, as the grid and the text formats show
+      it, the others keep it; tested there through LibreOffice's "as
+      shown" csv.
 - [x] Help for expressions (a closed-test user, 2026-11-04, could not
       write a formula without knowing the syntax and the functions, and
       the app has no help offline). The help is tessera_flutter's

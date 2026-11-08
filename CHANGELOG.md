@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+* Excel and OpenDocument pivot exports show whole numbers, such as counts,
+  without decimals ("1 014", not "1 014,00"), as the grid and the PDF do
+  (tessera_xlsx and tessera_ods 0.2.4).
+
 ## 1.2.1
 
 * PDF exports: in Czech, French, Hungarian, Polish and Russian the space
