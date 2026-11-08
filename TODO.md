@@ -88,12 +88,6 @@ internal testing build; the Mac and Windows sessions build from `dev`.
       3. Leave it: say so in the store listing, revisit on demand.
       (Installed system fonts are no way out: Noto CJK on Linux is
       OpenType/CFF, which dart_pdf cannot embed.)
-- [x] Charts (`lib/charts/`, 2026-11-07, branch `charts`, `dev` since
-      2026-11-08, in no build yet): the pivot or the current cell's breakdown as bars, stacked bars,
-      a line, a pie or a scatter chart; beside the grid, above it, or on a
-      phone in its place; remembered per structure; PNG export. The owner
-      chose the data, the phone's switch and PNG only on 2026-11-06; the
-      tablet rule and the defaults were proposed then, without objection.
 - [ ] Charts, before they ship: the real devices of "Next device round";
       so far Linux under Xvfb, the API 36 phone and tablet emulators, the
       Mac and Windows (2026-11-07 at `23f84fa`) and the web (2026-11-08 at
@@ -107,10 +101,6 @@ internal testing build; the Mac and Windows sessions build from `dev`.
       "2025-01-01 00:00:00.000Z" (`Dimension.formatValue` in tessera, found
       2026-11-07). The charts shorten it themselves; the grid, the
       current-cell line and the exports do not. Library work.
-- [x] Share on the Mac, beside Save as… (owner, 2026-11-07). Tried at
-      `d01669a`: `share_plus`'s menu opens at the button, Mail gets the
-      attachment under its real name, accents too, in the sandbox and the
-      release build (`~/transfer/tessera-studio/reports/20261107-0945-mac.md`).
 - [ ] Sending a file on Linux, for later (owner, 2026-11-07): `share_plus`
       refuses files there, so it takes our own code, the desktop portal's
       email call or `xdg-email --attach`; not tried.
@@ -172,10 +162,25 @@ internal testing build; the Mac and Windows sessions build from `dev`.
 
 ## App
 
-- [ ] Later release (owner, 2026-10-09): a curated theme gallery — more
-      grid styles than the six of "Grid style…", picked and named with
-      care, shown as previews of a sample cube, each with its export
-      theme and checked in light and dark.
+- [ ] **For 1.3.0** (owner, 2026-11-08): colour by depth, a switch over
+      any grid style: a value cell's colour follows the depth of its row,
+      of its column, of both, or of neither ("off"). Today two styles
+      shade by depth on their own terms (Gradient by row + column depth,
+      Hue levels by the row's alone, `LevelColor`, `LevelBasis`); the
+      switch makes that the user's choice. In all 14 languages, and in the
+      exports too.
+- [ ] **For 1.3.0** (owner, 2026-11-08): a gallery of grid styles,
+      replacing the six of "Grid style…" (the old theme-gallery idea of
+      2026-10-09). A style interface in `tessera` that gives the colours,
+      the font family, size and weight of every cell by its kind (value,
+      summary, row or column label, title, aggregate name, corner) and
+      depth, for the screen and the exports alike; an implementation that
+      reads it from JSON; a preview widget in `tessera_flutter` (a small
+      sample cube in the style); and the built-in gallery in this app,
+      about 20–30 hand-crafted styles to start, picked from previews.
+      Built-in only at first.
+- [ ] Later (owner, 2026-11-08): a style editor: craft a style, preview
+      it, export and import it as a file.
 - [ ] Settings persistence beyond theme and language (last export
       format…) — `SettingsStore` is the place.
 - [ ] Other text encodings: a CSV or JSON in Latin-1 / Windows-125x
@@ -258,64 +263,11 @@ internal testing build; the Mac and Windows sessions build from `dev`.
       `A7:92:EE:A7:E5:6F:76:74:93:0C:A4:12:C6:91:E8:A4:FF:16:56:87:68:6D:41:24:53:CC:11:F6:7C:05:2D:0D`
       — CI run 38131897750 signed the bundle with it. Apple and Windows
       remain.
-- [ ] Windows, Microsoft Store first and a portable zip besides (owner,
-      2026-10-10; CI builds both, see CLAUDE.md). Done 2026-10-10: the
-      Partner Center account, "Tessera Studio" reserved, its identity in
-      the repository variables and `msix_config`, CI builds the Store
-      package. 2026-10-11: submission 1 prepared — pricing (free),
-      properties (Productivity, the privacy policy, apps@nagylzs.eu),
-      age ratings, the CI's 1.0.0.0 package (validated), the listings in
-      all 14 languages imported with `tool/ms_listing.dart`, testing
-      notes; submitted 2026-10-11, **certified 2026-10-12, "Ready to
-      publish"**, held "until I select Publish now": on the joint release
-      day, Partner Center → Tessera Studio → Publish now. Store ID
-      `9PB0S6Q0K039` (`https://apps.microsoft.com/detail/9PB0S6Q0K039`
-      once published; then into the README). A newer package before the
-      release means a new submission and certification: 1.0.0.0 from
-      2026-10-11 predated the xlsx/ods 0.2.2 fix, so 1.0.6.0 (`1.0.0+6`)
-      replaced it, resubmitted and **certified 2026-10-21**, held for
-      Publish now as before (`1.0.0+7` changed Android only), and
-      **published 2026-10-30**. Package versions are `major.minor.N.0` since
-      2026-10-20 (CI's `--version`, N the build number: `1.0.0+4` →
-      `1.0.4.0`), always above the last. Upload by hand at first. Account log: the owner's vault,
-      `Projektek/fejlesztoi_fiokok`. Tried on the owner's Windows (2026-10-10, CI's
-      manual-run build): the portable zip runs; the test MSIX installs
-      once its certificate is in Local Machine → Trusted People, and
-      Explorer offers Tessera Studio under "Open with" for a CSV, which
-      opens on the file (and on its remembered pivot the second time).
-      Decide on signing the portable exe (unsigned means
-      SmartScreen's "Windows protected your PC" → More info → Run
-      anyway; a code-signing certificate or service costs money).
-- [ ] Google Play: the account exists (2026-10-12), identity verified
-      2026-10-14; phone and device verification are the owner's. Then
-      the app, the listing, the App content forms, internal testing and
-      a closed test of 12+ testers for 14 days before production can be
-      applied for: every answer in `store/play-console.md`. Account
-      log: the owner's vault. Internal testing released 2026-10-14
-      (`1.0.0 (1)`); `1.0.0 (2)` (2026-10-15, the landscape pickers fix)
-      is the build for the closed test.
-- [ ] Linux (owner, 2026-10-20): a tarball and a `.deb` for x64 and
-      arm64, built by CI and attached to the GitHub Release; later our
-      own Flatpak repository (next item); not Flathub (below). On the
-      `linux-packaging` branch since 2026-10-20: `linux/packaging/` (the
-      desktop entry, the snapshot MIME type with its `TSNP` magic, the
-      AppStream metainfo and the `.deb` control template, all written
-      by `tool/linux_metadata.dart` from `store/listing/` and the ARB
-      files and checked by `test/linux_metadata_test.dart`; the icon on
-      a rounded tile; the tarball's `install.sh` and README),
-      `tool/linux_package.sh` (both packages), `tool/linux_smoke_test.sh`;
-      CI builds in an `ubuntu:22.04` container (glibc 2.35 and later) on
-      x64 and arm64 runners, tests in fresh Ubuntu 22.04 / 24.04 and
-      Debian 12 containers, and drafts the release on `v*` tags (with
-      the Windows portable zip); Flutter is pinned CI-wide (3.47.7).
-      Without xdg-desktop-portal "Open file…" now says what is missing
-      (`PickerUnavailable`), and the dialog has a localized title
-      (2026-10-20). Before each release tag, the version and date go
-      into `releases` in `tool/linux_metadata.dart` (AppStream wants a
-      dated release, and the metainfo's screenshots are fetched from
-      the tag); first for `v1.1.0`. Still to do: the GTK file chooser's
-      filter is named "Custom", hardcoded in `file_picker_linux` (an
-      upstream issue).
+- [ ] The Windows portable exe is unsigned, so SmartScreen warns ("Windows
+      protected your PC" → More info → Run anyway). A code-signing
+      certificate or service costs money: the owner's decision.
+- [ ] The GTK file chooser's filter is named "Custom" on Linux, hardcoded
+      in `file_picker_linux`: an upstream issue.
 - [ ] Our own Flatpak repository (owner, 2026-10-20: yes, after the
       first release): built by CI from the tarball, hosted as static
       files (nagylzs.eu or GitHub Pages), GPG-signed, a `.flatpakref`
@@ -343,15 +295,6 @@ internal testing build; the Mac and Windows sessions build from `dev`.
       accepted." The id `eu.nagylzs.tessera_studio` would have been
       valid, verified through `https://nagylzs.eu/.well-known/
       org.flathub.VerifiedApps.txt`.
-- [ ] Store screenshots: shot list and demo data in `store/screenshots/`;
-      the desktop (README), Google Play phone and tablet, and Microsoft
-      Store sets, the Play feature graphic and 512 px icon are done.
-      Still to do: Apple's on the Mac. The README is rewritten
-      (2026-10-11): what the app does, the promise, screenshots, the
-      platforms' state — update its "Not released yet" note and the
-      platform table at the release. The listing texts are done
-      (`store/listing/`); a native speaker's read of the translations
-      would not hurt, the owner reviews Hungarian.
 - [ ] GitHub issue forms (`.github/ISSUE_TEMPLATE/*.yml` and a
       `config.yml`), since the App Store's support URL points at the
       issues: a bug report (platform, the version from About, steps,
@@ -361,6 +304,8 @@ internal testing build; the Mac and Windows sessions build from `dev`.
       the README's Translations section says where the texts live), and
       a question (the user guide linked first). `config.yml` adds
       apps@nagylzs.eu as the contact for anything else.
+- [ ] A native speaker's read of the store listings' translations would
+      not hurt (`store/listing/`); the owner reviews Hungarian.
 - [ ] After the release: a line in About saying that the languages
       other than English and Hungarian are AI translations and inviting
       corrections, linking the README's Translations section (a new
@@ -373,14 +318,8 @@ internal testing build; the Mac and Windows sessions build from `dev`.
       with IANA naming Tessera Studio as the application (form and field
       values in `../tessera/TODO.md`), then claim the type in the file
       associations of every platform, including the Android manifest.
-- [ ] iOS and macOS on the owner's Mac (the folders, names, icons and
-      CI builds exist; bundle id `eu.nagylzs.tessera-studio`, registered
-      with the team 2026-10-19; runs on the Mac mini and the iPhone 14
-      since 2026-10-15). "Open with" from Finder and the Files app,
-      `.tsnp` as the app's own type, the iPad share origin and the
-      export-compliance key landed 2026-10-19 (`CLAUDE.md`). Drag and
-      drop onto the home screen works on the Mac (2026-10-19). Still to
-      do: the share sheet on an iPad (an iPad simulator); JSON Lines for "Open with"
+- [ ] iOS and macOS leftovers: the share sheet on an iPad (untested, no
+      iPad; an iPad simulator would do), and JSON Lines for "Open with"
       (needs an imported type: there is no system one).
 
 - [ ] Idea (owner, 2026-10-15; not decided for the first release): a
@@ -397,6 +336,40 @@ internal testing build; the Mac and Windows sessions build from `dev`.
 
 ## Done
 
+- [x] Charts (`lib/charts/`, since 2026-11-07, on `dev` for 1.3.0, in no
+      store build yet): bars, stacked bars, a line, a pie or a scatter of
+      the pivot, of all the data by dimensions of its own, or of the
+      current cell's breakdown; a scatter of single records; a pie that
+      names a slice when touched; beside the grid, above it, or on a phone
+      in its place, and full screen; remembered per structure; exported as
+      PNG, SVG and PDF in four looks. What is left before they ship is the
+      "Charts, before they ship" item.
+- [x] Share on the Mac, beside Save as… (owner, 2026-11-07). Tried at
+      `d01669a`: `share_plus`'s menu opens at the button, Mail gets the
+      attachment under its real name, accents too, in the sandbox and the
+      release build (`~/transfer/tessera-studio/reports/20261107-0945-mac.md`).
+- [x] Google Play: account 2026-10-12, identity verified 2026-10-14,
+      internal testing 2026-10-14, the closed test of 12+ testers for 14
+      days, production access granted 2026-11-07, 1.2.1 sent to production
+      review the same day (every answer in `store/play-console.md`; the
+      account log in the owner's vault).
+- [x] Linux packages (owner, 2026-10-20): a tarball and a `.deb` for x64
+      and arm64, built and tested by CI and attached to the GitHub Release
+      since `v1.1.0` (`CLAUDE.md`, Linux). Not Flathub (Packaging and
+      release).
+- [x] iOS and macOS: built and signed on the owner's Mac, on the App Store
+      since 2026-10-30/31 (App Store ID 6824598370); "Open with" from
+      Finder and the Files app, `.tsnp` as the app's own type, drag and
+      drop on the Mac (`CLAUDE.md`).
+- [x] Microsoft Store (owner, 2026-10-10): published 2026-10-30 (Store ID
+      `9PB0S6Q0K039`), CI builds the Store package and the portable zip;
+      tried on the owner's Windows (the zip runs, the test MSIX installs
+      and Explorer offers the app under "Open with").
+- [x] Store screenshots and graphics for every store (`store/screenshots/`:
+      the README's desktop set, Google Play phone and tablet, Microsoft,
+      the Apple iPhone, iPad and Mac sets, the Play feature graphic and
+      icon). The 1.3.0 listings will need chart shots ("Charts, before
+      they ship").
 - [x] A pie's values when touched (owner, 2026-11-08): fl_chart has no
       tooltip for a pie, so `_Pie` draws one. A slice under the pointer,
       or tapped on the pie or in the legend, stands out, and a box in the
