@@ -257,7 +257,8 @@ header tap work there (owner, 2026-11-09).
         submitted (automatic release); the MSIX 1.2.12.0 submitted
         (published as soon as it is certified). Each store's 1.2.1 goes
         live on its approval; tick this item when all four are out.
-        iOS 1.2.1 approved 2026-11-09 (Apple's email; automatic release).
+        iOS 1.2.1 approved 2026-11-09 (Apple's email; automatic release);
+        the MSIX 1.2.12.0 is out in the Microsoft Store (2026-11-09).
       - The README's "Not released yet" note gave way to the store
         links (2026-11-01); Google Play's joined them on 2026-11-08,
         while its production release was still in review.
