@@ -433,8 +433,10 @@ the next step.
   (`CubeTheme.fromStyle`) and every export (`CubeExportTheme.fromStyle`).
   "Grid style…" (palette icon) in the common menu entries opens
   `StyleGalleryPage`: a `CubeStylePreview` of each on one canvas, so that
-  their sizes compare, in the app's light or dark, a tap applies one, and
-  above them the "Color by depth" switch (`DepthColoring`: off, rows,
+  their sizes compare, in the app's light or dark, a tap applies one and
+  closes the page, as the language and theme dialogs do (owner, 2026-11-09,
+  on the pad; it stayed open until then), and above them the "Color by
+  depth" switch, which leaves it open (`DepthColoring`: off, rows,
   columns, both), whatever the style. `AppSettings.gridStyle` holds the
   id (key `settings:gridStyle`, absent = `standard`; the six styles
   before the gallery kept their ids, so a choice made then holds),

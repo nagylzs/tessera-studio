@@ -10,7 +10,9 @@ import '../style/style_gallery.dart';
 /// "Grid style…": every style of the [StyleGallery] as a small sample
 /// pivot in it, in the app's light or dark, and above them the switch that
 /// says which depths pick the colours, for whichever style. A tap applies
-/// a style at once and the page stays, to compare; back returns.
+/// a style and returns to the pivot, as the language and theme dialogs do
+/// (the previews have already been compared; owner, 2026-11-09); the switch
+/// leaves the page open, as it changes every preview. Back changes nothing.
 class StyleGalleryPage extends StatelessWidget {
   const StyleGalleryPage({super.key});
 
@@ -62,7 +64,10 @@ class StyleGalleryPage extends StatelessWidget {
                         fontFamilies: styleFontFamilies,
                       ),
                       selected: style.id == chosen,
-                      onTap: () => settings.setGridStyle(style.id),
+                      onTap: () {
+                        settings.setGridStyle(style.id);
+                        Navigator.of(context).pop();
+                      },
                     );
                   },
                 ),

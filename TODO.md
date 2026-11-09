@@ -42,8 +42,9 @@ it from Google Sheets as Excel.
   A tap on a pie's slice, and on its legend entry, names it and stays
   until the next tap; a finger drawn across the pie follows it.
 - The grid style gallery: on the iPhone, the pad and a phone, the
-  previews in light and dark, a tap applies a style, the "Color by
-  depth" switch; the bundled serif and monospaced fonts on every platform
+  previews in light and dark, a tap applies a style and returns to the
+  pivot (since `1.3.0+16`; 15 and earlier stay on the gallery), the "Color
+  by depth" switch, which leaves the gallery open; the bundled serif and monospaced fonts on every platform
   (Newsprint, Ledger, Terminal); a PDF in such a style opened in each
   platform's viewer; at the system's larger text sizes.
 - Chart exports on the devices: PNG, SVG and PDF through the share sheet

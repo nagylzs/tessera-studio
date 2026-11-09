@@ -160,36 +160,50 @@ void main() {
   ) async {
     _register();
     await tester.pumpWidget(const TesseraStudioApp());
-    await _openMenu(tester);
-    await tester.tap(find.text('Grid style…'));
-    await tester.pumpAndSettle();
-    expect(find.byType(StyleGalleryPage), findsOneWidget);
-    expect(find.text('Grid style'), findsOneWidget);
-    expect(find.text('Standard'), findsOneWidget);
-    expect(find.byType(CubeStylePreview), findsWidgets);
-    await tester.tap(find.text('Spreadsheet'));
-    await tester.pumpAndSettle();
-    // applied at once; the page stays, to compare
-    expect(GetIt.I<AppSettings>().gridStyle.value, 'spreadsheet');
-    expect(store.gridStyle, 'spreadsheet');
-    expect(find.byType(StyleGalleryPage), findsOneWidget);
-    expect(
-      tester.getSemantics(find.bySemanticsLabel('Spreadsheet')),
-      matchesSemantics(
-        label: 'Spreadsheet',
-        isButton: true,
-        hasSelectedState: true,
-        isSelected: true,
-        hasTapAction: true,
-      ),
+    Future<void> openGallery() async {
+      await _openMenu(tester);
+      await tester.tap(find.text('Grid style…'));
+      await tester.pumpAndSettle();
+      expect(find.byType(StyleGalleryPage), findsOneWidget);
+    }
+
+    Matcher selected(String name) => matchesSemantics(
+      label: name,
+      isButton: true,
+      hasSelectedState: true,
+      isSelected: true,
+      hasTapAction: true,
     );
+
+    await openGallery();
+    expect(find.text('Grid style'), findsOneWidget);
+    expect(find.byType(CubeStylePreview), findsWidgets);
+    expect(
+      tester.getSemantics(find.bySemanticsLabel('Standard')),
+      selected('Standard'),
+    );
+    // the switch changes every preview, so the page stays
     await tester.tap(find.text('Rows'));
     await tester.pumpAndSettle();
     expect(GetIt.I<AppSettings>().depthColoring.value, DepthColoring.rows);
     expect(store.depthColoring, 'rows');
+    expect(find.byType(StyleGalleryPage), findsOneWidget);
+    // a style is applied and the page closes
+    await tester.tap(find.text('Spreadsheet'));
+    await tester.pumpAndSettle();
+    expect(GetIt.I<AppSettings>().gridStyle.value, 'spreadsheet');
+    expect(store.gridStyle, 'spreadsheet');
+    expect(find.byType(StyleGalleryPage), findsNothing);
+    // back changes nothing
+    await openGallery();
+    expect(
+      tester.getSemantics(find.bySemanticsLabel('Spreadsheet')),
+      selected('Spreadsheet'),
+    );
     await tester.binding.handlePopRoute();
     await tester.pumpAndSettle();
     expect(find.byType(StyleGalleryPage), findsNothing);
+    expect(GetIt.I<AppSettings>().gridStyle.value, 'spreadsheet');
   });
 
   testWidgets('the style gallery fits a phone at a larger text size', (
