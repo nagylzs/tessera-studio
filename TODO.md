@@ -16,9 +16,12 @@ internal testing build; the Mac and Windows sessions build from `dev`.
 The owner decided to release 1.3.0 with what `dev` has and to freeze it
 for the round: only fixes from the round go in until it ships. The iPhone
 takes TestFlight build 13 (uploaded by the Mac session), the Xiaomi pad
-the Play internal testing bundle of CI run 42521200978; the Mac and
+the Play internal testing bundle of CI run 42521353268; the Mac and
 Windows sessions have the list below and run it with the owner. 1.3.0 is
 submitted once 1.2.1 is live in every store (one submission at a time).
+
+Results so far: the iPhone 14 runs TestFlight build 13; charts and the
+header tap work there (owner, 2026-11-09).
 
 - Charts on the iPhone 14, the Xiaomi pad and a phone: the chart button
   in each placement (beside the grid from 840 × 480 dp, above it from
