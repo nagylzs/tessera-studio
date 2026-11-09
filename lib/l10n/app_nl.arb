@@ -6,6 +6,8 @@
   "chooseSheet": "Werkblad kiezen",
   "unsupportedFile": "Niet-ondersteund bestandstype: {name}",
   "openFailed": "Kan {name} niet openen: {error}",
+  "openFailedUnnamed": "Kan het bestand niet openen: {error}",
+  "googleSheet": "{name} is een Google-spreadsheet, die Google Drive alleen als pdf aan andere apps doorgeeft. Download hem in Google Spreadsheets als Microsoft Excel (.xlsx) en open dat bestand.",
   "fileSize": "{count, plural, =1{1 byte} other{{count} bytes}}",
   "formatCsv": "CSV-bestand",
   "formatTsv": "Tab-gescheiden bestand",

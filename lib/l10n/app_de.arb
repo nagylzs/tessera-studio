@@ -6,6 +6,8 @@
   "chooseSheet": "Tabellenblatt wählen",
   "unsupportedFile": "Nicht unterstützter Dateityp: {name}",
   "openFailed": "{name} konnte nicht geöffnet werden: {error}",
+  "openFailedUnnamed": "Die Datei konnte nicht geöffnet werden: {error}",
+  "googleSheet": "{name} ist eine Google-Tabelle, die Google Drive anderen Apps nur als PDF übergibt. Laden Sie sie in Google Tabellen als Microsoft Excel (.xlsx) herunter und öffnen Sie diese Datei.",
   "fileSize": "{count, plural, =1{1 Byte} other{{count} Bytes}}",
   "formatCsv": "CSV-Datei",
   "formatTsv": "Tabulatorgetrennte Datei",

@@ -6,6 +6,8 @@
   "chooseSheet": "Vybrat list",
   "unsupportedFile": "Nepodporovaný typ souboru: {name}",
   "openFailed": "Soubor {name} se nepodařilo otevřít: {error}",
+  "openFailedUnnamed": "Soubor se nepodařilo otevřít: {error}",
+  "googleSheet": "{name} je tabulka Google, kterou Disk Google předává jiným aplikacím jen jako PDF. Stáhněte ji z Tabulek Google jako Microsoft Excel (.xlsx) a otevřete tento soubor.",
   "fileSize": "{count, plural, =1{1 bajt} few{{count} bajty} other{{count} bajtů}}",
   "formatCsv": "Soubor CSV",
   "formatTsv": "Soubor oddělený tabulátory",

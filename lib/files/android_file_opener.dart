@@ -10,14 +10,18 @@ import 'opened_document.dart';
 ///
 /// Every document can be picked, whatever media type the device has on
 /// record for it (unknown extensions such as .tsnp and .jsonl were greyed
-/// out by a filter), and so can a document without a file behind it: a
-/// Google Sheet in Drive arrives as the XLSX its provider makes of it. The
-/// detection here turns down what is not ours, a film by its first bytes
-/// rather than whole.
+/// out by a filter), and so can a document without a file behind it. One
+/// its provider converts to a spreadsheet arrives as that; a Google Sheet,
+/// which Drive gives out only as a PDF, is a [GoogleSheetException], which
+/// tells the user what to do. The detection here turns down what is not
+/// ours, a film by its first bytes rather than whole.
 final class AndroidFileOpener implements FileOpener {
   const AndroidFileOpener();
 
   static const channel = MethodChannel('eu.nagylzs.tessera_studio/pick');
+
+  /// The media type Drive gives a Google Sheet.
+  static const googleSheetType = 'application/vnd.google-apps.spreadsheet';
 
   @override
   Future<OpenedDocument?> pick({String? dialogTitle}) async {
@@ -25,11 +29,17 @@ final class AndroidFileOpener implements FileOpener {
     try {
       picked = await channel.invokeMapMethod<String, Object?>('pick');
     } on PlatformException catch (e) {
+      // The dialog was there, but the chosen document could not be looked at.
+      if (e.code == 'read') throw FileReadException('', e.message ?? e.code);
       throw PickerUnavailableException(e);
     }
     if (picked == null) return null;
     final name = picked['name'] as String;
-    if (picked['unsupported'] == true) throw UnsupportedFileException(name);
+    if (picked['unsupported'] == true) {
+      throw picked['mimeType'] == googleSheetType
+          ? GoogleSheetException(name)
+          : UnsupportedFileException(name);
+    }
     final source = {'uri': picked['uri'], 'type': picked['type']};
     try {
       if (FileFormat.ofFileName(name) == null) {

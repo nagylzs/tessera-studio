@@ -28,6 +28,12 @@ final class UnsupportedFile extends OpenFailure {
   const UnsupportedFile(super.fileName);
 }
 
+/// A Google Sheet, which Drive gives other apps only as a PDF.
+final class GoogleSheet extends OpenFailure {
+  const GoogleSheet(super.fileName);
+}
+
+/// Reading failed; [fileName] is empty when not even the name was read.
 final class OpenError extends OpenFailure {
   const OpenError(super.fileName, this.error);
 
@@ -129,6 +135,8 @@ final class AppState {
       return null;
     } on UnsupportedFileException catch (e) {
       return UnsupportedFile(e.fileName);
+    } on GoogleSheetException catch (e) {
+      return GoogleSheet(e.fileName);
     } on PickerUnavailableException catch (e) {
       return PickerUnavailable(e.cause);
     } on FileReadException catch (e) {

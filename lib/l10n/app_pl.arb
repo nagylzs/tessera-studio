@@ -6,6 +6,8 @@
   "chooseSheet": "Wybierz arkusz",
   "unsupportedFile": "Nieobsługiwany typ pliku: {name}",
   "openFailed": "Nie można otworzyć pliku {name}: {error}",
+  "openFailedUnnamed": "Nie można otworzyć pliku: {error}",
+  "googleSheet": "{name} to arkusz Google, który Dysk Google przekazuje innym aplikacjom tylko jako PDF. Pobierz go z Arkuszy Google jako Microsoft Excel (.xlsx) i otwórz ten plik.",
   "fileSize": "{count, plural, =1{1 bajt} few{{count} bajty} many{{count} bajtów} other{{count} bajtu}}",
   "formatCsv": "Plik CSV",
   "formatTsv": "Plik rozdzielany tabulatorami",

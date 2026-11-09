@@ -203,6 +203,37 @@ void main() {
     expect(find.textContaining('Offline'), findsOneWidget);
   });
 
+  testWidgets('a Google Sheet says how to open it', (tester) async {
+    _register(
+      _FakeOpener(
+        () async => throw const GoogleSheetException('Egyiptom elszámolás'),
+      ),
+    );
+    await tester.pumpWidget(const TesseraStudioApp());
+    await tester.tap(find.widgetWithText(FilledButton, 'Open file…'));
+    await tester.pumpAndSettle();
+    expect(
+      find.textContaining('Egyiptom elszámolás is a Google Sheet'),
+      findsOneWidget,
+    );
+    expect(find.textContaining('Microsoft Excel (.xlsx)'), findsOneWidget);
+  });
+
+  testWidgets('a read failure without a name still says why', (tester) async {
+    _register(
+      _FakeOpener(
+        () async => throw const FileReadException('', 'Permission Denial'),
+      ),
+    );
+    await tester.pumpWidget(const TesseraStudioApp());
+    await tester.tap(find.widgetWithText(FilledButton, 'Open file…'));
+    await tester.pumpAndSettle();
+    expect(
+      find.text('Could not open the file: Permission Denial'),
+      findsOneWidget,
+    );
+  });
+
   testWidgets('a command-line file shows progress, then the schema page', (
     tester,
   ) async {

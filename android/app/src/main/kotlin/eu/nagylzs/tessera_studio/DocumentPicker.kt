@@ -16,14 +16,19 @@ import java.util.concurrent.ExecutorService
 /// system's document picker, but file_picker asks for CATEGORY_OPENABLE,
 /// which greys out every document without a file behind it: a Google
 /// Sheet in Drive is such a "virtual document". Without the category it
-/// can be picked, and is read as the spreadsheet its provider converts it
-/// to (found on the owner's pad, 2026-11-09).
+/// can be picked. One its provider converts to a spreadsheet is read as
+/// that, but Drive gives a Google Sheet to other apps only as a PDF, in
+/// every way it hands one out (open, share, download; the owner's pad,
+/// 2026-11-09), so Dart tells the user to download it as Excel first
+/// instead of leaving it greyed out without a word.
 ///
 /// Methods on `eu.nagylzs.tessera_studio/pick`:
 /// - `pick` → null when cancelled, else {name, uri, type}, where `type`
 ///   is the media type a virtual document is read as (null for a file)
-///   and `name` then ends in its extension; {name, unsupported: true} for
-///   a virtual document with no spreadsheet form (a Google Doc);
+///   and `name` then ends in its extension; {name, unsupported: true,
+///   mimeType} for a virtual document with no spreadsheet form (a Google
+///   Sheet or Doc in Drive); a `read` error when the picked document
+///   cannot even be looked at;
 /// - `head` {uri, type, length} → the first `length` bytes;
 /// - `copy` {uri, type, name} → the path of a copy in [cacheDir].
 /// Reading may wait on the network (Drive), so it runs on [executor].
@@ -106,12 +111,15 @@ class DocumentPicker(
     private fun describe(uri: Uri): Map<String, Any?> {
         var name: String? = null
         var flags = 0
+        var mimeType: String? = null
         activity.contentResolver.query(uri, null, null, null, null)?.use { c ->
             if (c.moveToFirst()) {
                 val n = c.getColumnIndex(OpenableColumns.DISPLAY_NAME)
                 if (n >= 0 && !c.isNull(n)) name = c.getString(n)
                 val f = c.getColumnIndex(DocumentsContract.Document.COLUMN_FLAGS)
                 if (f >= 0 && !c.isNull(f)) flags = c.getInt(f)
+                val m = c.getColumnIndex(DocumentsContract.Document.COLUMN_MIME_TYPE)
+                if (m >= 0 && !c.isNull(m)) mimeType = c.getString(m)
             }
         }
         val base = safeFileName(name?.takeIf { it.isNotBlank() } ?: uri.lastPathSegment ?: "file")
@@ -120,7 +128,7 @@ class DocumentPicker(
         }
         val offered = activity.contentResolver.getStreamTypes(uri, "*/*")?.toSet().orEmpty()
         val (type, extension) = conversions.firstOrNull { it.first in offered }
-            ?: return mapOf("name" to base, "unsupported" to true)
+            ?: return mapOf("name" to base, "unsupported" to true, "mimeType" to mimeType)
         val named = if (base.endsWith(".$extension", ignoreCase = true)) base else "$base.$extension"
         return mapOf("name" to named, "uri" to uri.toString(), "type" to type)
     }

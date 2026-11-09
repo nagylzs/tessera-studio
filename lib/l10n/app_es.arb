@@ -6,6 +6,8 @@
   "chooseSheet": "Elegir hoja",
   "unsupportedFile": "Tipo de archivo no compatible: {name}",
   "openFailed": "No se pudo abrir {name}: {error}",
+  "openFailedUnnamed": "No se pudo abrir el archivo: {error}",
+  "googleSheet": "{name} es una hoja de cálculo de Google, que Google Drive solo entrega a otras apps como PDF. Descárgala desde Hojas de cálculo de Google como Microsoft Excel (.xlsx) y abre ese archivo.",
   "fileSize": "{count, plural, =1{1 byte} other{{count} bytes}}",
   "formatCsv": "Archivo CSV",
   "formatTsv": "Archivo separado por tabulaciones",

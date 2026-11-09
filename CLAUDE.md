@@ -129,12 +129,21 @@ the next step.
   the virtual documents, a Google Sheet in Drive among them (found on the
   owner's pad 2026-11-09). A virtual document is read as the first of
   XLSX, ODS, CSV, TSV its provider offers (`getStreamTypes`,
-  `openTypedAssetFileDescriptor`) and named with that extension; one with
-  none of them, a Google Doc, is unsupported. Verified on the emulator
+  `openTypedAssetFileDescriptor`) and named with that extension. Drive
+  offers none of them: a Google Sheet only as `application/pdf` (a test
+  build with its own application id, logging on the owner's pad,
+  2026-11-09; Drive's share and Download give the PDF too), so one is a
+  `GoogleSheetException` (its `mimeType`, `application/vnd.google-apps.
+  spreadsheet`), which tells the user to download it from Google Sheets as
+  Excel; any other, a Google Doc, is unsupported. Verified on the emulator
   with a throwaway `DocumentsProvider` in the debug source set serving a
-  virtual sheet, a virtual doc and a plain CSV (not committed); Drive
-  itself only on a device. `FileReadException` names the file a read failed
-  on. `DocumentLoader` (interface) with
+  virtual sheet with an XLSX form, one like Drive's, a virtual doc and a
+  plain CSV (not committed): a fake provider shows only our side, never what
+  Drive does, so ask the owner's devices before trusting one. A test build
+  for the pad gets `applicationIdSuffix` and its own label, so the Play
+  install and its data stay. `FileReadException` names the file a read
+  failed on, or is unnamed (`openFailedUnnamed`) when the picked document
+  could not even be looked at. `DocumentLoader` (interface) with
   `IoDocumentLoader` (paths through `cross_file`, URLs through
   `package:http` streaming, byte-level `LoadProgress`; a URL's name is
   its `Content-Disposition` file name (`dispositionFileName`, RFC 5987

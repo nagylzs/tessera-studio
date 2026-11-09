@@ -10,6 +10,9 @@ import '../state/app_state.dart';
 String describeOpenFailure(AppLocalizations l10n, OpenFailure failure) =>
     switch (failure) {
       UnsupportedFile(:final fileName) => l10n.unsupportedFile(fileName),
+      GoogleSheet(:final fileName) => l10n.googleSheet(fileName),
+      OpenError(:final fileName, :final error) when fileName.isEmpty =>
+        l10n.openFailedUnnamed(FileFailure.describe(error)),
       OpenError(:final fileName, :final error) => l10n.openFailed(
         fileName,
         FileFailure.describe(error),
@@ -30,7 +33,13 @@ Future<void> pickAndOpen(BuildContext context) async {
     dialogTitle: l10n.openFileTitle,
   );
   if (failure == null || !context.mounted) return;
-  ScaffoldMessenger.of(
-    context,
-  ).showSnackBar(SnackBar(content: Text(describeOpenFailure(l10n, failure))));
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+      content: Text(describeOpenFailure(l10n, failure)),
+      // Long enough to read what to do instead.
+      duration: failure is GoogleSheet
+          ? const Duration(seconds: 10)
+          : const Duration(milliseconds: 4000),
+    ),
+  );
 }

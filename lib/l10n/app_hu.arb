@@ -6,6 +6,8 @@
   "chooseSheet": "Munkalap kiválasztása",
   "unsupportedFile": "Nem támogatott fájltípus: {name}",
   "openFailed": "A(z) {name} fájlt nem sikerült megnyitni: {error}",
+  "openFailedUnnamed": "A fájlt nem sikerült megnyitni: {error}",
+  "googleSheet": "A(z) {name} egy Google-táblázat, amelyet a Google Drive más alkalmazásoknak csak PDF-ként ad át. Töltse le a Google Táblázatokból Microsoft Excel (.xlsx) formátumban, és azt a fájlt nyissa meg.",
   "fileSize": "{count, plural, other{{count} bájt}}",
   "formatCsv": "CSV-fájl",
   "formatTsv": "Tabulátorral tagolt fájl",

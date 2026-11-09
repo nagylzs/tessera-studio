@@ -6,6 +6,8 @@
   "chooseSheet": "Выбрать лист",
   "unsupportedFile": "Неподдерживаемый тип файла: {name}",
   "openFailed": "Не удалось открыть {name}: {error}",
+  "openFailedUnnamed": "Не удалось открыть файл: {error}",
+  "googleSheet": "{name} — это Google Таблица, а Google Диск передаёт её другим приложениям только в виде PDF. Скачайте её из Google Таблиц в формате Microsoft Excel (.xlsx) и откройте этот файл.",
   "fileSize": "{count, plural, one{{count} байт} few{{count} байта} many{{count} байт} other{{count} байта}}",
   "formatCsv": "Файл CSV",
   "formatTsv": "Файл с разделителями-табуляциями",

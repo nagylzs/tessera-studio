@@ -6,6 +6,8 @@
   "chooseSheet": "Sayfa seç",
   "unsupportedFile": "Desteklenmeyen dosya türü: {name}",
   "openFailed": "{name} açılamadı: {error}",
+  "openFailedUnnamed": "Dosya açılamadı: {error}",
+  "googleSheet": "{name} bir Google E-Tablolar dosyasıdır ve Google Drive bunu diğer uygulamalara yalnızca PDF olarak verir. Google E-Tablolar’dan Microsoft Excel (.xlsx) olarak indirin ve o dosyayı açın.",
   "fileSize": "{count, plural, other{{count} bayt}}",
   "formatCsv": "CSV dosyası",
   "formatTsv": "Sekmeyle ayrılmış dosya",

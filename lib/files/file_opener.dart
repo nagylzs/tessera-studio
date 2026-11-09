@@ -18,6 +18,18 @@ final class UnsupportedFileException implements Exception {
   String toString() => 'UnsupportedFileException: $fileName';
 }
 
+/// A Google Sheet picked in Drive on Android. Drive gives it to other apps
+/// only as a PDF, whether it is opened, shared or downloaded, so it has to
+/// be downloaded from Google Sheets as Excel first.
+final class GoogleSheetException implements Exception {
+  const GoogleSheetException(this.fileName);
+
+  final String fileName;
+
+  @override
+  String toString() => 'GoogleSheetException: $fileName';
+}
+
 /// The platform's file dialog could not be shown at all — on Linux,
 /// where `file_picker` talks to xdg-desktop-portal over D-Bus with no
 /// fallback, because no portal is running.
@@ -31,7 +43,8 @@ final class PickerUnavailableException implements Exception {
 }
 
 /// The picked file could not be read: [message] says why (a cloud file
-/// the network failed to bring, for one).
+/// the network failed to bring, for one). [fileName] is empty when not even
+/// the name could be read.
 final class FileReadException implements Exception {
   const FileReadException(this.fileName, this.message);
 
@@ -54,6 +67,7 @@ abstract interface class FileOpener {
   /// Shows the picker, with [dialogTitle] where the platform shows a
   /// title; `null` when the user cancels. Throws
   /// [UnsupportedFileException] for a file in no known format,
+  /// [GoogleSheetException] for a Google Sheet on Android,
   /// [PickerUnavailableException] when there is no dialog to show and
   /// [FileReadException] when the chosen file cannot be read.
   Future<OpenedDocument?> pick({String? dialogTitle});

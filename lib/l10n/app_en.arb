@@ -38,6 +38,25 @@
       }
     }
   },
+  "openFailedUnnamed": "Could not open the file: {error}",
+  "@openFailedUnnamed": {
+    "description": "Error shown when the picked file cannot be read and not even its name is known.",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "googleSheet": "{name} is a Google Sheet, which Google Drive gives other apps only as a PDF. Download it from Google Sheets as Microsoft Excel (.xlsx), then open that file.",
+  "@googleSheet": {
+    "description": "Error shown on Android when the picked file is a Google Sheet in Google Drive, which Drive hands to other apps only as a PDF. \"Google Sheets\", \"Google Drive\" and \"Microsoft Excel\" are product names: use their official names in the language.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Budget 2026"
+      }
+    }
+  },
   "fileSize": "{count, plural, =1{1 byte} other{{count} bytes}}",
   "@fileSize": {
     "description": "Size of the opened file in bytes.",

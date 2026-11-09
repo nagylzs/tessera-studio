@@ -6,6 +6,8 @@
   "chooseSheet": "Choisir la feuille",
   "unsupportedFile": "Type de fichier non pris en charge : {name}",
   "openFailed": "Impossible d’ouvrir {name} : {error}",
+  "openFailedUnnamed": "Impossible d’ouvrir le fichier : {error}",
+  "googleSheet": "{name} est une feuille Google Sheets, que Google Drive ne transmet aux autres applications qu’en PDF. Téléchargez-la depuis Google Sheets au format Microsoft Excel (.xlsx), puis ouvrez ce fichier.",
   "fileSize": "{count, plural, =1{1 octet} other{{count} octets}}",
   "formatCsv": "Fichier CSV",
   "formatTsv": "Fichier séparé par tabulations",

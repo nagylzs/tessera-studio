@@ -6,6 +6,8 @@
   "chooseSheet": "选择工作表",
   "unsupportedFile": "不支持的文件类型：{name}",
   "openFailed": "无法打开 {name}：{error}",
+  "openFailedUnnamed": "无法打开文件：{error}",
+  "googleSheet": "{name} 是 Google 表格文件，Google 云端硬盘只以 PDF 形式提供给其他应用。请从 Google 表格将其下载为 Microsoft Excel (.xlsx) 文件，然后打开该文件。",
   "fileSize": "{count, plural, other{{count} 字节}}",
   "formatCsv": "CSV 文件",
   "formatTsv": "制表符分隔文件",

@@ -6,6 +6,8 @@
   "chooseSheet": "Scegli il foglio",
   "unsupportedFile": "Tipo di file non supportato: {name}",
   "openFailed": "Impossibile aprire {name}: {error}",
+  "openFailedUnnamed": "Impossibile aprire il file: {error}",
+  "googleSheet": "{name} è un foglio Google, che Google Drive passa alle altre app solo come PDF. Scaricalo da Fogli Google come Microsoft Excel (.xlsx) e apri quel file.",
   "fileSize": "{count, plural, =1{1 byte} other{{count} byte}}",
   "formatCsv": "File CSV",
   "formatTsv": "File separato da tabulazioni",

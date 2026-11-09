@@ -6,6 +6,8 @@
   "chooseSheet": "Escolher planilha",
   "unsupportedFile": "Tipo de arquivo não suportado: {name}",
   "openFailed": "Não foi possível abrir {name}: {error}",
+  "openFailedUnnamed": "Não foi possível abrir o arquivo: {error}",
+  "googleSheet": "{name} é uma planilha do Google, que o Google Drive só entrega a outros apps como PDF. Baixe-a do Planilhas Google como Microsoft Excel (.xlsx) e abra esse arquivo.",
   "fileSize": "{count, plural, =1{1 byte} other{{count} bytes}}",
   "formatCsv": "Arquivo CSV",
   "formatTsv": "Arquivo separado por tabulações",

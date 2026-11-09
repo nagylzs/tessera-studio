@@ -74,7 +74,8 @@ void main() {
     });
   });
 
-  test('a Google Sheet is read as the XLSX Drive makes of it', () async {
+  test('a virtual document is read as the spreadsheet its provider makes '
+      'of it', () async {
     // DocumentPicker names it after the type it is read as.
     picked = {
       'name': 'Alghero.xlsx',
@@ -91,8 +92,34 @@ void main() {
     });
   });
 
+  test(
+    'a Google Sheet, which Drive gives out only as a PDF, says so',
+    () async {
+      picked = {
+        'name': 'Egyiptom elszámolás',
+        'unsupported': true,
+        'mimeType': AndroidFileOpener.googleSheetType,
+      };
+      await expectLater(
+        const AndroidFileOpener().pick(),
+        throwsA(
+          isA<GoogleSheetException>().having(
+            (e) => e.fileName,
+            'fileName',
+            'Egyiptom elszámolás',
+          ),
+        ),
+      );
+      expect(methods(), ['pick']);
+    },
+  );
+
   test('a virtual document with no spreadsheet form is turned down', () async {
-    picked = {'name': 'Notes', 'unsupported': true};
+    picked = {
+      'name': 'Notes',
+      'unsupported': true,
+      'mimeType': 'application/vnd.google-apps.document',
+    };
     await expectLater(
       const AndroidFileOpener().pick(),
       throwsA(
@@ -141,6 +168,26 @@ void main() {
         isA<FileReadException>()
             .having((e) => e.fileName, 'fileName', 'Alghero.xlsx')
             .having((e) => e.toString(), 'message', 'Network error'),
+      ),
+    );
+  });
+
+  test('a document that cannot even be looked at is a read failure', () async {
+    // The provider refused the query after the dialog had closed.
+    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+        .setMockMethodCallHandler(
+          AndroidFileOpener.channel,
+          (call) async => throw PlatformException(
+            code: 'read',
+            message: 'Permission Denial',
+          ),
+        );
+    await expectLater(
+      const AndroidFileOpener().pick(),
+      throwsA(
+        isA<FileReadException>()
+            .having((e) => e.fileName, 'fileName', '')
+            .having((e) => e.toString(), 'message', 'Permission Denial'),
       ),
     );
   });

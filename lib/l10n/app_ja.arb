@@ -6,6 +6,8 @@
   "chooseSheet": "シートを選択",
   "unsupportedFile": "サポートされていないファイル形式: {name}",
   "openFailed": "{name} を開けませんでした: {error}",
+  "openFailedUnnamed": "ファイルを開けませんでした: {error}",
+  "googleSheet": "{name} は Google スプレッドシートで、Google ドライブは他のアプリに PDF としてしか渡しません。Google スプレッドシートから Microsoft Excel (.xlsx) 形式でダウンロードし、そのファイルを開いてください。",
   "fileSize": "{count, plural, other{{count} バイト}}",
   "formatCsv": "CSVファイル",
   "formatTsv": "タブ区切りファイル",
