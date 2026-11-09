@@ -277,6 +277,9 @@ it from Google Sheets as Excel.
         live on its approval; tick this item when all four are out.
         iOS 1.2.1 approved 2026-11-09 (Apple's email; automatic release);
         the MSIX 1.2.12.0 is out in the Microsoft Store (2026-11-09).
+        Google Play's 1.2.1 is live too (2026-11-09: the store page is
+        public, rated PEGI 3, and IARC's notice of the rating came the
+        same day). Only macOS is left.
       - The README's "Not released yet" note gave way to the store
         links (2026-11-01); Google Play's joined them on 2026-11-08,
         while its production release was still in review.
