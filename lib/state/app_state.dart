@@ -131,6 +131,8 @@ final class AppState {
       return UnsupportedFile(e.fileName);
     } on PickerUnavailableException catch (e) {
       return PickerUnavailable(e.cause);
+    } on FileReadException catch (e) {
+      return OpenError(e.fileName, e);
     } catch (e) {
       return OpenError('', e);
     } finally {

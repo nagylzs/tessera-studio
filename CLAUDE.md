@@ -116,12 +116,25 @@ the next step.
   `ClipboardReader` (interface; `SystemClipboardReader` over Flutter's
   `Clipboard`, text only, `hasStrings` for the button state, always
   available on web), `FileOpener` (interface) with
-  `PickerFileOpener` (`file_picker`, `FileType.custom` with every known
-  extension, `readAsBytes`; on Android `FileType.any`, because its
-  picker filters by the media type on record and `file_picker` drops
-  the extensions the device does not know, `.tsnp` among them — found
-  2026-10-21 —, so a name without a known extension is first judged by
-  its first 64 KB), `DocumentLoader` (interface) with
+  `FileOpener.forPlatform()`: `PickerFileOpener` (`file_picker`,
+  `FileType.custom` with every known extension, `readAsBytes`; a name
+  without a known extension is first judged by its first 64 KB) everywhere
+  but Android, which has its own dialog, `AndroidFileOpener` over
+  `android/.../DocumentPicker.kt` (channel `eu.nagylzs.tessera_studio/pick`:
+  `pick`, `head`, `copy` into the open cache, reading on the activity's
+  worker thread). It is the system's ACTION_OPEN_DOCUMENT on `*/*`, which
+  shows every file, as a filter by media type greys out the extensions the
+  device does not know, `.tsnp` among them (found 2026-10-21), and without
+  CATEGORY_OPENABLE, which `file_picker` always adds and which greys out
+  the virtual documents, a Google Sheet in Drive among them (found on the
+  owner's pad 2026-11-09). A virtual document is read as the first of
+  XLSX, ODS, CSV, TSV its provider offers (`getStreamTypes`,
+  `openTypedAssetFileDescriptor`) and named with that extension; one with
+  none of them, a Google Doc, is unsupported. Verified on the emulator
+  with a throwaway `DocumentsProvider` in the debug source set serving a
+  virtual sheet, a virtual doc and a plain CSV (not committed); Drive
+  itself only on a device. `FileReadException` names the file a read failed
+  on. `DocumentLoader` (interface) with
   `IoDocumentLoader` (paths through `cross_file`, URLs through
   `package:http` streaming, byte-level `LoadProgress`; a URL's name is
   its `Content-Disposition` file name (`dispositionFileName`, RFC 5987

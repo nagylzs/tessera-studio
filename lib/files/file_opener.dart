@@ -3,6 +3,7 @@ import 'dart:typed_data';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
 
+import 'android_file_opener.dart';
 import 'file_format.dart';
 import 'opened_document.dart';
 
@@ -29,34 +30,48 @@ final class PickerUnavailableException implements Exception {
   String toString() => 'PickerUnavailableException: $cause';
 }
 
+/// The picked file could not be read: [message] says why (a cloud file
+/// the network failed to bring, for one).
+final class FileReadException implements Exception {
+  const FileReadException(this.fileName, this.message);
+
+  final String fileName;
+  final String message;
+
+  @override
+  String toString() => message;
+}
+
 /// Lets the user choose a file and reads it. Registered in get_it so the
 /// UI can be tested with a fake.
 abstract interface class FileOpener {
+  /// The implementation for the current platform.
+  static FileOpener forPlatform() =>
+      !kIsWeb && defaultTargetPlatform == TargetPlatform.android
+      ? const AndroidFileOpener()
+      : const PickerFileOpener();
+
   /// Shows the picker, with [dialogTitle] where the platform shows a
   /// title; `null` when the user cancels. Throws
-  /// [UnsupportedFileException] for a file in no known format and
-  /// [PickerUnavailableException] when there is no dialog to show.
+  /// [UnsupportedFileException] for a file in no known format,
+  /// [PickerUnavailableException] when there is no dialog to show and
+  /// [FileReadException] when the chosen file cannot be read.
   Future<OpenedDocument?> pick({String? dialogTitle});
 }
 
-/// The real thing: the platform file dialog through `file_picker`.
+/// The platform file dialog through `file_picker`, filtered by our
+/// extensions; on Android [AndroidFileOpener] instead.
 final class PickerFileOpener implements FileOpener {
   const PickerFileOpener();
 
   @override
   Future<OpenedDocument?> pick({String? dialogTitle}) async {
-    // Android's picker filters by the media type it has on record for a
-    // file, not by its name: extensions the device does not know (.tsnp,
-    // .jsonl) drop out of the filter, so their files are greyed out, and
-    // so is a CSV that a website served as Excel. There every file can be
-    // picked, and the detection below turns down what is not ours.
-    final filter = kIsWeb || defaultTargetPlatform != TargetPlatform.android;
     final PlatformFile? file;
     try {
       file = await FilePicker.pickFile(
         dialogTitle: dialogTitle,
-        type: filter ? FileType.custom : FileType.any,
-        allowedExtensions: filter ? FileFormat.allExtensions : null,
+        type: FileType.custom,
+        allowedExtensions: FileFormat.allExtensions,
       );
     } catch (e) {
       throw PickerUnavailableException(e);

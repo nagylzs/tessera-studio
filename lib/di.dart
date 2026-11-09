@@ -16,7 +16,7 @@ import 'state/settings.dart';
 /// `main`; tests reset the locator and register fakes instead.
 void registerServices() {
   GetIt.I
-    ..registerSingleton<FileOpener>(const PickerFileOpener())
+    ..registerSingleton<FileOpener>(FileOpener.forPlatform())
     ..registerSingleton<ClipboardReader>(const SystemClipboardReader())
     ..registerSingleton<DocumentLoader>(const IoDocumentLoader())
     ..registerSingleton<OpenRequests>(OpenRequests.forPlatform())

@@ -8,6 +8,7 @@ import android.webkit.MimeTypeMap
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.EventChannel
+import io.flutter.plugin.common.MethodChannel
 import java.io.File
 import java.util.concurrent.Executors
 
@@ -20,6 +21,8 @@ import java.util.concurrent.Executors
 /// Events on `eu.nagylzs.tessera_studio/open` are maps with an `event`:
 /// `started` {name}, `ready` {name, path}, `failed` {name, error}. Events
 /// raised before Dart listens are queued and flushed on subscription.
+///
+/// The in-app open dialog is [DocumentPicker]'s, on its own channel.
 class MainActivity : FlutterActivity() {
     companion object {
         const val CHANNEL = "eu.nagylzs.tessera_studio/open"
@@ -28,6 +31,7 @@ class MainActivity : FlutterActivity() {
     private var sink: EventChannel.EventSink? = null
     private val queued = ArrayList<Map<String, Any?>>()
     private val executor = Executors.newSingleThreadExecutor()
+    private val picker = DocumentPicker(this, executor, ::openCacheDir)
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
@@ -43,6 +47,8 @@ class MainActivity : FlutterActivity() {
                     sink = null
                 }
             })
+        MethodChannel(flutterEngine.dartExecutor.binaryMessenger, DocumentPicker.CHANNEL)
+            .setMethodCallHandler(picker)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,6 +61,12 @@ class MainActivity : FlutterActivity() {
         super.onNewIntent(intent)
         setIntent(intent)
         handleIntent(intent)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (!picker.onActivityResult(requestCode, resultCode, data)) {
+            super.onActivityResult(requestCode, resultCode, data)
+        }
     }
 
     override fun onDestroy() {
@@ -95,16 +107,14 @@ class MainActivity : FlutterActivity() {
                 ?.use { c ->
                     if (c.moveToFirst() && !c.isNull(0)) {
                         val n = c.getString(0)
-                        if (n.isNotBlank()) return sanitize(n)
+                        if (n.isNotBlank()) return safeFileName(n)
                     }
                 }
         }
-        uri.lastPathSegment?.let { if (it.isNotBlank() && it.contains('.')) return sanitize(it) }
+        uri.lastPathSegment?.let { if (it.isNotBlank() && it.contains('.')) return safeFileName(it) }
         val ext = mimeType?.let { MimeTypeMap.getSingleton().getExtensionFromMimeType(it) }
         return if (ext == null) "file" else "file.$ext"
     }
-
-    private fun sanitize(name: String) = name.replace('/', '_').replace('\\', '_')
 
     private fun openCacheDir() = File(cacheDir, "open").apply { mkdirs() }
 

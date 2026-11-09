@@ -41,6 +41,9 @@
 * Excel and OpenDocument pivot exports show whole numbers, such as counts,
   without decimals ("1 014", not "1 014,00"), as the grid and the PDF do
   (tessera_xlsx and tessera_ods 0.2.4).
+* Android: "Open file…" can open a Google Sheet from Drive, which the dialog
+  used to grey out. Drive hands it over as an Excel file, every sheet
+  included. A Google Doc says it is not a supported file type.
 
 ## 1.2.1
 

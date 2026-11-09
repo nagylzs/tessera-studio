@@ -188,6 +188,21 @@ void main() {
     expect(find.text('Unsupported file type: x.docx'), findsOneWidget);
   });
 
+  testWidgets('a file that cannot be read is named in the report', (
+    tester,
+  ) async {
+    _register(
+      _FakeOpener(
+        () async => throw const FileReadException('Alghero.xlsx', 'Offline'),
+      ),
+    );
+    await tester.pumpWidget(const TesseraStudioApp());
+    await tester.tap(find.widgetWithText(FilledButton, 'Open file…'));
+    await tester.pumpAndSettle();
+    expect(find.textContaining('Alghero.xlsx'), findsOneWidget);
+    expect(find.textContaining('Offline'), findsOneWidget);
+  });
+
   testWidgets('a command-line file shows progress, then the schema page', (
     tester,
   ) async {

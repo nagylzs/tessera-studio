@@ -4,6 +4,7 @@ import 'package:cross_file/cross_file.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:tessera_studio/files/android_file_opener.dart';
 import 'package:tessera_studio/files/file_format.dart';
 import 'package:tessera_studio/files/file_opener.dart';
 
@@ -12,29 +13,22 @@ void main() {
 
   setUp(() => FilePickerPlatform.instance = picker = FakePicker());
 
-  test('Android shows every file, as its filter loses .tsnp', () async {
+  test('Android has its own dialog, the others file_picker\'s', () {
     debugDefaultTargetPlatformOverride = TargetPlatform.android;
     try {
-      picker.file = FakeFile('sales.tsnp', utf8.encode('TSNP…'));
-      final document = await const PickerFileOpener().pick();
-      expect(picker.type, FileType.any);
-      expect(picker.allowedExtensions, isNull);
-      expect(document!.format, FileFormat.snapshot);
+      expect(FileOpener.forPlatform(), isA<AndroidFileOpener>());
+      debugDefaultTargetPlatformOverride = TargetPlatform.iOS;
+      expect(FileOpener.forPlatform(), isA<PickerFileOpener>());
     } finally {
       debugDefaultTargetPlatformOverride = null;
     }
   });
 
-  test('other platforms filter by extension', () async {
-    debugDefaultTargetPlatformOverride = TargetPlatform.iOS;
-    try {
-      picker.file = null;
-      expect(await const PickerFileOpener().pick(), isNull);
-      expect(picker.type, FileType.custom);
-      expect(picker.allowedExtensions, FileFormat.allExtensions);
-    } finally {
-      debugDefaultTargetPlatformOverride = null;
-    }
+  test('file_picker filters by extension', () async {
+    picker.file = null;
+    expect(await const PickerFileOpener().pick(), isNull);
+    expect(picker.type, FileType.custom);
+    expect(picker.allowedExtensions, FileFormat.allExtensions);
   });
 
   test('a CSV under a name that says nothing opens by its content', () async {

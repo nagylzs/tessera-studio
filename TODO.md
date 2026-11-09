@@ -23,6 +23,11 @@ submitted once 1.2.1 is live in every store (one submission at a time).
 Results so far: the iPhone 14 runs TestFlight build 13; charts and the
 header tap work there (owner, 2026-11-09).
 
+The pad found that "Open file…" greyed out Google Sheets in Drive (every
+version since 1.0.0: file_picker's CATEGORY_OPENABLE hides virtual
+documents). The owner put the fix into 1.3.0 (2026-11-09): Android's own
+open dialog, in `1.3.0+14`, for the pad instead of 13.
+
 - Charts on the iPhone 14, the Xiaomi pad and a phone: the chart button
   in each placement (beside the grid from 840 × 480 dp, above it from
   600 × 600, instead of it on a phone, and back), full screen and out
@@ -47,6 +52,12 @@ header tap work there (owner, 2026-11-09).
   `apple-iphone-medium`, `apple-ipad`, `apple-mac` and `microsoft` in the
   new shot list of `store/screenshots/README.md` (charts second, the style
   gallery before the dark shot); the desktop and Google Play sets are done.
+- Android's own open dialog (`1.3.0+14`), on the pad and a phone: a Google
+  Sheet in Drive can be picked and opens with all its sheets (the ▾ in the
+  title); a Google Doc says "Unsupported file type"; an `.xlsx` and a `.csv`
+  in Drive, a `.tsnp` and a `.jsonl` in Downloads open as before; with the
+  network off, a Sheet that Drive cannot bring says why and names it;
+  cancelling returns quietly.
 - Whole numbers in XLSX and ODS (tessera_xlsx and tessera_ods 0.2.4):
   counts and integer sums without decimals in Excel (Windows has none;
   LibreOffice is checked) and in Numbers on the Mac or the iPhone.
