@@ -41,6 +41,12 @@
 * Excel and OpenDocument pivot exports show whole numbers, such as counts,
   without decimals ("1 014", not "1 014,00"), as the grid and the PDF do
   (tessera_xlsx and tessera_ods 0.2.4).
+* A grid narrower than its row headers, or lower than its header rows,
+  showed no values, as beside a chart with the divider drawn far, or on a
+  phone with several row columns. There the headers now scroll with the
+  values (tessera_flutter 0.2.9).
+* The grid style gallery closes on a tap on a style, like the language and
+  theme dialogs; the "Color by depth" switch leaves it open.
 * Android: a Google Sheet in Drive, which "Open file…" used to grey out
   without a word, can now be tapped and says what to do: Drive gives a
   Google Sheet to other apps only as a PDF, so it has to be downloaded from

@@ -65,6 +65,10 @@ it from Google Sheets as Excel.
   `.jsonl` in Downloads open as before; with the network off, an `.xlsx` in
   Drive that cannot be brought says why and names it; cancelling returns
   quietly.
+- The narrow grid (tessera_flutter 0.2.9, since `1.3.0+16`): on a phone
+  with two or three row dimensions, and beside a chart with the divider
+  drawn to its limit on the pad and the Mac, the headers scroll away with
+  the values and the values can be reached; with room again they stay put.
 - Whole numbers in XLSX and ODS (tessera_xlsx and tessera_ods 0.2.4):
   counts and integer sums without decimals in Excel (Windows has none;
   LibreOffice is checked) and in Numbers on the Mac or the iPhone.
@@ -152,16 +156,6 @@ it from Google Sheets as Excel.
       (`~/transfer/tessera-studio/reports/20261107-1034-windows.md`). It would
       not reach the owner's Betterbird anyway, and neither would MAPI while
       the PC's default mail client points at a missing Thunderbird. No plan.
-- [ ] A grid narrower than its row headers shows no values: the pinned
-      columns fill it (`TableView` warns "pinned columns ... exceeds the
-      viewport width"). Found on the Mac on 2026-11-07, dragging the chart's
-      divider to its limit, with headers of 235 px in 200. The app cannot
-      know that width, so `SplitView` cannot stop there; the grid could stop
-      pinning what does not fit. Library work (`CubeView`). A phone with
-      several row dimensions probably meets it too; not tried.
-      The same happens in height: with "Editors on top" a low window leaves
-      the grid less than its two header rows ("pinned rows with a total height
-      of 56.0, which exceeds the viewport height of 20.0"; the Mac, 2026-11-07).
 - [ ] Large text outside the charts (found 2026-11-07 while testing them;
       fine at the owner's 1.5, debug builds show it, release builds cut it
       quietly): at 2 a 17 px overflow to the right before the cube opens, on
@@ -402,6 +396,11 @@ it from Google Sheets as Excel.
       in its place, and full screen; remembered per structure; exported as
       PNG, SVG and PDF in four looks. What is left before they ship is the
       "Charts, before they ship" item.
+- [x] A grid narrower than its row headers, or lower than its header rows,
+      showed no values (the Mac, 2026-11-07: the chart's divider at its
+      limit, and a low window with "Editors on top"). tessera_flutter 0.2.9
+      pins the headers only while a value fits beside them; tried on Linux
+      under Xvfb at 260 px wide and 120 px high (2026-11-13). In `1.3.0+16`.
 - [x] Share on the Mac, beside Save as… (owner, 2026-11-07). Tried at
       `d01669a`: `share_plus`'s menu opens at the button, Mail gets the
       attachment under its real name, accents too, in the sandbox and the
